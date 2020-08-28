@@ -32,8 +32,8 @@ NSString * const kGTLRAuthScopeTagManagerReadonly              = @"https://www.g
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.batchPath = @"batch/tagmanager/v2";
+    self.rootURLString = @"https://tagmanager.googleapis.com/";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

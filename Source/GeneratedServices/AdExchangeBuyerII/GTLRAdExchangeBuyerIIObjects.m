@@ -380,6 +380,7 @@ NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week = @"WEEK"
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute = @"CREATIVE_ATTRIBUTE";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified = @"DETAIL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason = @"DISAPPROVAL_REASON";
+NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_PolicyTopic = @"POLICY_TOPIC";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory = @"PRODUCT_CATEGORY";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory = @"SENSITIVE_CATEGORY";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor = @"VENDOR";
@@ -983,7 +984,7 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 //
 
 @implementation GTLRAdExchangeBuyerII_FilteredBidDetailRow
-@dynamic bidCount, detailId, rowDimensions;
+@dynamic bidCount, detail, detailId, rowDimensions;
 @end
 
 

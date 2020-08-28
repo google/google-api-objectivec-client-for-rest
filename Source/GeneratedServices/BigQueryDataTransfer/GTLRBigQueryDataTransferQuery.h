@@ -39,37 +39,86 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // messageTypes
 
-/** Value: "ERROR" */
+/**
+ *  Error message.
+ *
+ *  Value: "ERROR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesError;
-/** Value: "INFO" */
+/**
+ *  Informational message.
+ *
+ *  Value: "INFO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesInfo;
-/** Value: "MESSAGE_SEVERITY_UNSPECIFIED" */
+/**
+ *  No severity specified.
+ *
+ *  Value: "MESSAGE_SEVERITY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesMessageSeverityUnspecified;
-/** Value: "WARNING" */
+/**
+ *  Warning message.
+ *
+ *  Value: "WARNING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferMessageTypesWarning;
 
 // ----------------------------------------------------------------------------
 // runAttempt
 
-/** Value: "LATEST" */
+/**
+ *  Only latest run per day should be returned.
+ *
+ *  Value: "LATEST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferRunAttemptLatest;
-/** Value: "RUN_ATTEMPT_UNSPECIFIED" */
+/**
+ *  All runs should be returned.
+ *
+ *  Value: "RUN_ATTEMPT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified;
 
 // ----------------------------------------------------------------------------
 // states
 
-/** Value: "CANCELLED" */
+/**
+ *  Data transfer is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesCancelled;
-/** Value: "FAILED" */
+/**
+ *  Data transfer failed.
+ *
+ *  Value: "FAILED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesFailed;
-/** Value: "PENDING" */
+/**
+ *  Data transfer is scheduled and is waiting to be picked up by data transfer
+ *  backend.
+ *
+ *  Value: "PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesPending;
-/** Value: "RUNNING" */
+/**
+ *  Data transfer is in progress.
+ *
+ *  Value: "RUNNING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesRunning;
-/** Value: "SUCCEEDED" */
+/**
+ *  Data transfer completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesSucceeded;
-/** Value: "TRANSFER_STATE_UNSPECIFIED" */
+/**
+ *  State placeholder.
+ *
+ *  Value: "TRANSFER_STATE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -88,11 +137,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Returns true if valid credentials exist for the given data source and
- *  requesting user.
- *  Some data sources doesn't support service account, so we need to talk to
- *  them on behalf of the end user. This API just checks whether we have OAuth
- *  token for the particular user, which is a pre-requisite before user can
- *  create a transfer config.
+ *  requesting user. Some data sources doesn't support service account, so we
+ *  need to talk to them on behalf of the end user. This API just checks whether
+ *  we have OAuth token for the particular user, which is a pre-requisite before
+ *  user can create a transfer config.
  *
  *  Method: bigquerydatatransfer.projects.dataSources.checkValidCreds
  *
@@ -117,11 +165,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Fetches a @c GTLRBigQueryDataTransfer_CheckValidCredsResponse.
  *
  *  Returns true if valid credentials exist for the given data source and
- *  requesting user.
- *  Some data sources doesn't support service account, so we need to talk to
- *  them on behalf of the end user. This API just checks whether we have OAuth
- *  token for the particular user, which is a pre-requisite before user can
- *  create a transfer config.
+ *  requesting user. Some data sources doesn't support service account, so we
+ *  need to talk to them on behalf of the end user. This API just checks whether
+ *  we have OAuth token for the particular user, which is a pre-requisite before
+ *  user can create a transfer config.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_CheckValidCredsRequest to
  *    include in the query.
@@ -137,8 +184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Retrieves a supported data source and returns its settings,
- *  which can be used for UI rendering.
+ *  Retrieves a supported data source and returns its settings, which can be
+ *  used for UI rendering.
  *
  *  Method: bigquerydatatransfer.projects.dataSources.get
  *
@@ -154,8 +201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/dataSources/{data_source_id}` or
+ *  example: `projects/{project_id}/dataSources/{data_source_id}` or
  *  `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -163,12 +209,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_DataSource.
  *
- *  Retrieves a supported data source and returns its settings,
- *  which can be used for UI rendering.
+ *  Retrieves a supported data source and returns its settings, which can be
+ *  used for UI rendering.
  *
  *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/dataSources/{data_source_id}` or
+ *    for example: `projects/{project_id}/dataSources/{data_source_id}` or
  *    `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsDataSourcesGet
@@ -178,8 +223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Lists supported data sources and returns their settings,
- *  which can be used for UI rendering.
+ *  Lists supported data sources and returns their settings, which can be used
+ *  for UI rendering.
  *
  *  Method: bigquerydatatransfer.projects.dataSources.list
  *
@@ -197,11 +242,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Pagination token, which can be used to request a specific page
- *  of `ListDataSourcesRequest` list results. For multiple-page
- *  results, `ListDataSourcesResponse` outputs
- *  a `next_page` token, which can be used as the
- *  `page_token` value to request the next page of list results.
+ *  Pagination token, which can be used to request a specific page of
+ *  `ListDataSourcesRequest` list results. For multiple-page results,
+ *  `ListDataSourcesResponse` outputs a `next_page` token, which can be used as
+ *  the `page_token` value to request the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -215,12 +259,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListDataSourcesResponse.
  *
- *  Lists supported data sources and returns their settings,
- *  which can be used for UI rendering.
+ *  Lists supported data sources and returns their settings, which can be used
+ *  for UI rendering.
  *
  *  @param parent Required. The BigQuery project id for which data sources
- *    should be returned.
- *    Must be in the form: `projects/{project_id}` or
+ *    should be returned. Must be in the form: `projects/{project_id}` or
  *    `projects/{project_id}/locations/{location_id}
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsDataSourcesList
@@ -235,11 +278,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Returns true if valid credentials exist for the given data source and
- *  requesting user.
- *  Some data sources doesn't support service account, so we need to talk to
- *  them on behalf of the end user. This API just checks whether we have OAuth
- *  token for the particular user, which is a pre-requisite before user can
- *  create a transfer config.
+ *  requesting user. Some data sources doesn't support service account, so we
+ *  need to talk to them on behalf of the end user. This API just checks whether
+ *  we have OAuth token for the particular user, which is a pre-requisite before
+ *  user can create a transfer config.
  *
  *  Method: bigquerydatatransfer.projects.locations.dataSources.checkValidCreds
  *
@@ -264,11 +306,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Fetches a @c GTLRBigQueryDataTransfer_CheckValidCredsResponse.
  *
  *  Returns true if valid credentials exist for the given data source and
- *  requesting user.
- *  Some data sources doesn't support service account, so we need to talk to
- *  them on behalf of the end user. This API just checks whether we have OAuth
- *  token for the particular user, which is a pre-requisite before user can
- *  create a transfer config.
+ *  requesting user. Some data sources doesn't support service account, so we
+ *  need to talk to them on behalf of the end user. This API just checks whether
+ *  we have OAuth token for the particular user, which is a pre-requisite before
+ *  user can create a transfer config.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_CheckValidCredsRequest to
  *    include in the query.
@@ -284,8 +325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Retrieves a supported data source and returns its settings,
- *  which can be used for UI rendering.
+ *  Retrieves a supported data source and returns its settings, which can be
+ *  used for UI rendering.
  *
  *  Method: bigquerydatatransfer.projects.locations.dataSources.get
  *
@@ -301,8 +342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/dataSources/{data_source_id}` or
+ *  example: `projects/{project_id}/dataSources/{data_source_id}` or
  *  `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -310,12 +350,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_DataSource.
  *
- *  Retrieves a supported data source and returns its settings,
- *  which can be used for UI rendering.
+ *  Retrieves a supported data source and returns its settings, which can be
+ *  used for UI rendering.
  *
  *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/dataSources/{data_source_id}` or
+ *    for example: `projects/{project_id}/dataSources/{data_source_id}` or
  *    `projects/{project_id}/locations/{location_id}/dataSources/{data_source_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesGet
@@ -325,8 +364,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Lists supported data sources and returns their settings,
- *  which can be used for UI rendering.
+ *  Lists supported data sources and returns their settings, which can be used
+ *  for UI rendering.
  *
  *  Method: bigquerydatatransfer.projects.locations.dataSources.list
  *
@@ -344,11 +383,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Pagination token, which can be used to request a specific page
- *  of `ListDataSourcesRequest` list results. For multiple-page
- *  results, `ListDataSourcesResponse` outputs
- *  a `next_page` token, which can be used as the
- *  `page_token` value to request the next page of list results.
+ *  Pagination token, which can be used to request a specific page of
+ *  `ListDataSourcesRequest` list results. For multiple-page results,
+ *  `ListDataSourcesResponse` outputs a `next_page` token, which can be used as
+ *  the `page_token` value to request the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -362,12 +400,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListDataSourcesResponse.
  *
- *  Lists supported data sources and returns their settings,
- *  which can be used for UI rendering.
+ *  Lists supported data sources and returns their settings, which can be used
+ *  for UI rendering.
  *
  *  @param parent Required. The BigQuery project id for which data sources
- *    should be returned.
- *    Must be in the form: `projects/{project_id}` or
+ *    should be returned. Must be in the form: `projects/{project_id}` or
  *    `projects/{project_id}/locations/{location_id}
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsDataSourcesList
@@ -470,36 +507,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Optional OAuth2 authorization code to use with this transfer configuration.
  *  This is required if new credentials are needed, as indicated by
- *  `CheckValidCreds`.
- *  In order to obtain authorization_code, please make a
+ *  `CheckValidCreds`. In order to obtain authorization_code, please make a
  *  request to
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=<datatransferapiclientid>&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
- *  * client_id should be OAuth client_id of BigQuery DTS API for the given
- *  data source returned by ListDataSources method.
- *  * data_source_scopes are the scopes returned by ListDataSources method.
- *  * redirect_uri is an optional parameter. If not specified, then
- *  authorization code is posted to the opener of authorization flow window.
- *  Otherwise it will be sent to the redirect uri. A special value of
- *  urn:ietf:wg:oauth:2.0:oob means that authorization code should be
- *  returned in the title bar of the browser, with the page text prompting
- *  the user to copy the code and paste it in the application.
+ *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri=
+ *  * client_id should be OAuth client_id of BigQuery DTS API for the given data
+ *  source returned by ListDataSources method. * data_source_scopes are the
+ *  scopes returned by ListDataSources method. * redirect_uri is an optional
+ *  parameter. If not specified, then authorization code is posted to the opener
+ *  of authorization flow window. Otherwise it will be sent to the redirect uri.
+ *  A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code
+ *  should be returned in the title bar of the browser, with the page text
+ *  prompting the user to copy the code and paste it in the application.
  */
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
  *  Required. The BigQuery project id where the transfer configuration should be
- *  created.
- *  Must be in the format projects/{project_id}/locations/{location_id} or
- *  projects/{project_id}. If specified location and location of the
+ *  created. Must be in the format projects/{project_id}/locations/{location_id}
+ *  or projects/{project_id}. If specified location and location of the
  *  destination bigquery dataset do not match - the request will fail.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional service account name. If this field is set, transfer config will
- *  be created with this service account credentials. It requires that
- *  requesting user calling this API has permissions to act as this service
- *  account.
+ *  Optional service account name. If this field is set, transfer config will be
+ *  created with this service account credentials. It requires that requesting
+ *  user calling this API has permissions to act as this service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountName;
 
@@ -507,9 +540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Optional version info. If users want to find a very recent access token,
  *  that is, immediately after approving access, users have to set the
  *  version_info claim in the token request. To obtain the version_info, users
- *  must use the "none+gsession" response type. which be return a
- *  version_info back in the authorization response which be be put in a JWT
- *  claim in the token request.
+ *  must use the "none+gsession" response type. which be return a version_info
+ *  back in the authorization response which be be put in a JWT claim in the
+ *  token request.
  */
 @property(nonatomic, copy, nullable) NSString *versionInfo;
 
@@ -521,10 +554,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
  *  @param parent Required. The BigQuery project id where the transfer
- *    configuration should be created.
- *    Must be in the format projects/{project_id}/locations/{location_id} or
- *    projects/{project_id}. If specified location and location of the
- *    destination bigquery dataset do not match - the request will fail.
+ *    configuration should be created. Must be in the format
+ *    projects/{project_id}/locations/{location_id} or projects/{project_id}. If
+ *    specified location and location of the destination bigquery dataset do not
+ *    match - the request will fail.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsCreate
  */
@@ -534,8 +567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Deletes a data transfer configuration,
- *  including any associated transfer runs and logs.
+ *  Deletes a data transfer configuration, including any associated transfer
+ *  runs and logs.
  *
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.delete
  *
@@ -549,8 +582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
+ *  example: `projects/{project_id}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -558,12 +590,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_Empty.
  *
- *  Deletes a data transfer configuration,
- *  including any associated transfer runs and logs.
+ *  Deletes a data transfer configuration, including any associated transfer
+ *  runs and logs.
  *
  *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
+ *    for example: `projects/{project_id}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsDelete
@@ -589,8 +620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
+ *  example: `projects/{project_id}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -601,8 +631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Returns information about a data transfer config.
  *
  *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
+ *    for example: `projects/{project_id}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsGet
@@ -635,18 +664,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Pagination token, which can be used to request a specific page
- *  of `ListTransfersRequest` list results. For multiple-page
- *  results, `ListTransfersResponse` outputs
- *  a `next_page` token, which can be used as the
- *  `page_token` value to request the next page of list results.
+ *  Pagination token, which can be used to request a specific page of
+ *  `ListTransfersRequest` list results. For multiple-page results,
+ *  `ListTransfersResponse` outputs a `next_page` token, which can be used as
+ *  the `page_token` value to request the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The BigQuery project id for which data sources
- *  should be returned: `projects/{project_id}` or
- *  `projects/{project_id}/locations/{location_id}`
+ *  Required. The BigQuery project id for which data sources should be returned:
+ *  `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -670,8 +697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Updates a data transfer configuration.
- *  All fields must be set, even if they are not updated.
+ *  Updates a data transfer configuration. All fields must be set, even if they
+ *  are not updated.
  *
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.patch
  *
@@ -685,27 +712,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Optional OAuth2 authorization code to use with this transfer configuration.
  *  If it is provided, the transfer configuration will be associated with the
- *  authorizing user.
- *  In order to obtain authorization_code, please make a
+ *  authorizing user. In order to obtain authorization_code, please make a
  *  request to
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=<datatransferapiclientid>&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
- *  * client_id should be OAuth client_id of BigQuery DTS API for the given
- *  data source returned by ListDataSources method.
- *  * data_source_scopes are the scopes returned by ListDataSources method.
- *  * redirect_uri is an optional parameter. If not specified, then
- *  authorization code is posted to the opener of authorization flow window.
- *  Otherwise it will be sent to the redirect uri. A special value of
- *  urn:ietf:wg:oauth:2.0:oob means that authorization code should be
- *  returned in the title bar of the browser, with the page text prompting
- *  the user to copy the code and paste it in the application.
+ *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri=
+ *  * client_id should be OAuth client_id of BigQuery DTS API for the given data
+ *  source returned by ListDataSources method. * data_source_scopes are the
+ *  scopes returned by ListDataSources method. * redirect_uri is an optional
+ *  parameter. If not specified, then authorization code is posted to the opener
+ *  of authorization flow window. Otherwise it will be sent to the redirect uri.
+ *  A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code
+ *  should be returned in the title bar of the browser, with the page text
+ *  prompting the user to copy the code and paste it in the application.
  */
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
- *  The resource name of the transfer config.
- *  Transfer config names have the form of
- *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *  The name is automatically generated based on the config_id specified in
+ *  The resource name of the transfer config. Transfer config names have the
+ *  form of
+ *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The
+ *  name is automatically generated based on the config_id specified in
  *  CreateTransferConfigRequest along with project_id and region. If config_id
  *  is not provided, usually a uuid, even though it is not guaranteed or
  *  required, will be generated for config_id.
@@ -715,9 +740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Optional service account name. If this field is set and
  *  "service_account_name" is set in update_mask, transfer config will be
- *  updated to use this service account credentials. It requires that
- *  requesting user calling this API has permissions to act as this service
- *  account.
+ *  updated to use this service account credentials. It requires that requesting
+ *  user calling this API has permissions to act as this service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountName;
 
@@ -732,22 +756,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Optional version info. If users want to find a very recent access token,
  *  that is, immediately after approving access, users have to set the
  *  version_info claim in the token request. To obtain the version_info, users
- *  must use the "none+gsession" response type. which be return a
- *  version_info back in the authorization response which be be put in a JWT
- *  claim in the token request.
+ *  must use the "none+gsession" response type. which be return a version_info
+ *  back in the authorization response which be be put in a JWT claim in the
+ *  token request.
  */
 @property(nonatomic, copy, nullable) NSString *versionInfo;
 
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_TransferConfig.
  *
- *  Updates a data transfer configuration.
- *  All fields must be set, even if they are not updated.
+ *  Updates a data transfer configuration. All fields must be set, even if they
+ *  are not updated.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
- *  @param name The resource name of the transfer config.
- *    Transfer config names have the form of
+ *  @param name The resource name of the transfer config. Transfer config names
+ *    have the form of
  *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
  *    The name is automatically generated based on the config_id specified in
  *    CreateTransferConfigRequest along with project_id and region. If config_id
@@ -776,8 +800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
+ *  or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -815,8 +839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
+ *  or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -856,18 +880,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Pagination token, which can be used to request a specific page
- *  of `ListTransferRunsRequest` list results. For multiple-page
- *  results, `ListTransferRunsResponse` outputs
- *  a `next_page` token, which can be used as the
- *  `page_token` value to request the next page of list results.
+ *  Pagination token, which can be used to request a specific page of
+ *  `ListTransferRunsRequest` list results. For multiple-page results,
+ *  `ListTransferRunsResponse` outputs a `next_page` token, which can be used as
+ *  the `page_token` value to request the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. Name of transfer configuration for which transfer runs should be
- *  retrieved.
- *  Format of transfer configuration resource name is:
+ *  retrieved. Format of transfer configuration resource name is:
  *  `projects/{project_id}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
  */
@@ -877,9 +899,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Indicates how run attempts are to be pulled.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified Value
- *        "RUN_ATTEMPT_UNSPECIFIED"
- *    @arg @c kGTLRBigQueryDataTransferRunAttemptLatest Value "LATEST"
+ *    @arg @c kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified All runs
+ *        should be returned. (Value: "RUN_ATTEMPT_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransferRunAttemptLatest Only latest run per day
+ *        should be returned. (Value: "LATEST")
  */
 @property(nonatomic, copy, nullable) NSString *runAttempt;
 
@@ -887,13 +910,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  When specified, only transfer runs with requested states are returned.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryDataTransferStatesTransferStateUnspecified Value
- *        "TRANSFER_STATE_UNSPECIFIED"
- *    @arg @c kGTLRBigQueryDataTransferStatesPending Value "PENDING"
- *    @arg @c kGTLRBigQueryDataTransferStatesRunning Value "RUNNING"
- *    @arg @c kGTLRBigQueryDataTransferStatesSucceeded Value "SUCCEEDED"
- *    @arg @c kGTLRBigQueryDataTransferStatesFailed Value "FAILED"
- *    @arg @c kGTLRBigQueryDataTransferStatesCancelled Value "CANCELLED"
+ *    @arg @c kGTLRBigQueryDataTransferStatesTransferStateUnspecified State
+ *        placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransferStatesPending Data transfer is scheduled
+ *        and is waiting to be picked up by data transfer backend. (Value:
+ *        "PENDING")
+ *    @arg @c kGTLRBigQueryDataTransferStatesRunning Data transfer is in
+ *        progress. (Value: "RUNNING")
+ *    @arg @c kGTLRBigQueryDataTransferStatesSucceeded Data transfer completed
+ *        successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBigQueryDataTransferStatesFailed Data transfer failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRBigQueryDataTransferStatesCancelled Data transfer is
+ *        cancelled. (Value: "CANCELLED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *states;
 
@@ -903,9 +932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Returns information about running and completed jobs.
  *
  *  @param parent Required. Name of transfer configuration for which transfer
- *    runs should be retrieved.
- *    Format of transfer configuration resource name is:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
+ *    runs should be retrieved. Format of transfer configuration resource name
+ *    is: `projects/{project_id}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsRunsList
@@ -934,15 +962,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsLocationsTransferConfigsRunsTransferLogsListWithparent:]
 
 /**
- *  Message types to return. If not populated - INFO, WARNING and ERROR
- *  messages are returned.
+ *  Message types to return. If not populated - INFO, WARNING and ERROR messages
+ *  are returned.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryDataTransferMessageTypesMessageSeverityUnspecified
- *        Value "MESSAGE_SEVERITY_UNSPECIFIED"
- *    @arg @c kGTLRBigQueryDataTransferMessageTypesInfo Value "INFO"
- *    @arg @c kGTLRBigQueryDataTransferMessageTypesWarning Value "WARNING"
- *    @arg @c kGTLRBigQueryDataTransferMessageTypesError Value "ERROR"
+ *    @arg @c kGTLRBigQueryDataTransferMessageTypesMessageSeverityUnspecified No
+ *        severity specified. (Value: "MESSAGE_SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransferMessageTypesInfo Informational message.
+ *        (Value: "INFO")
+ *    @arg @c kGTLRBigQueryDataTransferMessageTypesWarning Warning message.
+ *        (Value: "WARNING")
+ *    @arg @c kGTLRBigQueryDataTransferMessageTypesError Error message. (Value:
+ *        "ERROR")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *messageTypes;
 
@@ -950,11 +981,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Pagination token, which can be used to request a specific page
- *  of `ListTransferLogsRequest` list results. For multiple-page
- *  results, `ListTransferLogsResponse` outputs
- *  a `next_page` token, which can be used as the
- *  `page_token` value to request the next page of list results.
+ *  Pagination token, which can be used to request a specific page of
+ *  `ListTransferLogsRequest` list results. For multiple-page results,
+ *  `ListTransferLogsResponse` outputs a `next_page` token, which can be used as
+ *  the `page_token` value to request the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -985,11 +1015,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Creates transfer runs for a time range [start_time, end_time].
- *  For each date - or whatever granularity the data source supports - in the
- *  range, one transfer run is created.
- *  Note that runs are created per UTC time in the time range.
- *  DEPRECATED: use StartManualTransferRuns instead.
+ *  Creates transfer runs for a time range [start_time, end_time]. For each date
+ *  - or whatever granularity the data source supports - in the range, one
+ *  transfer run is created. Note that runs are created per UTC time in the time
+ *  range. DEPRECATED: use StartManualTransferRuns instead.
  *
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.scheduleRuns
  *
@@ -1011,11 +1040,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ScheduleTransferRunsResponse.
  *
- *  Creates transfer runs for a time range [start_time, end_time].
- *  For each date - or whatever granularity the data source supports - in the
- *  range, one transfer run is created.
- *  Note that runs are created per UTC time in the time range.
- *  DEPRECATED: use StartManualTransferRuns instead.
+ *  Creates transfer runs for a time range [start_time, end_time]. For each date
+ *  - or whatever granularity the data source supports - in the range, one
+ *  transfer run is created. Note that runs are created per UTC time in the time
+ *  range. DEPRECATED: use StartManualTransferRuns instead.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest to
  *    include in the query.
@@ -1089,36 +1117,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Optional OAuth2 authorization code to use with this transfer configuration.
  *  This is required if new credentials are needed, as indicated by
- *  `CheckValidCreds`.
- *  In order to obtain authorization_code, please make a
+ *  `CheckValidCreds`. In order to obtain authorization_code, please make a
  *  request to
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=<datatransferapiclientid>&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
- *  * client_id should be OAuth client_id of BigQuery DTS API for the given
- *  data source returned by ListDataSources method.
- *  * data_source_scopes are the scopes returned by ListDataSources method.
- *  * redirect_uri is an optional parameter. If not specified, then
- *  authorization code is posted to the opener of authorization flow window.
- *  Otherwise it will be sent to the redirect uri. A special value of
- *  urn:ietf:wg:oauth:2.0:oob means that authorization code should be
- *  returned in the title bar of the browser, with the page text prompting
- *  the user to copy the code and paste it in the application.
+ *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri=
+ *  * client_id should be OAuth client_id of BigQuery DTS API for the given data
+ *  source returned by ListDataSources method. * data_source_scopes are the
+ *  scopes returned by ListDataSources method. * redirect_uri is an optional
+ *  parameter. If not specified, then authorization code is posted to the opener
+ *  of authorization flow window. Otherwise it will be sent to the redirect uri.
+ *  A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code
+ *  should be returned in the title bar of the browser, with the page text
+ *  prompting the user to copy the code and paste it in the application.
  */
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
  *  Required. The BigQuery project id where the transfer configuration should be
- *  created.
- *  Must be in the format projects/{project_id}/locations/{location_id} or
- *  projects/{project_id}. If specified location and location of the
+ *  created. Must be in the format projects/{project_id}/locations/{location_id}
+ *  or projects/{project_id}. If specified location and location of the
  *  destination bigquery dataset do not match - the request will fail.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional service account name. If this field is set, transfer config will
- *  be created with this service account credentials. It requires that
- *  requesting user calling this API has permissions to act as this service
- *  account.
+ *  Optional service account name. If this field is set, transfer config will be
+ *  created with this service account credentials. It requires that requesting
+ *  user calling this API has permissions to act as this service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountName;
 
@@ -1126,9 +1150,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Optional version info. If users want to find a very recent access token,
  *  that is, immediately after approving access, users have to set the
  *  version_info claim in the token request. To obtain the version_info, users
- *  must use the "none+gsession" response type. which be return a
- *  version_info back in the authorization response which be be put in a JWT
- *  claim in the token request.
+ *  must use the "none+gsession" response type. which be return a version_info
+ *  back in the authorization response which be be put in a JWT claim in the
+ *  token request.
  */
 @property(nonatomic, copy, nullable) NSString *versionInfo;
 
@@ -1140,10 +1164,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
  *  @param parent Required. The BigQuery project id where the transfer
- *    configuration should be created.
- *    Must be in the format projects/{project_id}/locations/{location_id} or
- *    projects/{project_id}. If specified location and location of the
- *    destination bigquery dataset do not match - the request will fail.
+ *    configuration should be created. Must be in the format
+ *    projects/{project_id}/locations/{location_id} or projects/{project_id}. If
+ *    specified location and location of the destination bigquery dataset do not
+ *    match - the request will fail.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsCreate
  */
@@ -1153,8 +1177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Deletes a data transfer configuration,
- *  including any associated transfer runs and logs.
+ *  Deletes a data transfer configuration, including any associated transfer
+ *  runs and logs.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.delete
  *
@@ -1168,8 +1192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
+ *  example: `projects/{project_id}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1177,12 +1200,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_Empty.
  *
- *  Deletes a data transfer configuration,
- *  including any associated transfer runs and logs.
+ *  Deletes a data transfer configuration, including any associated transfer
+ *  runs and logs.
  *
  *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
+ *    for example: `projects/{project_id}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsDelete
@@ -1208,8 +1230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/transferConfigs/{config_id}` or
+ *  example: `projects/{project_id}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1220,8 +1241,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Returns information about a data transfer config.
  *
  *  @param name Required. The field will contain name of the resource requested,
- *    for example:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
+ *    for example: `projects/{project_id}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsGet
@@ -1254,18 +1274,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Pagination token, which can be used to request a specific page
- *  of `ListTransfersRequest` list results. For multiple-page
- *  results, `ListTransfersResponse` outputs
- *  a `next_page` token, which can be used as the
- *  `page_token` value to request the next page of list results.
+ *  Pagination token, which can be used to request a specific page of
+ *  `ListTransfersRequest` list results. For multiple-page results,
+ *  `ListTransfersResponse` outputs a `next_page` token, which can be used as
+ *  the `page_token` value to request the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The BigQuery project id for which data sources
- *  should be returned: `projects/{project_id}` or
- *  `projects/{project_id}/locations/{location_id}`
+ *  Required. The BigQuery project id for which data sources should be returned:
+ *  `projects/{project_id}` or `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1289,8 +1307,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Updates a data transfer configuration.
- *  All fields must be set, even if they are not updated.
+ *  Updates a data transfer configuration. All fields must be set, even if they
+ *  are not updated.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.patch
  *
@@ -1304,27 +1322,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Optional OAuth2 authorization code to use with this transfer configuration.
  *  If it is provided, the transfer configuration will be associated with the
- *  authorizing user.
- *  In order to obtain authorization_code, please make a
+ *  authorizing user. In order to obtain authorization_code, please make a
  *  request to
- *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=<datatransferapiclientid>&scope=<data_source_scopes>&redirect_uri=<redirect_uri>
- *  * client_id should be OAuth client_id of BigQuery DTS API for the given
- *  data source returned by ListDataSources method.
- *  * data_source_scopes are the scopes returned by ListDataSources method.
- *  * redirect_uri is an optional parameter. If not specified, then
- *  authorization code is posted to the opener of authorization flow window.
- *  Otherwise it will be sent to the redirect uri. A special value of
- *  urn:ietf:wg:oauth:2.0:oob means that authorization code should be
- *  returned in the title bar of the browser, with the page text prompting
- *  the user to copy the code and paste it in the application.
+ *  https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&scope=&redirect_uri=
+ *  * client_id should be OAuth client_id of BigQuery DTS API for the given data
+ *  source returned by ListDataSources method. * data_source_scopes are the
+ *  scopes returned by ListDataSources method. * redirect_uri is an optional
+ *  parameter. If not specified, then authorization code is posted to the opener
+ *  of authorization flow window. Otherwise it will be sent to the redirect uri.
+ *  A special value of urn:ietf:wg:oauth:2.0:oob means that authorization code
+ *  should be returned in the title bar of the browser, with the page text
+ *  prompting the user to copy the code and paste it in the application.
  */
 @property(nonatomic, copy, nullable) NSString *authorizationCode;
 
 /**
- *  The resource name of the transfer config.
- *  Transfer config names have the form of
- *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *  The name is automatically generated based on the config_id specified in
+ *  The resource name of the transfer config. Transfer config names have the
+ *  form of
+ *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The
+ *  name is automatically generated based on the config_id specified in
  *  CreateTransferConfigRequest along with project_id and region. If config_id
  *  is not provided, usually a uuid, even though it is not guaranteed or
  *  required, will be generated for config_id.
@@ -1334,9 +1350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Optional service account name. If this field is set and
  *  "service_account_name" is set in update_mask, transfer config will be
- *  updated to use this service account credentials. It requires that
- *  requesting user calling this API has permissions to act as this service
- *  account.
+ *  updated to use this service account credentials. It requires that requesting
+ *  user calling this API has permissions to act as this service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountName;
 
@@ -1351,22 +1366,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Optional version info. If users want to find a very recent access token,
  *  that is, immediately after approving access, users have to set the
  *  version_info claim in the token request. To obtain the version_info, users
- *  must use the "none+gsession" response type. which be return a
- *  version_info back in the authorization response which be be put in a JWT
- *  claim in the token request.
+ *  must use the "none+gsession" response type. which be return a version_info
+ *  back in the authorization response which be be put in a JWT claim in the
+ *  token request.
  */
 @property(nonatomic, copy, nullable) NSString *versionInfo;
 
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_TransferConfig.
  *
- *  Updates a data transfer configuration.
- *  All fields must be set, even if they are not updated.
+ *  Updates a data transfer configuration. All fields must be set, even if they
+ *  are not updated.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
- *  @param name The resource name of the transfer config.
- *    Transfer config names have the form of
+ *  @param name The resource name of the transfer config. Transfer config names
+ *    have the form of
  *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
  *    The name is automatically generated based on the config_id specified in
  *    CreateTransferConfigRequest along with project_id and region. If config_id
@@ -1395,8 +1410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
+ *  or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1434,8 +1449,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Required. The field will contain name of the resource requested, for
- *  example:
- *  `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}` or
+ *  example: `projects/{project_id}/transferConfigs/{config_id}/runs/{run_id}`
+ *  or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}/runs/{run_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1475,18 +1490,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Pagination token, which can be used to request a specific page
- *  of `ListTransferRunsRequest` list results. For multiple-page
- *  results, `ListTransferRunsResponse` outputs
- *  a `next_page` token, which can be used as the
- *  `page_token` value to request the next page of list results.
+ *  Pagination token, which can be used to request a specific page of
+ *  `ListTransferRunsRequest` list results. For multiple-page results,
+ *  `ListTransferRunsResponse` outputs a `next_page` token, which can be used as
+ *  the `page_token` value to request the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. Name of transfer configuration for which transfer runs should be
- *  retrieved.
- *  Format of transfer configuration resource name is:
+ *  retrieved. Format of transfer configuration resource name is:
  *  `projects/{project_id}/transferConfigs/{config_id}` or
  *  `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
  */
@@ -1496,9 +1509,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Indicates how run attempts are to be pulled.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified Value
- *        "RUN_ATTEMPT_UNSPECIFIED"
- *    @arg @c kGTLRBigQueryDataTransferRunAttemptLatest Value "LATEST"
+ *    @arg @c kGTLRBigQueryDataTransferRunAttemptRunAttemptUnspecified All runs
+ *        should be returned. (Value: "RUN_ATTEMPT_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransferRunAttemptLatest Only latest run per day
+ *        should be returned. (Value: "LATEST")
  */
 @property(nonatomic, copy, nullable) NSString *runAttempt;
 
@@ -1506,13 +1520,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  When specified, only transfer runs with requested states are returned.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryDataTransferStatesTransferStateUnspecified Value
- *        "TRANSFER_STATE_UNSPECIFIED"
- *    @arg @c kGTLRBigQueryDataTransferStatesPending Value "PENDING"
- *    @arg @c kGTLRBigQueryDataTransferStatesRunning Value "RUNNING"
- *    @arg @c kGTLRBigQueryDataTransferStatesSucceeded Value "SUCCEEDED"
- *    @arg @c kGTLRBigQueryDataTransferStatesFailed Value "FAILED"
- *    @arg @c kGTLRBigQueryDataTransferStatesCancelled Value "CANCELLED"
+ *    @arg @c kGTLRBigQueryDataTransferStatesTransferStateUnspecified State
+ *        placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransferStatesPending Data transfer is scheduled
+ *        and is waiting to be picked up by data transfer backend. (Value:
+ *        "PENDING")
+ *    @arg @c kGTLRBigQueryDataTransferStatesRunning Data transfer is in
+ *        progress. (Value: "RUNNING")
+ *    @arg @c kGTLRBigQueryDataTransferStatesSucceeded Data transfer completed
+ *        successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBigQueryDataTransferStatesFailed Data transfer failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRBigQueryDataTransferStatesCancelled Data transfer is
+ *        cancelled. (Value: "CANCELLED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *states;
 
@@ -1522,9 +1542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Returns information about running and completed jobs.
  *
  *  @param parent Required. Name of transfer configuration for which transfer
- *    runs should be retrieved.
- *    Format of transfer configuration resource name is:
- *    `projects/{project_id}/transferConfigs/{config_id}` or
+ *    runs should be retrieved. Format of transfer configuration resource name
+ *    is: `projects/{project_id}/transferConfigs/{config_id}` or
  *    `projects/{project_id}/locations/{location_id}/transferConfigs/{config_id}`.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsRunsList
@@ -1553,15 +1572,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 //   +[GTLQueryBigQueryDataTransfer queryForProjectsTransferConfigsRunsTransferLogsListWithparent:]
 
 /**
- *  Message types to return. If not populated - INFO, WARNING and ERROR
- *  messages are returned.
+ *  Message types to return. If not populated - INFO, WARNING and ERROR messages
+ *  are returned.
  *
  *  Likely values:
- *    @arg @c kGTLRBigQueryDataTransferMessageTypesMessageSeverityUnspecified
- *        Value "MESSAGE_SEVERITY_UNSPECIFIED"
- *    @arg @c kGTLRBigQueryDataTransferMessageTypesInfo Value "INFO"
- *    @arg @c kGTLRBigQueryDataTransferMessageTypesWarning Value "WARNING"
- *    @arg @c kGTLRBigQueryDataTransferMessageTypesError Value "ERROR"
+ *    @arg @c kGTLRBigQueryDataTransferMessageTypesMessageSeverityUnspecified No
+ *        severity specified. (Value: "MESSAGE_SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransferMessageTypesInfo Informational message.
+ *        (Value: "INFO")
+ *    @arg @c kGTLRBigQueryDataTransferMessageTypesWarning Warning message.
+ *        (Value: "WARNING")
+ *    @arg @c kGTLRBigQueryDataTransferMessageTypesError Error message. (Value:
+ *        "ERROR")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *messageTypes;
 
@@ -1569,11 +1591,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Pagination token, which can be used to request a specific page
- *  of `ListTransferLogsRequest` list results. For multiple-page
- *  results, `ListTransferLogsResponse` outputs
- *  a `next_page` token, which can be used as the
- *  `page_token` value to request the next page of list results.
+ *  Pagination token, which can be used to request a specific page of
+ *  `ListTransferLogsRequest` list results. For multiple-page results,
+ *  `ListTransferLogsResponse` outputs a `next_page` token, which can be used as
+ *  the `page_token` value to request the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1604,11 +1625,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Creates transfer runs for a time range [start_time, end_time].
- *  For each date - or whatever granularity the data source supports - in the
- *  range, one transfer run is created.
- *  Note that runs are created per UTC time in the time range.
- *  DEPRECATED: use StartManualTransferRuns instead.
+ *  Creates transfer runs for a time range [start_time, end_time]. For each date
+ *  - or whatever granularity the data source supports - in the range, one
+ *  transfer run is created. Note that runs are created per UTC time in the time
+ *  range. DEPRECATED: use StartManualTransferRuns instead.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.scheduleRuns
  *
@@ -1630,11 +1650,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ScheduleTransferRunsResponse.
  *
- *  Creates transfer runs for a time range [start_time, end_time].
- *  For each date - or whatever granularity the data source supports - in the
- *  range, one transfer run is created.
- *  Note that runs are created per UTC time in the time range.
- *  DEPRECATED: use StartManualTransferRuns instead.
+ *  Creates transfer runs for a time range [start_time, end_time]. For each date
+ *  - or whatever granularity the data source supports - in the range, one
+ *  transfer run is created. Note that runs are created per UTC time in the time
+ *  range. DEPRECATED: use StartManualTransferRuns instead.
  *
  *  @param object The @c GTLRBigQueryDataTransfer_ScheduleTransferRunsRequest to
  *    include in the query.

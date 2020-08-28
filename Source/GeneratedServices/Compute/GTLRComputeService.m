@@ -159,6 +159,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#routerAggregatedList" : [GTLRCompute_RouterAggregatedList class],
     @"compute#routerList" : [GTLRCompute_RouterList class],
     @"compute#routerStatusResponse" : [GTLRCompute_RouterStatusResponse class],
+    @"compute#screenshot" : [GTLRCompute_Screenshot class],
     @"compute#securityPolicy" : [GTLRCompute_SecurityPolicy class],
     @"compute#securityPolicyList" : [GTLRCompute_SecurityPolicyList class],
     @"compute#securityPolicyRule" : [GTLRCompute_SecurityPolicyRule class],

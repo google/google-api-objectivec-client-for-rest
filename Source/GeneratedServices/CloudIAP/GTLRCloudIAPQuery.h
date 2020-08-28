@@ -46,13 +46,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Constructs a new OAuth brand for the project if one does not exist.
- *  The created brand is "internal only", meaning that OAuth clients created
- *  under it only accept requests from users who belong to the same G Suite
+ *  Constructs a new OAuth brand for the project if one does not exist. The
+ *  created brand is "internal only", meaning that OAuth clients created under
+ *  it only accept requests from users who belong to the same G Suite
  *  organization as the project. The brand is created in an un-reviewed status.
- *  NOTE: The "internal only" status can be manually changed in the Google
- *  Cloud console. Requires that a brand does not already exist for the
- *  project, and that the specified support email is owned by the caller.
+ *  NOTE: The "internal only" status can be manually changed in the Google Cloud
+ *  console. Requires that a brand does not already exist for the project, and
+ *  that the specified support email is owned by the caller.
  *
  *  Method: iap.projects.brands.create
  *
@@ -64,26 +64,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForProjectsBrandsCreateWithObject:parent:]
 
 /**
- *  Required. GCP Project number/id under which the brand is to be created.
- *  In the following format: projects/{project_number/id}.
+ *  Required. GCP Project number/id under which the brand is to be created. In
+ *  the following format: projects/{project_number/id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudIAP_Brand.
  *
- *  Constructs a new OAuth brand for the project if one does not exist.
- *  The created brand is "internal only", meaning that OAuth clients created
- *  under it only accept requests from users who belong to the same G Suite
+ *  Constructs a new OAuth brand for the project if one does not exist. The
+ *  created brand is "internal only", meaning that OAuth clients created under
+ *  it only accept requests from users who belong to the same G Suite
  *  organization as the project. The brand is created in an un-reviewed status.
- *  NOTE: The "internal only" status can be manually changed in the Google
- *  Cloud console. Requires that a brand does not already exist for the
- *  project, and that the specified support email is owned by the caller.
+ *  NOTE: The "internal only" status can be manually changed in the Google Cloud
+ *  console. Requires that a brand does not already exist for the project, and
+ *  that the specified support email is owned by the caller.
  *
  *  @param object The @c GTLRCloudIAP_Brand to include in the query.
  *  @param parent Required. GCP Project number/id under which the brand is to be
- *    created.
- *    In the following format: projects/{project_number/id}.
+ *    created. In the following format: projects/{project_number/id}.
  *
  *  @return GTLRCloudIAPQuery_ProjectsBrandsCreate
  */
@@ -105,8 +104,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForProjectsBrandsGetWithname:]
 
 /**
- *  Required. Name of the brand to be fetched.
- *  In the following format: projects/{project_number/id}/brands/{brand}.
+ *  Required. Name of the brand to be fetched. In the following format:
+ *  projects/{project_number/id}/brands/{brand}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -115,8 +114,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves the OAuth brand of the project.
  *
- *  @param name Required. Name of the brand to be fetched.
- *    In the following format: projects/{project_number/id}/brands/{brand}.
+ *  @param name Required. Name of the brand to be fetched. In the following
+ *    format: projects/{project_number/id}/brands/{brand}.
  *
  *  @return GTLRCloudIAPQuery_ProjectsBrandsGet
  */
@@ -125,9 +124,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned
- *  by IAP. Requires that the brand for the project exists and that it is
- *  set for internal-only use.
+ *  Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned by
+ *  IAP. Requires that the brand for the project exists and that it is set for
+ *  internal-only use.
  *
  *  Method: iap.projects.brands.identityAwareProxyClients.create
  *
@@ -139,26 +138,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsCreateWithObject:parent:]
 
 /**
- *  Required. Path to create the client in.
- *  In the following format:
- *  projects/{project_number/id}/brands/{brand}.
- *  The project must belong to a G Suite account.
+ *  Required. Path to create the client in. In the following format:
+ *  projects/{project_number/id}/brands/{brand}. The project must belong to a G
+ *  Suite account.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudIAP_IdentityAwareProxyClient.
  *
- *  Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned
- *  by IAP. Requires that the brand for the project exists and that it is
- *  set for internal-only use.
+ *  Creates an Identity Aware Proxy (IAP) OAuth client. The client is owned by
+ *  IAP. Requires that the brand for the project exists and that it is set for
+ *  internal-only use.
  *
  *  @param object The @c GTLRCloudIAP_IdentityAwareProxyClient to include in the
  *    query.
- *  @param parent Required. Path to create the client in.
- *    In the following format:
- *    projects/{project_number/id}/brands/{brand}.
- *    The project must belong to a G Suite account.
+ *  @param parent Required. Path to create the client in. In the following
+ *    format: projects/{project_number/id}/brands/{brand}. The project must
+ *    belong to a G Suite account.
  *
  *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsCreate
  */
@@ -182,8 +179,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsDeleteWithname:]
 
 /**
- *  Required. Name of the Identity Aware Proxy client to be deleted.
- *  In the following format:
+ *  Required. Name of the Identity Aware Proxy client to be deleted. In the
+ *  following format:
  *  projects/{project_number/id}/brands/{brand}/identityAwareProxyClients/{client_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -206,8 +203,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieves an Identity Aware Proxy (IAP) OAuth client.
- *  Requires that the client is owned by IAP.
+ *  Retrieves an Identity Aware Proxy (IAP) OAuth client. Requires that the
+ *  client is owned by IAP.
  *
  *  Method: iap.projects.brands.identityAwareProxyClients.get
  *
@@ -219,8 +216,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForProjectsBrandsIdentityAwareProxyClientsGetWithname:]
 
 /**
- *  Required. Name of the Identity Aware Proxy client to be fetched.
- *  In the following format:
+ *  Required. Name of the Identity Aware Proxy client to be fetched. In the
+ *  following format:
  *  projects/{project_number/id}/brands/{brand}/identityAwareProxyClients/{client_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -228,8 +225,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudIAP_IdentityAwareProxyClient.
  *
- *  Retrieves an Identity Aware Proxy (IAP) OAuth client.
- *  Requires that the client is owned by IAP.
+ *  Retrieves an Identity Aware Proxy (IAP) OAuth client. Requires that the
+ *  client is owned by IAP.
  *
  *  @param name Required. Name of the Identity Aware Proxy client to be fetched.
  *    In the following format:
@@ -255,24 +252,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maximum number of clients to return. The service may return fewer than
- *  this value.
- *  If unspecified, at most 100 clients will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  this value. If unspecified, at most 100 clients will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListIdentityAwareProxyClients`
- *  call. Provide this to retrieve the subsequent page.
- *  When paginating, all other parameters provided to
- *  `ListIdentityAwareProxyClients` must match the call that provided the page
- *  token.
+ *  A page token, received from a previous `ListIdentityAwareProxyClients` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListIdentityAwareProxyClients` must match the call
+ *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Full brand path.
- *  In the following format: projects/{project_number/id}/brands/{brand}.
+ *  Required. Full brand path. In the following format:
+ *  projects/{project_number/id}/brands/{brand}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -281,8 +276,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the existing clients for the brand.
  *
- *  @param parent Required. Full brand path.
- *    In the following format: projects/{project_number/id}/brands/{brand}.
+ *  @param parent Required. Full brand path. In the following format:
+ *    projects/{project_number/id}/brands/{brand}.
  *
  *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsList
  *
@@ -323,8 +318,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudIAP_ResetIdentityAwareProxyClientSecretRequest
  *    to include in the query.
  *  @param name Required. Name of the Identity Aware Proxy client to that will
- *    have its
- *    secret reset. In the following format:
+ *    have its secret reset. In the following format:
  *    projects/{project_number/id}/brands/{brand}/identityAwareProxyClients/{client_id}.
  *
  *  @return GTLRCloudIAPQuery_ProjectsBrandsIdentityAwareProxyClientsResetSecret
@@ -347,8 +341,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForProjectsBrandsListWithparent:]
 
 /**
- *  Required. GCP Project number/id.
- *  In the following format: projects/{project_number/id}.
+ *  Required. GCP Project number/id. In the following format:
+ *  projects/{project_number/id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -357,8 +351,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists the existing brands for the project.
  *
- *  @param parent Required. GCP Project number/id.
- *    In the following format: projects/{project_number/id}.
+ *  @param parent Required. GCP Project number/id. In the following format:
+ *    projects/{project_number/id}.
  *
  *  @return GTLRCloudIAPQuery_ProjectsBrandsList
  */
@@ -368,8 +362,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the access control policy for an Identity-Aware Proxy protected
- *  resource.
- *  More information about managing access via IAP can be found at:
+ *  resource. More information about managing access via IAP can be found at:
  *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
  *
  *  Method: iap.getIamPolicy
@@ -382,8 +375,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -391,15 +384,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudIAP_Policy.
  *
  *  Gets the access control policy for an Identity-Aware Proxy protected
- *  resource.
- *  More information about managing access via IAP can be found at:
+ *  resource. More information about managing access via IAP can be found at:
  *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
  *
  *  @param object The @c GTLRCloudIAP_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIAPQuery_V1GetIamPolicy
  */
@@ -444,8 +436,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy for an Identity-Aware Proxy protected
- *  resource. Replaces any existing policy.
- *  More information about managing access via IAP can be found at:
+ *  resource. Replaces any existing policy. More information about managing
+ *  access via IAP can be found at:
  *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
  *
  *  Method: iap.setIamPolicy
@@ -458,8 +450,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -467,15 +459,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudIAP_Policy.
  *
  *  Sets the access control policy for an Identity-Aware Proxy protected
- *  resource. Replaces any existing policy.
- *  More information about managing access via IAP can be found at:
+ *  resource. Replaces any existing policy. More information about managing
+ *  access via IAP can be found at:
  *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
  *
  *  @param object The @c GTLRCloudIAP_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIAPQuery_V1SetIamPolicy
  */
@@ -486,8 +478,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns permissions that a caller has on the Identity-Aware Proxy protected
- *  resource.
- *  More information about managing access via IAP can be found at:
+ *  resource. More information about managing access via IAP can be found at:
  *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
  *
  *  Method: iap.testIamPermissions
@@ -500,8 +491,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudIAP queryForTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -509,15 +500,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudIAP_TestIamPermissionsResponse.
  *
  *  Returns permissions that a caller has on the Identity-Aware Proxy protected
- *  resource.
- *  More information about managing access via IAP can be found at:
+ *  resource. More information about managing access via IAP can be found at:
  *  https://cloud.google.com/iap/docs/managing-access#managing_access_via_the_api
  *
  *  @param object The @c GTLRCloudIAP_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIAPQuery_V1TestIamPermissions
  */
@@ -527,8 +517,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the IAP settings on a particular IAP protected resource. It
- *  replaces all fields unless the `update_mask` is set.
+ *  Updates the IAP settings on a particular IAP protected resource. It replaces
+ *  all fields unless the `update_mask` is set.
  *
  *  Method: iap.updateIapSettings
  *
@@ -543,8 +533,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask specifying which IAP settings should be updated.
- *  If omitted, the all of the settings are updated. See
+ *  The field mask specifying which IAP settings should be updated. If omitted,
+ *  the all of the settings are updated. See
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
@@ -554,8 +544,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudIAP_IapSettings.
  *
- *  Updates the IAP settings on a particular IAP protected resource. It
- *  replaces all fields unless the `update_mask` is set.
+ *  Updates the IAP settings on a particular IAP protected resource. It replaces
+ *  all fields unless the `update_mask` is set.
  *
  *  @param object The @c GTLRCloudIAP_IapSettings to include in the query.
  *  @param name Required. The resource name of the IAP protected resource.

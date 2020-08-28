@@ -46,65 +46,172 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // dateTimeRenderOption
 
-/** Value: "FORMATTED_STRING" */
+/**
+ *  Instructs date, time, datetime, and duration fields to be output as strings
+ *  in their given number format (which is dependent on the spreadsheet locale).
+ *
+ *  Value: "FORMATTED_STRING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsDateTimeRenderOptionFormattedString;
-/** Value: "SERIAL_NUMBER" */
+/**
+ *  Instructs date, time, datetime, and duration fields to be output as doubles
+ *  in "serial number" format, as popularized by Lotus 1-2-3. The whole number
+ *  portion of the value (left of the decimal) counts the days since December
+ *  30th 1899. The fractional portion (right of the decimal) counts the time as
+ *  a fraction of the day. For example, January 1st 1900 at noon would be 2.5, 2
+ *  because it's 2 days after December 30st 1899, and .5 because noon is half a
+ *  day. February 1st 1900 at 3pm would be 33.625. This correctly treats the
+ *  year 1900 as not a leap year.
+ *
+ *  Value: "SERIAL_NUMBER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsDateTimeRenderOptionSerialNumber;
 
 // ----------------------------------------------------------------------------
 // insertDataOption
 
-/** Value: "INSERT_ROWS" */
+/**
+ *  Rows are inserted for the new data.
+ *
+ *  Value: "INSERT_ROWS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsInsertDataOptionInsertRows;
-/** Value: "OVERWRITE" */
+/**
+ *  The new data overwrites existing data in the areas it is written. (Note:
+ *  adding data to the end of the sheet will still insert new rows or columns so
+ *  the data can be written.)
+ *
+ *  Value: "OVERWRITE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsInsertDataOptionOverwrite;
 
 // ----------------------------------------------------------------------------
 // majorDimension
 
-/** Value: "COLUMNS" */
+/**
+ *  Operates on the columns of a sheet.
+ *
+ *  Value: "COLUMNS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsMajorDimensionColumns;
-/** Value: "DIMENSION_UNSPECIFIED" */
+/**
+ *  The default value, do not use.
+ *
+ *  Value: "DIMENSION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsMajorDimensionDimensionUnspecified;
-/** Value: "ROWS" */
+/**
+ *  Operates on the rows of a sheet.
+ *
+ *  Value: "ROWS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsMajorDimensionRows;
 
 // ----------------------------------------------------------------------------
 // responseDateTimeRenderOption
 
-/** Value: "FORMATTED_STRING" */
+/**
+ *  Instructs date, time, datetime, and duration fields to be output as strings
+ *  in their given number format (which is dependent on the spreadsheet locale).
+ *
+ *  Value: "FORMATTED_STRING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionFormattedString;
-/** Value: "SERIAL_NUMBER" */
+/**
+ *  Instructs date, time, datetime, and duration fields to be output as doubles
+ *  in "serial number" format, as popularized by Lotus 1-2-3. The whole number
+ *  portion of the value (left of the decimal) counts the days since December
+ *  30th 1899. The fractional portion (right of the decimal) counts the time as
+ *  a fraction of the day. For example, January 1st 1900 at noon would be 2.5, 2
+ *  because it's 2 days after December 30st 1899, and .5 because noon is half a
+ *  day. February 1st 1900 at 3pm would be 33.625. This correctly treats the
+ *  year 1900 as not a leap year.
+ *
+ *  Value: "SERIAL_NUMBER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseDateTimeRenderOptionSerialNumber;
 
 // ----------------------------------------------------------------------------
 // responseValueRenderOption
 
-/** Value: "FORMATTED_VALUE" */
+/**
+ *  Values will be calculated & formatted in the reply according to the cell's
+ *  formatting. Formatting is based on the spreadsheet's locale, not the
+ *  requesting user's locale. For example, if `A1` is `1.23` and `A2` is `=A1`
+ *  and formatted as currency, then `A2` would return `"$1.23"`.
+ *
+ *  Value: "FORMATTED_VALUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormattedValue;
-/** Value: "FORMULA" */
+/**
+ *  Values will not be calculated. The reply will include the formulas. For
+ *  example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then
+ *  A2 would return `"=A1"`.
+ *
+ *  Value: "FORMULA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionFormula;
-/** Value: "UNFORMATTED_VALUE" */
+/**
+ *  Values will be calculated, but not formatted in the reply. For example, if
+ *  `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then `A2` would
+ *  return the number `1.23`.
+ *
+ *  Value: "UNFORMATTED_VALUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsResponseValueRenderOptionUnformattedValue;
 
 // ----------------------------------------------------------------------------
 // valueInputOption
 
-/** Value: "INPUT_VALUE_OPTION_UNSPECIFIED" */
+/**
+ *  Default input value. This value must not be used.
+ *
+ *  Value: "INPUT_VALUE_OPTION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsValueInputOptionInputValueOptionUnspecified;
-/** Value: "RAW" */
+/**
+ *  The values the user has entered will not be parsed and will be stored as-is.
+ *
+ *  Value: "RAW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsValueInputOptionRaw;
-/** Value: "USER_ENTERED" */
+/**
+ *  The values will be parsed as if the user typed them into the UI. Numbers
+ *  will stay as numbers, but strings may be converted to numbers, dates, etc.
+ *  following the same rules that are applied when entering text into a cell via
+ *  the Google Sheets UI.
+ *
+ *  Value: "USER_ENTERED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsValueInputOptionUserEntered;
 
 // ----------------------------------------------------------------------------
 // valueRenderOption
 
-/** Value: "FORMATTED_VALUE" */
+/**
+ *  Values will be calculated & formatted in the reply according to the cell's
+ *  formatting. Formatting is based on the spreadsheet's locale, not the
+ *  requesting user's locale. For example, if `A1` is `1.23` and `A2` is `=A1`
+ *  and formatted as currency, then `A2` would return `"$1.23"`.
+ *
+ *  Value: "FORMATTED_VALUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionFormattedValue;
-/** Value: "FORMULA" */
+/**
+ *  Values will not be calculated. The reply will include the formulas. For
+ *  example, if `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then
+ *  A2 would return `"=A1"`.
+ *
+ *  Value: "FORMULA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionFormula;
-/** Value: "UNFORMATTED_VALUE" */
+/**
+ *  Values will be calculated, but not formatted in the reply. For example, if
+ *  `A1` is `1.23` and `A2` is `=A1` and formatted as currency, then `A2` would
+ *  return the number `1.23`.
+ *
+ *  Value: "UNFORMATTED_VALUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 // ----------------------------------------------------------------------------
@@ -122,22 +229,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Applies one or more updates to the spreadsheet.
- *  Each request is validated before
- *  being applied. If any request is not valid then the entire request will
- *  fail and nothing will be applied.
- *  Some requests have replies to
- *  give you some information about how
- *  they are applied. The replies will mirror the requests. For example,
- *  if you applied 4 updates and the 3rd one had a reply, then the
- *  response will have 2 empty replies, the actual reply, and another empty
- *  reply, in that order.
- *  Due to the collaborative nature of spreadsheets, it is not guaranteed that
- *  the spreadsheet will reflect exactly your changes after this completes,
- *  however it is guaranteed that the updates in the request will be
- *  applied together atomically. Your changes may be altered with respect to
- *  collaborator changes. If there are no collaborators, the spreadsheet
- *  should reflect your changes.
+ *  Applies one or more updates to the spreadsheet. Each request is validated
+ *  before being applied. If any request is not valid then the entire request
+ *  will fail and nothing will be applied. Some requests have replies to give
+ *  you some information about how they are applied. The replies will mirror the
+ *  requests. For example, if you applied 4 updates and the 3rd one had a reply,
+ *  then the response will have 2 empty replies, the actual reply, and another
+ *  empty reply, in that order. Due to the collaborative nature of spreadsheets,
+ *  it is not guaranteed that the spreadsheet will reflect exactly your changes
+ *  after this completes, however it is guaranteed that the updates in the
+ *  request will be applied together atomically. Your changes may be altered
+ *  with respect to collaborator changes. If there are no collaborators, the
+ *  spreadsheet should reflect your changes.
  *
  *  Method: sheets.spreadsheets.batchUpdate
  *
@@ -156,22 +259,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_BatchUpdateSpreadsheetResponse.
  *
- *  Applies one or more updates to the spreadsheet.
- *  Each request is validated before
- *  being applied. If any request is not valid then the entire request will
- *  fail and nothing will be applied.
- *  Some requests have replies to
- *  give you some information about how
- *  they are applied. The replies will mirror the requests. For example,
- *  if you applied 4 updates and the 3rd one had a reply, then the
- *  response will have 2 empty replies, the actual reply, and another empty
- *  reply, in that order.
- *  Due to the collaborative nature of spreadsheets, it is not guaranteed that
- *  the spreadsheet will reflect exactly your changes after this completes,
- *  however it is guaranteed that the updates in the request will be
- *  applied together atomically. Your changes may be altered with respect to
- *  collaborator changes. If there are no collaborators, the spreadsheet
- *  should reflect your changes.
+ *  Applies one or more updates to the spreadsheet. Each request is validated
+ *  before being applied. If any request is not valid then the entire request
+ *  will fail and nothing will be applied. Some requests have replies to give
+ *  you some information about how they are applied. The replies will mirror the
+ *  requests. For example, if you applied 4 updates and the 3rd one had a reply,
+ *  then the response will have 2 empty replies, the actual reply, and another
+ *  empty reply, in that order. Due to the collaborative nature of spreadsheets,
+ *  it is not guaranteed that the spreadsheet will reflect exactly your changes
+ *  after this completes, however it is guaranteed that the updates in the
+ *  request will be applied together atomically. Your changes may be altered
+ *  with respect to collaborator changes. If there are no collaborators, the
+ *  spreadsheet should reflect your changes.
  *
  *  @param object The @c GTLRSheets_BatchUpdateSpreadsheetRequest to include in
  *    the query.
@@ -212,9 +311,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Returns the developer metadata with the specified ID.
- *  The caller must specify the spreadsheet ID and the developer metadata's
- *  unique metadataId.
+ *  Returns the developer metadata with the specified ID. The caller must
+ *  specify the spreadsheet ID and the developer metadata's unique metadataId.
  *
  *  Method: sheets.spreadsheets.developerMetadata.get
  *
@@ -236,9 +334,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_DeveloperMetadata.
  *
- *  Returns the developer metadata with the specified ID.
- *  The caller must specify the spreadsheet ID and the developer metadata's
- *  unique metadataId.
+ *  Returns the developer metadata with the specified ID. The caller must
+ *  specify the spreadsheet ID and the developer metadata's unique metadataId.
  *
  *  @param spreadsheetId The ID of the spreadsheet to retrieve metadata from.
  *  @param metadataId The ID of the developer metadata to retrieve.
@@ -251,11 +348,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Returns all developer metadata matching the specified DataFilter.
- *  If the provided DataFilter represents a DeveloperMetadataLookup object,
- *  this will return all DeveloperMetadata entries selected by it. If the
- *  DataFilter represents a location in a spreadsheet, this will return all
- *  developer metadata associated with locations intersecting that region.
+ *  Returns all developer metadata matching the specified DataFilter. If the
+ *  provided DataFilter represents a DeveloperMetadataLookup object, this will
+ *  return all DeveloperMetadata entries selected by it. If the DataFilter
+ *  represents a location in a spreadsheet, this will return all developer
+ *  metadata associated with locations intersecting that region.
  *
  *  Method: sheets.spreadsheets.developerMetadata.search
  *
@@ -274,11 +371,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_SearchDeveloperMetadataResponse.
  *
- *  Returns all developer metadata matching the specified DataFilter.
- *  If the provided DataFilter represents a DeveloperMetadataLookup object,
- *  this will return all DeveloperMetadata entries selected by it. If the
- *  DataFilter represents a location in a spreadsheet, this will return all
- *  developer metadata associated with locations intersecting that region.
+ *  Returns all developer metadata matching the specified DataFilter. If the
+ *  provided DataFilter represents a DeveloperMetadataLookup object, this will
+ *  return all DeveloperMetadata entries selected by it. If the DataFilter
+ *  represents a location in a spreadsheet, this will return all developer
+ *  metadata associated with locations intersecting that region.
  *
  *  @param object The @c GTLRSheets_SearchDeveloperMetadataRequest to include in
  *    the query.
@@ -292,22 +389,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Returns the spreadsheet at the given ID.
- *  The caller must specify the spreadsheet ID.
- *  By default, data within grids will not be returned.
- *  You can include grid data one of two ways:
- *  * Specify a field mask listing your desired fields using the `fields` URL
- *  parameter in HTTP
- *  * Set the includeGridData
- *  URL parameter to true. If a field mask is set, the `includeGridData`
- *  parameter is ignored
- *  For large spreadsheets, it is recommended to retrieve only the specific
- *  fields of the spreadsheet that you want.
- *  To retrieve only subsets of the spreadsheet, use the
- *  ranges URL parameter.
- *  Multiple ranges can be specified. Limiting the range will
- *  return only the portions of the spreadsheet that intersect the requested
- *  ranges. Ranges are specified using A1 notation.
+ *  Returns the spreadsheet at the given ID. The caller must specify the
+ *  spreadsheet ID. By default, data within grids will not be returned. You can
+ *  include grid data one of two ways: * Specify a field mask listing your
+ *  desired fields using the `fields` URL parameter in HTTP * Set the
+ *  includeGridData URL parameter to true. If a field mask is set, the
+ *  `includeGridData` parameter is ignored For large spreadsheets, it is
+ *  recommended to retrieve only the specific fields of the spreadsheet that you
+ *  want. To retrieve only subsets of the spreadsheet, use the ranges URL
+ *  parameter. Multiple ranges can be specified. Limiting the range will return
+ *  only the portions of the spreadsheet that intersect the requested ranges.
+ *  Ranges are specified using A1 notation.
  *
  *  Method: sheets.spreadsheets.get
  *
@@ -323,8 +415,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsGetWithspreadsheetId:]
 
 /**
- *  True if grid data should be returned.
- *  This parameter is ignored if a field mask was set in the request.
+ *  True if grid data should be returned. This parameter is ignored if a field
+ *  mask was set in the request.
  */
 @property(nonatomic, assign) BOOL includeGridData;
 
@@ -337,22 +429,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_Spreadsheet.
  *
- *  Returns the spreadsheet at the given ID.
- *  The caller must specify the spreadsheet ID.
- *  By default, data within grids will not be returned.
- *  You can include grid data one of two ways:
- *  * Specify a field mask listing your desired fields using the `fields` URL
- *  parameter in HTTP
- *  * Set the includeGridData
- *  URL parameter to true. If a field mask is set, the `includeGridData`
- *  parameter is ignored
- *  For large spreadsheets, it is recommended to retrieve only the specific
- *  fields of the spreadsheet that you want.
- *  To retrieve only subsets of the spreadsheet, use the
- *  ranges URL parameter.
- *  Multiple ranges can be specified. Limiting the range will
- *  return only the portions of the spreadsheet that intersect the requested
- *  ranges. Ranges are specified using A1 notation.
+ *  Returns the spreadsheet at the given ID. The caller must specify the
+ *  spreadsheet ID. By default, data within grids will not be returned. You can
+ *  include grid data one of two ways: * Specify a field mask listing your
+ *  desired fields using the `fields` URL parameter in HTTP * Set the
+ *  includeGridData URL parameter to true. If a field mask is set, the
+ *  `includeGridData` parameter is ignored For large spreadsheets, it is
+ *  recommended to retrieve only the specific fields of the spreadsheet that you
+ *  want. To retrieve only subsets of the spreadsheet, use the ranges URL
+ *  parameter. Multiple ranges can be specified. Limiting the range will return
+ *  only the portions of the spreadsheet that intersect the requested ranges.
+ *  Ranges are specified using A1 notation.
  *
  *  @param spreadsheetId The spreadsheet to request.
  *
@@ -363,23 +450,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Returns the spreadsheet at the given ID.
- *  The caller must specify the spreadsheet ID.
- *  This method differs from GetSpreadsheet in that it allows selecting
- *  which subsets of spreadsheet data to return by specifying a
- *  dataFilters parameter.
- *  Multiple DataFilters can be specified. Specifying one or
- *  more data filters will return the portions of the spreadsheet that
- *  intersect ranges matched by any of the filters.
- *  By default, data within grids will not be returned.
- *  You can include grid data one of two ways:
- *  * Specify a field mask listing your desired fields using the `fields` URL
- *  parameter in HTTP
- *  * Set the includeGridData
- *  parameter to true. If a field mask is set, the `includeGridData`
- *  parameter is ignored
- *  For large spreadsheets, it is recommended to retrieve only the specific
- *  fields of the spreadsheet that you want.
+ *  Returns the spreadsheet at the given ID. The caller must specify the
+ *  spreadsheet ID. This method differs from GetSpreadsheet in that it allows
+ *  selecting which subsets of spreadsheet data to return by specifying a
+ *  dataFilters parameter. Multiple DataFilters can be specified. Specifying one
+ *  or more data filters will return the portions of the spreadsheet that
+ *  intersect ranges matched by any of the filters. By default, data within
+ *  grids will not be returned. You can include grid data one of two ways: *
+ *  Specify a field mask listing your desired fields using the `fields` URL
+ *  parameter in HTTP * Set the includeGridData parameter to true. If a field
+ *  mask is set, the `includeGridData` parameter is ignored For large
+ *  spreadsheets, it is recommended to retrieve only the specific fields of the
+ *  spreadsheet that you want.
  *
  *  Method: sheets.spreadsheets.getByDataFilter
  *
@@ -398,23 +480,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_Spreadsheet.
  *
- *  Returns the spreadsheet at the given ID.
- *  The caller must specify the spreadsheet ID.
- *  This method differs from GetSpreadsheet in that it allows selecting
- *  which subsets of spreadsheet data to return by specifying a
- *  dataFilters parameter.
- *  Multiple DataFilters can be specified. Specifying one or
- *  more data filters will return the portions of the spreadsheet that
- *  intersect ranges matched by any of the filters.
- *  By default, data within grids will not be returned.
- *  You can include grid data one of two ways:
- *  * Specify a field mask listing your desired fields using the `fields` URL
- *  parameter in HTTP
- *  * Set the includeGridData
- *  parameter to true. If a field mask is set, the `includeGridData`
- *  parameter is ignored
- *  For large spreadsheets, it is recommended to retrieve only the specific
- *  fields of the spreadsheet that you want.
+ *  Returns the spreadsheet at the given ID. The caller must specify the
+ *  spreadsheet ID. This method differs from GetSpreadsheet in that it allows
+ *  selecting which subsets of spreadsheet data to return by specifying a
+ *  dataFilters parameter. Multiple DataFilters can be specified. Specifying one
+ *  or more data filters will return the portions of the spreadsheet that
+ *  intersect ranges matched by any of the filters. By default, data within
+ *  grids will not be returned. You can include grid data one of two ways: *
+ *  Specify a field mask listing your desired fields using the `fields` URL
+ *  parameter in HTTP * Set the includeGridData parameter to true. If a field
+ *  mask is set, the `includeGridData` parameter is ignored For large
+ *  spreadsheets, it is recommended to retrieve only the specific fields of the
+ *  spreadsheet that you want.
  *
  *  @param object The @c GTLRSheets_GetSpreadsheetByDataFilterRequest to include
  *    in the query.
@@ -428,8 +505,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Copies a single sheet from a spreadsheet to another spreadsheet.
- *  Returns the properties of the newly created sheet.
+ *  Copies a single sheet from a spreadsheet to another spreadsheet. Returns the
+ *  properties of the newly created sheet.
  *
  *  Method: sheets.spreadsheets.sheets.copyTo
  *
@@ -451,8 +528,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_SheetProperties.
  *
- *  Copies a single sheet from a spreadsheet to another spreadsheet.
- *  Returns the properties of the newly created sheet.
+ *  Copies a single sheet from a spreadsheet to another spreadsheet. Returns the
+ *  properties of the newly created sheet.
  *
  *  @param object The @c GTLRSheets_CopySheetToAnotherSpreadsheetRequest to
  *    include in the query.
@@ -469,18 +546,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  Appends values to a spreadsheet. The input range is used to search for
- *  existing data and find a "table" within that range. Values will be
- *  appended to the next row of the table, starting with the first column of
- *  the table. See the
- *  [guide](/sheets/api/guides/values#appending_values)
- *  and
- *  [sample code](/sheets/api/samples/writing#append_values)
- *  for specific details of how tables are detected and data is appended.
- *  The caller must specify the spreadsheet ID, range, and
- *  a valueInputOption. The `valueInputOption` only
+ *  existing data and find a "table" within that range. Values will be appended
+ *  to the next row of the table, starting with the first column of the table.
+ *  See the [guide](/sheets/api/guides/values#appending_values) and [sample
+ *  code](/sheets/api/samples/writing#append_values) for specific details of how
+ *  tables are detected and data is appended. The caller must specify the
+ *  spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only
  *  controls how the input data will be added to the sheet (column-wise or
- *  row-wise), it does not influence what cell the data starts being written
- *  to.
+ *  row-wise), it does not influence what cell the data starts being written to.
  *
  *  Method: sheets.spreadsheets.values.append
  *
@@ -494,9 +567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsValuesAppendWithObject:spreadsheetId:range:]
 
 /**
- *  Determines if the update response should include the values
- *  of the cells that were appended. By default, responses
- *  do not include the updated values.
+ *  Determines if the update response should include the values of the cells
+ *  that were appended. By default, responses do not include the updated values.
  */
 @property(nonatomic, assign) BOOL includeValuesInResponse;
 
@@ -504,41 +576,64 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  How the input data should be inserted.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsInsertDataOptionOverwrite Value "OVERWRITE"
- *    @arg @c kGTLRSheetsInsertDataOptionInsertRows Value "INSERT_ROWS"
+ *    @arg @c kGTLRSheetsInsertDataOptionOverwrite The new data overwrites
+ *        existing data in the areas it is written. (Note: adding data to the
+ *        end of the sheet will still insert new rows or columns so the data can
+ *        be written.) (Value: "OVERWRITE")
+ *    @arg @c kGTLRSheetsInsertDataOptionInsertRows Rows are inserted for the
+ *        new data. (Value: "INSERT_ROWS")
  */
 @property(nonatomic, copy, nullable) NSString *insertDataOption;
 
 /**
- *  The A1 notation of a range to search for a logical table of data.
- *  Values are appended after the last row of the table.
+ *  The A1 notation of a range to search for a logical table of data. Values are
+ *  appended after the last row of the table.
  */
 @property(nonatomic, copy, nullable) NSString *range;
 
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE.
- *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  FORMATTED_VALUE. The default dateTime render option is
+ *  [DateTimeRenderOption.SERIAL_NUMBER].
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Value
- *        "SERIAL_NUMBER"
- *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionFormattedString Value
- *        "FORMATTED_STRING"
+ *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Instructs
+ *        date, time, datetime, and duration fields to be output as doubles in
+ *        "serial number" format, as popularized by Lotus 1-2-3. The whole
+ *        number portion of the value (left of the decimal) counts the days
+ *        since December 30th 1899. The fractional portion (right of the
+ *        decimal) counts the time as a fraction of the day. For example,
+ *        January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
+ *        December 30st 1899, and .5 because noon is half a day. February 1st
+ *        1900 at 3pm would be 33.625. This correctly treats the year 1900 as
+ *        not a leap year. (Value: "SERIAL_NUMBER")
+ *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionFormattedString Instructs
+ *        date, time, datetime, and duration fields to be output as strings in
+ *        their given number format (which is dependent on the spreadsheet
+ *        locale). (Value: "FORMATTED_STRING")
  */
 @property(nonatomic, copy, nullable) NSString *responseDateTimeRenderOption;
 
 /**
- *  Determines how values in the response should be rendered.
- *  The default render option is ValueRenderOption.FORMATTED_VALUE.
+ *  Determines how values in the response should be rendered. The default render
+ *  option is ValueRenderOption.FORMATTED_VALUE.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Value
- *        "FORMATTED_VALUE"
- *    @arg @c kGTLRSheetsResponseValueRenderOptionUnformattedValue Value
- *        "UNFORMATTED_VALUE"
- *    @arg @c kGTLRSheetsResponseValueRenderOptionFormula Value "FORMULA"
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Values will be
+ *        calculated & formatted in the reply according to the cell's
+ *        formatting. Formatting is based on the spreadsheet's locale, not the
+ *        requesting user's locale. For example, if `A1` is `1.23` and `A2` is
+ *        `=A1` and formatted as currency, then `A2` would return `"$1.23"`.
+ *        (Value: "FORMATTED_VALUE")
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionUnformattedValue Values will
+ *        be calculated, but not formatted in the reply. For example, if `A1` is
+ *        `1.23` and `A2` is `=A1` and formatted as currency, then `A2` would
+ *        return the number `1.23`. (Value: "UNFORMATTED_VALUE")
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionFormula Values will not be
+ *        calculated. The reply will include the formulas. For example, if `A1`
+ *        is `1.23` and `A2` is `=A1` and formatted as currency, then A2 would
+ *        return `"=A1"`. (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
 
@@ -549,10 +644,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  How the input data should be interpreted.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsValueInputOptionInputValueOptionUnspecified Value
- *        "INPUT_VALUE_OPTION_UNSPECIFIED"
- *    @arg @c kGTLRSheetsValueInputOptionRaw Value "RAW"
- *    @arg @c kGTLRSheetsValueInputOptionUserEntered Value "USER_ENTERED"
+ *    @arg @c kGTLRSheetsValueInputOptionInputValueOptionUnspecified Default
+ *        input value. This value must not be used. (Value:
+ *        "INPUT_VALUE_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRSheetsValueInputOptionRaw The values the user has entered
+ *        will not be parsed and will be stored as-is. (Value: "RAW")
+ *    @arg @c kGTLRSheetsValueInputOptionUserEntered The values will be parsed
+ *        as if the user typed them into the UI. Numbers will stay as numbers,
+ *        but strings may be converted to numbers, dates, etc. following the
+ *        same rules that are applied when entering text into a cell via the
+ *        Google Sheets UI. (Value: "USER_ENTERED")
  */
 @property(nonatomic, copy, nullable) NSString *valueInputOption;
 
@@ -560,24 +661,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Fetches a @c GTLRSheets_AppendValuesResponse.
  *
  *  Appends values to a spreadsheet. The input range is used to search for
- *  existing data and find a "table" within that range. Values will be
- *  appended to the next row of the table, starting with the first column of
- *  the table. See the
- *  [guide](/sheets/api/guides/values#appending_values)
- *  and
- *  [sample code](/sheets/api/samples/writing#append_values)
- *  for specific details of how tables are detected and data is appended.
- *  The caller must specify the spreadsheet ID, range, and
- *  a valueInputOption. The `valueInputOption` only
+ *  existing data and find a "table" within that range. Values will be appended
+ *  to the next row of the table, starting with the first column of the table.
+ *  See the [guide](/sheets/api/guides/values#appending_values) and [sample
+ *  code](/sheets/api/samples/writing#append_values) for specific details of how
+ *  tables are detected and data is appended. The caller must specify the
+ *  spreadsheet ID, range, and a valueInputOption. The `valueInputOption` only
  *  controls how the input data will be added to the sheet (column-wise or
- *  row-wise), it does not influence what cell the data starts being written
- *  to.
+ *  row-wise), it does not influence what cell the data starts being written to.
  *
  *  @param object The @c GTLRSheets_ValueRange to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
  *  @param range The A1 notation of a range to search for a logical table of
- *    data.
- *    Values are appended after the last row of the table.
+ *    data. Values are appended after the last row of the table.
  *
  *  @return GTLRSheetsQuery_SpreadsheetsValuesAppend
  */
@@ -588,10 +684,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Clears one or more ranges of values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and one or more ranges.
- *  Only values are cleared -- all other properties of the cell (such as
- *  formatting, data validation, etc..) are kept.
+ *  Clears one or more ranges of values from a spreadsheet. The caller must
+ *  specify the spreadsheet ID and one or more ranges. Only values are cleared
+ *  -- all other properties of the cell (such as formatting, data validation,
+ *  etc..) are kept.
  *
  *  Method: sheets.spreadsheets.values.batchClear
  *
@@ -610,10 +706,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_BatchClearValuesResponse.
  *
- *  Clears one or more ranges of values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and one or more ranges.
- *  Only values are cleared -- all other properties of the cell (such as
- *  formatting, data validation, etc..) are kept.
+ *  Clears one or more ranges of values from a spreadsheet. The caller must
+ *  specify the spreadsheet ID and one or more ranges. Only values are cleared
+ *  -- all other properties of the cell (such as formatting, data validation,
+ *  etc..) are kept.
  *
  *  @param object The @c GTLRSheets_BatchClearValuesRequest to include in the
  *    query.
@@ -627,11 +723,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Clears one or more ranges of values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and one or more
- *  DataFilters. Ranges matching any of the specified data
- *  filters will be cleared. Only values are cleared -- all other properties
- *  of the cell (such as formatting, data validation, etc..) are kept.
+ *  Clears one or more ranges of values from a spreadsheet. The caller must
+ *  specify the spreadsheet ID and one or more DataFilters. Ranges matching any
+ *  of the specified data filters will be cleared. Only values are cleared --
+ *  all other properties of the cell (such as formatting, data validation,
+ *  etc..) are kept.
  *
  *  Method: sheets.spreadsheets.values.batchClearByDataFilter
  *
@@ -650,11 +746,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_BatchClearValuesByDataFilterResponse.
  *
- *  Clears one or more ranges of values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and one or more
- *  DataFilters. Ranges matching any of the specified data
- *  filters will be cleared. Only values are cleared -- all other properties
- *  of the cell (such as formatting, data validation, etc..) are kept.
+ *  Clears one or more ranges of values from a spreadsheet. The caller must
+ *  specify the spreadsheet ID and one or more DataFilters. Ranges matching any
+ *  of the specified data filters will be cleared. Only values are cleared --
+ *  all other properties of the cell (such as formatting, data validation,
+ *  etc..) are kept.
  *
  *  @param object The @c GTLRSheets_BatchClearValuesByDataFilterRequest to
  *    include in the query.
@@ -668,8 +764,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Returns one or more ranges of values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and one or more ranges.
+ *  Returns one or more ranges of values from a spreadsheet. The caller must
+ *  specify the spreadsheet ID and one or more ranges.
  *
  *  Method: sheets.spreadsheets.values.batchGet
  *
@@ -685,30 +781,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsValuesBatchGetWithspreadsheetId:]
 
 /**
- *  How dates, times, and durations should be represented in the output.
- *  This is ignored if value_render_option is
- *  FORMATTED_VALUE.
- *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  How dates, times, and durations should be represented in the output. This is
+ *  ignored if value_render_option is FORMATTED_VALUE. The default dateTime
+ *  render option is [DateTimeRenderOption.SERIAL_NUMBER].
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Value "SERIAL_NUMBER"
- *    @arg @c kGTLRSheetsDateTimeRenderOptionFormattedString Value
- *        "FORMATTED_STRING"
+ *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Instructs date, time,
+ *        datetime, and duration fields to be output as doubles in "serial
+ *        number" format, as popularized by Lotus 1-2-3. The whole number
+ *        portion of the value (left of the decimal) counts the days since
+ *        December 30th 1899. The fractional portion (right of the decimal)
+ *        counts the time as a fraction of the day. For example, January 1st
+ *        1900 at noon would be 2.5, 2 because it's 2 days after December 30st
+ *        1899, and .5 because noon is half a day. February 1st 1900 at 3pm
+ *        would be 33.625. This correctly treats the year 1900 as not a leap
+ *        year. (Value: "SERIAL_NUMBER")
+ *    @arg @c kGTLRSheetsDateTimeRenderOptionFormattedString Instructs date,
+ *        time, datetime, and duration fields to be output as strings in their
+ *        given number format (which is dependent on the spreadsheet locale).
+ *        (Value: "FORMATTED_STRING")
  */
 @property(nonatomic, copy, nullable) NSString *dateTimeRenderOption;
 
 /**
- *  The major dimension that results should use.
- *  For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`,
- *  then requesting `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`,
- *  whereas requesting `range=A1:B2,majorDimension=COLUMNS` returns
- *  `[[1,3],[2,4]]`.
+ *  The major dimension that results should use. For example, if the spreadsheet
+ *  data is: `A1=1,B1=2,A2=3,B2=4`, then requesting
+ *  `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`, whereas
+ *  requesting `range=A1:B2,majorDimension=COLUMNS` returns `[[1,3],[2,4]]`.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsMajorDimensionDimensionUnspecified Value
- *        "DIMENSION_UNSPECIFIED"
- *    @arg @c kGTLRSheetsMajorDimensionRows Value "ROWS"
- *    @arg @c kGTLRSheetsMajorDimensionColumns Value "COLUMNS"
+ *    @arg @c kGTLRSheetsMajorDimensionDimensionUnspecified The default value,
+ *        do not use. (Value: "DIMENSION_UNSPECIFIED")
+ *    @arg @c kGTLRSheetsMajorDimensionRows Operates on the rows of a sheet.
+ *        (Value: "ROWS")
+ *    @arg @c kGTLRSheetsMajorDimensionColumns Operates on the columns of a
+ *        sheet. (Value: "COLUMNS")
  */
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
@@ -719,22 +826,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
- *  How values should be represented in the output.
- *  The default render option is ValueRenderOption.FORMATTED_VALUE.
+ *  How values should be represented in the output. The default render option is
+ *  ValueRenderOption.FORMATTED_VALUE.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Value "FORMATTED_VALUE"
- *    @arg @c kGTLRSheetsValueRenderOptionUnformattedValue Value
- *        "UNFORMATTED_VALUE"
- *    @arg @c kGTLRSheetsValueRenderOptionFormula Value "FORMULA"
+ *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Values will be
+ *        calculated & formatted in the reply according to the cell's
+ *        formatting. Formatting is based on the spreadsheet's locale, not the
+ *        requesting user's locale. For example, if `A1` is `1.23` and `A2` is
+ *        `=A1` and formatted as currency, then `A2` would return `"$1.23"`.
+ *        (Value: "FORMATTED_VALUE")
+ *    @arg @c kGTLRSheetsValueRenderOptionUnformattedValue Values will be
+ *        calculated, but not formatted in the reply. For example, if `A1` is
+ *        `1.23` and `A2` is `=A1` and formatted as currency, then `A2` would
+ *        return the number `1.23`. (Value: "UNFORMATTED_VALUE")
+ *    @arg @c kGTLRSheetsValueRenderOptionFormula Values will not be calculated.
+ *        The reply will include the formulas. For example, if `A1` is `1.23`
+ *        and `A2` is `=A1` and formatted as currency, then A2 would return
+ *        `"=A1"`. (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *valueRenderOption;
 
 /**
  *  Fetches a @c GTLRSheets_BatchGetValuesResponse.
  *
- *  Returns one or more ranges of values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and one or more ranges.
+ *  Returns one or more ranges of values from a spreadsheet. The caller must
+ *  specify the spreadsheet ID and one or more ranges.
  *
  *  @param spreadsheetId The ID of the spreadsheet to retrieve data from.
  *
@@ -746,9 +863,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  Returns one or more ranges of values that match the specified data filters.
- *  The caller must specify the spreadsheet ID and one or more
- *  DataFilters. Ranges that match any of the data filters in
- *  the request will be returned.
+ *  The caller must specify the spreadsheet ID and one or more DataFilters.
+ *  Ranges that match any of the data filters in the request will be returned.
  *
  *  Method: sheets.spreadsheets.values.batchGetByDataFilter
  *
@@ -768,9 +884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  Fetches a @c GTLRSheets_BatchGetValuesByDataFilterResponse.
  *
  *  Returns one or more ranges of values that match the specified data filters.
- *  The caller must specify the spreadsheet ID and one or more
- *  DataFilters. Ranges that match any of the data filters in
- *  the request will be returned.
+ *  The caller must specify the spreadsheet ID and one or more DataFilters.
+ *  Ranges that match any of the data filters in the request will be returned.
  *
  *  @param object The @c GTLRSheets_BatchGetValuesByDataFilterRequest to include
  *    in the query.
@@ -784,10 +899,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Sets values in one or more ranges of a spreadsheet.
- *  The caller must specify the spreadsheet ID,
- *  a valueInputOption, and one or more
- *  ValueRanges.
+ *  Sets values in one or more ranges of a spreadsheet. The caller must specify
+ *  the spreadsheet ID, a valueInputOption, and one or more ValueRanges.
  *
  *  Method: sheets.spreadsheets.values.batchUpdate
  *
@@ -806,10 +919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_BatchUpdateValuesResponse.
  *
- *  Sets values in one or more ranges of a spreadsheet.
- *  The caller must specify the spreadsheet ID,
- *  a valueInputOption, and one or more
- *  ValueRanges.
+ *  Sets values in one or more ranges of a spreadsheet. The caller must specify
+ *  the spreadsheet ID, a valueInputOption, and one or more ValueRanges.
  *
  *  @param object The @c GTLRSheets_BatchUpdateValuesRequest to include in the
  *    query.
@@ -823,9 +934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Sets values in one or more ranges of a spreadsheet.
- *  The caller must specify the spreadsheet ID,
- *  a valueInputOption, and one or more
+ *  Sets values in one or more ranges of a spreadsheet. The caller must specify
+ *  the spreadsheet ID, a valueInputOption, and one or more
  *  DataFilterValueRanges.
  *
  *  Method: sheets.spreadsheets.values.batchUpdateByDataFilter
@@ -845,9 +955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_BatchUpdateValuesByDataFilterResponse.
  *
- *  Sets values in one or more ranges of a spreadsheet.
- *  The caller must specify the spreadsheet ID,
- *  a valueInputOption, and one or more
+ *  Sets values in one or more ranges of a spreadsheet. The caller must specify
+ *  the spreadsheet ID, a valueInputOption, and one or more
  *  DataFilterValueRanges.
  *
  *  @param object The @c GTLRSheets_BatchUpdateValuesByDataFilterRequest to
@@ -862,10 +971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Clears values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and range.
- *  Only values are cleared -- all other properties of the cell (such as
- *  formatting, data validation, etc..) are kept.
+ *  Clears values from a spreadsheet. The caller must specify the spreadsheet ID
+ *  and range. Only values are cleared -- all other properties of the cell (such
+ *  as formatting, data validation, etc..) are kept.
  *
  *  Method: sheets.spreadsheets.values.clear
  *
@@ -887,10 +995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Fetches a @c GTLRSheets_ClearValuesResponse.
  *
- *  Clears values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and range.
- *  Only values are cleared -- all other properties of the cell (such as
- *  formatting, data validation, etc..) are kept.
+ *  Clears values from a spreadsheet. The caller must specify the spreadsheet ID
+ *  and range. Only values are cleared -- all other properties of the cell (such
+ *  as formatting, data validation, etc..) are kept.
  *
  *  @param object The @c GTLRSheets_ClearValuesRequest to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.
@@ -905,8 +1012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Returns a range of values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and a range.
+ *  Returns a range of values from a spreadsheet. The caller must specify the
+ *  spreadsheet ID and a range.
  *
  *  Method: sheets.spreadsheets.values.get
  *
@@ -922,30 +1029,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsValuesGetWithspreadsheetId:range:]
 
 /**
- *  How dates, times, and durations should be represented in the output.
- *  This is ignored if value_render_option is
- *  FORMATTED_VALUE.
- *  The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  How dates, times, and durations should be represented in the output. This is
+ *  ignored if value_render_option is FORMATTED_VALUE. The default dateTime
+ *  render option is [DateTimeRenderOption.SERIAL_NUMBER].
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Value "SERIAL_NUMBER"
- *    @arg @c kGTLRSheetsDateTimeRenderOptionFormattedString Value
- *        "FORMATTED_STRING"
+ *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Instructs date, time,
+ *        datetime, and duration fields to be output as doubles in "serial
+ *        number" format, as popularized by Lotus 1-2-3. The whole number
+ *        portion of the value (left of the decimal) counts the days since
+ *        December 30th 1899. The fractional portion (right of the decimal)
+ *        counts the time as a fraction of the day. For example, January 1st
+ *        1900 at noon would be 2.5, 2 because it's 2 days after December 30st
+ *        1899, and .5 because noon is half a day. February 1st 1900 at 3pm
+ *        would be 33.625. This correctly treats the year 1900 as not a leap
+ *        year. (Value: "SERIAL_NUMBER")
+ *    @arg @c kGTLRSheetsDateTimeRenderOptionFormattedString Instructs date,
+ *        time, datetime, and duration fields to be output as strings in their
+ *        given number format (which is dependent on the spreadsheet locale).
+ *        (Value: "FORMATTED_STRING")
  */
 @property(nonatomic, copy, nullable) NSString *dateTimeRenderOption;
 
 /**
- *  The major dimension that results should use.
- *  For example, if the spreadsheet data is: `A1=1,B1=2,A2=3,B2=4`, then
- *  requesting `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`,
- *  whereas requesting `range=A1:B2,majorDimension=COLUMNS` returns
- *  `[[1,3],[2,4]]`.
+ *  The major dimension that results should use. For example, if the spreadsheet
+ *  data is: `A1=1,B1=2,A2=3,B2=4`, then requesting
+ *  `range=A1:B2,majorDimension=ROWS` returns `[[1,2],[3,4]]`, whereas
+ *  requesting `range=A1:B2,majorDimension=COLUMNS` returns `[[1,3],[2,4]]`.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsMajorDimensionDimensionUnspecified Value
- *        "DIMENSION_UNSPECIFIED"
- *    @arg @c kGTLRSheetsMajorDimensionRows Value "ROWS"
- *    @arg @c kGTLRSheetsMajorDimensionColumns Value "COLUMNS"
+ *    @arg @c kGTLRSheetsMajorDimensionDimensionUnspecified The default value,
+ *        do not use. (Value: "DIMENSION_UNSPECIFIED")
+ *    @arg @c kGTLRSheetsMajorDimensionRows Operates on the rows of a sheet.
+ *        (Value: "ROWS")
+ *    @arg @c kGTLRSheetsMajorDimensionColumns Operates on the columns of a
+ *        sheet. (Value: "COLUMNS")
  */
 @property(nonatomic, copy, nullable) NSString *majorDimension;
 
@@ -956,22 +1074,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 /**
- *  How values should be represented in the output.
- *  The default render option is ValueRenderOption.FORMATTED_VALUE.
+ *  How values should be represented in the output. The default render option is
+ *  ValueRenderOption.FORMATTED_VALUE.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Value "FORMATTED_VALUE"
- *    @arg @c kGTLRSheetsValueRenderOptionUnformattedValue Value
- *        "UNFORMATTED_VALUE"
- *    @arg @c kGTLRSheetsValueRenderOptionFormula Value "FORMULA"
+ *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Values will be
+ *        calculated & formatted in the reply according to the cell's
+ *        formatting. Formatting is based on the spreadsheet's locale, not the
+ *        requesting user's locale. For example, if `A1` is `1.23` and `A2` is
+ *        `=A1` and formatted as currency, then `A2` would return `"$1.23"`.
+ *        (Value: "FORMATTED_VALUE")
+ *    @arg @c kGTLRSheetsValueRenderOptionUnformattedValue Values will be
+ *        calculated, but not formatted in the reply. For example, if `A1` is
+ *        `1.23` and `A2` is `=A1` and formatted as currency, then `A2` would
+ *        return the number `1.23`. (Value: "UNFORMATTED_VALUE")
+ *    @arg @c kGTLRSheetsValueRenderOptionFormula Values will not be calculated.
+ *        The reply will include the formulas. For example, if `A1` is `1.23`
+ *        and `A2` is `=A1` and formatted as currency, then A2 would return
+ *        `"=A1"`. (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *valueRenderOption;
 
 /**
  *  Fetches a @c GTLRSheets_ValueRange.
  *
- *  Returns a range of values from a spreadsheet.
- *  The caller must specify the spreadsheet ID and a range.
+ *  Returns a range of values from a spreadsheet. The caller must specify the
+ *  spreadsheet ID and a range.
  *
  *  @param spreadsheetId The ID of the spreadsheet to retrieve data from.
  *  @param range The A1 notation of the values to retrieve.
@@ -984,9 +1112,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 @end
 
 /**
- *  Sets values in a range of a spreadsheet.
- *  The caller must specify the spreadsheet ID, range, and
- *  a valueInputOption.
+ *  Sets values in a range of a spreadsheet. The caller must specify the
+ *  spreadsheet ID, range, and a valueInputOption.
  *
  *  Method: sheets.spreadsheets.values.update
  *
@@ -1000,9 +1127,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 //   +[GTLQuerySheets queryForSpreadsheetsValuesUpdateWithObject:spreadsheetId:range:]
 
 /**
- *  Determines if the update response should include the values
- *  of the cells that were updated. By default, responses
- *  do not include the updated values.
+ *  Determines if the update response should include the values of the cells
+ *  that were updated. By default, responses do not include the updated values.
  *  If the range to write was larger than the range actually written, the
  *  response includes all values in the requested range (excluding trailing
  *  empty rows and columns).
@@ -1015,28 +1141,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE.
- *  The default dateTime render option is
+ *  FORMATTED_VALUE. The default dateTime render option is
  *  DateTimeRenderOption.SERIAL_NUMBER.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Value
- *        "SERIAL_NUMBER"
- *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionFormattedString Value
- *        "FORMATTED_STRING"
+ *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Instructs
+ *        date, time, datetime, and duration fields to be output as doubles in
+ *        "serial number" format, as popularized by Lotus 1-2-3. The whole
+ *        number portion of the value (left of the decimal) counts the days
+ *        since December 30th 1899. The fractional portion (right of the
+ *        decimal) counts the time as a fraction of the day. For example,
+ *        January 1st 1900 at noon would be 2.5, 2 because it's 2 days after
+ *        December 30st 1899, and .5 because noon is half a day. February 1st
+ *        1900 at 3pm would be 33.625. This correctly treats the year 1900 as
+ *        not a leap year. (Value: "SERIAL_NUMBER")
+ *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionFormattedString Instructs
+ *        date, time, datetime, and duration fields to be output as strings in
+ *        their given number format (which is dependent on the spreadsheet
+ *        locale). (Value: "FORMATTED_STRING")
  */
 @property(nonatomic, copy, nullable) NSString *responseDateTimeRenderOption;
 
 /**
- *  Determines how values in the response should be rendered.
- *  The default render option is ValueRenderOption.FORMATTED_VALUE.
+ *  Determines how values in the response should be rendered. The default render
+ *  option is ValueRenderOption.FORMATTED_VALUE.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Value
- *        "FORMATTED_VALUE"
- *    @arg @c kGTLRSheetsResponseValueRenderOptionUnformattedValue Value
- *        "UNFORMATTED_VALUE"
- *    @arg @c kGTLRSheetsResponseValueRenderOptionFormula Value "FORMULA"
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Values will be
+ *        calculated & formatted in the reply according to the cell's
+ *        formatting. Formatting is based on the spreadsheet's locale, not the
+ *        requesting user's locale. For example, if `A1` is `1.23` and `A2` is
+ *        `=A1` and formatted as currency, then `A2` would return `"$1.23"`.
+ *        (Value: "FORMATTED_VALUE")
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionUnformattedValue Values will
+ *        be calculated, but not formatted in the reply. For example, if `A1` is
+ *        `1.23` and `A2` is `=A1` and formatted as currency, then `A2` would
+ *        return the number `1.23`. (Value: "UNFORMATTED_VALUE")
+ *    @arg @c kGTLRSheetsResponseValueRenderOptionFormula Values will not be
+ *        calculated. The reply will include the formulas. For example, if `A1`
+ *        is `1.23` and `A2` is `=A1` and formatted as currency, then A2 would
+ *        return `"=A1"`. (Value: "FORMULA")
  */
 @property(nonatomic, copy, nullable) NSString *responseValueRenderOption;
 
@@ -1047,19 +1191,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
  *  How the input data should be interpreted.
  *
  *  Likely values:
- *    @arg @c kGTLRSheetsValueInputOptionInputValueOptionUnspecified Value
- *        "INPUT_VALUE_OPTION_UNSPECIFIED"
- *    @arg @c kGTLRSheetsValueInputOptionRaw Value "RAW"
- *    @arg @c kGTLRSheetsValueInputOptionUserEntered Value "USER_ENTERED"
+ *    @arg @c kGTLRSheetsValueInputOptionInputValueOptionUnspecified Default
+ *        input value. This value must not be used. (Value:
+ *        "INPUT_VALUE_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRSheetsValueInputOptionRaw The values the user has entered
+ *        will not be parsed and will be stored as-is. (Value: "RAW")
+ *    @arg @c kGTLRSheetsValueInputOptionUserEntered The values will be parsed
+ *        as if the user typed them into the UI. Numbers will stay as numbers,
+ *        but strings may be converted to numbers, dates, etc. following the
+ *        same rules that are applied when entering text into a cell via the
+ *        Google Sheets UI. (Value: "USER_ENTERED")
  */
 @property(nonatomic, copy, nullable) NSString *valueInputOption;
 
 /**
  *  Fetches a @c GTLRSheets_UpdateValuesResponse.
  *
- *  Sets values in a range of a spreadsheet.
- *  The caller must specify the spreadsheet ID, range, and
- *  a valueInputOption.
+ *  Sets values in a range of a spreadsheet. The caller must specify the
+ *  spreadsheet ID, range, and a valueInputOption.
  *
  *  @param object The @c GTLRSheets_ValueRange to include in the query.
  *  @param spreadsheetId The ID of the spreadsheet to update.

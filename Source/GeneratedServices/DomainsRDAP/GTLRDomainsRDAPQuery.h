@@ -39,8 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  Method: domainsrdap.autnum.get
  */
@@ -53,8 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
  *
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  @param autnumId NSString
  *
@@ -90,8 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  Method: domainsrdap.entity.get
  */
@@ -104,8 +104,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
  *
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  @param entityId NSString
  *
@@ -116,8 +116,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  Method: domainsrdap.ip.get
  */
@@ -132,8 +132,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
  *
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  @param ipId NSString
  *  @param ipId1 NSString
@@ -146,8 +146,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  Method: domainsrdap.nameserver.get
  */
@@ -160,8 +160,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
  *
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  @param nameserverId NSString
  *
@@ -172,8 +172,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  Method: domainsrdap.getDomains
  */
@@ -184,8 +184,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
  *
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  @return GTLRDomainsRDAPQuery_V1GetDomains
  */
@@ -194,8 +194,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  Method: domainsrdap.getEntities
  */
@@ -206,8 +206,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
  *
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  @return GTLRDomainsRDAPQuery_V1GetEntities
  */
@@ -236,8 +236,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  Method: domainsrdap.getIp
  */
@@ -248,8 +248,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDomainsRDAP_HttpBody.
  *
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  @return GTLRDomainsRDAPQuery_V1GetIp
  */
@@ -258,8 +258,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  Method: domainsrdap.getNameservers
  */
@@ -270,8 +270,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
  *
- *  The RDAP API recognizes this command from the RDAP specification but
- *  does not support it. The response is a formatted 501 error.
+ *  The RDAP API recognizes this command from the RDAP specification but does
+ *  not support it. The response is a formatted 501 error.
  *
  *  @return GTLRDomainsRDAPQuery_V1GetNameservers
  */

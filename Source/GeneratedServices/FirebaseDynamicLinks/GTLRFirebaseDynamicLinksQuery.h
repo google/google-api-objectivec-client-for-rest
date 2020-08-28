@@ -44,16 +44,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a managed short Dynamic Link given either a valid long Dynamic Link
- *  or details such as Dynamic Link domain, Android and iOS app information.
- *  The created short Dynamic Link will not expire.
- *  This differs from CreateShortDynamicLink in the following ways:
- *  - The request will also contain a name for the link (non unique name
- *  for the front end).
- *  - The response must be authenticated with an auth token (generated with
- *  the admin service account).
- *  - The link will appear in the FDL list of links in the console front end.
- *  The Dynamic Link domain in the request must be owned by requester's
- *  Firebase project.
+ *  or details such as Dynamic Link domain, Android and iOS app information. The
+ *  created short Dynamic Link will not expire. This differs from
+ *  CreateShortDynamicLink in the following ways: - The request will also
+ *  contain a name for the link (non unique name for the front end). - The
+ *  response must be authenticated with an auth token (generated with the admin
+ *  service account). - The link will appear in the FDL list of links in the
+ *  console front end. The Dynamic Link domain in the request must be owned by
+ *  requester's Firebase project.
  *
  *  Method: firebasedynamiclinks.managedShortLinks.create
  *
@@ -68,16 +66,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirebaseDynamicLinks_CreateManagedShortLinkResponse.
  *
  *  Creates a managed short Dynamic Link given either a valid long Dynamic Link
- *  or details such as Dynamic Link domain, Android and iOS app information.
- *  The created short Dynamic Link will not expire.
- *  This differs from CreateShortDynamicLink in the following ways:
- *  - The request will also contain a name for the link (non unique name
- *  for the front end).
- *  - The response must be authenticated with an auth token (generated with
- *  the admin service account).
- *  - The link will appear in the FDL list of links in the console front end.
- *  The Dynamic Link domain in the request must be owned by requester's
- *  Firebase project.
+ *  or details such as Dynamic Link domain, Android and iOS app information. The
+ *  created short Dynamic Link will not expire. This differs from
+ *  CreateShortDynamicLink in the following ways: - The request will also
+ *  contain a name for the link (non unique name for the front end). - The
+ *  response must be authenticated with an auth token (generated with the admin
+ *  service account). - The link will appear in the FDL list of links in the
+ *  console front end. The Dynamic Link domain in the request must be owned by
+ *  requester's Firebase project.
  *
  *  @param object The @c GTLRFirebaseDynamicLinks_CreateManagedShortLinkRequest
  *    to include in the query.
@@ -90,12 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a short Dynamic Link given either a valid long Dynamic Link or
- *  details such as Dynamic Link domain, Android and iOS app information.
- *  The created short Dynamic Link will not expire.
- *  Repeated calls with the same long Dynamic Link or Dynamic Link information
- *  will produce the same short Dynamic Link.
- *  The Dynamic Link domain in the request must be owned by requester's
- *  Firebase project.
+ *  details such as Dynamic Link domain, Android and iOS app information. The
+ *  created short Dynamic Link will not expire. Repeated calls with the same
+ *  long Dynamic Link or Dynamic Link information will produce the same short
+ *  Dynamic Link. The Dynamic Link domain in the request must be owned by
+ *  requester's Firebase project.
  *
  *  Method: firebasedynamiclinks.shortLinks.create
  *
@@ -110,12 +105,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirebaseDynamicLinks_CreateShortDynamicLinkResponse.
  *
  *  Creates a short Dynamic Link given either a valid long Dynamic Link or
- *  details such as Dynamic Link domain, Android and iOS app information.
- *  The created short Dynamic Link will not expire.
- *  Repeated calls with the same long Dynamic Link or Dynamic Link information
- *  will produce the same short Dynamic Link.
- *  The Dynamic Link domain in the request must be owned by requester's
- *  Firebase project.
+ *  details such as Dynamic Link domain, Android and iOS app information. The
+ *  created short Dynamic Link will not expire. Repeated calls with the same
+ *  long Dynamic Link or Dynamic Link information will produce the same short
+ *  Dynamic Link. The Dynamic Link domain in the request must be owned by
+ *  requester's Firebase project.
  *
  *  @param object The @c GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest
  *    to include in the query.
@@ -127,9 +121,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Fetches analytics stats of a short Dynamic Link for a given
- *  duration. Metrics include number of clicks, redirects, installs,
- *  app first opens, and app reopens.
+ *  Fetches analytics stats of a short Dynamic Link for a given duration.
+ *  Metrics include number of clicks, redirects, installs, app first opens, and
+ *  app reopens.
  *
  *  Method: firebasedynamiclinks.getLinkStats
  *
@@ -152,9 +146,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseDynamicLinks_DynamicLinkStats.
  *
- *  Fetches analytics stats of a short Dynamic Link for a given
- *  duration. Metrics include number of clicks, redirects, installs,
- *  app first opens, and app reopens.
+ *  Fetches analytics stats of a short Dynamic Link for a given duration.
+ *  Metrics include number of clicks, redirects, installs, app first opens, and
+ *  app reopens.
  *
  *  @param dynamicLink Dynamic Link URL. e.g. https://abcd.app.goo.gl/wxyz
  *

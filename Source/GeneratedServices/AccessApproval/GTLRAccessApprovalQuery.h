@@ -42,9 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Approves a request and returns the updated ApprovalRequest.
- *  Returns NOT_FOUND if the request does not exist. Returns
- *  FAILED_PRECONDITION if the request exists but is not in a pending state.
+ *  Approves a request and returns the updated ApprovalRequest. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  Method: accessapproval.folders.approvalRequests.approve
  *
@@ -61,9 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Approves a request and returns the updated ApprovalRequest.
- *  Returns NOT_FOUND if the request does not exist. Returns
- *  FAILED_PRECONDITION if the request exists but is not in a pending state.
+ *  Approves a request and returns the updated ApprovalRequest. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_ApproveApprovalRequestMessage to
  *    include in the query.
@@ -77,13 +77,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Dismisses a request. Returns the updated ApprovalRequest.
- *  NOTE: This does not deny access to the resource if another request has been
- *  made and approved. It is equivalent in effect to ignoring the request
- *  altogether.
- *  Returns NOT_FOUND if the request does not exist.
- *  Returns FAILED_PRECONDITION if the request exists but is not in a pending
- *  state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
+ *  not deny access to the resource if another request has been made and
+ *  approved. It is equivalent in effect to ignoring the request altogether.
+ *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
+ *  if the request exists but is not in a pending state.
  *
  *  Method: accessapproval.folders.approvalRequests.dismiss
  *
@@ -100,13 +98,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Dismisses a request. Returns the updated ApprovalRequest.
- *  NOTE: This does not deny access to the resource if another request has been
- *  made and approved. It is equivalent in effect to ignoring the request
- *  altogether.
- *  Returns NOT_FOUND if the request does not exist.
- *  Returns FAILED_PRECONDITION if the request exists but is not in a pending
- *  state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
+ *  not deny access to the resource if another request has been made and
+ *  approved. It is equivalent in effect to ignoring the request altogether.
+ *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
+ *  if the request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_DismissApprovalRequestMessage to
  *    include in the query.
@@ -149,8 +145,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists approval requests associated with a project, folder, or organization.
- *  Approval requests can be filtered by state (pending, active, dismissed).
- *  The order is reverse chronological.
+ *  Approval requests can be filtered by state (pending, active, dismissed). The
+ *  order is reverse chronological.
  *
  *  Method: accessapproval.folders.approvalRequests.list
  *
@@ -163,15 +159,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
- *  following values:
- *  <ol>
- *  <li>[not set]: Requests that are pending or have active approvals.</li>
- *  <li>ALL: All requests.</li>
- *  <li>PENDING: Only pending requests.</li>
- *  <li>ACTIVE: Only active (i.e. currently approved) requests.</li>
- *  <li>DISMISSED: Only dismissed (including expired) requests.</li>
- *  <li>HISTORY: Active and dismissed (including expired) requests.</li>
- *  </ol>
+ *  following values: 1. [not set]: Requests that are pending or have active
+ *  approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4.
+ *  ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
+ *  dismissed (including expired) requests. 6. HISTORY: Active and dismissed
+ *  (including expired) requests.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -191,8 +183,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_ListApprovalRequestsResponse.
  *
  *  Lists approval requests associated with a project, folder, or organization.
- *  Approval requests can be filtered by state (pending, active, dismissed).
- *  The order is reverse chronological.
+ *  Approval requests can be filtered by state (pending, active, dismissed). The
+ *  order is reverse chronological.
  *
  *  @param parent The parent resource. This may be "projects/{project_id}",
  *    "folders/{folder_id}", or "organizations/{organization_id}".
@@ -210,10 +202,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the settings associated with a project, folder, or organization.
  *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access
- *  Approval disabled. If Access Approval is enabled at a higher level of the
- *  hierarchy, then Access Approval will still be enabled at this level as
- *  the settings are inherited.
+ *  folder, or organization, but only if all ancestors also have Access Approval
+ *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
+ *  then Access Approval will still be enabled at this level as the settings are
+ *  inherited.
  *
  *  Method: accessapproval.folders.deleteAccessApprovalSettings
  *
@@ -232,10 +224,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the settings associated with a project, folder, or organization.
  *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access
- *  Approval disabled. If Access Approval is enabled at a higher level of the
- *  hierarchy, then Access Approval will still be enabled at this level as
- *  the settings are inherited.
+ *  folder, or organization, but only if all ancestors also have Access Approval
+ *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
+ *  then Access Approval will still be enabled at this level as the settings are
+ *  inherited.
  *
  *  @param name Name of the AccessApprovalSettings to delete.
  *
@@ -287,12 +279,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAccessApproval queryForFoldersUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
- *  The resource name of the settings. Format is one of:
- *  <ol>
- *  <li>"projects/{project_id}/accessApprovalSettings"</li>
- *  <li>"folders/{folder_id}/accessApprovalSettings"</li>
- *  <li>"organizations/{organization_id}/accessApprovalSettings"</li>
- *  <ol>
+ *  The resource name of the settings. Format is one of: 1.
+ *  "projects/{project_id}/accessApprovalSettings" 2.
+ *  "folders/{folder_id}/accessApprovalSettings" 3.
+ *  "organizations/{organization_id}/accessApprovalSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -301,8 +291,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  AccessApprovalSettings (notification_emails & enrolled_services) are
  *  supported. For each field, if it is included, the currently stored value
  *  will be entirely overwritten with the value of the field passed in this
- *  request.
- *  For the `FieldMask` definition, see
+ *  request. For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If this field is left unset, only the notification_emails field will be
  *  updated.
@@ -318,12 +307,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
- *  @param name The resource name of the settings. Format is one of:
- *    <ol>
- *    <li>"projects/{project_id}/accessApprovalSettings"</li>
- *    <li>"folders/{folder_id}/accessApprovalSettings"</li>
- *    <li>"organizations/{organization_id}/accessApprovalSettings"</li>
- *    <ol>
+ *  @param name The resource name of the settings. Format is one of: 1.
+ *    "projects/{project_id}/accessApprovalSettings" 2.
+ *    "folders/{folder_id}/accessApprovalSettings" 3.
+ *    "organizations/{organization_id}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_FoldersUpdateAccessApprovalSettings
  */
@@ -333,9 +320,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Approves a request and returns the updated ApprovalRequest.
- *  Returns NOT_FOUND if the request does not exist. Returns
- *  FAILED_PRECONDITION if the request exists but is not in a pending state.
+ *  Approves a request and returns the updated ApprovalRequest. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  Method: accessapproval.organizations.approvalRequests.approve
  *
@@ -352,9 +339,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Approves a request and returns the updated ApprovalRequest.
- *  Returns NOT_FOUND if the request does not exist. Returns
- *  FAILED_PRECONDITION if the request exists but is not in a pending state.
+ *  Approves a request and returns the updated ApprovalRequest. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_ApproveApprovalRequestMessage to
  *    include in the query.
@@ -368,13 +355,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Dismisses a request. Returns the updated ApprovalRequest.
- *  NOTE: This does not deny access to the resource if another request has been
- *  made and approved. It is equivalent in effect to ignoring the request
- *  altogether.
- *  Returns NOT_FOUND if the request does not exist.
- *  Returns FAILED_PRECONDITION if the request exists but is not in a pending
- *  state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
+ *  not deny access to the resource if another request has been made and
+ *  approved. It is equivalent in effect to ignoring the request altogether.
+ *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
+ *  if the request exists but is not in a pending state.
  *
  *  Method: accessapproval.organizations.approvalRequests.dismiss
  *
@@ -391,13 +376,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Dismisses a request. Returns the updated ApprovalRequest.
- *  NOTE: This does not deny access to the resource if another request has been
- *  made and approved. It is equivalent in effect to ignoring the request
- *  altogether.
- *  Returns NOT_FOUND if the request does not exist.
- *  Returns FAILED_PRECONDITION if the request exists but is not in a pending
- *  state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
+ *  not deny access to the resource if another request has been made and
+ *  approved. It is equivalent in effect to ignoring the request altogether.
+ *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
+ *  if the request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_DismissApprovalRequestMessage to
  *    include in the query.
@@ -440,8 +423,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists approval requests associated with a project, folder, or organization.
- *  Approval requests can be filtered by state (pending, active, dismissed).
- *  The order is reverse chronological.
+ *  Approval requests can be filtered by state (pending, active, dismissed). The
+ *  order is reverse chronological.
  *
  *  Method: accessapproval.organizations.approvalRequests.list
  *
@@ -454,15 +437,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
- *  following values:
- *  <ol>
- *  <li>[not set]: Requests that are pending or have active approvals.</li>
- *  <li>ALL: All requests.</li>
- *  <li>PENDING: Only pending requests.</li>
- *  <li>ACTIVE: Only active (i.e. currently approved) requests.</li>
- *  <li>DISMISSED: Only dismissed (including expired) requests.</li>
- *  <li>HISTORY: Active and dismissed (including expired) requests.</li>
- *  </ol>
+ *  following values: 1. [not set]: Requests that are pending or have active
+ *  approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4.
+ *  ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
+ *  dismissed (including expired) requests. 6. HISTORY: Active and dismissed
+ *  (including expired) requests.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -482,8 +461,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_ListApprovalRequestsResponse.
  *
  *  Lists approval requests associated with a project, folder, or organization.
- *  Approval requests can be filtered by state (pending, active, dismissed).
- *  The order is reverse chronological.
+ *  Approval requests can be filtered by state (pending, active, dismissed). The
+ *  order is reverse chronological.
  *
  *  @param parent The parent resource. This may be "projects/{project_id}",
  *    "folders/{folder_id}", or "organizations/{organization_id}".
@@ -501,10 +480,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the settings associated with a project, folder, or organization.
  *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access
- *  Approval disabled. If Access Approval is enabled at a higher level of the
- *  hierarchy, then Access Approval will still be enabled at this level as
- *  the settings are inherited.
+ *  folder, or organization, but only if all ancestors also have Access Approval
+ *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
+ *  then Access Approval will still be enabled at this level as the settings are
+ *  inherited.
  *
  *  Method: accessapproval.organizations.deleteAccessApprovalSettings
  *
@@ -523,10 +502,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the settings associated with a project, folder, or organization.
  *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access
- *  Approval disabled. If Access Approval is enabled at a higher level of the
- *  hierarchy, then Access Approval will still be enabled at this level as
- *  the settings are inherited.
+ *  folder, or organization, but only if all ancestors also have Access Approval
+ *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
+ *  then Access Approval will still be enabled at this level as the settings are
+ *  inherited.
  *
  *  @param name Name of the AccessApprovalSettings to delete.
  *
@@ -578,12 +557,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAccessApproval queryForOrganizationsUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
- *  The resource name of the settings. Format is one of:
- *  <ol>
- *  <li>"projects/{project_id}/accessApprovalSettings"</li>
- *  <li>"folders/{folder_id}/accessApprovalSettings"</li>
- *  <li>"organizations/{organization_id}/accessApprovalSettings"</li>
- *  <ol>
+ *  The resource name of the settings. Format is one of: 1.
+ *  "projects/{project_id}/accessApprovalSettings" 2.
+ *  "folders/{folder_id}/accessApprovalSettings" 3.
+ *  "organizations/{organization_id}/accessApprovalSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -592,8 +569,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  AccessApprovalSettings (notification_emails & enrolled_services) are
  *  supported. For each field, if it is included, the currently stored value
  *  will be entirely overwritten with the value of the field passed in this
- *  request.
- *  For the `FieldMask` definition, see
+ *  request. For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If this field is left unset, only the notification_emails field will be
  *  updated.
@@ -609,12 +585,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
- *  @param name The resource name of the settings. Format is one of:
- *    <ol>
- *    <li>"projects/{project_id}/accessApprovalSettings"</li>
- *    <li>"folders/{folder_id}/accessApprovalSettings"</li>
- *    <li>"organizations/{organization_id}/accessApprovalSettings"</li>
- *    <ol>
+ *  @param name The resource name of the settings. Format is one of: 1.
+ *    "projects/{project_id}/accessApprovalSettings" 2.
+ *    "folders/{folder_id}/accessApprovalSettings" 3.
+ *    "organizations/{organization_id}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_OrganizationsUpdateAccessApprovalSettings
  */
@@ -624,9 +598,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Approves a request and returns the updated ApprovalRequest.
- *  Returns NOT_FOUND if the request does not exist. Returns
- *  FAILED_PRECONDITION if the request exists but is not in a pending state.
+ *  Approves a request and returns the updated ApprovalRequest. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  Method: accessapproval.projects.approvalRequests.approve
  *
@@ -643,9 +617,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Approves a request and returns the updated ApprovalRequest.
- *  Returns NOT_FOUND if the request does not exist. Returns
- *  FAILED_PRECONDITION if the request exists but is not in a pending state.
+ *  Approves a request and returns the updated ApprovalRequest. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_ApproveApprovalRequestMessage to
  *    include in the query.
@@ -659,13 +633,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Dismisses a request. Returns the updated ApprovalRequest.
- *  NOTE: This does not deny access to the resource if another request has been
- *  made and approved. It is equivalent in effect to ignoring the request
- *  altogether.
- *  Returns NOT_FOUND if the request does not exist.
- *  Returns FAILED_PRECONDITION if the request exists but is not in a pending
- *  state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
+ *  not deny access to the resource if another request has been made and
+ *  approved. It is equivalent in effect to ignoring the request altogether.
+ *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
+ *  if the request exists but is not in a pending state.
  *
  *  Method: accessapproval.projects.approvalRequests.dismiss
  *
@@ -682,13 +654,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Dismisses a request. Returns the updated ApprovalRequest.
- *  NOTE: This does not deny access to the resource if another request has been
- *  made and approved. It is equivalent in effect to ignoring the request
- *  altogether.
- *  Returns NOT_FOUND if the request does not exist.
- *  Returns FAILED_PRECONDITION if the request exists but is not in a pending
- *  state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
+ *  not deny access to the resource if another request has been made and
+ *  approved. It is equivalent in effect to ignoring the request altogether.
+ *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
+ *  if the request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_DismissApprovalRequestMessage to
  *    include in the query.
@@ -731,8 +701,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists approval requests associated with a project, folder, or organization.
- *  Approval requests can be filtered by state (pending, active, dismissed).
- *  The order is reverse chronological.
+ *  Approval requests can be filtered by state (pending, active, dismissed). The
+ *  order is reverse chronological.
  *
  *  Method: accessapproval.projects.approvalRequests.list
  *
@@ -745,15 +715,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
- *  following values:
- *  <ol>
- *  <li>[not set]: Requests that are pending or have active approvals.</li>
- *  <li>ALL: All requests.</li>
- *  <li>PENDING: Only pending requests.</li>
- *  <li>ACTIVE: Only active (i.e. currently approved) requests.</li>
- *  <li>DISMISSED: Only dismissed (including expired) requests.</li>
- *  <li>HISTORY: Active and dismissed (including expired) requests.</li>
- *  </ol>
+ *  following values: 1. [not set]: Requests that are pending or have active
+ *  approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4.
+ *  ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
+ *  dismissed (including expired) requests. 6. HISTORY: Active and dismissed
+ *  (including expired) requests.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -773,8 +739,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_ListApprovalRequestsResponse.
  *
  *  Lists approval requests associated with a project, folder, or organization.
- *  Approval requests can be filtered by state (pending, active, dismissed).
- *  The order is reverse chronological.
+ *  Approval requests can be filtered by state (pending, active, dismissed). The
+ *  order is reverse chronological.
  *
  *  @param parent The parent resource. This may be "projects/{project_id}",
  *    "folders/{folder_id}", or "organizations/{organization_id}".
@@ -792,10 +758,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes the settings associated with a project, folder, or organization.
  *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access
- *  Approval disabled. If Access Approval is enabled at a higher level of the
- *  hierarchy, then Access Approval will still be enabled at this level as
- *  the settings are inherited.
+ *  folder, or organization, but only if all ancestors also have Access Approval
+ *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
+ *  then Access Approval will still be enabled at this level as the settings are
+ *  inherited.
  *
  *  Method: accessapproval.projects.deleteAccessApprovalSettings
  *
@@ -814,10 +780,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes the settings associated with a project, folder, or organization.
  *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access
- *  Approval disabled. If Access Approval is enabled at a higher level of the
- *  hierarchy, then Access Approval will still be enabled at this level as
- *  the settings are inherited.
+ *  folder, or organization, but only if all ancestors also have Access Approval
+ *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
+ *  then Access Approval will still be enabled at this level as the settings are
+ *  inherited.
  *
  *  @param name Name of the AccessApprovalSettings to delete.
  *
@@ -869,12 +835,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAccessApproval queryForProjectsUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
- *  The resource name of the settings. Format is one of:
- *  <ol>
- *  <li>"projects/{project_id}/accessApprovalSettings"</li>
- *  <li>"folders/{folder_id}/accessApprovalSettings"</li>
- *  <li>"organizations/{organization_id}/accessApprovalSettings"</li>
- *  <ol>
+ *  The resource name of the settings. Format is one of: 1.
+ *  "projects/{project_id}/accessApprovalSettings" 2.
+ *  "folders/{folder_id}/accessApprovalSettings" 3.
+ *  "organizations/{organization_id}/accessApprovalSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -883,8 +847,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  AccessApprovalSettings (notification_emails & enrolled_services) are
  *  supported. For each field, if it is included, the currently stored value
  *  will be entirely overwritten with the value of the field passed in this
- *  request.
- *  For the `FieldMask` definition, see
+ *  request. For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If this field is left unset, only the notification_emails field will be
  *  updated.
@@ -900,12 +863,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
- *  @param name The resource name of the settings. Format is one of:
- *    <ol>
- *    <li>"projects/{project_id}/accessApprovalSettings"</li>
- *    <li>"folders/{folder_id}/accessApprovalSettings"</li>
- *    <li>"organizations/{organization_id}/accessApprovalSettings"</li>
- *    <ol>
+ *  @param name The resource name of the settings. Format is one of: 1.
+ *    "projects/{project_id}/accessApprovalSettings" 2.
+ *    "folders/{folder_id}/accessApprovalSettings" 3.
+ *    "organizations/{organization_id}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_ProjectsUpdateAccessApprovalSettings
  */

@@ -51,27 +51,67 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // mode
 
-/** Value: "ASYNCHRONOUS" */
+/**
+ *  For changes that are executed after the response is sent back to the caller.
+ *
+ *  Value: "ASYNCHRONOUS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchModeAsynchronous;
-/** Value: "SYNCHRONOUS" */
+/**
+ *  For real-time updates.
+ *
+ *  Value: "SYNCHRONOUS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchModeSynchronous;
-/** Value: "UNSPECIFIED" */
+/**
+ *  Priority is not specified in the update request. Leaving priority
+ *  unspecified results in an update failure.
+ *
+ *  Value: "UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // resolutionStatusCode
 
-/** Value: "CODE_UNSPECIFIED" */
+/**
+ *  Input-only value. Used to list all unmapped identities regardless of status.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeCodeUnspecified;
-/** Value: "IDENTITY_SOURCE_MISCONFIGURED" */
+/**
+ *  IDaaS does not understand the identity source, probably because the schema
+ *  was modified in a non compatible way.
+ *
+ *  Value: "IDENTITY_SOURCE_MISCONFIGURED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeIdentitySourceMisconfigured;
-/** Value: "IDENTITY_SOURCE_NOT_FOUND" */
+/**
+ *  The identity source associated with the identity was either not found or
+ *  deleted.
+ *
+ *  Value: "IDENTITY_SOURCE_NOT_FOUND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeIdentitySourceNotFound;
-/** Value: "INTERNAL_ERROR" */
+/**
+ *  Internal error.
+ *
+ *  Value: "INTERNAL_ERROR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeInternalError;
-/** Value: "NOT_FOUND" */
+/**
+ *  The unmapped identity was not found in IDaaS, and needs to be provided by
+ *  the user.
+ *
+ *  Value: "NOT_FOUND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeNotFound;
-/** Value: "TOO_MANY_MAPPINGS_FOUND" */
+/**
+ *  The number of users associated with the external identity is too large.
+ *
+ *  Value: "TOO_MANY_MAPPINGS_FOUND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound;
 
 // ----------------------------------------------------------------------------
@@ -89,8 +129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Checks whether an item is accessible by specified principal.
- *  **Note:** This API requires an admin account to execute.
+ *  Checks whether an item is accessible by specified principal. **Note:** This
+ *  API requires an admin account to execute.
  *
  *  Method: cloudsearch.debug.datasources.items.checkAccess
  *
@@ -108,21 +148,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/**
- *  Item name, format:
- *  datasources/{source_id}/items/{item_id}
- */
+/** Item name, format: datasources/{source_id}/items/{item_id} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_CheckAccessResponse.
  *
- *  Checks whether an item is accessible by specified principal.
- *  **Note:** This API requires an admin account to execute.
+ *  Checks whether an item is accessible by specified principal. **Note:** This
+ *  API requires an admin account to execute.
  *
  *  @param object The @c GTLRCloudSearch_Principal to include in the query.
- *  @param name Item name, format:
- *    datasources/{source_id}/items/{item_id}
+ *  @param name Item name, format: datasources/{source_id}/items/{item_id}
  *
  *  @return GTLRCloudSearchQuery_DebugDatasourcesItemsCheckAccess
  */
@@ -132,9 +168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Fetches the item whose viewUrl exactly matches that of the URL provided
- *  in the request.
- *  **Note:** This API requires an admin account to execute.
+ *  Fetches the item whose viewUrl exactly matches that of the URL provided in
+ *  the request. **Note:** This API requires an admin account to execute.
  *
  *  Method: cloudsearch.debug.datasources.items.searchByViewUrl
  *
@@ -146,23 +181,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 // Previous library name was
 //   +[GTLQueryCloudSearch queryForDebugDatasourcesItemsSearchByViewUrlWithObject:name:]
 
-/**
- *  Source name, format:
- *  datasources/{source_id}
- */
+/** Source name, format: datasources/{source_id} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_SearchItemsByViewUrlResponse.
  *
- *  Fetches the item whose viewUrl exactly matches that of the URL provided
- *  in the request.
- *  **Note:** This API requires an admin account to execute.
+ *  Fetches the item whose viewUrl exactly matches that of the URL provided in
+ *  the request. **Note:** This API requires an admin account to execute.
  *
  *  @param object The @c GTLRCloudSearch_SearchItemsByViewUrlRequest to include
  *    in the query.
- *  @param name Source name, format:
- *    datasources/{source_id}
+ *  @param name Source name, format: datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_DebugDatasourcesItemsSearchByViewUrl
  */
@@ -172,8 +202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  List all unmapped identities for a specific item.
- *  **Note:** This API requires an admin account to execute.
+ *  List all unmapped identities for a specific item. **Note:** This API
+ *  requires an admin account to execute.
  *
  *  Method: cloudsearch.debug.datasources.items.unmappedids.list
  *
@@ -191,10 +221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/**
- *  Maximum number of items to fetch in a request.
- *  Defaults to 100.
- */
+/** Maximum number of items to fetch in a request. Defaults to 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -211,8 +238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_ListUnmappedIdentitiesResponse.
  *
- *  List all unmapped identities for a specific item.
- *  **Note:** This API requires an admin account to execute.
+ *  List all unmapped identities for a specific item. **Note:** This API
+ *  requires an admin account to execute.
  *
  *  @param parent The name of the item, in the following format:
  *    datasources/{source_id}/items/{ID}
@@ -228,8 +255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Lists names of items associated with an unmapped identity.
- *  **Note:** This API requires an admin account to execute.
+ *  Lists names of items associated with an unmapped identity. **Note:** This
+ *  API requires an admin account to execute.
  *
  *  Method: cloudsearch.debug.identitysources.items.listForunmappedidentity
  *
@@ -249,10 +276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 @property(nonatomic, copy, nullable) NSString *groupResourceName;
 
-/**
- *  Maximum number of items to fetch in a request.
- *  Defaults to 100.
- */
+/** Maximum number of items to fetch in a request. Defaults to 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -271,8 +295,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_ListItemNamesForUnmappedIdentityResponse.
  *
- *  Lists names of items associated with an unmapped identity.
- *  **Note:** This API requires an admin account to execute.
+ *  Lists names of items associated with an unmapped identity. **Note:** This
+ *  API requires an admin account to execute.
  *
  *  @param parent The name of the identity source, in the following format:
  *    identitysources/{source_id}}
@@ -284,8 +308,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Lists unmapped user identities for an identity source.
- *  **Note:** This API requires an admin account to execute.
+ *  Lists unmapped user identities for an identity source. **Note:** This API
+ *  requires an admin account to execute.
  *
  *  Method: cloudsearch.debug.identitysources.unmappedids.list
  *
@@ -303,10 +327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/**
- *  Maximum number of items to fetch in a request.
- *  Defaults to 100.
- */
+/** Maximum number of items to fetch in a request. Defaults to 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -324,25 +345,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Limit users selection to this status.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudSearchResolutionStatusCodeCodeUnspecified Value
- *        "CODE_UNSPECIFIED"
- *    @arg @c kGTLRCloudSearchResolutionStatusCodeNotFound Value "NOT_FOUND"
- *    @arg @c kGTLRCloudSearchResolutionStatusCodeIdentitySourceNotFound Value
- *        "IDENTITY_SOURCE_NOT_FOUND"
+ *    @arg @c kGTLRCloudSearchResolutionStatusCodeCodeUnspecified Input-only
+ *        value. Used to list all unmapped identities regardless of status.
+ *        (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearchResolutionStatusCodeNotFound The unmapped identity
+ *        was not found in IDaaS, and needs to be provided by the user. (Value:
+ *        "NOT_FOUND")
+ *    @arg @c kGTLRCloudSearchResolutionStatusCodeIdentitySourceNotFound The
+ *        identity source associated with the identity was either not found or
+ *        deleted. (Value: "IDENTITY_SOURCE_NOT_FOUND")
  *    @arg @c kGTLRCloudSearchResolutionStatusCodeIdentitySourceMisconfigured
- *        Value "IDENTITY_SOURCE_MISCONFIGURED"
- *    @arg @c kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound Value
- *        "TOO_MANY_MAPPINGS_FOUND"
- *    @arg @c kGTLRCloudSearchResolutionStatusCodeInternalError Value
- *        "INTERNAL_ERROR"
+ *        IDaaS does not understand the identity source, probably because the
+ *        schema was modified in a non compatible way. (Value:
+ *        "IDENTITY_SOURCE_MISCONFIGURED")
+ *    @arg @c kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound The
+ *        number of users associated with the external identity is too large.
+ *        (Value: "TOO_MANY_MAPPINGS_FOUND")
+ *    @arg @c kGTLRCloudSearchResolutionStatusCodeInternalError Internal error.
+ *        (Value: "INTERNAL_ERROR")
  */
 @property(nonatomic, copy, nullable) NSString *resolutionStatusCode;
 
 /**
  *  Fetches a @c GTLRCloudSearch_ListUnmappedIdentitiesResponse.
  *
- *  Lists unmapped user identities for an identity source.
- *  **Note:** This API requires an admin account to execute.
+ *  Lists unmapped user identities for an identity source. **Note:** This API
+ *  requires an admin account to execute.
  *
  *  @param parent The name of the identity source, in the following format:
  *    identitysources/{source_id}
@@ -358,8 +386,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Deletes the schema of a data source.
- *  **Note:** This API requires an admin or service account to execute.
+ *  Deletes the schema of a data source. **Note:** This API requires an admin or
+ *  service account to execute.
  *
  *  Method: cloudsearch.indexing.datasources.deleteSchema
  *
@@ -379,16 +407,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Name of the data source to delete Schema. Format:
- *  datasources/{source_id}
+ *  Name of the data source to delete Schema. Format: datasources/{source_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Deletes the schema of a data source.
- *  **Note:** This API requires an admin or service account to execute.
+ *  Deletes the schema of a data source. **Note:** This API requires an admin or
+ *  service account to execute.
  *
  *  @param name Name of the data source to delete Schema. Format:
  *    datasources/{source_id}
@@ -400,8 +427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Gets the schema of a data source.
- *  **Note:** This API requires an admin or service account to execute.
+ *  Gets the schema of a data source. **Note:** This API requires an admin or
+ *  service account to execute.
  *
  *  Method: cloudsearch.indexing.datasources.getSchema
  *
@@ -420,17 +447,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/**
- *  Name of the data source to get Schema. Format:
- *  datasources/{source_id}
- */
+/** Name of the data source to get Schema. Format: datasources/{source_id} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Schema.
  *
- *  Gets the schema of a data source.
- *  **Note:** This API requires an admin or service account to execute.
+ *  Gets the schema of a data source. **Note:** This API requires an admin or
+ *  service account to execute.
  *
  *  @param name Name of the data source to get Schema. Format:
  *    datasources/{source_id}
@@ -442,10 +466,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Deletes Item resource for the
- *  specified resource name. This API requires an admin or service account
- *  to execute. The service account used is the one whitelisted in the
- *  corresponding data source.
+ *  Deletes Item resource for the specified resource name. This API requires an
+ *  admin or service account to execute. The service account used is the one
+ *  whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.delete
  *
@@ -458,8 +481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsDeleteWithname:]
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -473,28 +496,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Required. The RequestMode for this request.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudSearchModeUnspecified Value "UNSPECIFIED"
- *    @arg @c kGTLRCloudSearchModeSynchronous Value "SYNCHRONOUS"
- *    @arg @c kGTLRCloudSearchModeAsynchronous Value "ASYNCHRONOUS"
+ *    @arg @c kGTLRCloudSearchModeUnspecified Priority is not specified in the
+ *        update request. Leaving priority unspecified results in an update
+ *        failure. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRCloudSearchModeSynchronous For real-time updates. (Value:
+ *        "SYNCHRONOUS")
+ *    @arg @c kGTLRCloudSearchModeAsynchronous For changes that are executed
+ *        after the response is sent back to the caller. (Value: "ASYNCHRONOUS")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
- *  Required. Name of the item to delete.
- *  Format: datasources/{source_id}/items/{item_id}
+ *  Required. Name of the item to delete. Format:
+ *  datasources/{source_id}/items/{item_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The incremented version of the item to delete from the index.
- *  The indexing system stores the version from the datasource as a
- *  byte string and compares the Item version in the index
- *  to the version of the queued Item using lexical ordering.
- *  <br /><br />
- *  Cloud Search Indexing won't delete any queued item with
- *  a version value that is less than or equal to
- *  the version of the currently indexed item.
- *  The maximum length for this field is 1024 bytes.
+ *  Required. The incremented version of the item to delete from the index. The
+ *  indexing system stores the version from the datasource as a byte string and
+ *  compares the Item version in the index to the version of the queued Item
+ *  using lexical ordering. Cloud Search Indexing won't delete any queued item
+ *  with a version value that is less than or equal to the version of the
+ *  currently indexed item. The maximum length for this field is 1024 bytes.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -504,13 +528,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Deletes Item resource for the
- *  specified resource name. This API requires an admin or service account
- *  to execute. The service account used is the one whitelisted in the
- *  corresponding data source.
+ *  Deletes Item resource for the specified resource name. This API requires an
+ *  admin or service account to execute. The service account used is the one
+ *  whitelisted in the corresponding data source.
  *
- *  @param name Required. Name of the item to delete.
- *    Format: datasources/{source_id}/items/{item_id}
+ *  @param name Required. Name of the item to delete. Format:
+ *    datasources/{source_id}/items/{item_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsDelete
  */
@@ -520,8 +543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Deletes all items in a queue. This method is useful for deleting stale
- *  items.
- *  This API requires an admin or service account to execute. The service
+ *  items. This API requires an admin or service account to execute. The service
  *  account used is the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.deleteQueueItems
@@ -535,8 +557,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsDeleteQueueItemsWithObject:name:]
 
 /**
- *  Name of the Data Source to delete items in a queue.
- *  Format: datasources/{source_id}
+ *  Name of the Data Source to delete items in a queue. Format:
+ *  datasources/{source_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -544,14 +566,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
  *  Deletes all items in a queue. This method is useful for deleting stale
- *  items.
- *  This API requires an admin or service account to execute. The service
+ *  items. This API requires an admin or service account to execute. The service
  *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_DeleteQueueItemsRequest to include in
  *    the query.
- *  @param name Name of the Data Source to delete items in a queue.
- *    Format: datasources/{source_id}
+ *  @param name Name of the Data Source to delete items in a queue. Format:
+ *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsDeleteQueueItems
  */
@@ -561,9 +582,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Gets Item resource by item name.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Gets Item resource by item name. This API requires an admin or service
+ *  account to execute. The service account used is the one whitelisted in the
+ *  corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.get
  *
@@ -576,8 +597,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsGetWithname:]
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -588,20 +609,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Name of the item to get info.
- *  Format: datasources/{source_id}/items/{item_id}
+ *  Name of the item to get info. Format:
+ *  datasources/{source_id}/items/{item_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Item.
  *
- *  Gets Item resource by item name.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Gets Item resource by item name. This API requires an admin or service
+ *  account to execute. The service account used is the one whitelisted in the
+ *  corresponding data source.
  *
- *  @param name Name of the item to get info.
- *    Format: datasources/{source_id}/items/{item_id}
+ *  @param name Name of the item to get info. Format:
+ *    datasources/{source_id}/items/{item_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsGet
  */
@@ -610,13 +631,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Updates Item ACL, metadata, and
- *  content. It will insert the Item if it
- *  does not exist.
- *  This method does not support partial updates. Fields with no provided
- *  values are cleared out in the Cloud Search index.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Updates Item ACL, metadata, and content. It will insert the Item if it does
+ *  not exist. This method does not support partial updates. Fields with no
+ *  provided values are cleared out in the Cloud Search index. This API requires
+ *  an admin or service account to execute. The service account used is the one
+ *  whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.index
  *
@@ -629,30 +648,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsIndexWithObject:name:]
 
 /**
- *  Name of the Item. Format:
- *  datasources/{source_id}/items/{item_id}
- *  <br />This is a required field.
- *  The maximum length is 1536 characters.
+ *  Name of the Item. Format: datasources/{source_id}/items/{item_id} This is a
+ *  required field. The maximum length is 1536 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Updates Item ACL, metadata, and
- *  content. It will insert the Item if it
- *  does not exist.
- *  This method does not support partial updates. Fields with no provided
- *  values are cleared out in the Cloud Search index.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Updates Item ACL, metadata, and content. It will insert the Item if it does
+ *  not exist. This method does not support partial updates. Fields with no
+ *  provided values are cleared out in the Cloud Search index. This API requires
+ *  an admin or service account to execute. The service account used is the one
+ *  whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_IndexItemRequest to include in the
  *    query.
  *  @param name Name of the Item. Format:
- *    datasources/{source_id}/items/{item_id}
- *    <br />This is a required field.
- *    The maximum length is 1536 characters.
+ *    datasources/{source_id}/items/{item_id} This is a required field. The
+ *    maximum length is 1536 characters.
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsIndex
  */
@@ -662,9 +676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Lists all or a subset of Item resources.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Lists all or a subset of Item resources. This API requires an admin or
+ *  service account to execute. The service account used is the one whitelisted
+ *  in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.list
  *
@@ -678,30 +692,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  When set to true, the indexing system only populates the following fields:
- *  name,
- *  version,
- *  queue.
- *  metadata.hash,
- *  metadata.title,
- *  metadata.sourceRepositoryURL,
- *  metadata.objectType,
- *  metadata.createTime,
- *  metadata.updateTime,
- *  metadata.contentLanguage,
- *  metadata.mimeType,
- *  structured_data.hash,
- *  content.hash,
- *  itemType,
- *  itemStatus.code,
- *  itemStatus.processingError.code,
- *  itemStatus.repositoryError.type,
- *  <br />If this value is false, then all the fields are populated in Item.
+ *  name, version, queue. metadata.hash, metadata.title,
+ *  metadata.sourceRepositoryURL, metadata.objectType, metadata.createTime,
+ *  metadata.updateTime, metadata.contentLanguage, metadata.mimeType,
+ *  structured_data.hash, content.hash, itemType, itemStatus.code,
+ *  itemStatus.processingError.code, itemStatus.repositoryError.type, If this
+ *  value is false, then all the fields are populated in Item.
  */
 @property(nonatomic, assign) BOOL brief;
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -711,17 +713,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/**
- *  Name of the Data Source to list Items. Format:
- *  datasources/{source_id}
- */
+/** Name of the Data Source to list Items. Format: datasources/{source_id} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Maximum number of items to fetch in a request.
- *  The max value is 1000 when brief is true. The max value is 10 if brief
- *  is false.
- *  <br />The default value is 10
+ *  Maximum number of items to fetch in a request. The max value is 1000 when
+ *  brief is true. The max value is 10 if brief is false. The default value is
+ *  10
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -733,9 +731,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_ListItemsResponse.
  *
- *  Lists all or a subset of Item resources.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Lists all or a subset of Item resources. This API requires an admin or
+ *  service account to execute. The service account used is the one whitelisted
+ *  in the corresponding data source.
  *
  *  @param name Name of the Data Source to list Items. Format:
  *    datasources/{source_id}
@@ -751,31 +749,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Polls for unreserved items from the indexing queue and marks a
- *  set as reserved, starting with items that have
- *  the oldest timestamp from the highest priority
- *  ItemStatus.
- *  The priority order is as follows: <br />
- *  ERROR
- *  <br />
- *  MODIFIED
- *  <br />
- *  NEW_ITEM
- *  <br />
- *  ACCEPTED
- *  <br />
- *  Reserving items ensures that polling from other threads
- *  cannot create overlapping sets.
- *  After handling the reserved items, the client should put items back
- *  into the unreserved state, either by calling
- *  index,
- *  or by calling
- *  push with
- *  the type REQUEUE.
- *  Items automatically become available (unreserved) after 4 hours even if no
- *  update or push method is called.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Polls for unreserved items from the indexing queue and marks a set as
+ *  reserved, starting with items that have the oldest timestamp from the
+ *  highest priority ItemStatus. The priority order is as follows: ERROR
+ *  MODIFIED NEW_ITEM ACCEPTED Reserving items ensures that polling from other
+ *  threads cannot create overlapping sets. After handling the reserved items,
+ *  the client should put items back into the unreserved state, either by
+ *  calling index, or by calling push with the type REQUEUE. Items automatically
+ *  become available (unreserved) after 4 hours even if no update or push method
+ *  is called. This API requires an admin or service account to execute. The
+ *  service account used is the one whitelisted in the corresponding data
+ *  source.
  *
  *  Method: cloudsearch.indexing.datasources.items.poll
  *
@@ -787,45 +771,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 // Previous library name was
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsPollWithObject:name:]
 
-/**
- *  Name of the Data Source to poll items.
- *  Format: datasources/{source_id}
- */
+/** Name of the Data Source to poll items. Format: datasources/{source_id} */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_PollItemsResponse.
  *
- *  Polls for unreserved items from the indexing queue and marks a
- *  set as reserved, starting with items that have
- *  the oldest timestamp from the highest priority
- *  ItemStatus.
- *  The priority order is as follows: <br />
- *  ERROR
- *  <br />
- *  MODIFIED
- *  <br />
- *  NEW_ITEM
- *  <br />
- *  ACCEPTED
- *  <br />
- *  Reserving items ensures that polling from other threads
- *  cannot create overlapping sets.
- *  After handling the reserved items, the client should put items back
- *  into the unreserved state, either by calling
- *  index,
- *  or by calling
- *  push with
- *  the type REQUEUE.
- *  Items automatically become available (unreserved) after 4 hours even if no
- *  update or push method is called.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Polls for unreserved items from the indexing queue and marks a set as
+ *  reserved, starting with items that have the oldest timestamp from the
+ *  highest priority ItemStatus. The priority order is as follows: ERROR
+ *  MODIFIED NEW_ITEM ACCEPTED Reserving items ensures that polling from other
+ *  threads cannot create overlapping sets. After handling the reserved items,
+ *  the client should put items back into the unreserved state, either by
+ *  calling index, or by calling push with the type REQUEUE. Items automatically
+ *  become available (unreserved) after 4 hours even if no update or push method
+ *  is called. This API requires an admin or service account to execute. The
+ *  service account used is the one whitelisted in the corresponding data
+ *  source.
  *
  *  @param object The @c GTLRCloudSearch_PollItemsRequest to include in the
  *    query.
- *  @param name Name of the Data Source to poll items.
- *    Format: datasources/{source_id}
+ *  @param name Name of the Data Source to poll items. Format:
+ *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsPoll
  */
@@ -835,9 +802,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Pushes an item onto a queue for later polling and updating.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Pushes an item onto a queue for later polling and updating. This API
+ *  requires an admin or service account to execute. The service account used is
+ *  the one whitelisted in the corresponding data source.
  *
  *  Method: cloudsearch.indexing.datasources.items.push
  *
@@ -850,28 +817,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsPushWithObject:name:]
 
 /**
- *  Name of the item to
- *  push into the indexing queue.<br />
- *  Format: datasources/{source_id}/items/{ID}
- *  <br />This is a required field.
- *  The maximum length is 1536 characters.
+ *  Name of the item to push into the indexing queue. Format:
+ *  datasources/{source_id}/items/{ID} This is a required field. The maximum
+ *  length is 1536 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Item.
  *
- *  Pushes an item onto a queue for later polling and updating.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Pushes an item onto a queue for later polling and updating. This API
+ *  requires an admin or service account to execute. The service account used is
+ *  the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_PushItemRequest to include in the
  *    query.
- *  @param name Name of the item to
- *    push into the indexing queue.<br />
- *    Format: datasources/{source_id}/items/{ID}
- *    <br />This is a required field.
- *    The maximum length is 1536 characters.
+ *  @param name Name of the item to push into the indexing queue. Format:
+ *    datasources/{source_id}/items/{ID} This is a required field. The maximum
+ *    length is 1536 characters.
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsPush
  */
@@ -881,11 +844,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Unreserves all items from a queue, making them all eligible to be
- *  polled. This method is useful for resetting the indexing queue
- *  after a connector has been restarted.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Unreserves all items from a queue, making them all eligible to be polled.
+ *  This method is useful for resetting the indexing queue after a connector has
+ *  been restarted. This API requires an admin or service account to execute.
+ *  The service account used is the one whitelisted in the corresponding data
+ *  source.
  *
  *  Method: cloudsearch.indexing.datasources.items.unreserve
  *
@@ -898,24 +861,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsUnreserveWithObject:name:]
 
 /**
- *  Name of the Data Source to unreserve all items.
- *  Format: datasources/{source_id}
+ *  Name of the Data Source to unreserve all items. Format:
+ *  datasources/{source_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Unreserves all items from a queue, making them all eligible to be
- *  polled. This method is useful for resetting the indexing queue
- *  after a connector has been restarted.
- *  This API requires an admin or service account to execute. The service
- *  account used is the one whitelisted in the corresponding data source.
+ *  Unreserves all items from a queue, making them all eligible to be polled.
+ *  This method is useful for resetting the indexing queue after a connector has
+ *  been restarted. This API requires an admin or service account to execute.
+ *  The service account used is the one whitelisted in the corresponding data
+ *  source.
  *
  *  @param object The @c GTLRCloudSearch_UnreserveItemsRequest to include in the
  *    query.
- *  @param name Name of the Data Source to unreserve all items.
- *    Format: datasources/{source_id}
+ *  @param name Name of the Data Source to unreserve all items. Format:
+ *    datasources/{source_id}
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsUnreserve
  */
@@ -925,10 +888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Creates an upload session for uploading item content. For items smaller
- *  than 100 KB, it's easier to embed the content
- *  inline within
- *  an index request.
+ *  Creates an upload session for uploading item content. For items smaller than
+ *  100 KB, it's easier to embed the content inline within an index request.
  *  This API requires an admin or service account to execute. The service
  *  account used is the one whitelisted in the corresponding data source.
  *
@@ -943,27 +904,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesItemsUploadWithObject:name:]
 
 /**
- *  Name of the Item to start a resumable upload.
- *  Format: datasources/{source_id}/items/{item_id}.
- *  The maximum length is 1536 bytes.
+ *  Name of the Item to start a resumable upload. Format:
+ *  datasources/{source_id}/items/{item_id}. The maximum length is 1536 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_UploadItemRef.
  *
- *  Creates an upload session for uploading item content. For items smaller
- *  than 100 KB, it's easier to embed the content
- *  inline within
- *  an index request.
+ *  Creates an upload session for uploading item content. For items smaller than
+ *  100 KB, it's easier to embed the content inline within an index request.
  *  This API requires an admin or service account to execute. The service
  *  account used is the one whitelisted in the corresponding data source.
  *
  *  @param object The @c GTLRCloudSearch_StartUploadItemRequest to include in
  *    the query.
- *  @param name Name of the Item to start a resumable upload.
- *    Format: datasources/{source_id}/items/{item_id}.
- *    The maximum length is 1536 bytes.
+ *  @param name Name of the Item to start a resumable upload. Format:
+ *    datasources/{source_id}/items/{item_id}. The maximum length is 1536 bytes.
  *
  *  @return GTLRCloudSearchQuery_IndexingDatasourcesItemsUpload
  */
@@ -975,8 +932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Updates the schema of a data source. This method does not perform
  *  incremental updates to the schema. Instead, this method updates the schema
- *  by overwriting the entire schema.
- *  **Note:** This API requires an admin or service account to execute.
+ *  by overwriting the entire schema. **Note:** This API requires an admin or
+ *  service account to execute.
  *
  *  Method: cloudsearch.indexing.datasources.updateSchema
  *
@@ -990,8 +947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForIndexingDatasourcesUpdateSchemaWithObject:name:]
 
 /**
- *  Name of the data source to update Schema. Format:
- *  datasources/{source_id}
+ *  Name of the data source to update Schema. Format: datasources/{source_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1000,8 +956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *
  *  Updates the schema of a data source. This method does not perform
  *  incremental updates to the schema. Instead, this method updates the schema
- *  by overwriting the entire schema.
- *  **Note:** This API requires an admin or service account to execute.
+ *  by overwriting the entire schema. **Note:** This API requires an admin or
+ *  service account to execute.
  *
  *  @param object The @c GTLRCloudSearch_UpdateSchemaRequest to include in the
  *    query.
@@ -1016,24 +972,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Uploads media for indexing.
- *  The upload endpoint supports direct and resumable upload protocols and
- *  is intended for large items that can not be
+ *  Uploads media for indexing. The upload endpoint supports direct and
+ *  resumable upload protocols and is intended for large items that can not be
  *  [inlined during index
  *  requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent).
- *  To index large content:
- *  1. Call
- *  indexing.datasources.items.upload
- *  with the resource name to begin an upload session and retrieve the
- *  UploadItemRef.
- *  1. Call media.upload to upload the content using the same resource name from
- *  step 1.
- *  1. Call indexing.datasources.items.index
- *  to index the item. Populate the
+ *  To index large content: 1. Call indexing.datasources.items.upload with the
+ *  item name to begin an upload session and retrieve the UploadItemRef. 1. Call
+ *  media.upload to upload the content, as a streaming request, using the same
+ *  resource name from the UploadItemRef from step 1. 1. Call
+ *  indexing.datasources.items.index to index the item. Populate the
  *  [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent)
- *  with the UploadItemRef from step 1.
- *  For additional information, see
- *  [Create a content connector using the REST
+ *  with the UploadItemRef from step 1. For additional information, see [Create
+ *  a content connector using the REST
  *  API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest).
  *  **Note:** This API requires a service account to execute.
  *
@@ -1048,32 +998,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForMediaUploadWithObject:resourceName:]
 
 /**
- *  Name of the media that is being downloaded. See
- *  ReadRequest.resource_name.
+ *  Name of the media that is being downloaded. See ReadRequest.resource_name.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Media.
  *
- *  Uploads media for indexing.
- *  The upload endpoint supports direct and resumable upload protocols and
- *  is intended for large items that can not be
+ *  Uploads media for indexing. The upload endpoint supports direct and
+ *  resumable upload protocols and is intended for large items that can not be
  *  [inlined during index
  *  requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent).
- *  To index large content:
- *  1. Call
- *  indexing.datasources.items.upload
- *  with the resource name to begin an upload session and retrieve the
- *  UploadItemRef.
- *  1. Call media.upload to upload the content using the same resource name from
- *  step 1.
- *  1. Call indexing.datasources.items.index
- *  to index the item. Populate the
+ *  To index large content: 1. Call indexing.datasources.items.upload with the
+ *  item name to begin an upload session and retrieve the UploadItemRef. 1. Call
+ *  media.upload to upload the content, as a streaming request, using the same
+ *  resource name from the UploadItemRef from step 1. 1. Call
+ *  indexing.datasources.items.index to index the item. Populate the
  *  [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent)
- *  with the UploadItemRef from step 1.
- *  For additional information, see
- *  [Create a content connector using the REST
+ *  with the UploadItemRef from step 1. For additional information, see [Create
+ *  a content connector using the REST
  *  API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest).
  *  **Note:** This API requires a service account to execute.
  *
@@ -1129,14 +1072,75 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  The Cloud Search Query API provides the search method, which returns
- *  the most relevant results from a user query. The results can come from
- *  G Suite Apps, such as Gmail or Google Drive, or they can come from data
- *  that you have indexed from a third party.
- *  **Note:** This API requires a standard end user account to execute.
- *  A service account can't perform Query API requests directly; to use a
- *  service account to perform queries, set up [G Suite domain-wide delegation
- *  of
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  Method: cloudsearch.operations.lro.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSearchCloudSearch
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchDebug
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchIndexing
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettings
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettingsIndexing
+ *    @c kGTLRAuthScopeCloudSearchCloudSearchSettingsQuery
+ */
+@interface GTLRCloudSearchQuery_OperationsLroList : GTLRCloudSearchQuery
+// Previous library name was
+//   +[GTLQueryCloudSearch queryForOperationsLroListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudSearch_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRCloudSearchQuery_OperationsLroList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  The Cloud Search Query API provides the search method, which returns the
+ *  most relevant results from a user query. The results can come from G Suite
+ *  Apps, such as Gmail or Google Drive, or they can come from data that you
+ *  have indexed from a third party. **Note:** This API requires a standard end
+ *  user account to execute. A service account can't perform Query API requests
+ *  directly; to use a service account to perform queries, set up [G Suite
+ *  domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.search
@@ -1152,14 +1156,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_SearchResponse.
  *
- *  The Cloud Search Query API provides the search method, which returns
- *  the most relevant results from a user query. The results can come from
- *  G Suite Apps, such as Gmail or Google Drive, or they can come from data
- *  that you have indexed from a third party.
- *  **Note:** This API requires a standard end user account to execute.
- *  A service account can't perform Query API requests directly; to use a
- *  service account to perform queries, set up [G Suite domain-wide delegation
- *  of
+ *  The Cloud Search Query API provides the search method, which returns the
+ *  most relevant results from a user query. The results can come from G Suite
+ *  Apps, such as Gmail or Google Drive, or they can come from data that you
+ *  have indexed from a third party. **Note:** This API requires a standard end
+ *  user account to execute. A service account can't perform Query API requests
+ *  directly; to use a service account to perform queries, set up [G Suite
+ *  domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_SearchRequest to include in the query.
@@ -1172,10 +1175,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Returns list of sources that user can use for Search and Suggest APIs.
- *  **Note:** This API requires a standard end user account to execute.
- *  A service account can't perform Query API requests directly; to use a
- *  service account to perform queries, set up [G Suite domain-wide delegation
- *  of
+ *  **Note:** This API requires a standard end user account to execute. A
+ *  service account can't perform Query API requests directly; to use a service
+ *  account to perform queries, set up [G Suite domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.sources.list
@@ -1198,34 +1200,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL requestOptionsDebugOptionsEnableDebugging;
 
 /**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn".
- *  For more information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
- *  For translations.
- *  Set this field using the language set in browser or for the page. In the
- *  event that the user's language preference is known, set this field to the
- *  known user language.
- *  When specified, the documents in search results are biased towards the
- *  specified language.
- *  The suggest API does not use this parameter. Instead, suggest autocompletes
- *  only based on characters in the query.
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. For
+ *  translations. Set this field using the language set in browser or for the
+ *  page. In the event that the user's language preference is known, set this
+ *  field to the known user language. When specified, the documents in search
+ *  results are biased towards the specified language. The suggest API does not
+ *  use this parameter. Instead, suggest autocompletes only based on characters
+ *  in the query.
  */
 @property(nonatomic, copy, nullable) NSString *requestOptionsLanguageCode;
 
 /**
- *  The ID generated when you create a search application using the
- *  [admin console](https://support.google.com/a/answer/9043922).
+ *  The ID generated when you create a search application using the [admin
+ *  console](https://support.google.com/a/answer/9043922).
  */
 @property(nonatomic, copy, nullable) NSString *requestOptionsSearchApplicationId;
 
 /**
  *  Current user's time zone id, such as "America/Los_Angeles" or
- *  "Australia/Sydney". These IDs are defined by
- *  [Unicode Common Locale Data Repository (CLDR)](http://cldr.unicode.org/)
- *  project, and currently available in the file
+ *  "Australia/Sydney". These IDs are defined by [Unicode Common Locale Data
+ *  Repository (CLDR)](http://cldr.unicode.org/) project, and currently
+ *  available in the file
  *  [timezone.xml](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml).
- *  This field is used to correctly interpret date and time queries.
- *  If this field is not specified, the default time zone (UTC) is used.
+ *  This field is used to correctly interpret date and time queries. If this
+ *  field is not specified, the default time zone (UTC) is used.
  */
 @property(nonatomic, copy, nullable) NSString *requestOptionsTimeZone;
 
@@ -1233,10 +1233,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Fetches a @c GTLRCloudSearch_ListQuerySourcesResponse.
  *
  *  Returns list of sources that user can use for Search and Suggest APIs.
- *  **Note:** This API requires a standard end user account to execute.
- *  A service account can't perform Query API requests directly; to use a
- *  service account to perform queries, set up [G Suite domain-wide delegation
- *  of
+ *  **Note:** This API requires a standard end user account to execute. A
+ *  service account can't perform Query API requests directly; to use a service
+ *  account to perform queries, set up [G Suite domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @return GTLRCloudSearchQuery_QuerySourcesList
@@ -1250,11 +1249,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Provides suggestions for autocompleting the query.
- *  **Note:** This API requires a standard end user account to execute.
- *  A service account can't perform Query API requests directly; to use a
- *  service account to perform queries, set up [G Suite domain-wide delegation
- *  of
+ *  Provides suggestions for autocompleting the query. **Note:** This API
+ *  requires a standard end user account to execute. A service account can't
+ *  perform Query API requests directly; to use a service account to perform
+ *  queries, set up [G Suite domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.suggest
@@ -1270,11 +1268,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_SuggestResponse.
  *
- *  Provides suggestions for autocompleting the query.
- *  **Note:** This API requires a standard end user account to execute.
- *  A service account can't perform Query API requests directly; to use a
- *  service account to perform queries, set up [G Suite domain-wide delegation
- *  of
+ *  Provides suggestions for autocompleting the query. **Note:** This API
+ *  requires a standard end user account to execute. A service account can't
+ *  perform Query API requests directly; to use a service account to perform
+ *  queries, set up [G Suite domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_SuggestRequest to include in the query.
@@ -1286,8 +1283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Creates a datasource.
- *  **Note:** This API requires an admin account to execute.
+ *  Creates a datasource. **Note:** This API requires an admin account to
+ *  execute.
  *
  *  Method: cloudsearch.settings.datasources.create
  *
@@ -1303,8 +1300,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Creates a datasource.
- *  **Note:** This API requires an admin account to execute.
+ *  Creates a datasource. **Note:** This API requires an admin account to
+ *  execute.
  *
  *  @param object The @c GTLRCloudSearch_DataSource to include in the query.
  *
@@ -1315,8 +1312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Deletes a datasource.
- *  **Note:** This API requires an admin account to execute.
+ *  Deletes a datasource. **Note:** This API requires an admin account to
+ *  execute.
  *
  *  Method: cloudsearch.settings.datasources.delete
  *
@@ -1335,20 +1332,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/**
- *  Name of the datasource.
- *  Format: datasources/{source_id}.
- */
+/** Name of the datasource. Format: datasources/{source_id}. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Deletes a datasource.
- *  **Note:** This API requires an admin account to execute.
+ *  Deletes a datasource. **Note:** This API requires an admin account to
+ *  execute.
  *
- *  @param name Name of the datasource.
- *    Format: datasources/{source_id}.
+ *  @param name Name of the datasource. Format: datasources/{source_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesDelete
  */
@@ -1357,8 +1350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Gets a datasource.
- *  **Note:** This API requires an admin account to execute.
+ *  Gets a datasource. **Note:** This API requires an admin account to execute.
  *
  *  Method: cloudsearch.settings.datasources.get
  *
@@ -1377,20 +1369,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  */
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
-/**
- *  Name of the datasource resource.
- *  Format: datasources/{source_id}.
- */
+/** Name of the datasource resource. Format: datasources/{source_id}. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_DataSource.
  *
- *  Gets a datasource.
- *  **Note:** This API requires an admin account to execute.
+ *  Gets a datasource. **Note:** This API requires an admin account to execute.
  *
- *  @param name Name of the datasource resource.
- *    Format: datasources/{source_id}.
+ *  @param name Name of the datasource resource. Format:
+ *    datasources/{source_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesGet
  */
@@ -1399,8 +1387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Lists datasources.
- *  **Note:** This API requires an admin account to execute.
+ *  Lists datasources. **Note:** This API requires an admin account to execute.
  *
  *  Method: cloudsearch.settings.datasources.list
  *
@@ -1420,9 +1407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Maximum number of datasources to fetch in a request.
- *  The max value is 100.
- *  <br />The default value is 10
+ *  Maximum number of datasources to fetch in a request. The max value is 100.
+ *  The default value is 10
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1432,8 +1418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_ListDataSourceResponse.
  *
- *  Lists datasources.
- *  **Note:** This API requires an admin account to execute.
+ *  Lists datasources. **Note:** This API requires an admin account to execute.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesList
  *
@@ -1446,8 +1431,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Updates a datasource.
- *  **Note:** This API requires an admin account to execute.
+ *  Updates a datasource. **Note:** This API requires an admin account to
+ *  execute.
  *
  *  Method: cloudsearch.settings.datasources.update
  *
@@ -1461,23 +1446,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForSettingsDatasourcesUpdateWithObject:name:]
 
 /**
- *  Name of the datasource resource.
- *  Format: datasources/{source_id}.
- *  <br />The name is ignored when creating a datasource.
+ *  Name of the datasource resource. Format: datasources/{source_id}. The name
+ *  is ignored when creating a datasource.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Updates a datasource.
- *  **Note:** This API requires an admin account to execute.
+ *  Updates a datasource. **Note:** This API requires an admin account to
+ *  execute.
  *
  *  @param object The @c GTLRCloudSearch_UpdateDataSourceRequest to include in
  *    the query.
- *  @param name Name of the datasource resource.
- *    Format: datasources/{source_id}.
- *    <br />The name is ignored when creating a datasource.
+ *  @param name Name of the datasource resource. Format:
+ *    datasources/{source_id}. The name is ignored when creating a datasource.
  *
  *  @return GTLRCloudSearchQuery_SettingsDatasourcesUpdate
  */
@@ -1487,8 +1470,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Creates a search application.
- *  **Note:** This API requires an admin account to execute.
+ *  Creates a search application. **Note:** This API requires an admin account
+ *  to execute.
  *
  *  Method: cloudsearch.settings.searchapplications.create
  *
@@ -1504,8 +1487,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Creates a search application.
- *  **Note:** This API requires an admin account to execute.
+ *  Creates a search application. **Note:** This API requires an admin account
+ *  to execute.
  *
  *  @param object The @c GTLRCloudSearch_SearchApplication to include in the
  *    query.
@@ -1517,8 +1500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Deletes a search application.
- *  **Note:** This API requires an admin account to execute.
+ *  Deletes a search application. **Note:** This API requires an admin account
+ *  to execute.
  *
  *  Method: cloudsearch.settings.searchapplications.delete
  *
@@ -1538,19 +1521,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  The name of the search application to be deleted.
- *  <br />Format: applications/{application_id}.
+ *  The name of the search application to be deleted. Format:
+ *  applications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Deletes a search application.
- *  **Note:** This API requires an admin account to execute.
+ *  Deletes a search application. **Note:** This API requires an admin account
+ *  to execute.
  *
- *  @param name The name of the search application to be deleted.
- *    <br />Format: applications/{application_id}.
+ *  @param name The name of the search application to be deleted. Format:
+ *    applications/{application_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsDelete
  */
@@ -1559,8 +1542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Gets the specified search application.
- *  **Note:** This API requires an admin account to execute.
+ *  Gets the specified search application. **Note:** This API requires an admin
+ *  account to execute.
  *
  *  Method: cloudsearch.settings.searchapplications.get
  *
@@ -1580,19 +1563,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) BOOL debugOptionsEnableDebugging;
 
 /**
- *  Name of the search application.
- *  <br />Format: searchapplications/{application_id}.
+ *  Name of the search application. Format: searchapplications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_SearchApplication.
  *
- *  Gets the specified search application.
- *  **Note:** This API requires an admin account to execute.
+ *  Gets the specified search application. **Note:** This API requires an admin
+ *  account to execute.
  *
- *  @param name Name of the search application.
- *    <br />Format: searchapplications/{application_id}.
+ *  @param name Name of the search application. Format:
+ *    searchapplications/{application_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsGet
  */
@@ -1601,8 +1583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Lists all search applications.
- *  **Note:** This API requires an admin account to execute.
+ *  Lists all search applications. **Note:** This API requires an admin account
+ *  to execute.
  *
  *  Method: cloudsearch.settings.searchapplications.list
  *
@@ -1625,16 +1607,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous List request, if any.
- *  <br/> The default value is 10
+ *  The next_page_token value returned from a previous List request, if any. The
+ *  default value is 10
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRCloudSearch_ListSearchApplicationsResponse.
  *
- *  Lists all search applications.
- *  **Note:** This API requires an admin account to execute.
+ *  Lists all search applications. **Note:** This API requires an admin account
+ *  to execute.
  *
  *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsList
  *
@@ -1648,8 +1630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Resets a search application to default settings. This will return an empty
- *  response.
- *  **Note:** This API requires an admin account to execute.
+ *  response. **Note:** This API requires an admin account to execute.
  *
  *  Method: cloudsearch.settings.searchapplications.reset
  *
@@ -1663,8 +1644,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForSettingsSearchapplicationsResetWithObject:name:]
 
 /**
- *  The name of the search application to be reset.
- *  <br />Format: applications/{application_id}.
+ *  The name of the search application to be reset. Format:
+ *  applications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1672,13 +1653,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
  *  Resets a search application to default settings. This will return an empty
- *  response.
- *  **Note:** This API requires an admin account to execute.
+ *  response. **Note:** This API requires an admin account to execute.
  *
  *  @param object The @c GTLRCloudSearch_ResetSearchApplicationRequest to
  *    include in the query.
- *  @param name The name of the search application to be reset.
- *    <br />Format: applications/{application_id}.
+ *  @param name The name of the search application to be reset. Format:
+ *    applications/{application_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsReset
  */
@@ -1688,8 +1668,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Updates a search application.
- *  **Note:** This API requires an admin account to execute.
+ *  Updates a search application. **Note:** This API requires an admin account
+ *  to execute.
  *
  *  Method: cloudsearch.settings.searchapplications.update
  *
@@ -1703,21 +1683,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 //   +[GTLQueryCloudSearch queryForSettingsSearchapplicationsUpdateWithObject:name:]
 
 /**
- *  Name of the Search Application.
- *  <br />Format: searchapplications/{application_id}.
+ *  Name of the Search Application. Format: searchapplications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudSearch_Operation.
  *
- *  Updates a search application.
- *  **Note:** This API requires an admin account to execute.
+ *  Updates a search application. **Note:** This API requires an admin account
+ *  to execute.
  *
  *  @param object The @c GTLRCloudSearch_SearchApplication to include in the
  *    query.
- *  @param name Name of the Search Application.
- *    <br />Format: searchapplications/{application_id}.
+ *  @param name Name of the Search Application. Format:
+ *    searchapplications/{application_id}.
  *
  *  @return GTLRCloudSearchQuery_SettingsSearchapplicationsUpdate
  */
@@ -1727,10 +1706,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Gets indexed item statistics aggreggated across all data sources. This
- *  API only returns statistics for previous dates; it doesn't return
- *  statistics for the current day.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Gets indexed item statistics aggreggated across all data sources. This API
+ *  only returns statistics for previous dates; it doesn't return statistics for
+ *  the current day. **Note:** This API requires a standard end user account to
+ *  execute.
  *
  *  Method: cloudsearch.stats.getIndex
  *
@@ -1764,10 +1743,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_GetCustomerIndexStatsResponse.
  *
- *  Gets indexed item statistics aggreggated across all data sources. This
- *  API only returns statistics for previous dates; it doesn't return
- *  statistics for the current day.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Gets indexed item statistics aggreggated across all data sources. This API
+ *  only returns statistics for previous dates; it doesn't return statistics for
+ *  the current day. **Note:** This API requires a standard end user account to
+ *  execute.
  *
  *  @return GTLRCloudSearchQuery_StatsGetIndex
  */
@@ -1776,8 +1755,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Get the query statistics for customer.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Get the query statistics for customer. **Note:** This API requires a
+ *  standard end user account to execute.
  *
  *  Method: cloudsearch.stats.getQuery
  *
@@ -1811,8 +1790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_GetCustomerQueryStatsResponse.
  *
- *  Get the query statistics for customer.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Get the query statistics for customer. **Note:** This API requires a
+ *  standard end user account to execute.
  *
  *  @return GTLRCloudSearchQuery_StatsGetQuery
  */
@@ -1822,8 +1801,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Get the # of search sessions, % of successful sessions with a click query
- *  statistics for customer.
- *  **Note:** This API requires a standard end user account to execute.
+ *  statistics for customer. **Note:** This API requires a standard end user
+ *  account to execute.
  *
  *  Method: cloudsearch.stats.getSession
  *
@@ -1858,8 +1837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Fetches a @c GTLRCloudSearch_GetCustomerSessionStatsResponse.
  *
  *  Get the # of search sessions, % of successful sessions with a click query
- *  statistics for customer.
- *  **Note:** This API requires a standard end user account to execute.
+ *  statistics for customer. **Note:** This API requires a standard end user
+ *  account to execute.
  *
  *  @return GTLRCloudSearchQuery_StatsGetSession
  */
@@ -1868,8 +1847,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Get the users statistics for customer.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Get the users statistics for customer. **Note:** This API requires a
+ *  standard end user account to execute.
  *
  *  Method: cloudsearch.stats.getUser
  *
@@ -1903,8 +1882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_GetCustomerUserStatsResponse.
  *
- *  Get the users statistics for customer.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Get the users statistics for customer. **Note:** This API requires a
+ *  standard end user account to execute.
  *
  *  @return GTLRCloudSearchQuery_StatsGetUser
  */
@@ -1913,8 +1892,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Gets indexed item statistics for a single data source.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Gets indexed item statistics for a single data source. **Note:** This API
+ *  requires a standard end user account to execute.
  *
  *  Method: cloudsearch.stats.index.datasources.get
  *
@@ -1937,8 +1916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, assign) NSInteger fromDateYear;
 
 /**
- *  The resource id of the data source to retrieve statistics for,
- *  in the following format: "datasources/{source_id}"
+ *  The resource id of the data source to retrieve statistics for, in the
+ *  following format: "datasources/{source_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1954,8 +1933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_GetDataSourceIndexStatsResponse.
  *
- *  Gets indexed item statistics for a single data source.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Gets indexed item statistics for a single data source. **Note:** This API
+ *  requires a standard end user account to execute.
  *
  *  @param name The resource id of the data source to retrieve statistics for,
  *    in the following format: "datasources/{source_id}"
@@ -1967,8 +1946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Get the query statistics for search application.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Get the query statistics for search application. **Note:** This API requires
+ *  a standard end user account to execute.
  *
  *  Method: cloudsearch.stats.query.searchapplications.get
  *
@@ -2008,12 +1987,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_GetSearchApplicationQueryStatsResponse.
  *
- *  Get the query statistics for search application.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Get the query statistics for search application. **Note:** This API requires
+ *  a standard end user account to execute.
  *
  *  @param name The resource id of the search application query stats, in the
- *    following
- *    format: searchapplications/{application_id}
+ *    following format: searchapplications/{application_id}
  *
  *  @return GTLRCloudSearchQuery_StatsQuerySearchapplicationsGet
  */
@@ -2023,8 +2001,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Get the # of search sessions, % of successful sessions with a click query
- *  statistics for search application.
- *  **Note:** This API requires a standard end user account to execute.
+ *  statistics for search application. **Note:** This API requires a standard
+ *  end user account to execute.
  *
  *  Method: cloudsearch.stats.session.searchapplications.get
  *
@@ -2065,12 +2043,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Fetches a @c GTLRCloudSearch_GetSearchApplicationSessionStatsResponse.
  *
  *  Get the # of search sessions, % of successful sessions with a click query
- *  statistics for search application.
- *  **Note:** This API requires a standard end user account to execute.
+ *  statistics for search application. **Note:** This API requires a standard
+ *  end user account to execute.
  *
  *  @param name The resource id of the search application session stats, in the
- *    following
- *    format: searchapplications/{application_id}
+ *    following format: searchapplications/{application_id}
  *
  *  @return GTLRCloudSearchQuery_StatsSessionSearchapplicationsGet
  */
@@ -2079,8 +2056,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Get the users statistics for search application.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Get the users statistics for search application. **Note:** This API requires
+ *  a standard end user account to execute.
  *
  *  Method: cloudsearch.stats.user.searchapplications.get
  *
@@ -2120,12 +2097,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 /**
  *  Fetches a @c GTLRCloudSearch_GetSearchApplicationUserStatsResponse.
  *
- *  Get the users statistics for search application.
- *  **Note:** This API requires a standard end user account to execute.
+ *  Get the users statistics for search application. **Note:** This API requires
+ *  a standard end user account to execute.
  *
  *  @param name The resource id of the search application session stats, in the
- *    following
- *    format: searchapplications/{application_id}
+ *    following format: searchapplications/{application_id}
  *
  *  @return GTLRCloudSearchQuery_StatsUserSearchapplicationsGet
  */

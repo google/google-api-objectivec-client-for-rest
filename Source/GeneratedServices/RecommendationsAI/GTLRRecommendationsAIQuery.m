@@ -85,25 +85,6 @@
 
 @end
 
-@implementation GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsGetGroupIdItems
-
-@dynamic itemGroupId, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/catalogItems:groupIdItems";
-  GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsGetGroupIdItems *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1GetCatalogItemsWithItemGroupIdResponse class];
-  query.loggingName = @"recommendationengine.projects.locations.catalogs.catalogItems.getGroupIdItems";
-  return query;
-}
-
-@end
-
 @implementation GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsImport
 
 @dynamic parent;

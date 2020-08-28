@@ -153,8 +153,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Deployment_Platform_Pl
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovered_AnalysisStatus_AnalysisStatusUnspecified;
 /**
- *  Analysis has finished unsuccessfully, the analysis itself is in a bad
- *  state.
+ *  Analysis has finished unsuccessfully, the analysis itself is in a bad state.
  *
  *  Value: "FINISHED_FAILED"
  */
@@ -308,8 +307,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaine
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1AliasContext_Kind_Movable;
 /**
- *  Used to specify non-standard aliases. For example, if a Git repo has a
- *  ref named "refs/foo/bar".
+ *  Used to specify non-standard aliases. For example, if a Git repo has a ref
+ *  named "refs/foo/bar".
  *
  *  Value: "OTHER"
  */
@@ -622,15 +621,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SeverityCount_Severity
 // GTLRContainerAnalysis_Version.kind
 
 /**
- *  A special version representing positive infinity,
- *  other fields are ignored.
+ *  A special version representing positive infinity, other fields are ignored.
  *
  *  Value: "MAXIMUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Version_Kind_Maximum;
 /**
- *  A special version representing negative infinity,
- *  other fields are ignored.
+ *  A special version representing negative infinity, other fields are ignored.
  *
  *  Value: "MINIMUM"
  */
@@ -774,8 +771,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *checksum;
 
 /**
- *  Artifact ID, if any; for container images, this will be a URL by digest
- *  like gcr.io/projectID/imagename\@sha256:123456
+ *  Artifact ID, if any; for container images, this will be a URL by digest like
+ *  gcr.io/projectID/imagename\@sha256:123456
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -784,9 +781,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 /**
  *  Name of the artifact. This may be the path to a binary or jar file, or in
  *  the case of a container build, the name used to push the container image to
- *  Google Container Registry, as presented to `docker push`.
- *  This field is deprecated in favor of the plural `names` field; it continues
- *  to exist here to allow existing BuildProvenance serialized to json in
+ *  Google Container Registry, as presented to `docker push`. This field is
+ *  deprecated in favor of the plural `names` field; it continues to exist here
+ *  to allow existing BuildProvenance serialized to json in
  *  google.devtools.containeranalysis.v1alpha1.BuildDetails.provenance_bytes to
  *  deserialize back into proto.
  */
@@ -795,9 +792,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 /**
  *  Related artifact names. This may be the path to a binary or jar file, or in
  *  the case of a container build, the name used to push the container image to
- *  Google Container Registry, as presented to `docker push`. Note that a
- *  single Artifact ID can have multiple names, for example if two tags are
- *  applied to one image.
+ *  Google Container Registry, as presented to `docker push`. Note that a single
+ *  Artifact ID can have multiple names, for example if two tags are applied to
+ *  one image.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -843,8 +840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
  *  AttestationAuthority. Because the name of a Note acts as its resource
  *  reference, it is important to disambiguate the canonical name of the Note
  *  (which might be a UUID for security purposes) from "readable" names more
- *  suitable for debug output. Note that these hints should NOT be used to
- *  look up AttestationAuthorities in security sensitive contexts, such as when
+ *  suitable for debug output. Note that these hints should NOT be used to look
+ *  up AttestationAuthorities in security sensitive contexts, such as when
  *  looking up Attestations to verify.
  */
 @interface GTLRContainerAnalysis_AttestationAuthorityHint : GTLRObject
@@ -859,10 +856,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  Basis describes the base image portion (Note) of the DockerImage
- *  relationship. Linked occurrences are derived from this or an
- *  equivalent image via:
- *  FROM <Basis.resource_url>
- *  Or an equivalent reference, e.g. a tag of the resource_url.
+ *  relationship. Linked occurrences are derived from this or an equivalent
+ *  image via: FROM Or an equivalent reference, e.g. a tag of the resource_url.
  */
 @interface GTLRContainerAnalysis_Basis : GTLRObject
 
@@ -870,8 +865,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Fingerprint *fingerprint;
 
 /**
- *  The resource_url for the resource representing the basis of
- *  associated occurrence images.
+ *  The resource_url for the resource representing the basis of associated
+ *  occurrence images.
  */
 @property(nonatomic, copy, nullable) NSString *resourceUrl;
 
@@ -884,56 +879,51 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @interface GTLRContainerAnalysis_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -950,15 +940,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  Serialized JSON representation of the provenance, used in generating the
- *  `BuildSignature` in the corresponding Result. After verifying the
- *  signature, `provenance_bytes` can be unmarshalled and compared to the
- *  provenance to confirm that it is unchanged. A base64-encoded string
- *  representation of the provenance bytes is used for the signature in order
- *  to interoperate with openssl which expects this format for signature
- *  verification.
- *  The serialized form is captured both to avoid ambiguity in how the
- *  provenance is marshalled to json as well to prevent incompatibilities with
- *  future changes.
+ *  `BuildSignature` in the corresponding Result. After verifying the signature,
+ *  `provenance_bytes` can be unmarshalled and compared to the provenance to
+ *  confirm that it is unchanged. A base64-encoded string representation of the
+ *  provenance bytes is used for the signature in order to interoperate with
+ *  openssl which expects this format for signature verification. The serialized
+ *  form is captured both to avoid ambiguity in how the provenance is marshalled
+ *  to json as well to prevent incompatibilities with future changes.
  */
 @property(nonatomic, copy, nullable) NSString *provenanceBytes;
 
@@ -975,8 +963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *builderVersion;
 
 /**
- *  Special options applied to this build. This is a catch-all field where
- *  build providers can enter any desired additional details.
+ *  Special options applied to this build. This is a catch-all field where build
+ *  providers can enter any desired additional details.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_BuildProvenance_BuildOptions *buildOptions;
 
@@ -1027,8 +1015,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  Special options applied to this build. This is a catch-all field where
- *  build providers can enter any desired additional details.
+ *  Special options applied to this build. This is a catch-all field where build
+ *  providers can enter any desired additional details.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1053,8 +1041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *keyId;
 
 /**
- *  The type of the key, either stored in `public_key` or referenced in
- *  `key_id`
+ *  The type of the key, either stored in `public_key` or referenced in `key_id`
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_BuildSignature_KeyType_KeyTypeUnspecified
@@ -1068,16 +1055,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  Public key of the builder which can be used to verify that the related
- *  findings are valid and unchanged. If `key_type` is empty, this defaults
- *  to PEM encoded public keys.
- *  This field may be empty if `key_id` references an external key.
- *  For Cloud Build based signatures, this is a PEM encoded public
- *  key. To verify the Cloud Build signature, place the contents of
- *  this field into a file (public.pem). The signature field is base64-decoded
- *  into its binary representation in signature.bin, and the provenance bytes
- *  from `BuildDetails` are base64-decoded into a binary representation in
- *  signed.bin. OpenSSL can then verify the signature:
- *  `openssl sha256 -verify public.pem -signature signature.bin signed.bin`
+ *  findings are valid and unchanged. If `key_type` is empty, this defaults to
+ *  PEM encoded public keys. This field may be empty if `key_id` references an
+ *  external key. For Cloud Build based signatures, this is a PEM encoded public
+ *  key. To verify the Cloud Build signature, place the contents of this field
+ *  into a file (public.pem). The signature field is base64-decoded into its
+ *  binary representation in signature.bin, and the provenance bytes from
+ *  `BuildDetails` are base64-decoded into a binary representation in
+ *  signed.bin. OpenSSL can then verify the signature: `openssl sha256 -verify
+ *  public.pem -signature signature.bin signed.bin`
  */
 @property(nonatomic, copy, nullable) NSString *publicKey;
 
@@ -1088,8 +1074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  Note holding the version of the provider's builder and the signature of
- *  the provenance message in linked BuildDetails.
+ *  Note holding the version of the provider's builder and the signature of the
+ *  provenance message in linked BuildDetails.
  */
 @interface GTLRContainerAnalysis_BuildType : GTLRObject
 
@@ -1114,8 +1100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
- *  Working directory (relative to project source root) used when running
- *  this Command.
+ *  Working directory (relative to project source root) used when running this
+ *  Command.
  */
 @property(nonatomic, copy, nullable) NSString *dir;
 
@@ -1212,9 +1198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  Derived describes the derived image portion (Occurrence) of the
- *  DockerImage relationship. This image would be produced from a Dockerfile
- *  with FROM <DockerImage.Basis in attached Note>.
+ *  Derived describes the derived image portion (Occurrence) of the DockerImage
+ *  relationship. This image would be produced from a Dockerfile with FROM .
  */
 @interface GTLRContainerAnalysis_Derived : GTLRObject
 
@@ -1236,9 +1221,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Fingerprint *fingerprint;
 
 /**
- *  This contains layer-specific metadata, if populated it has length
- *  "distance" and is ordered with [distance] being the layer immediately
- *  following the base image and [1] being the final layer.
+ *  This contains layer-specific metadata, if populated it has length "distance"
+ *  and is ordered with [distance] being the layer immediately following the
+ *  base image and [1] being the final layer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Layer *> *layerInfo;
 
@@ -1247,16 +1232,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  Identifies all occurrences of this vulnerability in the package for a
- *  specific distro/location
- *  For example: glibc in cpe:/o:debian:debian_linux:8 for versions 2.1 - 2.2
+ *  specific distro/location For example: glibc in cpe:/o:debian:debian_linux:8
+ *  for versions 2.1 - 2.2
  */
 @interface GTLRContainerAnalysis_Detail : GTLRObject
 
 /**
- *  The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) in
- *  which the vulnerability manifests. Examples include distro or storage
- *  location for vulnerable jar.
- *  This field can be used as a filter in list requests.
+ *  The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) in which
+ *  the vulnerability manifests. Examples include distro or storage location for
+ *  vulnerable jar. This field can be used as a filter in list requests.
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
 
@@ -1285,14 +1269,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *minAffectedVersion;
 
 /**
- *  The name of the package where the vulnerability was found.
- *  This field can be used as a filter in list requests.
+ *  The name of the package where the vulnerability was found. This field can be
+ *  used as a filter in list requests.
  */
 @property(nonatomic, copy, nullable) NSString *package;
 
 /**
- *  The type of package; whether native or non native(ruby gems,
- *  node.js packages etc)
+ *  The type of package; whether native or non native(ruby gems, node.js
+ *  packages etc)
  */
 @property(nonatomic, copy, nullable) NSString *packageType;
 
@@ -1330,8 +1314,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  When an error is encountered this will contain a LocalizedMessage under
- *  details to show to the user. The LocalizedMessage output only and
- *  populated by the API.
+ *  details to show to the user. The LocalizedMessage output only and populated
+ *  by the API.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Status *analysisStatusError;
 
@@ -1408,8 +1392,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @interface GTLRContainerAnalysis_Distribution : GTLRObject
 
 /**
- *  The CPU architecture for which packages in this distribution
- *  channel were built
+ *  The CPU architecture for which packages in this distribution channel were
+ *  built
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_Distribution_Architecture_ArchitectureUnspecified
@@ -1422,8 +1406,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *architecture;
 
 /**
- *  The cpe_uri in [cpe format](https://cpe.mitre.org/specification/)
- *  denoting the package manager version distributing a package.
+ *  The cpe_uri in [cpe format](https://cpe.mitre.org/specification/) denoting
+ *  the package manager version distributing a package.
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
 
@@ -1435,8 +1419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The latest available version of this package in
- *  this distribution channel.
+ *  The latest available version of this package in this distribution channel.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Version *latestVersion;
 
@@ -1452,11 +1435,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRContainerAnalysis_Empty : GTLRObject
 @end
@@ -1465,27 +1446,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRContainerAnalysis_Expr : GTLRObject
 
@@ -1510,9 +1484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -1537,8 +1510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @interface GTLRContainerAnalysis_Fingerprint : GTLRObject
 
 /**
- *  The layer-id of the final layer in the Docker image's v1
- *  representation.
+ *  The layer-id of the final layer in the Docker image's v1 representation.
  *  This field can be used as a filter in list requests.
  */
 @property(nonatomic, copy, nullable) NSString *v1Name;
@@ -1547,10 +1519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, strong, nullable) NSArray<NSString *> *v2Blob;
 
 /**
- *  Output only. The name of the image's v2 blobs computed via:
- *  [bottom] := v2_blobbottom := sha256(v2_blob[N] + " " + v2_name[N+1])
- *  Only the name of the final blob is kept.
- *  This field can be used as a filter in list requests.
+ *  Output only. The name of the image's v2 blobs computed via: [bottom] :=
+ *  v2_blobbottom := sha256(v2_blob[N] + " " + v2_name[N+1]) Only the name of
+ *  the final blob is kept. This field can be used as a filter in list requests.
  */
 @property(nonatomic, copy, nullable) NSString *v2Name;
 
@@ -1577,14 +1548,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @interface GTLRContainerAnalysis_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1595,9 +1564,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  A summary of how many vulnz occurrences there are per severity type.
- *  counts by groups, or if we should have different summary messages
- *  like this.
+ *  A summary of how many vulnz occurrences there are per severity type. counts
+ *  by groups, or if we should have different summary messages like this.
  */
 @interface GTLRContainerAnalysis_GetVulnzOccurrencesSummaryResponse : GTLRObject
 
@@ -1662,8 +1630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  The full project name within the host. Projects may be nested, so
- *  "project/subproject" is a valid project name. The "repo name" is
- *  the hostURI/project.
+ *  "project/subproject" is a valid project name. The "repo name" is the
+ *  hostURI/project.
  */
 @property(nonatomic, copy, nullable) NSString *gerritProject;
 
@@ -1692,8 +1660,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  Metadata for all operations used and required for all operations
- *  that created by Container Analysis Providers
+ *  Metadata for all operations used and required for all operations that
+ *  created by Container Analysis Providers
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsContaineranalysisV1alpha1OperationMetadata : GTLRObject
 
@@ -1798,14 +1766,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  This represents how a particular software package may be installed on
- *  a system.
+ *  This represents how a particular software package may be installed on a
+ *  system.
  */
 @interface GTLRContainerAnalysis_Installation : GTLRObject
 
 /**
- *  All of the places within the filesystem versions of this package
- *  have been found.
+ *  All of the places within the filesystem versions of this package have been
+ *  found.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Location *> *location;
 
@@ -1978,15 +1946,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  An occurrence of a particular package installation found within a
- *  system's filesystem.
- *  e.g. glibc was found in /var/lib/dpkg/status
+ *  An occurrence of a particular package installation found within a system's
+ *  filesystem. e.g. glibc was found in /var/lib/dpkg/status
  */
 @interface GTLRContainerAnalysis_Location : GTLRObject
 
 /**
- *  The cpe_uri in [cpe format](https://cpe.mitre.org/specification/)
- *  denoting the package manager version distributing a package.
+ *  The cpe_uri in [cpe format](https://cpe.mitre.org/specification/) denoting
+ *  the package manager version distributing a package.
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
 
@@ -2107,8 +2074,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Deployment *deployment;
 
 /**
- *  Describes how this resource derives from the basis
- *  in the associated note.
+ *  Describes how this resource derives from the basis in the associated note.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Derived *derivedImage;
 
@@ -2156,8 +2122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  An analysis note associated with this image, in the form
- *  "providers/{provider_id}/notes/{NOTE_ID}"
- *  This field can be used as a filter in list requests.
+ *  "providers/{provider_id}/notes/{NOTE_ID}" This field can be used as a filter
+ *  in list requests.
  */
 @property(nonatomic, copy, nullable) NSString *noteName;
 
@@ -2193,8 +2159,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @interface GTLRContainerAnalysis_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -2206,16 +2172,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2224,10 +2190,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Operation_Response *response;
 
@@ -2236,8 +2201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -2254,10 +2219,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2269,9 +2233,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  This represents a particular package that is distributed over
- *  various channels.
- *  e.g. glibc (aka libc6) is distributed by many, at various versions.
+ *  This represents a particular package that is distributed over various
+ *  channels. e.g. glibc (aka libc6) is distributed by many, at various
+ *  versions.
  */
 @interface GTLRContainerAnalysis_Package : GTLRObject
 
@@ -2285,8 +2249,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  This message wraps a location affected by a vulnerability and its
- *  associated fix (if one is available).
+ *  This message wraps a location affected by a vulnerability and its associated
+ *  fix (if one is available).
  */
 @interface GTLRContainerAnalysis_PackageIssue : GTLRObject
 
@@ -2302,15 +2266,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  An attestation wrapper with a PGP-compatible signature.
- *  This message only supports `ATTACHED` signatures, where the payload that is
- *  signed is included alongside the signature itself in the same file.
+ *  An attestation wrapper with a PGP-compatible signature. This message only
+ *  supports `ATTACHED` signatures, where the payload that is signed is included
+ *  alongside the signature itself in the same file.
  */
 @interface GTLRContainerAnalysis_PgpSignedAttestation : GTLRObject
 
 /**
- *  Type (for example schema) of the attestation payload that was signed.
- *  The verifier must ensure that the provided type is one that the verifier
+ *  Type (for example schema) of the attestation payload that was signed. The
+ *  verifier must ensure that the provided type is one that the verifier
  *  supports, and that the attestation payload is a valid instantiation of that
  *  type (for example by validating a JSON schema).
  *
@@ -2321,28 +2285,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
  *        Atomic format attestation signature. See
  *        https://github.com/containers/image/blob/8a5d2f82a6e3263290c8e0276c3e0f64e77723e7/docs/atomic-signature.md
  *        The payload extracted from `signature` is a JSON blob conforming to
- *        the
- *        linked schema. (Value: "SIMPLE_SIGNING_JSON")
+ *        the linked schema. (Value: "SIMPLE_SIGNING_JSON")
  */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
 /**
- *  The cryptographic fingerprint of the key used to generate the signature,
- *  as output by, e.g. `gpg --list-keys`. This should be the version 4, full
+ *  The cryptographic fingerprint of the key used to generate the signature, as
+ *  output by, e.g. `gpg --list-keys`. This should be the version 4, full
  *  160-bit fingerprint, expressed as a 40 character hexadecimal string. See
  *  https://tools.ietf.org/html/rfc4880#section-12.2 for details.
  *  Implementations may choose to acknowledge "LONG", "SHORT", or other
- *  abbreviated key IDs, but only the full fingerprint is guaranteed to work.
- *  In gpg, the full fingerprint can be retrieved from the `fpr` field
- *  returned when calling --list-keys with --with-colons. For example:
- *  ```
- *  gpg --with-colons --with-fingerprint --force-v4-certs \\
- *  --list-keys attester\@example.com
- *  tru::1:1513631572:0:3:1:5
- *  pub:...<SNIP>...
- *  fpr:::::::::24FF6481B76AC91E66A00AC657A93A81EF3AE6FB:
- *  ```
- *  Above, the fingerprint is `24FF6481B76AC91E66A00AC657A93A81EF3AE6FB`.
+ *  abbreviated key IDs, but only the full fingerprint is guaranteed to work. In
+ *  gpg, the full fingerprint can be retrieved from the `fpr` field returned
+ *  when calling --list-keys with --with-colons. For example: ``` gpg
+ *  --with-colons --with-fingerprint --force-v4-certs \\ --list-keys
+ *  attester\@example.com tru::1:1513631572:0:3:1:5 pub:......
+ *  fpr:::::::::24FF6481B76AC91E66A00AC657A93A81EF3AE6FB: ``` Above, the
+ *  fingerprint is `24FF6481B76AC91E66A00AC657A93A81EF3AE6FB`.
  */
 @property(nonatomic, copy, nullable) NSString *pgpKeyId;
 
@@ -2354,8 +2313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
  *  ASCII-armored (`--armor` to gpg), non-clearsigned (`--sign` rather than
  *  `--clearsign` to gpg) are supported. Concretely, `gpg --sign --armor
  *  --output=signature.gpg payload.json` will create the signature content
- *  expected in this field in `signature.gpg` for the `payload.json`
- *  attestation payload.
+ *  expected in this field in `signature.gpg` for the `payload.json` attestation
+ *  payload.
  */
 @property(nonatomic, copy, nullable) NSString *signature;
 
@@ -2364,88 +2323,56 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRContainerAnalysis_Policy : GTLRObject
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2453,24 +2380,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -2579,9 +2502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Policy *policy;
 
@@ -2648,11 +2570,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  Hash(es) of the build source, which can be used to verify that the original
- *  source integrity was maintained in the build.
- *  The keys to this map are file paths used as build source and the values
- *  contain the hash values for those files.
- *  If the build source came in a single package such as a gzipped tarfile
- *  (.tar.gz), the FileHash will be for the single path to that file.
+ *  source integrity was maintained in the build. The keys to this map are file
+ *  paths used as build source and the values contain the hash values for those
+ *  files. If the build source came in a single package such as a gzipped
+ *  tarfile (.tar.gz), the FileHash will be for the single path to that file.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Source_FileHashes *fileHashes;
 
@@ -2660,8 +2581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_RepoSource *repoSource;
 
 /**
- *  If provided, get the source from this location in in Google Cloud
- *  Storage.
+ *  If provided, get the source from this location in in Google Cloud Storage.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_StorageSource *storageSource;
 
@@ -2670,11 +2590,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  Hash(es) of the build source, which can be used to verify that the original
- *  source integrity was maintained in the build.
- *  The keys to this map are file paths used as build source and the values
- *  contain the hash values for those files.
- *  If the build source came in a single package such as a gzipped tarfile
- *  (.tar.gz), the FileHash will be for the single path to that file.
+ *  source integrity was maintained in the build. The keys to this map are file
+ *  paths used as build source and the values contain the hash values for those
+ *  files. If the build source came in a single package such as a gzipped
+ *  tarfile (.tar.gz), the FileHash will be for the single path to that file.
  *
  *  @note This class is documented as having more properties of
  *        GTLRContainerAnalysis_FileHashes. Use @c -additionalJSONKeys and @c
@@ -2689,9 +2608,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRContainerAnalysis_Status : GTLRObject
 
@@ -2763,9 +2682,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -2778,8 +2696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @interface GTLRContainerAnalysis_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -2834,8 +2751,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  An Upgrade Note represents a potential upgrade of a package to a given
- *  version. For each package version combination (i.e. bash 4.0, bash 4.1,
- *  bash 4.1.2), there will be a Upgrade Note.
+ *  version. For each package version combination (i.e. bash 4.0, bash 4.1, bash
+ *  4.1.2), there will be a Upgrade Note.
  */
 @interface GTLRContainerAnalysis_UpgradeNote : GTLRObject
 
@@ -2853,16 +2770,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  An Upgrade Occurrence represents that a specific resource_url could install
- *  a
- *  specific upgrade. This presence is supplied via local sources (i.e. it is
+ *  a specific upgrade. This presence is supplied via local sources (i.e. it is
  *  present in the mirror and the running system has noticed its availability).
  */
 @interface GTLRContainerAnalysis_UpgradeOccurrence : GTLRObject
 
 /**
  *  Metadata about the upgrade for available for the specific operating system
- *  for the resource_url. This allows efficient filtering, as well as
- *  making it easier to use the occurrence.
+ *  for the resource_url. This allows efficient filtering, as well as making it
+ *  easier to use the occurrence.
  */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_UpgradeDistribution *distribution;
 
@@ -2894,16 +2810,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, strong, nullable) NSNumber *epoch;
 
 /**
- *  Distinguish between sentinel MIN/MAX versions and normal versions.
- *  If kind is not NORMAL, then the other fields are ignored.
+ *  Distinguish between sentinel MIN/MAX versions and normal versions. If kind
+ *  is not NORMAL, then the other fields are ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_Version_Kind_Maximum A special version
- *        representing positive infinity,
- *        other fields are ignored. (Value: "MAXIMUM")
+ *        representing positive infinity, other fields are ignored. (Value:
+ *        "MAXIMUM")
  *    @arg @c kGTLRContainerAnalysis_Version_Kind_Minimum A special version
- *        representing negative infinity,
- *        other fields are ignored. (Value: "MINIMUM")
+ *        representing negative infinity, other fields are ignored. (Value:
+ *        "MINIMUM")
  *    @arg @c kGTLRContainerAnalysis_Version_Kind_Normal A standard package
  *        version, defined by the other fields. (Value: "NORMAL")
  */
@@ -2919,24 +2835,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 
 /**
- *  Used by Occurrence to point to where the vulnerability exists and how
- *  to fix it.
+ *  Used by Occurrence to point to where the vulnerability exists and how to fix
+ *  it.
  */
 @interface GTLRContainerAnalysis_VulnerabilityDetails : GTLRObject
 
 /**
- *  Output only. The CVSS score of this vulnerability. CVSS score is on a
- *  scale of 0-10 where 0 indicates low severity and 10 indicates high
- *  severity.
+ *  Output only. The CVSS score of this vulnerability. CVSS score is on a scale
+ *  of 0-10 where 0 indicates low severity and 10 indicates high severity.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cvssScore;
 
 /**
- *  The distro assigned severity for this vulnerability when that is
- *  available and note provider assigned severity when distro has not yet
- *  assigned a severity for this vulnerability.
+ *  The distro assigned severity for this vulnerability when that is available
+ *  and note provider assigned severity when distro has not yet assigned a
+ *  severity for this vulnerability.
  *
  *  Likely values:
  *    @arg @c kGTLRContainerAnalysis_VulnerabilityDetails_EffectiveSeverity_Critical
@@ -2955,8 +2870,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *effectiveSeverity;
 
 /**
- *  The set of affected locations and their fixes (if available) within
- *  the associated resource.
+ *  The set of affected locations and their fixes (if available) within the
+ *  associated resource.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_PackageIssue *> *packageIssue;
 
@@ -2980,8 +2895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @property(nonatomic, copy, nullable) NSString *severity;
 
 /**
- *  The type of package; whether native or non native(ruby gems,
- *  node.js packages etc)
+ *  The type of package; whether native or non native(ruby gems, node.js
+ *  packages etc)
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2994,9 +2909,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 @interface GTLRContainerAnalysis_VulnerabilityLocation : GTLRObject
 
 /**
- *  The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/)
- *  format. Examples include distro or storage location for vulnerable jar.
- *  This field can be used as a filter in list requests.
+ *  The cpe_uri in [cpe format] (https://cpe.mitre.org/specification/) format.
+ *  Examples include distro or storage location for vulnerable jar. This field
+ *  can be used as a filter in list requests.
  */
 @property(nonatomic, copy, nullable) NSString *cpeUri;
 
@@ -3026,8 +2941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityType_Seve
 
 /**
  *  All information about the package to specifically identify this
- *  vulnerability. One entry per (version range and cpe_uri) the
- *  package vulnerability has manifested in.
+ *  vulnerability. One entry per (version range and cpe_uri) the package
+ *  vulnerability has manifested in.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Detail *> *details;
 

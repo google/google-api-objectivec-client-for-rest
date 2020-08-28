@@ -48,43 +48,125 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // filter
 
-/** Value: "ACTIVE" */
+/**
+ *  Filters the jobs that are running ordered on the creation timestamp.
+ *
+ *  Value: "ACTIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowFilterActive;
-/** Value: "ALL" */
+/**
+ *  Returns all running jobs first ordered on creation timestamp, then returns
+ *  all terminated jobs ordered on the termination timestamp.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowFilterAll;
-/** Value: "TERMINATED" */
+/**
+ *  Filters the jobs that have a terminated state, ordered on the termination
+ *  timestamp. Example terminated states: `JOB_STATE_STOPPED`,
+ *  `JOB_STATE_UPDATED`, `JOB_STATE_DRAINED`, etc.
+ *
+ *  Value: "TERMINATED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowFilterTerminated;
-/** Value: "UNKNOWN" */
+/**
+ *  The filter isn't specified, or is unknown. This returns all jobs ordered on
+ *  descending `JobUuid`.
+ *
+ *  Value: "UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowFilterUnknown;
 
 // ----------------------------------------------------------------------------
 // minimumImportance
 
-/** Value: "JOB_MESSAGE_BASIC" */
+/**
+ *  The message is at the 'basic' level: useful for keeping track of the
+ *  execution of a Dataflow pipeline. Typically, Dataflow pipeline runners
+ *  display log messages at this level by default, and these messages are
+ *  displayed by default in the Dataflow monitoring UI.
+ *
+ *  Value: "JOB_MESSAGE_BASIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageBasic;
-/** Value: "JOB_MESSAGE_DEBUG" */
+/**
+ *  The message is at the 'debug' level: typically only useful for software
+ *  engineers working on the code the job is running. Typically, Dataflow
+ *  pipeline runners do not display log messages at this level by default.
+ *
+ *  Value: "JOB_MESSAGE_DEBUG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageDebug;
-/** Value: "JOB_MESSAGE_DETAILED" */
+/**
+ *  The message is at the 'detailed' level: somewhat verbose, but potentially
+ *  useful to users. Typically, Dataflow pipeline runners do not display log
+ *  messages at this level by default. These messages are displayed by default
+ *  in the Dataflow monitoring UI.
+ *
+ *  Value: "JOB_MESSAGE_DETAILED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageDetailed;
-/** Value: "JOB_MESSAGE_ERROR" */
+/**
+ *  The message is at the 'error' level: indicating a condition preventing a job
+ *  from succeeding. Typically, Dataflow pipeline runners display log messages
+ *  at this level by default, and these messages are displayed by default in the
+ *  Dataflow monitoring UI.
+ *
+ *  Value: "JOB_MESSAGE_ERROR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageError;
-/** Value: "JOB_MESSAGE_IMPORTANCE_UNKNOWN" */
+/**
+ *  The message importance isn't specified, or is unknown.
+ *
+ *  Value: "JOB_MESSAGE_IMPORTANCE_UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageImportanceUnknown;
-/** Value: "JOB_MESSAGE_WARNING" */
+/**
+ *  The message is at the 'warning' level: indicating a condition pertaining to
+ *  a job which may require human intervention. Typically, Dataflow pipeline
+ *  runners display log messages at this level by default, and these messages
+ *  are displayed by default in the Dataflow monitoring UI.
+ *
+ *  Value: "JOB_MESSAGE_WARNING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowMinimumImportanceJobMessageWarning;
 
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "JOB_VIEW_ALL" */
+/**
+ *  Request all information available for this job.
+ *
+ *  Value: "JOB_VIEW_ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowViewJobViewAll;
-/** Value: "JOB_VIEW_DESCRIPTION" */
+/**
+ *  Request summary info and limited job description data for steps, labels and
+ *  environment.
+ *
+ *  Value: "JOB_VIEW_DESCRIPTION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowViewJobViewDescription;
-/** Value: "JOB_VIEW_SUMMARY" */
+/**
+ *  Request summary information only: Project ID, Job ID, job name, job type,
+ *  job status, start/end time, and Cloud SDK version details.
+ *
+ *  Value: "JOB_VIEW_SUMMARY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowViewJobViewSummary;
-/** Value: "JOB_VIEW_UNKNOWN" */
+/**
+ *  The job view to return isn't specified, or is unknown. Responses will
+ *  contain at least the `JOB_VIEW_SUMMARY` information, and may contain
+ *  additional information.
+ *
+ *  Value: "JOB_VIEW_UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowViewJobViewUnknown;
-/** Value: "METADATA_ONLY" */
+/**
+ *  Template view that retrieves only the metadata associated with the template.
+ *
+ *  Value: "METADATA_ONLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 // ----------------------------------------------------------------------------
@@ -117,8 +199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  The location of the template, name includes project_id and display_name.
- *  Commit using project_id(pid1) and display_name(tid1).
- *  Format: projects/{pid1}/catalogTemplates/{tid1}
+ *  Commit using project_id(pid1) and display_name(tid1). Format:
+ *  projects/{pid1}/catalogTemplates/{tid1}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -131,8 +213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param object The @c GTLRDataflow_CommitTemplateVersionRequest to include in
  *    the query.
  *  @param name The location of the template, name includes project_id and
- *    display_name.
- *    Commit using project_id(pid1) and display_name(tid1).
+ *    display_name. Commit using project_id(pid1) and display_name(tid1).
  *    Format: projects/{pid1}/catalogTemplates/{tid1}
  *
  *  @return GTLRDataflowQuery_ProjectsCatalogTemplatesCommit
@@ -156,9 +237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsCatalogTemplatesDeleteWithname:]
 
 /**
- *  name includes project_id and display_name.
- *  Delete by project_id(pid1) and display_name(tid1).
- *  Format: projects/{pid1}/catalogTemplates/{tid1}
+ *  name includes project_id and display_name. Delete by project_id(pid1) and
+ *  display_name(tid1). Format: projects/{pid1}/catalogTemplates/{tid1}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -167,9 +247,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *
  *  Deletes an existing Template. Do nothing if Template does not exist.
  *
- *  @param name name includes project_id and display_name.
- *    Delete by project_id(pid1) and display_name(tid1).
- *    Format: projects/{pid1}/catalogTemplates/{tid1}
+ *  @param name name includes project_id and display_name. Delete by
+ *    project_id(pid1) and display_name(tid1). Format:
+ *    projects/{pid1}/catalogTemplates/{tid1}
  *
  *  @return GTLRDataflowQuery_ProjectsCatalogTemplatesDelete
  */
@@ -194,11 +274,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  Resource name includes project_id and display_name. version_id is optional.
- *  Get the latest TemplateVersion if version_id not set.
- *  Get by project_id(pid1) and display_name(tid1):
- *  Format: projects/{pid1}/catalogTemplates/{tid1}
- *  Get by project_id(pid1), display_name(tid1), and version_id(vid1):
- *  Format: projects/{pid1}/catalogTemplates/{tid1\@vid}
+ *  Get the latest TemplateVersion if version_id not set. Get by
+ *  project_id(pid1) and display_name(tid1): Format:
+ *  projects/{pid1}/catalogTemplates/{tid1} Get by project_id(pid1),
+ *  display_name(tid1), and version_id(vid1): Format:
+ *  projects/{pid1}/catalogTemplates/{tid1\@vid}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -210,12 +290,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  version_id not set.
  *
  *  @param name Resource name includes project_id and display_name. version_id
- *    is optional.
- *    Get the latest TemplateVersion if version_id not set.
- *    Get by project_id(pid1) and display_name(tid1):
- *    Format: projects/{pid1}/catalogTemplates/{tid1}
- *    Get by project_id(pid1), display_name(tid1), and version_id(vid1):
- *    Format: projects/{pid1}/catalogTemplates/{tid1\@vid}
+ *    is optional. Get the latest TemplateVersion if version_id not set. Get by
+ *    project_id(pid1) and display_name(tid1): Format:
+ *    projects/{pid1}/catalogTemplates/{tid1} Get by project_id(pid1),
+ *    display_name(tid1), and version_id(vid1): Format:
+ *    projects/{pid1}/catalogTemplates/{tid1\@vid}
  *
  *  @return GTLRDataflowQuery_ProjectsCatalogTemplatesGet
  */
@@ -238,9 +317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsCatalogTemplatesLabelWithObject:name:]
 
 /**
- *  Resource name includes project_id, display_name, and version_id.
- *  Updates by project_id(pid1), display_name(tid1), and version_id(vid1):
- *  Format: projects/{pid1}/catalogTemplates/{tid1\@vid}
+ *  Resource name includes project_id, display_name, and version_id. Updates by
+ *  project_id(pid1), display_name(tid1), and version_id(vid1): Format:
+ *  projects/{pid1}/catalogTemplates/{tid1\@vid}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -264,10 +343,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Updates the tag of the TemplateVersion, and tag is unique in Template.
- *  If tag exists in another TemplateVersion in the Template, updates the tag
- *  to this TemplateVersion will remove it from the old TemplateVersion and add
- *  it to this TemplateVersion. If request is remove_only (remove_only = true),
+ *  Updates the tag of the TemplateVersion, and tag is unique in Template. If
+ *  tag exists in another TemplateVersion in the Template, updates the tag to
+ *  this TemplateVersion will remove it from the old TemplateVersion and add it
+ *  to this TemplateVersion. If request is remove_only (remove_only = true),
  *  remove the tag from this TemplateVersion.
  *
  *  Method: dataflow.projects.catalogTemplates.tag
@@ -281,19 +360,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsCatalogTemplatesTagWithObject:name:]
 
 /**
- *  Resource name includes project_id, display_name, and version_id.
- *  Updates by project_id(pid1), display_name(tid1), and version_id(vid1):
- *  Format: projects/{pid1}/catalogTemplates/{tid1\@vid}
+ *  Resource name includes project_id, display_name, and version_id. Updates by
+ *  project_id(pid1), display_name(tid1), and version_id(vid1): Format:
+ *  projects/{pid1}/catalogTemplates/{tid1\@vid}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDataflow_ModifyTemplateVersionTagResponse.
  *
- *  Updates the tag of the TemplateVersion, and tag is unique in Template.
- *  If tag exists in another TemplateVersion in the Template, updates the tag
- *  to this TemplateVersion will remove it from the old TemplateVersion and add
- *  it to this TemplateVersion. If request is remove_only (remove_only = true),
+ *  Updates the tag of the TemplateVersion, and tag is unique in Template. If
+ *  tag exists in another TemplateVersion in the Template, updates the tag to
+ *  this TemplateVersion will remove it from the old TemplateVersion and add it
+ *  to this TemplateVersion. If request is remove_only (remove_only = true),
  *  remove the tag from this TemplateVersion.
  *
  *  @param object The @c GTLRDataflow_ModifyTemplateVersionTagRequest to include
@@ -310,9 +389,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Creates a new Template with TemplateVersion. Requires
- *  project_id(projects) and template display_name(catalogTemplates).
- *  The template display_name is set by the user.
+ *  Creates a new Template with TemplateVersion. Requires project_id(projects)
+ *  and template display_name(catalogTemplates). The template display_name is
+ *  set by the user.
  *
  *  Method: dataflow.projects.catalogTemplates.templateVersions.create
  *
@@ -326,25 +405,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  The parent project and template that the TemplateVersion will be created
- *  under.
- *  Create using project_id(pid1) and display_name(tid1).
- *  Format: projects/{pid1}/catalogTemplates/{tid1}
+ *  under. Create using project_id(pid1) and display_name(tid1). Format:
+ *  projects/{pid1}/catalogTemplates/{tid1}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDataflow_TemplateVersion.
  *
- *  Creates a new Template with TemplateVersion. Requires
- *  project_id(projects) and template display_name(catalogTemplates).
- *  The template display_name is set by the user.
+ *  Creates a new Template with TemplateVersion. Requires project_id(projects)
+ *  and template display_name(catalogTemplates). The template display_name is
+ *  set by the user.
  *
  *  @param object The @c GTLRDataflow_CreateTemplateVersionRequest to include in
  *    the query.
  *  @param parent The parent project and template that the TemplateVersion will
- *    be created
- *    under.
- *    Create using project_id(pid1) and display_name(tid1).
+ *    be created under. Create using project_id(pid1) and display_name(tid1).
  *    Format: projects/{pid1}/catalogTemplates/{tid1}
  *
  *  @return GTLRDataflowQuery_ProjectsCatalogTemplatesTemplateVersionsCreate
@@ -411,10 +487,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The kind of filter to use.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowFilterUnknown Value "UNKNOWN"
- *    @arg @c kGTLRDataflowFilterAll Value "ALL"
- *    @arg @c kGTLRDataflowFilterTerminated Value "TERMINATED"
- *    @arg @c kGTLRDataflowFilterActive Value "ACTIVE"
+ *    @arg @c kGTLRDataflowFilterUnknown The filter isn't specified, or is
+ *        unknown. This returns all jobs ordered on descending `JobUuid`.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRDataflowFilterAll Returns all running jobs first ordered on
+ *        creation timestamp, then returns all terminated jobs ordered on the
+ *        termination timestamp. (Value: "ALL")
+ *    @arg @c kGTLRDataflowFilterTerminated Filters the jobs that have a
+ *        terminated state, ordered on the termination timestamp. Example
+ *        terminated states: `JOB_STATE_STOPPED`, `JOB_STATE_UPDATED`,
+ *        `JOB_STATE_DRAINED`, etc. (Value: "TERMINATED")
+ *    @arg @c kGTLRDataflowFilterActive Filters the jobs that are running
+ *        ordered on the creation timestamp. (Value: "ACTIVE")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -426,15 +510,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  If there are many jobs, limit response to at most this many.
- *  The actual number of jobs returned will be the lesser of max_responses
- *  and an unspecified server-defined limit.
+ *  If there are many jobs, limit response to at most this many. The actual
+ *  number of jobs returned will be the lesser of max_responses and an
+ *  unspecified server-defined limit.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Set this to the 'next_page_token' field of a previous response
- *  to request additional results in a long list.
+ *  Set this to the 'next_page_token' field of a previous response to request
+ *  additional results in a long list.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -445,10 +529,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
- *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
- *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
- *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
+ *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
+ *        specified, or is unknown. Responses will contain at least the
+ *        `JOB_VIEW_SUMMARY` information, and may contain additional
+ *        information. (Value: "JOB_VIEW_UNKNOWN")
+ *    @arg @c kGTLRDataflowViewJobViewSummary Request summary information only:
+ *        Project ID, Job ID, job name, job type, job status, start/end time,
+ *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
+ *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
+ *        this job. (Value: "JOB_VIEW_ALL")
+ *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
+ *        limited job description data for steps, labels and environment.
+ *        (Value: "JOB_VIEW_DESCRIPTION")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -466,12 +558,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Creates a Cloud Dataflow job.
- *  To create a job, we recommend using `projects.locations.jobs.create` with a
- *  [regional endpoint]
+ *  Creates a Cloud Dataflow job. To create a job, we recommend using
+ *  `projects.locations.jobs.create` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
- *  `projects.jobs.create` is not recommended, as your job will always start
- *  in `us-central1`.
+ *  `projects.jobs.create` is not recommended, as your job will always start in
+ *  `us-central1`.
  *
  *  Method: dataflow.projects.jobs.create
  *
@@ -502,22 +593,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The level of information requested in response.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
- *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
- *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
- *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
+ *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
+ *        specified, or is unknown. Responses will contain at least the
+ *        `JOB_VIEW_SUMMARY` information, and may contain additional
+ *        information. (Value: "JOB_VIEW_UNKNOWN")
+ *    @arg @c kGTLRDataflowViewJobViewSummary Request summary information only:
+ *        Project ID, Job ID, job name, job type, job status, start/end time,
+ *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
+ *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
+ *        this job. (Value: "JOB_VIEW_ALL")
+ *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
+ *        limited job description data for steps, labels and environment.
+ *        (Value: "JOB_VIEW_DESCRIPTION")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Creates a Cloud Dataflow job.
- *  To create a job, we recommend using `projects.locations.jobs.create` with a
- *  [regional endpoint]
+ *  Creates a Cloud Dataflow job. To create a job, we recommend using
+ *  `projects.locations.jobs.create` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
- *  `projects.jobs.create` is not recommended, as your job will always start
- *  in `us-central1`.
+ *  `projects.jobs.create` is not recommended, as your job will always start in
+ *  `us-central1`.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -609,9 +707,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Gets the state of the specified Cloud Dataflow job.
- *  To get the state of a job, we recommend using `projects.locations.jobs.get`
- *  with a [regional endpoint]
+ *  Gets the state of the specified Cloud Dataflow job. To get the state of a
+ *  job, we recommend using `projects.locations.jobs.get` with a [regional
+ *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.get` is not recommended, as you can only get the state of
  *  jobs that are running in `us-central1`.
@@ -645,19 +743,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The level of information requested in response.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
- *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
- *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
- *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
+ *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
+ *        specified, or is unknown. Responses will contain at least the
+ *        `JOB_VIEW_SUMMARY` information, and may contain additional
+ *        information. (Value: "JOB_VIEW_UNKNOWN")
+ *    @arg @c kGTLRDataflowViewJobViewSummary Request summary information only:
+ *        Project ID, Job ID, job name, job type, job status, start/end time,
+ *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
+ *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
+ *        this job. (Value: "JOB_VIEW_ALL")
+ *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
+ *        limited job description data for steps, labels and environment.
+ *        (Value: "JOB_VIEW_DESCRIPTION")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Gets the state of the specified Cloud Dataflow job.
- *  To get the state of a job, we recommend using `projects.locations.jobs.get`
- *  with a [regional endpoint]
+ *  Gets the state of the specified Cloud Dataflow job. To get the state of a
+ *  job, we recommend using `projects.locations.jobs.get` with a [regional
+ *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.get` is not recommended, as you can only get the state of
  *  jobs that are running in `us-central1`.
@@ -674,8 +780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Request the job status.
- *  To request the status of a job, we recommend using
+ *  Request the job status. To request the status of a job, we recommend using
  *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.getMetrics` is not recommended, as you can only request the
@@ -693,7 +798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsJobsGetMetricsWithprojectId:jobId:]
 
-/** The job to get messages for. */
+/** The job to get metrics for. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
@@ -707,23 +812,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Return only metric data that has changed since this time.
- *  Default is to return all information about all metrics for the job.
+ *  Return only metric data that has changed since this time. Default is to
+ *  return all information about all metrics for the job.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Fetches a @c GTLRDataflow_JobMetrics.
  *
- *  Request the job status.
- *  To request the status of a job, we recommend using
+ *  Request the job status. To request the status of a job, we recommend using
  *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.getMetrics` is not recommended, as you can only request the
  *  status of jobs that are running in `us-central1`.
  *
  *  @param projectId A project id.
- *  @param jobId The job to get messages for.
+ *  @param jobId The job to get metrics for.
  *
  *  @return GTLRDataflowQuery_ProjectsJobsGetMetrics
  */
@@ -733,9 +837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  List the jobs of a project.
- *  To list the jobs of a project in a region, we recommend using
- *  `projects.locations.jobs.list` with a [regional endpoint]
+ *  List the jobs of a project. To list the jobs of a project in a region, we
+ *  recommend using `projects.locations.jobs.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
  *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
  *  `projects.jobs.list` is not recommended, as you can only get the list of
@@ -757,10 +860,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The kind of filter to use.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowFilterUnknown Value "UNKNOWN"
- *    @arg @c kGTLRDataflowFilterAll Value "ALL"
- *    @arg @c kGTLRDataflowFilterTerminated Value "TERMINATED"
- *    @arg @c kGTLRDataflowFilterActive Value "ACTIVE"
+ *    @arg @c kGTLRDataflowFilterUnknown The filter isn't specified, or is
+ *        unknown. This returns all jobs ordered on descending `JobUuid`.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRDataflowFilterAll Returns all running jobs first ordered on
+ *        creation timestamp, then returns all terminated jobs ordered on the
+ *        termination timestamp. (Value: "ALL")
+ *    @arg @c kGTLRDataflowFilterTerminated Filters the jobs that have a
+ *        terminated state, ordered on the termination timestamp. Example
+ *        terminated states: `JOB_STATE_STOPPED`, `JOB_STATE_UPDATED`,
+ *        `JOB_STATE_DRAINED`, etc. (Value: "TERMINATED")
+ *    @arg @c kGTLRDataflowFilterActive Filters the jobs that are running
+ *        ordered on the creation timestamp. (Value: "ACTIVE")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -772,15 +883,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  If there are many jobs, limit response to at most this many.
- *  The actual number of jobs returned will be the lesser of max_responses
- *  and an unspecified server-defined limit.
+ *  If there are many jobs, limit response to at most this many. The actual
+ *  number of jobs returned will be the lesser of max_responses and an
+ *  unspecified server-defined limit.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Set this to the 'next_page_token' field of a previous response
- *  to request additional results in a long list.
+ *  Set this to the 'next_page_token' field of a previous response to request
+ *  additional results in a long list.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -791,19 +902,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
- *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
- *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
- *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
+ *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
+ *        specified, or is unknown. Responses will contain at least the
+ *        `JOB_VIEW_SUMMARY` information, and may contain additional
+ *        information. (Value: "JOB_VIEW_UNKNOWN")
+ *    @arg @c kGTLRDataflowViewJobViewSummary Request summary information only:
+ *        Project ID, Job ID, job name, job type, job status, start/end time,
+ *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
+ *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
+ *        this job. (Value: "JOB_VIEW_ALL")
+ *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
+ *        limited job description data for steps, labels and environment.
+ *        (Value: "JOB_VIEW_DESCRIPTION")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project.
- *  To list the jobs of a project in a region, we recommend using
- *  `projects.locations.jobs.list` with a [regional endpoint]
+ *  List the jobs of a project. To list the jobs of a project in a region, we
+ *  recommend using `projects.locations.jobs.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
  *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
  *  `projects.jobs.list` is not recommended, as you can only get the list of
@@ -818,8 +936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Request the job status.
- *  To request the status of a job, we recommend using
+ *  Request the job status. To request the status of a job, we recommend using
  *  `projects.locations.jobs.messages.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.messages.list` is not recommended, as you can only request
@@ -838,8 +955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsJobsMessagesListWithprojectId:jobId:]
 
 /**
- *  Return only messages with timestamps < end_time. The default is now
- *  (i.e. return up to the latest messages available).
+ *  Return only messages with timestamps < end_time. The default is now (i.e.
+ *  return up to the latest messages available).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -857,32 +974,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Filter to only get messages with importance >= level
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageImportanceUnknown Value
- *        "JOB_MESSAGE_IMPORTANCE_UNKNOWN"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDebug Value
- *        "JOB_MESSAGE_DEBUG"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDetailed Value
- *        "JOB_MESSAGE_DETAILED"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageBasic Value
- *        "JOB_MESSAGE_BASIC"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageWarning Value
- *        "JOB_MESSAGE_WARNING"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageError Value
- *        "JOB_MESSAGE_ERROR"
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageImportanceUnknown The
+ *        message importance isn't specified, or is unknown. (Value:
+ *        "JOB_MESSAGE_IMPORTANCE_UNKNOWN")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDebug The message is at
+ *        the 'debug' level: typically only useful for software engineers
+ *        working on the code the job is running. Typically, Dataflow pipeline
+ *        runners do not display log messages at this level by default. (Value:
+ *        "JOB_MESSAGE_DEBUG")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDetailed The message is at
+ *        the 'detailed' level: somewhat verbose, but potentially useful to
+ *        users. Typically, Dataflow pipeline runners do not display log
+ *        messages at this level by default. These messages are displayed by
+ *        default in the Dataflow monitoring UI. (Value: "JOB_MESSAGE_DETAILED")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageBasic The message is at
+ *        the 'basic' level: useful for keeping track of the execution of a
+ *        Dataflow pipeline. Typically, Dataflow pipeline runners display log
+ *        messages at this level by default, and these messages are displayed by
+ *        default in the Dataflow monitoring UI. (Value: "JOB_MESSAGE_BASIC")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageWarning The message is at
+ *        the 'warning' level: indicating a condition pertaining to a job which
+ *        may require human intervention. Typically, Dataflow pipeline runners
+ *        display log messages at this level by default, and these messages are
+ *        displayed by default in the Dataflow monitoring UI. (Value:
+ *        "JOB_MESSAGE_WARNING")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageError The message is at
+ *        the 'error' level: indicating a condition preventing a job from
+ *        succeeding. Typically, Dataflow pipeline runners display log messages
+ *        at this level by default, and these messages are displayed by default
+ *        in the Dataflow monitoring UI. (Value: "JOB_MESSAGE_ERROR")
  */
 @property(nonatomic, copy, nullable) NSString *minimumImportance;
 
 /**
- *  If specified, determines the maximum number of messages to
- *  return. If unspecified, the service may choose an appropriate
- *  default, or may return an arbitrarily large number of results.
+ *  If specified, determines the maximum number of messages to return. If
+ *  unspecified, the service may choose an appropriate default, or may return an
+ *  arbitrarily large number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If supplied, this should be the value of next_page_token returned
- *  by an earlier call. This will cause the next page of results to
- *  be returned.
+ *  If supplied, this should be the value of next_page_token returned by an
+ *  earlier call. This will cause the next page of results to be returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -890,16 +1023,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  If specified, return only messages with timestamps >= start_time.
- *  The default is the job creation time (i.e. beginning of messages).
+ *  If specified, return only messages with timestamps >= start_time. The
+ *  default is the job creation time (i.e. beginning of messages).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobMessagesResponse.
  *
- *  Request the job status.
- *  To request the status of a job, we recommend using
+ *  Request the job status. To request the status of a job, we recommend using
  *  `projects.locations.jobs.messages.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.messages.list` is not recommended, as you can only request
@@ -955,9 +1087,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Updates the state of an existing Cloud Dataflow job.
- *  To update the state of an existing job, we recommend using
- *  `projects.locations.jobs.update` with a [regional endpoint]
+ *  Updates the state of an existing Cloud Dataflow job. To update the state of
+ *  an existing job, we recommend using `projects.locations.jobs.update` with a
+ *  [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.update` is not recommended, as you can only update the state
  *  of jobs that are running in `us-central1`.
@@ -990,9 +1122,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Updates the state of an existing Cloud Dataflow job.
- *  To update the state of an existing job, we recommend using
- *  `projects.locations.jobs.update` with a [regional endpoint]
+ *  Updates the state of an existing Cloud Dataflow job. To update the state of
+ *  an existing job, we recommend using `projects.locations.jobs.update` with a
+ *  [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.update` is not recommended, as you can only update the state
  *  of jobs that are running in `us-central1`.
@@ -1135,12 +1267,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Creates a Cloud Dataflow job.
- *  To create a job, we recommend using `projects.locations.jobs.create` with a
- *  [regional endpoint]
+ *  Creates a Cloud Dataflow job. To create a job, we recommend using
+ *  `projects.locations.jobs.create` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
- *  `projects.jobs.create` is not recommended, as your job will always start
- *  in `us-central1`.
+ *  `projects.jobs.create` is not recommended, as your job will always start in
+ *  `us-central1`.
  *
  *  Method: dataflow.projects.locations.jobs.create
  *
@@ -1171,22 +1302,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The level of information requested in response.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
- *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
- *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
- *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
+ *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
+ *        specified, or is unknown. Responses will contain at least the
+ *        `JOB_VIEW_SUMMARY` information, and may contain additional
+ *        information. (Value: "JOB_VIEW_UNKNOWN")
+ *    @arg @c kGTLRDataflowViewJobViewSummary Request summary information only:
+ *        Project ID, Job ID, job name, job type, job status, start/end time,
+ *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
+ *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
+ *        this job. (Value: "JOB_VIEW_ALL")
+ *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
+ *        limited job description data for steps, labels and environment.
+ *        (Value: "JOB_VIEW_DESCRIPTION")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Creates a Cloud Dataflow job.
- *  To create a job, we recommend using `projects.locations.jobs.create` with a
- *  [regional endpoint]
+ *  Creates a Cloud Dataflow job. To create a job, we recommend using
+ *  `projects.locations.jobs.create` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
- *  `projects.jobs.create` is not recommended, as your job will always start
- *  in `us-central1`.
+ *  `projects.jobs.create` is not recommended, as your job will always start in
+ *  `us-central1`.
  *
  *  @param object The @c GTLRDataflow_Job to include in the query.
  *  @param projectId The ID of the Cloud Platform project that the job belongs
@@ -1304,9 +1442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Gets the state of the specified Cloud Dataflow job.
- *  To get the state of a job, we recommend using `projects.locations.jobs.get`
- *  with a [regional endpoint]
+ *  Gets the state of the specified Cloud Dataflow job. To get the state of a
+ *  job, we recommend using `projects.locations.jobs.get` with a [regional
+ *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.get` is not recommended, as you can only get the state of
  *  jobs that are running in `us-central1`.
@@ -1340,19 +1478,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The level of information requested in response.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
- *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
- *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
- *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
+ *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
+ *        specified, or is unknown. Responses will contain at least the
+ *        `JOB_VIEW_SUMMARY` information, and may contain additional
+ *        information. (Value: "JOB_VIEW_UNKNOWN")
+ *    @arg @c kGTLRDataflowViewJobViewSummary Request summary information only:
+ *        Project ID, Job ID, job name, job type, job status, start/end time,
+ *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
+ *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
+ *        this job. (Value: "JOB_VIEW_ALL")
+ *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
+ *        limited job description data for steps, labels and environment.
+ *        (Value: "JOB_VIEW_DESCRIPTION")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Gets the state of the specified Cloud Dataflow job.
- *  To get the state of a job, we recommend using `projects.locations.jobs.get`
- *  with a [regional endpoint]
+ *  Gets the state of the specified Cloud Dataflow job. To get the state of a
+ *  job, we recommend using `projects.locations.jobs.get` with a [regional
+ *  endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.get` is not recommended, as you can only get the state of
  *  jobs that are running in `us-central1`.
@@ -1373,8 +1519,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Request the job status.
- *  To request the status of a job, we recommend using
+ *  Request detailed information about the execution status of the job.
+ *  EXPERIMENTAL. This API is subject to change or removal without notice.
+ *
+ *  Method: dataflow.projects.locations.jobs.getExecutionDetails
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsGetExecutionDetails : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsGetExecutionDetailsWithprojectId:location:jobId:]
+
+/** The job to get execution details for. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** A project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRDataflow_JobExecutionDetails.
+ *
+ *  Request detailed information about the execution status of the job.
+ *  EXPERIMENTAL. This API is subject to change or removal without notice.
+ *
+ *  @param projectId A project id.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the job specified by job_id.
+ *  @param jobId The job to get execution details for.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsGetExecutionDetails
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId;
+
+@end
+
+/**
+ *  Request the job status. To request the status of a job, we recommend using
  *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.getMetrics` is not recommended, as you can only request the
@@ -1392,7 +1586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 // Previous library name was
 //   +[GTLQueryDataflow queryForProjectsLocationsJobsGetMetricsWithprojectId:location:jobId:]
 
-/** The job to get messages for. */
+/** The job to get metrics for. */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
@@ -1406,16 +1600,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Return only metric data that has changed since this time.
- *  Default is to return all information about all metrics for the job.
+ *  Return only metric data that has changed since this time. Default is to
+ *  return all information about all metrics for the job.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Fetches a @c GTLRDataflow_JobMetrics.
  *
- *  Request the job status.
- *  To request the status of a job, we recommend using
+ *  Request the job status. To request the status of a job, we recommend using
  *  `projects.locations.jobs.getMetrics` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.getMetrics` is not recommended, as you can only request the
@@ -1425,7 +1618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param location The [regional endpoint]
  *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
  *    contains the job specified by job_id.
- *  @param jobId The job to get messages for.
+ *  @param jobId The job to get metrics for.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics
  */
@@ -1436,9 +1629,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  List the jobs of a project.
- *  To list the jobs of a project in a region, we recommend using
- *  `projects.locations.jobs.list` with a [regional endpoint]
+ *  List the jobs of a project. To list the jobs of a project in a region, we
+ *  recommend using `projects.locations.jobs.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
  *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
  *  `projects.jobs.list` is not recommended, as you can only get the list of
@@ -1460,10 +1652,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The kind of filter to use.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowFilterUnknown Value "UNKNOWN"
- *    @arg @c kGTLRDataflowFilterAll Value "ALL"
- *    @arg @c kGTLRDataflowFilterTerminated Value "TERMINATED"
- *    @arg @c kGTLRDataflowFilterActive Value "ACTIVE"
+ *    @arg @c kGTLRDataflowFilterUnknown The filter isn't specified, or is
+ *        unknown. This returns all jobs ordered on descending `JobUuid`.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRDataflowFilterAll Returns all running jobs first ordered on
+ *        creation timestamp, then returns all terminated jobs ordered on the
+ *        termination timestamp. (Value: "ALL")
+ *    @arg @c kGTLRDataflowFilterTerminated Filters the jobs that have a
+ *        terminated state, ordered on the termination timestamp. Example
+ *        terminated states: `JOB_STATE_STOPPED`, `JOB_STATE_UPDATED`,
+ *        `JOB_STATE_DRAINED`, etc. (Value: "TERMINATED")
+ *    @arg @c kGTLRDataflowFilterActive Filters the jobs that are running
+ *        ordered on the creation timestamp. (Value: "ACTIVE")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1475,15 +1675,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  If there are many jobs, limit response to at most this many.
- *  The actual number of jobs returned will be the lesser of max_responses
- *  and an unspecified server-defined limit.
+ *  If there are many jobs, limit response to at most this many. The actual
+ *  number of jobs returned will be the lesser of max_responses and an
+ *  unspecified server-defined limit.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Set this to the 'next_page_token' field of a previous response
- *  to request additional results in a long list.
+ *  Set this to the 'next_page_token' field of a previous response to request
+ *  additional results in a long list.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1494,19 +1694,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewJobViewUnknown Value "JOB_VIEW_UNKNOWN"
- *    @arg @c kGTLRDataflowViewJobViewSummary Value "JOB_VIEW_SUMMARY"
- *    @arg @c kGTLRDataflowViewJobViewAll Value "JOB_VIEW_ALL"
- *    @arg @c kGTLRDataflowViewJobViewDescription Value "JOB_VIEW_DESCRIPTION"
+ *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
+ *        specified, or is unknown. Responses will contain at least the
+ *        `JOB_VIEW_SUMMARY` information, and may contain additional
+ *        information. (Value: "JOB_VIEW_UNKNOWN")
+ *    @arg @c kGTLRDataflowViewJobViewSummary Request summary information only:
+ *        Project ID, Job ID, job name, job type, job status, start/end time,
+ *        and Cloud SDK version details. (Value: "JOB_VIEW_SUMMARY")
+ *    @arg @c kGTLRDataflowViewJobViewAll Request all information available for
+ *        this job. (Value: "JOB_VIEW_ALL")
+ *    @arg @c kGTLRDataflowViewJobViewDescription Request summary info and
+ *        limited job description data for steps, labels and environment.
+ *        (Value: "JOB_VIEW_DESCRIPTION")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobsResponse.
  *
- *  List the jobs of a project.
- *  To list the jobs of a project in a region, we recommend using
- *  `projects.locations.jobs.list` with a [regional endpoint]
+ *  List the jobs of a project. To list the jobs of a project in a region, we
+ *  recommend using `projects.locations.jobs.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). To
  *  list the all jobs across all regions, use `projects.jobs.aggregated`. Using
  *  `projects.jobs.list` is not recommended, as you can only get the list of
@@ -1525,8 +1732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Request the job status.
- *  To request the status of a job, we recommend using
+ *  Request the job status. To request the status of a job, we recommend using
  *  `projects.locations.jobs.messages.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.messages.list` is not recommended, as you can only request
@@ -1545,8 +1751,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsLocationsJobsMessagesListWithprojectId:location:jobId:]
 
 /**
- *  Return only messages with timestamps < end_time. The default is now
- *  (i.e. return up to the latest messages available).
+ *  Return only messages with timestamps < end_time. The default is now (i.e.
+ *  return up to the latest messages available).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -1564,32 +1770,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Filter to only get messages with importance >= level
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageImportanceUnknown Value
- *        "JOB_MESSAGE_IMPORTANCE_UNKNOWN"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDebug Value
- *        "JOB_MESSAGE_DEBUG"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDetailed Value
- *        "JOB_MESSAGE_DETAILED"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageBasic Value
- *        "JOB_MESSAGE_BASIC"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageWarning Value
- *        "JOB_MESSAGE_WARNING"
- *    @arg @c kGTLRDataflowMinimumImportanceJobMessageError Value
- *        "JOB_MESSAGE_ERROR"
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageImportanceUnknown The
+ *        message importance isn't specified, or is unknown. (Value:
+ *        "JOB_MESSAGE_IMPORTANCE_UNKNOWN")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDebug The message is at
+ *        the 'debug' level: typically only useful for software engineers
+ *        working on the code the job is running. Typically, Dataflow pipeline
+ *        runners do not display log messages at this level by default. (Value:
+ *        "JOB_MESSAGE_DEBUG")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageDetailed The message is at
+ *        the 'detailed' level: somewhat verbose, but potentially useful to
+ *        users. Typically, Dataflow pipeline runners do not display log
+ *        messages at this level by default. These messages are displayed by
+ *        default in the Dataflow monitoring UI. (Value: "JOB_MESSAGE_DETAILED")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageBasic The message is at
+ *        the 'basic' level: useful for keeping track of the execution of a
+ *        Dataflow pipeline. Typically, Dataflow pipeline runners display log
+ *        messages at this level by default, and these messages are displayed by
+ *        default in the Dataflow monitoring UI. (Value: "JOB_MESSAGE_BASIC")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageWarning The message is at
+ *        the 'warning' level: indicating a condition pertaining to a job which
+ *        may require human intervention. Typically, Dataflow pipeline runners
+ *        display log messages at this level by default, and these messages are
+ *        displayed by default in the Dataflow monitoring UI. (Value:
+ *        "JOB_MESSAGE_WARNING")
+ *    @arg @c kGTLRDataflowMinimumImportanceJobMessageError The message is at
+ *        the 'error' level: indicating a condition preventing a job from
+ *        succeeding. Typically, Dataflow pipeline runners display log messages
+ *        at this level by default, and these messages are displayed by default
+ *        in the Dataflow monitoring UI. (Value: "JOB_MESSAGE_ERROR")
  */
 @property(nonatomic, copy, nullable) NSString *minimumImportance;
 
 /**
- *  If specified, determines the maximum number of messages to
- *  return. If unspecified, the service may choose an appropriate
- *  default, or may return an arbitrarily large number of results.
+ *  If specified, determines the maximum number of messages to return. If
+ *  unspecified, the service may choose an appropriate default, or may return an
+ *  arbitrarily large number of results.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If supplied, this should be the value of next_page_token returned
- *  by an earlier call. This will cause the next page of results to
- *  be returned.
+ *  If supplied, this should be the value of next_page_token returned by an
+ *  earlier call. This will cause the next page of results to be returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1597,16 +1819,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  If specified, return only messages with timestamps >= start_time.
- *  The default is the job creation time (i.e. beginning of messages).
+ *  If specified, return only messages with timestamps >= start_time. The
+ *  default is the job creation time (i.e. beginning of messages).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Fetches a @c GTLRDataflow_ListJobMessagesResponse.
  *
- *  Request the job status.
- *  To request the status of a job, we recommend using
+ *  Request the job status. To request the status of a job, we recommend using
  *  `projects.locations.jobs.messages.list` with a [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.messages.list` is not recommended, as you can only request
@@ -1712,9 +1933,86 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Updates the state of an existing Cloud Dataflow job.
- *  To update the state of an existing job, we recommend using
- *  `projects.locations.jobs.update` with a [regional endpoint]
+ *  Request detailed information about the execution status of a stage of the
+ *  job. EXPERIMENTAL. This API is subject to change or removal without notice.
+ *
+ *  Method: dataflow.projects.locations.jobs.stages.getExecutionDetails
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataflowCloudPlatform
+ *    @c kGTLRAuthScopeDataflowCompute
+ *    @c kGTLRAuthScopeDataflowComputeReadonly
+ *    @c kGTLRAuthScopeDataflowUserinfoEmail
+ */
+@interface GTLRDataflowQuery_ProjectsLocationsJobsStagesGetExecutionDetails : GTLRDataflowQuery
+// Previous library name was
+//   +[GTLQueryDataflow queryForProjectsLocationsJobsStagesGetExecutionDetailsWithprojectId:location:jobId:stageId:]
+
+/** Upper time bound of work items to include, by start time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** The job to get execution details for. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  The [regional endpoint]
+ *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *  contains the job specified by job_id.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  If specified, determines the maximum number of work items to return. If
+ *  unspecified, the service may choose an appropriate default, or may return an
+ *  arbitrarily large number of results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If supplied, this should be the value of next_page_token returned by an
+ *  earlier call. This will cause the next page of results to be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** A project id. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** The stage for which to fetch information. */
+@property(nonatomic, copy, nullable) NSString *stageId;
+
+/** Lower time bound of work items to include, by start time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Fetches a @c GTLRDataflow_StageExecutionDetails.
+ *
+ *  Request detailed information about the execution status of a stage of the
+ *  job. EXPERIMENTAL. This API is subject to change or removal without notice.
+ *
+ *  @param projectId A project id.
+ *  @param location The [regional endpoint]
+ *    (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints) that
+ *    contains the job specified by job_id.
+ *  @param jobId The job to get execution details for.
+ *  @param stageId The stage for which to fetch information.
+ *
+ *  @return GTLRDataflowQuery_ProjectsLocationsJobsStagesGetExecutionDetails
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId
+                           stageId:(NSString *)stageId;
+
+@end
+
+/**
+ *  Updates the state of an existing Cloud Dataflow job. To update the state of
+ *  an existing job, we recommend using `projects.locations.jobs.update` with a
+ *  [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.update` is not recommended, as you can only update the state
  *  of jobs that are running in `us-central1`.
@@ -1747,9 +2045,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_Job.
  *
- *  Updates the state of an existing Cloud Dataflow job.
- *  To update the state of an existing job, we recommend using
- *  `projects.locations.jobs.update` with a [regional endpoint]
+ *  Updates the state of an existing Cloud Dataflow job. To update the state of
+ *  an existing job, we recommend using `projects.locations.jobs.update` with a
+ *  [regional endpoint]
  *  (https://cloud.google.com/dataflow/docs/concepts/regional-endpoints). Using
  *  `projects.jobs.update` is not recommended, as you can only update the state
  *  of jobs that are running in `us-central1`.
@@ -1995,10 +2293,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @end
 
 /**
- *  Validates a GoogleSQL query for Cloud Dataflow syntax. Will always
- *  confirm the given query parses correctly, and if able to look up
- *  schema information from DataCatalog, will validate that the query
- *  analyzes properly as well.
+ *  Validates a GoogleSQL query for Cloud Dataflow syntax. Will always confirm
+ *  the given query parses correctly, and if able to look up schema information
+ *  from DataCatalog, will validate that the query analyzes properly as well.
  *
  *  Method: dataflow.projects.locations.sql.validate
  *
@@ -2026,10 +2323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 /**
  *  Fetches a @c GTLRDataflow_ValidateResponse.
  *
- *  Validates a GoogleSQL query for Cloud Dataflow syntax. Will always
- *  confirm the given query parses correctly, and if able to look up
- *  schema information from DataCatalog, will validate that the query
- *  analyzes properly as well.
+ *  Validates a GoogleSQL query for Cloud Dataflow syntax. Will always confirm
+ *  the given query parses correctly, and if able to look up schema information
+ *  from DataCatalog, will validate that the query analyzes properly as well.
  *
  *  @param projectId Required. The ID of the Cloud Platform project that the job
  *    belongs to.
@@ -2106,8 +2402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsLocationsTemplatesGetWithprojectId:location:]
 
 /**
- *  Required. A Cloud Storage path to the template from which to
- *  create the job.
+ *  Required. A Cloud Storage path to the template from which to create the job.
  *  Must be valid Cloud Storage URL, beginning with 'gs://'.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
@@ -2126,7 +2421,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The view to retrieve. Defaults to METADATA_ONLY.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewMetadataOnly Value "METADATA_ONLY"
+ *    @arg @c kGTLRDataflowViewMetadataOnly Template view that retrieves only
+ *        the metadata associated with the template. (Value: "METADATA_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -2164,21 +2460,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsLocationsTemplatesLaunchWithObject:projectId:location:]
 
 /**
- *  Path to dynamic template spec file on GCS.
- *  The file must be a Json serialized DynamicTemplateFieSpec object.
+ *  Path to dynamic template spec file on GCS. The file must be a Json
+ *  serialized DynamicTemplateFieSpec object.
  */
 @property(nonatomic, copy, nullable) NSString *dynamicTemplateGcsPath;
 
 /**
- *  Cloud Storage path for staging dependencies.
- *  Must be a valid Cloud Storage URL, beginning with `gs://`.
+ *  Cloud Storage path for staging dependencies. Must be a valid Cloud Storage
+ *  URL, beginning with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *dynamicTemplateStagingLocation;
 
 /**
- *  A Cloud Storage path to the template from which to create
- *  the job.
- *  Must be valid Cloud Storage URL, beginning with 'gs://'.
+ *  A Cloud Storage path to the template from which to create the job. Must be
+ *  valid Cloud Storage URL, beginning with 'gs://'.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
@@ -2193,8 +2488,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  If true, the request is validated but not actually executed.
- *  Defaults to false.
+ *  If true, the request is validated but not actually executed. Defaults to
+ *  false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -2392,8 +2687,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsTemplatesGetWithprojectId:]
 
 /**
- *  Required. A Cloud Storage path to the template from which to
- *  create the job.
+ *  Required. A Cloud Storage path to the template from which to create the job.
  *  Must be valid Cloud Storage URL, beginning with 'gs://'.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
@@ -2412,7 +2706,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  The view to retrieve. Defaults to METADATA_ONLY.
  *
  *  Likely values:
- *    @arg @c kGTLRDataflowViewMetadataOnly Value "METADATA_ONLY"
+ *    @arg @c kGTLRDataflowViewMetadataOnly Template view that retrieves only
+ *        the metadata associated with the template. (Value: "METADATA_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -2446,21 +2741,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 //   +[GTLQueryDataflow queryForProjectsTemplatesLaunchWithObject:projectId:]
 
 /**
- *  Path to dynamic template spec file on GCS.
- *  The file must be a Json serialized DynamicTemplateFieSpec object.
+ *  Path to dynamic template spec file on GCS. The file must be a Json
+ *  serialized DynamicTemplateFieSpec object.
  */
 @property(nonatomic, copy, nullable) NSString *dynamicTemplateGcsPath;
 
 /**
- *  Cloud Storage path for staging dependencies.
- *  Must be a valid Cloud Storage URL, beginning with `gs://`.
+ *  Cloud Storage path for staging dependencies. Must be a valid Cloud Storage
+ *  URL, beginning with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *dynamicTemplateStagingLocation;
 
 /**
- *  A Cloud Storage path to the template from which to create
- *  the job.
- *  Must be valid Cloud Storage URL, beginning with 'gs://'.
+ *  A Cloud Storage path to the template from which to create the job. Must be
+ *  valid Cloud Storage URL, beginning with 'gs://'.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
@@ -2475,8 +2769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  If true, the request is validated but not actually executed.
- *  Defaults to false.
+ *  If true, the request is validated but not actually executed. Defaults to
+ *  false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -2499,8 +2793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 
 /**
  *  List TemplateVersions using project_id and an optional display_name field.
- *  List all the TemplateVersions in the Template if display set.
- *  List all the TemplateVersions in the Project if display_name not set.
+ *  List all the TemplateVersions in the Template if display set. List all the
+ *  TemplateVersions in the Project if display_name not set.
  *
  *  Method: dataflow.projects.templateVersions.list
  *
@@ -2516,17 +2810,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The page token, received from a previous ListTemplateVersions call.
- *  Provide this to retrieve the subsequent page.
+ *  The page token, received from a previous ListTemplateVersions call. Provide
+ *  this to retrieve the subsequent page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  parent includes project_id, and display_name is optional.
- *  List by project_id(pid1) and display_name(tid1).
- *  Format: projects/{pid1}/catalogTemplates/{tid1}
- *  List by project_id(pid1).
- *  Format: projects/{pid1}
+ *  parent includes project_id, and display_name is optional. List by
+ *  project_id(pid1) and display_name(tid1). Format:
+ *  projects/{pid1}/catalogTemplates/{tid1} List by project_id(pid1). Format:
+ *  projects/{pid1}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2534,14 +2827,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  Fetches a @c GTLRDataflow_ListTemplateVersionsResponse.
  *
  *  List TemplateVersions using project_id and an optional display_name field.
- *  List all the TemplateVersions in the Template if display set.
- *  List all the TemplateVersions in the Project if display_name not set.
+ *  List all the TemplateVersions in the Template if display set. List all the
+ *  TemplateVersions in the Project if display_name not set.
  *
- *  @param parent parent includes project_id, and display_name is optional.
- *    List by project_id(pid1) and display_name(tid1).
- *    Format: projects/{pid1}/catalogTemplates/{tid1}
- *    List by project_id(pid1).
- *    Format: projects/{pid1}
+ *  @param parent parent includes project_id, and display_name is optional. List
+ *    by project_id(pid1) and display_name(tid1). Format:
+ *    projects/{pid1}/catalogTemplates/{tid1} List by project_id(pid1). Format:
+ *    projects/{pid1}
  *
  *  @return GTLRDataflowQuery_ProjectsTemplateVersionsList
  *

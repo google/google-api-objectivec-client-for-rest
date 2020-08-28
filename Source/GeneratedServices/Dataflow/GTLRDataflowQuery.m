@@ -685,6 +685,31 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @end
 
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsGetExecutionDetails
+
+@dynamic jobId, location, projectId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId {
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/executionDetails";
+  GTLRDataflowQuery_ProjectsLocationsJobsGetExecutionDetails *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.expectedObjectClass = [GTLRDataflow_JobExecutionDetails class];
+  query.loggingName = @"dataflow.projects.locations.jobs.getExecutionDetails";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsGetMetrics
 
 @dynamic jobId, location, projectId, startTime;
@@ -812,6 +837,34 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
   query.jobId = jobId;
   query.expectedObjectClass = [GTLRDataflow_ListSnapshotsResponse class];
   query.loggingName = @"dataflow.projects.locations.jobs.snapshots.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataflowQuery_ProjectsLocationsJobsStagesGetExecutionDetails
+
+@dynamic endTime, jobId, location, pageSize, pageToken, projectId, stageId,
+         startTime;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                          location:(NSString *)location
+                             jobId:(NSString *)jobId
+                           stageId:(NSString *)stageId {
+  NSArray *pathParams = @[
+    @"jobId", @"location", @"projectId", @"stageId"
+  ];
+  NSString *pathURITemplate = @"v1b3/projects/{projectId}/locations/{location}/jobs/{jobId}/stages/{stageId}/executionDetails";
+  GTLRDataflowQuery_ProjectsLocationsJobsStagesGetExecutionDetails *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.location = location;
+  query.jobId = jobId;
+  query.stageId = stageId;
+  query.expectedObjectClass = [GTLRDataflow_StageExecutionDetails class];
+  query.loggingName = @"dataflow.projects.locations.jobs.stages.getExecutionDetails";
   return query;
 }
 

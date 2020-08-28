@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Reports API (admin/reports_v1)
+//   Admin SDK (admin/reports_v1)
 // Description:
-//   Fetches reports for the administrators of G Suite customers about the
-//   usage, collaboration, security, and risk for their users.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   /admin-sdk/reports/
+//   http://developers.google.com/admin-sdk/
 
 #import "GTLRReportsObjects.h"
 

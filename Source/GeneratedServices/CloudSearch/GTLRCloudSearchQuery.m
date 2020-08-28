@@ -521,6 +521,25 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @end
 
+@implementation GTLRCloudSearchQuery_OperationsLroList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/lro";
+  GTLRCloudSearchQuery_OperationsLroList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudSearch_ListOperationsResponse class];
+  query.loggingName = @"cloudsearch.operations.lro.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSearchQuery_QuerySearch
 
 + (instancetype)queryWithObject:(GTLRCloudSearch_SearchRequest *)object {

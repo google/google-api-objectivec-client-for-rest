@@ -53,6 +53,7 @@
 @class GTLRDataproc_HiveJob_ScriptVariables;
 @class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
+@class GTLRDataproc_InstanceReference;
 @class GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters;
 @class GTLRDataproc_Job;
 @class GTLRDataproc_Job_Labels;
@@ -716,7 +717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  scaling down so that there is no available memory remaining after the update
  *  (more aggressive scaling). A scale-down factor of 0 disables removing
  *  workers, which can be beneficial for autoscaling a single job. See How
- *  autoscaling works for more information.Bounds: 0.0, 1.0.
+ *  autoscaling works
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works)
+ *  for more information.Bounds: 0.0, 1.0.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -739,7 +742,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  scaling up so that there is no pending memory remaining after the update
  *  (more aggressive scaling). A scale-up factor closer to 0 will result in a
  *  smaller magnitude of scaling up (less aggressive scaling). See How
- *  autoscaling works for more information.Bounds: 0.0, 1.0.
+ *  autoscaling works
+ *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/autoscaling#how_autoscaling_works)
+ *  for more information.Bounds: 0.0, 1.0.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1747,6 +1752,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceNames;
 
+/** Output only. List of references to Compute Engine instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_InstanceReference *> *instanceReferences;
+
 /**
  *  Output only. Specifies that this instance group contains preemptible
  *  instances.
@@ -1807,6 +1815,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        worker groups. (Value: "PREEMPTIBLE")
  */
 @property(nonatomic, copy, nullable) NSString *preemptibility;
+
+@end
+
+
+/**
+ *  A reference to a Compute Engine instance.
+ */
+@interface GTLRDataproc_InstanceReference : GTLRObject
+
+/** The unique identifier of the Compute Engine instance. */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/** The user-friendly name of the Compute Engine instance. */
+@property(nonatomic, copy, nullable) NSString *instanceName;
 
 @end
 

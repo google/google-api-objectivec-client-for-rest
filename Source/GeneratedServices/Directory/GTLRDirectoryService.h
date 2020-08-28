@@ -120,12 +120,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroupMemberRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryGroupReadonly;
 /**
- *  Authorization scope: View and manage notifications received on your domain
- *
- *  Value "https://www.googleapis.com/auth/admin.directory.notifications"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryNotifications;
-/**
  *  Authorization scope: View and manage organization units on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.orgunit"

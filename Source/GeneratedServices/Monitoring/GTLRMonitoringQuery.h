@@ -52,87 +52,337 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // aggregationCrossSeriesReducer
 
-/** Value: "REDUCE_COUNT" */
+/**
+ *  Reduce by computing the number of data points across time series for each
+ *  alignment period. This reducer is valid for DELTA and GAUGE metrics of
+ *  numeric, Boolean, distribution, and string value_type. The value_type of the
+ *  output is INT64.
+ *
+ *  Value: "REDUCE_COUNT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCount;
-/** Value: "REDUCE_COUNT_FALSE" */
+/**
+ *  Reduce by computing the number of False-valued data points across time
+ *  series for each alignment period. This reducer is valid for DELTA and GAUGE
+ *  metrics of Boolean value_type. The value_type of the output is INT64.
+ *
+ *  Value: "REDUCE_COUNT_FALSE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse;
-/** Value: "REDUCE_COUNT_TRUE" */
+/**
+ *  Reduce by computing the number of True-valued data points across time series
+ *  for each alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *  of Boolean value_type. The value_type of the output is INT64.
+ *
+ *  Value: "REDUCE_COUNT_TRUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue;
-/** Value: "REDUCE_FRACTION_TRUE" */
+/**
+ *  Reduce by computing the ratio of the number of True-valued data points to
+ *  the total number of data points for each alignment period. This reducer is
+ *  valid for DELTA and GAUGE metrics of Boolean value_type. The output value is
+ *  in the range 0.0, 1.0 and has value_type DOUBLE.
+ *
+ *  Value: "REDUCE_FRACTION_TRUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue;
-/** Value: "REDUCE_MAX" */
+/**
+ *  Reduce by computing the maximum value across time series for each alignment
+ *  period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *  values. The value_type of the output is the same as the value_type of the
+ *  input.
+ *
+ *  Value: "REDUCE_MAX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMax;
-/** Value: "REDUCE_MEAN" */
+/**
+ *  Reduce by computing the mean value across time series for each alignment
+ *  period. This reducer is valid for DELTA and GAUGE metrics with numeric or
+ *  distribution values. The value_type of the output is DOUBLE.
+ *
+ *  Value: "REDUCE_MEAN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMean;
-/** Value: "REDUCE_MIN" */
+/**
+ *  Reduce by computing the minimum value across time series for each alignment
+ *  period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *  values. The value_type of the output is the same as the value_type of the
+ *  input.
+ *
+ *  Value: "REDUCE_MIN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceMin;
-/** Value: "REDUCE_NONE" */
+/**
+ *  No cross-time series reduction. The output of the Aligner is returned.
+ *
+ *  Value: "REDUCE_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceNone;
-/** Value: "REDUCE_PERCENTILE_05" */
+/**
+ *  Reduce by computing the 5th percentile
+ *  (https://en.wikipedia.org/wiki/Percentile) of data points across time series
+ *  for each alignment period. This reducer is valid for GAUGE and DELTA metrics
+ *  of numeric and distribution type. The value of the output is DOUBLE.
+ *
+ *  Value: "REDUCE_PERCENTILE_05"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile05;
-/** Value: "REDUCE_PERCENTILE_50" */
+/**
+ *  Reduce by computing the 50th percentile
+ *  (https://en.wikipedia.org/wiki/Percentile) of data points across time series
+ *  for each alignment period. This reducer is valid for GAUGE and DELTA metrics
+ *  of numeric and distribution type. The value of the output is DOUBLE.
+ *
+ *  Value: "REDUCE_PERCENTILE_50"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile50;
-/** Value: "REDUCE_PERCENTILE_95" */
+/**
+ *  Reduce by computing the 95th percentile
+ *  (https://en.wikipedia.org/wiki/Percentile) of data points across time series
+ *  for each alignment period. This reducer is valid for GAUGE and DELTA metrics
+ *  of numeric and distribution type. The value of the output is DOUBLE.
+ *
+ *  Value: "REDUCE_PERCENTILE_95"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile95;
-/** Value: "REDUCE_PERCENTILE_99" */
+/**
+ *  Reduce by computing the 99th percentile
+ *  (https://en.wikipedia.org/wiki/Percentile) of data points across time series
+ *  for each alignment period. This reducer is valid for GAUGE and DELTA metrics
+ *  of numeric and distribution type. The value of the output is DOUBLE.
+ *
+ *  Value: "REDUCE_PERCENTILE_99"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile99;
-/** Value: "REDUCE_STDDEV" */
+/**
+ *  Reduce by computing the standard deviation across time series for each
+ *  alignment period. This reducer is valid for DELTA and GAUGE metrics with
+ *  numeric or distribution values. The value_type of the output is DOUBLE.
+ *
+ *  Value: "REDUCE_STDDEV"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceStddev;
-/** Value: "REDUCE_SUM" */
+/**
+ *  Reduce by computing the sum across time series for each alignment period.
+ *  This reducer is valid for DELTA and GAUGE metrics with numeric and
+ *  distribution values. The value_type of the output is the same as the
+ *  value_type of the input.
+ *
+ *  Value: "REDUCE_SUM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationCrossSeriesReducerReduceSum;
 
 // ----------------------------------------------------------------------------
 // aggregationPerSeriesAligner
 
-/** Value: "ALIGN_COUNT" */
+/**
+ *  Align the time series by returning the number of values in each alignment
+ *  period. This aligner is valid for GAUGE and DELTA metrics with numeric or
+ *  Boolean values. The value_type of the aligned result is INT64.
+ *
+ *  Value: "ALIGN_COUNT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCount;
-/** Value: "ALIGN_COUNT_FALSE" */
+/**
+ *  Align the time series by returning the number of False values in each
+ *  alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *  values. The value_type of the output is INT64.
+ *
+ *  Value: "ALIGN_COUNT_FALSE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse;
-/** Value: "ALIGN_COUNT_TRUE" */
+/**
+ *  Align the time series by returning the number of True values in each
+ *  alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *  values. The value_type of the output is INT64.
+ *
+ *  Value: "ALIGN_COUNT_TRUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue;
-/** Value: "ALIGN_DELTA" */
+/**
+ *  Align and convert to DELTA. The output is delta = y1 - y0.This alignment is
+ *  valid for CUMULATIVE and DELTA metrics. If the selected alignment period
+ *  results in periods with no data, then the aligned value for such a period is
+ *  created by interpolation. The value_type of the aligned result is the same
+ *  as the value_type of the input.
+ *
+ *  Value: "ALIGN_DELTA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta;
-/** Value: "ALIGN_FRACTION_TRUE" */
+/**
+ *  Align the time series by returning the ratio of the number of True values to
+ *  the total number of values in each alignment period. This aligner is valid
+ *  for GAUGE metrics with Boolean values. The output value is in the range 0.0,
+ *  1.0 and has value_type DOUBLE.
+ *
+ *  Value: "ALIGN_FRACTION_TRUE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue;
-/** Value: "ALIGN_INTERPOLATE" */
+/**
+ *  Align by interpolating between adjacent points around the alignment period
+ *  boundary. This aligner is valid for GAUGE metrics with numeric values. The
+ *  value_type of the aligned result is the same as the value_type of the input.
+ *
+ *  Value: "ALIGN_INTERPOLATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate;
-/** Value: "ALIGN_MAX" */
+/**
+ *  Align the time series by returning the maximum value in each alignment
+ *  period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *  values. The value_type of the aligned result is the same as the value_type
+ *  of the input.
+ *
+ *  Value: "ALIGN_MAX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMax;
-/** Value: "ALIGN_MEAN" */
+/**
+ *  Align the time series by returning the mean value in each alignment period.
+ *  This aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *  value_type of the aligned result is DOUBLE.
+ *
+ *  Value: "ALIGN_MEAN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMean;
-/** Value: "ALIGN_MIN" */
+/**
+ *  Align the time series by returning the minimum value in each alignment
+ *  period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *  values. The value_type of the aligned result is the same as the value_type
+ *  of the input.
+ *
+ *  Value: "ALIGN_MIN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignMin;
-/** Value: "ALIGN_NEXT_OLDER" */
+/**
+ *  Align by moving the most recent data point before the end of the alignment
+ *  period to the boundary at the end of the alignment period. This aligner is
+ *  valid for GAUGE metrics. The value_type of the aligned result is the same as
+ *  the value_type of the input.
+ *
+ *  Value: "ALIGN_NEXT_OLDER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder;
-/** Value: "ALIGN_NONE" */
+/**
+ *  No alignment. Raw data is returned. Not valid if cross-series reduction is
+ *  requested. The value_type of the result is the same as the value_type of the
+ *  input.
+ *
+ *  Value: "ALIGN_NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignNone;
-/** Value: "ALIGN_PERCENT_CHANGE" */
+/**
+ *  Align and convert to a percentage change. This aligner is valid for GAUGE
+ *  and DELTA metrics with numeric values. This alignment returns ((current -
+ *  previous)/previous) * 100, where the value of previous is determined based
+ *  on the alignment_period.If the values of current and previous are both 0,
+ *  then the returned value is 0. If only previous is 0, the returned value is
+ *  infinity.A 10-minute moving mean is computed at each point of the alignment
+ *  period prior to the above calculation to smooth the metric and prevent false
+ *  positives from very short-lived spikes. The moving mean is only applicable
+ *  for data whose values are >= 0. Any values < 0 are treated as a missing
+ *  datapoint, and are ignored. While DELTA metrics are accepted by this
+ *  alignment, special care should be taken that the values for the metric will
+ *  always be positive. The output is a GAUGE metric with value_type DOUBLE.
+ *
+ *  Value: "ALIGN_PERCENT_CHANGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange;
-/** Value: "ALIGN_PERCENTILE_05" */
+/**
+ *  Align the time series by using percentile aggregation
+ *  (https://en.wikipedia.org/wiki/Percentile). The resulting data point in each
+ *  alignment period is the 5th percentile of all data points in the period.
+ *  This aligner is valid for GAUGE and DELTA metrics with distribution values.
+ *  The output is a GAUGE metric with value_type DOUBLE.
+ *
+ *  Value: "ALIGN_PERCENTILE_05"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05;
-/** Value: "ALIGN_PERCENTILE_50" */
+/**
+ *  Align the time series by using percentile aggregation
+ *  (https://en.wikipedia.org/wiki/Percentile). The resulting data point in each
+ *  alignment period is the 50th percentile of all data points in the period.
+ *  This aligner is valid for GAUGE and DELTA metrics with distribution values.
+ *  The output is a GAUGE metric with value_type DOUBLE.
+ *
+ *  Value: "ALIGN_PERCENTILE_50"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50;
-/** Value: "ALIGN_PERCENTILE_95" */
+/**
+ *  Align the time series by using percentile aggregation
+ *  (https://en.wikipedia.org/wiki/Percentile). The resulting data point in each
+ *  alignment period is the 95th percentile of all data points in the period.
+ *  This aligner is valid for GAUGE and DELTA metrics with distribution values.
+ *  The output is a GAUGE metric with value_type DOUBLE.
+ *
+ *  Value: "ALIGN_PERCENTILE_95"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95;
-/** Value: "ALIGN_PERCENTILE_99" */
+/**
+ *  Align the time series by using percentile aggregation
+ *  (https://en.wikipedia.org/wiki/Percentile). The resulting data point in each
+ *  alignment period is the 99th percentile of all data points in the period.
+ *  This aligner is valid for GAUGE and DELTA metrics with distribution values.
+ *  The output is a GAUGE metric with value_type DOUBLE.
+ *
+ *  Value: "ALIGN_PERCENTILE_99"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99;
-/** Value: "ALIGN_RATE" */
+/**
+ *  Align and convert to a rate. The result is computed as rate = (y1 - y0)/(t1
+ *  - t0), or "delta over time". Think of this aligner as providing the slope of
+ *  the line that passes through the value at the start and at the end of the
+ *  alignment_period.This aligner is valid for CUMULATIVE and DELTA metrics with
+ *  numeric values. If the selected alignment period results in periods with no
+ *  data, then the aligned value for such a period is created by interpolation.
+ *  The output is a GAUGE metric with value_type DOUBLE.If, by "rate", you mean
+ *  "percentage change", see the ALIGN_PERCENT_CHANGE aligner instead.
+ *
+ *  Value: "ALIGN_RATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignRate;
-/** Value: "ALIGN_STDDEV" */
+/**
+ *  Align the time series by returning the standard deviation of the values in
+ *  each alignment period. This aligner is valid for GAUGE and DELTA metrics
+ *  with numeric values. The value_type of the output is DOUBLE.
+ *
+ *  Value: "ALIGN_STDDEV"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev;
-/** Value: "ALIGN_SUM" */
+/**
+ *  Align the time series by returning the sum of the values in each alignment
+ *  period. This aligner is valid for GAUGE and DELTA metrics with numeric and
+ *  distribution values. The value_type of the aligned result is the same as the
+ *  value_type of the input.
+ *
+ *  Value: "ALIGN_SUM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignSum;
 
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "EXPLICIT" */
+/**
+ *  For ServiceLevelIndicators using BasicSli articulation, instead return the
+ *  ServiceLevelIndicator with its mode of computation fully spelled out as a
+ *  RequestBasedSli. For ServiceLevelIndicators using RequestBasedSli or
+ *  WindowsBasedSli, return the ServiceLevelIndicator as it was provided.
+ *
+ *  Value: "EXPLICIT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewExplicit;
 /** Value: "FULL" */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewFull;
-/** Value: "HEADERS" */
+/**
+ *  Returns the identity of the metric and the time series resource, but not the
+ *  time series data.
+ *
+ *  Value: "HEADERS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewHeaders;
-/** Value: "VIEW_UNSPECIFIED" */
+/**
+ *  Same as FULL.
+ *
+ *  Value: "VIEW_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -164,13 +414,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The project in which to create the alerting policy. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
- *  Note that this field names the parent container in which the alerting policy
- *  will be written, not the name of the created policy. |name| must be a host
- *  project of a workspace, otherwise INVALID_ARGUMENT error will return. The
- *  alerting policy that is returned will have a name that contains a normalized
- *  representation of this name as a prefix but adds a suffix of the form
- *  /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
+ *  projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent
+ *  container in which the alerting policy will be written, not the name of the
+ *  created policy. |name| must be a host project of a workspace, otherwise
+ *  INVALID_ARGUMENT error will return. The alerting policy that is returned
+ *  will have a name that contains a normalized representation of this name as a
+ *  prefix but adds a suffix of the form /alertPolicies/[ALERT_POLICY_ID],
+ *  identifying the policy in the container.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -181,15 +431,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_AlertPolicy to include in the query.
  *  @param name Required. The project in which to create the alerting policy.
- *    The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
- *    Note that this field names the parent container in which the alerting
- *    policy will be written, not the name of the created policy. |name| must be
- *    a host project of a workspace, otherwise INVALID_ARGUMENT error will
- *    return. The alerting policy that is returned will have a name that
- *    contains a normalized representation of this name as a prefix but adds a
- *    suffix of the form /alertPolicies/[ALERT_POLICY_ID], identifying the
- *    policy in the container.
+ *    The format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names
+ *    the parent container in which the alerting policy will be written, not the
+ *    name of the created policy. |name| must be a host project of a workspace,
+ *    otherwise INVALID_ARGUMENT error will return. The alerting policy that is
+ *    returned will have a name that contains a normalized representation of
+ *    this name as a prefix but adds a suffix of the form
+ *    /alertPolicies/[ALERT_POLICY_ID], identifying the policy in the container.
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
  */
@@ -213,8 +461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The alerting policy to delete. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
- *  For more information, see AlertPolicy.
+ *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] For more
+ *  information, see AlertPolicy.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -224,8 +472,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Deletes an alerting policy.
  *
  *  @param name Required. The alerting policy to delete. The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
- *    For more information, see AlertPolicy.
+ *    projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID] For more
+ *    information, see AlertPolicy.
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesDelete
  */
@@ -291,10 +539,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The project whose alert policies are to be listed. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
- *  Note that this field names the parent container in which the alerting
- *  policies to be listed are stored. To retrieve a single alerting policy by
- *  name, use the GetAlertPolicy operation, instead.
+ *  projects/[PROJECT_ID_OR_NUMBER] Note that this field names the parent
+ *  container in which the alerting policies to be listed are stored. To
+ *  retrieve a single alerting policy by name, use the GetAlertPolicy operation,
+ *  instead.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -323,11 +571,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists the existing alerting policies for the workspace.
  *
  *  @param name Required. The project whose alert policies are to be listed. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
- *    Note that this field names the parent container in which the alerting
- *    policies to be listed are stored. To retrieve a single alerting policy by
- *    name, use the GetAlertPolicy operation, instead.
+ *    format is: projects/[PROJECT_ID_OR_NUMBER] Note that this field names the
+ *    parent container in which the alerting policies to be listed are stored.
+ *    To retrieve a single alerting policy by name, use the GetAlertPolicy
+ *    operation, instead.
  *
  *  @return GTLRMonitoringQuery_ProjectsAlertPoliciesList
  *
@@ -357,8 +604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required if the policy exists. The resource name for this policy. The format
- *  is:
- *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+ *  is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *  [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is
  *  created. When calling the alertPolicies.create method, do not include the
  *  name field in the alerting policy passed as part of the request.
@@ -375,14 +621,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  user_labels, user_label.nameofkey, enabled, conditions, combiner, etc.If
  *  this field is empty, then the supplied alerting policy replaces the existing
  *  policy. It is the same as deleting the existing policy and adding the
- *  supplied policy, except for the following:
- *  The new policy will have the same [ALERT_POLICY_ID] as the former policy.
- *  This gives you continuity with the former policy in your notifications and
- *  incidents.
- *  Conditions in the new policy will keep their former [CONDITION_ID] if the
- *  supplied condition includes the name field with that [CONDITION_ID]. If the
- *  supplied condition omits the name field, then a new [CONDITION_ID] is
- *  created.
+ *  supplied policy, except for the following: The new policy will have the same
+ *  [ALERT_POLICY_ID] as the former policy. This gives you continuity with the
+ *  former policy in your notifications and incidents. Conditions in the new
+ *  policy will keep their former [CONDITION_ID] if the supplied condition
+ *  includes the name field with that [CONDITION_ID]. If the supplied condition
+ *  omits the name field, then a new [CONDITION_ID] is created.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -412,9 +656,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
- *  Stackdriver Monitoring Agent only: Creates a new time
- *  series.<aside class="caution">This method is only for use by the Stackdriver
- *  Monitoring Agent. Use projects.timeSeries.create instead.</aside>
+ *  Stackdriver Monitoring Agent only: Creates a new time series.This method is
+ *  only for use by the Stackdriver Monitoring Agent. Use
+ *  projects.timeSeries.create instead.
  *
  *  Method: monitoring.projects.collectdTimeSeries.create
  *
@@ -436,9 +680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Fetches a @c GTLRMonitoring_CreateCollectdTimeSeriesResponse.
  *
- *  Stackdriver Monitoring Agent only: Creates a new time
- *  series.<aside class="caution">This method is only for use by the Stackdriver
- *  Monitoring Agent. Use projects.timeSeries.create instead.</aside>
+ *  Stackdriver Monitoring Agent only: Creates a new time series.This method is
+ *  only for use by the Stackdriver Monitoring Agent. Use
+ *  projects.timeSeries.create instead.
  *
  *  @param object The @c GTLRMonitoring_CreateCollectdTimeSeriesRequest to
  *    include in the query.
@@ -481,8 +725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_Group to include in the query.
  *  @param name Required. The project in which to create the group. The format
- *    is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsCreate
  */
@@ -581,28 +824,26 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  A group name. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
- *  Returns groups that are ancestors of the specified group. The groups are
- *  returned in order, starting with the immediate parent and ending with the
- *  most distant ancestor. If the specified group has no immediate parent, the
- *  results are empty.
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns groups that are
+ *  ancestors of the specified group. The groups are returned in order, starting
+ *  with the immediate parent and ending with the most distant ancestor. If the
+ *  specified group has no immediate parent, the results are empty.
  */
 @property(nonatomic, copy, nullable) NSString *ancestorsOfGroup;
 
 /**
  *  A group name. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
- *  Returns groups whose parent_name field contains the group name. If no groups
- *  have this parent, the results are empty.
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns groups whose
+ *  parent_name field contains the group name. If no groups have this parent,
+ *  the results are empty.
  */
 @property(nonatomic, copy, nullable) NSString *childrenOfGroup;
 
 /**
  *  A group name. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
- *  Returns the descendants of the specified group. This is a superset of the
- *  results returned by the children_of_group filter, and includes
- *  children-of-children, and so forth.
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] Returns the descendants of
+ *  the specified group. This is a superset of the results returned by the
+ *  children_of_group filter, and includes children-of-children, and so forth.
  */
 @property(nonatomic, copy, nullable) NSString *descendantsOfGroup;
 
@@ -628,8 +869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists the existing groups.
  *
  *  @param name Required. The project whose groups are to be listed. The format
- *    is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsList
  *
@@ -661,8 +901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  the members to be returned. The filter may reference the type, labels, and
  *  metadata of monitored resources that comprise the group. For example, to
  *  return only resources representing Compute Engine VM instances, use this
- *  filter:
- *  `resource.type = "gce_instance"`
+ *  filter: `resource.type = "gce_instance"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -725,10 +964,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Output only. The name of this group. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
- *  When creating a group, this field is ignored and a new name is created
- *  consisting of the project specified in the call to CreateGroup and a unique
- *  [GROUP_ID] that is generated automatically.
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group,
+ *  this field is ignored and a new name is created consisting of the project
+ *  specified in the call to CreateGroup and a unique [GROUP_ID] that is
+ *  generated automatically.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -742,10 +981,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_Group to include in the query.
  *  @param name Output only. The name of this group. The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
- *    When creating a group, this field is ignored and a new name is created
- *    consisting of the project specified in the call to CreateGroup and a
- *    unique [GROUP_ID] that is generated automatically.
+ *    projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group,
+ *    this field is ignored and a new name is created consisting of the project
+ *    specified in the call to CreateGroup and a unique [GROUP_ID] that is
+ *    generated automatically.
  *
  *  @return GTLRMonitoringQuery_ProjectsGroupsUpdate
  */
@@ -784,8 +1023,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_MetricDescriptor to include in the
  *    query.
  *  @param name Required. The project on which to execute the request. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsCreate
  */
@@ -810,9 +1048,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The metric descriptor on which to execute the request. The format
- *  is:
- *  projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
- *  An example of [METRIC_ID] is: "custom.googleapis.com/my_test_metric".
+ *  is: projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An example
+ *  of [METRIC_ID] is: "custom.googleapis.com/my_test_metric".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -824,8 +1061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param name Required. The metric descriptor on which to execute the request.
  *    The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
- *    An example of [METRIC_ID] is: "custom.googleapis.com/my_test_metric".
+ *    projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An example
+ *    of [METRIC_ID] is: "custom.googleapis.com/my_test_metric".
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsDelete
  */
@@ -850,9 +1087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The metric descriptor on which to execute the request. The format
- *  is:
- *  projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
- *  An example value of [METRIC_ID] is
+ *  is: projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An example
+ *  value of [METRIC_ID] is
  *  "compute.googleapis.com/instance/disk/read_bytes_count".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -864,8 +1100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param name Required. The metric descriptor on which to execute the request.
  *    The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID]
- *    An example value of [METRIC_ID] is
+ *    projects/[PROJECT_ID_OR_NUMBER]/metricDescriptors/[METRIC_ID] An example
+ *    value of [METRIC_ID] is
  *    "compute.googleapis.com/instance/disk/read_bytes_count".
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsGet
@@ -923,8 +1159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Workspace.
  *
  *  @param name Required. The project on which to execute the request. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsMetricDescriptorsList
  *
@@ -996,8 +1231,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  An optional filter (https://cloud.google.com/monitoring/api/v3/filters)
  *  describing the descriptors to be returned. The filter can reference the
  *  descriptor's type and labels. For example, the following filter returns only
- *  Google Compute Engine descriptors that have an id label:
- *  resource.type = starts_with("gce_") AND resource.label:id
+ *  Google Compute Engine descriptors that have an id label: resource.type =
+ *  starts_with("gce_") AND resource.label:id
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1024,8 +1259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  not require a Workspace.
  *
  *  @param name Required. The project on which to execute the request. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsMonitoredResourceDescriptorsList
  *
@@ -1092,10 +1326,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Required. The REST resource name of the parent from which to retrieve the
  *  notification channel descriptors. The expected syntax is:
- *  projects/[PROJECT_ID_OR_NUMBER]
- *  Note that this names the parent container in which to look for the
- *  descriptors; to retrieve a single descriptor by name, use the
- *  GetNotificationChannelDescriptor operation, instead.
+ *  projects/[PROJECT_ID_OR_NUMBER] Note that this names the parent container in
+ *  which to look for the descriptors; to retrieve a single descriptor by name,
+ *  use the GetNotificationChannelDescriptor operation, instead.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1119,10 +1352,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param name Required. The REST resource name of the parent from which to
  *    retrieve the notification channel descriptors. The expected syntax is:
- *    projects/[PROJECT_ID_OR_NUMBER]
- *    Note that this names the parent container in which to look for the
- *    descriptors; to retrieve a single descriptor by name, use the
- *    GetNotificationChannelDescriptor operation, instead.
+ *    projects/[PROJECT_ID_OR_NUMBER] Note that this names the parent container
+ *    in which to look for the descriptors; to retrieve a single descriptor by
+ *    name, use the GetNotificationChannelDescriptor operation, instead.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelDescriptorsList
  *
@@ -1150,11 +1382,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
- *  This names the container into which the channel will be written, this does
- *  not name the newly created channel. The resulting channel's name will have a
- *  normalized version of this field as a prefix, but will add
- *  /notificationChannels/[CHANNEL_ID] to identify the channel.
+ *  projects/[PROJECT_ID_OR_NUMBER] This names the container into which the
+ *  channel will be written, this does not name the newly created channel. The
+ *  resulting channel's name will have a normalized version of this field as a
+ *  prefix, but will add /notificationChannels/[CHANNEL_ID] to identify the
+ *  channel.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1167,12 +1399,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_NotificationChannel to include in the
  *    query.
  *  @param name Required. The project on which to execute the request. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
- *    This names the container into which the channel will be written, this does
- *    not name the newly created channel. The resulting channel's name will have
- *    a normalized version of this field as a prefix, but will add
- *    /notificationChannels/[CHANNEL_ID] to identify the channel.
+ *    format is: projects/[PROJECT_ID_OR_NUMBER] This names the container into
+ *    which the channel will be written, this does not name the newly created
+ *    channel. The resulting channel's name will have a normalized version of
+ *    this field as a prefix, but will add /notificationChannels/[CHANNEL_ID] to
+ *    identify the channel.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsCreate
  */
@@ -1363,10 +1594,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
- *  This names the container in which to look for the notification channels; it
- *  does not name a specific channel. To query a specific channel by REST
- *  resource name, use the GetNotificationChannel operation.
+ *  projects/[PROJECT_ID_OR_NUMBER] This names the container in which to look
+ *  for the notification channels; it does not name a specific channel. To query
+ *  a specific channel by REST resource name, use the GetNotificationChannel
+ *  operation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1397,11 +1628,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists the notification channels that have been created for the project.
  *
  *  @param name Required. The project on which to execute the request. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
- *    This names the container in which to look for the notification channels;
- *    it does not name a specific channel. To query a specific channel by REST
- *    resource name, use the GetNotificationChannel operation.
+ *    format is: projects/[PROJECT_ID_OR_NUMBER] This names the container in
+ *    which to look for the notification channels; it does not name a specific
+ *    channel. To query a specific channel by REST resource name, use the
+ *    GetNotificationChannel operation.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsList
  *
@@ -1429,8 +1659,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  The full REST resource name for this channel. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
- *  The [CHANNEL_ID] is automatically assigned by the server on creation.
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The
+ *  [CHANNEL_ID] is automatically assigned by the server on creation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1450,8 +1680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_NotificationChannel to include in the
  *    query.
  *  @param name The full REST resource name for this channel. The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
- *    The [CHANNEL_ID] is automatically assigned by the server on creation.
+ *    projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The
+ *    [CHANNEL_ID] is automatically assigned by the server on creation.
  *
  *  @return GTLRMonitoringQuery_ProjectsNotificationChannelsPatch
  */
@@ -1564,8 +1794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_CreateTimeSeriesRequest to include in
  *    the query.
  *  @param name Required. The project on which to execute the request. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesCreate
  */
@@ -1615,34 +1844,79 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  specified; otherwise, an error is returned.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceNone Value
- *        "REDUCE_NONE"
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMean Value
- *        "REDUCE_MEAN"
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMin Value
- *        "REDUCE_MIN"
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMax Value
- *        "REDUCE_MAX"
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceSum Value
- *        "REDUCE_SUM"
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceStddev Value
- *        "REDUCE_STDDEV"
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCount Value
- *        "REDUCE_COUNT"
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue Value
- *        "REDUCE_COUNT_TRUE"
- *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse Value
- *        "REDUCE_COUNT_FALSE"
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceNone No
+ *        cross-time series reduction. The output of the Aligner is returned.
+ *        (Value: "REDUCE_NONE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMean Reduce by
+ *        computing the mean value across time series for each alignment period.
+ *        This reducer is valid for DELTA and GAUGE metrics with numeric or
+ *        distribution values. The value_type of the output is DOUBLE. (Value:
+ *        "REDUCE_MEAN")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMin Reduce by
+ *        computing the minimum value across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        values. The value_type of the output is the same as the value_type of
+ *        the input. (Value: "REDUCE_MIN")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMax Reduce by
+ *        computing the maximum value across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        values. The value_type of the output is the same as the value_type of
+ *        the input. (Value: "REDUCE_MAX")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceSum Reduce by
+ *        computing the sum across time series for each alignment period. This
+ *        reducer is valid for DELTA and GAUGE metrics with numeric and
+ *        distribution values. The value_type of the output is the same as the
+ *        value_type of the input. (Value: "REDUCE_SUM")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceStddev Reduce by
+ *        computing the standard deviation across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        or distribution values. The value_type of the output is DOUBLE.
+ *        (Value: "REDUCE_STDDEV")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCount Reduce by
+ *        computing the number of data points across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics of
+ *        numeric, Boolean, distribution, and string value_type. The value_type
+ *        of the output is INT64. (Value: "REDUCE_COUNT")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue Reduce
+ *        by computing the number of True-valued data points across time series
+ *        for each alignment period. This reducer is valid for DELTA and GAUGE
+ *        metrics of Boolean value_type. The value_type of the output is INT64.
+ *        (Value: "REDUCE_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse
+ *        Reduce by computing the number of False-valued data points across time
+ *        series for each alignment period. This reducer is valid for DELTA and
+ *        GAUGE metrics of Boolean value_type. The value_type of the output is
+ *        INT64. (Value: "REDUCE_COUNT_FALSE")
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue
- *        Value "REDUCE_FRACTION_TRUE"
+ *        Reduce by computing the ratio of the number of True-valued data points
+ *        to the total number of data points for each alignment period. This
+ *        reducer is valid for DELTA and GAUGE metrics of Boolean value_type.
+ *        The output value is in the range 0.0, 1.0 and has value_type DOUBLE.
+ *        (Value: "REDUCE_FRACTION_TRUE")
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile99
- *        Value "REDUCE_PERCENTILE_99"
+ *        Reduce by computing the 99th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_99")
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile95
- *        Value "REDUCE_PERCENTILE_95"
+ *        Reduce by computing the 95th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_95")
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile50
- *        Value "REDUCE_PERCENTILE_50"
+ *        Reduce by computing the 50th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_50")
  *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile05
- *        Value "REDUCE_PERCENTILE_05"
+ *        Reduce by computing the 5th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_05")
  */
 @property(nonatomic, copy, nullable) NSString *aggregationCrossSeriesReducer;
 
@@ -1677,44 +1951,126 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  returned.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignNone Value
- *        "ALIGN_NONE"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta Value
- *        "ALIGN_DELTA"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignRate Value
- *        "ALIGN_RATE"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate Value
- *        "ALIGN_INTERPOLATE"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder Value
- *        "ALIGN_NEXT_OLDER"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMin Value
- *        "ALIGN_MIN"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMax Value
- *        "ALIGN_MAX"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMean Value
- *        "ALIGN_MEAN"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCount Value
- *        "ALIGN_COUNT"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignSum Value
- *        "ALIGN_SUM"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev Value
- *        "ALIGN_STDDEV"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue Value
- *        "ALIGN_COUNT_TRUE"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse Value
- *        "ALIGN_COUNT_FALSE"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue Value
- *        "ALIGN_FRACTION_TRUE"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99 Value
- *        "ALIGN_PERCENTILE_99"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95 Value
- *        "ALIGN_PERCENTILE_95"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50 Value
- *        "ALIGN_PERCENTILE_50"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05 Value
- *        "ALIGN_PERCENTILE_05"
- *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange Value
- *        "ALIGN_PERCENT_CHANGE"
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignNone No alignment.
+ *        Raw data is returned. Not valid if cross-series reduction is
+ *        requested. The value_type of the result is the same as the value_type
+ *        of the input. (Value: "ALIGN_NONE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta Align and
+ *        convert to DELTA. The output is delta = y1 - y0.This alignment is
+ *        valid for CUMULATIVE and DELTA metrics. If the selected alignment
+ *        period results in periods with no data, then the aligned value for
+ *        such a period is created by interpolation. The value_type of the
+ *        aligned result is the same as the value_type of the input. (Value:
+ *        "ALIGN_DELTA")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignRate Align and
+ *        convert to a rate. The result is computed as rate = (y1 - y0)/(t1 -
+ *        t0), or "delta over time". Think of this aligner as providing the
+ *        slope of the line that passes through the value at the start and at
+ *        the end of the alignment_period.This aligner is valid for CUMULATIVE
+ *        and DELTA metrics with numeric values. If the selected alignment
+ *        period results in periods with no data, then the aligned value for
+ *        such a period is created by interpolation. The output is a GAUGE
+ *        metric with value_type DOUBLE.If, by "rate", you mean "percentage
+ *        change", see the ALIGN_PERCENT_CHANGE aligner instead. (Value:
+ *        "ALIGN_RATE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate Align
+ *        by interpolating between adjacent points around the alignment period
+ *        boundary. This aligner is valid for GAUGE metrics with numeric values.
+ *        The value_type of the aligned result is the same as the value_type of
+ *        the input. (Value: "ALIGN_INTERPOLATE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder Align by
+ *        moving the most recent data point before the end of the alignment
+ *        period to the boundary at the end of the alignment period. This
+ *        aligner is valid for GAUGE metrics. The value_type of the aligned
+ *        result is the same as the value_type of the input. (Value:
+ *        "ALIGN_NEXT_OLDER")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMin Align the time
+ *        series by returning the minimum value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is the same as the value_type of the
+ *        input. (Value: "ALIGN_MIN")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMax Align the time
+ *        series by returning the maximum value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is the same as the value_type of the
+ *        input. (Value: "ALIGN_MAX")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMean Align the time
+ *        series by returning the mean value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is DOUBLE. (Value: "ALIGN_MEAN")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCount Align the
+ *        time series by returning the number of values in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        or Boolean values. The value_type of the aligned result is INT64.
+ *        (Value: "ALIGN_COUNT")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignSum Align the time
+ *        series by returning the sum of the values in each alignment period.
+ *        This aligner is valid for GAUGE and DELTA metrics with numeric and
+ *        distribution values. The value_type of the aligned result is the same
+ *        as the value_type of the input. (Value: "ALIGN_SUM")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev Align the
+ *        time series by returning the standard deviation of the values in each
+ *        alignment period. This aligner is valid for GAUGE and DELTA metrics
+ *        with numeric values. The value_type of the output is DOUBLE. (Value:
+ *        "ALIGN_STDDEV")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue Align the
+ *        time series by returning the number of True values in each alignment
+ *        period. This aligner is valid for GAUGE metrics with Boolean values.
+ *        The value_type of the output is INT64. (Value: "ALIGN_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse Align
+ *        the time series by returning the number of False values in each
+ *        alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *        values. The value_type of the output is INT64. (Value:
+ *        "ALIGN_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue Align
+ *        the time series by returning the ratio of the number of True values to
+ *        the total number of values in each alignment period. This aligner is
+ *        valid for GAUGE metrics with Boolean values. The output value is in
+ *        the range 0.0, 1.0 and has value_type DOUBLE. (Value:
+ *        "ALIGN_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 99th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 95th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 50th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 5th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_05")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange Align
+ *        and convert to a percentage change. This aligner is valid for GAUGE
+ *        and DELTA metrics with numeric values. This alignment returns
+ *        ((current - previous)/previous) * 100, where the value of previous is
+ *        determined based on the alignment_period.If the values of current and
+ *        previous are both 0, then the returned value is 0. If only previous is
+ *        0, the returned value is infinity.A 10-minute moving mean is computed
+ *        at each point of the alignment period prior to the above calculation
+ *        to smooth the metric and prevent false positives from very short-lived
+ *        spikes. The moving mean is only applicable for data whose values are
+ *        >= 0. Any values < 0 are treated as a missing datapoint, and are
+ *        ignored. While DELTA metrics are accepted by this alignment, special
+ *        care should be taken that the values for the metric will always be
+ *        positive. The output is a GAUGE metric with value_type DOUBLE. (Value:
+ *        "ALIGN_PERCENT_CHANGE")
  */
 @property(nonatomic, copy, nullable) NSString *aggregationPerSeriesAligner;
 
@@ -1723,8 +2079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  (https://cloud.google.com/monitoring/api/v3/filters) that specifies which
  *  time series should be returned. The filter must specify a single metric
  *  type, and can additionally specify metric labels and other information. For
- *  example:
- *  metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+ *  example: metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
  *  metric.labels.instance_name = "my-instance-name"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1771,8 +2126,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Required. Specifies which information is returned about the time series.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoringViewFull Value "FULL"
- *    @arg @c kGTLRMonitoringViewHeaders Value "HEADERS"
+ *    @arg @c kGTLRMonitoringViewFull Returns the identity of the metric(s), the
+ *        time series, and the time series data. (Value: "FULL")
+ *    @arg @c kGTLRMonitoringViewHeaders Returns the identity of the metric and
+ *        the time series resource, but not the time series data. (Value:
+ *        "HEADERS")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1783,8 +2141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Workspace.
  *
  *  @param name Required. The project on which to execute the request. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesList
  */
@@ -1822,8 +2179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_QueryTimeSeriesRequest to include in the
  *    query.
  *  @param name Required. The project on which to execute the request. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesQuery
  */
@@ -1859,8 +2215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  @param object The @c GTLRMonitoring_UptimeCheckConfig to include in the
  *    query.
  *  @param parent Required. The project in which to create the Uptime check. The
- *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsCreate
  */
@@ -1898,8 +2253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  dependent configs that would be rendered invalid by the deletion.
  *
  *  @param name Required. The Uptime check configuration to delete. The format
- *    is:
- *    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+ *    is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsDelete
  */
@@ -1933,8 +2287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Gets a single Uptime check configuration.
  *
  *  @param name Required. The Uptime check configuration to retrieve. The format
- *    is:
- *    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+ *    is: projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsGet
  */
@@ -1974,8 +2327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  Required. The project whose Uptime check configurations are listed. The
- *  format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  format is: projects/[PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1986,8 +2338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  (leaving out any invalid configurations).
  *
  *  @param parent Required. The project whose Uptime check configurations are
- *    listed. The format is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    listed. The format is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsList
  *
@@ -2017,9 +2368,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  A unique resource name for this Uptime check configuration. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
- *  This field should be omitted when creating the Uptime check configuration;
- *  on create, the resource name is assigned by the server and included in the
+ *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This
+ *  field should be omitted when creating the Uptime check configuration; on
+ *  create, the resource name is assigned by the server and included in the
  *  response.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2046,9 +2397,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *    query.
  *  @param name A unique resource name for this Uptime check configuration. The
  *    format is:
- *    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
- *    This field should be omitted when creating the Uptime check configuration;
- *    on create, the resource name is assigned by the server and included in the
+ *    projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This
+ *    field should be omitted when creating the Uptime check configuration; on
+ *    create, the resource name is assigned by the server and included in the
  *    response.
  *
  *  @return GTLRMonitoringQuery_ProjectsUptimeCheckConfigsPatch
@@ -2090,8 +2441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param object The @c GTLRMonitoring_Service to include in the query.
  *  @param parent Required. Resource name of the parent workspace. The format
- *    is:
- *    projects/[PROJECT_ID_OR_NUMBER]
+ *    is: projects/[PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ServicesCreate
  */
@@ -2183,21 +2533,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 
 /**
  *  A filter specifying what Services to return. The filter currently supports
- *  the following fields:
- *  - `identifier_case`
- *  - `app_engine.module_id`
- *  - `cloud_endpoints.service`
- *  - `mesh_istio.mesh_uid`
- *  - `mesh_istio.service_namespace`
- *  - `mesh_istio.service_name`
- *  - `cluster_istio.location` (deprecated)
- *  - `cluster_istio.cluster_name` (deprecated)
- *  - `cluster_istio.service_namespace` (deprecated)
- *  - `cluster_istio.service_name` (deprecated)
- *  identifier_case refers to which option in the identifier oneof is populated.
- *  For example, the filter identifier_case = "CUSTOM" would match all services
- *  with a value for the custom field. Valid options are "CUSTOM", "APP_ENGINE",
- *  "CLOUD_ENDPOINTS", "MESH_ISTIO", and "CLUSTER_ISTIO" (deprecated),
+ *  the following fields: - `identifier_case` - `app_engine.module_id` -
+ *  `cloud_endpoints.service` (reserved for future use) - `mesh_istio.mesh_uid`
+ *  - `mesh_istio.service_namespace` - `mesh_istio.service_name` -
+ *  `cluster_istio.location` (deprecated) - `cluster_istio.cluster_name`
+ *  (deprecated) - `cluster_istio.service_namespace` (deprecated) -
+ *  `cluster_istio.service_name` (deprecated) identifier_case refers to which
+ *  option in the identifier oneof is populated. For example, the filter
+ *  identifier_case = "CUSTOM" would match all services with a value for the
+ *  custom field. Valid options are "CUSTOM", "APP_ENGINE", "MESH_ISTIO", plus
+ *  "CLUSTER_ISTIO" (deprecated) and "CLOUD_ENDPOINTS" (reserved for future
+ *  use).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2217,8 +2563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 /**
  *  Required. Resource name of the parent containing the listed services, either
  *  a project or a Monitoring Workspace. The formats are:
- *  projects/[PROJECT_ID_OR_NUMBER]
- *  workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+ *  projects/[PROJECT_ID_OR_NUMBER] workspaces/[HOST_PROJECT_ID_OR_NUMBER]
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2229,8 +2574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *
  *  @param parent Required. Resource name of the parent containing the listed
  *    services, either a project or a Monitoring Workspace. The formats are:
- *    projects/[PROJECT_ID_OR_NUMBER]
- *    workspaces/[HOST_PROJECT_ID_OR_NUMBER]
+ *    projects/[PROJECT_ID_OR_NUMBER] workspaces/[HOST_PROJECT_ID_OR_NUMBER]
  *
  *  @return GTLRMonitoringQuery_ServicesList
  *
@@ -2389,9 +2733,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  BasicSli with a RequestBasedSli spelling out how the SLI is computed.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoringViewViewUnspecified Value "VIEW_UNSPECIFIED"
- *    @arg @c kGTLRMonitoringViewFull Value "FULL"
- *    @arg @c kGTLRMonitoringViewExplicit Value "EXPLICIT"
+ *    @arg @c kGTLRMonitoringViewViewUnspecified Same as FULL. (Value:
+ *        "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoringViewFull Return the embedded ServiceLevelIndicator
+ *        in the form in which it was defined. If it was defined using a
+ *        BasicSli, return that BasicSli. (Value: "FULL")
+ *    @arg @c kGTLRMonitoringViewExplicit For ServiceLevelIndicators using
+ *        BasicSli articulation, instead return the ServiceLevelIndicator with
+ *        its mode of computation fully spelled out as a RequestBasedSli. For
+ *        ServiceLevelIndicators using RequestBasedSli or WindowsBasedSli,
+ *        return the ServiceLevelIndicator as it was provided. (Value:
+ *        "EXPLICIT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -2455,9 +2807,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  BasicSli with a RequestBasedSli spelling out how the SLI is computed.
  *
  *  Likely values:
- *    @arg @c kGTLRMonitoringViewViewUnspecified Value "VIEW_UNSPECIFIED"
- *    @arg @c kGTLRMonitoringViewFull Value "FULL"
- *    @arg @c kGTLRMonitoringViewExplicit Value "EXPLICIT"
+ *    @arg @c kGTLRMonitoringViewViewUnspecified Same as FULL. (Value:
+ *        "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoringViewFull Return the embedded ServiceLevelIndicator
+ *        in the form in which it was defined. If it was defined using a
+ *        BasicSli, return that BasicSli. (Value: "FULL")
+ *    @arg @c kGTLRMonitoringViewExplicit For ServiceLevelIndicators using
+ *        BasicSli articulation, instead return the ServiceLevelIndicator with
+ *        its mode of computation fully spelled out as a RequestBasedSli. For
+ *        ServiceLevelIndicators using RequestBasedSli or WindowsBasedSli,
+ *        return the ServiceLevelIndicator as it was provided. (Value:
+ *        "EXPLICIT")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 

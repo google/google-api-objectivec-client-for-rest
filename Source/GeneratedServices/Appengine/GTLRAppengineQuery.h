@@ -43,23 +43,60 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // overrideStrategy
 
-/** Value: "OVERRIDE" */
+/**
+ *  Overrides allowed. If a mapping already exists for the specified domain, the
+ *  request will overwrite it. Note that this might stop another Google product
+ *  from serving. For example, if the domain is mapped to another App Engine
+ *  application, that app will no longer serve from that domain.
+ *
+ *  Value: "OVERRIDE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengineOverrideStrategyOverride;
-/** Value: "STRICT" */
+/**
+ *  Overrides not allowed. If a mapping already exists for the specified domain,
+ *  the request will return an ALREADY_EXISTS (409).
+ *
+ *  Value: "STRICT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengineOverrideStrategyStrict;
-/** Value: "UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY" */
+/**
+ *  Strategy unspecified. Defaults to STRICT.
+ *
+ *  Value: "UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengineOverrideStrategyUnspecifiedDomainOverrideStrategy;
 
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "BASIC" */
+/**
+ *  Basic version information including scaling and inbound services, but not
+ *  detailed deployment information.
+ *
+ *  Value: "BASIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengineViewBasic;
-/** Value: "BASIC_CERTIFICATE" */
+/**
+ *  Basic certificate information, including applicable domains and expiration
+ *  date.
+ *
+ *  Value: "BASIC_CERTIFICATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengineViewBasicCertificate;
-/** Value: "FULL" */
+/**
+ *  The information from BASIC, plus detailed information about the deployment.
+ *  This format is required when creating resources, but is not returned in Get
+ *  or List by default.
+ *
+ *  Value: "FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFull;
-/** Value: "FULL_CERTIFICATE" */
+/**
+ *  The information from BASIC_CERTIFICATE, plus detailed information on the
+ *  domain mappings that have this certificate mapped.
+ *
+ *  Value: "FULL_CERTIFICATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 
 // ----------------------------------------------------------------------------
@@ -176,8 +213,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Controls the set of fields returned in the GET response.
  *
  *  Likely values:
- *    @arg @c kGTLRAppengineViewBasicCertificate Value "BASIC_CERTIFICATE"
- *    @arg @c kGTLRAppengineViewFullCertificate Value "FULL_CERTIFICATE"
+ *    @arg @c kGTLRAppengineViewBasicCertificate Basic certificate information,
+ *        including applicable domains and expiration date. (Value:
+ *        "BASIC_CERTIFICATE")
+ *    @arg @c kGTLRAppengineViewFullCertificate The information from
+ *        BASIC_CERTIFICATE, plus detailed information on the domain mappings
+ *        that have this certificate mapped. (Value: "FULL_CERTIFICATE")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -228,8 +269,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Controls the set of fields returned in the LIST response.
  *
  *  Likely values:
- *    @arg @c kGTLRAppengineViewBasicCertificate Value "BASIC_CERTIFICATE"
- *    @arg @c kGTLRAppengineViewFullCertificate Value "FULL_CERTIFICATE"
+ *    @arg @c kGTLRAppengineViewBasicCertificate Basic certificate information,
+ *        including applicable domains and expiration date. (Value:
+ *        "BASIC_CERTIFICATE")
+ *    @arg @c kGTLRAppengineViewFullCertificate The information from
+ *        BASIC_CERTIFICATE, plus detailed information on the domain mappings
+ *        that have this certificate mapped. (Value: "FULL_CERTIFICATE")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -352,11 +397,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 
 /**
  *  Creates an App Engine application for a Google Cloud Platform project.
- *  Required fields:
- *  id - The ID of the target Cloud Platform project.
- *  location - The region (https://cloud.google.com/appengine/docs/locations)
- *  where you want the App Engine application located.For more information about
- *  App Engine applications, see Managing Projects, Applications, and Billing
+ *  Required fields: id - The ID of the target Cloud Platform project. location
+ *  - The region (https://cloud.google.com/appengine/docs/locations) where you
+ *  want the App Engine application located.For more information about App
+ *  Engine applications, see Managing Projects, Applications, and Billing
  *  (https://cloud.google.com/appengine/docs/standard/python/console/).
  *
  *  Method: appengine.apps.create
@@ -372,11 +416,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Fetches a @c GTLRAppengine_Operation.
  *
  *  Creates an App Engine application for a Google Cloud Platform project.
- *  Required fields:
- *  id - The ID of the target Cloud Platform project.
- *  location - The region (https://cloud.google.com/appengine/docs/locations)
- *  where you want the App Engine application located.For more information about
- *  App Engine applications, see Managing Projects, Applications, and Billing
+ *  Required fields: id - The ID of the target Cloud Platform project. location
+ *  - The region (https://cloud.google.com/appengine/docs/locations) where you
+ *  want the App Engine application located.For more information about App
+ *  Engine applications, see Managing Projects, Applications, and Billing
  *  (https://cloud.google.com/appengine/docs/standard/python/console/).
  *
  *  @param object The @c GTLRAppengine_Application to include in the query.
@@ -413,9 +456,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Likely values:
  *    @arg @c kGTLRAppengineOverrideStrategyUnspecifiedDomainOverrideStrategy
- *        Value "UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY"
- *    @arg @c kGTLRAppengineOverrideStrategyStrict Value "STRICT"
- *    @arg @c kGTLRAppengineOverrideStrategyOverride Value "OVERRIDE"
+ *        Strategy unspecified. Defaults to STRICT. (Value:
+ *        "UNSPECIFIED_DOMAIN_OVERRIDE_STRATEGY")
+ *    @arg @c kGTLRAppengineOverrideStrategyStrict Overrides not allowed. If a
+ *        mapping already exists for the specified domain, the request will
+ *        return an ALREADY_EXISTS (409). (Value: "STRICT")
+ *    @arg @c kGTLRAppengineOverrideStrategyOverride Overrides allowed. If a
+ *        mapping already exists for the specified domain, the request will
+ *        overwrite it. Note that this might stop another Google product from
+ *        serving. For example, if the domain is mapped to another App Engine
+ *        application, that app will no longer serve from that domain. (Value:
+ *        "OVERRIDE")
  */
 @property(nonatomic, copy, nullable) NSString *overrideStrategy;
 
@@ -1077,10 +1128,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 
 /**
  *  Updates the specified Application resource. You can update the following
- *  fields:
- *  auth_domain - Google authentication domain for controlling user access to
- *  the application.
- *  default_cookie_expiration - Cookie expiration policy for the application.
+ *  fields: auth_domain - Google authentication domain for controlling user
+ *  access to the application. default_cookie_expiration - Cookie expiration
+ *  policy for the application.
  *
  *  Method: appengine.apps.patch
  *
@@ -1108,10 +1158,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Fetches a @c GTLRAppengine_Operation.
  *
  *  Updates the specified Application resource. You can update the following
- *  fields:
- *  auth_domain - Google authentication domain for controlling user access to
- *  the application.
- *  default_cookie_expiration - Cookie expiration policy for the application.
+ *  fields: auth_domain - Google authentication domain for controlling user
+ *  access to the application. default_cookie_expiration - Cookie expiration
+ *  policy for the application.
  *
  *  @param object The @c GTLRAppengine_Application to include in the query.
  *  @param appsId Part of `name`. Name of the Application resource to update.
@@ -1469,8 +1518,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Controls the set of fields returned in the Get response.
  *
  *  Likely values:
- *    @arg @c kGTLRAppengineViewBasic Value "BASIC"
- *    @arg @c kGTLRAppengineViewFull Value "FULL"
+ *    @arg @c kGTLRAppengineViewBasic Basic version information including
+ *        scaling and inbound services, but not detailed deployment information.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRAppengineViewFull The information from BASIC, plus detailed
+ *        information about the deployment. This format is required when
+ *        creating resources, but is not returned in Get or List by default.
+ *        (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1760,8 +1814,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Controls the set of fields returned in the List response.
  *
  *  Likely values:
- *    @arg @c kGTLRAppengineViewBasic Value "BASIC"
- *    @arg @c kGTLRAppengineViewFull Value "FULL"
+ *    @arg @c kGTLRAppengineViewBasic Basic version information including
+ *        scaling and inbound services, but not detailed deployment information.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRAppengineViewFull The information from BASIC, plus detailed
+ *        information about the deployment. This format is required when
+ *        creating resources, but is not returned in Get or List by default.
+ *        (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1788,11 +1847,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 /**
  *  Updates the specified Version resource. You can specify the following fields
  *  depending on the App Engine environment and type of scaling that the version
- *  resource uses:Standard environment
- *  instance_class
+ *  resource uses:Standard environment instance_class
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
- *  scaling in the standard environment:
- *  automatic_scaling.min_idle_instances
+ *  scaling in the standard environment: automatic_scaling.min_idle_instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.max_idle_instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
@@ -1804,16 +1861,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
  *  automaticScaling.standard_scheduler_settings.target_throughput_utilization
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic
- *  scaling or manual scaling in the standard environment:
- *  serving_status
+ *  scaling or manual scaling in the standard environment: serving_status
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)
  *  manual_scaling.instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)Flexible
- *  environment
- *  serving_status
+ *  environment serving_status
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
- *  scaling in the flexible environment:
- *  automatic_scaling.min_total_instances
+ *  scaling in the flexible environment: automatic_scaling.min_total_instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.max_total_instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
@@ -1821,8 +1875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.cpu_utilization.target_utilization
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)manual
- *  scaling in the flexible environment:
- *  manual_scaling.instances
+ *  scaling in the flexible environment: manual_scaling.instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)
  *
  *  Method: appengine.apps.services.versions.patch
@@ -1858,11 +1911,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *
  *  Updates the specified Version resource. You can specify the following fields
  *  depending on the App Engine environment and type of scaling that the version
- *  resource uses:Standard environment
- *  instance_class
+ *  resource uses:Standard environment instance_class
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.instance_class)automatic
- *  scaling in the standard environment:
- *  automatic_scaling.min_idle_instances
+ *  scaling in the standard environment: automatic_scaling.min_idle_instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.max_idle_instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
@@ -1874,16 +1925,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)
  *  automaticScaling.standard_scheduler_settings.target_throughput_utilization
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#StandardSchedulerSettings)basic
- *  scaling or manual scaling in the standard environment:
- *  serving_status
+ *  scaling or manual scaling in the standard environment: serving_status
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)
  *  manual_scaling.instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)Flexible
- *  environment
- *  serving_status
+ *  environment serving_status
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.serving_status)automatic
- *  scaling in the flexible environment:
- *  automatic_scaling.min_total_instances
+ *  scaling in the flexible environment: automatic_scaling.min_total_instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.max_total_instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
@@ -1891,8 +1939,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)
  *  automatic_scaling.cpu_utilization.target_utilization
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#Version.FIELDS.automatic_scaling)manual
- *  scaling in the flexible environment:
- *  manual_scaling.instances
+ *  scaling in the flexible environment: manual_scaling.instances
  *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions#manualscaling)
  *
  *  @param object The @c GTLRAppengine_Version to include in the query.

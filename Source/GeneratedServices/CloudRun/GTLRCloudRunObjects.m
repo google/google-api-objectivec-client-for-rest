@@ -318,6 +318,14 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 @implementation GTLRCloudRun_ExecAction
 @dynamic command;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"command" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -160,8 +160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_TestStat
 @interface GTLRSearchConsole_Image : GTLRObject
 
 /**
- *  Image data in format determined by the mime type. Currently, the format
- *  will always be "image/png", but this might change in the future.
+ *  Image data in format determined by the mime type. Currently, the format will
+ *  always be "image/png", but this might change in the future.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -193,8 +193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_TestStat
  *        (Value: "FIXED_WIDTH_VIEWPORT")
  *    @arg @c kGTLRSearchConsole_MobileFriendlyIssue_Rule_MobileFriendlyRuleUnspecified
  *        Unknown rule. Sorry, we don't have any description for the rule that
- *        was
- *        broken. (Value: "MOBILE_FRIENDLY_RULE_UNSPECIFIED")
+ *        was broken. (Value: "MOBILE_FRIENDLY_RULE_UNSPECIFIED")
  *    @arg @c kGTLRSearchConsole_MobileFriendlyIssue_Rule_SizeContentToViewport
  *        Content not sized to viewport. [Learn more]
  *        (https://support.google.com/webmasters/answer/6352293#content_not_sized_to_viewport).
@@ -297,15 +296,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_TestStatus_Status_TestStat
  *    @arg @c kGTLRSearchConsole_TestStatus_Status_Complete Inspection has
  *        completed without errors. (Value: "COMPLETE")
  *    @arg @c kGTLRSearchConsole_TestStatus_Status_InternalError Inspection
- *        terminated in an error state. This indicates a problem in
- *        Google's infrastructure, not a user error. Please try again later.
- *        (Value: "INTERNAL_ERROR")
+ *        terminated in an error state. This indicates a problem in Google's
+ *        infrastructure, not a user error. Please try again later. (Value:
+ *        "INTERNAL_ERROR")
  *    @arg @c kGTLRSearchConsole_TestStatus_Status_PageUnreachable Google can
  *        not access the URL because of a user error such as a robots.txt
  *        blockage, a 403 or 500 code etc. Please make sure that the URL
- *        provided is
- *        accessible by Googlebot and is not password protected. (Value:
- *        "PAGE_UNREACHABLE")
+ *        provided is accessible by Googlebot and is not password protected.
+ *        (Value: "PAGE_UNREACHABLE")
  *    @arg @c kGTLRSearchConsole_TestStatus_Status_TestStatusUnspecified
  *        Internal error when running this test. Please try running the test
  *        again. (Value: "TEST_STATUS_UNSPECIFIED")

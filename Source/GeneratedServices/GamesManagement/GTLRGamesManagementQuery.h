@@ -5,8 +5,7 @@
 //   Google Play Game Management (gamesManagement/v1management)
 // Description:
 //   The Google Play Game Management API allows developers to manage resources
-//   from the Google
-//   Play Game service.
+//   from the Google Play Game service.
 // Documentation:
 //   https://developers.google.com/games/
 
@@ -103,8 +102,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Resets all draft achievements for all players. This method is only
- *  available to user accounts for your developer console.
+ *  Resets all draft achievements for all players. This method is only available
+ *  to user accounts for your developer console.
  *
  *  Method: gamesManagement.achievements.resetAllForAllPlayers
  *
@@ -119,8 +118,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Resets all draft achievements for all players. This method is only
- *  available to user accounts for your developer console.
+ *  Resets all draft achievements for all players. This method is only available
+ *  to user accounts for your developer console.
  *
  *  @return GTLRGamesManagementQuery_AchievementsResetAllForAllPlayers
  */
@@ -211,8 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The maximum number of player resources to return in the response, used for
- *  paging. For any response, the actual number of player resources returned
- *  may be less than the specified `maxResults`.
+ *  paging. For any response, the actual number of player resources returned may
+ *  be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -327,8 +326,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resets the event with the given ID for all players. This method is only
- *  available to user accounts for your developer console. Only draft events
- *  can be reset.
+ *  available to user accounts for your developer console. Only draft events can
+ *  be reset.
  *
  *  Method: gamesManagement.events.resetForAllPlayers
  *
@@ -347,8 +346,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be nil. This query does not fetch an object.
  *
  *  Resets the event with the given ID for all players. This method is only
- *  available to user accounts for your developer console. Only draft events
- *  can be reset.
+ *  available to user accounts for your developer console. Only draft events can
+ *  be reset.
  *
  *  @param eventId The ID of the event.
  *
@@ -360,8 +359,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Resets events with the given IDs for all players. This method is only
- *  available to user accounts for your developer console. Only draft events
- *  may be reset.
+ *  available to user accounts for your developer console. Only draft events may
+ *  be reset.
  *
  *  Method: gamesManagement.events.resetMultipleForAllPlayers
  *
@@ -377,8 +376,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  be nil. This query does not fetch an object.
  *
  *  Resets events with the given IDs for all players. This method is only
- *  available to user accounts for your developer console. Only draft events
- *  may be reset.
+ *  available to user accounts for your developer console. Only draft events may
+ *  be reset.
  *
  *  @param object The @c GTLRGamesManagement_EventsResetMultipleForAllRequest to
  *    include in the query.
@@ -406,8 +405,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
- *  A player ID. A value of `me` may be used in place of the
- *  authenticated player's ID.
+ *  A player ID. A value of `me` may be used in place of the authenticated
+ *  player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -447,8 +446,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
 /**
- *  A player ID. A value of `me` may be used in place of the
- *  authenticated player's ID.
+ *  A player ID. A value of `me` may be used in place of the authenticated
+ *  player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 

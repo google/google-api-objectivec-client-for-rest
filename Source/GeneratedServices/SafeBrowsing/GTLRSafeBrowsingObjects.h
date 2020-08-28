@@ -55,11 +55,23 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_Constraints.supportedCompressions
 
-/** Value: "COMPRESSION_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown.
+ *
+ *  Value: "COMPRESSION_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_CompressionTypeUnspecified;
-/** Value: "RAW" */
+/**
+ *  Raw, uncompressed data.
+ *
+ *  Value: "RAW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_Raw;
-/** Value: "RICE" */
+/**
+ *  Rice-Golomb encoded data.
+ *
+ *  Value: "RICE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_Constraints_SupportedCompressions_Rice;
 
 // ----------------------------------------------------------------------------
@@ -188,8 +200,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncident;
 /**
- *  Whitelist used when detecting client incident threats.
- *  This enum was never launched and should be re-used for the next list.
+ *  Whitelist used when detecting client incident threats. This enum was never
+ *  launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
@@ -243,8 +255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SocialEngineeringInternal;
 /**
- *  Patterns to be used for activating the subresource filter. Interstitial
- *  will not be shown for patterns from this list.
+ *  Patterns to be used for activating the subresource filter. Interstitial will
+ *  not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
@@ -336,9 +348,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_Platform
 // GTLRSafeBrowsing_ListUpdateResponse.responseType
 
 /**
- *  Full updates replace the client's entire local database. This means
- *  that either the client was seriously out-of-date or the client is
- *  believed to be corrupt.
+ *  Full updates replace the client's entire local database. This means that
+ *  either the client was seriously out-of-date or the client is believed to be
+ *  corrupt.
  *
  *  Value: "FULL_UPDATE"
  */
@@ -424,8 +436,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncident;
 /**
- *  Whitelist used when detecting client incident threats.
- *  This enum was never launched and should be re-used for the next list.
+ *  Whitelist used when detecting client incident threats. This enum was never
+ *  launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
@@ -479,8 +491,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SocialEngineeringInternal;
 /**
- *  Patterns to be used for activating the subresource filter. Interstitial
- *  will not be shown for patterns from this list.
+ *  Patterns to be used for activating the subresource filter. Interstitial will
+ *  not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
@@ -612,8 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ApkMal
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_ClientIncident;
 /**
- *  Whitelist used when detecting client incident threats.
- *  This enum was never launched and should be re-used for the next list.
+ *  Whitelist used when detecting client incident threats. This enum was never
+ *  launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
@@ -667,8 +679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Social
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_SocialEngineeringInternal;
 /**
- *  Patterns to be used for activating the subresource filter. Interstitial
- *  will not be shown for patterns from this list.
+ *  Patterns to be used for activating the subresource filter. Interstitial will
+ *  not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
@@ -701,79 +713,213 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatHit_ThreatType_Unwant
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.platformTypes
 
-/** Value: "ALL_PLATFORMS" */
+/**
+ *  Threat posed to all defined platforms.
+ *
+ *  Value: "ALL_PLATFORMS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_AllPlatforms;
-/** Value: "ANDROID" */
+/**
+ *  Threat posed to Android.
+ *
+ *  Value: "ANDROID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Android;
-/** Value: "ANY_PLATFORM" */
+/**
+ *  Threat posed to at least one of the defined platforms.
+ *
+ *  Value: "ANY_PLATFORM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_AnyPlatform;
-/** Value: "CHROME" */
+/**
+ *  Threat posed to Chrome.
+ *
+ *  Value: "CHROME"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Chrome;
-/** Value: "IOS" */
+/**
+ *  Threat posed to iOS.
+ *
+ *  Value: "IOS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Ios;
-/** Value: "LINUX" */
+/**
+ *  Threat posed to Linux.
+ *
+ *  Value: "LINUX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Linux;
-/** Value: "OSX" */
+/**
+ *  Threat posed to OS X.
+ *
+ *  Value: "OSX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Osx;
-/** Value: "PLATFORM_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown platform.
+ *
+ *  Value: "PLATFORM_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_PlatformTypeUnspecified;
-/** Value: "WINDOWS" */
+/**
+ *  Threat posed to Windows.
+ *
+ *  Value: "WINDOWS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_PlatformTypes_Windows;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.threatEntryTypes
 
-/** Value: "CERT" */
+/**
+ *  CERT
+ *
+ *  Value: "CERT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Cert;
-/** Value: "CHROME_EXTENSION" */
+/**
+ *  Chrome extension.
+ *
+ *  Value: "CHROME_EXTENSION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ChromeExtension;
-/** Value: "EXECUTABLE" */
+/**
+ *  An executable program.
+ *
+ *  Value: "EXECUTABLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Executable;
-/** Value: "FILENAME" */
+/**
+ *  Filename.
+ *
+ *  Value: "FILENAME"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Filename;
-/** Value: "IP_RANGE" */
+/**
+ *  An IP range.
+ *
+ *  Value: "IP_RANGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_IpRange;
-/** Value: "THREAT_ENTRY_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified.
+ *
+ *  Value: "THREAT_ENTRY_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_ThreatEntryTypeUnspecified;
-/** Value: "URL" */
+/**
+ *  A URL.
+ *
+ *  Value: "URL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatEntryTypes_Url;
 
 // ----------------------------------------------------------------------------
 // GTLRSafeBrowsing_ThreatInfo.threatTypes
 
-/** Value: "API_ABUSE" */
+/**
+ *  API abuse threat type.
+ *
+ *  Value: "API_ABUSE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ApiAbuse;
-/** Value: "APK_MALWARE_OFFLINE" */
+/**
+ *  List used for offline APK checks in PAM.
+ *
+ *  Value: "APK_MALWARE_OFFLINE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ApkMalwareOffline;
-/** Value: "CLIENT_INCIDENT" */
+/**
+ *  Client incident threat type.
+ *
+ *  Value: "CLIENT_INCIDENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientIncident;
-/** Value: "CLIENT_INCIDENT_WHITELIST" */
+/**
+ *  Whitelist used when detecting client incident threats. This enum was never
+ *  launched and should be re-used for the next list.
+ *
+ *  Value: "CLIENT_INCIDENT_WHITELIST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ClientIncidentWhitelist;
-/** Value: "CSD_DOWNLOAD_WHITELIST" */
+/**
+ *  Client side download detection whitelist threat type.
+ *
+ *  Value: "CSD_DOWNLOAD_WHITELIST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdDownloadWhitelist;
-/** Value: "CSD_WHITELIST" */
+/**
+ *  Client side detection whitelist threat type.
+ *
+ *  Value: "CSD_WHITELIST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_CsdWhitelist;
-/** Value: "HIGH_CONFIDENCE_ALLOWLIST" */
+/**
+ *  Safe list to ship hashes of known safe URL expressions.
+ *
+ *  Value: "HIGH_CONFIDENCE_ALLOWLIST"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_HighConfidenceAllowlist;
-/** Value: "MALICIOUS_BINARY" */
+/**
+ *  Malicious binary threat type.
+ *
+ *  Value: "MALICIOUS_BINARY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_MaliciousBinary;
-/** Value: "MALWARE" */
+/**
+ *  Malware threat type.
+ *
+ *  Value: "MALWARE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Malware;
-/** Value: "POTENTIALLY_HARMFUL_APPLICATION" */
+/**
+ *  Potentially harmful application threat type.
+ *
+ *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_PotentiallyHarmfulApplication;
-/** Value: "SOCIAL_ENGINEERING" */
+/**
+ *  Social engineering threat type.
+ *
+ *  Value: "SOCIAL_ENGINEERING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineering;
-/** Value: "SOCIAL_ENGINEERING_INTERNAL" */
+/**
+ *  Social engineering threat type for internal use.
+ *
+ *  Value: "SOCIAL_ENGINEERING_INTERNAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SocialEngineeringInternal;
-/** Value: "SUBRESOURCE_FILTER" */
+/**
+ *  Patterns to be used for activating the subresource filter. Interstitial will
+ *  not be shown for patterns from this list.
+ *
+ *  Value: "SUBRESOURCE_FILTER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_SubresourceFilter;
-/** Value: "SUSPICIOUS" */
+/**
+ *  Entities that are suspected to present a threat.
+ *
+ *  Value: "SUSPICIOUS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_Suspicious;
-/** Value: "THREAT_TYPE_UNSPECIFIED" */
+/**
+ *  Unknown.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_ThreatTypeUnspecified;
-/** Value: "TRICK_TO_BILL" */
+/**
+ *  Trick-to-bill threat list.
+ *
+ *  Value: "TRICK_TO_BILL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_TrickToBill;
-/** Value: "UNWANTED_SOFTWARE" */
+/**
+ *  Unwanted software threat type.
+ *
+ *  Value: "UNWANTED_SOFTWARE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatInfo_ThreatTypes_UnwantedSoftware;
 
 // ----------------------------------------------------------------------------
@@ -902,8 +1048,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_Threat
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncident;
 /**
- *  Whitelist used when detecting client incident threats.
- *  This enum was never launched and should be re-used for the next list.
+ *  Whitelist used when detecting client incident threats. This enum was never
+ *  launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
@@ -957,8 +1103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_Threat
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SocialEngineeringInternal;
 /**
- *  Patterns to be used for activating the subresource filter. Interstitial
- *  will not be shown for patterns from this list.
+ *  Patterns to be used for activating the subresource filter. Interstitial will
+ *  not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
@@ -1114,8 +1260,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ApkM
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncident;
 /**
- *  Whitelist used when detecting client incident threats.
- *  This enum was never launched and should be re-used for the next list.
+ *  Whitelist used when detecting client incident threats. This enum was never
+ *  launched and should be re-used for the next list.
  *
  *  Value: "CLIENT_INCIDENT_WHITELIST"
  */
@@ -1169,8 +1315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Soci
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_SocialEngineeringInternal;
 /**
- *  Patterns to be used for activating the subresource filter. Interstitial
- *  will not be shown for patterns from this list.
+ *  Patterns to be used for activating the subresource filter. Interstitial will
+ *  not be shown for patterns from this list.
  *
  *  Value: "SUBRESOURCE_FILTER"
  */
@@ -1204,8 +1350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatMatch_ThreatType_Unwa
 // GTLRSafeBrowsing_ThreatSource.type
 
 /**
- *  The URL that matched the threat list (for which GetFullHash returned a
- *  valid hash).
+ *  The URL that matched the threat list (for which GetFullHash returned a valid
+ *  hash).
  *
  *  Value: "MATCHING_URL"
  */
@@ -1276,21 +1422,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @interface GTLRSafeBrowsing_Constraints : GTLRObject
 
 /**
- *  A client's physical location, expressed as a ISO 31166-1 alpha-2
- *  region code.
+ *  A client's physical location, expressed as a ISO 31166-1 alpha-2 region
+ *  code.
  */
 @property(nonatomic, copy, nullable) NSString *deviceLocation;
 
 /**
- *  Requests the lists for a specific language. Expects ISO 639 alpha-2
- *  format.
+ *  Requests the lists for a specific language. Expects ISO 639 alpha-2 format.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  Sets the maximum number of entries that the client is willing to have
- *  in the local database for the specified list. This should be a power of
- *  2 between 2**10 and 2**20. If zero, no database size limit is set.
+ *  Sets the maximum number of entries that the client is willing to have in the
+ *  local database for the specified list. This should be a power of 2 between
+ *  2**10 and 2**20. If zero, no database size limit is set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1306,9 +1451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @property(nonatomic, strong, nullable) NSNumber *maxUpdateEntries;
 
 /**
- *  Requests the list for a specific geographic location. If not set the
- *  server may pick that value based on the user's IP address. Expects ISO
- *  3166-1 alpha-2 format.
+ *  Requests the list for a specific geographic location. If not set the server
+ *  may pick that value based on the user's IP address. Expects ISO 3166-1
+ *  alpha-2 format.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -1321,11 +1466,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRSafeBrowsing_Empty : GTLRObject
 @end
@@ -1333,10 +1476,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 
 /**
  *  Describes a Safe Browsing API update request. Clients can request updates
- *  for
- *  multiple lists in a single request.
- *  NOTE: Field index 2 is unused.
- *  NEXT: 5
+ *  for multiple lists in a single request. NOTE: Field index 2 is unused. NEXT:
+ *  5
  */
 @interface GTLRSafeBrowsing_FetchThreatListUpdatesRequest : GTLRObject
 
@@ -1358,8 +1499,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @property(nonatomic, strong, nullable) NSArray<GTLRSafeBrowsing_ListUpdateResponse *> *listUpdateResponses;
 
 /**
- *  The minimum duration the client must wait before issuing any update
- *  request. If this field is not set clients may update as soon as they want.
+ *  The minimum duration the client must wait before issuing any update request.
+ *  If this field is not set clients may update as soon as they want.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *minimumWaitDuration;
 
@@ -1372,8 +1513,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @interface GTLRSafeBrowsing_FindFullHashesRequest : GTLRObject
 
 /**
- *  Client metadata associated with callers of higher-level APIs built on top
- *  of the client's implementation.
+ *  Client metadata associated with callers of higher-level APIs built on top of
+ *  the client's implementation.
  */
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_ClientInfo *apiClient;
 
@@ -1410,8 +1551,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @property(nonatomic, strong, nullable) GTLRDuration *minimumWaitDuration;
 
 /**
- *  For requested entities that did not match the threat list, how long to
- *  cache the response.
+ *  For requested entities that did not match the threat list, how long to cache
+ *  the response.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *negativeCacheDuration;
 
@@ -1489,8 +1630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @property(nonatomic, copy, nullable) NSString *platformType;
 
 /**
- *  The current state of the client for the requested list (the encrypted
- *  client state that was received from the last successful list update).
+ *  The current state of the client for the requested list (the encrypted client
+ *  state that was received from the last successful list update).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1530,9 +1671,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncident
  *        Client incident threat type. (Value: "CLIENT_INCIDENT")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_ClientIncidentWhitelist
- *        Whitelist used when detecting client incident threats.
- *        This enum was never launched and should be re-used for the next list.
- *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *        Whitelist used when detecting client incident threats. This enum was
+ *        never launched and should be re-used for the next list. (Value:
+ *        "CLIENT_INCIDENT_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_CsdDownloadWhitelist
  *        Client side download detection whitelist threat type. (Value:
  *        "CSD_DOWNLOAD_WHITELIST")
@@ -1555,8 +1696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *        "SOCIAL_ENGINEERING_INTERNAL")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
- *        Interstitial
- *        will not be shown for patterns from this list. (Value:
+ *        Interstitial will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateRequest_ThreatType_Suspicious Entities
  *        that are suspected to present a threat. (Value: "SUSPICIOUS")
@@ -1578,17 +1718,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @interface GTLRSafeBrowsing_ListUpdateResponse : GTLRObject
 
 /**
- *  A set of entries to add to a local threat type's list. Repeated to allow
- *  for a combination of compressed and raw data to be sent in a single
- *  response.
+ *  A set of entries to add to a local threat type's list. Repeated to allow for
+ *  a combination of compressed and raw data to be sent in a single response.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSafeBrowsing_ThreatEntrySet *> *additions;
 
 /**
- *  The expected SHA256 hash of the client state; that is, of the sorted list
- *  of all hashes present in the database after applying the provided update.
- *  If the client state doesn't match the expected state, the client must
- *  disregard this update and retry later.
+ *  The expected SHA256 hash of the client state; that is, of the sorted list of
+ *  all hashes present in the database after applying the provided update. If
+ *  the client state doesn't match the expected state, the client must disregard
+ *  this update and retry later.
  */
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_Checksum *checksum;
 
@@ -1638,9 +1777,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *
  *  Likely values:
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_FullUpdate Full
- *        updates replace the client's entire local database. This means
- *        that either the client was seriously out-of-date or the client is
- *        believed to be corrupt. (Value: "FULL_UPDATE")
+ *        updates replace the client's entire local database. This means that
+ *        either the client was seriously out-of-date or the client is believed
+ *        to be corrupt. (Value: "FULL_UPDATE")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ResponseType_PartialUpdate
  *        Partial updates are applied to the client's existing local database.
  *        (Value: "PARTIAL_UPDATE")
@@ -1682,9 +1821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncident
  *        Client incident threat type. (Value: "CLIENT_INCIDENT")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_ClientIncidentWhitelist
- *        Whitelist used when detecting client incident threats.
- *        This enum was never launched and should be re-used for the next list.
- *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *        Whitelist used when detecting client incident threats. This enum was
+ *        never launched and should be re-used for the next list. (Value:
+ *        "CLIENT_INCIDENT_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_CsdDownloadWhitelist
  *        Client side download detection whitelist threat type. (Value:
  *        "CSD_DOWNLOAD_WHITELIST")
@@ -1707,8 +1846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *        "SOCIAL_ENGINEERING_INTERNAL")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
- *        Interstitial
- *        will not be shown for patterns from this list. (Value:
+ *        Interstitial will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ListUpdateResponse_ThreatType_Suspicious
  *        Entities that are suspected to present a threat. (Value: "SUSPICIOUS")
@@ -1750,12 +1888,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 
 /**
  *  The uncompressed threat entries in hash format of a particular prefix
- *  length.
- *  Hashes can be anywhere from 4 to 32 bytes in size. A large majority are 4
- *  bytes, but some hashes are lengthened if they collide with the hash of a
- *  popular URL.
- *  Used for sending ThreatEntrySet to clients that do not support compression,
- *  or when sending non-4-byte hashes to clients that do support compression.
+ *  length. Hashes can be anywhere from 4 to 32 bytes in size. A large majority
+ *  are 4 bytes, but some hashes are lengthened if they collide with the hash of
+ *  a popular URL. Used for sending ThreatEntrySet to clients that do not
+ *  support compression, or when sending non-4-byte hashes to clients that do
+ *  support compression.
  */
 @interface GTLRSafeBrowsing_RawHashes : GTLRObject
 
@@ -1828,8 +1965,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @property(nonatomic, strong, nullable) NSNumber *numEntries;
 
 /**
- *  The Golomb-Rice parameter, which is a number between 2 and 28. This field
- *  is missing (that is, zero) if `num_entries` is zero.
+ *  The Golomb-Rice parameter, which is a number between 2 and 28. This field is
+ *  missing (that is, zero) if `num_entries` is zero.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1845,8 +1982,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @interface GTLRSafeBrowsing_ThreatEntry : GTLRObject
 
 /**
- *  The digest of an executable in SHA256 format. The API supports both
- *  binary and hex digests. For JSON requests, digests are base64-encoded.
+ *  The digest of an executable in SHA256 format. The API supports both binary
+ *  and hex digests. For JSON requests, digests are base64-encoded.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1909,9 +2046,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_RawIndices *rawIndices;
 
 /**
- *  The encoded 4-byte prefixes of SHA256-formatted entries, using a
- *  Golomb-Rice encoding. The hashes are converted to uint32, sorted in
- *  ascending order, then delta encoded and stored as encoded_data.
+ *  The encoded 4-byte prefixes of SHA256-formatted entries, using a Golomb-Rice
+ *  encoding. The hashes are converted to uint32, sorted in ascending order,
+ *  then delta encoded and stored as encoded_data.
  */
 @property(nonatomic, strong, nullable) GTLRSafeBrowsing_RiceDeltaEncoding *riceHashes;
 
@@ -1979,9 +2116,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_ClientIncident Client
  *        incident threat type. (Value: "CLIENT_INCIDENT")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_ClientIncidentWhitelist
- *        Whitelist used when detecting client incident threats.
- *        This enum was never launched and should be re-used for the next list.
- *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *        Whitelist used when detecting client incident threats. This enum was
+ *        never launched and should be re-used for the next list. (Value:
+ *        "CLIENT_INCIDENT_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_CsdDownloadWhitelist Client
  *        side download detection whitelist threat type. (Value:
  *        "CSD_DOWNLOAD_WHITELIST")
@@ -2003,8 +2140,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *        Social engineering threat type for internal use. (Value:
  *        "SOCIAL_ENGINEERING_INTERNAL")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_SubresourceFilter Patterns
- *        to be used for activating the subresource filter. Interstitial
- *        will not be shown for patterns from this list. (Value:
+ *        to be used for activating the subresource filter. Interstitial will
+ *        not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ThreatHit_ThreatType_Suspicious Entities that
  *        are suspected to present a threat. (Value: "SUSPICIOUS")
@@ -2110,9 +2247,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncident
  *        Client incident threat type. (Value: "CLIENT_INCIDENT")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_ClientIncidentWhitelist
- *        Whitelist used when detecting client incident threats.
- *        This enum was never launched and should be re-used for the next list.
- *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *        Whitelist used when detecting client incident threats. This enum was
+ *        never launched and should be re-used for the next list. (Value:
+ *        "CLIENT_INCIDENT_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_CsdDownloadWhitelist
  *        Client side download detection whitelist threat type. (Value:
  *        "CSD_DOWNLOAD_WHITELIST")
@@ -2135,8 +2272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *        "SOCIAL_ENGINEERING_INTERNAL")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
- *        Interstitial
- *        will not be shown for patterns from this list. (Value:
+ *        Interstitial will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ThreatListDescriptor_ThreatType_Suspicious
  *        Entities that are suspected to present a threat. (Value: "SUSPICIOUS")
@@ -2227,9 +2363,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncident Client
  *        incident threat type. (Value: "CLIENT_INCIDENT")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_ClientIncidentWhitelist
- *        Whitelist used when detecting client incident threats.
- *        This enum was never launched and should be re-used for the next list.
- *        (Value: "CLIENT_INCIDENT_WHITELIST")
+ *        Whitelist used when detecting client incident threats. This enum was
+ *        never launched and should be re-used for the next list. (Value:
+ *        "CLIENT_INCIDENT_WHITELIST")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_CsdDownloadWhitelist
  *        Client side download detection whitelist threat type. (Value:
  *        "CSD_DOWNLOAD_WHITELIST")
@@ -2252,8 +2388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *        "SOCIAL_ENGINEERING_INTERNAL")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_SubresourceFilter
  *        Patterns to be used for activating the subresource filter.
- *        Interstitial
- *        will not be shown for patterns from this list. (Value:
+ *        Interstitial will not be shown for patterns from this list. (Value:
  *        "SUBRESOURCE_FILTER")
  *    @arg @c kGTLRSafeBrowsing_ThreatMatch_ThreatType_Suspicious Entities that
  *        are suspected to present a threat. (Value: "SUSPICIOUS")
@@ -2285,16 +2420,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSafeBrowsing_ThreatSource_Type_ThreatSou
  *
  *  Likely values:
  *    @arg @c kGTLRSafeBrowsing_ThreatSource_Type_MatchingUrl The URL that
- *        matched the threat list (for which GetFullHash returned a
- *        valid hash). (Value: "MATCHING_URL")
+ *        matched the threat list (for which GetFullHash returned a valid hash).
+ *        (Value: "MATCHING_URL")
  *    @arg @c kGTLRSafeBrowsing_ThreatSource_Type_TabRedirect A redirect URL
  *        that was fetched before hitting the final TAB_URL. (Value:
  *        "TAB_REDIRECT")
  *    @arg @c kGTLRSafeBrowsing_ThreatSource_Type_TabResource A resource loaded
  *        within the final TAB_URL. (Value: "TAB_RESOURCE")
  *    @arg @c kGTLRSafeBrowsing_ThreatSource_Type_TabUrl The final top-level URL
- *        of the tab that the client was browsing when the
- *        match occurred. (Value: "TAB_URL")
+ *        of the tab that the client was browsing when the match occurred.
+ *        (Value: "TAB_URL")
  *    @arg @c kGTLRSafeBrowsing_ThreatSource_Type_ThreatSourceTypeUnspecified
  *        Unknown. (Value: "THREAT_SOURCE_TYPE_UNSPECIFIED")
  */

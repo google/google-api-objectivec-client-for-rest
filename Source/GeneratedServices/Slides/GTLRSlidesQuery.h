@@ -36,19 +36,41 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // thumbnailPropertiesMimeType
 
-/** Value: "PNG" */
+/**
+ *  The default mime type.
+ *
+ *  Value: "PNG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesMimeTypePng;
 
 // ----------------------------------------------------------------------------
 // thumbnailPropertiesThumbnailSize
 
-/** Value: "LARGE" */
+/**
+ *  The thumbnail image width of 1600px.
+ *
+ *  Value: "LARGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge;
-/** Value: "MEDIUM" */
+/**
+ *  The thumbnail image width of 800px.
+ *
+ *  Value: "MEDIUM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium;
-/** Value: "SMALL" */
+/**
+ *  The thumbnail image width of 200px.
+ *
+ *  Value: "SMALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall;
-/** Value: "THUMBNAIL_SIZE_UNSPECIFIED" */
+/**
+ *  The default thumbnail image size. The unspecified thumbnail size implies
+ *  that the server chooses the size of the image in a way that might vary in
+ *  the future.
+ *
+ *  Value: "THUMBNAIL_SIZE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -66,22 +88,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
 @end
 
 /**
- *  Applies one or more updates to the presentation.
- *  Each request is validated before
- *  being applied. If any request is not valid, then the entire request will
- *  fail and nothing will be applied.
- *  Some requests have replies to
- *  give you some information about how they are applied. Other requests do
- *  not need to return information; these each return an empty reply.
- *  The order of replies matches that of the requests.
- *  For example, suppose you call batchUpdate with four updates, and only the
- *  third one returns information. The response would have two empty replies:
- *  the reply to the third request, and another empty reply, in that order.
- *  Because other users may be editing the presentation, the presentation
- *  might not exactly reflect your changes: your changes may
- *  be altered with respect to collaborator changes. If there are no
- *  collaborators, the presentation should reflect your changes. In any case,
- *  the updates in your request are guaranteed to be applied together
+ *  Applies one or more updates to the presentation. Each request is validated
+ *  before being applied. If any request is not valid, then the entire request
+ *  will fail and nothing will be applied. Some requests have replies to give
+ *  you some information about how they are applied. Other requests do not need
+ *  to return information; these each return an empty reply. The order of
+ *  replies matches that of the requests. For example, suppose you call
+ *  batchUpdate with four updates, and only the third one returns information.
+ *  The response would have two empty replies: the reply to the third request,
+ *  and another empty reply, in that order. Because other users may be editing
+ *  the presentation, the presentation might not exactly reflect your changes:
+ *  your changes may be altered with respect to collaborator changes. If there
+ *  are no collaborators, the presentation should reflect your changes. In any
+ *  case, the updates in your request are guaranteed to be applied together
  *  atomically.
  *
  *  Method: slides.presentations.batchUpdate
@@ -104,22 +123,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
 /**
  *  Fetches a @c GTLRSlides_BatchUpdatePresentationResponse.
  *
- *  Applies one or more updates to the presentation.
- *  Each request is validated before
- *  being applied. If any request is not valid, then the entire request will
- *  fail and nothing will be applied.
- *  Some requests have replies to
- *  give you some information about how they are applied. Other requests do
- *  not need to return information; these each return an empty reply.
- *  The order of replies matches that of the requests.
- *  For example, suppose you call batchUpdate with four updates, and only the
- *  third one returns information. The response would have two empty replies:
- *  the reply to the third request, and another empty reply, in that order.
- *  Because other users may be editing the presentation, the presentation
- *  might not exactly reflect your changes: your changes may
- *  be altered with respect to collaborator changes. If there are no
- *  collaborators, the presentation should reflect your changes. In any case,
- *  the updates in your request are guaranteed to be applied together
+ *  Applies one or more updates to the presentation. Each request is validated
+ *  before being applied. If any request is not valid, then the entire request
+ *  will fail and nothing will be applied. Some requests have replies to give
+ *  you some information about how they are applied. Other requests do not need
+ *  to return information; these each return an empty reply. The order of
+ *  replies matches that of the requests. For example, suppose you call
+ *  batchUpdate with four updates, and only the third one returns information.
+ *  The response would have two empty replies: the reply to the third request,
+ *  and another empty reply, in that order. Because other users may be editing
+ *  the presentation, the presentation might not exactly reflect your changes:
+ *  your changes may be altered with respect to collaborator changes. If there
+ *  are no collaborators, the presentation should reflect your changes. In any
+ *  case, the updates in your request are guaranteed to be applied together
  *  atomically.
  *
  *  @param object The @c GTLRSlides_BatchUpdatePresentationRequest to include in
@@ -136,9 +152,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
 /**
  *  Creates a blank presentation using the title given in the request. If a
  *  `presentationId` is provided, it is used as the ID of the new presentation.
- *  Otherwise, a new ID is generated. Other fields in the request, including
- *  any provided content, are ignored.
- *  Returns the created presentation.
+ *  Otherwise, a new ID is generated. Other fields in the request, including any
+ *  provided content, are ignored. Returns the created presentation.
  *
  *  Method: slides.presentations.create
  *
@@ -156,9 +171,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
  *
  *  Creates a blank presentation using the title given in the request. If a
  *  `presentationId` is provided, it is used as the ID of the new presentation.
- *  Otherwise, a new ID is generated. Other fields in the request, including
- *  any provided content, are ignored.
- *  Returns the created presentation.
+ *  Otherwise, a new ID is generated. Other fields in the request, including any
+ *  provided content, are ignored. Returns the created presentation.
  *
  *  @param object The @c GTLRSlides_Presentation to include in the query.
  *
@@ -239,9 +253,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
 
 /**
  *  Generates a thumbnail of the latest version of the specified page in the
- *  presentation and returns a URL to the thumbnail image.
- *  This request counts as an [expensive read request](/slides/limits) for
- *  quota purposes.
+ *  presentation and returns a URL to the thumbnail image. This request counts
+ *  as an [expensive read request](/slides/limits) for quota purposes.
  *
  *  Method: slides.presentations.pages.getThumbnail
  *
@@ -263,25 +276,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
 @property(nonatomic, copy, nullable) NSString *presentationId;
 
 /**
- *  The optional mime type of the thumbnail image.
- *  If you don't specify the mime type, the mime type defaults to PNG.
+ *  The optional mime type of the thumbnail image. If you don't specify the mime
+ *  type, the mime type defaults to PNG.
  *
  *  Likely values:
- *    @arg @c kGTLRSlidesThumbnailPropertiesMimeTypePng Value "PNG"
+ *    @arg @c kGTLRSlidesThumbnailPropertiesMimeTypePng The default mime type.
+ *        (Value: "PNG")
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailPropertiesMimeType;
 
 /**
- *  The optional thumbnail image size.
- *  If you don't specify the size, the server chooses a default size of the
- *  image.
+ *  The optional thumbnail image size. If you don't specify the size, the server
+ *  chooses a default size of the image.
  *
  *  Likely values:
  *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified
- *        Value "THUMBNAIL_SIZE_UNSPECIFIED"
- *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge Value "LARGE"
- *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium Value "MEDIUM"
- *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall Value "SMALL"
+ *        The default thumbnail image size. The unspecified thumbnail size
+ *        implies that the server chooses the size of the image in a way that
+ *        might vary in the future. (Value: "THUMBNAIL_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge The thumbnail
+ *        image width of 1600px. (Value: "LARGE")
+ *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium The thumbnail
+ *        image width of 800px. (Value: "MEDIUM")
+ *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall The thumbnail
+ *        image width of 200px. (Value: "SMALL")
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailPropertiesThumbnailSize;
 
@@ -289,9 +307,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
  *  Fetches a @c GTLRSlides_Thumbnail.
  *
  *  Generates a thumbnail of the latest version of the specified page in the
- *  presentation and returns a URL to the thumbnail image.
- *  This request counts as an [expensive read request](/slides/limits) for
- *  quota purposes.
+ *  presentation and returns a URL to the thumbnail image. This request counts
+ *  as an [expensive read request](/slides/limits) for quota purposes.
  *
  *  @param presentationId The ID of the presentation to retrieve.
  *  @param pageObjectId The object ID of the page whose thumbnail to retrieve.

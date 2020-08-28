@@ -282,8 +282,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The request is done after the longrunning.Operations.CancelOperation has
- *  been called by the user. Any records that were processed before the
- *  cancel command are output as specified in the request.
+ *  been called by the user. Any records that were processed before the cancel
+ *  command are output as specified in the request.
  *
  *  Value: "CANCELLED"
  */
@@ -307,8 +307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_Proc
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_BatchOperationMetadata_State_StateUnspecified;
 /**
- *  The request is done and at least one item has been successfully
- *  processed.
+ *  The request is done and at least one item has been successfully processed.
  *
  *  Value: "SUCCESSFUL"
  */
@@ -364,8 +363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_Block_BlockType_Unknown;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_DetectedBreak_Type_EolSureSpace;
 /**
- *  End-line hyphen that is not present in text; does not co-occur with
- *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
+ *  End-line hyphen that is not present in text; does not co-occur with `SPACE`,
+ *  `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
@@ -698,8 +697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_DocumentTextDetectio
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_FaceDetection;
 /**
- *  Compute a set of image properties, such as the
- *  image's dominant colors.
+ *  Compute a set of image properties, such as the image's dominant colors.
  *
  *  Value: "IMAGE_PROPERTIES"
  */
@@ -735,16 +733,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_ObjectLocalization;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_ProductSearch;
 /**
- *  Run Safe Search to detect potentially unsafe
- *  or undesirable content.
+ *  Run Safe Search to detect potentially unsafe or undesirable content.
  *
  *  Value: "SAFE_SEARCH_DETECTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_Feature_Type_SafeSearchDetection;
 /**
- *  Run text detection / optical character recognition (OCR). Text detection
- *  is optimized for areas of text within a larger image; if the image is
- *  a document, use `DOCUMENT_TEXT_DETECTION` instead.
+ *  Run text detection / optical character recognition (OCR). Text detection is
+ *  optimized for areas of text within a larger image; if the image is a
+ *  document, use `DOCUMENT_TEXT_DETECTION` instead.
  *
  *  Value: "TEXT_DETECTION"
  */
@@ -1540,8 +1537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1SafeSea
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
 /**
- *  End-line hyphen that is not present in text; does not co-occur with
- *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
+ *  End-line hyphen that is not present in text; does not co-occur with `SPACE`,
+ *  `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
@@ -2349,8 +2346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1SafeSea
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
 /**
- *  End-line hyphen that is not present in text; does not co-occur with
- *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
+ *  End-line hyphen that is not present in text; does not co-occur with `SPACE`,
+ *  `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
@@ -2385,8 +2382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1TextAnn
 
 /**
  *  The request is done after the longrunning.Operations.CancelOperation has
- *  been called by the user. Any records that were processed before the
- *  cancel command are output as specified in the request.
+ *  been called by the user. Any records that were processed before the cancel
+ *  command are output as specified in the request.
  *
  *  Value: "CANCELLED"
  */
@@ -2410,8 +2407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_StateUnspecified;
 /**
- *  The request is done and at least one item has been successfully
- *  processed.
+ *  The request is done and at least one item has been successfully processed.
  *
  *  Value: "SUCCESSFUL"
  */
@@ -3195,8 +3191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1SafeSea
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
 /**
- *  End-line hyphen that is not present in text; does not co-occur with
- *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
+ *  End-line hyphen that is not present in text; does not co-occur with `SPACE`,
+ *  `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
@@ -3231,8 +3227,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1TextAnn
 
 /**
  *  The request is done after the longrunning.Operations.CancelOperation has
- *  been called by the user. Any records that were processed before the
- *  cancel command are output as specified in the request.
+ *  been called by the user. Any records that were processed before the cancel
+ *  command are output as specified in the request.
  *
  *  Value: "CANCELLED"
  */
@@ -3256,8 +3252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_StateUnspecified;
 /**
- *  The request is done and at least one item has been successfully
- *  processed.
+ *  The request is done and at least one item has been successfully processed.
  *
  *  Value: "SUCCESSFUL"
  */
@@ -4041,8 +4036,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1SafeSea
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationDetectedBreak_Type_EolSureSpace;
 /**
- *  End-line hyphen that is not present in text; does not co-occur with
- *  `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`.
+ *  End-line hyphen that is not present in text; does not co-occur with `SPACE`,
+ *  `LEADER_SPACE`, or `LINE_BREAK`.
  *
  *  Value: "HYPHEN"
  */
@@ -4527,8 +4522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Required. The resource name for the Product to be added to this ProductSet.
- *  Format is:
- *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`
+ *  Format is: `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`
  */
 @property(nonatomic, copy, nullable) NSString *product;
 
@@ -4550,16 +4544,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_InputConfig *inputConfig;
 
 /**
- *  Pages of the file to perform image annotation.
- *  Pages starts from 1, we assume the first page of the file is page 1.
- *  At most 5 pages are supported per request. Pages can be negative.
- *  Page 1 means the first page.
- *  Page 2 means the second page.
- *  Page -1 means the last page.
- *  Page -2 means the second to the last page.
- *  If the file is GIF instead of PDF or TIFF, page refers to GIF frames.
- *  If this field is empty, by default the service performs image annotation
- *  for the first 5 pages of the file.
+ *  Pages of the file to perform image annotation. Pages starts from 1, we
+ *  assume the first page of the file is page 1. At most 5 pages are supported
+ *  per request. Pages can be negative. Page 1 means the first page. Page 2
+ *  means the second page. Page -1 means the last page. Page -2 means the second
+ *  to the last page. If the file is GIF instead of PDF or TIFF, page refers to
+ *  GIF frames. If this field is empty, by default the service performs image
+ *  annotation for the first 5 pages of the file.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4575,8 +4566,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_AnnotateFileResponse : GTLRObject
 
 /**
- *  If set, represents the error message for the failed request. The
- *  `responses` field will not be set in this case.
+ *  If set, represents the error message for the failed request. The `responses`
+ *  field will not be set in this case.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -4632,9 +4623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_CropHintsAnnotation *cropHintsAnnotation;
 
 /**
- *  If set, represents the error message for the operation.
- *  Note that filled-in image annotations are guaranteed to be
- *  correct, even when `error` is set.
+ *  If set, represents the error message for the operation. Note that filled-in
+ *  image annotations are guaranteed to be correct, even when `error` is set.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -4643,9 +4633,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  If present, text (OCR) detection or document (OCR) text detection has
- *  completed successfully.
- *  This annotation provides the structural hierarchy for the OCR detected
- *  text.
+ *  completed successfully. This annotation provides the structural hierarchy
+ *  for the OCR detected text.
  */
 @property(nonatomic, strong, nullable) GTLRVision_TextAnnotation *fullTextAnnotation;
 
@@ -4659,8 +4648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_EntityAnnotation *> *landmarkAnnotations;
 
 /**
- *  If present, localized object detection has completed successfully.
- *  This will be sorted descending by confidence score.
+ *  If present, localized object detection has completed successfully. This will
+ *  be sorted descending by confidence score.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_LocalizedObjectAnnotation *> *localizedObjectAnnotations;
 
@@ -4720,14 +4709,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_AsyncBatchAnnotateFilesRequest : GTLRObject
 
 /**
- *  Optional. Target project and location to make a call.
- *  Format: `projects/{project-id}/locations/{location-id}`.
- *  If no parent is specified, a region will be chosen automatically.
- *  Supported location-ids:
- *  `us`: USA country only,
- *  `asia`: East asia areas, like Japan, Taiwan,
- *  `eu`: The European Union.
- *  Example: `projects/project-A/locations/eu`.
+ *  Optional. Target project and location to make a call. Format:
+ *  `projects/{project-id}/locations/{location-id}`. If no parent is specified,
+ *  a region will be chosen automatically. Supported location-ids: `us`: USA
+ *  country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The
+ *  European Union. Example: `projects/project-A/locations/eu`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4760,14 +4746,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_OutputConfig *outputConfig;
 
 /**
- *  Optional. Target project and location to make a call.
- *  Format: `projects/{project-id}/locations/{location-id}`.
- *  If no parent is specified, a region will be chosen automatically.
- *  Supported location-ids:
- *  `us`: USA country only,
- *  `asia`: East asia areas, like Japan, Taiwan,
- *  `eu`: The European Union.
- *  Example: `projects/project-A/locations/eu`.
+ *  Optional. Target project and location to make a call. Format:
+ *  `projects/{project-id}/locations/{location-id}`. If no parent is specified,
+ *  a region will be chosen automatically. Supported location-ids: `us`: USA
+ *  country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The
+ *  European Union. Example: `projects/project-A/locations/eu`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4794,21 +4777,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_BatchAnnotateFilesRequest : GTLRObject
 
 /**
- *  Optional. Target project and location to make a call.
- *  Format: `projects/{project-id}/locations/{location-id}`.
- *  If no parent is specified, a region will be chosen automatically.
- *  Supported location-ids:
- *  `us`: USA country only,
- *  `asia`: East asia areas, like Japan, Taiwan,
- *  `eu`: The European Union.
- *  Example: `projects/project-A/locations/eu`.
+ *  Optional. Target project and location to make a call. Format:
+ *  `projects/{project-id}/locations/{location-id}`. If no parent is specified,
+ *  a region will be chosen automatically. Supported location-ids: `us`: USA
+ *  country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The
+ *  European Union. Example: `projects/project-A/locations/eu`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Required. The list of file annotation requests. Right now we support only
- *  one
- *  AnnotateFileRequest in BatchAnnotateFilesRequest.
+ *  one AnnotateFileRequest in BatchAnnotateFilesRequest.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_AnnotateFileRequest *> *requests;
 
@@ -4835,14 +4814,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_BatchAnnotateImagesRequest : GTLRObject
 
 /**
- *  Optional. Target project and location to make a call.
- *  Format: `projects/{project-id}/locations/{location-id}`.
- *  If no parent is specified, a region will be chosen automatically.
- *  Supported location-ids:
- *  `us`: USA country only,
- *  `asia`: East asia areas, like Japan, Taiwan,
- *  `eu`: The European Union.
- *  Example: `projects/project-A/locations/eu`.
+ *  Optional. Target project and location to make a call. Format:
+ *  `projects/{project-id}/locations/{location-id}`. If no parent is specified,
+ *  a region will be chosen automatically. Supported location-ids: `us`: USA
+ *  country only, `asia`: East asia areas, like Japan, Taiwan, `eu`: The
+ *  European Union. Example: `projects/project-A/locations/eu`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4864,8 +4840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Metadata for the batch operations such as the current state.
- *  This is included in the `metadata` field of the `Operation` returned by the
+ *  Metadata for the batch operations such as the current state. This is
+ *  included in the `metadata` field of the `Operation` returned by the
  *  `GetOperation` call of the `google::longrunning::Operations` service.
  */
 @interface GTLRVision_BatchOperationMetadata : GTLRObject
@@ -4881,10 +4857,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *
  *  Likely values:
  *    @arg @c kGTLRVision_BatchOperationMetadata_State_Cancelled The request is
- *        done after the longrunning.Operations.CancelOperation has
- *        been called by the user. Any records that were processed before the
- *        cancel command are output as specified in the request. (Value:
- *        "CANCELLED")
+ *        done after the longrunning.Operations.CancelOperation has been called
+ *        by the user. Any records that were processed before the cancel command
+ *        are output as specified in the request. (Value: "CANCELLED")
  *    @arg @c kGTLRVision_BatchOperationMetadata_State_Failed The request is
  *        done and no item has been successfully processed. (Value: "FAILED")
  *    @arg @c kGTLRVision_BatchOperationMetadata_State_Processing Request is
@@ -4892,8 +4867,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_BatchOperationMetadata_State_StateUnspecified Invalid.
  *        (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRVision_BatchOperationMetadata_State_Successful The request is
- *        done and at least one item has been successfully
- *        processed. (Value: "SUCCESSFUL")
+ *        done and at least one item has been successfully processed. (Value:
+ *        "SUCCESSFUL")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -4927,21 +4902,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *blockType;
 
 /**
- *  The bounding box for the block.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the block. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
 
@@ -4989,120 +4956,61 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  can be trivially provided to the constructor of "java.awt.Color" in Java; it
  *  can also be trivially provided to UIColor's "+colorWithRed:green:blue:alpha"
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS "rgba()" string in JavaScript, as well.
- *  Note: this proto does not carry information about the absolute color space
- *  that should be used to interpret the RGB value (e.g. sRGB, Adobe RGB,
- *  DCI-P3, BT.2020, etc.). By default, applications SHOULD assume the sRGB
- *  color
- *  space.
- *  Note: when color equality needs to be decided, implementations, unless
- *  documented otherwise, will treat two colors to be equal if all their red,
- *  green, blue and alpha values each differ by at most 1e-5.
- *  Example (Java):
- *  import com.google.type.Color;
- *  // ...
- *  public static java.awt.Color fromProto(Color protocolor) {
- *  float alpha = protocolor.hasAlpha()
- *  ? protocolor.getAlpha().getValue()
- *  : 1.0;
- *  return new java.awt.Color(
- *  protocolor.getRed(),
- *  protocolor.getGreen(),
- *  protocolor.getBlue(),
- *  alpha);
- *  }
- *  public static Color toProto(java.awt.Color color) {
- *  float red = (float) color.getRed();
- *  float green = (float) color.getGreen();
- *  float blue = (float) color.getBlue();
- *  float denominator = 255.0;
- *  Color.Builder resultBuilder =
- *  Color
- *  .newBuilder()
- *  .setRed(red / denominator)
- *  .setGreen(green / denominator)
- *  .setBlue(blue / denominator);
- *  int alpha = color.getAlpha();
- *  if (alpha != 255) {
- *  result.setAlpha(
- *  FloatValue
- *  .newBuilder()
- *  .setValue(((float) alpha) / denominator)
- *  .build());
- *  }
- *  return resultBuilder.build();
- *  }
- *  // ...
- *  Example (iOS / Obj-C):
- *  // ...
- *  static UIColor* fromProto(Color* protocolor) {
- *  float red = [protocolor red];
- *  float green = [protocolor green];
- *  float blue = [protocolor blue];
- *  FloatValue* alpha_wrapper = [protocolor alpha];
- *  float alpha = 1.0;
- *  if (alpha_wrapper != nil) {
- *  alpha = [alpha_wrapper value];
- *  }
- *  return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
- *  }
- *  static Color* toProto(UIColor* color) {
- *  CGFloat red, green, blue, alpha;
- *  if (![color getRed:&red green:&green blue:&blue alpha:&alpha]) {
- *  return nil;
- *  }
- *  Color* result = [[Color alloc] init];
- *  [result setRed:red];
- *  [result setGreen:green];
- *  [result setBlue:blue];
- *  if (alpha <= 0.9999) {
- *  [result setAlpha:floatWrapperWithValue(alpha)];
- *  }
- *  [result autorelease];
- *  return result;
- *  }
- *  // ...
- *  Example (JavaScript):
- *  // ...
- *  var protoToCssColor = function(rgb_color) {
- *  var redFrac = rgb_color.red || 0.0;
- *  var greenFrac = rgb_color.green || 0.0;
- *  var blueFrac = rgb_color.blue || 0.0;
- *  var red = Math.floor(redFrac * 255);
- *  var green = Math.floor(greenFrac * 255);
- *  var blue = Math.floor(blueFrac * 255);
- *  if (!('alpha' in rgb_color)) {
- *  return rgbToCssColor_(red, green, blue);
- *  }
- *  var alphaFrac = rgb_color.alpha.value || 0.0;
- *  var rgbParams = [red, green, blue].join(',');
- *  return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
- *  };
- *  var rgbToCssColor_ = function(red, green, blue) {
- *  var rgbNumber = new Number((red << 16) | (green << 8) | blue);
- *  var hexString = rgbNumber.toString(16);
- *  var missingZeros = 6 - hexString.length;
- *  var resultBuilder = ['#'];
- *  for (var i = 0; i < missingZeros; i++) {
- *  resultBuilder.push('0');
- *  }
- *  resultBuilder.push(hexString);
- *  return resultBuilder.join('');
- *  };
- *  // ...
+ *  a CSS "rgba()" string in JavaScript, as well. Note: this proto does not
+ *  carry information about the absolute color space that should be used to
+ *  interpret the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By
+ *  default, applications SHOULD assume the sRGB color space. Note: when color
+ *  equality needs to be decided, implementations, unless documented otherwise,
+ *  will treat two colors to be equal if all their red, green, blue and alpha
+ *  values each differ by at most 1e-5. Example (Java): import
+ *  com.google.type.Color; // ... public static java.awt.Color fromProto(Color
+ *  protocolor) { float alpha = protocolor.hasAlpha() ?
+ *  protocolor.getAlpha().getValue() : 1.0; return new java.awt.Color(
+ *  protocolor.getRed(), protocolor.getGreen(), protocolor.getBlue(), alpha); }
+ *  public static Color toProto(java.awt.Color color) { float red = (float)
+ *  color.getRed(); float green = (float) color.getGreen(); float blue = (float)
+ *  color.getBlue(); float denominator = 255.0; Color.Builder resultBuilder =
+ *  Color .newBuilder() .setRed(red / denominator) .setGreen(green /
+ *  denominator) .setBlue(blue / denominator); int alpha = color.getAlpha(); if
+ *  (alpha != 255) { result.setAlpha( FloatValue .newBuilder()
+ *  .setValue(((float) alpha) / denominator) .build()); } return
+ *  resultBuilder.build(); } // ... Example (iOS / Obj-C): // ... static
+ *  UIColor* fromProto(Color* protocolor) { float red = [protocolor red]; float
+ *  green = [protocolor green]; float blue = [protocolor blue]; FloatValue*
+ *  alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if (alpha_wrapper !=
+ *  nil) { alpha = [alpha_wrapper value]; } return [UIColor colorWithRed:red
+ *  green:green blue:blue alpha:alpha]; } static Color* toProto(UIColor* color)
+ *  { CGFloat red, green, blue, alpha; if (![color getRed:&red green:&green
+ *  blue:&blue alpha:&alpha]) { return nil; } Color* result = [[Color alloc]
+ *  init]; [result setRed:red]; [result setGreen:green]; [result setBlue:blue];
+ *  if (alpha <= 0.9999) { [result setAlpha:floatWrapperWithValue(alpha)]; }
+ *  [result autorelease]; return result; } // ... Example (JavaScript): // ...
+ *  var protoToCssColor = function(rgb_color) { var redFrac = rgb_color.red ||
+ *  0.0; var greenFrac = rgb_color.green || 0.0; var blueFrac = rgb_color.blue
+ *  || 0.0; var red = Math.floor(redFrac * 255); var green =
+ *  Math.floor(greenFrac * 255); var blue = Math.floor(blueFrac * 255); if
+ *  (!('alpha' in rgb_color)) { return rgbToCssColor_(red, green, blue); } var
+ *  alphaFrac = rgb_color.alpha.value || 0.0; var rgbParams = [red, green,
+ *  blue].join(','); return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
+ *  }; var rgbToCssColor_ = function(red, green, blue) { var rgbNumber = new
+ *  Number((red << 16) | (green << 8) | blue); var hexString =
+ *  rgbNumber.toString(16); var missingZeros = 6 - hexString.length; var
+ *  resultBuilder = ['#']; for (var i = 0; i < missingZeros; i++) {
+ *  resultBuilder.push('0'); } resultBuilder.push(hexString); return
+ *  resultBuilder.join(''); }; // ...
  */
 @interface GTLRVision_Color : GTLRObject
 
 /**
- *  The fraction of this color that should be applied to the pixel. That is,
- *  the final pixel color is defined by the equation:
- *  pixel color = alpha * (this color) + (1.0 - alpha) * (background color)
- *  This means that a value of 1.0 corresponds to a solid color, whereas
- *  a value of 0.0 corresponds to a completely transparent color. This
- *  uses a wrapper message rather than a simple float scalar so that it is
- *  possible to distinguish between a default value and the value being unset.
- *  If omitted, this color object is to be rendered as a solid color
- *  (as if the alpha value had been explicitly given with a value of 1.0).
+ *  The fraction of this color that should be applied to the pixel. That is, the
+ *  final pixel color is defined by the equation: pixel color = alpha * (this
+ *  color) + (1.0 - alpha) * (background color) This means that a value of 1.0
+ *  corresponds to a solid color, whereas a value of 0.0 corresponds to a
+ *  completely transparent color. This uses a wrapper message rather than a
+ *  simple float scalar so that it is possible to distinguish between a default
+ *  value and the value being unset. If omitted, this color object is to be
+ *  rendered as a solid color (as if the alpha value had been explicitly given
+ *  with a value of 1.0).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5133,8 +5041,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Color information consists of RGB channels, score, and the fraction of
- *  the image that the color occupies in the image.
+ *  Color information consists of RGB channels, score, and the fraction of the
+ *  image that the color occupies in the image.
  */
 @interface GTLRVision_ColorInfo : GTLRObject
 
@@ -5142,8 +5050,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_Color *color;
 
 /**
- *  The fraction of pixels the color occupies in the image.
- *  Value in range [0, 1].
+ *  The fraction of pixels the color occupies in the image. Value in range [0,
+ *  1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5207,10 +5115,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  Aspect ratios in floats, representing the ratio of the width to the height
  *  of the image. For example, if the desired aspect ratio is 4/3, the
- *  corresponding float value should be 1.33333. If not specified, the
- *  best possible crop is returned. The number of provided aspect ratios is
- *  limited to a maximum of 16; any aspect ratios provided after the 16th are
- *  ignored.
+ *  corresponding float value should be 1.33333. If not specified, the best
+ *  possible crop is returned. The number of provided aspect ratios is limited
+ *  to a maximum of 16; any aspect ratios provided after the 16th are ignored.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5238,8 +5145,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_DetectedBreak_Type_EolSureSpace Line-wrapping break.
  *        (Value: "EOL_SURE_SPACE")
  *    @arg @c kGTLRVision_DetectedBreak_Type_Hyphen End-line hyphen that is not
- *        present in text; does not co-occur with
- *        `SPACE`, `LEADER_SPACE`, or `LINE_BREAK`. (Value: "HYPHEN")
+ *        present in text; does not co-occur with `SPACE`, `LEADER_SPACE`, or
+ *        `LINE_BREAK`. (Value: "HYPHEN")
  *    @arg @c kGTLRVision_DetectedBreak_Type_LineBreak Line break that ends a
  *        paragraph. (Value: "LINE_BREAK")
  *    @arg @c kGTLRVision_DetectedBreak_Type_Space Regular space. (Value:
@@ -5290,11 +5197,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRVision_Empty : GTLRObject
 @end
@@ -5306,17 +5211,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_EntityAnnotation : GTLRObject
 
 /**
- *  Image region to which this entity belongs. Not produced
- *  for `LABEL_DETECTION` features.
+ *  Image region to which this entity belongs. Not produced for
+ *  `LABEL_DETECTION` features.
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
 
 /**
- *  **Deprecated. Use `score` instead.**
- *  The accuracy of the entity detection in an image.
- *  For example, for an image in which the "Eiffel Tower" entity is detected,
- *  this field represents the confidence that there is a tower in the query
- *  image. Range [0, 1].
+ *  **Deprecated. Use `score` instead.** The accuracy of the entity detection in
+ *  an image. For example, for an image in which the "Eiffel Tower" entity is
+ *  detected, this field represents the confidence that there is a tower in the
+ *  query image. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5330,24 +5234,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The language code for the locale in which the entity textual
- *  `description` is expressed.
+ *  The language code for the locale in which the entity textual `description`
+ *  is expressed.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
- *  The location information for the detected entity. Multiple
- *  `LocationInfo` elements can be present because one location may
- *  indicate the location of the scene in the image, and another location
- *  may indicate the location of the place where the image was taken.
- *  Location information is usually present for landmarks.
+ *  The location information for the detected entity. Multiple `LocationInfo`
+ *  elements can be present because one location may indicate the location of
+ *  the scene in the image, and another location may indicate the location of
+ *  the place where the image was taken. Location information is usually present
+ *  for landmarks.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_LocationInfo *> *locations;
 
 /**
- *  Opaque entity ID. Some IDs may be available in
- *  [Google Knowledge Graph Search
- *  API](https://developers.google.com/knowledge-graph/).
+ *  Opaque entity ID. Some IDs may be available in [Google Knowledge Graph
+ *  Search API](https://developers.google.com/knowledge-graph/).
  */
 @property(nonatomic, copy, nullable) NSString *mid;
 
@@ -5365,11 +5268,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  The relevancy of the ICA (Image Content Annotation) label to the
- *  image. For example, the relevancy of "tower" is likely higher to an image
- *  containing the detected "Eiffel Tower" than to an image containing a
- *  detected distant towering building, even though the confidence that
- *  there is a tower in each image may be the same. Range [0, 1].
+ *  The relevancy of the ICA (Image Content Annotation) label to the image. For
+ *  example, the relevancy of "tower" is likely higher to an image containing
+ *  the detected "Eiffel Tower" than to an image containing a detected distant
+ *  towering building, even though the confidence that there is a tower in each
+ *  image may be the same. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5423,12 +5326,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale.
- *  The bounding box is computed to "frame" the face in accordance with human
- *  expectations. It is based on the landmarker results.
- *  Note that one or more x and/or y coordinates may not be generated in the
- *  `BoundingPoly` (the polygon will be unbounded) if only a partial face
- *  appears in the image to be annotated.
+ *  are in the original image's scale. The bounding box is computed to "frame"
+ *  the face in accordance with human expectations. It is based on the
+ *  landmarker results. Note that one or more x and/or y coordinates may not be
+ *  generated in the `BoundingPoly` (the polygon will be unbounded) if only a
+ *  partial face appears in the image to be annotated.
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
 
@@ -5440,12 +5342,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *detectionConfidence;
 
 /**
- *  The `fd_bounding_poly` bounding polygon is tighter than the
- *  `boundingPoly`, and encloses only the skin part of the face. Typically, it
- *  is used to eliminate the face from any image analysis that detects the
- *  "amount of skin" visible in an image. It is not based on the
- *  landmarker results, only on the initial face detection, hence
- *  the <code>fd</code> (face detection) prefix.
+ *  The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`,
+ *  and encloses only the skin part of the face. Typically, it is used to
+ *  eliminate the face from any image analysis that detects the "amount of skin"
+ *  visible in an image. It is not based on the landmarker results, only on the
+ *  initial face detection, hence the fd (face detection) prefix.
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *fdBoundingPoly;
 
@@ -5585,23 +5486,22 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The type of Google Cloud Vision API detection to perform, and the maximum
- *  number of results to return for that type. Multiple `Feature` objects can
- *  be specified in the `features` list.
+ *  number of results to return for that type. Multiple `Feature` objects can be
+ *  specified in the `features` list.
  */
 @interface GTLRVision_Feature : GTLRObject
 
 /**
- *  Maximum number of results of this type. Does not apply to
- *  `TEXT_DETECTION`, `DOCUMENT_TEXT_DETECTION`, or `CROP_HINTS`.
+ *  Maximum number of results of this type. Does not apply to `TEXT_DETECTION`,
+ *  `DOCUMENT_TEXT_DETECTION`, or `CROP_HINTS`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /**
- *  Model to use for the feature.
- *  Supported values: "builtin/stable" (the default if unset) and
- *  "builtin/latest".
+ *  Model to use for the feature. Supported values: "builtin/stable" (the
+ *  default if unset) and "builtin/latest".
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -5612,14 +5512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_Feature_Type_CropHints Run crop hints. (Value:
  *        "CROP_HINTS")
  *    @arg @c kGTLRVision_Feature_Type_DocumentTextDetection Run dense text
- *        document OCR. Takes precedence when both
- *        `DOCUMENT_TEXT_DETECTION` and `TEXT_DETECTION` are present. (Value:
- *        "DOCUMENT_TEXT_DETECTION")
+ *        document OCR. Takes precedence when both `DOCUMENT_TEXT_DETECTION` and
+ *        `TEXT_DETECTION` are present. (Value: "DOCUMENT_TEXT_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_FaceDetection Run face detection. (Value:
  *        "FACE_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_ImageProperties Compute a set of image
- *        properties, such as the
- *        image's dominant colors. (Value: "IMAGE_PROPERTIES")
+ *        properties, such as the image's dominant colors. (Value:
+ *        "IMAGE_PROPERTIES")
  *    @arg @c kGTLRVision_Feature_Type_LabelDetection Run label detection.
  *        (Value: "LABEL_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_LandmarkDetection Run landmark detection.
@@ -5631,13 +5530,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_Feature_Type_ProductSearch Run Product Search. (Value:
  *        "PRODUCT_SEARCH")
  *    @arg @c kGTLRVision_Feature_Type_SafeSearchDetection Run Safe Search to
- *        detect potentially unsafe
- *        or undesirable content. (Value: "SAFE_SEARCH_DETECTION")
+ *        detect potentially unsafe or undesirable content. (Value:
+ *        "SAFE_SEARCH_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_TextDetection Run text detection /
- *        optical character recognition (OCR). Text detection
- *        is optimized for areas of text within a larger image; if the image is
- *        a document, use `DOCUMENT_TEXT_DETECTION` instead. (Value:
- *        "TEXT_DETECTION")
+ *        optical character recognition (OCR). Text detection is optimized for
+ *        areas of text within a larger image; if the image is a document, use
+ *        `DOCUMENT_TEXT_DETECTION` instead. (Value: "TEXT_DETECTION")
  *    @arg @c kGTLRVision_Feature_Type_TypeUnspecified Unspecified feature type.
  *        (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRVision_Feature_Type_WebDetection Run web detection. (Value:
@@ -5659,19 +5557,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  This field can either represent a gcs file prefix or gcs directory. In
  *  either case, the uri should be unique because in order to get all of the
  *  output files, you will need to do a wildcard gcs search on the uri prefix
- *  you provide.
- *  Examples:
- *  * File Prefix: gs://bucket-name/here/filenameprefix The output files
- *  will be created in gs://bucket-name/here/ and the names of the
- *  output files will begin with "filenameprefix".
- *  * Directory Prefix: gs://bucket-name/some/location/ The output files
- *  will be created in gs://bucket-name/some/location/ and the names of the
- *  output files could be anything because there was no filename prefix
- *  specified.
- *  If multiple outputs, each response is still AnnotateFileResponse, each of
- *  which contains some subset of the full list of AnnotateImageResponse.
- *  Multiple outputs can happen if, for example, the output JSON is too large
- *  and overflows into multiple sharded files.
+ *  you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix
+ *  The output files will be created in gs://bucket-name/here/ and the names of
+ *  the output files will begin with "filenameprefix". * Directory Prefix:
+ *  gs://bucket-name/some/location/ The output files will be created in
+ *  gs://bucket-name/some/location/ and the names of the output files could be
+ *  anything because there was no filename prefix specified. If multiple
+ *  outputs, each response is still AnnotateFileResponse, each of which contains
+ *  some subset of the full list of AnnotateImageResponse. Multiple outputs can
+ *  happen if, for example, the output JSON is too large and overflows into
+ *  multiple sharded files.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -5684,8 +5579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GcsSource : GTLRObject
 
 /**
- *  Google Cloud Storage URI for the input file. This must only be a
- *  Google Cloud Storage object. Wildcards are not currently supported.
+ *  Google Cloud Storage URI for the input file. This must only be a Google
+ *  Cloud Storage object. Wildcards are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -5699,8 +5594,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1AnnotateFileResponse : GTLRObject
 
 /**
- *  If set, represents the error message for the failed request. The
- *  `responses` field will not be set in this case.
+ *  If set, represents the error message for the failed request. The `responses`
+ *  field will not be set in this case.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -5738,9 +5633,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1CropHintsAnnotation *cropHintsAnnotation;
 
 /**
- *  If set, represents the error message for the operation.
- *  Note that filled-in image annotations are guaranteed to be
- *  correct, even when `error` is set.
+ *  If set, represents the error message for the operation. Note that filled-in
+ *  image annotations are guaranteed to be correct, even when `error` is set.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -5749,9 +5643,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  If present, text (OCR) detection or document (OCR) text detection has
- *  completed successfully.
- *  This annotation provides the structural hierarchy for the OCR detected
- *  text.
+ *  completed successfully. This annotation provides the structural hierarchy
+ *  for the OCR detected text.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1TextAnnotation *fullTextAnnotation;
 
@@ -5765,8 +5658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation *> *landmarkAnnotations;
 
 /**
- *  If present, localized object detection has completed successfully.
- *  This will be sorted descending by confidence score.
+ *  If present, localized object detection has completed successfully. This will
+ *  be sorted descending by confidence score.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1LocalizedObjectAnnotation *> *localizedObjectAnnotations;
 
@@ -5838,21 +5731,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *blockType;
 
 /**
- *  The bounding box for the block.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the block. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingBox;
 
@@ -5887,8 +5772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Color information consists of RGB channels, score, and the fraction of
- *  the image that the color occupies in the image.
+ *  Color information consists of RGB channels, score, and the fraction of the
+ *  image that the color occupies in the image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1ColorInfo : GTLRObject
 
@@ -5896,8 +5781,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_Color *color;
 
 /**
- *  The fraction of pixels the color occupies in the image.
- *  Value in range [0, 1].
+ *  The fraction of pixels the color occupies in the image. Value in range [0,
+ *  1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5970,17 +5855,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1EntityAnnotation : GTLRObject
 
 /**
- *  Image region to which this entity belongs. Not produced
- *  for `LABEL_DETECTION` features.
+ *  Image region to which this entity belongs. Not produced for
+ *  `LABEL_DETECTION` features.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingPoly;
 
 /**
- *  **Deprecated. Use `score` instead.**
- *  The accuracy of the entity detection in an image.
- *  For example, for an image in which the "Eiffel Tower" entity is detected,
- *  this field represents the confidence that there is a tower in the query
- *  image. Range [0, 1].
+ *  **Deprecated. Use `score` instead.** The accuracy of the entity detection in
+ *  an image. For example, for an image in which the "Eiffel Tower" entity is
+ *  detected, this field represents the confidence that there is a tower in the
+ *  query image. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5994,24 +5878,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The language code for the locale in which the entity textual
- *  `description` is expressed.
+ *  The language code for the locale in which the entity textual `description`
+ *  is expressed.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
- *  The location information for the detected entity. Multiple
- *  `LocationInfo` elements can be present because one location may
- *  indicate the location of the scene in the image, and another location
- *  may indicate the location of the place where the image was taken.
- *  Location information is usually present for landmarks.
+ *  The location information for the detected entity. Multiple `LocationInfo`
+ *  elements can be present because one location may indicate the location of
+ *  the scene in the image, and another location may indicate the location of
+ *  the place where the image was taken. Location information is usually present
+ *  for landmarks.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1LocationInfo *> *locations;
 
 /**
- *  Opaque entity ID. Some IDs may be available in
- *  [Google Knowledge Graph Search
- *  API](https://developers.google.com/knowledge-graph/).
+ *  Opaque entity ID. Some IDs may be available in [Google Knowledge Graph
+ *  Search API](https://developers.google.com/knowledge-graph/).
  */
 @property(nonatomic, copy, nullable) NSString *mid;
 
@@ -6029,11 +5912,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  The relevancy of the ICA (Image Content Annotation) label to the
- *  image. For example, the relevancy of "tower" is likely higher to an image
- *  containing the detected "Eiffel Tower" than to an image containing a
- *  detected distant towering building, even though the confidence that
- *  there is a tower in each image may be the same. Range [0, 1].
+ *  The relevancy of the ICA (Image Content Annotation) label to the image. For
+ *  example, the relevancy of "tower" is likely higher to an image containing
+ *  the detected "Eiffel Tower" than to an image containing a detected distant
+ *  towering building, even though the confidence that there is a tower in each
+ *  image may be the same. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -6087,12 +5970,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale.
- *  The bounding box is computed to "frame" the face in accordance with human
- *  expectations. It is based on the landmarker results.
- *  Note that one or more x and/or y coordinates may not be generated in the
- *  `BoundingPoly` (the polygon will be unbounded) if only a partial face
- *  appears in the image to be annotated.
+ *  are in the original image's scale. The bounding box is computed to "frame"
+ *  the face in accordance with human expectations. It is based on the
+ *  landmarker results. Note that one or more x and/or y coordinates may not be
+ *  generated in the `BoundingPoly` (the polygon will be unbounded) if only a
+ *  partial face appears in the image to be annotated.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingPoly;
 
@@ -6104,12 +5986,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *detectionConfidence;
 
 /**
- *  The `fd_bounding_poly` bounding polygon is tighter than the
- *  `boundingPoly`, and encloses only the skin part of the face. Typically, it
- *  is used to eliminate the face from any image analysis that detects the
- *  "amount of skin" visible in an image. It is not based on the
- *  landmarker results, only on the initial face detection, hence
- *  the <code>fd</code> (face detection) prefix.
+ *  The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`,
+ *  and encloses only the skin part of the face. Typically, it is used to
+ *  eliminate the face from any image analysis that detects the "amount of skin"
+ *  visible in an image. It is not based on the landmarker results, only on the
+ *  initial face detection, hence the fd (face detection) prefix.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *fdBoundingPoly;
 
@@ -6347,19 +6228,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  This field can either represent a gcs file prefix or gcs directory. In
  *  either case, the uri should be unique because in order to get all of the
  *  output files, you will need to do a wildcard gcs search on the uri prefix
- *  you provide.
- *  Examples:
- *  * File Prefix: gs://bucket-name/here/filenameprefix The output files
- *  will be created in gs://bucket-name/here/ and the names of the
- *  output files will begin with "filenameprefix".
- *  * Directory Prefix: gs://bucket-name/some/location/ The output files
- *  will be created in gs://bucket-name/some/location/ and the names of the
- *  output files could be anything because there was no filename prefix
- *  specified.
- *  If multiple outputs, each response is still AnnotateFileResponse, each of
- *  which contains some subset of the full list of AnnotateImageResponse.
- *  Multiple outputs can happen if, for example, the output JSON is too large
- *  and overflows into multiple sharded files.
+ *  you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix
+ *  The output files will be created in gs://bucket-name/here/ and the names of
+ *  the output files will begin with "filenameprefix". * Directory Prefix:
+ *  gs://bucket-name/some/location/ The output files will be created in
+ *  gs://bucket-name/some/location/ and the names of the output files could be
+ *  anything because there was no filename prefix specified. If multiple
+ *  outputs, each response is still AnnotateFileResponse, each of which contains
+ *  some subset of the full list of AnnotateImageResponse. Multiple outputs can
+ *  happen if, for example, the output JSON is too large and overflows into
+ *  multiple sharded files.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -6372,8 +6250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1GcsSource : GTLRObject
 
 /**
- *  Google Cloud Storage URI for the input file. This must only be a
- *  Google Cloud Storage object. Wildcards are not currently supported.
+ *  Google Cloud Storage URI for the input file. This must only be a Google
+ *  Cloud Storage object. Wildcards are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -6387,8 +6265,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1ImageAnnotationContext : GTLRObject
 
 /**
- *  If the file was a PDF or TIFF, this field gives the page number within
- *  the file used to produce the image.
+ *  If the file was a PDF or TIFF, this field gives the page number within the
+ *  file used to produce the image.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6417,11 +6295,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1InputConfig : GTLRObject
 
 /**
- *  File content, represented as a stream of bytes.
- *  Note: As with all `bytes` fields, protobuffers use a pure binary
- *  representation, whereas JSON representations use base64.
- *  Currently, this field only works for BatchAnnotateFiles requests. It does
- *  not work for AsyncBatchAnnotateFiles requests.
+ *  File content, represented as a stream of bytes. Note: As with all `bytes`
+ *  fields, protobuffers use a pure binary representation, whereas JSON
+ *  representations use base64. Currently, this field only works for
+ *  BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles
+ *  requests.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -6483,9 +6361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the normalized vertex coordinates are relative to the original image
- *  and range from 0 to 1.
+ *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
+ *  coordinates are relative to the original image and range from 0 to 1.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1NormalizedVertex : GTLRObject
 
@@ -6544,14 +6421,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The max number of response protos to put into each output JSON file on
- *  Google Cloud Storage.
- *  The valid range is [1, 100]. If not specified, the default value is 20.
- *  For example, for one pdf file with 100 pages, 100 response protos will
- *  be generated. If `batch_size` = 20, then 5 json files each
- *  containing 20 response protos will be written under the prefix
- *  `gcs_destination`.`uri`.
- *  Currently, batch_size only applies to GcsDestination, with potential future
- *  support for other output configurations.
+ *  Google Cloud Storage. The valid range is [1, 100]. If not specified, the
+ *  default value is 20. For example, for one pdf file with 100 pages, 100
+ *  response protos will be generated. If `batch_size` = 20, then 5 json files
+ *  each containing 20 response protos will be written under the prefix
+ *  `gcs_destination`.`uri`. Currently, batch_size only applies to
+ *  GcsDestination, with potential future support for other output
+ *  configurations.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6579,8 +6455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  Page height. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page height. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6590,8 +6466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationTextProperty *property;
 
 /**
- *  Page width. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page width. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6606,21 +6482,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1Paragraph : GTLRObject
 
 /**
- *  The bounding box for the paragraph.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
+ *  The bounding box for the paragraph. The vertices are in the order of
+ *  top-left, top-right, bottom-right, bottom-left. When a rotation of the
+ *  bounding box is detected the rotation is represented as around the top-left
+ *  corner as defined when the text is read in the 'natural' orientation. For
+ *  example: * when the text is horizontal it might look like: 0----1 | | 3----2
  *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingBox;
 
@@ -6641,9 +6509,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A 3D position in the image, used primarily for Face detection landmarks.
- *  A valid Position must have both x and y coordinates.
- *  The position coordinates are in the same scale as the original image.
+ *  A 3D position in the image, used primarily for Face detection landmarks. A
+ *  valid Position must have both x and y coordinates. The position coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1Position : GTLRObject
 
@@ -6691,33 +6559,30 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the product.
- *  Format is:
- *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
- *  This field is ignored when creating a product.
+ *  The resource name of the product. Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is
+ *  ignored when creating a product.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Immutable. The category for the product identified by the reference image.
- *  This should
- *  be either "homegoods-v2", "apparel-v2", or "toys-v2". The legacy categories
- *  "homegoods", "apparel", and "toys" are still supported, but these should
- *  not be used for new products.
+ *  This should be one of "homegoods-v2", "apparel-v2", "toys-v2",
+ *  "packagedgoods-v1" or "general-v1". The legacy categories "homegoods",
+ *  "apparel", and "toys" are still supported, but these should not be used for
+ *  new products.
  */
 @property(nonatomic, copy, nullable) NSString *productCategory;
 
 /**
  *  Key-value pairs that can be attached to a product. At query time,
- *  constraints can be specified based on the product_labels.
- *  Note that integer values can be provided as strings, e.g. "1199". Only
- *  strings with integer values can match a range-based restriction which is
- *  to be supported soon.
+ *  constraints can be specified based on the product_labels. Note that integer
+ *  values can be provided as strings, e.g. "1199". Only strings with integer
+ *  values can match a range-based restriction which is to be supported soon.
  *  Multiple values can be assigned to the same key. One product may have up to
- *  500 product_labels.
- *  Notice that the total number of distinct product_labels over all products
- *  in one ProductSet cannot exceed 1M, otherwise the product search pipeline
- *  will refuse to work for that ProductSet.
+ *  500 product_labels. Notice that the total number of distinct product_labels
+ *  over all products in one ProductSet cannot exceed 1M, otherwise the product
+ *  search pipeline will refuse to work for that ProductSet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1ProductKeyValue *> *productLabels;
 
@@ -6736,8 +6601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The value of the label attached to the product. Cannot be empty and
- *  cannot exceed 128 bytes.
+ *  The value of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -6771,8 +6636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Information about the products similar to a single product in a query
- *  image.
+ *  Information about the products similar to a single product in a query image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsGroupedResult : GTLRObject
 
@@ -6822,8 +6686,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1ProductSearchResultsResult : GTLRObject
 
 /**
- *  The resource name of the image from the product that is the closest match
- *  to the query.
+ *  The resource name of the image from the product that is the closest match to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -6831,8 +6695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1Product *product;
 
 /**
- *  A confidence level on the match, ranging from 0 (no confidence) to
- *  1 (full confidence).
+ *  A confidence level on the match, ranging from 0 (no confidence) to 1 (full
+ *  confidence).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -6863,16 +6727,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Set of features pertaining to the image, computed by computer vision
- *  methods over safe-search verticals (for example, adult, spoof, medical,
- *  violence).
+ *  Set of features pertaining to the image, computed by computer vision methods
+ *  over safe-search verticals (for example, adult, spoof, medical, violence).
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation : GTLRObject
 
 /**
  *  Represents the adult content likelihood for the image. Adult content may
- *  contain elements such as nudity, pornographic images or cartoons, or
- *  sexual activities.
+ *  contain elements such as nudity, pornographic images or cartoons, or sexual
+ *  activities.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Adult_Likely
@@ -6912,8 +6775,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  Likelihood that the request image contains racy content. Racy content may
  *  include (but is not limited to) skimpy or sheer clothing, strategically
- *  covered nudity, lewd or provocative poses, or close-ups of sensitive
- *  body areas.
+ *  covered nudity, lewd or provocative poses, or close-ups of sensitive body
+ *  areas.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Racy_Likely
@@ -6932,9 +6795,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *racy;
 
 /**
- *  Spoof likelihood. The likelihood that an modification
- *  was made to the image's canonical version to make it appear
- *  funny or offensive.
+ *  Spoof likelihood. The likelihood that an modification was made to the
+ *  image's canonical version to make it appear funny or offensive.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1SafeSearchAnnotation_Spoof_Likely
@@ -6980,21 +6842,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1Symbol : GTLRObject
 
 /**
- *  The bounding box for the symbol.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the symbol. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingBox;
 
@@ -7017,11 +6871,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  TextAnnotation contains a structured representation of OCR extracted text.
  *  The hierarchy of an OCR extracted text structure is like this:
- *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
- *  Each structural component, starting from Page, may further have their own
+ *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol Each
+ *  structural component, starting from Page, may further have their own
  *  properties. Properties describe detected languages, breaks etc.. Please
- *  refer
- *  to the TextAnnotation.TextProperty message definition below for more
+ *  refer to the TextAnnotation.TextProperty message definition below for more
  *  detail.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1TextAnnotation : GTLRObject
@@ -7107,8 +6960,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the vertex coordinates are in the same scale as the original image.
+ *  A vertex represents a 2D point in the image. NOTE: the vertex coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p1beta1Vertex : GTLRObject
 
@@ -7135,14 +6988,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1WebDetection : GTLRObject
 
 /**
- *  The service's best guess as to the topic of the request image.
- *  Inferred from similar images on the open web.
+ *  The service's best guess as to the topic of the request image. Inferred from
+ *  similar images on the open web.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1WebDetectionWebLabel *> *bestGuessLabels;
 
 /**
- *  Fully matching images from the Internet.
- *  Can include resized copies of the query image.
+ *  Fully matching images from the Internet. Can include resized copies of the
+ *  query image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1WebDetectionWebImage *> *fullMatchingImages;
 
@@ -7150,9 +7003,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1WebDetectionWebPage *> *pagesWithMatchingImages;
 
 /**
- *  Partial matching images from the Internet.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its crops.
+ *  Partial matching images from the Internet. Those images are similar enough
+ *  to share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1WebDetectionWebImage *> *partialMatchingImages;
 
@@ -7181,8 +7034,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *entityId;
 
 /**
- *  Overall relevancy score for the entity.
- *  Not normalized and not comparable across different image queries.
+ *  Overall relevancy score for the entity. Not normalized and not comparable
+ *  across different image queries.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -7218,8 +7071,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
- *  For more information, see
+ *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more
+ *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -7233,8 +7086,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1WebDetectionWebPage : GTLRObject
 
 /**
- *  Fully matching images on the page.
- *  Can include resized copies of the query image.
+ *  Fully matching images on the page. Can include resized copies of the query
+ *  image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1WebDetectionWebImage *> *fullMatchingImages;
 
@@ -7242,10 +7095,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *pageTitle;
 
 /**
- *  Partial matching images on the page.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its
- *  crops.
+ *  Partial matching images on the page. Those images are similar enough to
+ *  share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1WebDetectionWebImage *> *partialMatchingImages;
 
@@ -7268,21 +7120,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p1beta1Word : GTLRObject
 
 /**
- *  The bounding box for the word.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the word. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1BoundingPoly *boundingBox;
 
@@ -7297,8 +7141,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p1beta1TextAnnotationTextProperty *property;
 
 /**
- *  List of symbols in the word.
- *  The order of the symbols follows the natural reading order.
+ *  List of symbols in the word. The order of the symbols follows the natural
+ *  reading order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p1beta1Symbol *> *symbols;
 
@@ -7312,8 +7156,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1AnnotateFileResponse : GTLRObject
 
 /**
- *  If set, represents the error message for the failed request. The
- *  `responses` field will not be set in this case.
+ *  If set, represents the error message for the failed request. The `responses`
+ *  field will not be set in this case.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -7351,9 +7195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1CropHintsAnnotation *cropHintsAnnotation;
 
 /**
- *  If set, represents the error message for the operation.
- *  Note that filled-in image annotations are guaranteed to be
- *  correct, even when `error` is set.
+ *  If set, represents the error message for the operation. Note that filled-in
+ *  image annotations are guaranteed to be correct, even when `error` is set.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -7362,9 +7205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  If present, text (OCR) detection or document (OCR) text detection has
- *  completed successfully.
- *  This annotation provides the structural hierarchy for the OCR detected
- *  text.
+ *  completed successfully. This annotation provides the structural hierarchy
+ *  for the OCR detected text.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1TextAnnotation *fullTextAnnotation;
 
@@ -7378,8 +7220,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation *> *landmarkAnnotations;
 
 /**
- *  If present, localized object detection has completed successfully.
- *  This will be sorted descending by confidence score.
+ *  If present, localized object detection has completed successfully. This will
+ *  be sorted descending by confidence score.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1LocalizedObjectAnnotation *> *localizedObjectAnnotations;
 
@@ -7451,21 +7293,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *blockType;
 
 /**
- *  The bounding box for the block.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the block. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingBox;
 
@@ -7500,8 +7334,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Color information consists of RGB channels, score, and the fraction of
- *  the image that the color occupies in the image.
+ *  Color information consists of RGB channels, score, and the fraction of the
+ *  image that the color occupies in the image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1ColorInfo : GTLRObject
 
@@ -7509,8 +7343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_Color *color;
 
 /**
- *  The fraction of pixels the color occupies in the image.
- *  Value in range [0, 1].
+ *  The fraction of pixels the color occupies in the image. Value in range [0,
+ *  1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -7583,17 +7417,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1EntityAnnotation : GTLRObject
 
 /**
- *  Image region to which this entity belongs. Not produced
- *  for `LABEL_DETECTION` features.
+ *  Image region to which this entity belongs. Not produced for
+ *  `LABEL_DETECTION` features.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingPoly;
 
 /**
- *  **Deprecated. Use `score` instead.**
- *  The accuracy of the entity detection in an image.
- *  For example, for an image in which the "Eiffel Tower" entity is detected,
- *  this field represents the confidence that there is a tower in the query
- *  image. Range [0, 1].
+ *  **Deprecated. Use `score` instead.** The accuracy of the entity detection in
+ *  an image. For example, for an image in which the "Eiffel Tower" entity is
+ *  detected, this field represents the confidence that there is a tower in the
+ *  query image. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -7607,24 +7440,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The language code for the locale in which the entity textual
- *  `description` is expressed.
+ *  The language code for the locale in which the entity textual `description`
+ *  is expressed.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
- *  The location information for the detected entity. Multiple
- *  `LocationInfo` elements can be present because one location may
- *  indicate the location of the scene in the image, and another location
- *  may indicate the location of the place where the image was taken.
- *  Location information is usually present for landmarks.
+ *  The location information for the detected entity. Multiple `LocationInfo`
+ *  elements can be present because one location may indicate the location of
+ *  the scene in the image, and another location may indicate the location of
+ *  the place where the image was taken. Location information is usually present
+ *  for landmarks.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1LocationInfo *> *locations;
 
 /**
- *  Opaque entity ID. Some IDs may be available in
- *  [Google Knowledge Graph Search
- *  API](https://developers.google.com/knowledge-graph/).
+ *  Opaque entity ID. Some IDs may be available in [Google Knowledge Graph
+ *  Search API](https://developers.google.com/knowledge-graph/).
  */
 @property(nonatomic, copy, nullable) NSString *mid;
 
@@ -7642,11 +7474,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  The relevancy of the ICA (Image Content Annotation) label to the
- *  image. For example, the relevancy of "tower" is likely higher to an image
- *  containing the detected "Eiffel Tower" than to an image containing a
- *  detected distant towering building, even though the confidence that
- *  there is a tower in each image may be the same. Range [0, 1].
+ *  The relevancy of the ICA (Image Content Annotation) label to the image. For
+ *  example, the relevancy of "tower" is likely higher to an image containing
+ *  the detected "Eiffel Tower" than to an image containing a detected distant
+ *  towering building, even though the confidence that there is a tower in each
+ *  image may be the same. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -7700,12 +7532,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale.
- *  The bounding box is computed to "frame" the face in accordance with human
- *  expectations. It is based on the landmarker results.
- *  Note that one or more x and/or y coordinates may not be generated in the
- *  `BoundingPoly` (the polygon will be unbounded) if only a partial face
- *  appears in the image to be annotated.
+ *  are in the original image's scale. The bounding box is computed to "frame"
+ *  the face in accordance with human expectations. It is based on the
+ *  landmarker results. Note that one or more x and/or y coordinates may not be
+ *  generated in the `BoundingPoly` (the polygon will be unbounded) if only a
+ *  partial face appears in the image to be annotated.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingPoly;
 
@@ -7717,12 +7548,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *detectionConfidence;
 
 /**
- *  The `fd_bounding_poly` bounding polygon is tighter than the
- *  `boundingPoly`, and encloses only the skin part of the face. Typically, it
- *  is used to eliminate the face from any image analysis that detects the
- *  "amount of skin" visible in an image. It is not based on the
- *  landmarker results, only on the initial face detection, hence
- *  the <code>fd</code> (face detection) prefix.
+ *  The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`,
+ *  and encloses only the skin part of the face. Typically, it is used to
+ *  eliminate the face from any image analysis that detects the "amount of skin"
+ *  visible in an image. It is not based on the landmarker results, only on the
+ *  initial face detection, hence the fd (face detection) prefix.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *fdBoundingPoly;
 
@@ -7960,19 +7790,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  This field can either represent a gcs file prefix or gcs directory. In
  *  either case, the uri should be unique because in order to get all of the
  *  output files, you will need to do a wildcard gcs search on the uri prefix
- *  you provide.
- *  Examples:
- *  * File Prefix: gs://bucket-name/here/filenameprefix The output files
- *  will be created in gs://bucket-name/here/ and the names of the
- *  output files will begin with "filenameprefix".
- *  * Directory Prefix: gs://bucket-name/some/location/ The output files
- *  will be created in gs://bucket-name/some/location/ and the names of the
- *  output files could be anything because there was no filename prefix
- *  specified.
- *  If multiple outputs, each response is still AnnotateFileResponse, each of
- *  which contains some subset of the full list of AnnotateImageResponse.
- *  Multiple outputs can happen if, for example, the output JSON is too large
- *  and overflows into multiple sharded files.
+ *  you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix
+ *  The output files will be created in gs://bucket-name/here/ and the names of
+ *  the output files will begin with "filenameprefix". * Directory Prefix:
+ *  gs://bucket-name/some/location/ The output files will be created in
+ *  gs://bucket-name/some/location/ and the names of the output files could be
+ *  anything because there was no filename prefix specified. If multiple
+ *  outputs, each response is still AnnotateFileResponse, each of which contains
+ *  some subset of the full list of AnnotateImageResponse. Multiple outputs can
+ *  happen if, for example, the output JSON is too large and overflows into
+ *  multiple sharded files.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -7985,8 +7812,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1GcsSource : GTLRObject
 
 /**
- *  Google Cloud Storage URI for the input file. This must only be a
- *  Google Cloud Storage object. Wildcards are not currently supported.
+ *  Google Cloud Storage URI for the input file. This must only be a Google
+ *  Cloud Storage object. Wildcards are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -8000,8 +7827,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1ImageAnnotationContext : GTLRObject
 
 /**
- *  If the file was a PDF or TIFF, this field gives the page number within
- *  the file used to produce the image.
+ *  If the file was a PDF or TIFF, this field gives the page number within the
+ *  file used to produce the image.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8030,11 +7857,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1InputConfig : GTLRObject
 
 /**
- *  File content, represented as a stream of bytes.
- *  Note: As with all `bytes` fields, protobuffers use a pure binary
- *  representation, whereas JSON representations use base64.
- *  Currently, this field only works for BatchAnnotateFiles requests. It does
- *  not work for AsyncBatchAnnotateFiles requests.
+ *  File content, represented as a stream of bytes. Note: As with all `bytes`
+ *  fields, protobuffers use a pure binary representation, whereas JSON
+ *  representations use base64. Currently, this field only works for
+ *  BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles
+ *  requests.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -8096,9 +7923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the normalized vertex coordinates are relative to the original image
- *  and range from 0 to 1.
+ *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
+ *  coordinates are relative to the original image and range from 0 to 1.
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1NormalizedVertex : GTLRObject
 
@@ -8157,14 +7983,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The max number of response protos to put into each output JSON file on
- *  Google Cloud Storage.
- *  The valid range is [1, 100]. If not specified, the default value is 20.
- *  For example, for one pdf file with 100 pages, 100 response protos will
- *  be generated. If `batch_size` = 20, then 5 json files each
- *  containing 20 response protos will be written under the prefix
- *  `gcs_destination`.`uri`.
- *  Currently, batch_size only applies to GcsDestination, with potential future
- *  support for other output configurations.
+ *  Google Cloud Storage. The valid range is [1, 100]. If not specified, the
+ *  default value is 20. For example, for one pdf file with 100 pages, 100
+ *  response protos will be generated. If `batch_size` = 20, then 5 json files
+ *  each containing 20 response protos will be written under the prefix
+ *  `gcs_destination`.`uri`. Currently, batch_size only applies to
+ *  GcsDestination, with potential future support for other output
+ *  configurations.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8192,8 +8017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  Page height. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page height. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8203,8 +8028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationTextProperty *property;
 
 /**
- *  Page width. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page width. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8219,21 +8044,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1Paragraph : GTLRObject
 
 /**
- *  The bounding box for the paragraph.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
+ *  The bounding box for the paragraph. The vertices are in the order of
+ *  top-left, top-right, bottom-right, bottom-left. When a rotation of the
+ *  bounding box is detected the rotation is represented as around the top-left
+ *  corner as defined when the text is read in the 'natural' orientation. For
+ *  example: * when the text is horizontal it might look like: 0----1 | | 3----2
  *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingBox;
 
@@ -8254,9 +8071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A 3D position in the image, used primarily for Face detection landmarks.
- *  A valid Position must have both x and y coordinates.
- *  The position coordinates are in the same scale as the original image.
+ *  A 3D position in the image, used primarily for Face detection landmarks. A
+ *  valid Position must have both x and y coordinates. The position coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1Position : GTLRObject
 
@@ -8304,33 +8121,30 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the product.
- *  Format is:
- *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
- *  This field is ignored when creating a product.
+ *  The resource name of the product. Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is
+ *  ignored when creating a product.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Immutable. The category for the product identified by the reference image.
- *  This should
- *  be either "homegoods-v2", "apparel-v2", or "toys-v2". The legacy categories
- *  "homegoods", "apparel", and "toys" are still supported, but these should
- *  not be used for new products.
+ *  This should be one of "homegoods-v2", "apparel-v2", "toys-v2",
+ *  "packagedgoods-v1" or "general-v1". The legacy categories "homegoods",
+ *  "apparel", and "toys" are still supported, but these should not be used for
+ *  new products.
  */
 @property(nonatomic, copy, nullable) NSString *productCategory;
 
 /**
  *  Key-value pairs that can be attached to a product. At query time,
- *  constraints can be specified based on the product_labels.
- *  Note that integer values can be provided as strings, e.g. "1199". Only
- *  strings with integer values can match a range-based restriction which is
- *  to be supported soon.
+ *  constraints can be specified based on the product_labels. Note that integer
+ *  values can be provided as strings, e.g. "1199". Only strings with integer
+ *  values can match a range-based restriction which is to be supported soon.
  *  Multiple values can be assigned to the same key. One product may have up to
- *  500 product_labels.
- *  Notice that the total number of distinct product_labels over all products
- *  in one ProductSet cannot exceed 1M, otherwise the product search pipeline
- *  will refuse to work for that ProductSet.
+ *  500 product_labels. Notice that the total number of distinct product_labels
+ *  over all products in one ProductSet cannot exceed 1M, otherwise the product
+ *  search pipeline will refuse to work for that ProductSet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1ProductKeyValue *> *productLabels;
 
@@ -8349,8 +8163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The value of the label attached to the product. Cannot be empty and
- *  cannot exceed 128 bytes.
+ *  The value of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -8384,8 +8198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Information about the products similar to a single product in a query
- *  image.
+ *  Information about the products similar to a single product in a query image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsGroupedResult : GTLRObject
 
@@ -8435,8 +8248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1ProductSearchResultsResult : GTLRObject
 
 /**
- *  The resource name of the image from the product that is the closest match
- *  to the query.
+ *  The resource name of the image from the product that is the closest match to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -8444,8 +8257,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1Product *product;
 
 /**
- *  A confidence level on the match, ranging from 0 (no confidence) to
- *  1 (full confidence).
+ *  A confidence level on the match, ranging from 0 (no confidence) to 1 (full
+ *  confidence).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -8476,16 +8289,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Set of features pertaining to the image, computed by computer vision
- *  methods over safe-search verticals (for example, adult, spoof, medical,
- *  violence).
+ *  Set of features pertaining to the image, computed by computer vision methods
+ *  over safe-search verticals (for example, adult, spoof, medical, violence).
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation : GTLRObject
 
 /**
  *  Represents the adult content likelihood for the image. Adult content may
- *  contain elements such as nudity, pornographic images or cartoons, or
- *  sexual activities.
+ *  contain elements such as nudity, pornographic images or cartoons, or sexual
+ *  activities.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Adult_Likely
@@ -8525,8 +8337,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  Likelihood that the request image contains racy content. Racy content may
  *  include (but is not limited to) skimpy or sheer clothing, strategically
- *  covered nudity, lewd or provocative poses, or close-ups of sensitive
- *  body areas.
+ *  covered nudity, lewd or provocative poses, or close-ups of sensitive body
+ *  areas.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Racy_Likely
@@ -8545,9 +8357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *racy;
 
 /**
- *  Spoof likelihood. The likelihood that an modification
- *  was made to the image's canonical version to make it appear
- *  funny or offensive.
+ *  Spoof likelihood. The likelihood that an modification was made to the
+ *  image's canonical version to make it appear funny or offensive.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1SafeSearchAnnotation_Spoof_Likely
@@ -8593,21 +8404,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1Symbol : GTLRObject
 
 /**
- *  The bounding box for the symbol.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the symbol. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingBox;
 
@@ -8630,11 +8433,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  TextAnnotation contains a structured representation of OCR extracted text.
  *  The hierarchy of an OCR extracted text structure is like this:
- *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
- *  Each structural component, starting from Page, may further have their own
+ *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol Each
+ *  structural component, starting from Page, may further have their own
  *  properties. Properties describe detected languages, breaks etc.. Please
- *  refer
- *  to the TextAnnotation.TextProperty message definition below for more
+ *  refer to the TextAnnotation.TextProperty message definition below for more
  *  detail.
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1TextAnnotation : GTLRObject
@@ -8720,8 +8522,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the vertex coordinates are in the same scale as the original image.
+ *  A vertex represents a 2D point in the image. NOTE: the vertex coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p2beta1Vertex : GTLRObject
 
@@ -8748,14 +8550,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1WebDetection : GTLRObject
 
 /**
- *  The service's best guess as to the topic of the request image.
- *  Inferred from similar images on the open web.
+ *  The service's best guess as to the topic of the request image. Inferred from
+ *  similar images on the open web.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebLabel *> *bestGuessLabels;
 
 /**
- *  Fully matching images from the Internet.
- *  Can include resized copies of the query image.
+ *  Fully matching images from the Internet. Can include resized copies of the
+ *  query image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebImage *> *fullMatchingImages;
 
@@ -8763,9 +8565,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebPage *> *pagesWithMatchingImages;
 
 /**
- *  Partial matching images from the Internet.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its crops.
+ *  Partial matching images from the Internet. Those images are similar enough
+ *  to share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebImage *> *partialMatchingImages;
 
@@ -8794,8 +8596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *entityId;
 
 /**
- *  Overall relevancy score for the entity.
- *  Not normalized and not comparable across different image queries.
+ *  Overall relevancy score for the entity. Not normalized and not comparable
+ *  across different image queries.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -8831,8 +8633,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
- *  For more information, see
+ *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more
+ *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -8846,8 +8648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebPage : GTLRObject
 
 /**
- *  Fully matching images on the page.
- *  Can include resized copies of the query image.
+ *  Fully matching images on the page. Can include resized copies of the query
+ *  image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebImage *> *fullMatchingImages;
 
@@ -8855,10 +8657,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *pageTitle;
 
 /**
- *  Partial matching images on the page.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its
- *  crops.
+ *  Partial matching images on the page. Those images are similar enough to
+ *  share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1WebDetectionWebImage *> *partialMatchingImages;
 
@@ -8881,21 +8682,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p2beta1Word : GTLRObject
 
 /**
- *  The bounding box for the word.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the word. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1BoundingPoly *boundingBox;
 
@@ -8910,8 +8703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p2beta1TextAnnotationTextProperty *property;
 
 /**
- *  List of symbols in the word.
- *  The order of the symbols follows the natural reading order.
+ *  List of symbols in the word. The order of the symbols follows the natural
+ *  reading order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p2beta1Symbol *> *symbols;
 
@@ -8925,8 +8718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1AnnotateFileResponse : GTLRObject
 
 /**
- *  If set, represents the error message for the failed request. The
- *  `responses` field will not be set in this case.
+ *  If set, represents the error message for the failed request. The `responses`
+ *  field will not be set in this case.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -8964,9 +8757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1CropHintsAnnotation *cropHintsAnnotation;
 
 /**
- *  If set, represents the error message for the operation.
- *  Note that filled-in image annotations are guaranteed to be
- *  correct, even when `error` is set.
+ *  If set, represents the error message for the operation. Note that filled-in
+ *  image annotations are guaranteed to be correct, even when `error` is set.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -8975,9 +8767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  If present, text (OCR) detection or document (OCR) text detection has
- *  completed successfully.
- *  This annotation provides the structural hierarchy for the OCR detected
- *  text.
+ *  completed successfully. This annotation provides the structural hierarchy
+ *  for the OCR detected text.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1TextAnnotation *fullTextAnnotation;
 
@@ -8991,8 +8782,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1EntityAnnotation *> *landmarkAnnotations;
 
 /**
- *  If present, localized object detection has completed successfully.
- *  This will be sorted descending by confidence score.
+ *  If present, localized object detection has completed successfully. This will
+ *  be sorted descending by confidence score.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1LocalizedObjectAnnotation *> *localizedObjectAnnotations;
 
@@ -9040,8 +8831,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Metadata for the batch operations such as the current state.
- *  This is included in the `metadata` field of the `Operation` returned by the
+ *  Metadata for the batch operations such as the current state. This is
+ *  included in the `metadata` field of the `Operation` returned by the
  *  `GetOperation` call of the `google::longrunning::Operations` service.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata : GTLRObject
@@ -9058,9 +8849,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Cancelled
  *        The request is done after the longrunning.Operations.CancelOperation
- *        has
- *        been called by the user. Any records that were processed before the
- *        cancel command are output as specified in the request. (Value:
+ *        has been called by the user. Any records that were processed before
+ *        the cancel command are output as specified in the request. (Value:
  *        "CANCELLED")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1BatchOperationMetadata_State_Failed
  *        The request is done and no item has been successfully processed.
@@ -9106,21 +8896,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *blockType;
 
 /**
- *  The bounding box for the block.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the block. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingBox;
 
@@ -9155,8 +8937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Color information consists of RGB channels, score, and the fraction of
- *  the image that the color occupies in the image.
+ *  Color information consists of RGB channels, score, and the fraction of the
+ *  image that the color occupies in the image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1ColorInfo : GTLRObject
 
@@ -9164,8 +8946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_Color *color;
 
 /**
- *  The fraction of pixels the color occupies in the image.
- *  Value in range [0, 1].
+ *  The fraction of pixels the color occupies in the image. Value in range [0,
+ *  1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -9238,17 +9020,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1EntityAnnotation : GTLRObject
 
 /**
- *  Image region to which this entity belongs. Not produced
- *  for `LABEL_DETECTION` features.
+ *  Image region to which this entity belongs. Not produced for
+ *  `LABEL_DETECTION` features.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingPoly;
 
 /**
- *  **Deprecated. Use `score` instead.**
- *  The accuracy of the entity detection in an image.
- *  For example, for an image in which the "Eiffel Tower" entity is detected,
- *  this field represents the confidence that there is a tower in the query
- *  image. Range [0, 1].
+ *  **Deprecated. Use `score` instead.** The accuracy of the entity detection in
+ *  an image. For example, for an image in which the "Eiffel Tower" entity is
+ *  detected, this field represents the confidence that there is a tower in the
+ *  query image. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -9262,24 +9043,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The language code for the locale in which the entity textual
- *  `description` is expressed.
+ *  The language code for the locale in which the entity textual `description`
+ *  is expressed.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
- *  The location information for the detected entity. Multiple
- *  `LocationInfo` elements can be present because one location may
- *  indicate the location of the scene in the image, and another location
- *  may indicate the location of the place where the image was taken.
- *  Location information is usually present for landmarks.
+ *  The location information for the detected entity. Multiple `LocationInfo`
+ *  elements can be present because one location may indicate the location of
+ *  the scene in the image, and another location may indicate the location of
+ *  the place where the image was taken. Location information is usually present
+ *  for landmarks.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1LocationInfo *> *locations;
 
 /**
- *  Opaque entity ID. Some IDs may be available in
- *  [Google Knowledge Graph Search
- *  API](https://developers.google.com/knowledge-graph/).
+ *  Opaque entity ID. Some IDs may be available in [Google Knowledge Graph
+ *  Search API](https://developers.google.com/knowledge-graph/).
  */
 @property(nonatomic, copy, nullable) NSString *mid;
 
@@ -9297,11 +9077,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  The relevancy of the ICA (Image Content Annotation) label to the
- *  image. For example, the relevancy of "tower" is likely higher to an image
- *  containing the detected "Eiffel Tower" than to an image containing a
- *  detected distant towering building, even though the confidence that
- *  there is a tower in each image may be the same. Range [0, 1].
+ *  The relevancy of the ICA (Image Content Annotation) label to the image. For
+ *  example, the relevancy of "tower" is likely higher to an image containing
+ *  the detected "Eiffel Tower" than to an image containing a detected distant
+ *  towering building, even though the confidence that there is a tower in each
+ *  image may be the same. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -9355,12 +9135,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale.
- *  The bounding box is computed to "frame" the face in accordance with human
- *  expectations. It is based on the landmarker results.
- *  Note that one or more x and/or y coordinates may not be generated in the
- *  `BoundingPoly` (the polygon will be unbounded) if only a partial face
- *  appears in the image to be annotated.
+ *  are in the original image's scale. The bounding box is computed to "frame"
+ *  the face in accordance with human expectations. It is based on the
+ *  landmarker results. Note that one or more x and/or y coordinates may not be
+ *  generated in the `BoundingPoly` (the polygon will be unbounded) if only a
+ *  partial face appears in the image to be annotated.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingPoly;
 
@@ -9372,12 +9151,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *detectionConfidence;
 
 /**
- *  The `fd_bounding_poly` bounding polygon is tighter than the
- *  `boundingPoly`, and encloses only the skin part of the face. Typically, it
- *  is used to eliminate the face from any image analysis that detects the
- *  "amount of skin" visible in an image. It is not based on the
- *  landmarker results, only on the initial face detection, hence
- *  the <code>fd</code> (face detection) prefix.
+ *  The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`,
+ *  and encloses only the skin part of the face. Typically, it is used to
+ *  eliminate the face from any image analysis that detects the "amount of skin"
+ *  visible in an image. It is not based on the landmarker results, only on the
+ *  initial face detection, hence the fd (face detection) prefix.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *fdBoundingPoly;
 
@@ -9615,19 +9393,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  This field can either represent a gcs file prefix or gcs directory. In
  *  either case, the uri should be unique because in order to get all of the
  *  output files, you will need to do a wildcard gcs search on the uri prefix
- *  you provide.
- *  Examples:
- *  * File Prefix: gs://bucket-name/here/filenameprefix The output files
- *  will be created in gs://bucket-name/here/ and the names of the
- *  output files will begin with "filenameprefix".
- *  * Directory Prefix: gs://bucket-name/some/location/ The output files
- *  will be created in gs://bucket-name/some/location/ and the names of the
- *  output files could be anything because there was no filename prefix
- *  specified.
- *  If multiple outputs, each response is still AnnotateFileResponse, each of
- *  which contains some subset of the full list of AnnotateImageResponse.
- *  Multiple outputs can happen if, for example, the output JSON is too large
- *  and overflows into multiple sharded files.
+ *  you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix
+ *  The output files will be created in gs://bucket-name/here/ and the names of
+ *  the output files will begin with "filenameprefix". * Directory Prefix:
+ *  gs://bucket-name/some/location/ The output files will be created in
+ *  gs://bucket-name/some/location/ and the names of the output files could be
+ *  anything because there was no filename prefix specified. If multiple
+ *  outputs, each response is still AnnotateFileResponse, each of which contains
+ *  some subset of the full list of AnnotateImageResponse. Multiple outputs can
+ *  happen if, for example, the output JSON is too large and overflows into
+ *  multiple sharded files.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -9640,8 +9415,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1GcsSource : GTLRObject
 
 /**
- *  Google Cloud Storage URI for the input file. This must only be a
- *  Google Cloud Storage object. Wildcards are not currently supported.
+ *  Google Cloud Storage URI for the input file. This must only be a Google
+ *  Cloud Storage object. Wildcards are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -9655,8 +9430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1ImageAnnotationContext : GTLRObject
 
 /**
- *  If the file was a PDF or TIFF, this field gives the page number within
- *  the file used to produce the image.
+ *  If the file was a PDF or TIFF, this field gives the page number within the
+ *  file used to produce the image.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9680,10 +9455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Response message for the `ImportProductSets` method.
- *  This message is returned by the
- *  google.longrunning.Operations.GetOperation method in the returned
- *  google.longrunning.Operation.response field.
+ *  Response message for the `ImportProductSets` method. This message is
+ *  returned by the google.longrunning.Operations.GetOperation method in the
+ *  returned google.longrunning.Operation.response field.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1ImportProductSetsResponse : GTLRObject
 
@@ -9692,10 +9466,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The rpc status for each ImportProductSet request, including both successes
- *  and errors.
- *  The number of statuses here matches the number of lines in the csv file,
- *  and statuses[i] stores the success or failure status of processing the i-th
- *  line of the csv, starting from line 0.
+ *  and errors. The number of statuses here matches the number of lines in the
+ *  csv file, and statuses[i] stores the success or failure status of processing
+ *  the i-th line of the csv, starting from line 0.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_Status *> *statuses;
 
@@ -9708,11 +9481,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1InputConfig : GTLRObject
 
 /**
- *  File content, represented as a stream of bytes.
- *  Note: As with all `bytes` fields, protobuffers use a pure binary
- *  representation, whereas JSON representations use base64.
- *  Currently, this field only works for BatchAnnotateFiles requests. It does
- *  not work for AsyncBatchAnnotateFiles requests.
+ *  File content, represented as a stream of bytes. Note: As with all `bytes`
+ *  fields, protobuffers use a pure binary representation, whereas JSON
+ *  representations use base64. Currently, this field only works for
+ *  BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles
+ *  requests.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -9774,9 +9547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the normalized vertex coordinates are relative to the original image
- *  and range from 0 to 1.
+ *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
+ *  coordinates are relative to the original image and range from 0 to 1.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1NormalizedVertex : GTLRObject
 
@@ -9835,14 +9607,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The max number of response protos to put into each output JSON file on
- *  Google Cloud Storage.
- *  The valid range is [1, 100]. If not specified, the default value is 20.
- *  For example, for one pdf file with 100 pages, 100 response protos will
- *  be generated. If `batch_size` = 20, then 5 json files each
- *  containing 20 response protos will be written under the prefix
- *  `gcs_destination`.`uri`.
- *  Currently, batch_size only applies to GcsDestination, with potential future
- *  support for other output configurations.
+ *  Google Cloud Storage. The valid range is [1, 100]. If not specified, the
+ *  default value is 20. For example, for one pdf file with 100 pages, 100
+ *  response protos will be generated. If `batch_size` = 20, then 5 json files
+ *  each containing 20 response protos will be written under the prefix
+ *  `gcs_destination`.`uri`. Currently, batch_size only applies to
+ *  GcsDestination, with potential future support for other output
+ *  configurations.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9870,8 +9641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  Page height. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page height. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9881,8 +9652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationTextProperty *property;
 
 /**
- *  Page width. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page width. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9897,21 +9668,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1Paragraph : GTLRObject
 
 /**
- *  The bounding box for the paragraph.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
+ *  The bounding box for the paragraph. The vertices are in the order of
+ *  top-left, top-right, bottom-right, bottom-left. When a rotation of the
+ *  bounding box is detected the rotation is represented as around the top-left
+ *  corner as defined when the text is read in the 'natural' orientation. For
+ *  example: * when the text is horizontal it might look like: 0----1 | | 3----2
  *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingBox;
 
@@ -9932,9 +9695,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A 3D position in the image, used primarily for Face detection landmarks.
- *  A valid Position must have both x and y coordinates.
- *  The position coordinates are in the same scale as the original image.
+ *  A 3D position in the image, used primarily for Face detection landmarks. A
+ *  valid Position must have both x and y coordinates. The position coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1Position : GTLRObject
 
@@ -9982,33 +9745,30 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the product.
- *  Format is:
- *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
- *  This field is ignored when creating a product.
+ *  The resource name of the product. Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is
+ *  ignored when creating a product.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Immutable. The category for the product identified by the reference image.
- *  This should
- *  be either "homegoods-v2", "apparel-v2", or "toys-v2". The legacy categories
- *  "homegoods", "apparel", and "toys" are still supported, but these should
- *  not be used for new products.
+ *  This should be one of "homegoods-v2", "apparel-v2", "toys-v2",
+ *  "packagedgoods-v1" or "general-v1". The legacy categories "homegoods",
+ *  "apparel", and "toys" are still supported, but these should not be used for
+ *  new products.
  */
 @property(nonatomic, copy, nullable) NSString *productCategory;
 
 /**
  *  Key-value pairs that can be attached to a product. At query time,
- *  constraints can be specified based on the product_labels.
- *  Note that integer values can be provided as strings, e.g. "1199". Only
- *  strings with integer values can match a range-based restriction which is
- *  to be supported soon.
+ *  constraints can be specified based on the product_labels. Note that integer
+ *  values can be provided as strings, e.g. "1199". Only strings with integer
+ *  values can match a range-based restriction which is to be supported soon.
  *  Multiple values can be assigned to the same key. One product may have up to
- *  500 product_labels.
- *  Notice that the total number of distinct product_labels over all products
- *  in one ProductSet cannot exceed 1M, otherwise the product search pipeline
- *  will refuse to work for that ProductSet.
+ *  500 product_labels. Notice that the total number of distinct product_labels
+ *  over all products in one ProductSet cannot exceed 1M, otherwise the product
+ *  search pipeline will refuse to work for that ProductSet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1ProductKeyValue *> *productLabels;
 
@@ -10027,8 +9787,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The value of the label attached to the product. Cannot be empty and
- *  cannot exceed 128 bytes.
+ *  The value of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -10062,8 +9822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Information about the products similar to a single product in a query
- *  image.
+ *  Information about the products similar to a single product in a query image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsGroupedResult : GTLRObject
 
@@ -10113,8 +9872,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1ProductSearchResultsResult : GTLRObject
 
 /**
- *  The resource name of the image from the product that is the closest match
- *  to the query.
+ *  The resource name of the image from the product that is the closest match to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -10122,8 +9881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1Product *product;
 
 /**
- *  A confidence level on the match, ranging from 0 (no confidence) to
- *  1 (full confidence).
+ *  A confidence level on the match, ranging from 0 (no confidence) to 1 (full
+ *  confidence).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -10161,27 +9920,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Optional. Bounding polygons around the areas of interest in the reference
- *  image.
- *  If this field is empty, the system will try to detect regions of
- *  interest. At most 10 bounding polygons will be used.
- *  The provided shape is converted into a non-rotated rectangle. Once
- *  converted, the small edge of the rectangle must be greater than or equal
- *  to 300 pixels. The aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5
- *  is not).
+ *  image. If this field is empty, the system will try to detect regions of
+ *  interest. At most 10 bounding polygons will be used. The provided shape is
+ *  converted into a non-rotated rectangle. Once converted, the small edge of
+ *  the rectangle must be greater than or equal to 300 pixels. The aspect ratio
+ *  must be 1:4 or less (i.e. 1:3 is ok; 1:5 is not).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *> *boundingPolys;
 
 /**
- *  The resource name of the reference image.
- *  Format is:
+ *  The resource name of the reference image. Format is:
  *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`.
  *  This field is ignored when creating a reference image.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The Google Cloud Storage URI of the reference image.
- *  The URI must start with `gs://`.
+ *  Required. The Google Cloud Storage URI of the reference image. The URI must
+ *  start with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -10189,16 +9945,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Set of features pertaining to the image, computed by computer vision
- *  methods over safe-search verticals (for example, adult, spoof, medical,
- *  violence).
+ *  Set of features pertaining to the image, computed by computer vision methods
+ *  over safe-search verticals (for example, adult, spoof, medical, violence).
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation : GTLRObject
 
 /**
  *  Represents the adult content likelihood for the image. Adult content may
- *  contain elements such as nudity, pornographic images or cartoons, or
- *  sexual activities.
+ *  contain elements such as nudity, pornographic images or cartoons, or sexual
+ *  activities.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Adult_Likely
@@ -10238,8 +9993,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  Likelihood that the request image contains racy content. Racy content may
  *  include (but is not limited to) skimpy or sheer clothing, strategically
- *  covered nudity, lewd or provocative poses, or close-ups of sensitive
- *  body areas.
+ *  covered nudity, lewd or provocative poses, or close-ups of sensitive body
+ *  areas.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Racy_Likely
@@ -10258,9 +10013,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *racy;
 
 /**
- *  Spoof likelihood. The likelihood that an modification
- *  was made to the image's canonical version to make it appear
- *  funny or offensive.
+ *  Spoof likelihood. The likelihood that an modification was made to the
+ *  image's canonical version to make it appear funny or offensive.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1SafeSearchAnnotation_Spoof_Likely
@@ -10306,21 +10060,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1Symbol : GTLRObject
 
 /**
- *  The bounding box for the symbol.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the symbol. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingBox;
 
@@ -10343,11 +10089,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  TextAnnotation contains a structured representation of OCR extracted text.
  *  The hierarchy of an OCR extracted text structure is like this:
- *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
- *  Each structural component, starting from Page, may further have their own
+ *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol Each
+ *  structural component, starting from Page, may further have their own
  *  properties. Properties describe detected languages, breaks etc.. Please
- *  refer
- *  to the TextAnnotation.TextProperty message definition below for more
+ *  refer to the TextAnnotation.TextProperty message definition below for more
  *  detail.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1TextAnnotation : GTLRObject
@@ -10433,8 +10178,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the vertex coordinates are in the same scale as the original image.
+ *  A vertex represents a 2D point in the image. NOTE: the vertex coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p3beta1Vertex : GTLRObject
 
@@ -10461,14 +10206,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1WebDetection : GTLRObject
 
 /**
- *  The service's best guess as to the topic of the request image.
- *  Inferred from similar images on the open web.
+ *  The service's best guess as to the topic of the request image. Inferred from
+ *  similar images on the open web.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebLabel *> *bestGuessLabels;
 
 /**
- *  Fully matching images from the Internet.
- *  Can include resized copies of the query image.
+ *  Fully matching images from the Internet. Can include resized copies of the
+ *  query image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebImage *> *fullMatchingImages;
 
@@ -10476,9 +10221,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebPage *> *pagesWithMatchingImages;
 
 /**
- *  Partial matching images from the Internet.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its crops.
+ *  Partial matching images from the Internet. Those images are similar enough
+ *  to share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebImage *> *partialMatchingImages;
 
@@ -10507,8 +10252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *entityId;
 
 /**
- *  Overall relevancy score for the entity.
- *  Not normalized and not comparable across different image queries.
+ *  Overall relevancy score for the entity. Not normalized and not comparable
+ *  across different image queries.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -10544,8 +10289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
- *  For more information, see
+ *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more
+ *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -10559,8 +10304,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebPage : GTLRObject
 
 /**
- *  Fully matching images on the page.
- *  Can include resized copies of the query image.
+ *  Fully matching images on the page. Can include resized copies of the query
+ *  image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebImage *> *fullMatchingImages;
 
@@ -10568,10 +10313,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *pageTitle;
 
 /**
- *  Partial matching images on the page.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its
- *  crops.
+ *  Partial matching images on the page. Those images are similar enough to
+ *  share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1WebDetectionWebImage *> *partialMatchingImages;
 
@@ -10594,21 +10338,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p3beta1Word : GTLRObject
 
 /**
- *  The bounding box for the word.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the word. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1BoundingPoly *boundingBox;
 
@@ -10623,8 +10359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p3beta1TextAnnotationTextProperty *property;
 
 /**
- *  List of symbols in the word.
- *  The order of the symbols follows the natural reading order.
+ *  List of symbols in the word. The order of the symbols follows the natural
+ *  reading order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p3beta1Symbol *> *symbols;
 
@@ -10638,8 +10374,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1AnnotateFileResponse : GTLRObject
 
 /**
- *  If set, represents the error message for the failed request. The
- *  `responses` field will not be set in this case.
+ *  If set, represents the error message for the failed request. The `responses`
+ *  field will not be set in this case.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -10677,9 +10413,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1CropHintsAnnotation *cropHintsAnnotation;
 
 /**
- *  If set, represents the error message for the operation.
- *  Note that filled-in image annotations are guaranteed to be
- *  correct, even when `error` is set.
+ *  If set, represents the error message for the operation. Note that filled-in
+ *  image annotations are guaranteed to be correct, even when `error` is set.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *error;
 
@@ -10688,9 +10423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  If present, text (OCR) detection or document (OCR) text detection has
- *  completed successfully.
- *  This annotation provides the structural hierarchy for the OCR detected
- *  text.
+ *  completed successfully. This annotation provides the structural hierarchy
+ *  for the OCR detected text.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotation *fullTextAnnotation;
 
@@ -10704,8 +10438,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation *> *landmarkAnnotations;
 
 /**
- *  If present, localized object detection has completed successfully.
- *  This will be sorted descending by confidence score.
+ *  If present, localized object detection has completed successfully. This will
+ *  be sorted descending by confidence score.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1LocalizedObjectAnnotation *> *localizedObjectAnnotations;
 
@@ -10778,8 +10512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Metadata for the batch operations such as the current state.
- *  This is included in the `metadata` field of the `Operation` returned by the
+ *  Metadata for the batch operations such as the current state. This is
+ *  included in the `metadata` field of the `Operation` returned by the
  *  `GetOperation` call of the `google::longrunning::Operations` service.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata : GTLRObject
@@ -10796,9 +10530,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Cancelled
  *        The request is done after the longrunning.Operations.CancelOperation
- *        has
- *        been called by the user. Any records that were processed before the
- *        cancel command are output as specified in the request. (Value:
+ *        has been called by the user. Any records that were processed before
+ *        the cancel command are output as specified in the request. (Value:
  *        "CANCELLED")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1BatchOperationMetadata_State_Failed
  *        The request is done and no item has been successfully processed.
@@ -10844,21 +10577,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *blockType;
 
 /**
- *  The bounding box for the block.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the block. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingBox;
 
@@ -10917,8 +10642,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Color information consists of RGB channels, score, and the fraction of
- *  the image that the color occupies in the image.
+ *  Color information consists of RGB channels, score, and the fraction of the
+ *  image that the color occupies in the image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1ColorInfo : GTLRObject
 
@@ -10926,8 +10651,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_Color *color;
 
 /**
- *  The fraction of pixels the color occupies in the image.
- *  Value in range [0, 1].
+ *  The fraction of pixels the color occupies in the image. Value in range [0,
+ *  1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -11000,17 +10725,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1EntityAnnotation : GTLRObject
 
 /**
- *  Image region to which this entity belongs. Not produced
- *  for `LABEL_DETECTION` features.
+ *  Image region to which this entity belongs. Not produced for
+ *  `LABEL_DETECTION` features.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingPoly;
 
 /**
- *  **Deprecated. Use `score` instead.**
- *  The accuracy of the entity detection in an image.
- *  For example, for an image in which the "Eiffel Tower" entity is detected,
- *  this field represents the confidence that there is a tower in the query
- *  image. Range [0, 1].
+ *  **Deprecated. Use `score` instead.** The accuracy of the entity detection in
+ *  an image. For example, for an image in which the "Eiffel Tower" entity is
+ *  detected, this field represents the confidence that there is a tower in the
+ *  query image. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -11024,24 +10748,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The language code for the locale in which the entity textual
- *  `description` is expressed.
+ *  The language code for the locale in which the entity textual `description`
+ *  is expressed.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
- *  The location information for the detected entity. Multiple
- *  `LocationInfo` elements can be present because one location may
- *  indicate the location of the scene in the image, and another location
- *  may indicate the location of the place where the image was taken.
- *  Location information is usually present for landmarks.
+ *  The location information for the detected entity. Multiple `LocationInfo`
+ *  elements can be present because one location may indicate the location of
+ *  the scene in the image, and another location may indicate the location of
+ *  the place where the image was taken. Location information is usually present
+ *  for landmarks.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1LocationInfo *> *locations;
 
 /**
- *  Opaque entity ID. Some IDs may be available in
- *  [Google Knowledge Graph Search
- *  API](https://developers.google.com/knowledge-graph/).
+ *  Opaque entity ID. Some IDs may be available in [Google Knowledge Graph
+ *  Search API](https://developers.google.com/knowledge-graph/).
  */
 @property(nonatomic, copy, nullable) NSString *mid;
 
@@ -11059,11 +10782,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  The relevancy of the ICA (Image Content Annotation) label to the
- *  image. For example, the relevancy of "tower" is likely higher to an image
- *  containing the detected "Eiffel Tower" than to an image containing a
- *  detected distant towering building, even though the confidence that
- *  there is a tower in each image may be the same. Range [0, 1].
+ *  The relevancy of the ICA (Image Content Annotation) label to the image. For
+ *  example, the relevancy of "tower" is likely higher to an image containing
+ *  the detected "Eiffel Tower" than to an image containing a detected distant
+ *  towering building, even though the confidence that there is a tower in each
+ *  image may be the same. Range [0, 1].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -11117,12 +10840,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The bounding polygon around the face. The coordinates of the bounding box
- *  are in the original image's scale.
- *  The bounding box is computed to "frame" the face in accordance with human
- *  expectations. It is based on the landmarker results.
- *  Note that one or more x and/or y coordinates may not be generated in the
- *  `BoundingPoly` (the polygon will be unbounded) if only a partial face
- *  appears in the image to be annotated.
+ *  are in the original image's scale. The bounding box is computed to "frame"
+ *  the face in accordance with human expectations. It is based on the
+ *  landmarker results. Note that one or more x and/or y coordinates may not be
+ *  generated in the `BoundingPoly` (the polygon will be unbounded) if only a
+ *  partial face appears in the image to be annotated.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingPoly;
 
@@ -11134,12 +10856,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *detectionConfidence;
 
 /**
- *  The `fd_bounding_poly` bounding polygon is tighter than the
- *  `boundingPoly`, and encloses only the skin part of the face. Typically, it
- *  is used to eliminate the face from any image analysis that detects the
- *  "amount of skin" visible in an image. It is not based on the
- *  landmarker results, only on the initial face detection, hence
- *  the <code>fd</code> (face detection) prefix.
+ *  The `fd_bounding_poly` bounding polygon is tighter than the `boundingPoly`,
+ *  and encloses only the skin part of the face. Typically, it is used to
+ *  eliminate the face from any image analysis that detects the "amount of skin"
+ *  visible in an image. It is not based on the landmarker results, only on the
+ *  initial face detection, hence the fd (face detection) prefix.
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *fdBoundingPoly;
 
@@ -11203,8 +10924,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  Additional recognition information. Only computed if
  *  image_context.face_recognition_params is provided, **and** a match is found
- *  to a Celebrity in the input CelebritySet. This field is
- *  sorted in order of decreasing confidence values.
+ *  to a Celebrity in the input CelebritySet. This field is sorted in order of
+ *  decreasing confidence values.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1FaceRecognitionResult *> *recognitionResult;
 
@@ -11403,19 +11124,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  This field can either represent a gcs file prefix or gcs directory. In
  *  either case, the uri should be unique because in order to get all of the
  *  output files, you will need to do a wildcard gcs search on the uri prefix
- *  you provide.
- *  Examples:
- *  * File Prefix: gs://bucket-name/here/filenameprefix The output files
- *  will be created in gs://bucket-name/here/ and the names of the
- *  output files will begin with "filenameprefix".
- *  * Directory Prefix: gs://bucket-name/some/location/ The output files
- *  will be created in gs://bucket-name/some/location/ and the names of the
- *  output files could be anything because there was no filename prefix
- *  specified.
- *  If multiple outputs, each response is still AnnotateFileResponse, each of
- *  which contains some subset of the full list of AnnotateImageResponse.
- *  Multiple outputs can happen if, for example, the output JSON is too large
- *  and overflows into multiple sharded files.
+ *  you provide. Examples: * File Prefix: gs://bucket-name/here/filenameprefix
+ *  The output files will be created in gs://bucket-name/here/ and the names of
+ *  the output files will begin with "filenameprefix". * Directory Prefix:
+ *  gs://bucket-name/some/location/ The output files will be created in
+ *  gs://bucket-name/some/location/ and the names of the output files could be
+ *  anything because there was no filename prefix specified. If multiple
+ *  outputs, each response is still AnnotateFileResponse, each of which contains
+ *  some subset of the full list of AnnotateImageResponse. Multiple outputs can
+ *  happen if, for example, the output JSON is too large and overflows into
+ *  multiple sharded files.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -11428,8 +11146,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1GcsSource : GTLRObject
 
 /**
- *  Google Cloud Storage URI for the input file. This must only be a
- *  Google Cloud Storage object. Wildcards are not currently supported.
+ *  Google Cloud Storage URI for the input file. This must only be a Google
+ *  Cloud Storage object. Wildcards are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -11443,8 +11161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1ImageAnnotationContext : GTLRObject
 
 /**
- *  If the file was a PDF or TIFF, this field gives the page number within
- *  the file used to produce the image.
+ *  If the file was a PDF or TIFF, this field gives the page number within the
+ *  file used to produce the image.
  *
  *  Uses NSNumber of intValue.
  */
@@ -11468,10 +11186,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Response message for the `ImportProductSets` method.
- *  This message is returned by the
- *  google.longrunning.Operations.GetOperation method in the returned
- *  google.longrunning.Operation.response field.
+ *  Response message for the `ImportProductSets` method. This message is
+ *  returned by the google.longrunning.Operations.GetOperation method in the
+ *  returned google.longrunning.Operation.response field.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1ImportProductSetsResponse : GTLRObject
 
@@ -11480,10 +11197,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The rpc status for each ImportProductSet request, including both successes
- *  and errors.
- *  The number of statuses here matches the number of lines in the csv file,
- *  and statuses[i] stores the success or failure status of processing the i-th
- *  line of the csv, starting from line 0.
+ *  and errors. The number of statuses here matches the number of lines in the
+ *  csv file, and statuses[i] stores the success or failure status of processing
+ *  the i-th line of the csv, starting from line 0.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_Status *> *statuses;
 
@@ -11496,11 +11212,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1InputConfig : GTLRObject
 
 /**
- *  File content, represented as a stream of bytes.
- *  Note: As with all `bytes` fields, protobuffers use a pure binary
- *  representation, whereas JSON representations use base64.
- *  Currently, this field only works for BatchAnnotateFiles requests. It does
- *  not work for AsyncBatchAnnotateFiles requests.
+ *  File content, represented as a stream of bytes. Note: As with all `bytes`
+ *  fields, protobuffers use a pure binary representation, whereas JSON
+ *  representations use base64. Currently, this field only works for
+ *  BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles
+ *  requests.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -11562,9 +11278,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the normalized vertex coordinates are relative to the original image
- *  and range from 0 to 1.
+ *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
+ *  coordinates are relative to the original image and range from 0 to 1.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1NormalizedVertex : GTLRObject
 
@@ -11623,14 +11338,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The max number of response protos to put into each output JSON file on
- *  Google Cloud Storage.
- *  The valid range is [1, 100]. If not specified, the default value is 20.
- *  For example, for one pdf file with 100 pages, 100 response protos will
- *  be generated. If `batch_size` = 20, then 5 json files each
- *  containing 20 response protos will be written under the prefix
- *  `gcs_destination`.`uri`.
- *  Currently, batch_size only applies to GcsDestination, with potential future
- *  support for other output configurations.
+ *  Google Cloud Storage. The valid range is [1, 100]. If not specified, the
+ *  default value is 20. For example, for one pdf file with 100 pages, 100
+ *  response protos will be generated. If `batch_size` = 20, then 5 json files
+ *  each containing 20 response protos will be written under the prefix
+ *  `gcs_destination`.`uri`. Currently, batch_size only applies to
+ *  GcsDestination, with potential future support for other output
+ *  configurations.
  *
  *  Uses NSNumber of intValue.
  */
@@ -11658,8 +11372,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  Page height. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page height. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -11669,8 +11383,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty *property;
 
 /**
- *  Page width. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page width. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -11685,21 +11399,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1Paragraph : GTLRObject
 
 /**
- *  The bounding box for the paragraph.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
+ *  The bounding box for the paragraph. The vertices are in the order of
+ *  top-left, top-right, bottom-right, bottom-left. When a rotation of the
+ *  bounding box is detected the rotation is represented as around the top-left
+ *  corner as defined when the text is read in the 'natural' orientation. For
+ *  example: * when the text is horizontal it might look like: 0----1 | | 3----2
  *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingBox;
 
@@ -11720,9 +11426,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A 3D position in the image, used primarily for Face detection landmarks.
- *  A valid Position must have both x and y coordinates.
- *  The position coordinates are in the same scale as the original image.
+ *  A 3D position in the image, used primarily for Face detection landmarks. A
+ *  valid Position must have both x and y coordinates. The position coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1Position : GTLRObject
 
@@ -11770,33 +11476,30 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the product.
- *  Format is:
- *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
- *  This field is ignored when creating a product.
+ *  The resource name of the product. Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is
+ *  ignored when creating a product.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Immutable. The category for the product identified by the reference image.
- *  This should
- *  be either "homegoods-v2", "apparel-v2", or "toys-v2". The legacy categories
- *  "homegoods", "apparel", and "toys" are still supported, but these should
- *  not be used for new products.
+ *  This should be one of "homegoods-v2", "apparel-v2", "toys-v2",
+ *  "packagedgoods-v1" or "general-v1". The legacy categories "homegoods",
+ *  "apparel", and "toys" are still supported, but these should not be used for
+ *  new products.
  */
 @property(nonatomic, copy, nullable) NSString *productCategory;
 
 /**
  *  Key-value pairs that can be attached to a product. At query time,
- *  constraints can be specified based on the product_labels.
- *  Note that integer values can be provided as strings, e.g. "1199". Only
- *  strings with integer values can match a range-based restriction which is
- *  to be supported soon.
+ *  constraints can be specified based on the product_labels. Note that integer
+ *  values can be provided as strings, e.g. "1199". Only strings with integer
+ *  values can match a range-based restriction which is to be supported soon.
  *  Multiple values can be assigned to the same key. One product may have up to
- *  500 product_labels.
- *  Notice that the total number of distinct product_labels over all products
- *  in one ProductSet cannot exceed 1M, otherwise the product search pipeline
- *  will refuse to work for that ProductSet.
+ *  500 product_labels. Notice that the total number of distinct product_labels
+ *  over all products in one ProductSet cannot exceed 1M, otherwise the product
+ *  search pipeline will refuse to work for that ProductSet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1ProductKeyValue *> *productLabels;
 
@@ -11815,8 +11518,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The value of the label attached to the product. Cannot be empty and
- *  cannot exceed 128 bytes.
+ *  The value of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -11850,8 +11553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Information about the products similar to a single product in a query
- *  image.
+ *  Information about the products similar to a single product in a query image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsGroupedResult : GTLRObject
 
@@ -11901,8 +11603,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1ProductSearchResultsResult : GTLRObject
 
 /**
- *  The resource name of the image from the product that is the closest match
- *  to the query.
+ *  The resource name of the image from the product that is the closest match to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -11910,8 +11612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1Product *product;
 
 /**
- *  A confidence level on the match, ranging from 0 (no confidence) to
- *  1 (full confidence).
+ *  A confidence level on the match, ranging from 0 (no confidence) to 1 (full
+ *  confidence).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -11949,27 +11651,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Optional. Bounding polygons around the areas of interest in the reference
- *  image.
- *  If this field is empty, the system will try to detect regions of
- *  interest. At most 10 bounding polygons will be used.
- *  The provided shape is converted into a non-rotated rectangle. Once
- *  converted, the small edge of the rectangle must be greater than or equal
- *  to 300 pixels. The aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5
- *  is not).
+ *  image. If this field is empty, the system will try to detect regions of
+ *  interest. At most 10 bounding polygons will be used. The provided shape is
+ *  converted into a non-rotated rectangle. Once converted, the small edge of
+ *  the rectangle must be greater than or equal to 300 pixels. The aspect ratio
+ *  must be 1:4 or less (i.e. 1:3 is ok; 1:5 is not).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *> *boundingPolys;
 
 /**
- *  The resource name of the reference image.
- *  Format is:
+ *  The resource name of the reference image. Format is:
  *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`.
  *  This field is ignored when creating a reference image.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The Google Cloud Storage URI of the reference image.
- *  The URI must start with `gs://`.
+ *  Required. The Google Cloud Storage URI of the reference image. The URI must
+ *  start with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -11977,16 +11676,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Set of features pertaining to the image, computed by computer vision
- *  methods over safe-search verticals (for example, adult, spoof, medical,
- *  violence).
+ *  Set of features pertaining to the image, computed by computer vision methods
+ *  over safe-search verticals (for example, adult, spoof, medical, violence).
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation : GTLRObject
 
 /**
  *  Represents the adult content likelihood for the image. Adult content may
- *  contain elements such as nudity, pornographic images or cartoons, or
- *  sexual activities.
+ *  contain elements such as nudity, pornographic images or cartoons, or sexual
+ *  activities.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Adult_Likely
@@ -12026,8 +11724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  Likelihood that the request image contains racy content. Racy content may
  *  include (but is not limited to) skimpy or sheer clothing, strategically
- *  covered nudity, lewd or provocative poses, or close-ups of sensitive
- *  body areas.
+ *  covered nudity, lewd or provocative poses, or close-ups of sensitive body
+ *  areas.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Racy_Likely
@@ -12046,9 +11744,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *racy;
 
 /**
- *  Spoof likelihood. The likelihood that an modification
- *  was made to the image's canonical version to make it appear
- *  funny or offensive.
+ *  Spoof likelihood. The likelihood that an modification was made to the
+ *  image's canonical version to make it appear funny or offensive.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1SafeSearchAnnotation_Spoof_Likely
@@ -12094,21 +11791,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1Symbol : GTLRObject
 
 /**
- *  The bounding box for the symbol.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the symbol. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingBox;
 
@@ -12131,11 +11820,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  TextAnnotation contains a structured representation of OCR extracted text.
  *  The hierarchy of an OCR extracted text structure is like this:
- *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
- *  Each structural component, starting from Page, may further have their own
+ *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol Each
+ *  structural component, starting from Page, may further have their own
  *  properties. Properties describe detected languages, breaks etc.. Please
- *  refer
- *  to the TextAnnotation.TextProperty message definition below for more
+ *  refer to the TextAnnotation.TextProperty message definition below for more
  *  detail.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotation : GTLRObject
@@ -12221,8 +11909,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the vertex coordinates are in the same scale as the original image.
+ *  A vertex represents a 2D point in the image. NOTE: the vertex coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_GoogleCloudVisionV1p4beta1Vertex : GTLRObject
 
@@ -12249,14 +11937,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1WebDetection : GTLRObject
 
 /**
- *  The service's best guess as to the topic of the request image.
- *  Inferred from similar images on the open web.
+ *  The service's best guess as to the topic of the request image. Inferred from
+ *  similar images on the open web.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebLabel *> *bestGuessLabels;
 
 /**
- *  Fully matching images from the Internet.
- *  Can include resized copies of the query image.
+ *  Fully matching images from the Internet. Can include resized copies of the
+ *  query image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *fullMatchingImages;
 
@@ -12264,9 +11952,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebPage *> *pagesWithMatchingImages;
 
 /**
- *  Partial matching images from the Internet.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its crops.
+ *  Partial matching images from the Internet. Those images are similar enough
+ *  to share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *partialMatchingImages;
 
@@ -12295,8 +11983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *entityId;
 
 /**
- *  Overall relevancy score for the entity.
- *  Not normalized and not comparable across different image queries.
+ *  Overall relevancy score for the entity. Not normalized and not comparable
+ *  across different image queries.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -12332,8 +12020,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
- *  For more information, see
+ *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more
+ *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -12347,8 +12035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebPage : GTLRObject
 
 /**
- *  Fully matching images on the page.
- *  Can include resized copies of the query image.
+ *  Fully matching images on the page. Can include resized copies of the query
+ *  image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *fullMatchingImages;
 
@@ -12356,10 +12044,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *pageTitle;
 
 /**
- *  Partial matching images on the page.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its
- *  crops.
+ *  Partial matching images on the page. Those images are similar enough to
+ *  share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1WebDetectionWebImage *> *partialMatchingImages;
 
@@ -12382,21 +12069,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_GoogleCloudVisionV1p4beta1Word : GTLRObject
 
 /**
- *  The bounding box for the word.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the word. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1BoundingPoly *boundingBox;
 
@@ -12411,8 +12090,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_GoogleCloudVisionV1p4beta1TextAnnotationTextProperty *property;
 
 /**
- *  List of symbols in the word.
- *  The order of the symbols follows the natural reading order.
+ *  List of symbols in the word. The order of the symbols follows the natural
+ *  reading order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_GoogleCloudVisionV1p4beta1Symbol *> *symbols;
 
@@ -12420,8 +12099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Information about the products similar to a single product in a query
- *  image.
+ *  Information about the products similar to a single product in a query image.
  */
 @interface GTLRVision_GroupedResult : GTLRObject
 
@@ -12443,11 +12121,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_Image : GTLRObject
 
 /**
- *  Image content, represented as a stream of bytes.
- *  Note: As with all `bytes` fields, protobuffers use a pure binary
- *  representation, whereas JSON representations use base64.
- *  Currently, this field only works for BatchAnnotateImages requests. It does
- *  not work for AsyncBatchAnnotateImages requests.
+ *  Image content, represented as a stream of bytes. Note: As with all `bytes`
+ *  fields, protobuffers use a pure binary representation, whereas JSON
+ *  representations use base64. Currently, this field only works for
+ *  BatchAnnotateImages requests. It does not work for AsyncBatchAnnotateImages
+ *  requests.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -12455,9 +12133,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
- *  Google Cloud Storage image location, or publicly-accessible image
- *  URL. If both `content` and `source` are provided for an image, `content`
- *  takes precedence and is used to perform the image annotation request.
+ *  Google Cloud Storage image location, or publicly-accessible image URL. If
+ *  both `content` and `source` are provided for an image, `content` takes
+ *  precedence and is used to perform the image annotation request.
  */
 @property(nonatomic, strong, nullable) GTLRVision_ImageSource *source;
 
@@ -12471,8 +12149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_ImageAnnotationContext : GTLRObject
 
 /**
- *  If the file was a PDF or TIFF, this field gives the page number within
- *  the file used to produce the image.
+ *  If the file was a PDF or TIFF, this field gives the page number within the
+ *  file used to produce the image.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12498,9 +12176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  languages based on the Latin alphabet, setting `language_hints` is not
  *  needed. In rare cases, when the language of the text in the image is known,
  *  setting a hint will help get better results (although it will be a
- *  significant hindrance if the hint is wrong). Text detection returns an
- *  error if one or more of the specified languages is not one of the
- *  [supported languages](https://cloud.google.com/vision/docs/languages).
+ *  significant hindrance if the hint is wrong). Text detection returns an error
+ *  if one or more of the specified languages is not one of the [supported
+ *  languages](https://cloud.google.com/vision/docs/languages).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageHints;
 
@@ -12533,8 +12211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_ImageSource : GTLRObject
 
 /**
- *  **Use `image_uri` instead.**
- *  The Google Cloud Storage URI of the form
+ *  **Use `image_uri` instead.** The Google Cloud Storage URI of the form
  *  `gs://bucket_name/object_name`. Object versioning is not supported. See
  *  [Google Cloud Storage Request
  *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
@@ -12542,20 +12219,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *gcsImageUri;
 
 /**
- *  The URI of the source image. Can be either:
- *  1. A Google Cloud Storage URI of the form
- *  `gs://bucket_name/object_name`. Object versioning is not supported. See
- *  [Google Cloud Storage Request
- *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more
- *  info.
+ *  The URI of the source image. Can be either: 1. A Google Cloud Storage URI of
+ *  the form `gs://bucket_name/object_name`. Object versioning is not supported.
+ *  See [Google Cloud Storage Request
+ *  URIs](https://cloud.google.com/storage/docs/reference-uris) for more info.
  *  2. A publicly-accessible image HTTP/HTTPS URL. When fetching images from
- *  HTTP/HTTPS URLs, Google cannot guarantee that the request will be
- *  completed. Your request may fail if the specified host denies the
- *  request (e.g. due to request throttling or DOS prevention), or if Google
- *  throttles requests to the site for abuse prevention. You should not
- *  depend on externally-hosted images for production applications.
- *  When both `gcs_image_uri` and `image_uri` are specified, `image_uri` takes
- *  precedence.
+ *  HTTP/HTTPS URLs, Google cannot guarantee that the request will be completed.
+ *  Your request may fail if the specified host denies the request (e.g. due to
+ *  request throttling or DOS prevention), or if Google throttles requests to
+ *  the site for abuse prevention. You should not depend on externally-hosted
+ *  images for production applications. When both `gcs_image_uri` and
+ *  `image_uri` are specified, `image_uri` takes precedence.
  */
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
@@ -12569,52 +12243,38 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_ImportProductSetsGcsSource : GTLRObject
 
 /**
- *  The Google Cloud Storage URI of the input csv file.
- *  The URI must start with `gs://`.
- *  The format of the input csv file should be one image per line.
- *  In each line, there are 8 columns.
- *  1. image-uri
- *  2. image-id
- *  3. product-set-id
- *  4. product-id
- *  5. product-category
- *  6. product-display-name
- *  7. labels
- *  8. bounding-poly
- *  The `image-uri`, `product-set-id`, `product-id`, and `product-category`
- *  columns are required. All other columns are optional.
- *  If the `ProductSet` or `Product` specified by the `product-set-id` and
+ *  The Google Cloud Storage URI of the input csv file. The URI must start with
+ *  `gs://`. The format of the input csv file should be one image per line. In
+ *  each line, there are 8 columns. 1. image-uri 2. image-id 3. product-set-id
+ *  4. product-id 5. product-category 6. product-display-name 7. labels 8.
+ *  bounding-poly The `image-uri`, `product-set-id`, `product-id`, and
+ *  `product-category` columns are required. All other columns are optional. If
+ *  the `ProductSet` or `Product` specified by the `product-set-id` and
  *  `product-id` values does not exist, then the system will create a new
  *  `ProductSet` or `Product` for the image. In this case, the
- *  `product-display-name` column refers to
- *  display_name, the
- *  `product-category` column refers to
- *  product_category, and the
- *  `labels` column refers to product_labels.
- *  The `image-id` column is optional but must be unique if provided. If it is
- *  empty, the system will automatically assign a unique id to the image.
- *  The `product-display-name` column is optional. If it is empty, the system
- *  sets the display_name field for the product to a
- *  space (" "). You can update the `display_name` later by using the API.
- *  If a `Product` with the specified `product-id` already exists, then the
- *  system ignores the `product-display-name`, `product-category`, and `labels`
- *  columns.
- *  The `labels` column (optional) is a line containing a list of
- *  comma-separated key-value pairs, in the following format:
- *  "key_1=value_1,key_2=value_2,...,key_n=value_n"
- *  The `bounding-poly` column (optional) identifies one region of
- *  interest from the image in the same manner as `CreateReferenceImage`. If
- *  you do not specify the `bounding-poly` column, then the system will try to
- *  detect regions of interest automatically.
- *  At most one `bounding-poly` column is allowed per line. If the image
- *  contains multiple regions of interest, add a line to the CSV file that
- *  includes the same product information, and the `bounding-poly` values for
- *  each region of interest.
- *  The `bounding-poly` column must contain an even number of comma-separated
- *  numbers, in the format "p1_x,p1_y,p2_x,p2_y,...,pn_x,pn_y". Use
- *  non-negative integers for absolute bounding polygons, and float values
- *  in [0, 1] for normalized bounding polygons.
- *  The system will resize the image if the image resolution is too
+ *  `product-display-name` column refers to display_name, the `product-category`
+ *  column refers to product_category, and the `labels` column refers to
+ *  product_labels. The `image-id` column is optional but must be unique if
+ *  provided. If it is empty, the system will automatically assign a unique id
+ *  to the image. The `product-display-name` column is optional. If it is empty,
+ *  the system sets the display_name field for the product to a space (" "). You
+ *  can update the `display_name` later by using the API. If a `Product` with
+ *  the specified `product-id` already exists, then the system ignores the
+ *  `product-display-name`, `product-category`, and `labels` columns. The
+ *  `labels` column (optional) is a line containing a list of comma-separated
+ *  key-value pairs, in the following format:
+ *  "key_1=value_1,key_2=value_2,...,key_n=value_n" The `bounding-poly` column
+ *  (optional) identifies one region of interest from the image in the same
+ *  manner as `CreateReferenceImage`. If you do not specify the `bounding-poly`
+ *  column, then the system will try to detect regions of interest
+ *  automatically. At most one `bounding-poly` column is allowed per line. If
+ *  the image contains multiple regions of interest, add a line to the CSV file
+ *  that includes the same product information, and the `bounding-poly` values
+ *  for each region of interest. The `bounding-poly` column must contain an even
+ *  number of comma-separated numbers, in the format
+ *  "p1_x,p1_y,p2_x,p2_y,...,pn_x,pn_y". Use non-negative integers for absolute
+ *  bounding polygons, and float values in [0, 1] for normalized bounding
+ *  polygons. The system will resize the image if the image resolution is too
  *  large to process (larger than 20MP).
  */
 @property(nonatomic, copy, nullable) NSString *csvFileUri;
@@ -12628,8 +12288,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_ImportProductSetsInputConfig : GTLRObject
 
 /**
- *  The Google Cloud Storage location for a csv file which preserves a list
- *  of ImportProductSetRequests in each line.
+ *  The Google Cloud Storage location for a csv file which preserves a list of
+ *  ImportProductSetRequests in each line.
  */
 @property(nonatomic, strong, nullable) GTLRVision_ImportProductSetsGcsSource *gcsSource;
 
@@ -12648,10 +12308,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Response message for the `ImportProductSets` method.
- *  This message is returned by the
- *  google.longrunning.Operations.GetOperation method in the returned
- *  google.longrunning.Operation.response field.
+ *  Response message for the `ImportProductSets` method. This message is
+ *  returned by the google.longrunning.Operations.GetOperation method in the
+ *  returned google.longrunning.Operation.response field.
  */
 @interface GTLRVision_ImportProductSetsResponse : GTLRObject
 
@@ -12660,10 +12319,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The rpc status for each ImportProductSet request, including both successes
- *  and errors.
- *  The number of statuses here matches the number of lines in the csv file,
- *  and statuses[i] stores the success or failure status of processing the i-th
- *  line of the csv, starting from line 0.
+ *  and errors. The number of statuses here matches the number of lines in the
+ *  csv file, and statuses[i] stores the success or failure status of processing
+ *  the i-th line of the csv, starting from line 0.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_Status *> *statuses;
 
@@ -12676,11 +12334,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_InputConfig : GTLRObject
 
 /**
- *  File content, represented as a stream of bytes.
- *  Note: As with all `bytes` fields, protobuffers use a pure binary
- *  representation, whereas JSON representations use base64.
- *  Currently, this field only works for BatchAnnotateFiles requests. It does
- *  not work for AsyncBatchAnnotateFiles requests.
+ *  File content, represented as a stream of bytes. Note: As with all `bytes`
+ *  fields, protobuffers use a pure binary representation, whereas JSON
+ *  representations use base64. Currently, this field only works for
+ *  BatchAnnotateFiles requests. It does not work for AsyncBatchAnnotateFiles
+ *  requests.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -12711,8 +12369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The value of the label attached to the product. Cannot be empty and
- *  cannot exceed 128 bytes.
+ *  The value of the label attached to the product. Cannot be empty and cannot
+ *  exceed 128 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -12804,11 +12462,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair
- *  of doubles representing degrees latitude and degrees longitude. Unless
- *  specified otherwise, this must conform to the
- *  <a href="http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf">WGS84
- *  standard</a>. Values must be within normalized ranges.
+ *  pair of doubles representing degrees latitude and degrees longitude. Unless
+ *  specified otherwise, this must conform to the WGS84 standard. Values must be
+ *  within normalized ranges.
  */
 @interface GTLRVision_LatLng : GTLRObject
 
@@ -13022,9 +12678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the normalized vertex coordinates are relative to the original image
- *  and range from 0 to 1.
+ *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
+ *  coordinates are relative to the original image and range from 0 to 1.
  */
 @interface GTLRVision_NormalizedVertex : GTLRObject
 
@@ -13080,8 +12735,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -13093,16 +12748,16 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -13111,10 +12766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Operation_Response *response;
 
@@ -13123,8 +12777,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -13141,10 +12795,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -13193,14 +12846,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  The max number of response protos to put into each output JSON file on
- *  Google Cloud Storage.
- *  The valid range is [1, 100]. If not specified, the default value is 20.
- *  For example, for one pdf file with 100 pages, 100 response protos will
- *  be generated. If `batch_size` = 20, then 5 json files each
- *  containing 20 response protos will be written under the prefix
- *  `gcs_destination`.`uri`.
- *  Currently, batch_size only applies to GcsDestination, with potential future
- *  support for other output configurations.
+ *  Google Cloud Storage. The valid range is [1, 100]. If not specified, the
+ *  default value is 20. For example, for one pdf file with 100 pages, 100
+ *  response protos will be generated. If `batch_size` = 20, then 5 json files
+ *  each containing 20 response protos will be written under the prefix
+ *  `gcs_destination`.`uri`. Currently, batch_size only applies to
+ *  GcsDestination, with potential future support for other output
+ *  configurations.
  *
  *  Uses NSNumber of intValue.
  */
@@ -13228,8 +12880,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /**
- *  Page height. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page height. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -13239,8 +12891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_TextProperty *property;
 
 /**
- *  Page width. For PDFs the unit is points. For images (including
- *  TIFFs) the unit is pixels.
+ *  Page width. For PDFs the unit is points. For images (including TIFFs) the
+ *  unit is pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -13255,21 +12907,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_Paragraph : GTLRObject
 
 /**
- *  The bounding box for the paragraph.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
+ *  The bounding box for the paragraph. The vertices are in the order of
+ *  top-left, top-right, bottom-right, bottom-left. When a rotation of the
+ *  bounding box is detected the rotation is represented as around the top-left
+ *  corner as defined when the text is read in the 'natural' orientation. For
+ *  example: * when the text is horizontal it might look like: 0----1 | | 3----2
  *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  2----3 | | 1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
 
@@ -13290,9 +12934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A 3D position in the image, used primarily for Face detection landmarks.
- *  A valid Position must have both x and y coordinates.
- *  The position coordinates are in the same scale as the original image.
+ *  A 3D position in the image, used primarily for Face detection landmarks. A
+ *  valid Position must have both x and y coordinates. The position coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_Position : GTLRObject
 
@@ -13340,33 +12984,30 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the product.
- *  Format is:
- *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`.
- *  This field is ignored when creating a product.
+ *  The resource name of the product. Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`. This field is
+ *  ignored when creating a product.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Immutable. The category for the product identified by the reference image.
- *  This should
- *  be either "homegoods-v2", "apparel-v2", or "toys-v2". The legacy categories
- *  "homegoods", "apparel", and "toys" are still supported, but these should
- *  not be used for new products.
+ *  This should be one of "homegoods-v2", "apparel-v2", "toys-v2",
+ *  "packagedgoods-v1" or "general-v1". The legacy categories "homegoods",
+ *  "apparel", and "toys" are still supported, but these should not be used for
+ *  new products.
  */
 @property(nonatomic, copy, nullable) NSString *productCategory;
 
 /**
  *  Key-value pairs that can be attached to a product. At query time,
- *  constraints can be specified based on the product_labels.
- *  Note that integer values can be provided as strings, e.g. "1199". Only
- *  strings with integer values can match a range-based restriction which is
- *  to be supported soon.
+ *  constraints can be specified based on the product_labels. Note that integer
+ *  values can be provided as strings, e.g. "1199". Only strings with integer
+ *  values can match a range-based restriction which is to be supported soon.
  *  Multiple values can be assigned to the same key. One product may have up to
- *  500 product_labels.
- *  Notice that the total number of distinct product_labels over all products
- *  in one ProductSet cannot exceed 1M, otherwise the product search pipeline
- *  will refuse to work for that ProductSet.
+ *  500 product_labels. Notice that the total number of distinct product_labels
+ *  over all products in one ProductSet cannot exceed 1M, otherwise the product
+ *  search pipeline will refuse to work for that ProductSet.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_KeyValue *> *productLabels;
 
@@ -13379,8 +13020,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_ProductSearchParams : GTLRObject
 
 /**
- *  The bounding polygon around the area of interest in the image.
- *  If it is not specified, system discretion will be applied.
+ *  The bounding polygon around the area of interest in the image. If it is not
+ *  specified, system discretion will be applied.
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingPoly;
 
@@ -13388,28 +13029,27 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  The filtering expression. This can be used to restrict search results based
  *  on Product labels. We currently support an AND of OR of key-value
  *  expressions, where each expression within an OR must have the same key. An
- *  '=' should be used to connect the key and value.
- *  For example, "(color = red OR color = blue) AND brand = Google" is
- *  acceptable, but "(color = red OR brand = Google)" is not acceptable.
- *  "color: red" is not acceptable because it uses a ':' instead of an '='.
+ *  '=' should be used to connect the key and value. For example, "(color = red
+ *  OR color = blue) AND brand = Google" is acceptable, but "(color = red OR
+ *  brand = Google)" is not acceptable. "color: red" is not acceptable because
+ *  it uses a ':' instead of an '='.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The list of product categories to search in. Currently, we only consider
- *  the first category, and either "homegoods-v2", "apparel-v2", "toys-v2",
+ *  The list of product categories to search in. Currently, we only consider the
+ *  first category, and either "homegoods-v2", "apparel-v2", "toys-v2",
  *  "packagedgoods-v1", or "general-v1" should be specified. The legacy
  *  categories "homegoods", "apparel", and "toys" are still supported but will
- *  be deprecated. For new products, please use "homegoods-v2", "apparel-v2",
- *  or "toys-v2" for better product search accuracy. It is recommended to
- *  migrate existing products to these categories as well.
+ *  be deprecated. For new products, please use "homegoods-v2", "apparel-v2", or
+ *  "toys-v2" for better product search accuracy. It is recommended to migrate
+ *  existing products to these categories as well.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *productCategories;
 
 /**
- *  The resource name of a ProductSet to be searched for similar images.
- *  Format is:
- *  `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
+ *  The resource name of a ProductSet to be searched for similar images. Format
+ *  is: `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *productSet;
 
@@ -13457,8 +13097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Output only. If there was an error with indexing the product set, the field
- *  is populated.
- *  This field is ignored when creating a ProductSet.
+ *  is populated. This field is ignored when creating a ProductSet.
  */
 @property(nonatomic, strong, nullable) GTLRVision_Status *indexError;
 
@@ -13466,16 +13105,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  Output only. The time at which this ProductSet was last indexed. Query
  *  results will reflect all updates before this time. If this ProductSet has
  *  never been indexed, this timestamp is the default value
- *  "1970-01-01T00:00:00Z".
- *  This field is ignored when creating a ProductSet.
+ *  "1970-01-01T00:00:00Z". This field is ignored when creating a ProductSet.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *indexTime;
 
 /**
- *  The resource name of the ProductSet.
- *  Format is:
- *  `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`.
- *  This field is ignored when creating a ProductSet.
+ *  The resource name of the ProductSet. Format is:
+ *  `projects/PROJECT_ID/locations/LOC_ID/productSets/PRODUCT_SET_ID`. This
+ *  field is ignored when creating a ProductSet.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -13553,27 +13190,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Optional. Bounding polygons around the areas of interest in the reference
- *  image.
- *  If this field is empty, the system will try to detect regions of
- *  interest. At most 10 bounding polygons will be used.
- *  The provided shape is converted into a non-rotated rectangle. Once
- *  converted, the small edge of the rectangle must be greater than or equal
- *  to 300 pixels. The aspect ratio must be 1:4 or less (i.e. 1:3 is ok; 1:5
- *  is not).
+ *  image. If this field is empty, the system will try to detect regions of
+ *  interest. At most 10 bounding polygons will be used. The provided shape is
+ *  converted into a non-rotated rectangle. Once converted, the small edge of
+ *  the rectangle must be greater than or equal to 300 pixels. The aspect ratio
+ *  must be 1:4 or less (i.e. 1:3 is ok; 1:5 is not).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_BoundingPoly *> *boundingPolys;
 
 /**
- *  The resource name of the reference image.
- *  Format is:
+ *  The resource name of the reference image. Format is:
  *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID/referenceImages/IMAGE_ID`.
  *  This field is ignored when creating a reference image.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The Google Cloud Storage URI of the reference image.
- *  The URI must start with `gs://`.
+ *  Required. The Google Cloud Storage URI of the reference image. The URI must
+ *  start with `gs://`.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -13587,8 +13221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /**
  *  Required. The resource name for the Product to be removed from this
- *  ProductSet.
- *  Format is:
+ *  ProductSet. Format is:
  *  `projects/PROJECT_ID/locations/LOC_ID/products/PRODUCT_ID`
  */
 @property(nonatomic, copy, nullable) NSString *product;
@@ -13602,8 +13235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_Result : GTLRObject
 
 /**
- *  The resource name of the image from the product that is the closest match
- *  to the query.
+ *  The resource name of the image from the product that is the closest match to
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -13611,8 +13244,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_Product *product;
 
 /**
- *  A confidence level on the match, ranging from 0 (no confidence) to
- *  1 (full confidence).
+ *  A confidence level on the match, ranging from 0 (no confidence) to 1 (full
+ *  confidence).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -13622,16 +13255,15 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  Set of features pertaining to the image, computed by computer vision
- *  methods over safe-search verticals (for example, adult, spoof, medical,
- *  violence).
+ *  Set of features pertaining to the image, computed by computer vision methods
+ *  over safe-search verticals (for example, adult, spoof, medical, violence).
  */
 @interface GTLRVision_SafeSearchAnnotation : GTLRObject
 
 /**
  *  Represents the adult content likelihood for the image. Adult content may
- *  contain elements such as nudity, pornographic images or cartoons, or
- *  sexual activities.
+ *  contain elements such as nudity, pornographic images or cartoons, or sexual
+ *  activities.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_SafeSearchAnnotation_Adult_Likely It is likely.
@@ -13671,8 +13303,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  Likelihood that the request image contains racy content. Racy content may
  *  include (but is not limited to) skimpy or sheer clothing, strategically
- *  covered nudity, lewd or provocative poses, or close-ups of sensitive
- *  body areas.
+ *  covered nudity, lewd or provocative poses, or close-ups of sensitive body
+ *  areas.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_SafeSearchAnnotation_Racy_Likely It is likely. (Value:
@@ -13691,9 +13323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *racy;
 
 /**
- *  Spoof likelihood. The likelihood that an modification
- *  was made to the image's canonical version to make it appear
- *  funny or offensive.
+ *  Spoof likelihood. The likelihood that an modification was made to the
+ *  image's canonical version to make it appear funny or offensive.
  *
  *  Likely values:
  *    @arg @c kGTLRVision_SafeSearchAnnotation_Spoof_Likely It is likely.
@@ -13737,9 +13368,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRVision_Status : GTLRObject
 
@@ -13784,21 +13415,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_Symbol : GTLRObject
 
 /**
- *  The bounding box for the symbol.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the symbol. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
 
@@ -13821,11 +13444,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /**
  *  TextAnnotation contains a structured representation of OCR extracted text.
  *  The hierarchy of an OCR extracted text structure is like this:
- *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol
- *  Each structural component, starting from Page, may further have their own
+ *  TextAnnotation -> Page -> Block -> Paragraph -> Word -> Symbol Each
+ *  structural component, starting from Page, may further have their own
  *  properties. Properties describe detected languages, breaks etc.. Please
- *  refer
- *  to the TextAnnotation.TextProperty message definition below for more
+ *  refer to the TextAnnotation.TextProperty message definition below for more
  *  detail.
  */
 @interface GTLRVision_TextAnnotation : GTLRObject
@@ -13854,8 +13476,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 
 /**
- *  A vertex represents a 2D point in the image.
- *  NOTE: the vertex coordinates are in the same scale as the original image.
+ *  A vertex represents a 2D point in the image. NOTE: the vertex coordinates
+ *  are in the same scale as the original image.
  */
 @interface GTLRVision_Vertex : GTLRObject
 
@@ -13882,14 +13504,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_WebDetection : GTLRObject
 
 /**
- *  The service's best guess as to the topic of the request image.
- *  Inferred from similar images on the open web.
+ *  The service's best guess as to the topic of the request image. Inferred from
+ *  similar images on the open web.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebLabel *> *bestGuessLabels;
 
 /**
- *  Fully matching images from the Internet.
- *  Can include resized copies of the query image.
+ *  Fully matching images from the Internet. Can include resized copies of the
+ *  query image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *fullMatchingImages;
 
@@ -13897,9 +13519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebPage *> *pagesWithMatchingImages;
 
 /**
- *  Partial matching images from the Internet.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its crops.
+ *  Partial matching images from the Internet. Those images are similar enough
+ *  to share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *partialMatchingImages;
 
@@ -13943,8 +13565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *entityId;
 
 /**
- *  Overall relevancy score for the entity.
- *  Not normalized and not comparable across different image queries.
+ *  Overall relevancy score for the entity. Not normalized and not comparable
+ *  across different image queries.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -13980,8 +13602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *label;
 
 /**
- *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn".
- *  For more information, see
+ *  The BCP-47 language code for `label`, such as "en-US" or "sr-Latn". For more
+ *  information, see
  *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -13995,8 +13617,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_WebPage : GTLRObject
 
 /**
- *  Fully matching images on the page.
- *  Can include resized copies of the query image.
+ *  Fully matching images on the page. Can include resized copies of the query
+ *  image.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *fullMatchingImages;
 
@@ -14004,10 +13626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, copy, nullable) NSString *pageTitle;
 
 /**
- *  Partial matching images on the page.
- *  Those images are similar enough to share some key-point features. For
- *  example an original image will likely have partial matching for its
- *  crops.
+ *  Partial matching images on the page. Those images are similar enough to
+ *  share some key-point features. For example an original image will likely
+ *  have partial matching for its crops.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_WebImage *> *partialMatchingImages;
 
@@ -14030,21 +13651,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @interface GTLRVision_Word : GTLRObject
 
 /**
- *  The bounding box for the word.
- *  The vertices are in the order of top-left, top-right, bottom-right,
- *  bottom-left. When a rotation of the bounding box is detected the rotation
- *  is represented as around the top-left corner as defined when the text is
- *  read in the 'natural' orientation.
- *  For example:
- *  * when the text is horizontal it might look like:
- *  0----1
- *  | |
- *  3----2
- *  * when it's rotated 180 degrees around the top-left corner it becomes:
- *  2----3
- *  | |
- *  1----0
- *  and the vertex order will still be (0, 1, 2, 3).
+ *  The bounding box for the word. The vertices are in the order of top-left,
+ *  top-right, bottom-right, bottom-left. When a rotation of the bounding box is
+ *  detected the rotation is represented as around the top-left corner as
+ *  defined when the text is read in the 'natural' orientation. For example: *
+ *  when the text is horizontal it might look like: 0----1 | | 3----2 * when
+ *  it's rotated 180 degrees around the top-left corner it becomes: 2----3 | |
+ *  1----0 and the vertex order will still be (0, 1, 2, 3).
  */
 @property(nonatomic, strong, nullable) GTLRVision_BoundingPoly *boundingBox;
 
@@ -14059,8 +13672,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 @property(nonatomic, strong, nullable) GTLRVision_TextProperty *property;
 
 /**
- *  List of symbols in the word.
- *  The order of the symbols follows the natural reading order.
+ *  List of symbols in the word. The order of the symbols follows the natural
+ *  reading order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVision_Symbol *> *symbols;
 

@@ -54,9 +54,12 @@
 @class GTLRCompute_InstanceGroupManagersApplyUpdatesRequest;
 @class GTLRCompute_InstanceGroupManagersCreateInstancesRequest;
 @class GTLRCompute_InstanceGroupManagersDeleteInstancesRequest;
+@class GTLRCompute_InstanceGroupManagersDeletePerInstanceConfigsReq;
+@class GTLRCompute_InstanceGroupManagersPatchPerInstanceConfigsReq;
 @class GTLRCompute_InstanceGroupManagersRecreateInstancesRequest;
 @class GTLRCompute_InstanceGroupManagersSetInstanceTemplateRequest;
 @class GTLRCompute_InstanceGroupManagersSetTargetPoolsRequest;
+@class GTLRCompute_InstanceGroupManagersUpdatePerInstanceConfigsReq;
 @class GTLRCompute_InstanceGroupsAddInstancesRequest;
 @class GTLRCompute_InstanceGroupsListInstancesRequest;
 @class GTLRCompute_InstanceGroupsRemoveInstancesRequest;
@@ -99,6 +102,8 @@
 @class GTLRCompute_RegionDisksAddResourcePoliciesRequest;
 @class GTLRCompute_RegionDisksRemoveResourcePoliciesRequest;
 @class GTLRCompute_RegionDisksResizeRequest;
+@class GTLRCompute_RegionInstanceGroupManagerDeleteInstanceConfigReq;
+@class GTLRCompute_RegionInstanceGroupManagerPatchInstanceConfigReq;
 @class GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest;
 @class GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest;
 @class GTLRCompute_RegionInstanceGroupManagersCreateInstancesRequest;
@@ -106,6 +111,7 @@
 @class GTLRCompute_RegionInstanceGroupManagersRecreateRequest;
 @class GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest;
 @class GTLRCompute_RegionInstanceGroupManagersSetTemplateRequest;
+@class GTLRCompute_RegionInstanceGroupManagerUpdateInstanceConfigReq;
 @class GTLRCompute_RegionInstanceGroupsListInstancesRequest;
 @class GTLRCompute_RegionInstanceGroupsSetNamedPortsRequest;
 @class GTLRCompute_RegionSetLabelsRequest;
@@ -2678,10 +2684,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Creates a persistent disk in the specified project using the data in the
- *  request. You can create a disk with a sourceImage, a sourceSnapshot, or
- *  create an empty 500 GB data disk by omitting all properties. You can also
- *  create a disk that is larger than the default size by specifying the sizeGb
- *  property.
+ *  request. You can create a disk from a source (sourceImage, sourceSnapshot,
+ *  or sourceDisk) or create an empty 500 GB data disk by omitting all
+ *  properties. You can also create a disk that is larger than the default size
+ *  by specifying the sizeGb property.
  *
  *  Method: compute.disks.insert
  *
@@ -2724,10 +2730,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a persistent disk in the specified project using the data in the
- *  request. You can create a disk with a sourceImage, a sourceSnapshot, or
- *  create an empty 500 GB data disk by omitting all properties. You can also
- *  create a disk that is larger than the default size by specifying the sizeGb
- *  property.
+ *  request. You can create a disk from a source (sourceImage, sourceSnapshot,
+ *  or sourceDisk) or create an empty 500 GB data disk by omitting all
+ *  properties. You can also create a disk that is larger than the default size
+ *  by specifying the sizeGb property.
  *
  *  @param object The @c GTLRCompute_Disk to include in the query.
  *  @param project Project ID for this request.
@@ -7644,6 +7650,56 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Deletes selected per-instance configs for the managed instance group.
+ *
+ *  Method: compute.instanceGroupManagers.deletePerInstanceConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersDeletePerInstanceConfigs : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceGroupManagersDeletePerInstanceConfigsWithObject:project:zoneProperty:instanceGroupManager:]
+
+/** The name of the managed instance group. It should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone where the managed instance group is located. It should
+ *  conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes selected per-instance configs for the managed instance group.
+ *
+ *  @param object The @c
+ *    GTLRCompute_InstanceGroupManagersDeletePerInstanceConfigsReq to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. It should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersDeletePerInstanceConfigs
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersDeletePerInstanceConfigsReq *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Returns all of the details about the specified managed instance group. Gets
  *  a list of available managed instance groups by making a list() request.
  *
@@ -8072,6 +8128,108 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Lists all of the per-instance configs defined for the managed instance
+ *  group. The orderBy query parameter is not supported.
+ *
+ *  Method: compute.instanceGroupManagers.listPerInstanceConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersListPerInstanceConfigs : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceGroupManagersListPerInstanceConfigsWithproject:zoneProperty:instanceGroupManager:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the managed instance group. It should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone where the managed instance group is located. It should
+ *  conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp.
+ *
+ *  Lists all of the per-instance configs defined for the managed instance
+ *  group. The orderBy query parameter is not supported.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. It should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersListPerInstanceConfigs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Updates a managed instance group using the information that you specify in
  *  the request. This operation is marked as DONE when the group is patched even
  *  if the instances in the group are still in the process of being patched. You
@@ -8136,6 +8294,74 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_InstanceGroupManagersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Inserts or patches per-instance configs for the managed instance group.
+ *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  perform insert or patch.
+ *
+ *  Method: compute.instanceGroupManagers.patchPerInstanceConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersPatchPerInstanceConfigs : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceGroupManagersPatchPerInstanceConfigsWithObject:project:zoneProperty:instanceGroupManager:]
+
+/** The name of the managed instance group. It should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located. It should
+ *  conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts or patches per-instance configs for the managed instance group.
+ *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  perform insert or patch.
+ *
+ *  @param object The @c
+ *    GTLRCompute_InstanceGroupManagersPatchPerInstanceConfigsReq to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. It should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersPatchPerInstanceConfigs
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersPatchPerInstanceConfigsReq *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager;
@@ -8452,6 +8678,74 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_InstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersSetTargetPoolsRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Inserts or updates per-instance configs for the managed instance group.
+ *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  perform insert or patch.
+ *
+ *  Method: compute.instanceGroupManagers.updatePerInstanceConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstanceGroupManagersUpdatePerInstanceConfigs : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstanceGroupManagersUpdatePerInstanceConfigsWithObject:project:zoneProperty:instanceGroupManager:]
+
+/** The name of the managed instance group. It should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone where the managed instance group is located. It should
+ *  conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts or updates per-instance configs for the managed instance group.
+ *  perInstanceConfig.name serves as a key used to distinguish whether to
+ *  perform insert or patch.
+ *
+ *  @param object The @c
+ *    GTLRCompute_InstanceGroupManagersUpdatePerInstanceConfigsReq to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone where the managed instance group is
+ *    located. It should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_InstanceGroupManagersUpdatePerInstanceConfigs
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersUpdatePerInstanceConfigsReq *)object
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
            instanceGroupManager:(NSString *)instanceGroupManager;
@@ -9743,6 +10037,50 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
                         resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns the screenshot from the specified instance.
+ *
+ *  Method: compute.instances.getScreenshot
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstancesGetScreenshot : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesGetScreenshotWithproject:zoneProperty:instance:]
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Screenshot.
+ *
+ *  Returns the screenshot from the specified instance.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesGetScreenshot
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
 
 @end
 
@@ -20076,6 +20414,51 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Deletes selected per-instance configs for the managed instance group.
+ *
+ *  Method: compute.regionInstanceGroupManagers.deletePerInstanceConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersDeletePerInstanceConfigs : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersDeletePerInstanceConfigsWithObject:project:region:instanceGroupManager:]
+
+/** The name of the managed instance group. It should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request, should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes selected per-instance configs for the managed instance group.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagerDeleteInstanceConfigReq to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request, should conform to
+ *    RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersDeletePerInstanceConfigs
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagerDeleteInstanceConfigReq *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Returns all of the details about the specified managed instance group.
  *
  *  Method: compute.regionInstanceGroupManagers.get
@@ -20473,6 +20856,103 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Lists all of the per-instance configs defined for the managed instance
+ *  group. The orderBy query parameter is not supported.
+ *
+ *  Method: compute.regionInstanceGroupManagers.listPerInstanceConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersListPerInstanceConfigs : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersListPerInstanceConfigsWithproject:region:instanceGroupManager:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the managed instance group. It should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request, should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp.
+ *
+ *  Lists all of the per-instance configs defined for the managed instance
+ *  group. The orderBy query parameter is not supported.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request, should conform to
+ *    RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersListPerInstanceConfigs
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
  *  Updates a managed instance group using the information that you specify in
  *  the request. This operation is marked as DONE when the group is patched even
  *  if the instances in the group are still in the process of being patched. You
@@ -20532,6 +21012,69 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_RegionInstanceGroupManagersPatch
  */
 + (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManager *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Insert or patch (for the ones that already exist) per-instance configs for
+ *  the managed instance group. perInstanceConfig.instance serves as a key used
+ *  to distinguish whether to perform insert or patch.
+ *
+ *  Method: compute.regionInstanceGroupManagers.patchPerInstanceConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersPatchPerInstanceConfigs : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersPatchPerInstanceConfigsWithObject:project:region:instanceGroupManager:]
+
+/** The name of the managed instance group. It should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request, should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Insert or patch (for the ones that already exist) per-instance configs for
+ *  the managed instance group. perInstanceConfig.instance serves as a key used
+ *  to distinguish whether to perform insert or patch.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagerPatchInstanceConfigReq to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request, should conform to
+ *    RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersPatchPerInstanceConfigs
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagerPatchInstanceConfigReq *)object
                         project:(NSString *)project
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager;
@@ -20801,6 +21344,69 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @return GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools
  */
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagersSetTargetPoolsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Insert or update (for the ones that already exist) per-instance configs for
+ *  the managed instance group. perInstanceConfig.instance serves as a key used
+ *  to distinguish whether to perform insert or patch.
+ *
+ *  Method: compute.regionInstanceGroupManagers.updatePerInstanceConfigs
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagersUpdatePerInstanceConfigs : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstanceGroupManagersUpdatePerInstanceConfigsWithObject:project:region:instanceGroupManager:]
+
+/** The name of the managed instance group. It should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request, should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Insert or update (for the ones that already exist) per-instance configs for
+ *  the managed instance group. perInstanceConfig.instance serves as a key used
+ *  to distinguish whether to perform insert or patch.
+ *
+ *  @param object The @c
+ *    GTLRCompute_RegionInstanceGroupManagerUpdateInstanceConfigReq to include
+ *    in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request, should conform to
+ *    RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. It
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagersUpdatePerInstanceConfigs
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagerUpdateInstanceConfigReq *)object
                         project:(NSString *)project
                          region:(NSString *)region
            instanceGroupManager:(NSString *)instanceGroupManager;
@@ -21098,6 +21704,267 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                          region:(NSString *)region
                   instanceGroup:(NSString *)instanceGroup;
+
+@end
+
+/**
+ *  Deletes the specified network endpoint group. Note that the NEG cannot be
+ *  deleted if it is configured as a backend of a backend service.
+ *
+ *  Method: compute.regionNetworkEndpointGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkEndpointGroupsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionNetworkEndpointGroupsDeleteWithproject:region:networkEndpointGroup:]
+
+/**
+ *  The name of the network endpoint group to delete. It should comply with
+ *  RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region where the network endpoint group is located. It
+ *  should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified network endpoint group. Note that the NEG cannot be
+ *  deleted if it is configured as a backend of a backend service.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group to
+ *    delete. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkEndpointGroupsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Returns the specified network endpoint group. Gets a list of available
+ *  network endpoint groups by making a list() request.
+ *
+ *  Method: compute.regionNetworkEndpointGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkEndpointGroupsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionNetworkEndpointGroupsGetWithproject:region:networkEndpointGroup:]
+
+/** The name of the network endpoint group. It should comply with RFC1035. */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region where the network endpoint group is located. It
+ *  should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroup.
+ *
+ *  Returns the specified network endpoint group. Gets a list of available
+ *  network endpoint groups by making a list() request.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *  @param networkEndpointGroup The name of the network endpoint group. It
+ *    should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkEndpointGroupsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            networkEndpointGroup:(NSString *)networkEndpointGroup;
+
+@end
+
+/**
+ *  Creates a network endpoint group in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  Method: compute.regionNetworkEndpointGroups.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionNetworkEndpointGroupsInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionNetworkEndpointGroupsInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region where you want to create the network endpoint group.
+ *  It should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a network endpoint group in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_NetworkEndpointGroup to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where you want to create the network
+ *    endpoint group. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkEndpointGroupsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroup *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Retrieves the list of regional network endpoint groups available to the
+ *  specified project in the given region.
+ *
+ *  Method: compute.regionNetworkEndpointGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNetworkEndpointGroupsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionNetworkEndpointGroupsListWithproject:region:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region where the network endpoint group is located. It
+ *  should comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworkEndpointGroupList.
+ *
+ *  Retrieves the list of regional network endpoint groups available to the
+ *  specified project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region where the network endpoint group is
+ *    located. It should comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionNetworkEndpointGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
 
 @end
 

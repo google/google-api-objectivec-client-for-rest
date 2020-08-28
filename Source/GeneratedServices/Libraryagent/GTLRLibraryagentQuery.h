@@ -101,8 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists books in a shelf. The order is unspecified but deterministic. Newly
- *  created books will not necessarily be added to the end of this list.
- *  Returns NOT_FOUND if the shelf does not exist.
+ *  created books will not necessarily be added to the end of this list. Returns
+ *  NOT_FOUND if the shelf does not exist.
  *
  *  Method: libraryagent.shelves.books.list
  *
@@ -114,16 +114,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLibraryagent queryForShelvesBooksListWithparent:]
 
 /**
- *  Requested page size. Server may return fewer books than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  Requested page size. Server may return fewer books than requested. If
+ *  unspecified, server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A token identifying a page of results the server should return.
- *  Typically, this is the value of
- *  ListBooksResponse.next_page_token.
- *  returned from the previous call to `ListBooks` method.
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of ListBooksResponse.next_page_token. returned from the
+ *  previous call to `ListBooks` method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -134,8 +133,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLibraryagent_GoogleExampleLibraryagentV1ListBooksResponse.
  *
  *  Lists books in a shelf. The order is unspecified but deterministic. Newly
- *  created books will not necessarily be added to the end of this list.
- *  Returns NOT_FOUND if the shelf does not exist.
+ *  created books will not necessarily be added to the end of this list. Returns
+ *  NOT_FOUND if the shelf does not exist.
  *
  *  @param parent Required. The name of the shelf whose books we'd like to list.
  *
@@ -151,9 +150,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Return a book to the library. Returns the book if it is returned to the
- *  library successfully.
- *  Returns error if the book does not belong to the library
- *  or the users didn't borrow before.
+ *  library successfully. Returns error if the book does not belong to the
+ *  library or the users didn't borrow before.
  *
  *  Method: libraryagent.shelves.books.return
  *
@@ -171,9 +169,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRLibraryagent_GoogleExampleLibraryagentV1Book.
  *
  *  Return a book to the library. Returns the book if it is returned to the
- *  library successfully.
- *  Returns error if the book does not belong to the library
- *  or the users didn't borrow before.
+ *  library successfully. Returns error if the book does not belong to the
+ *  library or the users didn't borrow before.
  *
  *  @param name Required. The name of the book to return.
  *
@@ -225,16 +222,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLibraryagent queryForShelvesList]
 
 /**
- *  Requested page size. Server may return fewer shelves than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  Requested page size. Server may return fewer shelves than requested. If
+ *  unspecified, server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A token identifying a page of results the server should return.
- *  Typically, this is the value of
- *  ListShelvesResponse.next_page_token
- *  returned from the previous call to `ListShelves` method.
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of ListShelvesResponse.next_page_token returned from the
+ *  previous call to `ListShelves` method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

@@ -61,24 +61,24 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_ActivitySegment;
 /**
  *  Denotes that bucketing by activity type is requested. When this is
- *  specified, there will be one bucket for each unique activity type that
- *  a user participated in, during the dataset time frame of interest.
+ *  specified, there will be one bucket for each unique activity type that a
+ *  user participated in, during the dataset time frame of interest.
  *
  *  Value: "activityType"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_ActivityType;
 /**
- *  Denotes that bucketing by session is requested. When this is specified,
- *  only data that occurs within sessions that begin and end within the
- *  dataset time frame, is included in the results.
+ *  Denotes that bucketing by session is requested. When this is specified, only
+ *  data that occurs within sessions that begin and end within the dataset time
+ *  frame, is included in the results.
  *
  *  Value: "session"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFitness_AggregateBucket_Type_Session;
 /**
  *  Denotes that bucketing by time is requested. When this is specified, the
- *  timeBucketDurationMillis field is used to determine how many buckets will
- *  be returned.
+ *  timeBucketDurationMillis field is used to determine how many buckets will be
+ *  returned.
  *
  *  Value: "time"
  */
@@ -198,6 +198,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Phone;
  */
 FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Scale;
 /**
+ *  A smart display e.g. Nest device.
+ *
+ *  Value: "smartDisplay"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_SmartDisplay;
+/**
  *  An Android tablet.
  *
  *  Value: "tablet"
@@ -256,24 +262,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *
  *  Likely values:
  *    @arg @c kGTLRFitness_AggregateBucket_Type_ActivitySegment Denotes that
- *        bucketing by individual activity segment is requested. This
- *        will aggregate data by the time boundaries specified by each activity
+ *        bucketing by individual activity segment is requested. This will
+ *        aggregate data by the time boundaries specified by each activity
  *        segment occurring within the dataset time frame of interest. (Value:
  *        "activitySegment")
  *    @arg @c kGTLRFitness_AggregateBucket_Type_ActivityType Denotes that
- *        bucketing by activity type is requested. When this is
- *        specified, there will be one bucket for each unique activity type that
- *        a user participated in, during the dataset time frame of interest.
- *        (Value: "activityType")
+ *        bucketing by activity type is requested. When this is specified, there
+ *        will be one bucket for each unique activity type that a user
+ *        participated in, during the dataset time frame of interest. (Value:
+ *        "activityType")
  *    @arg @c kGTLRFitness_AggregateBucket_Type_Session Denotes that bucketing
- *        by session is requested. When this is specified,
- *        only data that occurs within sessions that begin and end within the
- *        dataset time frame, is included in the results. (Value: "session")
+ *        by session is requested. When this is specified, only data that occurs
+ *        within sessions that begin and end within the dataset time frame, is
+ *        included in the results. (Value: "session")
  *    @arg @c kGTLRFitness_AggregateBucket_Type_Time Denotes that bucketing by
  *        time is requested. When this is specified, the
  *        timeBucketDurationMillis field is used to determine how many buckets
- *        will
- *        be returned. (Value: "time")
+ *        will be returned. (Value: "time")
  *    @arg @c kGTLRFitness_AggregateBucket_Type_Unknown Value "unknown"
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -300,10 +305,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  The data type to aggregate. All data sources providing this data type will
  *  contribute data to the aggregation. The response will contain a single
  *  dataset for this data type name. The dataset will have a data source ID of
- *  derived:<output data type name>:com.google.android.gms:aggregated.
- *  If the user has no data for this data type, an empty data set will be
- *  returned. Note: Data can be aggregated by either the dataTypeName or the
- *  dataSourceId, not both.
+ *  derived::com.google.android.gms:aggregated. If the user has no data for this
+ *  data type, an empty data set will be returned. Note: Data can be aggregated
+ *  by either the dataTypeName or the dataSourceId, not both.
  */
 @property(nonatomic, copy, nullable) NSString *dataTypeName;
 
@@ -318,8 +322,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 /**
  *  The specification of data to be aggregated. At least one aggregateBy spec
  *  must be provided. All data that is specified will be aggregated using the
- *  same bucketing criteria. There will be one dataset in the response for
- *  every aggregateBy spec.
+ *  same bucketing criteria. There will be one dataset in the response for every
+ *  aggregateBy spec.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_AggregateBy *> *aggregateBy;
 
@@ -355,9 +359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, strong, nullable) GTLRFitness_BucketByTime *bucketByTime;
 
 /**
- *  The end of a window of time. Data that intersects with this time
- *  window will be aggregated. The time is in milliseconds since epoch,
- *  inclusive.
+ *  The end of a window of time. Data that intersects with this time window will
+ *  be aggregated. The time is in milliseconds since epoch, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -367,9 +370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filteredDataQualityStandard;
 
 /**
- *  The start of a window of time. Data that intersects with this time
- *  window will be aggregated. The time is in milliseconds since epoch,
- *  inclusive.
+ *  The start of a window of time. Data that intersects with this time window
+ *  will be aggregated. The time is in milliseconds since epoch, inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -398,18 +400,18 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, copy, nullable) NSString *detailsUrl;
 
 /**
- *  The name of this application. This is required for REST clients, but we
- *  do not enforce uniqueness of this name. It is provided as a matter of
+ *  The name of this application. This is required for REST clients, but we do
+ *  not enforce uniqueness of this name. It is provided as a matter of
  *  convenience for other developers who would like to identify which REST
  *  created an Application or Data Source.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Package name for this application. This is used as a unique
- *  identifier when created by Android applications, but cannot be specified
- *  by REST clients. REST clients will have their developer project number
- *  reflected into the Data Source data stream IDs, instead of the packageName.
+ *  Package name for this application. This is used as a unique identifier when
+ *  created by Android applications, but cannot be specified by REST clients.
+ *  REST clients will have their developer project number reflected into the
+ *  Data Source data stream IDs, instead of the packageName.
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
@@ -512,11 +514,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  Represents a single data point, generated by a particular data source. A
  *  data point holds a value for each field, an end timestamp and an optional
  *  start time. The exact semantics of each of these attributes are specified in
- *  the documentation for the particular data type.
- *  A data point can represent an instantaneous measurement, reading or input
- *  observation, as well as averages or aggregates over a time interval. Check
- *  the data type documentation to determine which is the case for a particular
- *  data type.
+ *  the documentation for the particular data type. A data point can represent
+ *  an instantaneous measurement, reading or input observation, as well as
+ *  averages or aggregates over a time interval. Check the data type
+ *  documentation to determine which is the case for a particular data type.
  *  Data points always contain one value for each field of the data type.
  */
 @interface GTLRFitness_DataPoint : GTLRObject
@@ -532,8 +533,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, copy, nullable) NSString *dataTypeName;
 
 /**
- *  The end time of the interval represented by this data point, in
- *  nanoseconds since epoch.
+ *  The end time of the interval represented by this data point, in nanoseconds
+ *  since epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -541,20 +542,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 /**
  *  Indicates the last time this data point was modified. Useful only in
- *  contexts where we are listing the data changes, rather than representing
- *  the current state of the data.
+ *  contexts where we are listing the data changes, rather than representing the
+ *  current state of the data.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *modifiedTimeMillis;
 
 /**
- *  If the data point is contained in a dataset for a derived data source,
- *  this field will be populated with the data source stream ID that created
- *  the data point originally.
- *  WARNING: do not rely on this field for anything other than debugging. The
- *  value of this field, if it is set at all, is an implementation detail and
- *  is not guaranteed to remain consistent.
+ *  If the data point is contained in a dataset for a derived data source, this
+ *  field will be populated with the data source stream ID that created the data
+ *  point originally. WARNING: do not rely on this field for anything other than
+ *  debugging. The value of this field, if it is set at all, is an
+ *  implementation detail and is not guaranteed to remain consistent.
  */
 @property(nonatomic, copy, nullable) NSString *originDataSourceId;
 
@@ -576,9 +576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 /**
  *  Values of each data type field for the data point. It is expected that each
  *  value corresponding to a data type field will occur in the same order that
- *  the field is listed with in the data type specified in a data source.
- *  Only one of integer and floating point fields will be populated, depending
- *  on the format enum value within data source's type field.
+ *  the field is listed with in the data type specified in a data source. Only
+ *  one of integer and floating point fields will be populated, depending on the
+ *  format enum value within data source's type field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_Value *> *value;
 
@@ -631,9 +631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 /**
  *  A partial list of data points contained in the dataset, ordered by largest
- *  endTimeNanos first. This list is considered complete when retrieving a
- *  small dataset and partial when patching a dataset or retrieving a dataset
- *  that is too large to include in a single response.
+ *  endTimeNanos first. This list is considered complete when retrieving a small
+ *  dataset and partial when patching a dataset or retrieving a dataset that is
+ *  too large to include in a single response.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -648,17 +648,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  data coming from hardware sensors on local or companion devices. They can
  *  also expose derived data, created by transforming or merging other data
  *  sources. Multiple data sources can exist for the same data type. Every data
- *  point inserted into or read from this service has an associated data
- *  source.
+ *  point inserted into or read from this service has an associated data source.
  *  The data source contains enough information to uniquely identify its data,
  *  including the hardware device and the application that collected and/or
  *  transformed the data. It also holds useful metadata, such as the hardware
- *  and
- *  application versions, and the device type.
- *  Each data source produces a unique stream of data, with a unique identifier.
- *  Not all changes to data source affect the stream identifier, so that data
- *  collected by updated versions of the same application/device can still be
- *  considered to belong to the same data stream.
+ *  and application versions, and the device type. Each data source produces a
+ *  unique stream of data, with a unique identifier. Not all changes to data
+ *  source affect the stream identifier, so that data collected by updated
+ *  versions of the same application/device can still be considered to belong to
+ *  the same data stream.
  */
 @interface GTLRFitness_DataSource : GTLRObject
 
@@ -676,45 +674,38 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 /**
  *  A unique identifier for the data stream produced by this data source. The
- *  identifier includes:<br/><br/>
- *  <ul>
- *  <li>The physical device's manufacturer, model, and serial number
- *  (UID).</li>
- *  <li>The application's package name or name. Package name is used when the
- *  data source was created by an Android application. The developer project
- *  number is used when the data source was created by a REST client.</li>
- *  <li>The data source's type.</li>
- *  <li>The data source's stream name.</li>
- *  </ul>
- *  Note that not all attributes of the data source are used as part of the
- *  stream identifier. In particular, the version of the hardware/the
- *  application isn't used. This allows us to preserve the same stream through
- *  version updates. This also means that two DataSource objects may represent
- *  the same data stream even if they're not equal.
- *  The exact format of the data stream ID created by an Android application
- *  is:
- *  <var>type:dataType.name<wbr/>:application.packageName<wbr/>:device.manufacturer<wbr/>:device.model<wbr/>:device.uid<wbr/>:dataStreamName</var>
+ *  identifier includes: - The physical device's manufacturer, model, and serial
+ *  number (UID). - The application's package name or name. Package name is used
+ *  when the data source was created by an Android application. The developer
+ *  project number is used when the data source was created by a REST client. -
+ *  The data source's type. - The data source's stream name. Note that not all
+ *  attributes of the data source are used as part of the stream identifier. In
+ *  particular, the version of the hardware/the application isn't used. This
+ *  allows us to preserve the same stream through version updates. This also
+ *  means that two DataSource objects may represent the same data stream even if
+ *  they're not equal. The exact format of the data stream ID created by an
+ *  Android application is:
+ *  type:dataType.name:application.packageName:device.manufacturer:device.model:device.uid:dataStreamName
  *  The exact format of the data stream ID created by a REST client is:
- *  <var>type:dataType.name<wbr/>:developer project
- *  number<wbr/>:device.manufacturer<wbr/>:device.model:device.uid<wbr/>:dataStreamName</var>
- *  When any of the optional fields that make up the data stream ID are absent,
- *  they will be omitted from the data stream ID. The minimum viable data
- *  stream ID would be:
- *  type:dataType.name:developer project number
- *  Finally, the developer project number and device UID are obfuscated when
- *  read by any REST or Android client that did not create the data source.
- *  Only the data source creator will see the developer project number in clear
- *  and normal form. This means a client will see a different set of
- *  data_stream_ids than another client with different credentials.
+ *  type:dataType.name:developer project
+ *  number:device.manufacturer:device.model:device.uid:dataStreamName When any
+ *  of the optional fields that make up the data stream ID are absent, they will
+ *  be omitted from the data stream ID. The minimum viable data stream ID would
+ *  be: type:dataType.name:developer project number Finally, the developer
+ *  project number and device UID are obfuscated when read by any REST or
+ *  Android client that did not create the data source. Only the data source
+ *  creator will see the developer project number in clear and normal form. This
+ *  means a client will see a different set of data_stream_ids than another
+ *  client with different credentials.
  */
 @property(nonatomic, copy, nullable) NSString *dataStreamId;
 
 /**
- *  The stream name uniquely identifies this particular data source among
- *  other data sources of the same type from the same underlying producer.
- *  Setting the stream name is optional, but should be done whenever an
- *  application exposes two streams for the same data type, or when a device
- *  has two equivalent sensors.
+ *  The stream name uniquely identifies this particular data source among other
+ *  data sources of the same type from the same underlying producer. Setting the
+ *  stream name is optional, but should be done whenever an application exposes
+ *  two streams for the same data type, or when a device has two equivalent
+ *  sensors.
  */
 @property(nonatomic, copy, nullable) NSString *dataStreamName;
 
@@ -767,10 +758,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *  In case of multi-dimensional data (such as an accelerometer with x, y, and z
  *  axes) each field represents one dimension. Each data type field has a unique
  *  name which identifies it. The field also defines the format of the data
- *  (int,
- *  float, etc.).
- *  This message is only instantiated in code and not used for wire comms or
- *  stored in any way.
+ *  (int, float, etc.). This message is only instantiated in code and not used
+ *  for wire comms or stored in any way.
  */
 @interface GTLRFitness_DataTypeField : GTLRObject
 
@@ -789,8 +778,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Defines the name and format of data. Unlike data type names, field names
- *  are not namespaced, and only need to be unique within the data type.
+ *  Defines the name and format of data. Unlike data type names, field names are
+ *  not namespaced, and only need to be unique within the data type.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -806,19 +795,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 /**
  *  Representation of an integrated device (such as a phone or a wearable) that
- *  can hold sensors. Each sensor is exposed as a data source.
- *  The main purpose of the device information contained in this class is to
- *  identify the hardware of a particular data source. This can be useful in
- *  different ways, including:
- *  <ul>
- *  <li>Distinguishing two similar sensors on different devices (the step
- *  counter on two nexus 5 phones, for instance)
- *  <li>Display the source of data to the user (by using the device make /
- *  model)
- *  <li>Treat data differently depending on sensor type (accelerometers on a
- *  watch may give different patterns than those on a phone)
- *  <li>Build different analysis models for each device/version.
- *  </ul>
+ *  can hold sensors. Each sensor is exposed as a data source. The main purpose
+ *  of the device information contained in this class is to identify the
+ *  hardware of a particular data source. This can be useful in different ways,
+ *  including: - Distinguishing two similar sensors on different devices (the
+ *  step counter on two nexus 5 phones, for instance) - Display the source of
+ *  data to the user (by using the device make / model) - Treat data differently
+ *  depending on sensor type (accelerometers on a watch may give different
+ *  patterns than those on a phone) - Build different analysis models for each
+ *  device/version.
  */
 @interface GTLRFitness_Device : GTLRObject
 
@@ -838,6 +823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
  *        device. (Value: "headMounted")
  *    @arg @c kGTLRFitness_Device_Type_Phone An Android phone. (Value: "phone")
  *    @arg @c kGTLRFitness_Device_Type_Scale A scale. (Value: "scale")
+ *    @arg @c kGTLRFitness_Device_Type_SmartDisplay A smart display e.g. Nest
+ *        device. (Value: "smartDisplay")
  *    @arg @c kGTLRFitness_Device_Type_Tablet An Android tablet. (Value:
  *        "tablet")
  *    @arg @c kGTLRFitness_Device_Type_Unknown Device type is not known. (Value:
@@ -849,11 +836,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 /**
  *  The serial number or other unique ID for the hardware. This field is
- *  obfuscated when read by any REST or Android client that did not create
- *  the data source. Only the data source creator will see the uid field in
- *  clear and normal form.
- *  The obfuscation preserves equality; that is, given two IDs, if id1 == id2,
- *  obfuscated(id1) == obfuscated(id2).
+ *  obfuscated when read by any REST or Android client that did not create the
+ *  data source. Only the data source creator will see the uid field in clear
+ *  and normal form. The obfuscation preserves equality; that is, given two IDs,
+ *  if id1 == id2, obfuscated(id1) == obfuscated(id2).
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
@@ -907,15 +893,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_ListSessionsResponse : GTLRObject
 
 /**
- *  If <code>includeDeleted</code> is set to true in the request, and
- *  <var>startTime</var> and <var>endTime</var> are omitted, this will include
- *  sessions which were deleted since the last sync.
+ *  If includeDeleted is set to true in the request, and startTime and endTime
+ *  are omitted, this will include sessions which were deleted since the last
+ *  sync.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_Session *> *deletedSession;
 
 /**
- *  Flag to indicate server has more data to transfer.
- *  DO NOT USE THIS FIELD. It is never populated in responses from the server.
+ *  Flag to indicate server has more data to transfer. DO NOT USE THIS FIELD. It
+ *  is never populated in responses from the server.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -923,14 +909,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 /**
  *  The sync token which is used to sync further changes. This will only be
- *  provided if both <var>startTime</var> and <var>endTime</var> are omitted
- *  from the request.
+ *  provided if both startTime and endTime are omitted from the request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Sessions with an end time that is between <var>startTime</var> and
- *  <var>endTime</var> of the request.
+ *  Sessions with an end time that is between startTime and endTime of the
+ *  request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_Session *> *session;
 
@@ -938,9 +923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 
 /**
- *  Holder object for the value of an entry in a map field of a data point.
- *  A map value supports a subset of the formats that the regular Value
- *  supports.
+ *  Holder object for the value of an entry in a map field of a data point. A
+ *  map value supports a subset of the formats that the regular Value supports.
  */
 @interface GTLRFitness_MapValue : GTLRObject
 
@@ -961,12 +945,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @interface GTLRFitness_Session : GTLRObject
 
 /**
- *  Session active time. While start_time_millis and end_time_millis define
- *  the full session time, the active time can be shorter and specified by
- *  active_time_millis.
- *  If the inactive time during the session is known, it should also be
- *  inserted via a com.google.activity.segment data point with a STILL
- *  activity value
+ *  Session active time. While start_time_millis and end_time_millis define the
+ *  full session time, the active time can be shorter and specified by
+ *  active_time_millis. If the inactive time during the session is known, it
+ *  should also be inserted via a com.google.activity.segment data point with a
+ *  STILL activity value
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1025,9 +1008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 
 
 /**
- *  Holder object for the value of a single field in a data point.
- *  A field value has a particular format and is only ever set to one of an
- *  integer or a floating point value.
+ *  Holder object for the value of a single field in a data point. A field value
+ *  has a particular format and is only ever set to one of an integer or a
+ *  floating point value.
  */
 @interface GTLRFitness_Value : GTLRObject
 
@@ -1046,17 +1029,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, strong, nullable) NSNumber *intVal;
 
 /**
- *  Map value. The valid key space and units for the corresponding value
- *  of each entry should be documented as part of the data type definition.
- *  Keys should be kept small whenever possible. Data streams with large keys
- *  and high data frequency may be down sampled.
+ *  Map value. The valid key space and units for the corresponding value of each
+ *  entry should be documented as part of the data type definition. Keys should
+ *  be kept small whenever possible. Data streams with large keys and high data
+ *  frequency may be down sampled.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_ValueMapValEntry *> *mapVal;
 
 /**
- *  String value. When this is set, other values must not be set.
- *  Strings should be kept small whenever possible. Data streams with large
- *  string values and high data frequency may be down sampled.
+ *  String value. When this is set, other values must not be set. Strings should
+ *  be kept small whenever possible. Data streams with large string values and
+ *  high data frequency may be down sampled.
  */
 @property(nonatomic, copy, nullable) NSString *stringVal;
 

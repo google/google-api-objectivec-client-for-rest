@@ -202,8 +202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest_UserEventRejoinScope_UnjoinedEvents;
 /**
- *  Rejoin catalogs with all events including both joined events and
- *  unjoined events.
+ *  Rejoin catalogs with all events including both joined events and unjoined
+ *  events.
  *
  *  Value: "USER_EVENT_REJOIN_SCOPE_UNSPECIFIED"
  */
@@ -226,8 +226,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1UserEvent_EventSource_BatchUpload;
 /**
- *  The event is ingested via Recommendations AI Tag through Enhanced
- *  Ecommerce datalayer.
+ *  The event is ingested via Recommendations AI Tag through Enhanced Ecommerce
+ *  datalayer.
  *
  *  Value: "ECOMMERCE"
  */
@@ -241,34 +241,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Message that represents an arbitrary HTTP body. It should only be used for
- *  payload formats that can't be represented as JSON, such as raw binary or
- *  an HTML page.
- *  This message can be used both in streaming and non-streaming API methods in
- *  the request as well as the response.
- *  It can be used as a top-level request field, which is convenient if one
- *  wants to extract parameters from either the URL or HTTP template into the
- *  request fields and also want access to the raw HTTP body.
- *  Example:
- *  message GetResourceRequest {
- *  // A unique request id.
- *  string request_id = 1;
- *  // The raw HTTP body is bound to this field.
- *  google.api.HttpBody http_body = 2;
- *  }
- *  service ResourceService {
- *  rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);
- *  rpc UpdateResource(google.api.HttpBody) returns
- *  (google.protobuf.Empty);
- *  }
- *  Example with streaming methods:
- *  service CaldavService {
- *  rpc GetCalendar(stream google.api.HttpBody)
- *  returns (stream google.api.HttpBody);
- *  rpc UpdateCalendar(stream google.api.HttpBody)
- *  returns (stream google.api.HttpBody);
- *  }
- *  Use of this type only changes how the request and response bodies are
- *  handled, all other features will continue to work unchanged.
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
  */
 @interface GTLRRecommendationsAI_GoogleApiHttpBody : GTLRObject
 
@@ -356,17 +344,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1BigQuerySource : GTLRObject
 
 /**
- *  Optional. The schema to use when parsing the data from the source.
- *  Supported values for catalog imports:
- *  1: "catalog_recommendations_ai" using
+ *  Optional. The schema to use when parsing the data from the source. Supported
+ *  values for catalog imports: 1: "catalog_recommendations_ai" using
  *  https://cloud.google.com/recommendations-ai/docs/upload-catalog#json
- *  (Default for catalogItems.import)
- *  2: "catalog_merchant_center" using
- *  https://cloud.google.com/recommendations-ai/docs/upload-catalog#mc
- *  Supported values for user event imports:
- *  1: "user_events_recommendations_ai" using
+ *  (Default for catalogItems.import) 2: "catalog_merchant_center" using
+ *  https://cloud.google.com/recommendations-ai/docs/upload-catalog#mc Supported
+ *  values for user event imports: 1: "user_events_recommendations_ai" using
  *  https://cloud.google.com/recommendations-ai/docs/manage-user-events#import
- *  (Default for userEvents.import)
+ *  (Default for userEvents.import) 2. "user_events_ga360" using
+ *  https://support.google.com/analytics/answer/3437719?hl=en
  */
 @property(nonatomic, copy, nullable) NSString *dataSchema;
 
@@ -375,16 +361,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Optional. Intermediate Cloud Storage directory used for the import. Can be
- *  specified
- *  if one wants to have the BigQuery export to a specific Cloud Storage
- *  directory.
+ *  specified if one wants to have the BigQuery export to a specific Cloud
+ *  Storage directory.
  */
 @property(nonatomic, copy, nullable) NSString *gcsStagingDir;
 
 /**
  *  Optional. The project id (can be project # or id) that the BigQuery source
- *  is in. If
- *  not specified, inherits the project id from the parent request.
+ *  is in. If not specified, inherits the project id from the parent request.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -395,15 +379,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  The catalog configuration.
- *  Next ID: 5.
+ *  The catalog configuration. Next ID: 5.
  */
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1Catalog : GTLRObject
 
 /** Required. The catalog item level configuration. */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemLevelConfig *catalogItemLevelConfig;
 
-/** Required. The id of the default event store. */
+/** Required. The ID of the default event store. */
 @property(nonatomic, copy, nullable) NSString *defaultEventStoreId;
 
 /** Required. The catalog display name. */
@@ -435,22 +418,19 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem : GTLRObject
 
 /**
- *  Required. Catalog item categories. This field is repeated for supporting
- *  one catalog item belonging to several parallel category hierarchies.
- *  For example, if a shoes product belongs to both
- *  ["Shoes & Accessories" -> "Shoes"] and
- *  ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it could be
- *  represented as:
- *  "categoryHierarchies": [
- *  { "categories": ["Shoes & Accessories", "Shoes"]},
- *  { "categories": ["Sports & Fitness", "Athletic Clothing", "Shoes"] }
- *  ]
+ *  Required. Catalog item categories. This field is repeated for supporting one
+ *  catalog item belonging to several parallel category hierarchies. For
+ *  example, if a shoes product belongs to both ["Shoes & Accessories" ->
+ *  "Shoes"] and ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it
+ *  could be represented as: "categoryHierarchies": [ { "categories": ["Shoes &
+ *  Accessories", "Shoes"]}, { "categories": ["Sports & Fitness", "Athletic
+ *  Clothing", "Shoes"] } ]
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy *> *categoryHierarchies;
 
 /**
- *  Optional. Catalog item description. UTF-8 encoded string with a length
- *  limit of 5 KiB.
+ *  Optional. Catalog item description. UTF-8 encoded string with a length limit
+ *  of 5 KiB.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -458,38 +438,36 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Required. Catalog item identifier. UTF-8 encoded string with a length limit
- *  of 128 bytes.
- *  This id must be unique among all catalog items within the same catalog. It
- *  should also be used when logging user events in order for the user events
- *  to be joined with the Catalog.
+ *  of 128 bytes. This id must be unique among all catalog items within the same
+ *  catalog. It should also be used when logging user events in order for the
+ *  user events to be joined with the Catalog.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Optional. Highly encouraged. Extra catalog item attributes to be
- *  included in the recommendation model. For example, for retail products,
- *  this could include the store name, vendor, style, color, etc. These are
- *  very strong signals for recommendation model, thus we highly recommend
- *  providing the item attributes here.
+ *  Optional. Highly encouraged. Extra catalog item attributes to be included in
+ *  the recommendation model. For example, for retail products, this could
+ *  include the store name, vendor, style, color, etc. These are very strong
+ *  signals for recommendation model, thus we highly recommend providing the
+ *  item attributes here.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1FeatureMap *itemAttributes;
 
 /**
  *  Optional. Variant group identifier for prediction results. UTF-8 encoded
- *  string with a length limit of 128 bytes.
- *  This field must be enabled before it can be used. [Learn
+ *  string with a length limit of 128 bytes. This field must be enabled before
+ *  it can be used. [Learn
  *  more](/recommendations-ai/docs/catalog#item-group-id).
  */
 @property(nonatomic, copy, nullable) NSString *itemGroupId;
 
 /**
  *  Optional. Deprecated. The model automatically detects the text language.
- *  Your
- *  catalog can include text in different languages, but duplicating
- *  catalog items to provide text in multiple languages can result in
- *  degraded model performance.
+ *  Your catalog can include text in different languages, but duplicating
+ *  catalog items to provide text in multiple languages can result in degraded
+ *  model performance.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -498,9 +476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Optional. Filtering tags associated with the catalog item. Each tag should
- *  be a UTF-8 encoded string with a length limit of 1 KiB.
- *  This tag can be used for filtering recommendation results by passing the
- *  tag as part of the predict request filter.
+ *  be a UTF-8 encoded string with a length limit of 1 KiB. This tag can be used
+ *  for filtering recommendation results by passing the tag as part of the
+ *  predict request filter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
@@ -519,10 +497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy : GTLRObject
 
 /**
- *  Required. Catalog item categories. Each category should be a UTF-8
- *  encoded string with a length limit of 2 KiB.
- *  Note that the order in the list denotes the specificity (from least to
- *  most specific).
+ *  Required. Catalog item categories. Each category should be a UTF-8 encoded
+ *  string with a length limit of 2 KiB. Note that the order in the list denotes
+ *  the specificity (from least to most specific).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
 
@@ -530,15 +507,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Configures what level the catalog should be uploaded with regards to
- *  how users will be send events and how predictions will be made.
+ *  Configures the catalog level that users send events to, and the level at
+ *  which predictions are made.
  */
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemLevelConfig : GTLRObject
 
 /**
- *  Optional. What level of the catalog are events uploaded at.
- *  See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels
- *  for more details.
+ *  Optional. Level of the catalog at which events are uploaded. See
+ *  https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for
+ *  more details.
  *
  *  Likely values:
  *    @arg @c kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemLevelConfig_EventItemLevel_CatalogItemLevelUnspecified
@@ -552,9 +529,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *eventItemLevel;
 
 /**
- *  Optional. What level of the catalog are predictions made at.
- *  See https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels
- *  for more details.
+ *  Optional. Level of the catalog at which predictions are made. See
+ *  https://cloud.google.com/recommendations-ai/docs/catalog#catalog-levels for
+ *  more details.
  *
  *  Likely values:
  *    @arg @c kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemLevelConfig_PredictItemLevel_CatalogItemLevelUnspecified
@@ -587,53 +564,49 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1EventDetail : GTLRObject
 
 /**
- *  Optional. Extra user event features to include in the recommendation
- *  model.
+ *  Optional. Extra user event features to include in the recommendation model.
  *  For product recommendation, an example of extra user information is
- *  traffic_channel, i.e. how user arrives at the site. Users can arrive
- *  at the site by coming to the site directly, or coming through Google
- *  search, and etc.
+ *  traffic_channel, i.e. how user arrives at the site. Users can arrive at the
+ *  site by coming to the site directly, or coming through Google search, and
+ *  etc.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1FeatureMap *eventAttributes;
 
 /**
- *  Optional. A list of identifiers for the independent experiment groups
- *  this user event belongs to. This is used to distinguish between user events
+ *  Optional. A list of identifiers for the independent experiment groups this
+ *  user event belongs to. This is used to distinguish between user events
  *  associated with different experiment setups (e.g. using Recommendation
  *  Engine system, using different recommendation models).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experimentIds;
 
 /**
- *  Optional. A unique id of a web page view.
- *  This should be kept the same for all user events triggered from the same
- *  pageview. For example, an item detail page view could trigger multiple
- *  events as the user is browsing the page.
- *  The `pageViewId` property should be kept the same for all these events so
- *  that they can be grouped together properly. This `pageViewId` will be
+ *  Optional. A unique id of a web page view. This should be kept the same for
+ *  all user events triggered from the same pageview. For example, an item
+ *  detail page view could trigger multiple events as the user is browsing the
+ *  page. The `pageViewId` property should be kept the same for all these events
+ *  so that they can be grouped together properly. This `pageViewId` will be
  *  automatically generated if using the JavaScript pixel.
  */
 @property(nonatomic, copy, nullable) NSString *pageViewId;
 
 /**
  *  Optional. Recommendation token included in the recommendation prediction
- *  response.
- *  This field enables accurate attribution of recommendation model
- *  performance.
- *  This token enables us to accurately attribute page view or purchase back to
- *  the event and the particular predict response containing this
- *  clicked/purchased item. If user clicks on product K in the recommendation
- *  results, pass the `PredictResponse.recommendationToken` property as a url
- *  parameter to product K's page. When recording events on product K's page,
- *  log the PredictResponse.recommendation_token to this field.
- *  Optional, but highly encouraged for user events that are the result of a
- *  recommendation prediction query.
+ *  response. This field enables accurate attribution of recommendation model
+ *  performance. This token enables us to accurately attribute page view or
+ *  purchase back to the event and the particular predict response containing
+ *  this clicked/purchased item. If user clicks on product K in the
+ *  recommendation results, pass the `PredictResponse.recommendationToken`
+ *  property as a url parameter to product K's page. When recording events on
+ *  product K's page, log the PredictResponse.recommendation_token to this
+ *  field. Optional, but highly encouraged for user events that are the result
+ *  of a recommendation prediction query.
  */
 @property(nonatomic, copy, nullable) NSString *recommendationToken;
 
 /**
- *  Optional. The referrer url of the current page. When using
- *  the JavaScript pixel, this value is filled in automatically.
+ *  Optional. The referrer url of the current page. When using the JavaScript
+ *  pixel, this value is filled in automatically.
  */
 @property(nonatomic, copy, nullable) NSString *referrerUri;
 
@@ -656,20 +629,18 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Categorical features that can take on one of a limited number of possible
- *  values. Some examples would be the brand/maker of a product, or country of
- *  a customer.
- *  Feature names and values must be UTF-8 encoded strings.
- *  For example: `{ "colors": {"value": ["yellow", "green"]},
- *  "sizes": {"value":["S", "M"]}`
+ *  values. Some examples would be the brand/maker of a product, or country of a
+ *  customer. Feature names and values must be UTF-8 encoded strings. For
+ *  example: `{ "colors": {"value": ["yellow", "green"]}, "sizes":
+ *  {"value":["S", "M"]}`
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1FeatureMap_CategoricalFeatures *categoricalFeatures;
 
 /**
  *  Numerical features. Some examples would be the height/weight of a product,
- *  or age of a customer.
- *  Feature names must be UTF-8 encoded strings.
- *  For example: `{ "lengths_cm": {"value":[2.3, 15.4]},
- *  "heights_cm": {"value":[8.1, 6.4]} }`
+ *  or age of a customer. Feature names must be UTF-8 encoded strings. For
+ *  example: `{ "lengths_cm": {"value":[2.3, 15.4]}, "heights_cm":
+ *  {"value":[8.1, 6.4]} }`
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1FeatureMap_NumericalFeatures *numericalFeatures;
 
@@ -678,11 +649,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Categorical features that can take on one of a limited number of possible
- *  values. Some examples would be the brand/maker of a product, or country of
- *  a customer.
- *  Feature names and values must be UTF-8 encoded strings.
- *  For example: `{ "colors": {"value": ["yellow", "green"]},
- *  "sizes": {"value":["S", "M"]}`
+ *  values. Some examples would be the brand/maker of a product, or country of a
+ *  customer. Feature names and values must be UTF-8 encoded strings. For
+ *  example: `{ "colors": {"value": ["yellow", "green"]}, "sizes":
+ *  {"value":["S", "M"]}`
  *
  *  @note This class is documented as having more properties of
  *        GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1FeatureMapStringList.
@@ -696,10 +666,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Numerical features. Some examples would be the height/weight of a product,
- *  or age of a customer.
- *  Feature names must be UTF-8 encoded strings.
- *  For example: `{ "lengths_cm": {"value":[2.3, 15.4]},
- *  "heights_cm": {"value":[8.1, 6.4]} }`
+ *  or age of a customer. Feature names must be UTF-8 encoded strings. For
+ *  example: `{ "lengths_cm": {"value":[2.3, 15.4]}, "heights_cm":
+ *  {"value":[8.1, 6.4]} }`
  *
  *  @note This class is documented as having more properties of
  *        GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1FeatureMapFloatList.
@@ -738,53 +707,33 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Google Cloud Storage location for input content.
- *  format.
+ *  Google Cloud Storage location for input content. format.
  */
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1GcsSource : GTLRObject
 
 /**
- *  Required. Google Cloud Storage URIs to input files. URI can be up to
- *  2000 characters long. URIs can match the full object path (for example,
- *  gs://bucket/directory/object.json) or a pattern matching one or more
- *  files, such as gs://bucket/directory/ *.json. A request can
- *  contain at most 100 files, and each file can be up to 2 GB. See
- *  [Importing catalog information](/recommendations-ai/docs/upload-catalog)
- *  for the expected file format and setup instructions.
+ *  Required. Google Cloud Storage URIs to input files. URI can be up to 2000
+ *  characters long. URIs can match the full object path (for example,
+ *  gs://bucket/directory/object.json) or a pattern matching one or more files,
+ *  such as gs://bucket/directory/ *.json. A request can contain at most 100
+ *  files, and each file can be up to 2 GB. See [Importing catalog
+ *  information](/recommendations-ai/docs/upload-catalog) for the expected file
+ *  format and setup instructions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputUris;
 
 /**
- *  Optional. The schema to use when parsing the data from the source.
- *  Supported values for catalog imports:
- *  1: "catalog_recommendations_ai" using
+ *  Optional. The schema to use when parsing the data from the source. Supported
+ *  values for catalog imports: 1: "catalog_recommendations_ai" using
  *  https://cloud.google.com/recommendations-ai/docs/upload-catalog#json
- *  (Default for catalogItems.import)
- *  2: "catalog_merchant_center" using
- *  https://cloud.google.com/recommendations-ai/docs/upload-catalog#mc
- *  Supported values for user events imports:
- *  1: "user_events_recommendations_ai" using
+ *  (Default for catalogItems.import) 2: "catalog_merchant_center" using
+ *  https://cloud.google.com/recommendations-ai/docs/upload-catalog#mc Supported
+ *  values for user events imports: 1: "user_events_recommendations_ai" using
  *  https://cloud.google.com/recommendations-ai/docs/manage-user-events#import
- *  (Default for userEvents.import)
+ *  (Default for userEvents.import) 2. "user_events_ga360" using
+ *  https://support.google.com/analytics/answer/3437719?hl=en
  */
 @property(nonatomic, copy, nullable) NSString *jsonSchema;
-
-@end
-
-
-/**
- *  Response message for GetCatalogItemsWithItemGroupId method.
- */
-@interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1GetCatalogItemsWithItemGroupIdResponse : GTLRObject
-
-/**
- *  The canonical catalog item representing all items associated with the item
- *  group id.
- */
-@property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem *canonicalCatalogItem;
-
-/** The list of catalog items associated with the item group id. */
-@property(nonatomic, strong, nullable) NSArray<GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem *> *catalogItems;
 
 @end
 
@@ -826,17 +775,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1InputConfig *inputConfig;
 
 /**
- *  Optional. Unique identifier provided by client, within the ancestor
- *  dataset scope. Ensures idempotency and used for request deduplication.
- *  Server-generated if unspecified. Up to 128 characters long. This is
- *  returned as google.longrunning.Operation.name in the response.
+ *  Optional. Unique identifier provided by client, within the ancestor dataset
+ *  scope. Ensures idempotency and used for request deduplication.
+ *  Server-generated if unspecified. Up to 128 characters long. This is returned
+ *  as google.longrunning.Operation.name in the response.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Optional. Indicates which fields in the provided imported 'items' to update.
- *  If not
- *  set, will by default update all fields.
+ *  If not set, will by default update all fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -846,8 +794,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Response of the ImportCatalogItemsRequest. If the long running
- *  operation is done, then this message is returned by the
+ *  Response of the ImportCatalogItemsRequest. If the long running operation is
+ *  done, then this message is returned by the
  *  google.longrunning.Operations.response field if the operation was
  *  successful.
  */
@@ -868,10 +816,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ImportErrorsConfig : GTLRObject
 
 /**
- *  Google Cloud Storage path for import errors. This must be an empty,
- *  existing Cloud Storage bucket. Import errors will be written to a file in
- *  this bucket, one per line, as a JSON-encoded
- *  `google.rpc.Status` message.
+ *  Google Cloud Storage path for import errors. This must be an empty, existing
+ *  Cloud Storage bucket. Import errors will be written to a file in this
+ *  bucket, one per line, as a JSON-encoded `google.rpc.Status` message.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPrefix;
 
@@ -898,8 +845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *operationName;
 
 /**
- *  Id of the request / operation. This is parroting back the requestId that
- *  was passed in the request.
+ *  Id of the request / operation. This is parroting back the requestId that was
+ *  passed in the request.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -931,12 +878,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1InputConfig *inputConfig;
 
 /**
- *  Optional. Unique identifier provided by client, within the ancestor
- *  dataset scope. Ensures idempotency for expensive long running operations.
- *  Server-generated if unspecified. Up to 128 characters long. This is
- *  returned as google.longrunning.Operation.name in the response. Note that
- *  this field must not be set if the desired input config is
- *  catalog_inline_source.
+ *  Optional. Unique identifier provided by client, within the ancestor dataset
+ *  scope. Ensures idempotency for expensive long running operations.
+ *  Server-generated if unspecified. Up to 128 characters long. This is returned
+ *  as google.longrunning.Operation.name in the response. Note that this field
+ *  must not be set if the desired input config is catalog_inline_source.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -944,8 +890,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Response of the ImportUserEventsRequest. If the long running
- *  operation was successful, then this message is returned by the
+ *  Response of the ImportUserEventsRequest. If the long running operation was
+ *  successful, then this message is returned by the
  *  google.longrunning.Operations.response field if the operation was
  *  successful.
  */
@@ -955,8 +901,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommendationsAI_GoogleRpcStatus *> *errorSamples;
 
 /**
- *  Echoes the destination for the complete errors if this field was set in
- *  the request.
+ *  Echoes the destination for the complete errors if this field was set in the
+ *  request.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ImportErrorsConfig *errorsConfig;
 
@@ -1108,51 +1054,48 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest : GTLRObject
 
 /**
- *  Optional. Use dryRun mode for this prediction query. If set to true, a
- *  dummy model will be used that returns arbitrary catalog items.
- *  Note that the dryRun mode should only be used for testing the API, or if
- *  the model is not ready.
+ *  Optional. Use dryRun mode for this prediction query. If set to true, a dummy
+ *  model will be used that returns arbitrary catalog items. Note that the
+ *  dryRun mode should only be used for testing the API, or if the model is not
+ *  ready.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dryRun;
 
 /**
- *  Optional. Filter for restricting prediction results. Accepts values for
- *  tags and the `filterOutOfStockItems` flag.
- *  * Tag expressions. Restricts predictions to items that match all of the
- *  specified tags. Boolean operators `OR` and `NOT` are supported if the
- *  expression is enclosed in parentheses, and must be separated from the
- *  tag values by a space. `-"tagA"` is also supported and is equivalent to
- *  `NOT "tagA"`. Tag values must be double quoted UTF-8 encoded strings
- *  with a size limit of 1 KiB.
- *  * filterOutOfStockItems. Restricts predictions to items that do not have a
- *  stockState value of OUT_OF_STOCK.
- *  Examples:
- *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
- *  * filterOutOfStockItems tag=(-"promotional")
- *  * filterOutOfStockItems
- *  If your filter blocks all prediction results, nothing will be returned. If
- *  you want generic (unfiltered) popular items to be returned instead, set
- *  `strictFiltering` to false in `PredictRequest.params`.
+ *  Optional. Filter for restricting prediction results. Accepts values for tags
+ *  and the `filterOutOfStockItems` flag. * Tag expressions. Restricts
+ *  predictions to items that match all of the specified tags. Boolean operators
+ *  `OR` and `NOT` are supported if the expression is enclosed in parentheses,
+ *  and must be separated from the tag values by a space. `-"tagA"` is also
+ *  supported and is equivalent to `NOT "tagA"`. Tag values must be double
+ *  quoted UTF-8 encoded strings with a size limit of 1 KiB. *
+ *  filterOutOfStockItems. Restricts predictions to items that do not have a
+ *  stockState value of OUT_OF_STOCK. Examples: * tag=("Red" OR "Blue")
+ *  tag="New-Arrival" tag=(NOT "promotional") * filterOutOfStockItems
+ *  tag=(-"promotional") * filterOutOfStockItems If your filter blocks all
+ *  prediction results, nothing will be returned. If you want generic
+ *  (unfiltered) popular items to be returned instead, set `strictFiltering` to
+ *  false in `PredictRequest.params`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The labels for the predict request.
- *  * Label keys can contain lowercase letters, digits and hyphens, must start
- *  with a letter, and must end with a letter or digit.
- *  * Non-zero label values can contain lowercase letters, digits and hyphens,
- *  must start with a letter, and must end with a letter or digit.
- *  * No more than 64 labels can be associated with a given request.
- *  See https://goo.gl/xmQnxf for more information on and examples of labels.
+ *  Optional. The labels for the predict request. * Label keys can contain
+ *  lowercase letters, digits and hyphens, must start with a letter, and must
+ *  end with a letter or digit. * Non-zero label values can contain lowercase
+ *  letters, digits and hyphens, must start with a letter, and must end with a
+ *  letter or digit. * No more than 64 labels can be associated with a given
+ *  request. See https://goo.gl/xmQnxf for more information on and examples of
+ *  labels.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest_Labels *labels;
 
 /**
- *  Optional. Maximum number of results to return per page. Set this property
- *  to the number of prediction results required. If zero, the service will
- *  choose a reasonable default.
+ *  Optional. Maximum number of results to return per page. Set this property to
+ *  the number of prediction results required. If zero, the service will choose
+ *  a reasonable default.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1162,20 +1105,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Optional. Additional domain specific parameters for the predictions.
- *  Allowed values:
- *  * `returnCatalogItem`: Boolean. If set to true, the associated catalogItem
- *  object will be returned in the
+ *  Optional. Additional domain specific parameters for the predictions. Allowed
+ *  values: * `returnCatalogItem`: Boolean. If set to true, the associated
+ *  catalogItem object will be returned in the
  *  `PredictResponse.PredictionResult.itemMetadata` object in the method
- *  response.
- *  * `returnItemScore`: Boolean. If set to true, the prediction 'score'
- *  corresponding to each returned item will be set in the `metadata`
+ *  response. * `returnItemScore`: Boolean. If set to true, the prediction
+ *  'score' corresponding to each returned item will be set in the `metadata`
  *  field in the prediction response. The given 'score' indicates the
- *  probability of an item being clicked/purchased given the user's context
- *  and history.
- *  * `strictFiltering`: Boolean. True by default. If set to false, the service
- *  will return generic (unfiltered) popular items instead of empty if your
- *  filter blocks all prediction results.
+ *  probability of an item being clicked/purchased given the user's context and
+ *  history. * `strictFiltering`: Boolean. True by default. If set to false, the
+ *  service will return generic (unfiltered) popular items instead of empty if
+ *  your filter blocks all prediction results.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest_Params *params;
 
@@ -1191,13 +1131,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Optional. The labels for the predict request.
- *  * Label keys can contain lowercase letters, digits and hyphens, must start
- *  with a letter, and must end with a letter or digit.
- *  * Non-zero label values can contain lowercase letters, digits and hyphens,
- *  must start with a letter, and must end with a letter or digit.
- *  * No more than 64 labels can be associated with a given request.
- *  See https://goo.gl/xmQnxf for more information on and examples of labels.
+ *  Optional. The labels for the predict request. * Label keys can contain
+ *  lowercase letters, digits and hyphens, must start with a letter, and must
+ *  end with a letter or digit. * Non-zero label values can contain lowercase
+ *  letters, digits and hyphens, must start with a letter, and must end with a
+ *  letter or digit. * No more than 64 labels can be associated with a given
+ *  request. See https://goo.gl/xmQnxf for more information on and examples of
+ *  labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1209,20 +1149,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Optional. Additional domain specific parameters for the predictions.
- *  Allowed values:
- *  * `returnCatalogItem`: Boolean. If set to true, the associated catalogItem
- *  object will be returned in the
+ *  Optional. Additional domain specific parameters for the predictions. Allowed
+ *  values: * `returnCatalogItem`: Boolean. If set to true, the associated
+ *  catalogItem object will be returned in the
  *  `PredictResponse.PredictionResult.itemMetadata` object in the method
- *  response.
- *  * `returnItemScore`: Boolean. If set to true, the prediction 'score'
- *  corresponding to each returned item will be set in the `metadata`
+ *  response. * `returnItemScore`: Boolean. If set to true, the prediction
+ *  'score' corresponding to each returned item will be set in the `metadata`
  *  field in the prediction response. The given 'score' indicates the
- *  probability of an item being clicked/purchased given the user's context
- *  and history.
- *  * `strictFiltering`: Boolean. True by default. If set to false, the service
- *  will return generic (unfiltered) popular items instead of empty if your
- *  filter blocks all prediction results.
+ *  probability of an item being clicked/purchased given the user's context and
+ *  history. * `strictFiltering`: Boolean. True by default. If set to false, the
+ *  service will return generic (unfiltered) popular items instead of empty if
+ *  your filter blocks all prediction results.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1270,8 +1207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *recommendationToken;
 
 /**
- *  A list of recommended items. The order represents the ranking (from the
- *  most relevant item to the least).
+ *  A list of recommended items. The order represents the ranking (from the most
+ *  relevant item to the least).
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1306,12 +1243,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Additional item metadata / annotations.
- *  Possible values:
- *  * `catalogItem`: JSON representation of the catalogItem. Will be set if
- *  `returnCatalogItem` is set to true in `PredictRequest.params`.
- *  * `score`: Prediction score in double value. Will be set if
- *  `returnItemScore` is set to true in `PredictRequest.params`.
+ *  Additional item metadata / annotations. Possible values: * `catalogItem`:
+ *  JSON representation of the catalogItem. Will be set if `returnCatalogItem`
+ *  is set to true in `PredictRequest.params`. * `score`: Prediction score in
+ *  double value. Will be set if `returnItemScore` is set to true in
+ *  `PredictRequest.params`.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictResponsePredictionResult_ItemMetadata *itemMetadata;
 
@@ -1319,12 +1255,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Additional item metadata / annotations.
- *  Possible values:
- *  * `catalogItem`: JSON representation of the catalogItem. Will be set if
- *  `returnCatalogItem` is set to true in `PredictRequest.params`.
- *  * `score`: Prediction score in double value. Will be set if
- *  `returnItemScore` is set to true in `PredictRequest.params`.
+ *  Additional item metadata / annotations. Possible values: * `catalogItem`:
+ *  JSON representation of the catalogItem. Will be set if `returnCatalogItem`
+ *  is set to true in `PredictRequest.params`. * `score`: Prediction score in
+ *  double value. Will be set if `returnItemScore` is set to true in
+ *  `PredictRequest.params`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1354,19 +1289,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *canonicalProductUri;
 
 /**
- *  Optional. A map to pass the costs associated with the product.
- *  For example:
- *  {"manufacturing": 45.5} The profit of selling this item is computed like
- *  so:
- *  * If 'exactPrice' is provided, profit = displayPrice - sum(costs)
- *  * If 'priceRange' is provided, profit = minPrice - sum(costs)
+ *  Optional. A map to pass the costs associated with the product. For example:
+ *  {"manufacturing": 45.5} The profit of selling this item is computed like so:
+ *  * If 'exactPrice' is provided, profit = displayPrice - sum(costs) * If
+ *  'priceRange' is provided, profit = minPrice - sum(costs)
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ProductCatalogItem_Costs *costs;
 
 /**
  *  Optional. Only required if the price is set. Currency code for price/costs.
- *  Use
- *  three-character ISO-4217 code.
+ *  Use three-character ISO-4217 code.
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
@@ -1402,12 +1334,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Optional. A map to pass the costs associated with the product.
- *  For example:
- *  {"manufacturing": 45.5} The profit of selling this item is computed like
- *  so:
- *  * If 'exactPrice' is provided, profit = displayPrice - sum(costs)
- *  * If 'priceRange' is provided, profit = minPrice - sum(costs)
+ *  Optional. A map to pass the costs associated with the product. For example:
+ *  {"manufacturing": 45.5} The profit of selling this item is computed like so:
+ *  * If 'exactPrice' is provided, profit = displayPrice - sum(costs) * If
+ *  'priceRange' is provided, profit = minPrice - sum(costs)
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of floatValue.). Use @c -additionalJSONKeys and @c
@@ -1431,8 +1361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) NSNumber *displayPrice;
 
 /**
- *  Optional. Price of the product without any discount. If zero, by default
- *  set to be the 'displayPrice'.
+ *  Optional. Price of the product without any discount. If zero, by default set
+ *  to be the 'displayPrice'.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1472,24 +1402,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 /**
  *  Optional. Quantity of the products in stock when a user event happens.
  *  Optional. If provided, this overrides the available quantity in Catalog for
- *  this event. and can only be set if `stock_status` is set to `IN_STOCK`.
- *  Note that if an item is out of stock, you must set the `stock_state` field
- *  to be `OUT_OF_STOCK`. Leaving this field unspecified / as zero is not
- *  sufficient to mark the item out of stock.
+ *  this event. and can only be set if `stock_status` is set to `IN_STOCK`. Note
+ *  that if an item is out of stock, you must set the `stock_state` field to be
+ *  `OUT_OF_STOCK`. Leaving this field unspecified / as zero is not sufficient
+ *  to mark the item out of stock.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *availableQuantity;
 
 /**
- *  Optional. Currency code for price/costs. Use three-character ISO-4217
- *  code. Required only if originalPrice or displayPrice is set.
+ *  Optional. Currency code for price/costs. Use three-character ISO-4217 code.
+ *  Required only if originalPrice or displayPrice is set.
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Optional. Display price of the product (e.g. discounted price). If
- *  provided, this will override the display price in Catalog for this product.
+ *  Optional. Display price of the product (e.g. discounted price). If provided,
+ *  this will override the display price in Catalog for this product.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1507,8 +1437,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1FeatureMap *itemAttributes;
 
 /**
- *  Optional. Original price of the product. If provided, this will override
- *  the original price in Catalog for this product.
+ *  Optional. Original price of the product. If provided, this will override the
+ *  original price in Catalog for this product.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1516,8 +1446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Optional. Quantity of the product associated with the user event. For
- *  example, this field will be 2 if two products are added to the shopping
- *  cart for `add-to-cart` event. Required for `add-to-cart`, `add-to-list`,
+ *  example, this field will be 2 if two products are added to the shopping cart
+ *  for `add-to-cart` event. Required for `add-to-cart`, `add-to-list`,
  *  `remove-from-cart`, `checkout-start`, `purchase-complete`, `refund` event
  *  types.
  *
@@ -1526,8 +1456,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
 /**
- *  Optional. Item stock state. If provided, this overrides the stock state
- *  in Catalog for items in this event.
+ *  Optional. Item stock state. If provided, this overrides the stock state in
+ *  Catalog for items in this event.
  *
  *  Likely values:
  *    @arg @c kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ProductDetail_StockState_Backorder
@@ -1555,10 +1485,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ProductEventDetail : GTLRObject
 
 /**
- *  Optional. The id or name of the associated shopping cart. This id is used
- *  to associate multiple items added or present in the cart before purchase.
- *  This can only be set for `add-to-cart`, `remove-from-cart`,
- *  `checkout-start`, `purchase-complete`, or `shopping-cart-page-view` events.
+ *  Optional. The id or name of the associated shopping cart. This id is used to
+ *  associate multiple items added or present in the cart before purchase. This
+ *  can only be set for `add-to-cart`, `remove-from-cart`, `checkout-start`,
+ *  `purchase-complete`, or `shopping-cart-page-view` events.
  */
 @property(nonatomic, copy, nullable) NSString *cartId;
 
@@ -1571,46 +1501,35 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Required for `category-page-view` events. Other event types should not set
- *  this field.
- *  The categories associated with a category page.
- *  Category pages include special pages such as sales or promotions. For
- *  instance, a special sale page may have the category hierarchy:
- *  categories : ["Sales", "2017 Black Friday Deals"].
+ *  this field. The categories associated with a category page. Category pages
+ *  include special pages such as sales or promotions. For instance, a special
+ *  sale page may have the category hierarchy: categories : ["Sales", "2017
+ *  Black Friday Deals"].
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy *> *pageCategories;
 
 /**
- *  The main product details related to the event.
- *  This field is required for the following event types:
- *  * `add-to-cart`
- *  * `add-to-list`
- *  * `checkout-start`
- *  * `detail-page-view`
- *  * `purchase-complete`
- *  * `refund`
- *  * `remove-from-cart`
- *  * `remove-from-list`
- *  This field is optional for the following event types:
- *  * `page-visit`
- *  * `shopping-cart-page-view` - note that 'product_details' should be set for
- *  this unless the shopping cart is empty.
- *  * `search` (highly encouraged)
- *  In a `search` event, this field represents the products returned to the end
- *  user on the current page (the end user may have not finished broswing the
- *  whole page yet). When a new page is returned to the end user, after
- *  pagination/filtering/ordering even for the same query, a new SEARCH event
- *  with different product_details is desired. The end user may have not
- *  finished broswing the whole page yet.
- *  This field is not allowed for the following event types:
- *  * `category-page-view`
- *  * `home-page-view`
+ *  The main product details related to the event. This field is required for
+ *  the following event types: * `add-to-cart` * `add-to-list` *
+ *  `checkout-start` * `detail-page-view` * `purchase-complete` * `refund` *
+ *  `remove-from-cart` * `remove-from-list` This field is optional for the
+ *  following event types: * `page-visit` * `shopping-cart-page-view` - note
+ *  that 'product_details' should be set for this unless the shopping cart is
+ *  empty. * `search` (highly encouraged) In a `search` event, this field
+ *  represents the products returned to the end user on the current page (the
+ *  end user may have not finished broswing the whole page yet). When a new page
+ *  is returned to the end user, after pagination/filtering/ordering even for
+ *  the same query, a new SEARCH event with different product_details is
+ *  desired. The end user may have not finished broswing the whole page yet.
+ *  This field is not allowed for the following event types: *
+ *  `category-page-view` * `home-page-view`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ProductDetail *> *productDetails;
 
 /**
- *  Optional. A transaction represents the entire purchase transaction.
- *  Required for `purchase-complete` events. Optional for `checkout-start`
- *  events. Other event types should not set this field.
+ *  Optional. A transaction represents the entire purchase transaction. Required
+ *  for `purchase-complete` events. Optional for `checkout-start` events. Other
+ *  event types should not set this field.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PurchaseTransaction *purchaseTransaction;
 
@@ -1631,19 +1550,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 /**
  *  Optional. All the costs associated with the product. These can be
  *  manufacturing costs, shipping expenses not borne by the end user, or any
- *  other costs.
- *  Total product cost such that
- *  profit = revenue - (sum(taxes) + sum(costs))
- *  If product_cost is not set, then
- *  profit = revenue - tax - shipping - sum(CatalogItem.costs).
- *  If CatalogItem.cost is not specified for one of the items, CatalogItem.cost
- *  based profit *cannot* be calculated for this Transaction.
+ *  other costs. Total product cost such that profit = revenue - (sum(taxes) +
+ *  sum(costs)) If product_cost is not set, then profit = revenue - tax -
+ *  shipping - sum(CatalogItem.costs). If CatalogItem.cost is not specified for
+ *  one of the items, CatalogItem.cost based profit *cannot* be calculated for
+ *  this Transaction.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PurchaseTransaction_Costs *costs;
 
 /**
- *  Required. Currency code. Use three-character ISO-4217 code. This field
- *  is not required if the event type is `refund`.
+ *  Required. Currency code. Use three-character ISO-4217 code. This field is
+ *  not required if the event type is `refund`.
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
@@ -1655,10 +1572,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Required. Total revenue or grand total associated with the transaction.
- *  This value include shipping, tax, or other adjustments to total revenue
- *  that you want to include as part of your revenue calculations. This field
- *  is not required if the event type is `refund`.
+ *  Required. Total revenue or grand total associated with the transaction. This
+ *  value include shipping, tax, or other adjustments to total revenue that you
+ *  want to include as part of your revenue calculations. This field is not
+ *  required if the event type is `refund`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1673,13 +1590,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 /**
  *  Optional. All the costs associated with the product. These can be
  *  manufacturing costs, shipping expenses not borne by the end user, or any
- *  other costs.
- *  Total product cost such that
- *  profit = revenue - (sum(taxes) + sum(costs))
- *  If product_cost is not set, then
- *  profit = revenue - tax - shipping - sum(CatalogItem.costs).
- *  If CatalogItem.cost is not specified for one of the items, CatalogItem.cost
- *  based profit *cannot* be calculated for this Transaction.
+ *  other costs. Total product cost such that profit = revenue - (sum(taxes) +
+ *  sum(costs)) If product_cost is not set, then profit = revenue - tax -
+ *  shipping - sum(CatalogItem.costs). If CatalogItem.cost is not specified for
+ *  one of the items, CatalogItem.cost based profit *cannot* be calculated for
+ *  this Transaction.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of floatValue.). Use @c -additionalJSONKeys and @c
@@ -1703,8 +1618,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  Metadata related to the progress of the PurgeUserEvents operation.
- *  This will be returned by the google.longrunning.Operation.metadata field.
+ *  Metadata related to the progress of the PurgeUserEvents operation. This will
+ *  be returned by the google.longrunning.Operation.metadata field.
  */
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PurgeUserEventsMetadata : GTLRObject
 
@@ -1724,30 +1639,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Required. The filter string to specify the events to be deleted. Empty
- *  string filter is not allowed. The eligible fields
- *  for filtering are:
- *  * `eventType`: UserEvent.eventType field of type string.
- *  * `eventTime`: in ISO 8601 "zulu" format.
- *  * `visitorId`: field of type string. Specifying this will delete all
- *  events associated with a visitor.
- *  * `userId`: field of type string. Specifying this will delete all events
- *  associated with a user.
- *  Examples:
- *  * Deleting all events in a time range:
- *  `eventTime > "2012-04-23T18:25:43.511Z"
- *  eventTime < "2012-04-23T18:30:43.511Z"`
- *  * Deleting specific eventType in time range:
- *  `eventTime > "2012-04-23T18:25:43.511Z" eventType = "detail-page-view"`
- *  * Deleting all events for a specific visitor:
- *  `visitorId = "visitor1024"`
- *  The filtering fields are assumed to have an implicit AND.
+ *  string filter is not allowed. The eligible fields for filtering are: *
+ *  `eventType`: UserEvent.eventType field of type string. * `eventTime`: in ISO
+ *  8601 "zulu" format. * `visitorId`: field of type string. Specifying this
+ *  will delete all events associated with a visitor. * `userId`: field of type
+ *  string. Specifying this will delete all events associated with a user.
+ *  Examples: * Deleting all events in a time range: `eventTime >
+ *  "2012-04-23T18:25:43.511Z" eventTime < "2012-04-23T18:30:43.511Z"` *
+ *  Deleting specific eventType in time range: `eventTime >
+ *  "2012-04-23T18:25:43.511Z" eventType = "detail-page-view"` * Deleting all
+ *  events for a specific visitor: `visitorId = "visitor1024"` The filtering
+ *  fields are assumed to have an implicit AND.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The default value is false. Override this flag to true to
- *  actually perform the purge. If the field is not set to true, a sampling of
- *  events to be deleted will be returned.
+ *  Optional. The default value is false. Override this flag to true to actually
+ *  perform the purge. If the field is not set to true, a sampling of events to
+ *  be deleted will be returned.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1786,8 +1695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Required. The type of the catalog rejoin to define the scope and range of
- *  the user
- *  events to be rejoined with catalog items.
+ *  the user events to be rejoined with catalog items.
  *
  *  Likely values:
  *    @arg @c kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest_UserEventRejoinScope_JoinedEvents
@@ -1816,8 +1724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1EventDetail *eventDetail;
 
 /**
- *  Optional. This field should *not* be set when using JavaScript pixel
- *  or the Recommendations AI Tag. Defaults to `EVENT_SOURCE_UNSPECIFIED`.
+ *  Optional. This field should *not* be set when using JavaScript pixel or the
+ *  Recommendations AI Tag. Defaults to `EVENT_SOURCE_UNSPECIFIED`.
  *
  *  Likely values:
  *    @arg @c kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1UserEvent_EventSource_Automl
@@ -1835,51 +1743,36 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *eventSource;
 
 /**
- *  Optional. Only required for ImportUserEvents method. Timestamp of user
- *  event created.
+ *  Optional. Only required for ImportUserEvents method. Timestamp of user event
+ *  created.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
- *  Required. User event type. Allowed values are:
- *  * `add-to-cart` Products being added to cart.
- *  * `add-to-list` Items being added to a list (shopping list, favorites
- *  etc).
- *  * `category-page-view` Special pages such as sale or promotion pages
- *  viewed.
- *  * `checkout-start` User starting a checkout process.
- *  * `detail-page-view` Products detail page viewed.
- *  * `home-page-view` Homepage viewed.
- *  * `page-visit` Generic page visits not included in the event types above.
- *  * `purchase-complete` User finishing a purchase.
- *  * `refund` Purchased items being refunded or returned.
- *  * `remove-from-cart` Products being removed from cart.
- *  * `remove-from-list` Items being removed from a list.
- *  * `search` Product search.
- *  * `shopping-cart-page-view` User viewing a shopping cart.
- *  * `impression` List of items displayed. Used by Google Tag Manager.
+ *  Required. User event type. Allowed values are: * `add-to-cart` Products
+ *  being added to cart. * `add-to-list` Items being added to a list (shopping
+ *  list, favorites etc). * `category-page-view` Special pages such as sale or
+ *  promotion pages viewed. * `checkout-start` User starting a checkout process.
+ *  * `detail-page-view` Products detail page viewed. * `home-page-view`
+ *  Homepage viewed. * `page-visit` Generic page visits not included in the
+ *  event types above. * `purchase-complete` User finishing a purchase. *
+ *  `refund` Purchased items being refunded or returned. * `remove-from-cart`
+ *  Products being removed from cart. * `remove-from-list` Items being removed
+ *  from a list. * `search` Product search. * `shopping-cart-page-view` User
+ *  viewing a shopping cart. * `impression` List of items displayed. Used by
+ *  Google Tag Manager.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
 /**
- *  Optional. Retail product specific user event metadata.
- *  This field is required for the following event types:
- *  * `add-to-cart`
- *  * `add-to-list`
- *  * `category-page-view`
- *  * `checkout-start`
- *  * `detail-page-view`
- *  * `purchase-complete`
- *  * `refund`
- *  * `remove-from-cart`
- *  * `remove-from-list`
- *  * `search`
- *  This field is optional for the following event types:
- *  * `page-visit`
- *  * `shopping-cart-page-view` - note that 'product_event_detail' should be
- *  set for this unless the shopping cart is empty.
- *  This field is not allowed for the following event types:
- *  * `home-page-view`
+ *  Optional. Retail product specific user event metadata. This field is
+ *  required for the following event types: * `add-to-cart` * `add-to-list` *
+ *  `category-page-view` * `checkout-start` * `detail-page-view` *
+ *  `purchase-complete` * `refund` * `remove-from-cart` * `remove-from-list` *
+ *  `search` This field is optional for the following event types: *
+ *  `page-visit` * `shopping-cart-page-view` - note that 'product_event_detail'
+ *  should be set for this unless the shopping cart is empty. This field is not
+ *  allowed for the following event types: * `home-page-view`
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ProductEventDetail *productEventDetail;
 
@@ -1890,8 +1783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
- *  A summary of import result. The UserEventImportSummary summarizes
- *  the import status for user events.
+ *  A summary of import result. The UserEventImportSummary summarizes the import
+ *  status for user events.
  */
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1UserEventImportSummary : GTLRObject
 
@@ -1903,8 +1796,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) NSNumber *joinedEventsCount;
 
 /**
- *  Count of user events imported, but with catalog information not found
- *  in the imported catalog.
+ *  Count of user events imported, but with catalog information not found in the
+ *  imported catalog.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1932,12 +1825,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1UserInfo : GTLRObject
 
 /**
- *  Optional. Indicates if the request is made directly from the end user
- *  in which case the user_agent and ip_address fields can be populated
- *  from the HTTP request. This should *not* be set when using the javascript
- *  pixel. This flag should be set only if the API request is made directly
- *  from the end user such as a mobile app (and not if a gateway or a server is
- *  processing and pushing the user events).
+ *  Optional. Indicates if the request is made directly from the end user in
+ *  which case the user_agent and ip_address fields can be populated from the
+ *  HTTP request. This should *not* be set when using the javascript pixel. This
+ *  flag should be set only if the API request is made directly from the end
+ *  user such as a mobile app (and not if a gateway or a server is processing
+ *  and pushing the user events).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1945,18 +1838,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Optional. IP address of the user. This could be either IPv4 (e.g.
- *  104.133.9.80) or
- *  IPv6 (e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). This should *not* be
- *  set when using the javascript pixel or if `direct_user_request` is set.
- *  Used to extract location information for personalization.
+ *  104.133.9.80) or IPv6 (e.g. 2001:0db8:85a3:0000:0000:8a2e:0370:7334). This
+ *  should *not* be set when using the javascript pixel or if
+ *  `direct_user_request` is set. Used to extract location information for
+ *  personalization.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
  *  Optional. User agent as included in the HTTP header. UTF-8 encoded string
- *  with a length limit of 1 KiB.
- *  This should *not* be set when using the JavaScript pixel or if
- *  `directUserRequest` is set.
+ *  with a length limit of 1 KiB. This should *not* be set when using the
+ *  JavaScript pixel or if `directUserRequest` is set.
  */
 @property(nonatomic, copy, nullable) NSString *userAgent;
 
@@ -1968,11 +1860,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Required. A unique identifier for tracking visitors with a length limit of
- *  128 bytes.
- *  For example, this could be implemented with a http cookie, which should be
- *  able to uniquely identify a visitor on a single device. This unique
- *  identifier should not change if the visitor log in/out of the website.
- *  Maximum length 128 bytes. Cannot be empty.
+ *  128 bytes. For example, this could be implemented with a http cookie, which
+ *  should be able to uniquely identify a visitor on a single device. This
+ *  unique identifier should not change if the visitor log in/out of the
+ *  website. Maximum length 128 bytes. Cannot be empty.
  */
 @property(nonatomic, copy, nullable) NSString *visitorId;
 
@@ -2010,8 +1901,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @interface GTLRRecommendationsAI_GoogleLongrunningOperation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -2023,16 +1914,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleLongrunningOperation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2041,10 +1932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleLongrunningOperation_Response *response;
 
@@ -2053,8 +1943,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -2071,10 +1961,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2088,11 +1977,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRRecommendationsAI_GoogleProtobufEmpty : GTLRObject
 @end
@@ -2102,9 +1989,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRRecommendationsAI_GoogleRpcStatus : GTLRObject
 

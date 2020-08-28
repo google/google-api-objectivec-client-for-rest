@@ -4,7 +4,7 @@
 // API:
 //   Gmail Postmaster Tools API (gmailpostmastertools/v1beta1)
 // Description:
-//   The Gmail Postmaster API is a RESTful API that provides programmatic access
+//   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
 //   available through the Gmail Postmaster Tools UI currently.
 // Documentation:
@@ -40,8 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a specific domain registered by the client.
- *  Returns NOT_FOUND if the domain does not exist.
+ *  Gets a specific domain registered by the client. Returns NOT_FOUND if the
+ *  domain does not exist.
  *
  *  Method: gmailpostmastertools.domains.get
  *
@@ -54,20 +54,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the domain. It should have the form
- *  `domains/{domain_name}`, where domain_name is the fully qualified
- *  domain name.
+ *  `domains/{domain_name}`, where domain_name is the fully qualified domain
+ *  name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRPostmasterTools_Domain.
  *
- *  Gets a specific domain registered by the client.
- *  Returns NOT_FOUND if the domain does not exist.
+ *  Gets a specific domain registered by the client. Returns NOT_FOUND if the
+ *  domain does not exist.
  *
  *  @param name The resource name of the domain. It should have the form
- *    `domains/{domain_name}`, where domain_name is the fully qualified
- *    domain name.
+ *    `domains/{domain_name}`, where domain_name is the fully qualified domain
+ *    name.
  *
  *  @return GTLRPostmasterToolsQuery_DomainsGet
  */
@@ -90,16 +90,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPostmasterTools queryForDomainsList]
 
 /**
- *  Requested page size. Server may return fewer domains than requested.
- *  If unspecified, server will pick an appropriate default.
+ *  Requested page size. Server may return fewer domains than requested. If
+ *  unspecified, server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The next_page_token value returned from a previous List request, if any.
- *  This is the value of
- *  ListDomainsResponse.next_page_token
- *  returned from the previous call to `ListDomains` method.
+ *  This is the value of ListDomainsResponse.next_page_token returned from the
+ *  previous call to `ListDomains` method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -121,9 +120,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get traffic statistics for a domain on a specific date.
- *  Returns PERMISSION_DENIED if user does not have permission to access
- *  TrafficStats for the domain.
+ *  Get traffic statistics for a domain on a specific date. Returns
+ *  PERMISSION_DENIED if user does not have permission to access TrafficStats
+ *  for the domain.
  *
  *  Method: gmailpostmastertools.domains.trafficStats.get
  *
@@ -135,20 +134,20 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPostmasterTools queryForDomainsTrafficStatsGetWithname:]
 
 /**
- *  The resource name of the traffic statistics to get.
- *  E.g., domains/mymail.mydomain.com/trafficStats/20160807.
+ *  The resource name of the traffic statistics to get. E.g.,
+ *  domains/mymail.mydomain.com/trafficStats/20160807.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRPostmasterTools_TrafficStats.
  *
- *  Get traffic statistics for a domain on a specific date.
- *  Returns PERMISSION_DENIED if user does not have permission to access
- *  TrafficStats for the domain.
+ *  Get traffic statistics for a domain on a specific date. Returns
+ *  PERMISSION_DENIED if user does not have permission to access TrafficStats
+ *  for the domain.
  *
- *  @param name The resource name of the traffic statistics to get.
- *    E.g., domains/mymail.mydomain.com/trafficStats/20160807.
+ *  @param name The resource name of the traffic statistics to get. E.g.,
+ *    domains/mymail.mydomain.com/trafficStats/20160807.
  *
  *  @return GTLRPostmasterToolsQuery_DomainsTrafficStatsGet
  */
@@ -157,9 +156,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List traffic statistics for all available days.
- *  Returns PERMISSION_DENIED if user does not have permission to access
- *  TrafficStats for the domain.
+ *  List traffic statistics for all available days. Returns PERMISSION_DENIED if
+ *  user does not have permission to access TrafficStats for the domain.
  *
  *  Method: gmailpostmastertools.domains.trafficStats.list
  *
@@ -171,8 +169,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPostmasterTools queryForDomainsTrafficStatsListWithparent:]
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year by itself or a year and month where the day is not
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
+ *  specifying a year by itself or a year and month where the day is not
  *  significant.
  */
 @property(nonatomic, assign) NSInteger endDateDay;
@@ -184,35 +182,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger endDateMonth;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
- *  a year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  year.
  */
 @property(nonatomic, assign) NSInteger endDateYear;
 
 /**
- *  Requested page size. Server may return fewer TrafficStats than
- *  requested. If unspecified, server will pick an appropriate default.
+ *  Requested page size. Server may return fewer TrafficStats than requested. If
+ *  unspecified, server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The next_page_token value returned from a previous List request, if any.
- *  This is the value of
- *  ListTrafficStatsResponse.next_page_token
- *  returned from the previous call to `ListTrafficStats` method.
+ *  This is the value of ListTrafficStatsResponse.next_page_token returned from
+ *  the previous call to `ListTrafficStats` method.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  The resource name of the domain whose traffic statistics we'd like to list.
- *  It should have the form `domains/{domain_name}`, where domain_name is
- *  the fully qualified domain name.
+ *  It should have the form `domains/{domain_name}`, where domain_name is the
+ *  fully qualified domain name.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year by itself or a year and month where the day is not
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
+ *  specifying a year by itself or a year and month where the day is not
  *  significant.
  */
 @property(nonatomic, assign) NSInteger startDateDay;
@@ -224,22 +221,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger startDateMonth;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
- *  a year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  year.
  */
 @property(nonatomic, assign) NSInteger startDateYear;
 
 /**
  *  Fetches a @c GTLRPostmasterTools_ListTrafficStatsResponse.
  *
- *  List traffic statistics for all available days.
- *  Returns PERMISSION_DENIED if user does not have permission to access
- *  TrafficStats for the domain.
+ *  List traffic statistics for all available days. Returns PERMISSION_DENIED if
+ *  user does not have permission to access TrafficStats for the domain.
  *
  *  @param parent The resource name of the domain whose traffic statistics we'd
- *    like to list.
- *    It should have the form `domains/{domain_name}`, where domain_name is
- *    the fully qualified domain name.
+ *    like to list. It should have the form `domains/{domain_name}`, where
+ *    domain_name is the fully qualified domain name.
  *
  *  @return GTLRPostmasterToolsQuery_DomainsTrafficStatsList
  *

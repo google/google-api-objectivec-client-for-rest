@@ -6453,6 +6453,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_Entit
 // GTLRDisplayVideo_LineItem.lineItemType
 
 /**
+ *  Rtb Audio ads sold for a variety of environments.
+ *
+ *  Value: "LINE_ITEM_TYPE_AUDIO_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeAudioDefault;
+/**
  *  Image, HTML5, native, or rich media ads.
  *
  *  Value: "LINE_ITEM_TYPE_DISPLAY_DEFAULT"
@@ -9872,8 +9878,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_AuditAdvertiserResponse : GTLRObject
 
 /**
+ *  The number of individual targeting options from the following targeting
+ *  types that are assigned to a line item under this advertiser. These
+ *  individual targeting options count towards the limit of 4500000 ad group
+ *  targeting options per advertiser. Qualifying Targeting types: * Channels,
+ *  URLs, apps, and collections * Demographic * Google Audiences, including
+ *  Affinity, Custom Affinity, and In-market audiences * Inventory source *
+ *  Keyword * Mobile app category * User lists * Video targeting * Viewability
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adGroupCriteriaCount;
+
+/**
+ *  The number of individual targeting options from the following targeting
+ *  types that are assigned to a line item under this advertiser. These
+ *  individual targeting options count towards the limit of 900000 campaign
+ *  targeting options per advertiser. Qualifying Targeting types: * Position *
+ *  Browser * Connection speed * Day and time * Device and operating system *
+ *  Digital content label * Sensitive categories * Environment * Geography,
+ *  including business chains and proximity * ISP * Language * Third-party
+ *  verification
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignCriteriaCount;
+
+/**
+ *  The number of channels created under this advertiser. These channels count
+ *  towards the limit of 1000 channels per advertiser.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *channelsCount;
+
+/**
+ *  The number of negative keyword lists created under this advertiser. These
+ *  negative keyword lists count towards the limit of 20 negative keyword lists
+ *  per advertiser.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *negativeKeywordListsCount;
+
+/**
+ *  The number of negatively targeted channels created under this advertiser.
+ *  These negatively targeted channels count towards the limit of 5 negatively
+ *  targeted channels per advertiser.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *negativelyTargetedChannelsCount;
+
+/**
  *  The number of ACTIVE and PAUSED campaigns under this advertiser. These
- *  campaigns count towards the limit of 9,999 campaigns per advertiser.
+ *  campaigns count towards the limit of 9999 campaigns per advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9881,8 +9940,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  The number of ACTIVE, PAUSED and DRAFT insertion orders under this
- *  advertiser. These insertion orders count towards the limit of 9,999
- *  insertion orders per advertiser.
+ *  advertiser. These insertion orders count towards the limit of 9999 insertion
+ *  orders per advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -9890,7 +9949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  The number of ACTIVE, PAUSED, and DRAFT line items under this advertiser.
- *  These line items count towards the limit of 9,999 line items per advertiser.
+ *  These line items count towards the limit of 9999 line items per advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -10187,7 +10246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
- *  Response message for BulkEditAssignedUserRoles.
+ *  GTLRDisplayVideo_BulkEditAssignedUserRolesResponse
  */
 @interface GTLRDisplayVideo_BulkEditAssignedUserRolesResponse : GTLRObject
 
@@ -15406,6 +15465,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Required. Immutable. The type of the line item.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeAudioDefault
+ *        Rtb Audio ads sold for a variety of environments. (Value:
+ *        "LINE_ITEM_TYPE_AUDIO_DEFAULT")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayDefault
  *        Image, HTML5, native, or rich media ads. (Value:
  *        "LINE_ITEM_TYPE_DISPLAY_DEFAULT")
@@ -15780,8 +15842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
- *  Response message for
- *  CustomBiddingAlgorithmService.ListCustomBiddingAlgorithms.
+ *  GTLRDisplayVideo_ListCustomBiddingAlgorithmsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "customBiddingAlgorithms" property. If returned as the result of a
@@ -16120,7 +16181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
- *  Response message for ListPartnerAssignedTargetingOptions.
+ *  GTLRDisplayVideo_ListPartnerAssignedTargetingOptionsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "assignedTargetingOptions" property. If returned as the result of
@@ -16149,7 +16210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
- *  Response message for ListPartners.
+ *  GTLRDisplayVideo_ListPartnersResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "partners" property. If returned as the result of a query, it
@@ -16233,7 +16294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
- *  Response message for ListUsers.
+ *  GTLRDisplayVideo_ListUsersResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "users" property. If returned as the result of a query, it should

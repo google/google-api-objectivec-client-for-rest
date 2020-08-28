@@ -241,11 +241,12 @@
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
          autoUpdateExpiration, bootMode, cpuStatusReports, deviceFiles,
          deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
-         ethernetMacAddress0, firmwareVersion, kind, lastEnrollmentTime,
-         lastKnownNetwork, lastSync, macAddress, manufactureDate, meid, model,
-         notes, orderNumber, orgUnitPath, osVersion, platformVersion,
-         recentUsers, serialNumber, status, supportEndDate,
-         systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
+         ethernetMacAddress0, firmwareVersion, kind, lastDeviceEnrollerEmail,
+         lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
+         manufactureDate, meid, model, notes, orderNumber, orgUnitPath,
+         osVersion, platformVersion, recentUsers, serialNumber, status,
+         supportEndDate, systemRamFreeReports, systemRamTotal, tpmVersionInfo,
+         willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -809,44 +810,6 @@
 
 + (NSString *)collectionItemsKey {
   return @"mobiledevices";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDirectory_Notification
-//
-
-@implementation GTLRDirectory_Notification
-@dynamic body, ETag, fromAddress, isUnread, kind, notificationId, sendTime,
-         subject;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDirectory_Notifications
-//
-
-@implementation GTLRDirectory_Notifications
-@dynamic ETag, items, kind, nextPageToken, unreadNotificationsCount;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRDirectory_Notification class]
-  };
-  return map;
 }
 
 @end

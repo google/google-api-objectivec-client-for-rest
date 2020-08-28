@@ -5,6 +5,8 @@
 //   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
 //   Creates short-lived credentials for impersonating IAM service accounts.
+//   *Note:* This API is tied to the IAM API (iam.googleapis.com). Enabling or
+//   disabling this API will also enable or disable the IAM API.
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
@@ -70,8 +72,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRIAMCredentials_GenerateAccessTokenRequest to
  *    include in the query.
  *  @param name Required. The resource name of the service account for which the
- *    credentials
- *    are requested, in the following format:
+ *    credentials are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *    character is required; replacing it with a project ID is invalid.
  *
@@ -110,8 +111,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRIAMCredentials_GenerateIdTokenRequest to include in
  *    the query.
  *  @param name Required. The resource name of the service account for which the
- *    credentials
- *    are requested, in the following format:
+ *    credentials are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *    character is required; replacing it with a project ID is invalid.
  *
@@ -150,8 +150,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRIAMCredentials_SignBlobRequest to include in the
  *    query.
  *  @param name Required. The resource name of the service account for which the
- *    credentials
- *    are requested, in the following format:
+ *    credentials are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *    character is required; replacing it with a project ID is invalid.
  *
@@ -190,8 +189,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRIAMCredentials_SignJwtRequest to include in the
  *    query.
  *  @param name Required. The resource name of the service account for which the
- *    credentials
- *    are requested, in the following format:
+ *    credentials are requested, in the following format:
  *    `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *    character is required; replacing it with a project ID is invalid.
  *

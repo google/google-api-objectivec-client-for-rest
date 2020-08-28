@@ -83,6 +83,16 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandSt
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotFound = @"WORKING_DIR_NOT_FOUND";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotInBaseDir = @"WORKING_DIR_NOT_IN_BASE_DIR";
 
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy.linuxIsolation
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_Gvisor = @"GVISOR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_LinuxIsolationUnspecified = @"LINUX_ISOLATION_UNSPECIFIED";
+
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature.policy
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Allowed = @"ALLOWED";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Forbidden = @"FORBIDDEN";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_PolicyUnspecified = @"POLICY_UNSPECIFIED";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Restricted = @"RESTRICTED";
+
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance.state
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Creating = @"CREATING";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Inactive = @"INACTIVE";
@@ -852,6 +862,36 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy
+@dynamic containerImageSources, dockerAddCapabilities, dockerChrootPath,
+         dockerNetwork, dockerPrivileged, dockerRunAsRoot, dockerRuntime,
+         dockerSiblingContainers, linuxIsolation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature
+@dynamic allowedValues, policy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaGetInstanceRequest
 //
 
@@ -876,7 +916,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance
-@dynamic location, loggingEnabled, name, state;
+@dynamic featurePolicy, location, loggingEnabled, name, state;
 @end
 
 
@@ -938,6 +978,16 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig
+@dynamic nodesZone, nodeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateInstanceRequest
 //
 
@@ -963,7 +1013,8 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig
 @dynamic accelerator, diskSizeGb, diskType, labels, machineType,
-         maxConcurrentActions, minCpuPlatform, networkAccess, reserved, vmImage;
+         maxConcurrentActions, minCpuPlatform, networkAccess, reserved,
+         soleTenancy, vmImage;
 @end
 
 

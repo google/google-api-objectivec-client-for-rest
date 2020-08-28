@@ -121,8 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *accessibility;
 
 /**
- *  The best practices category, containing all best practices related
- *  audits.
+ *  The best practices category, containing all best practices related audits.
  */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *bestPractices;
 
@@ -130,8 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *performance;
 
 /**
- *  The Progressive-Web-App (PWA) category, containing all pwa related
- *  audits.
+ *  The Progressive-Web-App (PWA) category, containing all pwa related audits.
  */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_LighthouseCategoryV5 *pwa;
 
@@ -256,9 +254,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  A numeric value that has a meaning specific to the audit, e.g. the number
- *  of nodes in the DOM or the timestamp of a specific load event. More
- *  information can be found in the audit details, if present.
+ *  A numeric value that has a meaning specific to the audit, e.g. the number of
+ *  nodes in the DOM or the timestamp of a specific load event. More information
+ *  can be found in the audit details, if present.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -438,7 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The requested URL, which may differ from the resolved "id". */
 @property(nonatomic, copy, nullable) NSString *initialUrl;
 
-/** The map of <metrics, data>. */
+/** The map of . */
 @property(nonatomic, strong, nullable) GTLRPagespeedInsights_PagespeedApiLoadingExperienceV5_Metrics *metrics;
 
 /**
@@ -455,7 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The map of <metrics, data>.
+ *  The map of .
  *
  *  @note This class is documented as having more properties of
  *        GTLRPagespeedInsights_UserPageLoadMetricV5. Use @c -additionalJSONKeys
@@ -479,8 +477,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *captchaResult;
 
 /**
- *  Canonicalized and final URL for the document, after following page
- *  redirects (if any).
+ *  Canonicalized and final URL for the document, after following page redirects
+ *  (if any).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -542,14 +540,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *labDataTitle;
 
 /**
- *  The disclaimer shown under performance explaning that the network can
- *  vary.
+ *  The disclaimer shown under performance explaning that the network can vary.
  */
 @property(nonatomic, copy, nullable) NSString *lsPerformanceCategoryDescription;
 
 /**
- *  The heading shown above a list of audits that were not computerd in the
- *  run.
+ *  The heading shown above a list of audits that were not computerd in the run.
  */
 @property(nonatomic, copy, nullable) NSString *manualAuditsGroupTitle;
 
@@ -557,8 +553,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *notApplicableAuditsGroupTitle;
 
 /**
- *  The heading for the estimated page load savings opportunity of an
- *  audit.
+ *  The heading for the estimated page load savings opportunity of an audit.
  */
 @property(nonatomic, copy, nullable) NSString *opportunityResourceColumnLabel;
 
@@ -572,8 +567,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *scorescaleLabel;
 
 /**
- *  The label shown preceding important warnings that may have invalidated
- *  an entire report.
+ *  The label shown preceding important warnings that may have invalidated an
+ *  entire report.
  */
 @property(nonatomic, copy, nullable) NSString *toplevelWarningsMessage;
 
@@ -676,9 +671,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *metricId;
 
 /**
- *  We use this field to store certain percentile value for this metric.
- *  For v4, this field contains pc50.
- *  For v5, this field contains pc90.
+ *  We use this field to store certain percentile value for this metric. For v4,
+ *  this field contains pc50. For v5, this field contains pc90.
  *
  *  Uses NSNumber of intValue.
  */

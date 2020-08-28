@@ -105,100 +105,76 @@ NS_ASSUME_NONNULL_BEGIN
  *  attribute is updated to indicate whether the asset was added, removed, or
  *  remained present during the compare_duration period of time that precedes
  *  the read_time. This is the time between (read_time - compare_duration) and
- *  read_time.
- *  The state_change value is derived based on the presence of the asset at the
- *  two points in time. Intermediate state changes between the two times don't
- *  affect the result. For example, the results aren't affected if the asset is
- *  removed and re-created again.
- *  Possible "state_change" values when compare_duration is specified:
- *  * "ADDED": indicates that the asset was not present at the start of
- *  compare_duration, but present at read_time.
- *  * "REMOVED": indicates that the asset was present at the start of
- *  compare_duration, but not present at read_time.
- *  * "ACTIVE": indicates that the asset was present at both the
- *  start and the end of the time period defined by
- *  compare_duration and read_time.
- *  If compare_duration is not specified, then the only possible state_change
- *  is "UNUSED", which will be the state_change set for all assets present at
- *  read_time.
+ *  read_time. The state_change value is derived based on the presence of the
+ *  asset at the two points in time. Intermediate state changes between the two
+ *  times don't affect the result. For example, the results aren't affected if
+ *  the asset is removed and re-created again. Possible "state_change" values
+ *  when compare_duration is specified: * "ADDED": indicates that the asset was
+ *  not present at the start of compare_duration, but present at read_time. *
+ *  "REMOVED": indicates that the asset was present at the start of
+ *  compare_duration, but not present at read_time. * "ACTIVE": indicates that
+ *  the asset was present at both the start and the end of the time period
+ *  defined by compare_duration and read_time. If compare_duration is not
+ *  specified, then the only possible state_change is "UNUSED", which will be
+ *  the state_change set for all assets present at read_time.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
 
 /**
  *  A field mask to specify the ListAssetsResult fields to be listed in the
- *  response.
- *  An empty field mask will list all fields.
+ *  response. An empty field mask will list all fields.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *fieldMask;
 
 /**
- *  Expression that defines the filter to apply across assets.
- *  The expression is a list of zero or more restrictions combined via logical
- *  operators `AND` and `OR`.
- *  Parentheses are supported, and `OR` has higher precedence than `AND`.
- *  Restrictions have the form `<field> <operator> <value>` and may have a `-`
- *  character in front of them to indicate negation. The fields map to those
- *  defined in the Asset resource. Examples include:
- *  * name
- *  * security_center_properties.resource_name
- *  * resource_properties.a_property
- *  * security_marks.marks.marka
- *  The supported operators are:
- *  * `=` for all value types.
- *  * `>`, `<`, `>=`, `<=` for integer values.
- *  * `:`, meaning substring matching, for strings.
- *  The supported value types are:
- *  * string literals in quotes.
- *  * integer literals without quotes.
- *  * boolean literals `true` and `false` without quotes.
- *  The following are the allowed field and operator combinations:
- *  * name: `=`
- *  * update_time: `=`, `>`, `<`, `>=`, `<=`
+ *  Expression that defines the filter to apply across assets. The expression is
+ *  a list of zero or more restrictions combined via logical operators `AND` and
+ *  `OR`. Parentheses are supported, and `OR` has higher precedence than `AND`.
+ *  Restrictions have the form ` ` and may have a `-` character in front of them
+ *  to indicate negation. The fields map to those defined in the Asset resource.
+ *  Examples include: * name * security_center_properties.resource_name *
+ *  resource_properties.a_property * security_marks.marks.marka The supported
+ *  operators are: * `=` for all value types. * `>`, `<`, `>=`, `<=` for integer
+ *  values. * `:`, meaning substring matching, for strings. The supported value
+ *  types are: * string literals in quotes. * integer literals without quotes. *
+ *  boolean literals `true` and `false` without quotes. The following are the
+ *  allowed field and operator combinations: * name: `=` * update_time: `=`,
+ *  `>`, `<`, `>=`, `<=` Usage: This should be milliseconds since epoch or an
+ *  RFC3339 string. Examples: `update_time = "2019-06-10T16:07:18-07:00"`
+ *  `update_time = 1560208038000` * create_time: `=`, `>`, `<`, `>=`, `<=`
  *  Usage: This should be milliseconds since epoch or an RFC3339 string.
- *  Examples:
- *  `update_time = "2019-06-10T16:07:18-07:00"`
- *  `update_time = 1560208038000`
- *  * create_time: `=`, `>`, `<`, `>=`, `<=`
- *  Usage: This should be milliseconds since epoch or an RFC3339 string.
- *  Examples:
- *  `create_time = "2019-06-10T16:07:18-07:00"`
- *  `create_time = 1560208038000`
- *  * iam_policy.policy_blob: `=`, `:`
- *  * resource_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
- *  * security_marks.marks: `=`, `:`
- *  * security_center_properties.resource_name: `=`, `:`
- *  * security_center_properties.resource_display_name: `=`, `:`
- *  * security_center_properties.resource_type: `=`, `:`
- *  * security_center_properties.resource_parent: `=`, `:`
- *  * security_center_properties.resource_parent_display_name: `=`, `:`
- *  * security_center_properties.resource_project: `=`, `:`
- *  * security_center_properties.resource_project_display_name: `=`, `:`
- *  * security_center_properties.resource_owners: `=`, `:`
- *  For example, `resource_properties.size = 100` is a valid filter string.
- *  Use a partial match on the empty string to filter based on a property
- *  existing: `resource_properties.my_property : ""`
- *  Use a negated partial match on the empty string to filter based on a
- *  property not existing: `-resource_properties.my_property : ""`
+ *  Examples: `create_time = "2019-06-10T16:07:18-07:00"` `create_time =
+ *  1560208038000` * iam_policy.policy_blob: `=`, `:` * resource_properties:
+ *  `=`, `:`, `>`, `<`, `>=`, `<=` * security_marks.marks: `=`, `:` *
+ *  security_center_properties.resource_name: `=`, `:` *
+ *  security_center_properties.resource_display_name: `=`, `:` *
+ *  security_center_properties.resource_type: `=`, `:` *
+ *  security_center_properties.resource_parent: `=`, `:` *
+ *  security_center_properties.resource_parent_display_name: `=`, `:` *
+ *  security_center_properties.resource_project: `=`, `:` *
+ *  security_center_properties.resource_project_display_name: `=`, `:` *
+ *  security_center_properties.resource_owners: `=`, `:` For example,
+ *  `resource_properties.size = 100` is a valid filter string. Use a partial
+ *  match on the empty string to filter based on a property existing:
+ *  `resource_properties.my_property : ""` Use a negated partial match on the
+ *  empty string to filter based on a property not existing:
+ *  `-resource_properties.my_property : ""`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Expression that defines what fields and order to use for sorting. The
- *  string value should follow SQL syntax: comma separated list of fields. For
- *  example: "name,resource_properties.a_property". The default sorting order
- *  is ascending. To specify descending order for a field, a suffix " desc"
- *  should be appended to the field name. For example: "name
+ *  Expression that defines what fields and order to use for sorting. The string
+ *  value should follow SQL syntax: comma separated list of fields. For example:
+ *  "name,resource_properties.a_property". The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix " desc" should
+ *  be appended to the field name. For example: "name
  *  desc,resource_properties.a_property". Redundant space characters in the
  *  syntax are insignificant. "name desc,resource_properties.a_property" and "
- *  name desc , resource_properties.a_property " are equivalent.
- *  The following fields are supported:
- *  name
- *  update_time
- *  resource_properties
- *  security_marks.marks
- *  security_center_properties.resource_name
+ *  name desc , resource_properties.a_property " are equivalent. The following
+ *  fields are supported: name update_time resource_properties
+ *  security_marks.marks security_center_properties.resource_name
  *  security_center_properties.resource_display_name
  *  security_center_properties.resource_parent
  *  security_center_properties.resource_parent_display_name
@@ -209,15 +185,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of results to return in a single response. Default is
- *  10, minimum is 1, maximum is 1000.
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListAssetsResponse`; indicates
- *  that this is a continuation of a prior `ListAssets` call, and
- *  that the system should return the next page of data.
+ *  The value returned by the last `ListAssetsResponse`; indicates that this is
+ *  a continuation of a prior `ListAssets` call, and that the system should
+ *  return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -241,8 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists an organization's assets.
  *
  *  @param parent Required. Name of the organization assets should belong to.
- *    Its format is
- *    "organizations/[organization_id]".
+ *    Its format is "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsList
  *
@@ -256,10 +231,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Runs asset discovery. The discovery is tracked with a long-running
- *  operation.
- *  This API can only be called with limited frequency for an organization. If
- *  it is called too frequently the caller will receive a TOO_MANY_REQUESTS
- *  error.
+ *  operation. This API can only be called with limited frequency for an
+ *  organization. If it is called too frequently the caller will receive a
+ *  TOO_MANY_REQUESTS error.
  *
  *  Method: securitycenter.organizations.assets.runDiscovery
  *
@@ -280,16 +254,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecurityCommandCenter_Operation.
  *
  *  Runs asset discovery. The discovery is tracked with a long-running
- *  operation.
- *  This API can only be called with limited frequency for an organization. If
- *  it is called too frequently the caller will receive a TOO_MANY_REQUESTS
- *  error.
+ *  operation. This API can only be called with limited frequency for an
+ *  organization. If it is called too frequently the caller will receive a
+ *  TOO_MANY_REQUESTS error.
  *
  *  @param object The @c GTLRSecurityCommandCenter_RunAssetDiscoveryRequest to
  *    include in the query.
  *  @param parent Required. Name of the organization to run asset discovery for.
- *    Its format is
- *    "organizations/[organization_id]".
+ *    Its format is "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsAssetsRunDiscovery
  */
@@ -313,24 +285,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The relative resource name of the SecurityMarks. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Examples:
- *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  Examples: "organizations/{organization_id}/assets/{asset_id}/securityMarks"
  *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The time at which the updated SecurityMarks take effect.
- *  If not set uses current server time. Updates will be applied to the
- *  SecurityMarks that are active immediately preceding this time.
+ *  The time at which the updated SecurityMarks take effect. If not set uses
+ *  current server time. Updates will be applied to the SecurityMarks that are
+ *  active immediately preceding this time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  The FieldMask to use when updating the security marks resource.
- *  The field mask must not contain duplicate fields.
- *  If empty or set to "marks", all marks will be replaced. Individual
- *  marks can be updated using "marks.<mark_key>".
+ *  The FieldMask to use when updating the security marks resource. The field
+ *  mask must not contain duplicate fields. If empty or set to "marks", all
+ *  marks will be replaced. Individual marks can be updated using "marks.".
  *
  *  String format is a comma-separated list of fields.
  */
@@ -370,8 +340,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the organization to get organization settings for. Its
- *  format is
- *  "organizations/[organization_id]/organizationSettings".
+ *  format is "organizations/[organization_id]/organizationSettings".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -381,8 +350,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for an organization.
  *
  *  @param name Required. Name of the organization to get organization settings
- *    for. Its format is
- *    "organizations/[organization_id]/organizationSettings".
+ *    for. Its format is "organizations/[organization_id]/organizationSettings".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsGetOrganizationSettings
  */
@@ -403,8 +371,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsCreateWithObject:parent:]
 
 /**
- *  Required.
- *  Unique identifier provided by the client within the parent scope.
+ *  Required. Unique identifier provided by the client within the parent scope.
  *  It must be between 1 and 128 characters, and contains alphanumeric
  *  characters, underscores or hyphens only.
  */
@@ -412,8 +379,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the new notification config's parent. Its format
- *  is
- *  "organizations/[organization_id]".
+ *  is "organizations/[organization_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -425,8 +391,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
  *    in the query.
  *  @param parent Required. Resource name of the new notification config's
- *    parent. Its format is
- *    "organizations/[organization_id]".
+ *    parent. Its format is "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsCreate
  */
@@ -459,8 +424,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a notification config.
  *
  *  @param name Required. Name of the notification config to delete. Its format
- *    is
- *    "organizations/[organization_id]/notificationConfigs/[config_id]".
+ *    is "organizations/[organization_id]/notificationConfigs/[config_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsDelete
  */
@@ -513,8 +477,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsNotificationConfigsListWithparent:]
 
 /**
- *  The maximum number of results to return in a single response. Default is
- *  10, minimum is 1, maximum is 1000.
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -526,8 +490,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization to list notification configs.
- *  Its format is "organizations/[organization_id]".
+ *  Required. Name of the organization to list notification configs. Its format
+ *  is "organizations/[organization_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -537,8 +501,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists notification configs.
  *
  *  @param parent Required. Name of the organization to list notification
- *    configs.
- *    Its format is "organizations/[organization_id]".
+ *    configs. Its format is "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsNotificationConfigsList
  *
@@ -551,8 +514,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a notification config. The following update
- *  fields are allowed: description, pubsub_topic, streaming_config.filter
+ *  Updates a notification config. The following update fields are allowed:
+ *  description, pubsub_topic, streaming_config.filter
  *
  *  Method: securitycenter.organizations.notificationConfigs.patch
  *
@@ -572,8 +535,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The FieldMask to use when updating the notification config.
- *  If empty all mutable fields will be updated.
+ *  The FieldMask to use when updating the notification config. If empty all
+ *  mutable fields will be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -582,8 +545,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_NotificationConfig.
  *
- *  Updates a notification config. The following update
- *  fields are allowed: description, pubsub_topic, streaming_config.filter
+ *  Updates a notification config. The following update fields are allowed:
+ *  description, pubsub_topic, streaming_config.filter
  *
  *  @param object The @c GTLRSecurityCommandCenter_NotificationConfig to include
  *    in the query.
@@ -601,15 +564,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: securitycenter.organizations.operations.cancel
  *
@@ -627,15 +589,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecurityCommandCenter_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
  *
@@ -713,14 +674,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: securitycenter.organizations.operations.list
  *
@@ -747,14 +708,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecurityCommandCenter_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -794,8 +755,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecurityCommandCenter_Source to include in the
  *    query.
  *  @param parent Required. Resource name of the new source's parent. Its format
- *    should be
- *    "organizations/[organization_id]".
+ *    should be "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesCreate
  */
@@ -819,8 +779,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Unique identifier provided by the client within the parent scope.
- *  It must be alphanumeric and less than or equal to 32 characters and
- *  greater than 0 characters in length.
+ *  It must be alphanumeric and less than or equal to 32 characters and greater
+ *  than 0 characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *findingId;
 
@@ -839,8 +799,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecurityCommandCenter_Finding to include in the
  *    query.
  *  @param parent Required. Resource name of the new finding's parent. Its
- *    format should be
- *    "organizations/[organization_id]/sources/[source_id]".
+ *    format should be "organizations/[organization_id]/sources/[source_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsCreate
  */
@@ -851,9 +810,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Filters an organization or source's findings and groups them by their
- *  specified properties.
- *  To group across all sources provide a `-` as the source id.
- *  Example: /v1/organizations/{organization_id}/sources/-/findings
+ *  specified properties. To group across all sources provide a `-` as the
+ *  source id. Example: /v1/organizations/{organization_id}/sources/-/findings
  *
  *  Method: securitycenter.organizations.sources.findings.group
  *
@@ -866,8 +824,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the source to groupBy. Its format is
- *  "organizations/[organization_id]/sources/[source_id]". To groupBy across
- *  all sources provide a source_id of `-`. For example:
+ *  "organizations/[organization_id]/sources/[source_id]". To groupBy across all
+ *  sources provide a source_id of `-`. For example:
  *  organizations/{organization_id}/sources/-
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -876,9 +834,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecurityCommandCenter_GroupFindingsResponse.
  *
  *  Filters an organization or source's findings and groups them by their
- *  specified properties.
- *  To group across all sources provide a `-` as the source id.
- *  Example: /v1/organizations/{organization_id}/sources/-/findings
+ *  specified properties. To group across all sources provide a `-` as the
+ *  source id. Example: /v1/organizations/{organization_id}/sources/-/findings
  *
  *  @param object The @c GTLRSecurityCommandCenter_GroupFindingsRequest to
  *    include in the query.
@@ -895,9 +852,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists an organization or source's findings.
- *  To list across all sources provide a `-` as the source id.
- *  Example: /v1/organizations/{organization_id}/sources/-/findings
+ *  Lists an organization or source's findings. To list across all sources
+ *  provide a `-` as the source id. Example:
+ *  /v1/organizations/{organization_id}/sources/-/findings
  *
  *  Method: securitycenter.organizations.sources.findings.list
  *
@@ -914,109 +871,82 @@ NS_ASSUME_NONNULL_BEGIN
  *  the finding's state remained unchanged, or if the finding was added in any
  *  state during the compare_duration period of time that precedes the
  *  read_time. This is the time between (read_time - compare_duration) and
- *  read_time.
- *  The state_change value is derived based on the presence and state of the
- *  finding at the two points in time. Intermediate state changes between the
- *  two times don't affect the result. For example, the results aren't affected
- *  if the finding is made inactive and then active again.
- *  Possible "state_change" values when compare_duration is specified:
- *  * "CHANGED": indicates that the finding was present and matched the given
- *  filter at the start of compare_duration, but changed its
- *  state at read_time.
- *  * "UNCHANGED": indicates that the finding was present and matched the given
- *  filter at the start of compare_duration and did not change
- *  state at read_time.
- *  * "ADDED": indicates that the finding did not match the given filter or
- *  was not present at the start of compare_duration, but was
- *  present at read_time.
- *  * "REMOVED": indicates that the finding was present and matched the
- *  filter at the start of compare_duration, but did not match
- *  the filter at read_time.
- *  If compare_duration is not specified, then the only possible state_change
- *  is "UNUSED", which will be the state_change set for all findings present at
- *  read_time.
+ *  read_time. The state_change value is derived based on the presence and state
+ *  of the finding at the two points in time. Intermediate state changes between
+ *  the two times don't affect the result. For example, the results aren't
+ *  affected if the finding is made inactive and then active again. Possible
+ *  "state_change" values when compare_duration is specified: * "CHANGED":
+ *  indicates that the finding was present and matched the given filter at the
+ *  start of compare_duration, but changed its state at read_time. *
+ *  "UNCHANGED": indicates that the finding was present and matched the given
+ *  filter at the start of compare_duration and did not change state at
+ *  read_time. * "ADDED": indicates that the finding did not match the given
+ *  filter or was not present at the start of compare_duration, but was present
+ *  at read_time. * "REMOVED": indicates that the finding was present and
+ *  matched the filter at the start of compare_duration, but did not match the
+ *  filter at read_time. If compare_duration is not specified, then the only
+ *  possible state_change is "UNUSED", which will be the state_change set for
+ *  all findings present at read_time.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *compareDuration;
 
 /**
- *  A field mask to specify the Finding fields to be listed in the response.
- *  An empty field mask will list all fields.
+ *  A field mask to specify the Finding fields to be listed in the response. An
+ *  empty field mask will list all fields.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *fieldMask;
 
 /**
- *  Expression that defines the filter to apply across findings.
- *  The expression is a list of one or more restrictions combined via logical
- *  operators `AND` and `OR`.
- *  Parentheses are supported, and `OR` has higher precedence than `AND`.
- *  Restrictions have the form `<field> <operator> <value>` and may have a `-`
- *  character in front of them to indicate negation. Examples include:
- *  * name
- *  * source_properties.a_property
- *  * security_marks.marks.marka
- *  The supported operators are:
- *  * `=` for all value types.
- *  * `>`, `<`, `>=`, `<=` for integer values.
- *  * `:`, meaning substring matching, for strings.
- *  The supported value types are:
- *  * string literals in quotes.
- *  * integer literals without quotes.
- *  * boolean literals `true` and `false` without quotes.
- *  The following field and operator combinations are supported:
- *  name: `=`
- *  parent: `=`, `:`
- *  resource_name: `=`, `:`
- *  state: `=`, `:`
- *  category: `=`, `:`
- *  external_uri: `=`, `:`
- *  event_time: `=`, `>`, `<`, `>=`, `<=`
- *  Usage: This should be milliseconds since epoch or an RFC3339 string.
- *  Examples:
- *  `event_time = "2019-06-10T16:07:18-07:00"`
- *  `event_time = 1560208038000`
- *  security_marks.marks: `=`, `:`
- *  source_properties: `=`, `:`, `>`, `<`, `>=`, `<=`
- *  For example, `source_properties.size = 100` is a valid filter string.
+ *  Expression that defines the filter to apply across findings. The expression
+ *  is a list of one or more restrictions combined via logical operators `AND`
+ *  and `OR`. Parentheses are supported, and `OR` has higher precedence than
+ *  `AND`. Restrictions have the form ` ` and may have a `-` character in front
+ *  of them to indicate negation. Examples include: * name *
+ *  source_properties.a_property * security_marks.marks.marka The supported
+ *  operators are: * `=` for all value types. * `>`, `<`, `>=`, `<=` for integer
+ *  values. * `:`, meaning substring matching, for strings. The supported value
+ *  types are: * string literals in quotes. * integer literals without quotes. *
+ *  boolean literals `true` and `false` without quotes. The following field and
+ *  operator combinations are supported: name: `=` parent: `=`, `:`
+ *  resource_name: `=`, `:` state: `=`, `:` category: `=`, `:` external_uri:
+ *  `=`, `:` event_time: `=`, `>`, `<`, `>=`, `<=` Usage: This should be
+ *  milliseconds since epoch or an RFC3339 string. Examples: `event_time =
+ *  "2019-06-10T16:07:18-07:00"` `event_time = 1560208038000`
+ *  security_marks.marks: `=`, `:` source_properties: `=`, `:`, `>`, `<`, `>=`,
+ *  `<=` For example, `source_properties.size = 100` is a valid filter string.
  *  Use a partial match on the empty string to filter based on a property
- *  existing: `source_properties.my_property : ""`
- *  Use a negated partial match on the empty string to filter based on a
- *  property not existing: `-source_properties.my_property : ""`
+ *  existing: `source_properties.my_property : ""` Use a negated partial match
+ *  on the empty string to filter based on a property not existing:
+ *  `-source_properties.my_property : ""`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Expression that defines what fields and order to use for sorting. The
- *  string value should follow SQL syntax: comma separated list of fields. For
- *  example: "name,resource_properties.a_property". The default sorting order
- *  is ascending. To specify descending order for a field, a suffix " desc"
- *  should be appended to the field name. For example: "name
- *  desc,source_properties.a_property". Redundant space characters in the
- *  syntax are insignificant. "name desc,source_properties.a_property" and "
- *  name desc , source_properties.a_property " are equivalent.
- *  The following fields are supported:
- *  name
- *  parent
- *  state
- *  category
- *  resource_name
- *  event_time
- *  source_properties
- *  security_marks.marks
+ *  Expression that defines what fields and order to use for sorting. The string
+ *  value should follow SQL syntax: comma separated list of fields. For example:
+ *  "name,resource_properties.a_property". The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix " desc" should
+ *  be appended to the field name. For example: "name
+ *  desc,source_properties.a_property". Redundant space characters in the syntax
+ *  are insignificant. "name desc,source_properties.a_property" and " name desc
+ *  , source_properties.a_property " are equivalent. The following fields are
+ *  supported: name parent state category resource_name event_time
+ *  source_properties security_marks.marks
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of results to return in a single response. Default is
- *  10, minimum is 1, maximum is 1000.
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListFindingsResponse`; indicates
- *  that this is a continuation of a prior `ListFindings` call, and
- *  that the system should return the next page of data.
+ *  The value returned by the last `ListFindingsResponse`; indicates that this
+ *  is a continuation of a prior `ListFindings` call, and that the system should
+ *  return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1030,23 +960,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Time used as a reference point when filtering findings. The filter is
- *  limited to findings existing at the supplied time and their values are
- *  those at that specific time. Absence of this field will default to the
- *  API's version of NOW.
+ *  limited to findings existing at the supplied time and their values are those
+ *  at that specific time. Absence of this field will default to the API's
+ *  version of NOW.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
  *  Fetches a @c GTLRSecurityCommandCenter_ListFindingsResponse.
  *
- *  Lists an organization or source's findings.
- *  To list across all sources provide a `-` as the source id.
- *  Example: /v1/organizations/{organization_id}/sources/-/findings
+ *  Lists an organization or source's findings. To list across all sources
+ *  provide a `-` as the source id. Example:
+ *  /v1/organizations/{organization_id}/sources/-/findings
  *
  *  @param parent Required. Name of the source the findings belong to. Its
- *    format is
- *    "organizations/[organization_id]/sources/[source_id]". To list across all
- *    sources provide a source_id of `-`. For example:
+ *    format is "organizations/[organization_id]/sources/[source_id]". To list
+ *    across all sources provide a source_id of `-`. For example:
  *    organizations/{organization_id}/sources/-
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesFindingsList
@@ -1082,11 +1011,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The FieldMask to use when updating the finding resource. This field should
- *  not be specified when creating a finding.
- *  When updating a finding, an empty mask is treated as updating all mutable
- *  fields and replacing source_properties. Individual source_properties can
- *  be added/updated by using "source_properties.<property key>" in the field
- *  mask.
+ *  not be specified when creating a finding. When updating a finding, an empty
+ *  mask is treated as updating all mutable fields and replacing
+ *  source_properties. Individual source_properties can be added/updated by
+ *  using "source_properties." in the field mask.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1166,24 +1094,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The relative resource name of the SecurityMarks. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Examples:
- *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  Examples: "organizations/{organization_id}/assets/{asset_id}/securityMarks"
  *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The time at which the updated SecurityMarks take effect.
- *  If not set uses current server time. Updates will be applied to the
- *  SecurityMarks that are active immediately preceding this time.
+ *  The time at which the updated SecurityMarks take effect. If not set uses
+ *  current server time. Updates will be applied to the SecurityMarks that are
+ *  active immediately preceding this time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  The FieldMask to use when updating the security marks resource.
- *  The field mask must not contain duplicate fields.
- *  If empty or set to "marks", all marks will be replaced. Individual
- *  marks can be updated using "marks.<mark_key>".
+ *  The FieldMask to use when updating the security marks resource. The field
+ *  mask must not contain duplicate fields. If empty or set to "marks", all
+ *  marks will be replaced. Individual marks can be updated using "marks.".
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1254,8 +1180,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1267,8 +1193,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecurityCommandCenter_GetIamPolicyRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesGetIamPolicy
  */
@@ -1290,22 +1216,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesListWithparent:]
 
 /**
- *  The maximum number of results to return in a single response. Default is
- *  10, minimum is 1, maximum is 1000.
+ *  The maximum number of results to return in a single response. Default is 10,
+ *  minimum is 1, maximum is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListSourcesResponse`; indicates
- *  that this is a continuation of a prior `ListSources` call, and
- *  that the system should return the next page of data.
+ *  The value returned by the last `ListSourcesResponse`; indicates that this is
+ *  a continuation of a prior `ListSources` call, and that the system should
+ *  return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. Resource name of the parent of sources to list. Its format should
- *  be
- *  "organizations/[organization_id]".
+ *  be "organizations/[organization_id]".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1315,8 +1240,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all sources belonging to an organization.
  *
  *  @param parent Required. Resource name of the parent of sources to list. Its
- *    format should be
- *    "organizations/[organization_id]".
+ *    format should be "organizations/[organization_id]".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesList
  *
@@ -1343,14 +1267,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The relative resource name of this source. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/sources/{source_id}"
+ *  Example: "organizations/{organization_id}/sources/{source_id}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The FieldMask to use when updating the source resource.
- *  If empty all mutable fields will be updated.
+ *  The FieldMask to use when updating the source resource. If empty all mutable
+ *  fields will be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1365,8 +1288,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The relative resource name of this source. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/sources/{source_id}"
+ *    Example: "organizations/{organization_id}/sources/{source_id}"
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesPatch
  */
@@ -1388,8 +1310,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1401,8 +1323,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecurityCommandCenter_SetIamPolicyRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesSetIamPolicy
  */
@@ -1424,8 +1346,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecurityCommandCenter queryForOrganizationsSourcesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1437,8 +1359,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRSecurityCommandCenter_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsSourcesTestIamPermissions
  */
@@ -1462,14 +1384,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The relative resource name of the settings. See:
  *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example:
- *  "organizations/{organization_id}/organizationSettings".
+ *  Example: "organizations/{organization_id}/organizationSettings".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The FieldMask to use when updating the settings resource.
- *  If empty all mutable fields will be updated.
+ *  The FieldMask to use when updating the settings resource. If empty all
+ *  mutable fields will be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1484,8 +1405,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    include in the query.
  *  @param name The relative resource name of the settings. See:
  *    https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *    Example:
- *    "organizations/{organization_id}/organizationSettings".
+ *    Example: "organizations/{organization_id}/organizationSettings".
  *
  *  @return GTLRSecurityCommandCenterQuery_OrganizationsUpdateOrganizationSettings
  */

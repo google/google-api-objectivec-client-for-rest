@@ -76,23 +76,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_CurrentSpend;
 /**
- *  Use forecasted spend for the period as the basis for comparison against
- *  the threshold.
+ *  Use forecasted spend for the period as the basis for comparison against the
+ *  threshold.
  *
  *  Value: "FORECASTED_SPEND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_ForecastedSpend;
 
 /**
- *  AllUpdatesRule defines notifications that are sent based on budget spend
- *  and thresholds.
+ *  AllUpdatesRule defines notifications that are sent based on budget spend and
+ *  thresholds.
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1AllUpdatesRule : GTLRObject
 
 /**
  *  Optional. Targets to send notifications to when a threshold is exceeded.
- *  This is in
- *  addition to default recipients who have billing account roles.
+ *  This is in addition to default recipients who have billing account roles.
  *  The value is the full REST resource name of a monitoring notification
  *  channel with the form
  *  `projects/{project_id}/notificationChannels/{channel_id}`. A maximum of 5
@@ -103,23 +102,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @property(nonatomic, strong, nullable) NSArray<NSString *> *monitoringNotificationChannels;
 
 /**
- *  Required. The name of the Cloud Pub/Sub topic where budget related messages
- *  will be
- *  published, in the form `projects/{project_id}/topics/{topic_id}`. Updates
- *  are sent at regular intervals to the topic.
- *  The topic needs to be created before the budget is created; see
+ *  Optional. The name of the Pub/Sub topic where budget related messages will
+ *  be published, in the form `projects/{project_id}/topics/{topic_id}`. Updates
+ *  are sent at regular intervals to the topic. The topic needs to be created
+ *  before the budget is created; see
  *  https://cloud.google.com/billing/docs/how-to/budgets#manage-notifications
- *  for more details.
- *  Caller is expected to have
- *  `pubsub.topics.setIamPolicy` permission on the topic when it's set for a
- *  budget, otherwise, the API call will fail with PERMISSION_DENIED. See
+ *  for more details. Caller is expected to have `pubsub.topics.setIamPolicy`
+ *  permission on the topic when it's set for a budget, otherwise, the API call
+ *  will fail with PERMISSION_DENIED. See
  *  https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications
  *  for more details on Pub/Sub roles and permissions.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
- *  Required. The schema version of the notification sent to `pubsub_topic`.
+ *  Optional. The schema version of the notification sent to `pubsub_topic`.
  *  Only "1.0" is accepted. It represents the JSON schema as defined in
  *  https://cloud.google.com/billing/docs/how-to/budgets-programmatic-notifications#notification_format
  */
@@ -131,9 +128,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 /**
  *  A budget is a plan that describes what you expect to spend on Cloud
  *  projects, plus the rules to execute as spend is tracked against that plan,
- *  (for example, send an alert when 90% of the target spend is met).
- *  Currently all plans are monthly budgets so the usage period(s) tracked are
- *  implied (calendar months of usage back-to-back).
+ *  (for example, send an alert when 90% of the target spend is met). Currently
+ *  all plans are monthly budgets so the usage period(s) tracked are implied
+ *  (calendar months of usage back-to-back).
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget : GTLRObject
 
@@ -147,34 +144,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1BudgetAmount *amount;
 
 /**
- *  Optional. Filters that define which resources are used to compute
- *  the actual spend against the budget.
+ *  Optional. Filters that define which resources are used to compute the actual
+ *  spend against the budget.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter *budgetFilter;
 
-/**
- *  User data for display name in UI.
- *  Validation: <= 60 chars.
- */
+/** User data for display name in UI. Validation: <= 60 chars. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Optional. Etag to validate that the object is unchanged for a
- *  read-modify-write operation.
- *  An empty etag will cause an update to overwrite other changes.
+ *  read-modify-write operation. An empty etag will cause an update to overwrite
+ *  other changes.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Output only. Resource name of the budget.
- *  The resource name implies the scope of a budget. Values are of the form
+ *  Output only. Resource name of the budget. The resource name implies the
+ *  scope of a budget. Values are of the form
  *  `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Rules that trigger alerts (notifications of thresholds
- *  being crossed) when spend exceeds the specified percentages of the budget.
+ *  Optional. Rules that trigger alerts (notifications of thresholds being
+ *  crossed) when spend exceeds the specified percentages of the budget.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule *> *thresholdRules;
 
@@ -192,10 +186,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1LastPeriodAmount *lastPeriodAmount;
 
 /**
- *  A specified amount to use as the budget.
- *  `currency_code` is optional. If specified, it must match the
- *  currency of the billing account. The `currency_code` is provided on
- *  output.
+ *  A specified amount to use as the budget. `currency_code` is optional. If
+ *  specified, it must match the currency of the billing account. The
+ *  `currency_code` is provided on output.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleTypeMoney *specifiedAmount;
 
@@ -226,51 +219,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *        Value "CREDIT_TYPES_TREATMENT_UNSPECIFIED"
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_ExcludeAllCredits
  *        All types of credit are added to the net cost to determine the spend
- *        for
- *        threshold calculations. (Value: "EXCLUDE_ALL_CREDITS")
+ *        for threshold calculations. (Value: "EXCLUDE_ALL_CREDITS")
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_IncludeAllCredits
  *        All types of credit are subtracted from the gross cost to determine
- *        the
- *        spend for threshold calculations. (Value: "INCLUDE_ALL_CREDITS")
+ *        the spend for threshold calculations. (Value: "INCLUDE_ALL_CREDITS")
  */
 @property(nonatomic, copy, nullable) NSString *creditTypesTreatment;
 
 /**
  *  Optional. A single label and value pair specifying that usage from only this
- *  set of
- *  labeled resources should be included in the budget. Currently, multiple
- *  entries or multiple values per entry are not allowed. If omitted, the
- *  report will include all labeled and unlabeled usage.
+ *  set of labeled resources should be included in the budget. Currently,
+ *  multiple entries or multiple values per entry are not allowed. If omitted,
+ *  the report will include all labeled and unlabeled usage.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels *labels;
 
 /**
- *  Optional. A set of projects of the form `projects/{project}`,
- *  specifying that usage from only this set of projects should be
- *  included in the budget. If omitted, the report will include all usage for
- *  the billing account, regardless of which project the usage occurred on.
- *  Only zero or one project can be specified currently.
+ *  Optional. A set of projects of the form `projects/{project}`, specifying
+ *  that usage from only this set of projects should be included in the budget.
+ *  If omitted, the report will include all usage for the billing account,
+ *  regardless of which project the usage occurred on. Only zero or one project
+ *  can be specified currently.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projects;
 
 /**
- *  Optional. A set of services of the form `services/{service_id}`,
- *  specifying that usage from only this set of services should be
- *  included in the budget. If omitted, the report will include usage for
- *  all the services.
- *  The service names are available through the Catalog API:
+ *  Optional. A set of services of the form `services/{service_id}`, specifying
+ *  that usage from only this set of services should be included in the budget.
+ *  If omitted, the report will include usage for all the services. The service
+ *  names are available through the Catalog API:
  *  https://cloud.google.com/billing/v1/how-tos/catalog-api.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
 /**
  *  Optional. A set of subaccounts of the form `billingAccounts/{account_id}`,
- *  specifying
- *  that usage from only this set of subaccounts should be included in the
- *  budget. If a subaccount is set to the name of the parent account,
- *  usage from the parent account will be included. If omitted, the
- *  report will include usage from the parent account and all
- *  subaccounts, if they exist.
+ *  specifying that usage from only this set of subaccounts should be included
+ *  in the budget. If a subaccount is set to the name of the parent account,
+ *  usage from the parent account will be included. If omitted, the report will
+ *  include usage from the parent account and all subaccounts, if they exist.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subaccounts;
 
@@ -279,10 +266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 /**
  *  Optional. A single label and value pair specifying that usage from only this
- *  set of
- *  labeled resources should be included in the budget. Currently, multiple
- *  entries or multiple values per entry are not allowed. If omitted, the
- *  report will include all labeled and unlabeled usage.
+ *  set of labeled resources should be included in the budget. Currently,
+ *  multiple entries or multiple values per entry are not allowed. If omitted,
+ *  the report will include all labeled and unlabeled usage.
  *
  *  @note This class is documented as having more properties of NSArrays of any
  *        valid JSON type. Use @c -additionalJSONKeys and @c
@@ -294,11 +280,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 
 /**
- *  Describes a budget amount targeted to last period's spend.
- *  At this time, the amount is automatically 100% of last period's spend;
- *  that is, there are no other options yet.
- *  Future configuration will be described here (for example, configuring a
- *  percentage of last period's spend).
+ *  Describes a budget amount targeted to last period's spend. At this time, the
+ *  amount is automatically 100% of last period's spend; that is, there are no
+ *  other options yet. Future configuration will be described here (for example,
+ *  configuring a percentage of last period's spend).
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1LastPeriodAmount : GTLRObject
 @end
@@ -332,13 +317,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 
 /**
- *  ThresholdRule contains a definition of a threshold which triggers
- *  an alert (a notification of a threshold being crossed) to be sent when
- *  spend goes above the specified amount.
- *  Alerts are automatically e-mailed to users with the Billing Account
- *  Administrator role or the Billing Account User role.
- *  The thresholds here have no effect on notifications sent to anything
- *  configured under `Budget.all_updates_rule`.
+ *  ThresholdRule contains a definition of a threshold which triggers an alert
+ *  (a notification of a threshold being crossed) to be sent when spend goes
+ *  above the specified amount. Alerts are automatically e-mailed to users with
+ *  the Billing Account Administrator role or the Billing Account User role. The
+ *  thresholds here have no effect on notifications sent to anything configured
+ *  under `Budget.all_updates_rule`.
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule : GTLRObject
 
@@ -354,15 +338,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *        (Value: "CURRENT_SPEND")
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_ForecastedSpend
  *        Use forecasted spend for the period as the basis for comparison
- *        against
- *        the threshold. (Value: "FORECASTED_SPEND")
+ *        against the threshold. (Value: "FORECASTED_SPEND")
  */
 @property(nonatomic, copy, nullable) NSString *spendBasis;
 
 /**
- *  Required. Send an alert when this threshold is exceeded.
- *  This is a 1.0-based percentage, so 0.5 = 50%.
- *  Validation: non-negative number.
+ *  Required. Send an alert when this threshold is exceeded. This is a 1.0-based
+ *  percentage, so 0.5 = 50%. Validation: non-negative number.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -377,16 +359,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest : GTLRObject
 
 /**
- *  Required. The updated budget object.
- *  The budget to update is specified by the budget name in the budget.
+ *  Required. The updated budget object. The budget to update is specified by
+ *  the budget name in the budget.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget *budget;
 
 /**
- *  Optional. Indicates which fields in the provided budget to update.
- *  Read-only fields (such as `name`) cannot be changed. If this is not
- *  provided, then only fields with non-default values from the request are
- *  updated. See
+ *  Optional. Indicates which fields in the provided budget to update. Read-only
+ *  fields (such as `name`) cannot be changed. If this is not provided, then
+ *  only fields with non-default values from the request are updated. See
  *  https://developers.google.com/protocol-buffers/docs/proto3#default for more
  *  details about default values.
  *
@@ -400,11 +381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudBillingBudget_GoogleProtobufEmpty : GTLRObject
 @end
@@ -419,20 +398,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Number of nano (10^-9) units of the amount.
- *  The value must be between -999,999,999 and +999,999,999 inclusive.
- *  If `units` is positive, `nanos` must be positive or zero.
- *  If `units` is zero, `nanos` can be positive, zero, or negative.
- *  If `units` is negative, `nanos` must be negative or zero.
- *  For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *  Number of nano (10^-9) units of the amount. The value must be between
+ *  -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos`
+ *  must be positive or zero. If `units` is zero, `nanos` can be positive, zero,
+ *  or negative. If `units` is negative, `nanos` must be negative or zero. For
+ *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  The whole units of the amount.
- *  For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+ *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
+ *  then 1 unit is one US dollar.
  *
  *  Uses NSNumber of longLongValue.
  */

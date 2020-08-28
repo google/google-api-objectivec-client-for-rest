@@ -91,8 +91,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventSta
 // GTLRFirebaseDynamicLinks_DynamicLinkEventStat.platform
 
 /**
- *  Represents Android platform.
- *  All apps and browsers on Android are classfied in this category.
+ *  Represents Android platform. All apps and browsers on Android are classfied
+ *  in this category.
  *
  *  Value: "ANDROID"
  */
@@ -110,8 +110,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventSta
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_DynamicLinkPlatformUnspecified;
 /**
- *  Represents iOS platform.
- *  All apps and browsers on iOS are classfied in this category.
+ *  Represents iOS platform. All apps and browsers on iOS are classfied in this
+ *  category.
  *
  *  Value: "IOS"
  */
@@ -263,15 +263,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_TooLongParam;
 /**
- *  Android link param is not needed, e.g. when param 'al' and 'link' have
- *  the same value..
+ *  Android link param is not needed, e.g. when param 'al' and 'link' have the
+ *  same value..
  *
  *  Value: "UNNECESSARY_ANDROID_LINK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryAndroidLink;
 /**
- *  Android package min version param is not needed, e.g. when
- *  'apn' is missing.
+ *  Android package min version param is not needed, e.g. when 'apn' is missing.
  *
  *  Value: "UNNECESSARY_ANDROID_PACKAGE_MIN_VERSION"
  */
@@ -299,8 +298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_DynamicLinkWarning_
 // GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest.retrievalMethod
 
 /**
- *  iSDK performs a strong match only if weak match is found upon a dev
- *  API call.
+ *  iSDK performs a strong match only if weak match is found upon a dev API
+ *  call.
  *
  *  Value: "EXPLICIT_STRONG_AFTER_WEAK_MATCH"
  */
@@ -312,8 +311,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAt
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitWeakMatch;
 /**
- *  iSDK performs a server lookup by device fingerprint in the background
- *  when app is first-opened; no API called by developer.
+ *  iSDK performs a server lookup by device fingerprint in the background when
+ *  app is first-opened; no API called by developer.
  *
  *  Value: "IMPLICIT_WEAK_MATCH"
  */
@@ -370,8 +369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAt
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence;
 /**
- *  Weak confidence, more than one matching link found or link suspected to
- *  be false positive
+ *  Weak confidence, more than one matching link found or link suspected to be
+ *  false positive
  *
  *  Value: "WEAK"
  */
@@ -402,17 +401,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_GetIosPostInstallAt
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_ManagedShortLink.flaggedAttribute
 
-/** Value: "SPAM" */
+/**
+ *  Indicates that short url has been flagged by AbuseIAm team as spam.
+ *
+ *  Value: "SPAM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedAttribute_Spam;
-/** Value: "UNSPECIFIED_ATTRIBUTE" */
+/**
+ *  Indicates that no attributes were found for this short url.
+ *
+ *  Value: "UNSPECIFIED_ATTRIBUTE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_FlaggedAttribute_UnspecifiedAttribute;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDynamicLinks_ManagedShortLink.visibility
 
 /**
- *  Link created in console and should not be shown in console (but can
- *  be shown in the console again if it is unarchived).
+ *  Link created in console and should not be shown in console (but can be shown
+ *  in the console again if it is unarchived).
  *
  *  Value: "ARCHIVED"
  */
@@ -440,10 +447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_ManagedShortLink_Vi
 // GTLRFirebaseDynamicLinks_Suffix.option
 
 /**
- *  Custom DDL suffix is a client specified string, for example,
- *  "buy2get1free".
- *  NOTE: custom suffix should only be available to managed short link
- *  creation
+ *  Custom DDL suffix is a client specified string, for example, "buy2get1free".
+ *  NOTE: custom suffix should only be available to managed short link creation
  *
  *  Value: "CUSTOM"
  */
@@ -456,18 +461,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Custo
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_OptionUnspecified;
 /**
  *  Short Dynamic Link suffix is a base62 [0-9A-Za-z] string starting with a
- *  length of 4 chars. the length will increase when all the space is
- *  occupied.
+ *  length of 4 chars. the length will increase when all the space is occupied.
  *
  *  Value: "SHORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Short;
 /**
- *  Short Dynamic Link suffix is a base62 [0-9A-Za-z] encoded string of
- *  a random generated 96 bit random number, which has a length of 17 chars.
- *  For example, "nlAR8U4SlKRZw1cb2".
- *  It prevents other people from guessing and crawling short Dynamic Links
- *  that contain personal identifiable information.
+ *  Short Dynamic Link suffix is a base62 [0-9A-Za-z] encoded string of a random
+ *  generated 96 bit random number, which has a length of 17 chars. For example,
+ *  "nlAR8U4SlKRZw1cb2". It prevents other people from guessing and crawling
+ *  short Dynamic Links that contain personal identifiable information.
  *
  *  Value: "UNGUESSABLE"
  */
@@ -516,15 +519,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @interface GTLRFirebaseDynamicLinks_CreateManagedShortLinkRequest : GTLRObject
 
 /**
- *  Information about the Dynamic Link to be shortened.
- *  [Learn
+ *  Information about the Dynamic Link to be shortened. [Learn
  *  more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_DynamicLinkInfo *dynamicLinkInfo;
 
 /**
- *  Full long Dynamic Link URL with desired query parameters specified.
- *  For example,
+ *  Full long Dynamic Link URL with desired query parameters specified. For
+ *  example,
  *  "https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample",
  *  [Learn
  *  more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
@@ -534,8 +536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 /**
  *  Link name to associate with the link. It's used for marketer to identify
  *  manually-created links in the Firebase console
- *  (https://console.firebase.google.com/).
- *  Links must be named to be tracked.
+ *  (https://console.firebase.google.com/). Links must be named to be tracked.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -571,15 +572,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @interface GTLRFirebaseDynamicLinks_CreateShortDynamicLinkRequest : GTLRObject
 
 /**
- *  Information about the Dynamic Link to be shortened.
- *  [Learn
+ *  Information about the Dynamic Link to be shortened. [Learn
  *  more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_DynamicLinkInfo *dynamicLinkInfo;
 
 /**
- *  Full long Dynamic Link URL with desired query parameters specified.
- *  For example,
+ *  Full long Dynamic Link URL with desired query parameters specified. For
+ *  example,
  *  "https://sample.app.goo.gl/?link=http://www.google.com&apn=com.sample",
  *  [Learn
  *  more](https://firebase.google.com/docs/reference/dynamic-links/link-shortener).
@@ -641,10 +641,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, copy, nullable) NSString *languageCodeFromWebview;
 
 /**
- *  Device language code raw setting.
- *  iOS does returns language code in different format than iOS WebView.
- *  For example WebView returns en_US, but iOS returns en-US.
- *  Field below will return raw value returned by iOS.
+ *  Device language code raw setting. iOS does returns language code in
+ *  different format than iOS WebView. For example WebView returns en_US, but
+ *  iOS returns en-US. Field below will return raw value returned by iOS.
  */
 @property(nonatomic, copy, nullable) NSString *languageCodeRaw;
 
@@ -689,8 +688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *        triggered by FDLs (Value: "APP_FIRST_OPEN")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppInstall
  *        Indicates that an FDL triggers an app install from Play store,
- *        currently
- *        it's impossible to get stats from App store. (Value: "APP_INSTALL")
+ *        currently it's impossible to get stats from App store. (Value:
+ *        "APP_INSTALL")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Event_AppReOpen
  *        Indicates that the app is opened via an FDL for non-first time.
  *        (Value: "APP_RE_OPEN")
@@ -709,17 +708,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Android
- *        Represents Android platform.
- *        All apps and browsers on Android are classfied in this category.
- *        (Value: "ANDROID")
+ *        Represents Android platform. All apps and browsers on Android are
+ *        classfied in this category. (Value: "ANDROID")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Desktop
  *        Represents desktop. (Value: "DESKTOP")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_DynamicLinkPlatformUnspecified
  *        Unspecified platform. (Value: "DYNAMIC_LINK_PLATFORM_UNSPECIFIED")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Ios
- *        Represents iOS platform.
- *        All apps and browsers on iOS are classfied in this category. (Value:
- *        "IOS")
+ *        Represents iOS platform. All apps and browsers on iOS are classfied in
+ *        this category. (Value: "IOS")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkEventStat_Platform_Other
  *        Platforms are not categorized as Android/iOS/Destop fall into here.
  *        (Value: "OTHER")
@@ -753,18 +750,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_DesktopInfo *desktopInfo;
 
 /**
- *  E.g. https://maps.app.goo.gl, https://maps.page.link, https://g.co/maps
- *  More examples can be found in description of getNormalizedUriPrefix in
- *  j/c/g/firebase/dynamiclinks/uri/DdlDomain.java
- *  Will fallback to dynamic_link_domain is this field is missing
+ *  E.g. https://maps.app.goo.gl, https://maps.page.link, https://g.co/maps More
+ *  examples can be found in description of getNormalizedUriPrefix in
+ *  j/c/g/firebase/dynamiclinks/uri/DdlDomain.java Will fallback to
+ *  dynamic_link_domain is this field is missing
  */
 @property(nonatomic, copy, nullable) NSString *domainUriPrefix;
 
 /**
- *  Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl
- *  [Learn
- *  more](https://firebase.google.com/docs/dynamic-links/android/receive) on
- *  how to set up Dynamic Link domain associated with your Firebase project.
+ *  Dynamic Links domain that the project owns, e.g. abcd.app.goo.gl [Learn
+ *  more](https://firebase.google.com/docs/dynamic-links/android/receive) on how
+ *  to set up Dynamic Link domain associated with your Firebase project.
  *  Required if missing domain_uri_prefix.
  */
 @property(nonatomic, copy, nullable) NSString *dynamicLinkDomain;
@@ -777,8 +773,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 /**
  *  The link your app will open, You can specify any URL your app can handle.
- *  This link must be a well-formatted URL, be properly URL-encoded, and use
- *  the HTTP or HTTPS scheme. See 'link' parameters in the
+ *  This link must be a well-formatted URL, be properly URL-encoded, and use the
+ *  HTTP or HTTPS scheme. See 'link' parameters in the
  *  [documentation](https://firebase.google.com/docs/dynamic-links/create-manually).
  *  Required.
  */
@@ -788,8 +784,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_NavigationInfo *navigationInfo;
 
 /**
- *  Parameters for social meta tag params.
- *  Used to set meta tag data for link previews on social sites.
+ *  Parameters for social meta tag params. Used to set meta tag data for link
+ *  previews on social sites.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_SocialMetaTagInfo *socialMetaTagInfo;
 
@@ -882,8 +878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *        Android link param is not needed, e.g. when param 'al' and 'link' have
  *        the same value.. (Value: "UNNECESSARY_ANDROID_LINK")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryAndroidPackageMinVersion
- *        Android package min version param is not needed, e.g. when
- *        'apn' is missing. (Value: "UNNECESSARY_ANDROID_PACKAGE_MIN_VERSION")
+ *        Android package min version param is not needed, e.g. when 'apn' is
+ *        missing. (Value: "UNNECESSARY_ANDROID_PACKAGE_MIN_VERSION")
  *    @arg @c kGTLRFirebaseDynamicLinks_DynamicLinkWarning_WarningCode_UnnecessaryIosAppStoreId
  *        iOS app store ID is not needed. (Value:
  *        "UNNECESSARY_IOS_APP_STORE_ID")
@@ -907,14 +903,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 /**
  *  Request for iSDK to execute strong match flow for post-install attribution.
- *  This is meant for iOS requests only. Requests from other platforms will
- *  not be honored.
+ *  This is meant for iOS requests only. Requests from other platforms will not
+ *  be honored.
  */
 @interface GTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest : GTLRObject
 
 /**
- *  App installation epoch time (https://en.wikipedia.org/wiki/Unix_time).
- *  This is a client signal for a more accurate weak match.
+ *  App installation epoch time (https://en.wikipedia.org/wiki/Unix_time). This
+ *  is a client signal for a more accurate weak match.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -926,16 +922,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 /** Device information. */
 @property(nonatomic, strong, nullable) GTLRFirebaseDynamicLinks_DeviceInfo *device;
 
-/**
- *  iOS version, ie: 9.3.5.
- *  Consider adding "build".
- */
+/** iOS version, ie: 9.3.5. Consider adding "build". */
 @property(nonatomic, copy, nullable) NSString *iosVersion;
 
 /**
- *  App post install attribution retrieval information. Disambiguates
- *  mechanism (iSDK or developer invoked) to retrieve payload from
- *  clicked link.
+ *  App post install attribution retrieval information. Disambiguates mechanism
+ *  (iSDK or developer invoked) to retrieve payload from clicked link.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_RetrievalMethod_ExplicitStrongAfterWeakMatch
@@ -964,8 +956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, copy, nullable) NSString *uniqueMatchLinkToCheck;
 
 /**
- *  Strong match page information. Disambiguates between default UI and
- *  custom page to present when strong match succeeds/fails to find cookie.
+ *  Strong match page information. Disambiguates between default UI and custom
+ *  page to present when strong match succeeds/fails to find cookie.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionRequest_VisualStyle_CustomStyle
@@ -999,14 +991,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *        Default confidence, match based on fingerprint (Value: "DEFAULT")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Unique
  *        Unique confidence, match based on "unique match link to check" or
- *        other
- *        means (Value: "UNIQUE")
+ *        other means (Value: "UNIQUE")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_UnknownAttributionConfidence
  *        Unset. (Value: "UNKNOWN_ATTRIBUTION_CONFIDENCE")
  *    @arg @c kGTLRFirebaseDynamicLinks_GetIosPostInstallAttributionResponse_AttributionConfidence_Weak
  *        Weak confidence, more than one matching link found or link suspected
- *        to
- *        be false positive (Value: "WEAK")
+ *        to be false positive (Value: "WEAK")
  */
 @property(nonatomic, copy, nullable) NSString *attributionConfidence;
 
@@ -1019,18 +1009,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 /**
  *  User-agent specific custom-scheme URIs for iSDK to open. This will be set
  *  according to the user-agent tha the click was originally made in. There is
- *  no Safari-equivalent custom-scheme open URLs.
- *  ie: googlechrome://www.example.com
- *  ie: firefox://open-url?url=http://www.example.com
- *  ie: opera-http://example.com
+ *  no Safari-equivalent custom-scheme open URLs. ie:
+ *  googlechrome://www.example.com ie:
+ *  firefox://open-url?url=http://www.example.com ie: opera-http://example.com
  */
 @property(nonatomic, copy, nullable) NSString *externalBrowserDestinationLink;
 
 /**
- *  The link to navigate to update the app if min version is not met.
- *  This is either (in order): 1) fallback link (from ?ifl= parameter, if
- *  specified by developer) or 2) AppStore URL (from ?isi= parameter, if
- *  specified), or 3) the payload link (from required link= parameter).
+ *  The link to navigate to update the app if min version is not met. This is
+ *  either (in order): 1) fallback link (from ?ifl= parameter, if specified by
+ *  developer) or 2) AppStore URL (from ?isi= parameter, if specified), or 3)
+ *  the payload link (from required link= parameter).
  */
 @property(nonatomic, copy, nullable) NSString *fallbackLink;
 
@@ -1041,17 +1030,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, copy, nullable) NSString *invitationId;
 
 /**
- *  Instruction for iSDK to attemmpt to perform strong match. For instance,
- *  if browser does not support/allow cookie or outside of support browsers,
- *  this will be false.
+ *  Instruction for iSDK to attemmpt to perform strong match. For instance, if
+ *  browser does not support/allow cookie or outside of support browsers, this
+ *  will be false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isStrongMatchExecutable;
 
 /**
- *  Describes why match failed, ie: "discarded due to low confidence".
- *  This message will be publicly visible.
+ *  Describes why match failed, ie: "discarded due to low confidence". This
+ *  message will be publicly visible.
  */
 @property(nonatomic, copy, nullable) NSString *matchMessage;
 
@@ -1076,10 +1065,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 /**
  *  The entire FDL, expanded from a short link. It is the same as the
- *  requested_link, if it is long. Parameters from this should not be
- *  used directly (ie: server can default utm_[campaign|medium|source]
- *  to a value when requested_link lack them, server determine the best
- *  fallback_link when requested_link specifies >1 fallback links).
+ *  requested_link, if it is long. Parameters from this should not be used
+ *  directly (ie: server can default utm_[campaign|medium|source] to a value
+ *  when requested_link lack them, server determine the best fallback_link when
+ *  requested_link specifies >1 fallback links).
  */
 @property(nonatomic, copy, nullable) NSString *resolvedLink;
 
@@ -1111,14 +1100,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, copy, nullable) NSString *bundleId;
 
 /**
- *  FDL link to be verified from an app universal link open.
- *  The FDL link can be one of:
- *  1) short FDL.
- *  e.g. <app_code>.page.link/<ddl_id>, or
- *  2) long FDL.
- *  e.g. <app_code>.page.link/?{query params}, or
- *  3) Invite FDL.
- *  e.g. <app_code>.page.link/i/<invite_id_or_alias>
+ *  FDL link to be verified from an app universal link open. The FDL link can be
+ *  one of: 1) short FDL. e.g. .page.link/, or 2) long FDL. e.g.
+ *  .page.link/?{query params}, or 3) Invite FDL. e.g. .page.link/i/
  */
 @property(nonatomic, copy, nullable) NSString *requestedLink;
 
@@ -1135,8 +1119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @interface GTLRFirebaseDynamicLinks_GetIosReopenAttributionResponse : GTLRObject
 
 /**
- *  The deep-link attributed the app universal link open. For both regular
- *  FDL links and invite FDL links.
+ *  The deep-link attributed the app universal link open. For both regular FDL
+ *  links and invite FDL links.
  */
 @property(nonatomic, copy, nullable) NSString *deepLink;
 
@@ -1144,8 +1128,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, copy, nullable) NSString *invitationId;
 
 /**
- *  FDL input value of the "&imv=" parameter, minimum app version to be
- *  returned to Google Firebase SDK running on iOS-9.
+ *  FDL input value of the "&imv=" parameter, minimum app version to be returned
+ *  to Google Firebase SDK running on iOS-9.
  */
 @property(nonatomic, copy, nullable) NSString *iosMinAppVersion;
 
@@ -1174,8 +1158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 
 /**
- *  Parameters for Google Play Campaign Measurements.
- *  [Learn
+ *  Parameters for Google Play Campaign Measurements. [Learn
  *  more](https://developers.google.com/analytics/devguides/collection/android/v4/campaigns#campaign-params)
  */
 @interface GTLRFirebaseDynamicLinks_GooglePlayAnalytics : GTLRObject
@@ -1229,9 +1212,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @property(nonatomic, copy, nullable) NSString *iosBundleId;
 
 /**
- *  Custom (destination) scheme to use for iOS. By default, we’ll use the
- *  bundle ID as the custom scheme. Developer can override this behavior using
- *  this param.
+ *  Custom (destination) scheme to use for iOS. By default, we’ll use the bundle
+ *  ID as the custom scheme. Developer can override this behavior using this
+ *  param.
  */
 @property(nonatomic, copy, nullable) NSString *iosCustomScheme;
 
@@ -1296,10 +1279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  */
 @property(nonatomic, copy, nullable) NSString *link;
 
-/**
- *  Link name defined by the creator.
- *  Required.
- */
+/** Link name defined by the creator. Required. */
 @property(nonatomic, copy, nullable) NSString *linkName;
 
 /**
@@ -1307,9 +1287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_Archived
- *        Link created in console and should not be shown in console (but can
- *        be shown in the console again if it is unarchived). (Value:
- *        "ARCHIVED")
+ *        Link created in console and should not be shown in console (but can be
+ *        shown in the console again if it is unarchived). (Value: "ARCHIVED")
  *    @arg @c kGTLRFirebaseDynamicLinks_ManagedShortLink_Visibility_NeverShown
  *        Link created outside of console and should never be shown in console.
  *        (Value: "NEVER_SHOWN")
@@ -1331,8 +1310,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 @interface GTLRFirebaseDynamicLinks_NavigationInfo : GTLRObject
 
 /**
- *  If this option is on, FDL click will be forced to redirect rather than
- *  show an interstitial page.
+ *  If this option is on, FDL click will be forced to redirect rather than show
+ *  an interstitial page.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1342,8 +1321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
 
 
 /**
- *  Parameters for social meta tag params.
- *  Used to set meta tag data for link previews on social sites.
+ *  Parameters for social meta tag params. Used to set meta tag data for link
+ *  previews on social sites.
  */
 @interface GTLRFirebaseDynamicLinks_SocialMetaTagInfo : GTLRObject
 
@@ -1372,25 +1351,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDynamicLinks_Suffix_Option_Ungue
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDynamicLinks_Suffix_Option_Custom Custom DDL suffix
- *        is a client specified string, for example,
- *        "buy2get1free".
- *        NOTE: custom suffix should only be available to managed short link
- *        creation (Value: "CUSTOM")
+ *        is a client specified string, for example, "buy2get1free". NOTE:
+ *        custom suffix should only be available to managed short link creation
+ *        (Value: "CUSTOM")
  *    @arg @c kGTLRFirebaseDynamicLinks_Suffix_Option_OptionUnspecified The
  *        suffix option is not specified, performs as UNGUESSABLE . (Value:
  *        "OPTION_UNSPECIFIED")
  *    @arg @c kGTLRFirebaseDynamicLinks_Suffix_Option_Short Short Dynamic Link
- *        suffix is a base62 [0-9A-Za-z] string starting with a
- *        length of 4 chars. the length will increase when all the space is
- *        occupied. (Value: "SHORT")
+ *        suffix is a base62 [0-9A-Za-z] string starting with a length of 4
+ *        chars. the length will increase when all the space is occupied.
+ *        (Value: "SHORT")
  *    @arg @c kGTLRFirebaseDynamicLinks_Suffix_Option_Unguessable Short Dynamic
- *        Link suffix is a base62 [0-9A-Za-z] encoded string of
- *        a random generated 96 bit random number, which has a length of 17
- *        chars.
- *        For example, "nlAR8U4SlKRZw1cb2".
- *        It prevents other people from guessing and crawling short Dynamic
- *        Links
- *        that contain personal identifiable information. (Value: "UNGUESSABLE")
+ *        Link suffix is a base62 [0-9A-Za-z] encoded string of a random
+ *        generated 96 bit random number, which has a length of 17 chars. For
+ *        example, "nlAR8U4SlKRZw1cb2". It prevents other people from guessing
+ *        and crawling short Dynamic Links that contain personal identifiable
+ *        information. (Value: "UNGUESSABLE")
  */
 @property(nonatomic, copy, nullable) NSString *option;
 

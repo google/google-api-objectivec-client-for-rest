@@ -42,11 +42,23 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // wipeDataFlags
 
-/** Value: "PRESERVE_RESET_PROTECTION_DATA" */
+/**
+ *  Preserve the factory reset protection data on the device.
+ *
+ *  Value: "PRESERVE_RESET_PROTECTION_DATA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData;
-/** Value: "WIPE_DATA_FLAG_UNSPECIFIED" */
+/**
+ *  This value is ignored.
+ *
+ *  Value: "WIPE_DATA_FLAG_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified;
-/** Value: "WIPE_EXTERNAL_STORAGE" */
+/**
+ *  Additionally wipe the device's external storage (such as SD cards).
+ *
+ *  Value: "WIPE_EXTERNAL_STORAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage;
 
 // ----------------------------------------------------------------------------
@@ -161,12 +173,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *  Optional flags that control the device wiping behavior.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified Value
- *        "WIPE_DATA_FLAG_UNSPECIFIED"
+ *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified This
+ *        value is ignored. (Value: "WIPE_DATA_FLAG_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData
- *        Value "PRESERVE_RESET_PROTECTION_DATA"
- *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage Value
- *        "WIPE_EXTERNAL_STORAGE"
+ *        Preserve the factory reset protection data on the device. (Value:
+ *        "PRESERVE_RESET_PROTECTION_DATA")
+ *    @arg @c kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage
+ *        Additionally wipe the device's external storage (such as SD cards).
+ *        (Value: "WIPE_EXTERNAL_STORAGE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
 

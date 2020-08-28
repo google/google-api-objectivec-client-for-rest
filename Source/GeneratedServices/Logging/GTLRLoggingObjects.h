@@ -673,11 +673,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for Empty is empty JSON object {}.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for Empty is empty JSON object {}.
  */
 @interface GTLRLogging_Empty : GTLRObject
 @end
@@ -838,8 +836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 /**
  *  The user agent sent by the client. Example: "Mozilla/4.0 (compatible; MSIE
- *  6.0; Windows 98; Q312461; .NET
- *  CLR 1.0.3705)".
+ *  6.0; Windows 98; Q312461; .NET CLR 1.0.3705)".
  */
 @property(nonatomic, copy, nullable) NSString *userAgent;
 
@@ -1019,12 +1016,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 /**
  *  Required. Names of one or more parent resources from which to retrieve log
- *  entries:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Projects listed in the project_ids field are added to this list.
+ *  entries: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Projects listed
+ *  in the project_ids field are added to this list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -1205,11 +1199,19 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 @property(nonatomic, copy, nullable) NSString *lifecycleState;
 
 /**
+ *  Whether the bucket has been locked. The retention period on a locked bucket
+ *  may not be changed. Locked buckets may only be deleted if they are empty.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *locked;
+
+/**
  *  The resource name of the bucket. For example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id The
- *  supported locations are: "global" "us-central1"For the location of global it
- *  is unspecified where logs are actually stored. Once a bucket has been
- *  created, the location can not be changed.
+ *  supported locations are: "global"For the location of global it is
+ *  unspecified where logs are actually stored. Once a bucket has been created,
+ *  the location can not be changed.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1269,11 +1271,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  A project number may be used in place of PROJECT_ID. The project number is
- *  translated to its corresponding PROJECT_ID internally and the log_name field
- *  will contain PROJECT_ID in queries and exports.[LOG_ID] must be URL-encoded
- *  within log_name. Example:
+ *  "folders/[FOLDER_ID]/logs/[LOG_ID]" A project number may be used in place of
+ *  PROJECT_ID. The project number is translated to its corresponding PROJECT_ID
+ *  internally and the log_name field will contain PROJECT_ID in queries and
+ *  exports.[LOG_ID] must be URL-encoded within log_name. Example:
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *  [LOG_ID] must be less than 512 characters long and can only include the
  *  following characters: upper and lower case alphanumeric characters,
@@ -1653,8 +1654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 /**
  *  Required. An advanced logs filter
  *  (https://cloud.google.com/logging/docs/view/advanced_filters) which is used
- *  to match log entries. Example:
- *  "resource.type=gae_app AND severity>=ERROR"
+ *  to match log entries. Example: "resource.type=gae_app AND severity>=ERROR"
  *  The maximum length of the filter is 20000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1792,13 +1792,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. The export destination:
- *  "storage.googleapis.com/[GCS_BUCKET]"
+ *  Required. The export destination: "storage.googleapis.com/[GCS_BUCKET]"
  *  "bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]"
- *  "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]"
- *  The sink's writer_identity, set when the sink is created, must have
- *  permission to write to the destination or else the log entries are not
- *  exported. For more information, see Exporting Logs with Sinks
+ *  "pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]" The sink's
+ *  writer_identity, set when the sink is created, must have permission to write
+ *  to the destination or else the log entries are not exported. For more
+ *  information, see Exporting Logs with Sinks
  *  (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).
  */
 @property(nonatomic, copy, nullable) NSString *destination;
@@ -1810,6 +1809,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Optional. Log entries that match any of the exclusion filters will not be
+ *  exported. If a log entry is matched by both filter and one of
+ *  exclusion_filters it will not be exported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogExclusion *> *exclusions;
 
 /**
  *  Optional. An advanced logs filter
@@ -1868,9 +1874,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Output only. An IAM identity&mdash;a service account or group&mdash;under
- *  which Logging writes the exported log entries to the sink's destination.
- *  This field is set by sinks.create and sinks.update based on the value of
+ *  Output only. An IAM identity—a service account or group—under which Logging
+ *  writes the exported log entries to the sink's destination. This field is set
+ *  by sinks.create and sinks.update based on the value of
  *  unique_writer_identity in those methods.Until you grant this identity
  *  write-access to the destination, log entry exports from this sink will fail.
  *  For more information, see Granting Access for a Resource
@@ -1887,14 +1893,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  Defines a metric type and its schema. Once a metric descriptor is created,
  *  deleting or altering it stops data collection and makes the metric type's
  *  existing data unusable.The following are specific rules for service defined
- *  Monitoring metric descriptors:
- *  type, metric_kind, value_type and description fields are all required. The
- *  unit field must be specified if the value_type is any of DOUBLE, INT64,
- *  DISTRIBUTION.
- *  Maximum of default 500 metric descriptors per service is allowed.
- *  Maximum of default 10 labels per metric descriptor is allowed.The default
- *  maximum limit can be overridden. Please follow
- *  https://cloud.google.com/monitoring/quotas
+ *  Monitoring metric descriptors: type, metric_kind, value_type and description
+ *  fields are all required. The unit field must be specified if the value_type
+ *  is any of DOUBLE, INT64, DISTRIBUTION. Maximum of default 500 metric
+ *  descriptors per service is allowed. Maximum of default 10 labels per metric
+ *  descriptor is allowed.The default maximum limit can be overridden. Please
+ *  follow https://cloud.google.com/monitoring/quotas
  */
 @interface GTLRLogging_MetricDescriptor : GTLRObject
 
@@ -1915,13 +1919,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 /**
  *  The set of labels that can be used to describe a specific instance of this
- *  metric type.The label key name must follow:
- *  Only upper and lower-case letters, digits and underscores (_) are allowed.
- *  Label name must start with a letter or digit.
- *  The maximum length of a label name is 100 characters.For example, the
- *  appengine.googleapis.com/http/server/response_latencies metric type has a
- *  label for the HTTP response code, response_code, so you can look at
- *  latencies for successful responses or just for responses that failed.
+ *  metric type.The label key name must follow: Only upper and lower-case
+ *  letters, digits and underscores (_) are allowed. Label name must start with
+ *  a letter or digit. The maximum length of a label name is 100 characters.For
+ *  example, the appengine.googleapis.com/http/server/response_latencies metric
+ *  type has a label for the HTTP response code, response_code, so you can look
+ *  at latencies for successful responses or just for responses that failed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LabelDescriptor *> *labels;
 
@@ -2010,14 +2013,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  URL-encoded.All service defined metrics must be prefixed with the service
  *  name, in the format of {service name}/{relative metric name}, such as
  *  cloudsql.googleapis.com/database/cpu/utilization. The relative metric name
- *  must follow:
- *  Only upper and lower-case letters, digits, '/' and underscores '_' are
- *  allowed.
- *  The maximum number of characters allowed for the relative_metric_name is
- *  100.All user-defined metric types have the DNS name custom.googleapis.com,
- *  external.googleapis.com, or logging.googleapis.com/user/.Metric types should
- *  use a natural hierarchical grouping. For example:
- *  "custom.googleapis.com/invoice/paid/amount"
+ *  must follow: Only upper and lower-case letters, digits, '/' and underscores
+ *  '_' are allowed. The maximum number of characters allowed for the
+ *  relative_metric_name is 100.All user-defined metric types have the DNS name
+ *  custom.googleapis.com, external.googleapis.com, or
+ *  logging.googleapis.com/user/.Metric types should use a natural hierarchical
+ *  grouping. For example: "custom.googleapis.com/invoice/paid/amount"
  *  "external.googleapis.com/prometheus/up"
  *  "appengine.googleapis.com/http/server/response_latencies"
  */
@@ -2039,66 +2040,36 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use
  *  Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a
  *  subset of The Unified Code for Units of Measure
- *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT)
- *  bit bit
- *  By byte
- *  s second
- *  min minute
- *  h hour
- *  d day
- *  1 dimensionlessPrefixes (PREFIX)
- *  k kilo (10^3)
- *  M mega (10^6)
- *  G giga (10^9)
- *  T tera (10^12)
- *  P peta (10^15)
- *  E exa (10^18)
- *  Z zetta (10^21)
- *  Y yotta (10^24)
- *  m milli (10^-3)
- *  u micro (10^-6)
- *  n nano (10^-9)
- *  p pico (10^-12)
- *  f femto (10^-15)
- *  a atto (10^-18)
- *  z zepto (10^-21)
- *  y yocto (10^-24)
- *  Ki kibi (2^10)
- *  Mi mebi (2^20)
- *  Gi gibi (2^30)
- *  Ti tebi (2^40)
- *  Pi pebi (2^50)GrammarThe grammar also includes these connectors:
+ *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By
+ *  byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k
+ *  kilo (10^3) M mega (10^6) G giga (10^9) T tera (10^12) P peta (10^15) E exa
+ *  (10^18) Z zetta (10^21) Y yotta (10^24) m milli (10^-3) u micro (10^-6) n
+ *  nano (10^-9) p pico (10^-12) f femto (10^-15) a atto (10^-18) z zepto
+ *  (10^-21) y yocto (10^-24) Ki kibi (2^10) Mi mebi (2^20) Gi gibi (2^30) Ti
+ *  tebi (2^40) Pi pebi (2^50)GrammarThe grammar also includes these connectors:
  *  / division or ratio (as an infix operator). For examples, kBy/{email} or
  *  MiBy/10ms (although you should almost never have /s in a metric unit; rates
  *  should always be computed at query time from the underlying cumulative or
- *  delta value).
- *  . multiplication or composition (as an infix operator). For examples, GBy.d
- *  or k{watt}.h.The grammar for a unit is as follows:
- *  Expression = Component { "." Component } { "/" Component } ;
- *  Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ]
- *  | Annotation
- *  | "1"
- *  ;
- *  Annotation = "{" NAME "}" ;
- *  Notes:
- *  Annotation is just a comment if it follows a UNIT. If the annotation is used
- *  alone, then the unit is equivalent to 1. For examples, {request}/s == 1/s,
- *  By{transmitted}/s == By/s.
- *  NAME is a sequence of non-blank printable ASCII characters not containing {
- *  or }.
- *  1 represents a unitary dimensionless unit
+ *  delta value). . multiplication or composition (as an infix operator). For
+ *  examples, GBy.d or k{watt}.h.The grammar for a unit is as follows:
+ *  Expression = Component { "." Component } { "/" Component } ; Component = ( [
+ *  PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; Annotation = "{"
+ *  NAME "}" ; Notes: Annotation is just a comment if it follows a UNIT. If the
+ *  annotation is used alone, then the unit is equivalent to 1. For examples,
+ *  {request}/s == 1/s, By{transmitted}/s == By/s. NAME is a sequence of
+ *  non-blank printable ASCII characters not containing { or }. 1 represents a
+ *  unitary dimensionless unit
  *  (https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in 1/s.
  *  It is typically used when none of the basic units are appropriate. For
  *  example, "new users per day" can be represented as 1/d or {new-users}/d (and
  *  a metric value 5 would mean "5 new users). Alternatively, "thousands of page
  *  views per day" would be represented as 1000/d or k1/d or k{page_views}/d
- *  (and a metric value of 5.3 would mean "5300 page views per day").
- *  % represents dimensionless value of 1/100, and annotates values giving a
+ *  (and a metric value of 5.3 would mean "5300 page views per day"). %
+ *  represents dimensionless value of 1/100, and annotates values giving a
  *  percentage (so the metric values are typically in the range of 0..100, and a
- *  metric value 3 means "3 percent").
- *  10^2.% indicates a metric contains a ratio, typically in the range 0..1,
- *  that will be multiplied by 100 and displayed as a percentage (so a metric
- *  value 0.03 means "3 percent").
+ *  metric value 3 means "3 percent"). 10^2.% indicates a metric contains a
+ *  ratio, typically in the range 0..1, that will be multiplied by 100 and
+ *  displayed as a percentage (so a metric value 0.03 means "3 percent").
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -2208,10 +2179,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  attributes according to the schema. For example, a particular Compute Engine
  *  VM instance could be represented by the following object, because the
  *  MonitoredResourceDescriptor for "gce_instance" has labels "instance_id" and
- *  "zone":
- *  { "type": "gce_instance",
- *  "labels": { "instance_id": "12345678901234",
- *  "zone": "us-central1-a" }}
+ *  "zone": { "type": "gce_instance", "labels": { "instance_id":
+ *  "12345678901234", "zone": "us-central1-a" }}
  */
 @interface GTLRLogging_MonitoredResource : GTLRObject
 
@@ -2253,18 +2222,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  "gce_instance" and specifies the use of the labels "instance_id" and "zone"
  *  to identify particular VM instances.Different services can support different
  *  monitored resource types.The following are specific rules to service defined
- *  monitored resources for Monitoring and Logging:
- *  The type, display_name, description, labels and launch_stage fields are all
- *  required.
- *  The first label of the monitored resource descriptor must be
- *  resource_container. There are legacy monitored resource descritptors start
- *  with project_id.
- *  It must include a location label.
- *  Maximum of default 5 service defined monitored resource descriptors is
- *  allowed per service.
- *  Maximum of default 10 labels per monitored resource is allowed.The default
- *  maximum limit can be overridden. Please follow
- *  https://cloud.google.com/monitoring/quotas
+ *  monitored resources for Monitoring and Logging: The type, display_name,
+ *  description, labels and launch_stage fields are all required. The first
+ *  label of the monitored resource descriptor must be resource_container. There
+ *  are legacy monitored resource descritptors start with project_id. It must
+ *  include a location label. Maximum of default 5 service defined monitored
+ *  resource descriptors is allowed per service. Maximum of default 10 labels
+ *  per monitored resource is allowed.The default maximum limit can be
+ *  overridden. Please follow https://cloud.google.com/monitoring/quotas
  */
 @interface GTLRLogging_MonitoredResourceDescriptor : GTLRObject
 
@@ -2286,12 +2251,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 /**
  *  Required. A set of labels used to describe instances of this monitored
- *  resource type. The label key name must follow:
- *  Only upper and lower-case letters, digits and underscores (_) are allowed.
- *  Label name must start with a letter or digit.
- *  The maximum length of a label name is 100 characters.For example, an
- *  individual Google Cloud SQL database is identified by values for the labels
- *  database_id and location.
+ *  resource type. The label key name must follow: Only upper and lower-case
+ *  letters, digits and underscores (_) are allowed. Label name must start with
+ *  a letter or digit. The maximum length of a label name is 100 characters.For
+ *  example, an individual Google Cloud SQL database is identified by values for
+ *  the labels database_id and location.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LabelDescriptor *> *labels;
 
@@ -2357,13 +2321,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  cloudsql_database represents databases in Google Cloud SQL.All service
  *  defined monitored resource types must be prefixed with the service name, in
  *  the format of {service name}/{relative resource name}. The relative resource
- *  name must follow:
- *  Only upper and lower-case letters and digits are allowed.
+ *  name must follow: Only upper and lower-case letters and digits are allowed.
  *  It must start with upper case character and is recommended to use Upper
- *  Camel Case style.
- *  The maximum number of characters allowed for the relative_resource_name is
- *  100.Note there are legacy service monitored resources not following this
- *  rule.
+ *  Camel Case style. The maximum number of characters allowed for the
+ *  relative_resource_name is 100.Note there are legacy service monitored
+ *  resources not following this rule.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2383,10 +2345,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  Output only. Values for predefined system metadata labels. System labels are
  *  a kind of metadata extracted by Google, including "machine_image", "vpc",
  *  "subnet_id", "security_group", "name", etc. System label values can be only
- *  strings, Boolean values, or a list of strings. For example:
- *  { "name": "my-test-instance",
- *  "security_group": ["a", "b", "c"],
- *  "spot_instance": false }
+ *  strings, Boolean values, or a list of strings. For example: { "name":
+ *  "my-test-instance", "security_group": ["a", "b", "c"], "spot_instance":
+ *  false }
  */
 @property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceMetadata_SystemLabels *systemLabels;
 
@@ -2400,10 +2361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  Output only. Values for predefined system metadata labels. System labels are
  *  a kind of metadata extracted by Google, including "machine_image", "vpc",
  *  "subnet_id", "security_group", "name", etc. System label values can be only
- *  strings, Boolean values, or a list of strings. For example:
- *  { "name": "my-test-instance",
- *  "security_group": ["a", "b", "c"],
- *  "spot_instance": false }
+ *  strings, Boolean values, or a list of strings. For example: { "name":
+ *  "my-test-instance", "security_group": ["a", "b", "c"], "spot_instance":
+ *  false }
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2647,6 +2607,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 
 /**
+ *  The parameters to UndeleteBucket.
+ */
+@interface GTLRLogging_UndeleteBucketRequest : GTLRObject
+@end
+
+
+/**
  *  The parameters to WriteLogEntries.
  */
 @interface GTLRLogging_WriteLogEntriesRequest : GTLRObject
@@ -2696,9 +2663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  [LOG_ID] must be URL-encoded. For example:
- *  "projects/my-project-id/logs/syslog"
+ *  "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *  example: "projects/my-project-id/logs/syslog"
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity"
  *  The permission logging.logEntries.create is needed on each project,
  *  organization, billing account, or folder that is receiving new log entries,
@@ -2719,11 +2685,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 /**
  *  Optional. A default monitored resource object that is assigned to all log
- *  entries in entries that do not specify a value for resource. Example:
- *  { "type": "gce_instance",
- *  "labels": {
- *  "zone": "us-central1-a", "instance_id": "00000000000000000000" }}
- *  See LogEntry.
+ *  entries in entries that do not specify a value for resource. Example: {
+ *  "type": "gce_instance", "labels": { "zone": "us-central1-a", "instance_id":
+ *  "00000000000000000000" }} See LogEntry.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_MonitoredResource *resource;
 

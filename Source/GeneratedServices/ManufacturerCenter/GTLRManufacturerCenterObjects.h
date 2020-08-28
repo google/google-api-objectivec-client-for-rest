@@ -177,9 +177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Image_Type_Uploaded;
 // GTLRManufacturerCenter_Issue.resolution
 
 /**
- *  The issue will be resolved automatically (for example image crawl or
- *  Google review). No action is required now. Resolution might lead to
- *  another issue (for example if crawl fails).
+ *  The issue will be resolved automatically (for example image crawl or Google
+ *  review). No action is required now. Resolution might lead to another issue
+ *  (for example if crawl fails).
  *
  *  Value: "PENDING_PROCESSING"
  */
@@ -191,8 +191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_Pend
  */
 FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_ResolutionUnspecified;
 /**
- *  The user who provided the data must act in order to resolve the issue
- *  (for example by correcting some data).
+ *  The user who provided the data must act in order to resolve the issue (for
+ *  example by correcting some data).
  *
  *  Value: "USER_ACTION"
  */
@@ -208,9 +208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Resolution_User
  */
 FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Error;
 /**
- *  Info severity. The issue is one that doesn't require immediate attention.
- *  It is, for example, used to communicate which attributes are still
- *  pending review.
+ *  Info severity. The issue is one that doesn't require immediate attention. It
+ *  is, for example, used to communicate which attributes are still pending
+ *  review.
  *
  *  Value: "INFO"
  */
@@ -223,8 +223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Info;
 FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_SeverityUnspecified;
 /**
  *  Warning severity. The issue is either one that prevents the usage of the
- *  attribute that triggered it or one that will soon prevent the usage of
- *  the whole item.
+ *  attribute that triggered it or one that will soon prevent the usage of the
+ *  whole item.
  *
  *  Value: "WARNING"
  */
@@ -341,8 +341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 @property(nonatomic, copy, nullable) NSString *material;
 
 /**
- *  The Manufacturer Part Number (MPN) of the product. For more information,
- *  see https://support.google.com/manufacturers/answer/6124116#mpn.
+ *  The Manufacturer Part Number (MPN) of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#mpn.
  */
 @property(nonatomic, copy, nullable) NSString *mpn;
 
@@ -420,8 +420,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 @property(nonatomic, copy, nullable) NSString *sizeType;
 
 /**
- *  The suggested retail price (MSRP) of the product. For more information,
- *  see https://support.google.com/manufacturers/answer/6124116#price.
+ *  The suggested retail price (MSRP) of the product. For more information, see
+ *  https://support.google.com/manufacturers/answer/6124116#price.
  */
 @property(nonatomic, strong, nullable) GTLRManufacturerCenter_Price *suggestedRetailPrice;
 
@@ -520,11 +520,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRManufacturerCenter_Empty : GTLRObject
 @end
@@ -561,8 +559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
 /**
- *  The status of the image.
- *  \@OutputOnly
+ *  The status of the image. \@OutputOnly
  *
  *  Likely values:
  *    @arg @c kGTLRManufacturerCenter_Image_Status_CrawlError There was an error
@@ -596,8 +593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  The type of the image, i.e., crawled or uploaded.
- *  \@OutputOnly
+ *  The type of the image, i.e., crawled or uploaded. \@OutputOnly
  *
  *  Likely values:
  *    @arg @c kGTLRManufacturerCenter_Image_Type_Crawled The image was crawled
@@ -646,8 +642,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *    @arg @c kGTLRManufacturerCenter_Issue_Resolution_ResolutionUnspecified
  *        Unspecified resolution, never used. (Value: "RESOLUTION_UNSPECIFIED")
  *    @arg @c kGTLRManufacturerCenter_Issue_Resolution_UserAction The user who
- *        provided the data must act in order to resolve the issue
- *        (for example by correcting some data). (Value: "USER_ACTION")
+ *        provided the data must act in order to resolve the issue (for example
+ *        by correcting some data). (Value: "USER_ACTION")
  */
 @property(nonatomic, copy, nullable) NSString *resolution;
 
@@ -658,15 +654,15 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *    @arg @c kGTLRManufacturerCenter_Issue_Severity_Error Error severity. The
  *        issue prevents the usage of the whole item. (Value: "ERROR")
  *    @arg @c kGTLRManufacturerCenter_Issue_Severity_Info Info severity. The
- *        issue is one that doesn't require immediate attention.
- *        It is, for example, used to communicate which attributes are still
- *        pending review. (Value: "INFO")
+ *        issue is one that doesn't require immediate attention. It is, for
+ *        example, used to communicate which attributes are still pending
+ *        review. (Value: "INFO")
  *    @arg @c kGTLRManufacturerCenter_Issue_Severity_SeverityUnspecified
  *        Unspecified severity, never used. (Value: "SEVERITY_UNSPECIFIED")
  *    @arg @c kGTLRManufacturerCenter_Issue_Severity_Warning Warning severity.
- *        The issue is either one that prevents the usage of the
- *        attribute that triggered it or one that will soon prevent the usage of
- *        the whole item. (Value: "WARNING")
+ *        The issue is either one that prevents the usage of the attribute that
+ *        triggered it or one that will soon prevent the usage of the whole
+ *        item. (Value: "WARNING")
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
@@ -749,17 +745,16 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 /**
  *  Name in the format `{target_country}:{content_language}:{product_id}`.
  *  `target_country` - The target country of the product as a CLDR territory
- *  code (for example, US).
- *  `content_language` - The content language of the product as a two-letter
- *  ISO 639-1 language code (for example, en).
+ *  code (for example, US). `content_language` - The content language of the
+ *  product as a two-letter ISO 639-1 language code (for example, en).
  *  `product_id` - The ID of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Parent ID in the format `accounts/{account_id}`.
- *  `account_id` - The ID of the Manufacturer Center account.
+ *  Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of
+ *  the Manufacturer Center account.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 

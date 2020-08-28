@@ -46,9 +46,19 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "BASIC" */
+/**
+ *  Server response includes all fields except SourceInfo.
+ *
+ *  Value: "BASIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewBasic;
-/** Value: "FULL" */
+/**
+ *  Server response includes all fields including SourceInfo. SourceFiles are of
+ *  type 'google.api.servicemanagement.v1.ConfigFile' and are only available for
+ *  configs created using the SubmitConfigSource method.
+ *
+ *  Value: "FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 // ----------------------------------------------------------------------------
@@ -112,22 +122,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForOperationsList]
 
 /**
- *  A string for filtering Operations.
- *  The following filter fields are supported&#58;
- *  * serviceName&#58; Required. Only `=` operator is allowed.
- *  * startTime&#58; The time this job was started, in ISO 8601 format.
- *  Allowed operators are `>=`, `>`, `<=`, and `<`.
- *  * status&#58; Can be `done`, `in_progress`, or `failed`. Allowed
- *  operators are `=`, and `!=`.
- *  Filter expression supports conjunction (AND) and disjunction (OR)
- *  logical operators. However, the serviceName restriction must be at the
- *  top-level and can only be combined with other restrictions via the AND
- *  logical operator.
- *  Examples&#58;
- *  * `serviceName={some-service}.googleapis.com`
- *  * `serviceName={some-service}.googleapis.com AND startTime>="2017-02-01"`
- *  * `serviceName={some-service}.googleapis.com AND status=done`
- *  * `serviceName={some-service}.googleapis.com AND (status=done OR
+ *  A string for filtering Operations. The following filter fields are
+ *  supported: * serviceName: Required. Only `=` operator is allowed. *
+ *  startTime: The time this job was started, in ISO 8601 format. Allowed
+ *  operators are `>=`, `>`, `<=`, and `<`. * status: Can be `done`,
+ *  `in_progress`, or `failed`. Allowed operators are `=`, and `!=`. Filter
+ *  expression supports conjunction (AND) and disjunction (OR) logical
+ *  operators. However, the serviceName restriction must be at the top-level and
+ *  can only be combined with other restrictions via the AND logical operator.
+ *  Examples: * `serviceName={some-service}.googleapis.com` *
+ *  `serviceName={some-service}.googleapis.com AND startTime>="2017-02-01"` *
+ *  `serviceName={some-service}.googleapis.com AND status=done` *
+ *  `serviceName={some-service}.googleapis.com AND (status=done OR
  *  startTime>="2017-02-01")`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -136,8 +142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The maximum number of operations to return. If unspecified, defaults to
- *  50. The maximum value is 100.
+ *  The maximum number of operations to return. If unspecified, defaults to 50.
+ *  The maximum value is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -160,13 +166,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Creates a new service configuration (version) for a managed service.
- *  This method only stores the service configuration. To roll out the service
- *  configuration to backend systems please call
- *  CreateServiceRollout.
- *  Only the 100 most recent service configurations and ones referenced by
- *  existing rollouts are kept for each service. The rest will be deleted
- *  eventually.
+ *  Creates a new service configuration (version) for a managed service. This
+ *  method only stores the service configuration. To roll out the service
+ *  configuration to backend systems please call CreateServiceRollout. Only the
+ *  100 most recent service configurations and ones referenced by existing
+ *  rollouts are kept for each service. The rest will be deleted eventually.
  *
  *  Method: servicemanagement.services.configs.create
  *
@@ -180,26 +184,24 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
  *  Fetches a @c GTLRServiceManagement_Service.
  *
- *  Creates a new service configuration (version) for a managed service.
- *  This method only stores the service configuration. To roll out the service
- *  configuration to backend systems please call
- *  CreateServiceRollout.
- *  Only the 100 most recent service configurations and ones referenced by
- *  existing rollouts are kept for each service. The rest will be deleted
- *  eventually.
+ *  Creates a new service configuration (version) for a managed service. This
+ *  method only stores the service configuration. To roll out the service
+ *  configuration to backend systems please call CreateServiceRollout. Only the
+ *  100 most recent service configurations and ones referenced by existing
+ *  rollouts are kept for each service. The rest will be deleted eventually.
  *
  *  @param object The @c GTLRServiceManagement_Service to include in the query.
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesConfigsCreate
  */
@@ -224,16 +226,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesConfigsGetWithserviceName:configId:]
 
 /**
- *  Required. The id of the service configuration resource.
- *  This field must be specified for the server to return all fields, including
- *  `SourceInfo`.
+ *  Required. The id of the service configuration resource. This field must be
+ *  specified for the server to return all fields, including `SourceInfo`.
  */
 @property(nonatomic, copy, nullable) NSString *configId;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -242,8 +243,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  response.
  *
  *  Likely values:
- *    @arg @c kGTLRServiceManagementViewBasic Value "BASIC"
- *    @arg @c kGTLRServiceManagementViewFull Value "FULL"
+ *    @arg @c kGTLRServiceManagementViewBasic Server response includes all
+ *        fields except SourceInfo. (Value: "BASIC")
+ *    @arg @c kGTLRServiceManagementViewFull Server response includes all fields
+ *        including SourceInfo. SourceFiles are of type
+ *        'google.api.servicemanagement.v1.ConfigFile' and are only available
+ *        for configs created using the SubmitConfigSource method. (Value:
+ *        "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -253,11 +259,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Gets a service configuration (version) for a managed service.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
- *  @param configId Required. The id of the service configuration resource.
- *    This field must be specified for the server to return all fields,
- *    including
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
+ *  @param configId Required. The id of the service configuration resource. This
+ *    field must be specified for the server to return all fields, including
  *    `SourceInfo`.
  *
  *  @return GTLRServiceManagementQuery_ServicesConfigsGet
@@ -268,8 +273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Lists the history of the service configuration for a managed service,
- *  from the newest to the oldest.
+ *  Lists the history of the service configuration for a managed service, from
+ *  the newest to the oldest.
  *
  *  Method: servicemanagement.services.configs.list
  *
@@ -284,8 +289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesConfigsListWithserviceName:]
 
 /**
- *  The max number of items to include in the response list. Page size is 50
- *  if not specified. Maximum value is 100.
+ *  The max number of items to include in the response list. Page size is 50 if
+ *  not specified. Maximum value is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -294,20 +299,20 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
  *  Fetches a @c GTLRServiceManagement_ListServiceConfigsResponse.
  *
- *  Lists the history of the service configuration for a managed service,
- *  from the newest to the oldest.
+ *  Lists the history of the service configuration for a managed service, from
+ *  the newest to the oldest.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesConfigsList
  *
@@ -320,17 +325,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Creates a new service configuration (version) for a managed service based
- *  on
+ *  Creates a new service configuration (version) for a managed service based on
  *  user-supplied configuration source files (for example: OpenAPI
  *  Specification). This method stores the source configurations as well as the
  *  generated service configuration. To rollout the service configuration to
- *  other services,
- *  please call CreateServiceRollout.
- *  Only the 100 most recent configuration sources and ones referenced by
- *  existing service configurtions are kept for each service. The rest will be
- *  deleted eventually.
- *  Operation<response: SubmitConfigSourceResponse>
+ *  other services, please call CreateServiceRollout. Only the 100 most recent
+ *  configuration sources and ones referenced by existing service configurtions
+ *  are kept for each service. The rest will be deleted eventually. Operation
  *
  *  Method: servicemanagement.services.configs.submit
  *
@@ -344,31 +345,27 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
  *  Fetches a @c GTLRServiceManagement_Operation.
  *
- *  Creates a new service configuration (version) for a managed service based
- *  on
+ *  Creates a new service configuration (version) for a managed service based on
  *  user-supplied configuration source files (for example: OpenAPI
  *  Specification). This method stores the source configurations as well as the
  *  generated service configuration. To rollout the service configuration to
- *  other services,
- *  please call CreateServiceRollout.
- *  Only the 100 most recent configuration sources and ones referenced by
- *  existing service configurtions are kept for each service. The rest will be
- *  deleted eventually.
- *  Operation<response: SubmitConfigSourceResponse>
+ *  other services, please call CreateServiceRollout. Only the 100 most recent
+ *  configuration sources and ones referenced by existing service configurtions
+ *  are kept for each service. The rest will be deleted eventually. Operation
  *
  *  @param object The @c GTLRServiceManagement_SubmitConfigSourceRequest to
  *    include in the query.
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesConfigsSubmit
  */
@@ -378,9 +375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: servicemanagement.services.consumers.getIamPolicy
  *
@@ -395,23 +391,22 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesConsumersGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRServiceManagement_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param object The @c GTLRServiceManagement_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesConsumersGetIamPolicy
  */
@@ -422,8 +417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: servicemanagement.services.consumers.setIamPolicy
  *
@@ -436,8 +431,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesConsumersSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -445,14 +440,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Fetches a @c GTLRServiceManagement_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRServiceManagement_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesConsumersSetIamPolicy
  */
@@ -462,12 +457,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: servicemanagement.services.consumers.testIamPermissions
  *
@@ -482,26 +476,25 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesConsumersTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRServiceManagement_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRServiceManagement_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesConsumersTestIamPermissions
  */
@@ -511,14 +504,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Creates a new managed service.
- *  A managed service is immutable, and is subject to mandatory 30-day
- *  data retention. You cannot move a service or recreate it within 30 days
- *  after deletion.
- *  One producer project can own no more than 500 services. For security and
- *  reliability purposes, a production service should be hosted in a
- *  dedicated producer project.
- *  Operation<response: ManagedService>
+ *  Creates a new managed service. A managed service is immutable, and is
+ *  subject to mandatory 30-day data retention. You cannot move a service or
+ *  recreate it within 30 days after deletion. One producer project can own no
+ *  more than 500 services. For security and reliability purposes, a production
+ *  service should be hosted in a dedicated producer project. Operation
  *
  *  Method: servicemanagement.services.create
  *
@@ -533,14 +523,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 /**
  *  Fetches a @c GTLRServiceManagement_Operation.
  *
- *  Creates a new managed service.
- *  A managed service is immutable, and is subject to mandatory 30-day
- *  data retention. You cannot move a service or recreate it within 30 days
- *  after deletion.
- *  One producer project can own no more than 500 services. For security and
- *  reliability purposes, a production service should be hosted in a
- *  dedicated producer project.
- *  Operation<response: ManagedService>
+ *  Creates a new managed service. A managed service is immutable, and is
+ *  subject to mandatory 30-day data retention. You cannot move a service or
+ *  recreate it within 30 days after deletion. One producer project can own no
+ *  more than 500 services. For security and reliability purposes, a production
+ *  service should be hosted in a dedicated producer project. Operation
  *
  *  @param object The @c GTLRServiceManagement_ManagedService to include in the
  *    query.
@@ -554,9 +541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 /**
  *  Deletes a managed service. This method will change the service to the
  *  `Soft-Delete` state for 30 days. Within this period, service producers may
- *  call UndeleteService to restore the service.
- *  After 30 days, the service will be permanently deleted.
- *  Operation<response: google.protobuf.Empty>
+ *  call UndeleteService to restore the service. After 30 days, the service will
+ *  be permanently deleted. Operation
  *
  *  Method: servicemanagement.services.delete
  *
@@ -570,8 +556,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -580,13 +566,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *
  *  Deletes a managed service. This method will change the service to the
  *  `Soft-Delete` state for 30 days. Within this period, service producers may
- *  call UndeleteService to restore the service.
- *  After 30 days, the service will be permanently deleted.
- *  Operation<response: google.protobuf.Empty>
+ *  call UndeleteService to restore the service. After 30 days, the service will
+ *  be permanently deleted. Operation
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesDelete
  */
@@ -595,10 +580,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Disables a service for a project, so it can no longer be
- *  be used for the project. It prevents accidental usage that may cause
- *  unexpected billing charges or security leaks.
- *  Operation<response: DisableServiceResponse>
+ *  Disables a service for a project, so it can no longer be be used for the
+ *  project. It prevents accidental usage that may cause unexpected billing
+ *  charges or security leaks. Operation
  *
  *  Method: servicemanagement.services.disable
  *
@@ -619,16 +603,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 /**
  *  Fetches a @c GTLRServiceManagement_Operation.
  *
- *  Disables a service for a project, so it can no longer be
- *  be used for the project. It prevents accidental usage that may cause
- *  unexpected billing charges or security leaks.
- *  Operation<response: DisableServiceResponse>
+ *  Disables a service for a project, so it can no longer be be used for the
+ *  project. It prevents accidental usage that may cause unexpected billing
+ *  charges or security leaks. Operation
  *
  *  @param object The @c GTLRServiceManagement_DisableServiceRequest to include
  *    in the query.
  *  @param serviceName Required. Name of the service to disable. Specifying an
- *    unknown service name
- *    will cause the request to fail.
+ *    unknown service name will cause the request to fail.
  *
  *  @return GTLRServiceManagementQuery_ServicesDisable
  */
@@ -638,11 +620,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Enables a service for a project, so it can be used
- *  for the project. See
- *  [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for
- *  more information.
- *  Operation<response: EnableServiceResponse>
+ *  Enables a service for a project, so it can be used for the project. See
+ *  [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for more
+ *  information. Operation
  *
  *  Method: servicemanagement.services.enable
  *
@@ -656,25 +636,21 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. Name of the service to enable. Specifying an unknown service name
- *  will
- *  cause the request to fail.
+ *  will cause the request to fail.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
  *  Fetches a @c GTLRServiceManagement_Operation.
  *
- *  Enables a service for a project, so it can be used
- *  for the project. See
- *  [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for
- *  more information.
- *  Operation<response: EnableServiceResponse>
+ *  Enables a service for a project, so it can be used for the project. See
+ *  [Cloud Auth Guide](https://cloud.google.com/docs/authentication) for more
+ *  information. Operation
  *
  *  @param object The @c GTLRServiceManagement_EnableServiceRequest to include
  *    in the query.
  *  @param serviceName Required. Name of the service to enable. Specifying an
- *    unknown service name will
- *    cause the request to fail.
+ *    unknown service name will cause the request to fail.
  *
  *  @return GTLRServiceManagementQuery_ServicesEnable
  */
@@ -684,16 +660,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Generates and returns a report (errors, warnings and changes from
- *  existing configurations) associated with
- *  GenerateConfigReportRequest.new_value
- *  If GenerateConfigReportRequest.old_value is specified,
+ *  Generates and returns a report (errors, warnings and changes from existing
+ *  configurations) associated with GenerateConfigReportRequest.new_value If
+ *  GenerateConfigReportRequest.old_value is specified,
  *  GenerateConfigReportRequest will contain a single ChangeReport based on the
  *  comparison between GenerateConfigReportRequest.new_value and
- *  GenerateConfigReportRequest.old_value.
- *  If GenerateConfigReportRequest.old_value is not specified, this method
- *  will compare GenerateConfigReportRequest.new_value with the last pushed
- *  service configuration.
+ *  GenerateConfigReportRequest.old_value. If
+ *  GenerateConfigReportRequest.old_value is not specified, this method will
+ *  compare GenerateConfigReportRequest.new_value with the last pushed service
+ *  configuration.
  *
  *  Method: servicemanagement.services.generateConfigReport
  *
@@ -708,16 +683,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 /**
  *  Fetches a @c GTLRServiceManagement_GenerateConfigReportResponse.
  *
- *  Generates and returns a report (errors, warnings and changes from
- *  existing configurations) associated with
- *  GenerateConfigReportRequest.new_value
- *  If GenerateConfigReportRequest.old_value is specified,
+ *  Generates and returns a report (errors, warnings and changes from existing
+ *  configurations) associated with GenerateConfigReportRequest.new_value If
+ *  GenerateConfigReportRequest.old_value is specified,
  *  GenerateConfigReportRequest will contain a single ChangeReport based on the
  *  comparison between GenerateConfigReportRequest.new_value and
- *  GenerateConfigReportRequest.old_value.
- *  If GenerateConfigReportRequest.old_value is not specified, this method
- *  will compare GenerateConfigReportRequest.new_value with the last pushed
- *  service configuration.
+ *  GenerateConfigReportRequest.old_value. If
+ *  GenerateConfigReportRequest.old_value is not specified, this method will
+ *  compare GenerateConfigReportRequest.new_value with the last pushed service
+ *  configuration.
  *
  *  @param object The @c GTLRServiceManagement_GenerateConfigReportRequest to
  *    include in the query.
@@ -746,8 +720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the `ServiceManager` overview for
- *  naming
- *  requirements. For example: `example.googleapis.com`.
+ *  naming requirements. For example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -758,8 +731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  public.
  *
  *  @param serviceName Required. The name of the service. See the
- *    `ServiceManager` overview for naming
- *    requirements. For example: `example.googleapis.com`.
+ *    `ServiceManager` overview for naming requirements. For example:
+ *    `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesGet
  */
@@ -783,16 +756,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesGetConfigWithserviceName:]
 
 /**
- *  Required. The id of the service configuration resource.
- *  This field must be specified for the server to return all fields, including
- *  `SourceInfo`.
+ *  Required. The id of the service configuration resource. This field must be
+ *  specified for the server to return all fields, including `SourceInfo`.
  */
 @property(nonatomic, copy, nullable) NSString *configId;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -801,8 +773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  response.
  *
  *  Likely values:
- *    @arg @c kGTLRServiceManagementViewBasic Value "BASIC"
- *    @arg @c kGTLRServiceManagementViewFull Value "FULL"
+ *    @arg @c kGTLRServiceManagementViewBasic Server response includes all
+ *        fields except SourceInfo. (Value: "BASIC")
+ *    @arg @c kGTLRServiceManagementViewFull Server response includes all fields
+ *        including SourceInfo. SourceFiles are of type
+ *        'google.api.servicemanagement.v1.ConfigFile' and are only available
+ *        for configs created using the SubmitConfigSource method. (Value:
+ *        "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -812,8 +789,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Gets a service configuration (version) for a managed service.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesGetConfig
  */
@@ -822,9 +799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: servicemanagement.services.getIamPolicy
  *
@@ -839,23 +815,22 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRServiceManagement_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param object The @c GTLRServiceManagement_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesGetIamPolicy
  */
@@ -865,13 +840,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Lists managed services.
- *  Returns all public services. For authenticated users, also returns all
- *  services the calling user has "servicemanagement.services.get" permission
- *  for.
- *  **BETA:** If the caller specifies the `consumer_id`, it returns only the
- *  services enabled on the consumer. The `consumer_id` must have the format
- *  of "project:{PROJECT-ID}".
+ *  Lists managed services. Returns all public services. For authenticated
+ *  users, also returns all services the calling user has
+ *  "servicemanagement.services.get" permission for. **BETA:** If the caller
+ *  specifies the `consumer_id`, it returns only the services enabled on the
+ *  consumer. The `consumer_id` must have the format of "project:{PROJECT-ID}".
  *
  *  Method: servicemanagement.services.list
  *
@@ -886,16 +859,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesList]
 
 /**
- *  Include services consumed by the specified consumer.
- *  The Google Service Management implementation accepts the following
- *  forms:
- *  - project:<project_id>
+ *  Include services consumed by the specified consumer. The Google Service
+ *  Management implementation accepts the following forms: - project:
  */
 @property(nonatomic, copy, nullable) NSString *consumerId;
 
 /**
- *  The max number of items to include in the response list. Page size is 50
- *  if not specified. Maximum value is 100.
+ *  The max number of items to include in the response list. Page size is 50 if
+ *  not specified. Maximum value is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -911,13 +882,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 /**
  *  Fetches a @c GTLRServiceManagement_ListServicesResponse.
  *
- *  Lists managed services.
- *  Returns all public services. For authenticated users, also returns all
- *  services the calling user has "servicemanagement.services.get" permission
- *  for.
- *  **BETA:** If the caller specifies the `consumer_id`, it returns only the
- *  services enabled on the consumer. The `consumer_id` must have the format
- *  of "project:{PROJECT-ID}".
+ *  Lists managed services. Returns all public services. For authenticated
+ *  users, also returns all services the calling user has
+ *  "servicemanagement.services.get" permission for. **BETA:** If the caller
+ *  specifies the `consumer_id`, it returns only the services enabled on the
+ *  consumer. The `consumer_id` must have the format of "project:{PROJECT-ID}".
  *
  *  @return GTLRServiceManagementQuery_ServicesList
  *
@@ -930,17 +899,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Creates a new service configuration rollout. Based on rollout, the
- *  Google Service Management will roll out the service configurations to
- *  different backend services. For example, the logging configuration will be
- *  pushed to Google Cloud Logging.
- *  Please note that any previous pending and running Rollouts and associated
- *  Operations will be automatically cancelled so that the latest Rollout will
- *  not be blocked by previous Rollouts.
- *  Only the 100 most recent (in any state) and the last 10 successful (if not
- *  already part of the set of 100 most recent) rollouts are kept for each
- *  service. The rest will be deleted eventually.
- *  Operation<response: Rollout>
+ *  Creates a new service configuration rollout. Based on rollout, the Google
+ *  Service Management will roll out the service configurations to different
+ *  backend services. For example, the logging configuration will be pushed to
+ *  Google Cloud Logging. Please note that any previous pending and running
+ *  Rollouts and associated Operations will be automatically cancelled so that
+ *  the latest Rollout will not be blocked by previous Rollouts. Only the 100
+ *  most recent (in any state) and the last 10 successful (if not already part
+ *  of the set of 100 most recent) rollouts are kept for each service. The rest
+ *  will be deleted eventually. Operation
  *
  *  Method: servicemanagement.services.rollouts.create
  *
@@ -954,30 +921,28 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
  *  Fetches a @c GTLRServiceManagement_Operation.
  *
- *  Creates a new service configuration rollout. Based on rollout, the
- *  Google Service Management will roll out the service configurations to
- *  different backend services. For example, the logging configuration will be
- *  pushed to Google Cloud Logging.
- *  Please note that any previous pending and running Rollouts and associated
- *  Operations will be automatically cancelled so that the latest Rollout will
- *  not be blocked by previous Rollouts.
- *  Only the 100 most recent (in any state) and the last 10 successful (if not
- *  already part of the set of 100 most recent) rollouts are kept for each
- *  service. The rest will be deleted eventually.
- *  Operation<response: Rollout>
+ *  Creates a new service configuration rollout. Based on rollout, the Google
+ *  Service Management will roll out the service configurations to different
+ *  backend services. For example, the logging configuration will be pushed to
+ *  Google Cloud Logging. Please note that any previous pending and running
+ *  Rollouts and associated Operations will be automatically cancelled so that
+ *  the latest Rollout will not be blocked by previous Rollouts. Only the 100
+ *  most recent (in any state) and the last 10 successful (if not already part
+ *  of the set of 100 most recent) rollouts are kept for each service. The rest
+ *  will be deleted eventually. Operation
  *
  *  @param object The @c GTLRServiceManagement_Rollout to include in the query.
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesRolloutsCreate
  */
@@ -1006,8 +971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -1017,8 +982,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Gets a service configuration rollout.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *  @param rolloutId Required. The id of the rollout resource.
  *
  *  @return GTLRServiceManagementQuery_ServicesRolloutsGet
@@ -1045,20 +1010,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesRolloutsListWithserviceName:]
 
 /**
- *  Required. Use `filter` to return subset of rollouts.
- *  The following filters are supported:
- *  -- To limit the results to only those in
- *  [status](google.api.servicemanagement.v1.RolloutStatus) 'SUCCESS',
- *  use filter='status=SUCCESS'
- *  -- To limit the results to those in
- *  [status](google.api.servicemanagement.v1.RolloutStatus) 'CANCELLED'
- *  or 'FAILED', use filter='status=CANCELLED OR status=FAILED'
+ *  Required. Use `filter` to return subset of rollouts. The following filters
+ *  are supported: -- To limit the results to only those in
+ *  [status](google.api.servicemanagement.v1.RolloutStatus) 'SUCCESS', use
+ *  filter='status=SUCCESS' -- To limit the results to those in
+ *  [status](google.api.servicemanagement.v1.RolloutStatus) 'CANCELLED' or
+ *  'FAILED', use filter='status=CANCELLED OR status=FAILED'
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The max number of items to include in the response list. Page size is 50
- *  if not specified. Maximum value is 100.
+ *  The max number of items to include in the response list. Page size is 50 if
+ *  not specified. Maximum value is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1067,8 +1030,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -1079,8 +1042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  service, from the newest to the oldest.
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesRolloutsList
  *
@@ -1094,8 +1057,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: servicemanagement.services.setIamPolicy
  *
@@ -1108,8 +1071,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1117,14 +1080,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Fetches a @c GTLRServiceManagement_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRServiceManagement_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesSetIamPolicy
  */
@@ -1134,12 +1097,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: servicemanagement.services.testIamPermissions
  *
@@ -1154,26 +1116,25 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 //   +[GTLQueryServiceManagement queryForServicesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRServiceManagement_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRServiceManagement_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceManagementQuery_ServicesTestIamPermissions
  */
@@ -1184,10 +1145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Revives a previously deleted managed service. The method restores the
- *  service using the configuration at the time the service was deleted.
- *  The target service must exist and must have been deleted within the
- *  last 30 days.
- *  Operation<response: UndeleteServiceResponse>
+ *  service using the configuration at the time the service was deleted. The
+ *  target service must exist and must have been deleted within the last 30
+ *  days. Operation
  *
  *  Method: servicemanagement.services.undelete
  *
@@ -1201,8 +1161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
 
 /**
  *  Required. The name of the service. See the
- *  [overview](/service-management/overview)
- *  for naming requirements. For example: `example.googleapis.com`.
+ *  [overview](/service-management/overview) for naming requirements. For
+ *  example: `example.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
@@ -1210,14 +1170,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagementViewFull;
  *  Fetches a @c GTLRServiceManagement_Operation.
  *
  *  Revives a previously deleted managed service. The method restores the
- *  service using the configuration at the time the service was deleted.
- *  The target service must exist and must have been deleted within the
- *  last 30 days.
- *  Operation<response: UndeleteServiceResponse>
+ *  service using the configuration at the time the service was deleted. The
+ *  target service must exist and must have been deleted within the last 30
+ *  days. Operation
  *
  *  @param serviceName Required. The name of the service. See the
- *    [overview](/service-management/overview)
- *    for naming requirements. For example: `example.googleapis.com`.
+ *    [overview](/service-management/overview) for naming requirements. For
+ *    example: `example.googleapis.com`.
  *
  *  @return GTLRServiceManagementQuery_ServicesUndelete
  */

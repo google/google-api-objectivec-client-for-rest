@@ -62,8 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsCreateWithObject:parent:]
 
 /**
- *  Required. The parent catalog resource name, such as
- *  "projects/ * /locations/global/catalogs/default_catalog".
+ *  Required. The parent catalog resource name, such as "projects/ *
+ *  /locations/global/catalogs/default_catalog".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -76,8 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem to
  *    include in the query.
- *  @param parent Required. The parent catalog resource name, such as
- *    "projects/ * /locations/global/catalogs/default_catalog".
+ *  @param parent Required. The parent catalog resource name, such as "projects/
+ *    * /locations/global/catalogs/default_catalog".
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsCreate
  */
@@ -99,8 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsDeleteWithname:]
 
 /**
- *  Required. Full resource name of catalog item, such as
- *  "projects/ *
+ *  Required. Full resource name of catalog item, such as "projects/ *
  *  /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -110,8 +109,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a catalog item.
  *
- *  @param name Required. Full resource name of catalog item, such as
- *    "projects/ *
+ *  @param name Required. Full resource name of catalog item, such as "projects/
+ *    *
  *    /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id".
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsDelete
@@ -133,8 +132,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsGetWithname:]
 
 /**
- *  Required. Full resource name of catalog item, such as
- *  "projects/ *
+ *  Required. Full resource name of catalog item, such as "projects/ *
  *  /locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -145,8 +143,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a specific catalog item.
  *
- *  @param name Required. Full resource name of catalog item, such as
- *    "projects/ *
+ *  @param name Required. Full resource name of catalog item, such as "projects/
+ *    *
  *    /locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id".
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsGet
@@ -156,46 +154,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Method for getting the catalog items associated with item group id.
- *
- *  Method: recommendationengine.projects.locations.catalogs.catalogItems.getGroupIdItems
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
- */
-@interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsGetGroupIdItems : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsGetGroupIdItemsWithparent:]
-
-/** Required. Catalog item identifier for prediction results. */
-@property(nonatomic, copy, nullable) NSString *itemGroupId;
-
-/**
- *  Required. Parent resource name of group id item, such as
- *  "projects/ * /locations/global/catalogs/default_catalog".
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1GetCatalogItemsWithItemGroupIdResponse.
- *
- *  Method for getting the catalog items associated with item group id.
- *
- *  @param parent Required. Parent resource name of group id item, such as
- *    "projects/ * /locations/global/catalogs/default_catalog".
- *
- *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsGetGroupIdItems
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
  *  Bulk import of multiple catalog items. Request processing may be
  *  synchronous. No partial updating supported. Non-existing items will be
- *  created.
- *  Operation.response is of type ImportResponse. Note that it is
+ *  created. Operation.response is of type ImportResponse. Note that it is
  *  possible for a subset of the items to be successfully updated.
  *
  *  Method: recommendationengine.projects.locations.catalogs.catalogItems.import
@@ -208,9 +169,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsImportWithObject:parent:]
 
 /**
- *  Required. "projects/1234/locations/global/catalogs/default_catalog"
- *  If no updateMask is specified, requires catalogItems.create permission.
- *  If updateMask is specified, requires catalogItems.update permission.
+ *  Required. "projects/1234/locations/global/catalogs/default_catalog" If no
+ *  updateMask is specified, requires catalogItems.create permission. If
+ *  updateMask is specified, requires catalogItems.update permission.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -219,17 +180,16 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Bulk import of multiple catalog items. Request processing may be
  *  synchronous. No partial updating supported. Non-existing items will be
- *  created.
- *  Operation.response is of type ImportResponse. Note that it is
+ *  created. Operation.response is of type ImportResponse. Note that it is
  *  possible for a subset of the items to be successfully updated.
  *
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest
  *    to include in the query.
  *  @param parent Required.
- *    "projects/1234/locations/global/catalogs/default_catalog"
- *    If no updateMask is specified, requires catalogItems.create permission.
- *    If updateMask is specified, requires catalogItems.update permission.
+ *    "projects/1234/locations/global/catalogs/default_catalog" If no updateMask
+ *    is specified, requires catalogItems.create permission. If updateMask is
+ *    specified, requires catalogItems.update permission.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsImport
  */
@@ -254,8 +214,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Maximum number of results to return per page. If zero, the
- *  service will choose a reasonable default.
+ *  Optional. Maximum number of results to return per page. If zero, the service
+ *  will choose a reasonable default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -263,8 +223,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent catalog resource name, such as
- *  "projects/ * /locations/global/catalogs/default_catalog".
+ *  Required. The parent catalog resource name, such as "projects/ *
+ *  /locations/global/catalogs/default_catalog".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -274,8 +234,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a list of catalog items.
  *
- *  @param parent Required. The parent catalog resource name, such as
- *    "projects/ * /locations/global/catalogs/default_catalog".
+ *  @param parent Required. The parent catalog resource name, such as "projects/
+ *    * /locations/global/catalogs/default_catalog".
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsList
  *
@@ -288,8 +248,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a catalog item. Partial updating is supported. Non-existing
- *  items will be created.
+ *  Updates a catalog item. Partial updating is supported. Non-existing items
+ *  will be created.
  *
  *  Method: recommendationengine.projects.locations.catalogs.catalogItems.patch
  *
@@ -301,8 +261,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsPatchWithObject:name:]
 
 /**
- *  Required. Full resource name of catalog item, such as
- *  "projects/ *
+ *  Required. Full resource name of catalog item, such as "projects/ *
  *  /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -319,14 +278,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem.
  *
- *  Updates a catalog item. Partial updating is supported. Non-existing
- *  items will be created.
+ *  Updates a catalog item. Partial updating is supported. Non-existing items
+ *  will be created.
  *
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem to
  *    include in the query.
- *  @param name Required. Full resource name of catalog item, such as
- *    "projects/ *
+ *  @param name Required. Full resource name of catalog item, such as "projects/
+ *    *
  *    /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id".
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsPatch
@@ -370,14 +329,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: recommendationengine.projects.locations.catalogs.eventStores.operations.list
  *
@@ -404,14 +363,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRRecommendationsAI_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -427,9 +386,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Makes a recommendation prediction. If using API Key based authentication,
- *  the API Key must be registered using the
- *  PredictionApiKeyRegistry
- *  service. [Learn more](/recommendations-ai/docs/setting-up#register-key).
+ *  the API Key must be registered using the PredictionApiKeyRegistry service.
+ *  [Learn more](/recommendations-ai/docs/setting-up#register-key).
  *
  *  Method: recommendationengine.projects.locations.catalogs.eventStores.placements.predict
  *
@@ -441,30 +399,26 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresPlacementsPredictWithObject:name:]
 
 /**
- *  Required. Full resource name of the format:
- *  {name=projects/ *
+ *  Required. Full resource name of the format: {name=projects/ *
  *  /locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/
- *  *}
- *  The id of the recommendation engine placement. This id is used to identify
- *  the set of models that will be used to make the prediction.
- *  We currently support three placements with the following IDs by default:
- *  * `shopping_cart`: Predicts items frequently bought together with one or
- *  more catalog items in the same shopping session. Commonly displayed after
- *  `add-to-cart` events, on product detail pages, or on the shopping cart
- *  page.
- *  * `home_page`: Predicts the next product that a user will most likely
- *  engage with or purchase based on the shopping or viewing history of the
- *  specified `userId` or `visitorId`. For example - Recommendations for you.
- *  * `product_detail`: Predicts the next product that a user will most likely
- *  engage with or purchase. The prediction is based on the shopping or
- *  viewing history of the specified `userId` or `visitorId` and its
- *  relevance to a specified `CatalogItem`. Typically used on product detail
- *  pages. For example - More items like this.
- *  * `recently_viewed_default`: Returns up to 75 items recently viewed by the
- *  specified `userId` or `visitorId`, most recent ones first. Returns
- *  nothing if neither of them has viewed any items yet. For example -
- *  Recently viewed.
- *  The full list of available placements can be seen at
+ *  *} The id of the recommendation engine placement. This id is used to
+ *  identify the set of models that will be used to make the prediction. We
+ *  currently support three placements with the following IDs by default: *
+ *  `shopping_cart`: Predicts items frequently bought together with one or more
+ *  catalog items in the same shopping session. Commonly displayed after
+ *  `add-to-cart` events, on product detail pages, or on the shopping cart page.
+ *  * `home_page`: Predicts the next product that a user will most likely engage
+ *  with or purchase based on the shopping or viewing history of the specified
+ *  `userId` or `visitorId`. For example - Recommendations for you. *
+ *  `product_detail`: Predicts the next product that a user will most likely
+ *  engage with or purchase. The prediction is based on the shopping or viewing
+ *  history of the specified `userId` or `visitorId` and its relevance to a
+ *  specified `CatalogItem`. Typically used on product detail pages. For example
+ *  - More items like this. * `recently_viewed_default`: Returns up to 75 items
+ *  recently viewed by the specified `userId` or `visitorId`, most recent ones
+ *  first. Returns nothing if neither of them has viewed any items yet. For
+ *  example - Recently viewed. The full list of available placements can be seen
+ *  at
  *  https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -474,37 +428,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictResponse.
  *
  *  Makes a recommendation prediction. If using API Key based authentication,
- *  the API Key must be registered using the
- *  PredictionApiKeyRegistry
- *  service. [Learn more](/recommendations-ai/docs/setting-up#register-key).
+ *  the API Key must be registered using the PredictionApiKeyRegistry service.
+ *  [Learn more](/recommendations-ai/docs/setting-up#register-key).
  *
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest
  *    to include in the query.
- *  @param name Required. Full resource name of the format:
- *    {name=projects/ *
+ *  @param name Required. Full resource name of the format: {name=projects/ *
  *    /locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/
- *    *}
- *    The id of the recommendation engine placement. This id is used to identify
- *    the set of models that will be used to make the prediction.
- *    We currently support three placements with the following IDs by default:
- *    * `shopping_cart`: Predicts items frequently bought together with one or
+ *    *} The id of the recommendation engine placement. This id is used to
+ *    identify the set of models that will be used to make the prediction. We
+ *    currently support three placements with the following IDs by default: *
+ *    `shopping_cart`: Predicts items frequently bought together with one or
  *    more catalog items in the same shopping session. Commonly displayed after
  *    `add-to-cart` events, on product detail pages, or on the shopping cart
- *    page.
- *    * `home_page`: Predicts the next product that a user will most likely
- *    engage with or purchase based on the shopping or viewing history of the
- *    specified `userId` or `visitorId`. For example - Recommendations for you.
- *    * `product_detail`: Predicts the next product that a user will most likely
- *    engage with or purchase. The prediction is based on the shopping or
- *    viewing history of the specified `userId` or `visitorId` and its
- *    relevance to a specified `CatalogItem`. Typically used on product detail
- *    pages. For example - More items like this.
- *    * `recently_viewed_default`: Returns up to 75 items recently viewed by the
- *    specified `userId` or `visitorId`, most recent ones first. Returns
- *    nothing if neither of them has viewed any items yet. For example -
- *    Recently viewed.
- *    The full list of available placements can be seen at
+ *    page. * `home_page`: Predicts the next product that a user will most
+ *    likely engage with or purchase based on the shopping or viewing history of
+ *    the specified `userId` or `visitorId`. For example - Recommendations for
+ *    you. * `product_detail`: Predicts the next product that a user will most
+ *    likely engage with or purchase. The prediction is based on the shopping or
+ *    viewing history of the specified `userId` or `visitorId` and its relevance
+ *    to a specified `CatalogItem`. Typically used on product detail pages. For
+ *    example - More items like this. * `recently_viewed_default`: Returns up to
+ *    75 items recently viewed by the specified `userId` or `visitorId`, most
+ *    recent ones first. Returns nothing if neither of them has viewed any items
+ *    yet. For example - Recently viewed. The full list of available placements
+ *    can be seen at
  *    https://console.cloud.google.com/recommendation/datafeeds/default_catalog/dashboard
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPlacementsPredict
@@ -527,8 +476,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource path.
- *  "projects/ *
+ *  Required. The parent resource path. "projects/ *
  *  /locations/global/catalogs/default_catalog/eventStores/default_event_store".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -542,8 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest
  *    to include in the query.
- *  @param parent Required. The parent resource path.
- *    "projects/ *
+ *  @param parent Required. The parent resource path. "projects/ *
  *    /locations/global/catalogs/default_catalog/eventStores/default_event_store".
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsCreate
@@ -566,9 +513,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsDeleteWithname:]
 
 /**
- *  Required. The API key to unregister including full resource path.
- *  "projects/ *
- *  /locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/<YOUR_API_KEY>"
+ *  Required. The API key to unregister including full resource path. "projects/
+ *  *
+ *  /locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -578,9 +525,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Unregister an apiKey from using for predict method.
  *
  *  @param name Required. The API key to unregister including full resource
- *    path.
- *    "projects/ *
- *    /locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/<YOUR_API_KEY>"
+ *    path. "projects/ *
+ *    /locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/"
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsDelete
  */
@@ -637,10 +583,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Writes a single user event from the browser. This uses a GET request to
- *  due to browser restriction of POST-ing to a 3rd party domain.
- *  This method is used only by the Recommendations AI JavaScript pixel.
- *  Users should not call this method directly.
+ *  Writes a single user event from the browser. This uses a GET request to due
+ *  to browser restriction of POST-ing to a 3rd party domain. This method is
+ *  used only by the Recommendations AI JavaScript pixel. Users should not call
+ *  this method directly.
  *
  *  Method: recommendationengine.projects.locations.catalogs.eventStores.userEvents.collect
  *
@@ -653,8 +599,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The event timestamp in milliseconds. This prevents browser caching
- *  of
- *  otherwise identical get requests. The name is abbreviated to reduce the
+ *  of otherwise identical get requests. The name is abbreviated to reduce the
  *  payload bytes.
  */
 @property(nonatomic, assign) long long ets;
@@ -667,10 +612,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The url including cgi-parameters but excluding the hash fragment.
- *  The URL
- *  must be truncated to 1.5K bytes to conservatively be under the 2K bytes.
- *  This is often more useful than the referer url, because many browsers only
- *  send the domain for 3rd party requests.
+ *  The URL must be truncated to 1.5K bytes to conservatively be under the 2K
+ *  bytes. This is often more useful than the referer url, because many browsers
+ *  only send the domain for 3rd party requests.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -680,10 +624,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommendationsAI_GoogleApiHttpBody.
  *
- *  Writes a single user event from the browser. This uses a GET request to
- *  due to browser restriction of POST-ing to a 3rd party domain.
- *  This method is used only by the Recommendations AI JavaScript pixel.
- *  Users should not call this method directly.
+ *  Writes a single user event from the browser. This uses a GET request to due
+ *  to browser restriction of POST-ing to a 3rd party domain. This method is
+ *  used only by the Recommendations AI JavaScript pixel. Users should not call
+ *  this method directly.
  *
  *  @param parent Required. The parent eventStore name, such as
  *    "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store".
@@ -695,10 +639,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Bulk import of User events. Request processing might be
- *  synchronous. Events that already exist are skipped.
- *  Use this method for backfilling historical user events.
- *  Operation.response is of type ImportResponse. Note that it is
+ *  Bulk import of User events. Request processing might be synchronous. Events
+ *  that already exist are skipped. Use this method for backfilling historical
+ *  user events. Operation.response is of type ImportResponse. Note that it is
  *  possible for a subset of the items to be successfully inserted.
  *  Operation.metadata is of type ImportMetadata.
  *
@@ -720,10 +663,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommendationsAI_GoogleLongrunningOperation.
  *
- *  Bulk import of User events. Request processing might be
- *  synchronous. Events that already exist are skipped.
- *  Use this method for backfilling historical user events.
- *  Operation.response is of type ImportResponse. Note that it is
+ *  Bulk import of User events. Request processing might be synchronous. Events
+ *  that already exist are skipped. Use this method for backfilling historical
+ *  user events. Operation.response is of type ImportResponse. Note that it is
  *  possible for a subset of the items to be successfully inserted.
  *  Operation.metadata is of type ImportMetadata.
  *
@@ -742,12 +684,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets a list of user events within a time range, with potential filtering.
- *  The method does not list unjoined user events.
- *  Unjoined user event definition: when a user event is ingested from
- *  Recommendations AI User Event APIs, the catalog item included in the user
- *  event is connected with the current catalog. If a catalog item of the
- *  ingested event is not in the current catalog, it could lead to degraded
- *  model quality. This is called an unjoined event.
+ *  The method does not list unjoined user events. Unjoined user event
+ *  definition: when a user event is ingested from Recommendations AI User Event
+ *  APIs, the catalog item included in the user event is connected with the
+ *  current catalog. If a catalog item of the ingested event is not in the
+ *  current catalog, it could lead to degraded model quality. This is called an
+ *  unjoined event.
  *
  *  Method: recommendationengine.projects.locations.catalogs.eventStores.userEvents.list
  *
@@ -759,38 +701,32 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresUserEventsListWithparent:]
 
 /**
- *  Optional. Filtering expression to specify restrictions over
- *  returned events. This is a sequence of terms, where each term applies some
- *  kind of a restriction to the returned user events. Use this expression to
- *  restrict results to a specific time range, or filter events by eventType.
- *  eg: eventTime > "2012-04-23T18:25:43.511Z" eventsMissingCatalogItems
- *  eventTime<"2012-04-23T18:25:43.511Z" eventType=search
- *  We expect only 3 types of fields:
- *  * eventTime: this can be specified a maximum of 2 times, once with a
- *  less than operator and once with a greater than operator. The
- *  eventTime restrict should result in one contiguous valid eventTime
- *  range.
- *  * eventType: only 1 eventType restriction can be specified.
- *  * eventsMissingCatalogItems: specififying this will restrict results
- *  to events for which catalog items were not found in the catalog. The
- *  default behavior is to return only those events for which catalog
- *  items were found.
- *  Some examples of valid filters expressions:
- *  * Example 1: eventTime > "2012-04-23T18:25:43.511Z"
- *  eventTime < "2012-04-23T18:30:43.511Z"
- *  * Example 2: eventTime > "2012-04-23T18:25:43.511Z"
- *  eventType = detail-page-view
- *  * Example 3: eventsMissingCatalogItems
- *  eventType = search eventTime < "2018-04-23T18:30:43.511Z"
- *  * Example 4: eventTime > "2012-04-23T18:25:43.511Z"
- *  * Example 5: eventType = search
- *  * Example 6: eventsMissingCatalogItems
+ *  Optional. Filtering expression to specify restrictions over returned events.
+ *  This is a sequence of terms, where each term applies some kind of a
+ *  restriction to the returned user events. Use this expression to restrict
+ *  results to a specific time range, or filter events by eventType. eg:
+ *  eventTime > "2012-04-23T18:25:43.511Z" eventsMissingCatalogItems
+ *  eventTime<"2012-04-23T18:25:43.511Z" eventType=search We expect only 3 types
+ *  of fields: * eventTime: this can be specified a maximum of 2 times, once
+ *  with a less than operator and once with a greater than operator. The
+ *  eventTime restrict should result in one contiguous valid eventTime range. *
+ *  eventType: only 1 eventType restriction can be specified. *
+ *  eventsMissingCatalogItems: specififying this will restrict results to events
+ *  for which catalog items were not found in the catalog. The default behavior
+ *  is to return only those events for which catalog items were found. Some
+ *  examples of valid filters expressions: * Example 1: eventTime >
+ *  "2012-04-23T18:25:43.511Z" eventTime < "2012-04-23T18:30:43.511Z" * Example
+ *  2: eventTime > "2012-04-23T18:25:43.511Z" eventType = detail-page-view *
+ *  Example 3: eventsMissingCatalogItems eventType = search eventTime <
+ *  "2018-04-23T18:30:43.511Z" * Example 4: eventTime >
+ *  "2012-04-23T18:25:43.511Z" * Example 5: eventType = search * Example 6:
+ *  eventsMissingCatalogItems
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Maximum number of results to return per page. If zero, the
- *  service will choose a reasonable default.
+ *  Optional. Maximum number of results to return per page. If zero, the service
+ *  will choose a reasonable default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -798,9 +734,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent eventStore resource name, such as
- *  "projects/ * /locations/ *
- *  /catalogs/default_catalog/eventStores/default_event_store".
+ *  Required. The parent eventStore resource name, such as "projects/ *
+ *  /locations/ * /catalogs/default_catalog/eventStores/default_event_store".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -809,12 +744,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ListUserEventsResponse.
  *
  *  Gets a list of user events within a time range, with potential filtering.
- *  The method does not list unjoined user events.
- *  Unjoined user event definition: when a user event is ingested from
- *  Recommendations AI User Event APIs, the catalog item included in the user
- *  event is connected with the current catalog. If a catalog item of the
- *  ingested event is not in the current catalog, it could lead to degraded
- *  model quality. This is called an unjoined event.
+ *  The method does not list unjoined user events. Unjoined user event
+ *  definition: when a user event is ingested from Recommendations AI User Event
+ *  APIs, the catalog item included in the user event is connected with the
+ *  current catalog. If a catalog item of the ingested event is not in the
+ *  current catalog, it could lead to degraded model quality. This is called an
+ *  unjoined event.
  *
  *  @param parent Required. The parent eventStore resource name, such as
  *    "projects/ * /locations/ *
@@ -833,8 +768,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Deletes permanently all user events specified by the filter provided.
  *  Depending on the number of events specified by the filter, this operation
- *  could take hours or days to complete. To test a filter, use the list
- *  command first.
+ *  could take hours or days to complete. To test a filter, use the list command
+ *  first.
  *
  *  Method: recommendationengine.projects.locations.catalogs.eventStores.userEvents.purge
  *
@@ -857,15 +792,14 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes permanently all user events specified by the filter provided.
  *  Depending on the number of events specified by the filter, this operation
- *  could take hours or days to complete. To test a filter, use the list
- *  command first.
+ *  could take hours or days to complete. To test a filter, use the list command
+ *  first.
  *
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PurgeUserEventsRequest
  *    to include in the query.
  *  @param parent Required. The resource name of the event_store under which the
- *    events are
- *    created. The format is
+ *    events are created. The format is
  *    "projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}"
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsPurge
@@ -876,8 +810,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Triggers a user event rejoin operation with latest catalog data. Events
- *  will not be annotated with detailed catalog information if catalog item is
+ *  Triggers a user event rejoin operation with latest catalog data. Events will
+ *  not be annotated with detailed catalog information if catalog item is
  *  missing at the time the user event is ingested, and these events are stored
  *  as unjoined events with a limited usage on training and serving. This API
  *  can be used to trigger a 'join' operation on specified events with latest
@@ -894,17 +828,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresUserEventsRejoinWithObject:parent:]
 
 /**
- *  Required. Full resource name of user event, such as
- *  "projects/ * /locations/ *
- *  /catalogs/default_catalog/eventStores/default_event_store".
+ *  Required. Full resource name of user event, such as "projects/ * /locations/
+ *  * /catalogs/default_catalog/eventStores/default_event_store".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRRecommendationsAI_GoogleLongrunningOperation.
  *
- *  Triggers a user event rejoin operation with latest catalog data. Events
- *  will not be annotated with detailed catalog information if catalog item is
+ *  Triggers a user event rejoin operation with latest catalog data. Events will
+ *  not be annotated with detailed catalog information if catalog item is
  *  missing at the time the user event is ingested, and these events are stored
  *  as unjoined events with a limited usage on training and serving. This API
  *  can be used to trigger a 'join' operation on specified events with latest
@@ -914,8 +847,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest
  *    to include in the query.
- *  @param parent Required. Full resource name of user event, such as
- *    "projects/ * /locations/ *
+ *  @param parent Required. Full resource name of user event, such as "projects/
+ *    * /locations/ *
  *    /catalogs/default_catalog/eventStores/default_event_store".
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsRejoin
@@ -975,14 +908,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsListWithparent:]
 
 /**
- *  Optional. Maximum number of results to return. If unspecified, defaults
- *  to 50. Max allowed value is 1000.
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  50. Max allowed value is 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A page token, received from a previous `ListCatalogs`
- *  call. Provide this to retrieve the subsequent page.
+ *  Optional. A page token, received from a previous `ListCatalogs` call.
+ *  Provide this to retrieve the subsequent page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1042,14 +975,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: recommendationengine.projects.locations.catalogs.operations.list
  *
@@ -1076,14 +1009,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRRecommendationsAI_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -1113,8 +1046,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Indicates which fields in the provided 'recommendation_model' to
- *  update. If not set, will only update the catalog_item_level_config field.
+ *  Optional. Indicates which fields in the provided 'catalog' to update. If not
+ *  set, will only update the catalog_item_level_config field. Currently only
+ *  fields that can be updated are catalog_item_level_config.
  *
  *  String format is a comma-separated list of fields.
  */

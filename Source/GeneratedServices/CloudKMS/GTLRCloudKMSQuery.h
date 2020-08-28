@@ -49,17 +49,35 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // versionView
 
-/** Value: "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED" */
+/**
+ *  Default view for each CryptoKeyVersion. Does not include the attestation
+ *  field.
+ *
+ *  Value: "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMSVersionViewCryptoKeyVersionViewUnspecified;
-/** Value: "FULL" */
+/**
+ *  Provides all fields in each CryptoKeyVersion, including the attestation.
+ *
+ *  Value: "FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMSVersionViewFull;
 
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED" */
+/**
+ *  Default view for each CryptoKeyVersion. Does not include the attestation
+ *  field.
+ *
+ *  Value: "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewCryptoKeyVersionViewUnspecified;
-/** Value: "FULL" */
+/**
+ *  Provides all fields in each CryptoKeyVersion, including the attestation.
+ *
+ *  Value: "FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 // ----------------------------------------------------------------------------
@@ -125,8 +143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *keyRingId;
 
 /**
- *  Required. The resource name of the location associated with the
- *  KeyRings, in the format `projects/ * /locations/ *`.
+ *  Required. The resource name of the location associated with the KeyRings, in
+ *  the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -137,8 +155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_KeyRing to include in the query.
  *  @param parent Required. The resource name of the location associated with
- *    the
- *    KeyRings, in the format `projects/ * /locations/ *`.
+ *    the KeyRings, in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCreate
  */
@@ -148,10 +165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Create a new CryptoKey within a KeyRing.
- *  CryptoKey.purpose and
- *  CryptoKey.version_template.algorithm
- *  are required.
+ *  Create a new CryptoKey within a KeyRing. CryptoKey.purpose and
+ *  CryptoKey.version_template.algorithm are required.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.create
  *
@@ -169,28 +184,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyId;
 
-/**
- *  Required. The name of the KeyRing associated with the
- *  CryptoKeys.
- */
+/** Required. The name of the KeyRing associated with the CryptoKeys. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  If set to true, the request will create a CryptoKey without any
- *  CryptoKeyVersions. You must manually call
- *  CreateCryptoKeyVersion or
- *  ImportCryptoKeyVersion
- *  before you can use this CryptoKey.
+ *  CryptoKeyVersions. You must manually call CreateCryptoKeyVersion or
+ *  ImportCryptoKeyVersion before you can use this CryptoKey.
  */
 @property(nonatomic, assign) BOOL skipInitialVersionCreation;
 
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKey.
  *
- *  Create a new CryptoKey within a KeyRing.
- *  CryptoKey.purpose and
- *  CryptoKey.version_template.algorithm
- *  are required.
+ *  Create a new CryptoKey within a KeyRing. CryptoKey.purpose and
+ *  CryptoKey.version_template.algorithm are required.
  *
  *  @param object The @c GTLRCloudKMS_CryptoKey to include in the query.
  *  @param parent Required. The name of the KeyRing associated with the
@@ -205,8 +213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Decrypts data that was encrypted with a public key retrieved from
- *  GetPublicKey corresponding to a CryptoKeyVersion with
- *  CryptoKey.purpose ASYMMETRIC_DECRYPT.
+ *  GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose
+ *  ASYMMETRIC_DECRYPT.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.asymmetricDecrypt
  *
@@ -219,8 +227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsAsymmetricDecryptWithObject:name:]
 
 /**
- *  Required. The resource name of the CryptoKeyVersion to use for
- *  decryption.
+ *  Required. The resource name of the CryptoKeyVersion to use for decryption.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -228,8 +235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_AsymmetricDecryptResponse.
  *
  *  Decrypts data that was encrypted with a public key retrieved from
- *  GetPublicKey corresponding to a CryptoKeyVersion with
- *  CryptoKey.purpose ASYMMETRIC_DECRYPT.
+ *  GetPublicKey corresponding to a CryptoKeyVersion with CryptoKey.purpose
+ *  ASYMMETRIC_DECRYPT.
  *
  *  @param object The @c GTLRCloudKMS_AsymmetricDecryptRequest to include in the
  *    query.
@@ -244,9 +251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Signs data using a CryptoKeyVersion with CryptoKey.purpose
- *  ASYMMETRIC_SIGN, producing a signature that can be verified with the public
- *  key retrieved from GetPublicKey.
+ *  Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN,
+ *  producing a signature that can be verified with the public key retrieved
+ *  from GetPublicKey.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.asymmetricSign
  *
@@ -264,9 +271,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Fetches a @c GTLRCloudKMS_AsymmetricSignResponse.
  *
- *  Signs data using a CryptoKeyVersion with CryptoKey.purpose
- *  ASYMMETRIC_SIGN, producing a signature that can be verified with the public
- *  key retrieved from GetPublicKey.
+ *  Signs data using a CryptoKeyVersion with CryptoKey.purpose ASYMMETRIC_SIGN,
+ *  producing a signature that can be verified with the public key retrieved
+ *  from GetPublicKey.
  *
  *  @param object The @c GTLRCloudKMS_AsymmetricSignRequest to include in the
  *    query.
@@ -281,10 +288,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Create a new CryptoKeyVersion in a CryptoKey.
- *  The server will assign the next sequential id. If unset,
- *  state will be set to
- *  ENABLED.
+ *  Create a new CryptoKeyVersion in a CryptoKey. The server will assign the
+ *  next sequential id. If unset, state will be set to ENABLED.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.create
  *
@@ -297,22 +302,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsCreateWithObject:parent:]
 
 /**
- *  Required. The name of the CryptoKey associated with
- *  the CryptoKeyVersions.
+ *  Required. The name of the CryptoKey associated with the CryptoKeyVersions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
- *  Create a new CryptoKeyVersion in a CryptoKey.
- *  The server will assign the next sequential id. If unset,
- *  state will be set to
- *  ENABLED.
+ *  Create a new CryptoKeyVersion in a CryptoKey. The server will assign the
+ *  next sequential id. If unset, state will be set to ENABLED.
  *
  *  @param object The @c GTLRCloudKMS_CryptoKeyVersion to include in the query.
- *  @param parent Required. The name of the CryptoKey associated with
- *    the CryptoKeyVersions.
+ *  @param parent Required. The name of the CryptoKey associated with the
+ *    CryptoKeyVersions.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsCreate
  */
@@ -322,16 +324,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Schedule a CryptoKeyVersion for destruction.
- *  Upon calling this method, CryptoKeyVersion.state will be set to
- *  DESTROY_SCHEDULED
- *  and destroy_time will be set to a time 24
- *  hours in the future, at which point the state
- *  will be changed to
- *  DESTROYED, and the key
- *  material will be irrevocably destroyed.
- *  Before the destroy_time is reached,
- *  RestoreCryptoKeyVersion may be called to reverse the process.
+ *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
+ *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED and destroy_time
+ *  will be set to a time 24 hours in the future, at which point the state will
+ *  be changed to DESTROYED, and the key material will be irrevocably destroyed.
+ *  Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to
+ *  reverse the process.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.destroy
  *
@@ -349,16 +347,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
- *  Schedule a CryptoKeyVersion for destruction.
- *  Upon calling this method, CryptoKeyVersion.state will be set to
- *  DESTROY_SCHEDULED
- *  and destroy_time will be set to a time 24
- *  hours in the future, at which point the state
- *  will be changed to
- *  DESTROYED, and the key
- *  material will be irrevocably destroyed.
- *  Before the destroy_time is reached,
- *  RestoreCryptoKeyVersion may be called to reverse the process.
+ *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
+ *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED and destroy_time
+ *  will be set to a time 24 hours in the future, at which point the state will
+ *  be changed to DESTROYED, and the key material will be irrevocably destroyed.
+ *  Before the destroy_time is reached, RestoreCryptoKeyVersion may be called to
+ *  reverse the process.
  *
  *  @param object The @c GTLRCloudKMS_DestroyCryptoKeyVersionRequest to include
  *    in the query.
@@ -401,10 +395,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Returns the public key for the given CryptoKeyVersion. The
- *  CryptoKey.purpose must be
- *  ASYMMETRIC_SIGN or
- *  ASYMMETRIC_DECRYPT.
+ *  Returns the public key for the given CryptoKeyVersion. The CryptoKey.purpose
+ *  must be ASYMMETRIC_SIGN or ASYMMETRIC_DECRYPT.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.getPublicKey
  *
@@ -416,22 +408,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetPublicKeyWithname:]
 
-/**
- *  Required. The name of the CryptoKeyVersion public key to
- *  get.
- */
+/** Required. The name of the CryptoKeyVersion public key to get. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudKMS_PublicKey.
  *
- *  Returns the public key for the given CryptoKeyVersion. The
- *  CryptoKey.purpose must be
- *  ASYMMETRIC_SIGN or
- *  ASYMMETRIC_DECRYPT.
+ *  Returns the public key for the given CryptoKeyVersion. The CryptoKey.purpose
+ *  must be ASYMMETRIC_SIGN or ASYMMETRIC_DECRYPT.
  *
- *  @param name Required. The name of the CryptoKeyVersion public key to
- *    get.
+ *  @param name Required. The name of the CryptoKeyVersion public key to get.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsGetPublicKey
  */
@@ -440,10 +426,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Imports a new CryptoKeyVersion into an existing CryptoKey using the
- *  wrapped key material provided in the request.
- *  The version ID will be assigned the next sequential id within the
- *  CryptoKey.
+ *  Imports a new CryptoKeyVersion into an existing CryptoKey using the wrapped
+ *  key material provided in the request. The version ID will be assigned the
+ *  next sequential id within the CryptoKey.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.import
  *
@@ -455,24 +440,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 // Previous library name was
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImportWithObject:parent:]
 
-/**
- *  Required. The name of the CryptoKey to
- *  be imported into.
- */
+/** Required. The name of the CryptoKey to be imported into. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
- *  Imports a new CryptoKeyVersion into an existing CryptoKey using the
- *  wrapped key material provided in the request.
- *  The version ID will be assigned the next sequential id within the
- *  CryptoKey.
+ *  Imports a new CryptoKeyVersion into an existing CryptoKey using the wrapped
+ *  key material provided in the request. The version ID will be assigned the
+ *  next sequential id within the CryptoKey.
  *
  *  @param object The @c GTLRCloudKMS_ImportCryptoKeyVersionRequest to include
  *    in the query.
- *  @param parent Required. The name of the CryptoKey to
- *    be imported into.
+ *  @param parent Required. The name of the CryptoKey to be imported into.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsImport
  */
@@ -496,8 +476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
- *  more information, see
- *  [Sorting and filtering list
+ *  more information, see [Sorting and filtering list
  *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -511,11 +490,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. Optional limit on the number of CryptoKeyVersions to
- *  include in the response. Further CryptoKeyVersions can
- *  subsequently be obtained by including the
- *  ListCryptoKeyVersionsResponse.next_page_token in a subsequent request.
- *  If unspecified, the server will pick an appropriate default.
+ *  Optional. Optional limit on the number of CryptoKeyVersions to include in
+ *  the response. Further CryptoKeyVersions can subsequently be obtained by
+ *  including the ListCryptoKeyVersionsResponse.next_page_token in a subsequent
+ *  request. If unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -535,9 +513,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  The fields to include in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudKMSViewCryptoKeyVersionViewUnspecified Value
- *        "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED"
- *    @arg @c kGTLRCloudKMSViewFull Value "FULL"
+ *    @arg @c kGTLRCloudKMSViewCryptoKeyVersionViewUnspecified Default view for
+ *        each CryptoKeyVersion. Does not include the attestation field. (Value:
+ *        "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMSViewFull Provides all fields in each
+ *        CryptoKeyVersion, including the attestation. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -547,8 +527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Lists CryptoKeyVersions.
  *
  *  @param parent Required. The resource name of the CryptoKey to list, in the
- *    format
- *    `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *`.
+ *    format `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsList
  *
@@ -561,12 +540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Update a CryptoKeyVersion's metadata.
- *  state may be changed between
- *  ENABLED and
- *  DISABLED using this
- *  method. See DestroyCryptoKeyVersion and RestoreCryptoKeyVersion to
- *  move between other states.
+ *  Update a CryptoKeyVersion's metadata. state may be changed between ENABLED
+ *  and DISABLED using this method. See DestroyCryptoKeyVersion and
+ *  RestoreCryptoKeyVersion to move between other states.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.patch
  *
@@ -595,18 +571,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
- *  Update a CryptoKeyVersion's metadata.
- *  state may be changed between
- *  ENABLED and
- *  DISABLED using this
- *  method. See DestroyCryptoKeyVersion and RestoreCryptoKeyVersion to
- *  move between other states.
+ *  Update a CryptoKeyVersion's metadata. state may be changed between ENABLED
+ *  and DISABLED using this method. See DestroyCryptoKeyVersion and
+ *  RestoreCryptoKeyVersion to move between other states.
  *
  *  @param object The @c GTLRCloudKMS_CryptoKeyVersion to include in the query.
  *  @param name Output only. The resource name for this CryptoKeyVersion in the
- *    format
- *    `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ * /cryptoKeyVersions/
- *    *`.
+ *    format `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *
+ *    /cryptoKeyVersions/ *`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsPatch
  */
@@ -616,12 +588,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Restore a CryptoKeyVersion in the
- *  DESTROY_SCHEDULED
- *  state.
- *  Upon restoration of the CryptoKeyVersion, state
- *  will be set to DISABLED,
- *  and destroy_time will be cleared.
+ *  Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration
+ *  of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time
+ *  will be cleared.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.restore
  *
@@ -639,12 +608,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKeyVersion.
  *
- *  Restore a CryptoKeyVersion in the
- *  DESTROY_SCHEDULED
- *  state.
- *  Upon restoration of the CryptoKeyVersion, state
- *  will be set to DISABLED,
- *  and destroy_time will be cleared.
+ *  Restore a CryptoKeyVersion in the DESTROY_SCHEDULED state. Upon restoration
+ *  of the CryptoKeyVersion, state will be set to DISABLED, and destroy_time
+ *  will be cleared.
  *
  *  @param object The @c GTLRCloudKMS_RestoreCryptoKeyVersionRequest to include
  *    in the query.
@@ -658,8 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Decrypts data that was protected by Encrypt. The CryptoKey.purpose
- *  must be ENCRYPT_DECRYPT.
+ *  Decrypts data that was protected by Encrypt. The CryptoKey.purpose must be
+ *  ENCRYPT_DECRYPT.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.decrypt
  *
@@ -672,21 +638,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysDecryptWithObject:name:]
 
 /**
- *  Required. The resource name of the CryptoKey to use for decryption.
- *  The server will choose the appropriate version.
+ *  Required. The resource name of the CryptoKey to use for decryption. The
+ *  server will choose the appropriate version.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudKMS_DecryptResponse.
  *
- *  Decrypts data that was protected by Encrypt. The CryptoKey.purpose
- *  must be ENCRYPT_DECRYPT.
+ *  Decrypts data that was protected by Encrypt. The CryptoKey.purpose must be
+ *  ENCRYPT_DECRYPT.
  *
  *  @param object The @c GTLRCloudKMS_DecryptRequest to include in the query.
  *  @param name Required. The resource name of the CryptoKey to use for
- *    decryption.
- *    The server will choose the appropriate version.
+ *    decryption. The server will choose the appropriate version.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysDecrypt
  */
@@ -696,9 +661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Encrypts data, so that it can only be recovered by a call to Decrypt.
- *  The CryptoKey.purpose must be
- *  ENCRYPT_DECRYPT.
+ *  Encrypts data, so that it can only be recovered by a call to Decrypt. The
+ *  CryptoKey.purpose must be ENCRYPT_DECRYPT.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.encrypt
  *
@@ -711,25 +675,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysEncryptWithObject:name:]
 
 /**
- *  Required. The resource name of the CryptoKey or CryptoKeyVersion
- *  to use for encryption.
- *  If a CryptoKey is specified, the server will use its
- *  primary version.
+ *  Required. The resource name of the CryptoKey or CryptoKeyVersion to use for
+ *  encryption. If a CryptoKey is specified, the server will use its primary
+ *  version.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudKMS_EncryptResponse.
  *
- *  Encrypts data, so that it can only be recovered by a call to Decrypt.
- *  The CryptoKey.purpose must be
- *  ENCRYPT_DECRYPT.
+ *  Encrypts data, so that it can only be recovered by a call to Decrypt. The
+ *  CryptoKey.purpose must be ENCRYPT_DECRYPT.
  *
  *  @param object The @c GTLRCloudKMS_EncryptRequest to include in the query.
  *  @param name Required. The resource name of the CryptoKey or CryptoKeyVersion
- *    to use for encryption.
- *    If a CryptoKey is specified, the server will use its
- *    primary version.
+ *    to use for encryption. If a CryptoKey is specified, the server will use
+ *    its primary version.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysEncrypt
  */
@@ -739,8 +700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Returns metadata for a given CryptoKey, as well as its
- *  primary CryptoKeyVersion.
+ *  Returns metadata for a given CryptoKey, as well as its primary
+ *  CryptoKeyVersion.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.get
  *
@@ -758,8 +719,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKey.
  *
- *  Returns metadata for a given CryptoKey, as well as its
- *  primary CryptoKeyVersion.
+ *  Returns metadata for a given CryptoKey, as well as its primary
+ *  CryptoKeyVersion.
  *
  *  @param name Required. The name of the CryptoKey to get.
  *
@@ -770,9 +731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.getIamPolicy
  *
@@ -785,34 +745,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudKMS_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysGetIamPolicy
  */
@@ -835,8 +792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
- *  more information, see
- *  [Sorting and filtering list
+ *  more information, see [Sorting and filtering list
  *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -851,9 +807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Optional. Optional limit on the number of CryptoKeys to include in the
- *  response. Further CryptoKeys can subsequently be obtained by
- *  including the ListCryptoKeysResponse.next_page_token in a subsequent
- *  request. If unspecified, the server will pick an appropriate default.
+ *  response. Further CryptoKeys can subsequently be obtained by including the
+ *  ListCryptoKeysResponse.next_page_token in a subsequent request. If
+ *  unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -864,8 +820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the KeyRing to list, in the format
- *  `projects/ * /locations/ * /keyRings/ *`.
+ *  Required. The resource name of the KeyRing to list, in the format `projects/
+ *  * /locations/ * /keyRings/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -873,9 +829,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  The fields of the primary version to include in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudKMSVersionViewCryptoKeyVersionViewUnspecified Value
- *        "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED"
- *    @arg @c kGTLRCloudKMSVersionViewFull Value "FULL"
+ *    @arg @c kGTLRCloudKMSVersionViewCryptoKeyVersionViewUnspecified Default
+ *        view for each CryptoKeyVersion. Does not include the attestation
+ *        field. (Value: "CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMSVersionViewFull Provides all fields in each
+ *        CryptoKeyVersion, including the attestation. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *versionView;
 
@@ -885,8 +843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Lists CryptoKeys.
  *
  *  @param parent Required. The resource name of the KeyRing to list, in the
- *    format
- *    `projects/ * /locations/ * /keyRings/ *`.
+ *    format `projects/ * /locations/ * /keyRings/ *`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysList
  *
@@ -912,8 +869,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysPatchWithObject:name:]
 
 /**
- *  Output only. The resource name for this CryptoKey in the format
- *  `projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *`.
+ *  Output only. The resource name for this CryptoKey in the format `projects/ *
+ *  /locations/ * /keyRings/ * /cryptoKeys/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -942,8 +899,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.setIamPolicy
  *
@@ -956,8 +913,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -965,14 +922,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysSetIamPolicy
  */
@@ -982,12 +939,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.testIamPermissions
  *
@@ -1000,26 +956,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsCryptoKeysTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudKMS_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysTestIamPermissions
  */
@@ -1029,8 +984,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Update the version of a CryptoKey that will be used in Encrypt.
- *  Returns an error if called on an asymmetric key.
+ *  Update the version of a CryptoKey that will be used in Encrypt. Returns an
+ *  error if called on an asymmetric key.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.updatePrimaryVersion
  *
@@ -1048,8 +1003,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Fetches a @c GTLRCloudKMS_CryptoKey.
  *
- *  Update the version of a CryptoKey that will be used in Encrypt.
- *  Returns an error if called on an asymmetric key.
+ *  Update the version of a CryptoKey that will be used in Encrypt. Returns an
+ *  error if called on an asymmetric key.
  *
  *  @param object The @c GTLRCloudKMS_UpdateCryptoKeyPrimaryVersionRequest to
  *    include in the query.
@@ -1092,9 +1047,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: cloudkms.projects.locations.keyRings.getIamPolicy
  *
@@ -1107,34 +1061,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudKMS_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsGetIamPolicy
  */
@@ -1143,8 +1094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Create a new ImportJob within a KeyRing.
- *  ImportJob.import_method is required.
+ *  Create a new ImportJob within a KeyRing. ImportJob.import_method is
+ *  required.
  *
  *  Method: cloudkms.projects.locations.keyRings.importJobs.create
  *
@@ -1162,17 +1113,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 @property(nonatomic, copy, nullable) NSString *importJobId;
 
-/**
- *  Required. The name of the KeyRing associated with the
- *  ImportJobs.
- */
+/** Required. The name of the KeyRing associated with the ImportJobs. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudKMS_ImportJob.
  *
- *  Create a new ImportJob within a KeyRing.
- *  ImportJob.import_method is required.
+ *  Create a new ImportJob within a KeyRing. ImportJob.import_method is
+ *  required.
  *
  *  @param object The @c GTLRCloudKMS_ImportJob to include in the query.
  *  @param parent Required. The name of the KeyRing associated with the
@@ -1215,9 +1163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: cloudkms.projects.locations.keyRings.importJobs.getIamPolicy
  *
@@ -1230,34 +1177,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudKMS_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsGetIamPolicy
  */
@@ -1280,8 +1224,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
- *  more information, see
- *  [Sorting and filtering list
+ *  more information, see [Sorting and filtering list
  *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1296,9 +1239,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Optional. Optional limit on the number of ImportJobs to include in the
- *  response. Further ImportJobs can subsequently be obtained by
- *  including the ListImportJobsResponse.next_page_token in a subsequent
- *  request. If unspecified, the server will pick an appropriate default.
+ *  response. Further ImportJobs can subsequently be obtained by including the
+ *  ListImportJobsResponse.next_page_token in a subsequent request. If
+ *  unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1309,8 +1252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the KeyRing to list, in the format
- *  `projects/ * /locations/ * /keyRings/ *`.
+ *  Required. The resource name of the KeyRing to list, in the format `projects/
+ *  * /locations/ * /keyRings/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1320,8 +1263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Lists ImportJobs.
  *
  *  @param parent Required. The resource name of the KeyRing to list, in the
- *    format
- *    `projects/ * /locations/ * /keyRings/ *`.
+ *    format `projects/ * /locations/ * /keyRings/ *`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsList
  *
@@ -1335,8 +1277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: cloudkms.projects.locations.keyRings.importJobs.setIamPolicy
  *
@@ -1349,8 +1291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1358,14 +1300,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsSetIamPolicy
  */
@@ -1375,12 +1317,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: cloudkms.projects.locations.keyRings.importJobs.testIamPermissions
  *
@@ -1393,26 +1334,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsImportJobsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudKMS_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsImportJobsTestIamPermissions
  */
@@ -1436,8 +1376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
- *  more information, see
- *  [Sorting and filtering list
+ *  more information, see [Sorting and filtering list
  *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1452,9 +1391,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Optional. Optional limit on the number of KeyRings to include in the
- *  response. Further KeyRings can subsequently be obtained by
- *  including the ListKeyRingsResponse.next_page_token in a subsequent
- *  request. If unspecified, the server will pick an appropriate default.
+ *  response. Further KeyRings can subsequently be obtained by including the
+ *  ListKeyRingsResponse.next_page_token in a subsequent request. If
+ *  unspecified, the server will pick an appropriate default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1465,8 +1404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the location associated with the
- *  KeyRings, in the format `projects/ * /locations/ *`.
+ *  Required. The resource name of the location associated with the KeyRings, in
+ *  the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1476,8 +1415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Lists KeyRings.
  *
  *  @param parent Required. The resource name of the location associated with
- *    the
- *    KeyRings, in the format `projects/ * /locations/ *`.
+ *    the KeyRings, in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsList
  *
@@ -1491,8 +1429,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: cloudkms.projects.locations.keyRings.setIamPolicy
  *
@@ -1505,8 +1443,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1514,14 +1452,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRCloudKMS_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsSetIamPolicy
  */
@@ -1531,12 +1469,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: cloudkms.projects.locations.keyRings.testIamPermissions
  *
@@ -1549,26 +1486,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 //   +[GTLQueryCloudKMS queryForProjectsLocationsKeyRingsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudKMS_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRCloudKMS_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsTestIamPermissions
  */

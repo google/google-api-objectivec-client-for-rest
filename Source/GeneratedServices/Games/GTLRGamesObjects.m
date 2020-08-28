@@ -5,8 +5,8 @@
 //   Google Play Game Services (games/v1)
 // Description:
 //   The Google Play games service allows developers to enhance games with
-//   social leaderboards,
-//   achievements, game state, sign-in with Google, and more.
+//   social leaderboards, achievements, game state, sign-in with Google, and
+//   more.
 // Documentation:
 //   https://developers.google.com/games/
 
@@ -1059,8 +1059,8 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 //
 
 @implementation GTLRGames_PlayerLeaderboardScore
-@dynamic kind, leaderboardId, publicRank, scoreString, scoreTag, scoreValue,
-         socialRank, timeSpan, writeTimestamp;
+@dynamic friendsRank, kind, leaderboardId, publicRank, scoreString, scoreTag,
+         scoreValue, socialRank, timeSpan, writeTimestamp;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"leaderboardId" : @"leaderboard_id" };

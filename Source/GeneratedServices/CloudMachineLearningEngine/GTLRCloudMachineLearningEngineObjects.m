@@ -358,11 +358,52 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerPort
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerPort
+@dynamic containerPort;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerSpec
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerSpec
+@dynamic args, command, env, image, ports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"command" : [NSString class],
+    @"env" : [GTLRCloudMachineLearningEngine_GoogleCloudMlV1EnvVar class],
+    @"ports" : [GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerPort class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig
 @dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1EnvVar
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1EnvVar
+@dynamic name, value;
 @end
 
 
@@ -839,6 +880,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1RouteMap
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1RouteMap
+@dynamic health, predict;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution
 //
 
@@ -1162,11 +1213,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
-@dynamic acceleratorConfig, autoScaling, createTime, deploymentUri,
+@dynamic acceleratorConfig, autoScaling, container, createTime, deploymentUri,
          descriptionProperty, errorMessage, ETag, explanationConfig, framework,
          isDefault, labels, lastUseTime, machineType, manualScaling, name,
          packageUris, predictionClass, pythonVersion, requestLoggingConfig,
-         runtimeVersion, serviceAccount, state;
+         routes, runtimeVersion, serviceAccount, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

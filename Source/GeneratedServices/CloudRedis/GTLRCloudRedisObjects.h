@@ -64,8 +64,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudRedis_FailoverInstanceRequest.dataProtectionMode
 
 /**
- *  Defaults to LIMITED_DATA_LOSS if a data protection mode is not
- *  specified.
+ *  Defaults to LIMITED_DATA_LOSS if a data protection mode is not specified.
  *
  *  Value: "DATA_PROTECTION_MODE_UNSPECIFIED"
  */
@@ -78,9 +77,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataP
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_FailoverInstanceRequest_DataProtectionMode_ForceDataLoss;
 /**
  *  Instance failover will be protected with data loss control. More
- *  specifically, the failover will only be performed if the current
- *  replication offset diff between master and replica is under a certain
- *  threshold.
+ *  specifically, the failover will only be performed if the current replication
+ *  offset diff between master and replica is under a certain threshold.
  *
  *  Value: "LIMITED_DATA_LOSS"
  */
@@ -148,9 +146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_ConnectM
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_ConnectMode_DirectPeering;
 /**
- *  Connect your Memorystore for Redis instance using Private Service
- *  Access. Private services access provides an IP address range for multiple
- *  Google Cloud services, including Memorystore.
+ *  Connect your Memorystore for Redis instance using Private Service Access.
+ *  Private services access provides an IP address range for multiple Google
+ *  Cloud services, including Memorystore.
  *
  *  Value: "PRIVATE_SERVICE_ACCESS"
  */
@@ -208,9 +206,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_Repairing;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_State_StateUnspecified;
 /**
- *  Redis instance configuration is being updated. Certain kinds of updates
- *  may cause the instance to become unusable while the update is in
- *  progress.
+ *  Redis instance configuration is being updated. Certain kinds of updates may
+ *  cause the instance to become unusable while the update is in progress.
  *
  *  Value: "UPDATING"
  */
@@ -241,11 +238,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudRedis_Empty : GTLRObject
 @end
@@ -295,8 +290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @interface GTLRCloudRedis_GcsDestination : GTLRObject
 
 /**
- *  Required. Data destination URI (e.g.
- *  'gs://my_bucket/my_object'). Existing files will be overwritten.
+ *  Required. Data destination URI (e.g. 'gs://my_bucket/my_object'). Existing
+ *  files will be overwritten.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -323,10 +318,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @interface GTLRCloudRedis_GoogleCloudRedisV1LocationMetadata : GTLRObject
 
 /**
- *  Output only. The set of available zones in the location. The map is keyed
- *  by the lowercase ID of each zone, as defined by GCE. These keys can be
- *  specified in `location_id` or `alternative_location_id` fields when
- *  creating a Redis instance.
+ *  Output only. The set of available zones in the location. The map is keyed by
+ *  the lowercase ID of each zone, as defined by GCE. These keys can be
+ *  specified in `location_id` or `alternative_location_id` fields when creating
+ *  a Redis instance.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_GoogleCloudRedisV1LocationMetadata_AvailableZones *availableZones;
 
@@ -334,10 +329,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 
 /**
- *  Output only. The set of available zones in the location. The map is keyed
- *  by the lowercase ID of each zone, as defined by GCE. These keys can be
- *  specified in `location_id` or `alternative_location_id` fields when
- *  creating a Redis instance.
+ *  Output only. The set of available zones in the location. The map is keyed by
+ *  the lowercase ID of each zone, as defined by GCE. These keys can be
+ *  specified in `location_id` or `alternative_location_id` fields when creating
+ *  a Redis instance.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRedis_GoogleCloudRedisV1ZoneMetadata. Use @c
@@ -398,9 +393,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 /**
  *  consumer_defined_name is the name that is set by the consumer. On the other
  *  hand Name field represents system-assigned id of an instance so consumers
- *  are not necessarily aware of it.
- *  consumer_defined_name is used for notification/UI purposes for consumer to
- *  recognize their instances.
+ *  are not necessarily aware of it. consumer_defined_name is used for
+ *  notification/UI purposes for consumer to recognize their instances.
  */
 @property(nonatomic, copy, nullable) NSString *consumerDefinedName;
 
@@ -408,15 +402,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. Resource labels to represent user provided metadata. Each label
- *  is a key-value pair, where both the key and the value are arbitrary strings
+ *  Optional. Resource labels to represent user provided metadata. Each label is
+ *  a key-value pair, where both the key and the value are arbitrary strings
  *  provided by the user.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels *labels;
 
 /**
- *  The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
+ *  The MaintenancePolicies that have been attached to the instance. The key
+ *  must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
@@ -440,35 +434,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 /**
  *  Output only. Custom string attributes used primarily to expose
- *  producer-specific information in monitoring dashboards.
- *  See go/get-instance-metadata.
+ *  producer-specific information in monitoring dashboards. See
+ *  go/get-instance-metadata.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata *producerMetadata;
 
 /**
- *  Output only. The list of data plane resources provisioned for this
- *  instance, e.g. compute VMs. See go/get-instance-metadata.
+ *  Output only. The list of data plane resources provisioned for this instance,
+ *  e.g. compute VMs. See go/get-instance-metadata.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource *> *provisionedResources;
 
 /**
  *  Link to the SLM instance template. Only populated when updating SLM
- *  instances via SSA's Actuation service adaptor.
- *  Service producers with custom control plane (e.g. Cloud SQL) doesn't
- *  need to populate this field. Instead they should use software_versions.
+ *  instances via SSA's Actuation service adaptor. Service producers with custom
+ *  control plane (e.g. Cloud SQL) doesn't need to populate this field. Instead
+ *  they should use software_versions.
  */
 @property(nonatomic, copy, nullable) NSString *slmInstanceTemplate;
 
 /**
- *  Output only. SLO metadata for instance classification in the
- *  Standardized dataplane SLO platform.
- *  See go/cloud-ssa-standard-slo for feature description.
+ *  Output only. SLO metadata for instance classification in the Standardized
+ *  dataplane SLO platform. See go/cloud-ssa-standard-slo for feature
+ *  description.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata *sloMetadata;
 
 /**
- *  Software versions that are used to deploy this instance. This can be
- *  mutated by rollout services.
+ *  Software versions that are used to deploy this instance. This can be mutated
+ *  by rollout services.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions *softwareVersions;
 
@@ -496,8 +490,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only. ID of the associated GCP tenant project.
- *  See go/get-instance-metadata.
+ *  Output only. ID of the associated GCP tenant project. See
+ *  go/get-instance-metadata.
  */
 @property(nonatomic, copy, nullable) NSString *tenantProjectId;
 
@@ -508,8 +502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 
 /**
- *  Optional. Resource labels to represent user provided metadata. Each label
- *  is a key-value pair, where both the key and the value are arbitrary strings
+ *  Optional. Resource labels to represent user provided metadata. Each label is
+ *  a key-value pair, where both the key and the value are arbitrary strings
  *  provided by the user.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -522,8 +516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 
 /**
- *  The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
+ *  The MaintenancePolicies that have been attached to the instance. The key
+ *  must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
@@ -553,8 +547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 /**
  *  Output only. Custom string attributes used primarily to expose
- *  producer-specific information in monitoring dashboards.
- *  See go/get-instance-metadata.
+ *  producer-specific information in monitoring dashboards. See
+ *  go/get-instance-metadata.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -566,8 +560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 
 /**
- *  Software versions that are used to deploy this instance. This can be
- *  mutated by rollout services.
+ *  Software versions that are used to deploy this instance. This can be mutated
+ *  by rollout services.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -585,9 +579,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @interface GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
 
 /**
- *  Can this scheduled update be rescheduled?
- *  By default, it's true and API needs to do explicitly check whether it's
- *  set, if it's set as false explicitly, it's false
+ *  Can this scheduled update be rescheduled? By default, it's true and API
+ *  needs to do explicitly check whether it's set, if it's set as false
+ *  explicitly, it's false
  *
  *  Uses NSNumber of boolValue.
  */
@@ -597,9 +591,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  The rollout management policy this maintenance schedule is associated
- *  with. When doing reschedule update request, the reschedule should be
- *  against this given policy.
+ *  The rollout management policy this maintenance schedule is associated with.
+ *  When doing reschedule update request, the reschedule should be against this
+ *  given policy.
  */
 @property(nonatomic, copy, nullable) NSString *rolloutManagementPolicy;
 
@@ -617,8 +611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 /**
  *  Optional. Exclude instance from maintenance. When true, rollout service will
- *  not
- *  attempt maintenance on the instance. Rollout service will include the
+ *  not attempt maintenance on the instance. Rollout service will include the
  *  instance in reported rollout progress as not attempted.
  *
  *  Uses NSNumber of boolValue.
@@ -629,30 +622,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 
 /**
- *  Node information for custom per-node SLO implementations.
- *  SSA does not support per-node SLO, but producers can populate per-node
- *  information in SloMetadata for custom precomputations.
- *  SSA Eligibility Exporter will emit per-node metric based on this
- *  information.
+ *  Node information for custom per-node SLO implementations. SSA does not
+ *  support per-node SLO, but producers can populate per-node information in
+ *  SloMetadata for custom precomputations. SSA Eligibility Exporter will emit
+ *  per-node metric based on this information.
  */
 @interface GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata : GTLRObject
 
 /**
- *  By default node is eligible if instance is eligible.
- *  But individual node might be excluded from SLO by adding entry here.
- *  For semantic see SloMetadata.exclusions.
- *  If both instance and node level exclusions are present for time period,
- *  the node level's reason will be reported by Eligibility Exporter.
+ *  By default node is eligible if instance is eligible. But individual node
+ *  might be excluded from SLO by adding entry here. For semantic see
+ *  SloMetadata.exclusions. If both instance and node level exclusions are
+ *  present for time period, the node level's reason will be reported by
+ *  Eligibility Exporter.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
 /** The location of the node, if different from instance location. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/**
- *  The id of the node.
- *  This should be equal to SaasInstanceNode.node_id.
- */
+/** The id of the node. This should be equal to SaasInstanceNode.node_id. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
 
 @end
@@ -712,28 +701,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @interface GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion : GTLRObject
 
 /**
- *  Exclusion duration. No restrictions on the possible values.
- *  When an ongoing operation is taking longer than initially expected,
- *  an existing entry in the exclusion list can be updated by extending the
- *  duration. This is supported by the subsystem exporting eligibility data
- *  as long as such extension is committed at least 10 minutes before the
- *  original exclusion expiration - otherwise it is possible that there will
- *  be "gaps" in the exclusion application in the exported timeseries.
+ *  Exclusion duration. No restrictions on the possible values. When an ongoing
+ *  operation is taking longer than initially expected, an existing entry in the
+ *  exclusion list can be updated by extending the duration. This is supported
+ *  by the subsystem exporting eligibility data as long as such extension is
+ *  committed at least 10 minutes before the original exclusion expiration -
+ *  otherwise it is possible that there will be "gaps" in the exclusion
+ *  application in the exported timeseries.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  Human-readable reason for the exclusion.
- *  This should be a static string (e.g. "Disruptive update in progress")
- *  and should not contain dynamically generated data (e.g. instance name).
- *  Can be left empty.
+ *  Human-readable reason for the exclusion. This should be a static string
+ *  (e.g. "Disruptive update in progress") and should not contain dynamically
+ *  generated data (e.g. instance name). Can be left empty.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
- *  Name of an SLI that this exclusion applies to. Can be left empty,
- *  signaling that the instance should be excluded from all SLIs defined
- *  in the service SLO configuration.
+ *  Name of an SLI that this exclusion applies to. Can be left empty, signaling
+ *  that the instance should be excluded from all SLIs defined in the service
+ *  SLO configuration.
  */
 @property(nonatomic, copy, nullable) NSString *sliName;
 
@@ -756,32 +744,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 /**
  *  List of SLO exclusion windows. When multiple entries in the list match
- *  (matching the exclusion time-window against current time point)
- *  the exclusion reason used in the first matching entry will be published.
- *  It is not needed to include expired exclusion in this list, as only the
- *  currently applicable exclusions are taken into account by the eligibility
- *  exporting subsystem (the historical state of exclusions will be reflected
- *  in the historically produced timeseries regardless of the current state).
- *  This field can be used to mark the instance as temporary ineligible
- *  for the purpose of SLO calculation. For permanent instance SLO exclusion,
- *  use of custom instance eligibility is recommended. See 'eligibility' field
- *  below.
+ *  (matching the exclusion time-window against current time point) the
+ *  exclusion reason used in the first matching entry will be published. It is
+ *  not needed to include expired exclusion in this list, as only the currently
+ *  applicable exclusions are taken into account by the eligibility exporting
+ *  subsystem (the historical state of exclusions will be reflected in the
+ *  historically produced timeseries regardless of the current state). This
+ *  field can be used to mark the instance as temporary ineligible for the
+ *  purpose of SLO calculation. For permanent instance SLO exclusion, use of
+ *  custom instance eligibility is recommended. See 'eligibility' field below.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
 /**
- *  Optional. List of nodes.
- *  Some producers need to use per-node metadata to calculate SLO.
- *  This field allows such producers to publish per-node SLO meta data,
- *  which will be consumed by SSA Eligibility Exporter and published in the
- *  form of per node metric to Monarch.
+ *  Optional. List of nodes. Some producers need to use per-node metadata to
+ *  calculate SLO. This field allows such producers to publish per-node SLO meta
+ *  data, which will be consumed by SSA Eligibility Exporter and published in
+ *  the form of per node metric to Monarch.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata *> *nodes;
 
 /**
  *  Name of the SLO tier the Instance belongs to. This name will be expected to
- *  match the tiers specified in the service SLO configuration.
- *  Field is mandatory and must not be empty.
+ *  match the tiers specified in the service SLO configuration. Field is
+ *  mandatory and must not be empty.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
@@ -824,15 +810,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 /**
  *  Optional. The full name of the Google Compute Engine
- *  [network](https://cloud.google.com/vpc/docs/vpc) to which the
- *  instance is connected. If left unspecified, the `default` network
- *  will be used.
+ *  [network](https://cloud.google.com/vpc/docs/vpc) to which the instance is
+ *  connected. If left unspecified, the `default` network will be used.
  */
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
- *  Optional. The network connect mode of the Redis instance.
- *  If not provided, the connect mode defaults to DIRECT_PEERING.
+ *  Optional. The network connect mode of the Redis instance. If not provided,
+ *  the connect mode defaults to DIRECT_PEERING.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRedis_Instance_ConnectMode_ConnectModeUnspecified Not
@@ -841,9 +826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *        direct peering to the Memorystore for Redis hosted service. (Value:
  *        "DIRECT_PEERING")
  *    @arg @c kGTLRCloudRedis_Instance_ConnectMode_PrivateServiceAccess Connect
- *        your Memorystore for Redis instance using Private Service
- *        Access. Private services access provides an IP address range for
- *        multiple
+ *        your Memorystore for Redis instance using Private Service Access.
+ *        Private services access provides an IP address range for multiple
  *        Google Cloud services, including Memorystore. (Value:
  *        "PRIVATE_SERVICE_ACCESS")
  */
@@ -854,10 +838,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 /**
  *  Output only. The current zone where the Redis endpoint is placed. For Basic
- *  Tier instances, this will always be the same as the location_id
- *  provided by the user at creation time. For Standard Tier instances,
- *  this can be either location_id or alternative_location_id and can
- *  change after a failover event.
+ *  Tier instances, this will always be the same as the location_id provided by
+ *  the user at creation time. For Standard Tier instances, this can be either
+ *  location_id or alternative_location_id and can change after a failover
+ *  event.
  */
 @property(nonatomic, copy, nullable) NSString *currentLocationId;
 
@@ -877,8 +861,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *  Optional. The zone where the instance will be provisioned. If not provided,
  *  the service will choose a zone for the instance. For STANDARD_HA tier,
  *  instances will be created across two zones for protection against zonal
- *  failures. If alternative_location_id is also provided, it must be
- *  different from location_id.
+ *  failures. If alternative_location_id is also provided, it must be different
+ *  from location_id.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
@@ -896,17 +880,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *  Note: Redis instances are managed and addressed at regional level so
  *  location_id here refers to a GCP region; however, users may choose which
  *  specific zone (or collection of zones for cross-zone instances) an instance
- *  should be provisioned in. Refer to location_id and
- *  alternative_location_id fields for more details.
+ *  should be provisioned in. Refer to location_id and alternative_location_id
+ *  fields for more details.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Output only. Cloud IAM identity used by import / export operations to
- *  transfer data to/from Cloud Storage. Format is
- *  "serviceAccount:<service_account_email>". The value may change over time
- *  for a given instance so should be checked before each import/export
- *  operation.
+ *  transfer data to/from Cloud Storage. Format is "serviceAccount:". The value
+ *  may change over time for a given instance so should be checked before each
+ *  import/export operation.
  */
 @property(nonatomic, copy, nullable) NSString *persistenceIamIdentity;
 
@@ -919,37 +902,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 /**
  *  Optional. Redis configuration parameters, according to
- *  http://redis.io/topics/config. Currently, the only supported parameters
- *  are:
- *  Redis version 3.2 and newer:
- *  * maxmemory-policy
- *  * notify-keyspace-events
- *  Redis version 4.0 and newer:
- *  * activedefrag
- *  * lfu-decay-time
- *  * lfu-log-factor
- *  * maxmemory-gb
- *  Redis version 5.0 and newer:
- *  * stream-node-max-bytes
- *  * stream-node-max-entries
+ *  http://redis.io/topics/config. Currently, the only supported parameters are:
+ *  Redis version 3.2 and newer: * maxmemory-policy * notify-keyspace-events
+ *  Redis version 4.0 and newer: * activedefrag * lfu-decay-time *
+ *  lfu-log-factor * maxmemory-gb Redis version 5.0 and newer: *
+ *  stream-node-max-bytes * stream-node-max-entries
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Instance_RedisConfigs *redisConfigs;
 
 /**
- *  Optional. The version of Redis software.
- *  If not provided, latest supported version will be used. Currently, the
- *  supported values are:
- *  * `REDIS_3_2` for Redis 3.2 compatibility
- *  * `REDIS_4_0` for Redis 4.0 compatibility (default)
+ *  Optional. The version of Redis software. If not provided, latest supported
+ *  version will be used. Currently, the supported values are: * `REDIS_3_2` for
+ *  Redis 3.2 compatibility * `REDIS_4_0` for Redis 4.0 compatibility (default)
  *  * `REDIS_5_0` for Redis 5.0 compatibility
  */
 @property(nonatomic, copy, nullable) NSString *redisVersion;
 
 /**
  *  Optional. The CIDR range of internal addresses that are reserved for this
- *  instance. If not provided, the service will choose an unused /29 block,
- *  for example, 10.0.0.0/29 or 192.168.0.0/29. Ranges must be unique
- *  and non-overlapping with existing subnets in an authorized network.
+ *  instance. If not provided, the service will choose an unused /29 block, for
+ *  example, 10.0.0.0/29 or 192.168.0.0/29. Ranges must be unique and
+ *  non-overlapping with existing subnets in an authorized network.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
@@ -974,9 +947,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *    @arg @c kGTLRCloudRedis_Instance_State_StateUnspecified Not set. (Value:
  *        "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRedis_Instance_State_Updating Redis instance
- *        configuration is being updated. Certain kinds of updates
- *        may cause the instance to become unusable while the update is in
- *        progress. (Value: "UPDATING")
+ *        configuration is being updated. Certain kinds of updates may cause the
+ *        instance to become unusable while the update is in progress. (Value:
+ *        "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1016,19 +989,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 /**
  *  Optional. Redis configuration parameters, according to
- *  http://redis.io/topics/config. Currently, the only supported parameters
- *  are:
- *  Redis version 3.2 and newer:
- *  * maxmemory-policy
- *  * notify-keyspace-events
- *  Redis version 4.0 and newer:
- *  * activedefrag
- *  * lfu-decay-time
- *  * lfu-log-factor
- *  * maxmemory-gb
- *  Redis version 5.0 and newer:
- *  * stream-node-max-bytes
- *  * stream-node-max-entries
+ *  http://redis.io/topics/config. Currently, the only supported parameters are:
+ *  Redis version 3.2 and newer: * maxmemory-policy * notify-keyspace-events
+ *  Redis version 4.0 and newer: * activedefrag * lfu-decay-time *
+ *  lfu-log-factor * maxmemory-gb Redis version 5.0 and newer: *
+ *  stream-node-max-bytes * stream-node-max-entries
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1050,15 +1015,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @interface GTLRCloudRedis_ListInstancesResponse : GTLRCollectionObject
 
 /**
- *  A list of Redis instances in the project in the specified location,
- *  or across all locations.
- *  If the `location_id` in the parent field of the request is "-", all regions
- *  available to the project are queried, and the results aggregated.
- *  If in such an aggregated query a location is unavailable, a dummy Redis
- *  entry is included in the response with the `name` field set to a value of
- *  the form `projects/{project_id}/locations/{location_id}/instances/`- and
- *  the `status` field set to ERROR and `status_message` field set to "location
- *  not available for ListInstances".
+ *  A list of Redis instances in the project in the specified location, or
+ *  across all locations. If the `location_id` in the parent field of the
+ *  request is "-", all regions available to the project are queried, and the
+ *  results aggregated. If in such an aggregated query a location is
+ *  unavailable, a dummy Redis entry is included in the response with the `name`
+ *  field set to a value of the form
+ *  `projects/{project_id}/locations/{location_id}/instances/`- and the `status`
+ *  field set to ERROR and `status_message` field set to "location not available
+ *  for ListInstances".
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1131,8 +1096,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @interface GTLRCloudRedis_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1197,8 +1162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @interface GTLRCloudRedis_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1209,25 +1174,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Status *error;
 
 /**
- *  {
- *  `createTime`: The time the operation was created.
- *  `endTime`: The time the operation finished running.
- *  `target`: Server-defined resource path for the target of the operation.
- *  `verb`: Name of the verb executed by the operation.
+ *  { `createTime`: The time the operation was created. `endTime`: The time the
+ *  operation finished running. `target`: Server-defined resource path for the
+ *  target of the operation. `verb`: Name of the verb executed by the operation.
  *  `statusDetail`: Human-readable status of the operation, if any.
  *  `cancelRequested`: Identifies whether the user has requested cancellation of
  *  the operation. Operations that have successfully been cancelled have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *  `apiVersion`: API version used to start the operation.
- *  }
+ *  `Code.CANCELLED`. `apiVersion`: API version used to start the operation. }
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1236,10 +1197,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Operation_Response *response;
 
@@ -1247,18 +1207,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 
 
 /**
- *  {
- *  `createTime`: The time the operation was created.
- *  `endTime`: The time the operation finished running.
- *  `target`: Server-defined resource path for the target of the operation.
- *  `verb`: Name of the verb executed by the operation.
+ *  { `createTime`: The time the operation was created. `endTime`: The time the
+ *  operation finished running. `target`: Server-defined resource path for the
+ *  target of the operation. `verb`: Name of the verb executed by the operation.
  *  `statusDetail`: Human-readable status of the operation, if any.
  *  `cancelRequested`: Identifies whether the user has requested cancellation of
  *  the operation. Operations that have successfully been cancelled have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *  `apiVersion`: API version used to start the operation.
- *  }
+ *  `Code.CANCELLED`. `apiVersion`: API version used to start the operation. }
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1274,10 +1230,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1303,9 +1258,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudRedis_Status : GTLRObject
 

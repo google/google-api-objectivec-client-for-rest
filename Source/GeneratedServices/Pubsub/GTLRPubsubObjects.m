@@ -495,7 +495,7 @@
 //
 
 @implementation GTLRPubsub_Subscription
-@dynamic ackDeadlineSeconds, deadLetterPolicy, enableMessageOrdering,
+@dynamic ackDeadlineSeconds, deadLetterPolicy, detached, enableMessageOrdering,
          expirationPolicy, filter, labels, messageRetentionDuration, name,
          pushConfig, retainAckedMessages, retryPolicy, topic;
 @end

@@ -25,6 +25,7 @@
 @class GTLRShoppingContent_AccountsCustomBatchRequest;
 @class GTLRShoppingContent_AccountsLinkRequest;
 @class GTLRShoppingContent_AccountstatusesCustomBatchRequest;
+@class GTLRShoppingContent_AccountsUpdateLabelsRequest;
 @class GTLRShoppingContent_AccountTax;
 @class GTLRShoppingContent_AccounttaxCustomBatchRequest;
 @class GTLRShoppingContent_Datafeed;
@@ -162,6 +163,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
 /** Value: "template4" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate4;
+
+// ----------------------------------------------------------------------------
+// view
+
+/** Value: "css" */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewCss;
+/** Value: "merchant" */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -343,6 +352,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate4;
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /**
+ *  Controls which fields will be populated. Acceptable values are: "merchant"
+ *  and "css". The default value is "merchant".
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContentViewCss Value "css"
+ *    @arg @c kGTLRShoppingContentViewMerchant Value "merchant"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRShoppingContent_Account.
  *
  *  Retrieves a Merchant Center account.
@@ -447,6 +466,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate4;
 //   +[GTLQueryShoppingContent queryForAccountsListWithmerchantId:]
 
 /**
+ *  If view is set to "css", only return accounts that are assigned label with
+ *  given ID.
+ */
+@property(nonatomic, assign) unsigned long long label;
+
+/**
  *  The maximum number of accounts to return in the response, used for paging.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
@@ -456,6 +481,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate4;
 
 /** The token returned by the previous request. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Controls which fields will be populated. Acceptable values are: "merchant"
+ *  and "css". The default value is "merchant".
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContentViewCss Value "css"
+ *    @arg @c kGTLRShoppingContentViewMerchant Value "merchant"
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountsListResponse.
@@ -685,6 +720,42 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate4;
  *  @return GTLRShoppingContentQuery_AccountsUpdate
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_Account *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Updates labels that are assigned to the Merchant Center account by CSS user.
+ *
+ *  Method: content.accounts.updatelabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsUpdatelabels : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsUpdatelabelsWithObject:merchantId:accountId:]
+
+/** The ID of the account whose labels are updated. */
+@property(nonatomic, assign) unsigned long long accountId;
+
+/** The ID of the managing account. */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountsUpdateLabelsResponse.
+ *
+ *  Updates labels that are assigned to the Merchant Center account by CSS user.
+ *
+ *  @param object The @c GTLRShoppingContent_AccountsUpdateLabelsRequest to
+ *    include in the query.
+ *  @param merchantId The ID of the managing account.
+ *  @param accountId The ID of the account whose labels are updated.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsUpdatelabels
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountsUpdateLabelsRequest *)object
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId;
 

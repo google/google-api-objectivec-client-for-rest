@@ -40,8 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Downloads media. Download is supported
- *  on the URI `/v1/media/{+name}?alt=media`.
+ *  Downloads media. Download is supported on the URI
+ *  `/v1/media/{+name}?alt=media`.
  *
  *  Method: chat.media.download
  */
@@ -50,16 +50,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForMediaDownloadWithresourceName:]
 
 /**
- *  Name of the media that is being downloaded. See
- *  ReadRequest.resource_name.
+ *  Name of the media that is being downloaded. See ReadRequest.resource_name.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
  *  Fetches a @c GTLRHangoutsChat_Media.
  *
- *  Downloads media. Download is supported
- *  on the URI `/v1/media/{+name}?alt=media`.
+ *  Downloads media. Download is supported on the URI
+ *  `/v1/media/{+name}?alt=media`.
  *
  *  @param resourceName Name of the media that is being downloaded. See
  *    ReadRequest.resource_name.
@@ -71,8 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Downloads media. Download is supported
- *  on the URI `/v1/media/{+name}?alt=media`.
+ *  Downloads media. Download is supported on the URI
+ *  `/v1/media/{+name}?alt=media`.
  *
  *  @param resourceName Name of the media that is being downloaded. See
  *    ReadRequest.resource_name.
@@ -93,8 +92,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForSpacesGetWithname:]
 
 /**
- *  Required. Resource name of the space, in the form "spaces/ *".
- *  Example: spaces/AAAAMpdlehY
+ *  Required. Resource name of the space, in the form "spaces/ *". Example:
+ *  spaces/AAAAMpdlehY
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -122,9 +121,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForSpacesList]
 
 /**
- *  Requested page size. The value is capped at 1000.
- *  Server may return fewer results than requested.
- *  If unspecified, server will default to 100.
+ *  Requested page size. The value is capped at 1000. Server may return fewer
+ *  results than requested. If unspecified, server will default to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -157,8 +155,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the membership to be retrieved, in the form
- *  "spaces/ * /members/ *".
- *  Example: spaces/AAAAMpdlehY/members/105115627578887013105
+ *  "spaces/ * /members/ *". Example:
+ *  spaces/AAAAMpdlehY/members/105115627578887013105
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -168,9 +166,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a membership.
  *
  *  @param name Required. Resource name of the membership to be retrieved, in
- *    the form
- *    "spaces/ * /members/ *".
- *    Example: spaces/AAAAMpdlehY/members/105115627578887013105
+ *    the form "spaces/ * /members/ *". Example:
+ *    spaces/AAAAMpdlehY/members/105115627578887013105
  *
  *  @return GTLRHangoutsChatQuery_SpacesMembersGet
  */
@@ -188,9 +185,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForSpacesMembersListWithparent:]
 
 /**
- *  Requested page size. The value is capped at 1000.
- *  Server may return fewer results than requested.
- *  If unspecified, server will default to 100.
+ *  Requested page size. The value is capped at 1000. Server may return fewer
+ *  results than requested. If unspecified, server will default to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -199,8 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the space for which membership list is to be
- *  fetched, in the form "spaces/ *".
- *  Example: spaces/AAAAMpdlehY
+ *  fetched, in the form "spaces/ *". Example: spaces/AAAAMpdlehY
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -210,9 +205,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists human memberships in a space.
  *
  *  @param parent Required. The resource name of the space for which membership
- *    list is to be
- *    fetched, in the form "spaces/ *".
- *    Example: spaces/AAAAMpdlehY
+ *    list is to be fetched, in the form "spaces/ *". Example:
+ *    spaces/AAAAMpdlehY
  *
  *  @return GTLRHangoutsChatQuery_SpacesMembersList
  *
@@ -235,8 +229,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForSpacesMessagesAttachmentsGetWithname:]
 
 /**
- *  Resource name of the attachment, in the form
- *  "spaces/ * /messages/ * /attachments/ *".
+ *  Resource name of the attachment, in the form "spaces/ * /messages/ *
+ *  /attachments/ *".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -246,8 +240,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the metadata of a message attachment. The attachment data is fetched
  *  using the media API.
  *
- *  @param name Resource name of the attachment, in the form
- *    "spaces/ * /messages/ * /attachments/ *".
+ *  @param name Resource name of the attachment, in the form "spaces/ *
+ *    /messages/ * /attachments/ *".
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet
  */
@@ -265,21 +259,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForSpacesMessagesCreateWithObject:parent:]
 
 /**
- *  Required. Space resource name, in the form "spaces/ *".
- *  Example: spaces/AAAAMpdlehY
+ *  Required. Space resource name, in the form "spaces/ *". Example:
+ *  spaces/AAAAMpdlehY
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Opaque thread identifier string that can be specified to group messages
- *  into a single thread. If this is the first message with a given thread
+ *  Opaque thread identifier string that can be specified to group messages into
+ *  a single thread. If this is the first message with a given thread
  *  identifier, a new thread is created. Subsequent messages with the same
  *  thread identifier will be posted into the same thread. This relieves bots
  *  and webhooks from having to store the Hangouts Chat thread ID of a thread
- *  (created earlier by them) to post
- *  further updates to it.
- *  Has no effect if thread field,
- *  corresponding to an existing thread, is set in message.
+ *  (created earlier by them) to post further updates to it. Has no effect if
+ *  thread field, corresponding to an existing thread, is set in message.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -309,9 +301,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForSpacesMessagesDeleteWithname:]
 
 /**
- *  Required. Resource name of the message to be deleted, in the form
- *  "spaces/ * /messages/ *"
- *  Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  Required. Resource name of the message to be deleted, in the form "spaces/ *
+ *  /messages/ *" Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -321,9 +312,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a message.
  *
  *  @param name Required. Resource name of the message to be deleted, in the
- *    form
- *    "spaces/ * /messages/ *"
- *    Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *    form "spaces/ * /messages/ *" Example:
+ *    spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesDelete
  */
@@ -341,9 +331,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForSpacesMessagesGetWithname:]
 
 /**
- *  Required. Resource name of the message to be retrieved, in the form
- *  "spaces/ * /messages/ *".
- *  Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  Required. Resource name of the message to be retrieved, in the form "spaces/
+ *  * /messages/ *". Example:
+ *  spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -353,9 +343,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a message.
  *
  *  @param name Required. Resource name of the message to be retrieved, in the
- *    form
- *    "spaces/ * /messages/ *".
- *    Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *    form "spaces/ * /messages/ *". Example:
+ *    spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesGet
  */
@@ -373,17 +362,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryHangoutsChat queryForSpacesMessagesUpdateWithObject:name:]
 
 /**
- *  Resource name, in the form "spaces/ * /messages/ *".
- *  Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  Resource name, in the form "spaces/ * /messages/ *". Example:
+ *  spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The field paths to be updated, comma separated if there are
- *  multiple.
- *  Currently supported field paths:
- *  * text
- *  * cards
+ *  multiple. Currently supported field paths: * text * cards
  *
  *  String format is a comma-separated list of fields.
  */
@@ -395,8 +381,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a message.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param name Resource name, in the form "spaces/ * /messages/ *".
- *    Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  @param name Resource name, in the form "spaces/ * /messages/ *". Example:
+ *    spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesUpdate
  */

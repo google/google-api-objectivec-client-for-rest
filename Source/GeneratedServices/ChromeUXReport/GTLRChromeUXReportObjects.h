@@ -96,14 +96,14 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_P
 FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_Tablet;
 
 /**
- *  A bin is a discrete portion of data spanning from start to end, or if no
- *  end is given, then from start to +inf.
- *  A bin's start and end values are given in the value type of the metric it
- *  represents. For example, "first contentful paint" is measured in
- *  milliseconds and exposed as ints, therefore its metric bins will use int32s
- *  for its start and end types. However, "cumulative layout shift" is measured
- *  in unitless decimals and is exposed as a decimal encoded as a string,
- *  therefore its metric bins will use strings for its value type.
+ *  A bin is a discrete portion of data spanning from start to end, or if no end
+ *  is given, then from start to +inf. A bin's start and end values are given in
+ *  the value type of the metric it represents. For example, "first contentful
+ *  paint" is measured in milliseconds and exposed as ints, therefore its metric
+ *  bins will use int32s for its start and end types. However, "cumulative
+ *  layout shift" is measured in unitless decimals and is exposed as a decimal
+ *  encoded as a string, therefore its metric bins will use strings for its
+ *  value type.
  */
 @interface GTLRChromeUXReport_Bin : GTLRObject
 
@@ -116,8 +116,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @property(nonatomic, strong, nullable) NSNumber *density;
 
 /**
- *  End is the end of the data bin. If end is not populated, then the bin has
- *  no end and is valid from start to +inf.
+ *  End is the end of the data bin. If end is not populated, then the bin has no
+ *  end and is valid from start to +inf.
  *
  *  Can be any valid JSON type.
  */
@@ -139,20 +139,19 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @interface GTLRChromeUXReport_Key : GTLRObject
 
 /**
- *  The effective connection type is the general connection class that all
- *  users experienced for this record. This field uses the values ["offline",
+ *  The effective connection type is the general connection class that all users
+ *  experienced for this record. This field uses the values ["offline",
  *  "slow-2G", "2G", "3G", "4G"] as specified in:
- *  https://wicg.github.io/netinfo/#effective-connection-types
- *  If the effective connection type is unspecified, then aggregated data
- *  over all effective connection types will be returned.
+ *  https://wicg.github.io/netinfo/#effective-connection-types If the effective
+ *  connection type is unspecified, then aggregated data over all effective
+ *  connection types will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *effectiveConnectionType;
 
 /**
- *  The form factor is the device class that all users used to access the
- *  site for this record.
- *  If the form factor is unspecified, then aggregated data over all form
- *  factors will be returned.
+ *  The form factor is the device class that all users used to access the site
+ *  for this record. If the form factor is unspecified, then aggregated data
+ *  over all form factors will be returned.
  *
  *  Likely values:
  *    @arg @c kGTLRChromeUXReport_Key_FormFactor_AllFormFactors The default
@@ -168,16 +167,15 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @property(nonatomic, copy, nullable) NSString *formFactor;
 
 /**
- *  Origin specifies the origin that this record is for.
- *  Note: When specifying an origin, data for loads under this origin over
- *  all pages are aggregated into origin level user experience data.
+ *  Origin specifies the origin that this record is for. Note: When specifying
+ *  an origin, data for loads under this origin over all pages are aggregated
+ *  into origin level user experience data.
  */
 @property(nonatomic, copy, nullable) NSString *origin;
 
 /**
- *  Url specifies a specific url that this record is for.
- *  Note: When specifying a "url" only data for that specific url will be
- *  aggregated.
+ *  Url specifies a specific url that this record is for. Note: When specifying
+ *  a "url" only data for that specific url will be aggregated.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -198,9 +196,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeUXReport_Bin *> *histogram;
 
 /**
- *  Common useful percentiles of the Metric. The value type for the
- *  percentiles will be the same as the value types given for the Histogram
- *  bins.
+ *  Common useful percentiles of the Metric. The value type for the percentiles
+ *  will be the same as the value types given for the Histogram bins.
  */
 @property(nonatomic, strong, nullable) GTLRChromeUXReport_Percentiles *percentiles;
 
@@ -209,8 +206,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 
 /**
  *  Percentiles contains synthetic values of a metric at a given statistical
- *  percentile. These are used for estimating a metric's value as experienced
- *  by a percentage of users out of the total number of users.
+ *  percentile. These are used for estimating a metric's value as experienced by
+ *  a percentage of users out of the total number of users.
  */
 @interface GTLRChromeUXReport_Percentiles : GTLRObject
 
@@ -225,9 +222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 
 
 /**
- *  Request payload sent by a physical web client.
- *  This request includes all necessary context to load a particular
- *  user experience record.
+ *  Request payload sent by a physical web client. This request includes all
+ *  necessary context to load a particular user experience record.
  */
 @interface GTLRChromeUXReport_QueryRequest : GTLRObject
 
@@ -235,17 +231,17 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
  *  The effective connection type is a query dimension that specifies the
  *  effective network class that the record's data should belong to. This field
  *  uses the values ["offline", "slow-2G", "2G", "3G", "4G"] as specified in:
- *  https://wicg.github.io/netinfo/#effective-connection-types
- *  Note: If no effective connection type is specified, then a special record
- *  with aggregated data over all effective connection types will be returned.
+ *  https://wicg.github.io/netinfo/#effective-connection-types Note: If no
+ *  effective connection type is specified, then a special record with
+ *  aggregated data over all effective connection types will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *effectiveConnectionType;
 
 /**
  *  The form factor is a query dimension that specifies the device class that
- *  the record's data should belong to.
- *  Note: If no form factor is specified, then a special record with
- *  aggregated data over all form factors will be returned.
+ *  the record's data should belong to. Note: If no form factor is specified,
+ *  then a special record with aggregated data over all form factors will be
+ *  returned.
  *
  *  Likely values:
  *    @arg @c kGTLRChromeUXReport_QueryRequest_FormFactor_AllFormFactors The
@@ -262,18 +258,16 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @property(nonatomic, copy, nullable) NSString *formFactor;
 
 /**
- *  The metrics that should be included in the response.
- *  If none are specified then any metrics found will be returned.
- *  Allowed values: ["first_contentful_paint",
- *  "first_input_delay", "largest_contentful_paint",
+ *  The metrics that should be included in the response. If none are specified
+ *  then any metrics found will be returned. Allowed values:
+ *  ["first_contentful_paint", "first_input_delay", "largest_contentful_paint",
  *  "cumulative_layout_shift"]
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  The url pattern "origin" refers to a url pattern that is the origin of
- *  a website.
- *  Examples: "https://example.com", "https://cloud.google.com"
+ *  The url pattern "origin" refers to a url pattern that is the origin of a
+ *  website. Examples: "https://example.com", "https://cloud.google.com"
  */
 @property(nonatomic, copy, nullable) NSString *origin;
 
@@ -288,11 +282,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 
 
 /**
- *  Response payload sent back to a physical web client.
- *  This response contains the record found based on the identiers present in a
- *  `QueryRequest`. The returned response will have a record, and sometimes
- *  details on normalization actions taken on the request that were necessary to
- *  make the request successful.
+ *  Response payload sent back to a physical web client. This response contains
+ *  the record found based on the identiers present in a `QueryRequest`. The
+ *  returned response will have a record, and sometimes details on normalization
+ *  actions taken on the request that were necessary to make the request
+ *  successful.
  */
 @interface GTLRChromeUXReport_QueryResponse : GTLRObject
 
@@ -322,9 +316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 
 /**
  *  Metrics is the map of user experience data available for the record defined
- *  in the key field. Metrics are keyed on the metric name.
- *  Allowed key values: ["first_contentful_paint",
- *  "first_input_delay", "largest_contentful_paint",
+ *  in the key field. Metrics are keyed on the metric name. Allowed key values:
+ *  ["first_contentful_paint", "first_input_delay", "largest_contentful_paint",
  *  "cumulative_layout_shift"]
  */
 @property(nonatomic, strong, nullable) GTLRChromeUXReport_Record_Metrics *metrics;
@@ -334,9 +327,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 
 /**
  *  Metrics is the map of user experience data available for the record defined
- *  in the key field. Metrics are keyed on the metric name.
- *  Allowed key values: ["first_contentful_paint",
- *  "first_input_delay", "largest_contentful_paint",
+ *  in the key field. Metrics are keyed on the metric name. Allowed key values:
+ *  ["first_contentful_paint", "first_input_delay", "largest_contentful_paint",
  *  "cumulative_layout_shift"]
  *
  *  @note This class is documented as having more properties of
@@ -357,8 +349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeUXReport_QueryRequest_FormFactor_T
 @interface GTLRChromeUXReport_UrlNormalization : GTLRObject
 
 /**
- *  The URL after any normalization actions. This is a valid user experience
- *  URL that could reasonably be looked up.
+ *  The URL after any normalization actions. This is a valid user experience URL
+ *  that could reasonably be looked up.
  */
 @property(nonatomic, copy, nullable) NSString *normalizedUrl;
 

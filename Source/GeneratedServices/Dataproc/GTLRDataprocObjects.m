@@ -618,18 +618,29 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_InstanceGroupConfig
-@dynamic accelerators, diskConfig, imageUri, instanceNames, isPreemptible,
-         machineTypeUri, managedGroupConfig, minCpuPlatform, numInstances,
-         preemptibility;
+@dynamic accelerators, diskConfig, imageUri, instanceNames, instanceReferences,
+         isPreemptible, machineTypeUri, managedGroupConfig, minCpuPlatform,
+         numInstances, preemptibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRDataproc_AcceleratorConfig class],
-    @"instanceNames" : [NSString class]
+    @"instanceNames" : [NSString class],
+    @"instanceReferences" : [GTLRDataproc_InstanceReference class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_InstanceReference
+//
+
+@implementation GTLRDataproc_InstanceReference
+@dynamic instanceId, instanceName;
 @end
 
 

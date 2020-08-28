@@ -58,18 +58,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
  *  which allow you to manage message acknowledgments in bulk. That is, you can
  *  set the acknowledgment state of messages in an existing subscription to the
- *  state captured by a snapshot.
- *  If the snapshot already exists, returns `ALREADY_EXISTS`.
- *  If the requested subscription doesn't exist, returns `NOT_FOUND`.
- *  If the backlog in the subscription is too old -- and the resulting snapshot
- *  would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
- *  See also the `Snapshot.expire_time` field. If the name is not provided in
- *  the request, the server will assign a random
- *  name for this snapshot on the same project as the subscription, conforming
- *  to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The
- *  generated name is populated in the returned Snapshot object. Note that for
- *  REST API requests, you must specify a name in the request.
+ *  state captured by a snapshot. If the snapshot already exists, returns
+ *  `ALREADY_EXISTS`. If the requested subscription doesn't exist, returns
+ *  `NOT_FOUND`. If the backlog in the subscription is too old -- and the
+ *  resulting snapshot would expire in less than 1 hour -- then
+ *  `FAILED_PRECONDITION` is returned. See also the `Snapshot.expire_time`
+ *  field. If the name is not provided in the request, the server will assign a
+ *  random name for this snapshot on the same project as the subscription,
+ *  conforming to the [resource name format]
+ *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
+ *  name is populated in the returned Snapshot object. Note that for REST API
+ *  requests, you must specify a name in the request.
  *
  *  Method: pubsub.projects.snapshots.create
  *
@@ -83,13 +82,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. User-provided name for this snapshot. If the name is not provided
- *  in the
- *  request, the server will assign a random name for this snapshot on the same
- *  project as the subscription. Note that for REST API requests, you must
- *  specify a name. See the
- *  <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
- *  resource
- *  name rules</a>. Format is `projects/{project}/snapshots/{snap}`.
+ *  in the request, the server will assign a random name for this snapshot on
+ *  the same project as the subscription. Note that for REST API requests, you
+ *  must specify a name. See the resource name rules. Format is
+ *  `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -100,30 +96,25 @@ NS_ASSUME_NONNULL_BEGIN
  *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
  *  which allow you to manage message acknowledgments in bulk. That is, you can
  *  set the acknowledgment state of messages in an existing subscription to the
- *  state captured by a snapshot.
- *  If the snapshot already exists, returns `ALREADY_EXISTS`.
- *  If the requested subscription doesn't exist, returns `NOT_FOUND`.
- *  If the backlog in the subscription is too old -- and the resulting snapshot
- *  would expire in less than 1 hour -- then `FAILED_PRECONDITION` is returned.
- *  See also the `Snapshot.expire_time` field. If the name is not provided in
- *  the request, the server will assign a random
- *  name for this snapshot on the same project as the subscription, conforming
- *  to the [resource name format]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The
- *  generated name is populated in the returned Snapshot object. Note that for
- *  REST API requests, you must specify a name in the request.
+ *  state captured by a snapshot. If the snapshot already exists, returns
+ *  `ALREADY_EXISTS`. If the requested subscription doesn't exist, returns
+ *  `NOT_FOUND`. If the backlog in the subscription is too old -- and the
+ *  resulting snapshot would expire in less than 1 hour -- then
+ *  `FAILED_PRECONDITION` is returned. See also the `Snapshot.expire_time`
+ *  field. If the name is not provided in the request, the server will assign a
+ *  random name for this snapshot on the same project as the subscription,
+ *  conforming to the [resource name format]
+ *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
+ *  name is populated in the returned Snapshot object. Note that for REST API
+ *  requests, you must specify a name in the request.
  *
  *  @param object The @c GTLRPubsub_CreateSnapshotRequest to include in the
  *    query.
  *  @param name Required. User-provided name for this snapshot. If the name is
- *    not provided in the
- *    request, the server will assign a random name for this snapshot on the
- *    same
- *    project as the subscription. Note that for REST API requests, you must
- *    specify a name. See the
- *    <a href="https://cloud.google.com/pubsub/docs/admin#resource_names">
- *    resource
- *    name rules</a>. Format is `projects/{project}/snapshots/{snap}`.
+ *    not provided in the request, the server will assign a random name for this
+ *    snapshot on the same project as the subscription. Note that for REST API
+ *    requests, you must specify a name. See the resource name rules. Format is
+ *    `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsCreate
  */
@@ -137,11 +128,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
  *  allow you to manage message acknowledgments in bulk. That is, you can set
  *  the acknowledgment state of messages in an existing subscription to the
- *  state captured by a snapshot.
- *  When the snapshot is deleted, all messages retained in the snapshot
- *  are immediately dropped. After a snapshot is deleted, a new one may be
- *  created with the same name, but the new one has no association with the old
- *  snapshot or its subscription, unless the same subscription is specified.
+ *  state captured by a snapshot. When the snapshot is deleted, all messages
+ *  retained in the snapshot are immediately dropped. After a snapshot is
+ *  deleted, a new one may be created with the same name, but the new one has no
+ *  association with the old snapshot or its subscription, unless the same
+ *  subscription is specified.
  *
  *  Method: pubsub.projects.snapshots.delete
  *
@@ -154,8 +145,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsDeleteWithsnapshot:]
 
 /**
- *  Required. The name of the snapshot to delete.
- *  Format is `projects/{project}/snapshots/{snap}`.
+ *  Required. The name of the snapshot to delete. Format is
+ *  `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
 
@@ -166,14 +157,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
  *  allow you to manage message acknowledgments in bulk. That is, you can set
  *  the acknowledgment state of messages in an existing subscription to the
- *  state captured by a snapshot.
- *  When the snapshot is deleted, all messages retained in the snapshot
- *  are immediately dropped. After a snapshot is deleted, a new one may be
- *  created with the same name, but the new one has no association with the old
- *  snapshot or its subscription, unless the same subscription is specified.
+ *  state captured by a snapshot. When the snapshot is deleted, all messages
+ *  retained in the snapshot are immediately dropped. After a snapshot is
+ *  deleted, a new one may be created with the same name, but the new one has no
+ *  association with the old snapshot or its subscription, unless the same
+ *  subscription is specified.
  *
- *  @param snapshot Required. The name of the snapshot to delete.
- *    Format is `projects/{project}/snapshots/{snap}`.
+ *  @param snapshot Required. The name of the snapshot to delete. Format is
+ *    `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsDelete
  */
@@ -182,8 +173,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the configuration details of a snapshot. Snapshots are used in
- *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  Gets the configuration details of a snapshot. Snapshots are used in Seek
  *  operations, which allow you to manage message acknowledgments in bulk. That
  *  is, you can set the acknowledgment state of messages in an existing
  *  subscription to the state captured by a snapshot.
@@ -199,22 +189,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsGetWithsnapshot:]
 
 /**
- *  Required. The name of the snapshot to get.
- *  Format is `projects/{project}/snapshots/{snap}`.
+ *  Required. The name of the snapshot to get. Format is
+ *  `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
 
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Gets the configuration details of a snapshot. Snapshots are used in
- *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
+ *  Gets the configuration details of a snapshot. Snapshots are used in Seek
  *  operations, which allow you to manage message acknowledgments in bulk. That
  *  is, you can set the acknowledgment state of messages in an existing
  *  subscription to the state captured by a snapshot.
  *
- *  @param snapshot Required. The name of the snapshot to get.
- *    Format is `projects/{project}/snapshots/{snap}`.
+ *  @param snapshot Required. The name of the snapshot to get. Format is
+ *    `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsGet
  */
@@ -223,9 +212,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: pubsub.projects.snapshots.getIamPolicy
  *
@@ -238,34 +226,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy
  */
@@ -301,8 +286,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the project in which to list snapshots.
- *  Format is `projects/{project-id}`.
+ *  Required. The name of the project in which to list snapshots. Format is
+ *  `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -329,12 +314,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing snapshot. Snapshots are used in
- *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
- *  operations, which allow
- *  you to manage message acknowledgments in bulk. That is, you can set the
- *  acknowledgment state of messages in an existing subscription to the state
- *  captured by a snapshot.
+ *  Updates an existing snapshot. Snapshots are used in Seek operations, which
+ *  allow you to manage message acknowledgments in bulk. That is, you can set
+ *  the acknowledgment state of messages in an existing subscription to the
+ *  state captured by a snapshot.
  *
  *  Method: pubsub.projects.snapshots.patch
  *
@@ -352,12 +335,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Snapshot.
  *
- *  Updates an existing snapshot. Snapshots are used in
- *  <a href="https://cloud.google.com/pubsub/docs/replay-overview">Seek</a>
- *  operations, which allow
- *  you to manage message acknowledgments in bulk. That is, you can set the
- *  acknowledgment state of messages in an existing subscription to the state
- *  captured by a snapshot.
+ *  Updates an existing snapshot. Snapshots are used in Seek operations, which
+ *  allow you to manage message acknowledgments in bulk. That is, you can set
+ *  the acknowledgment state of messages in an existing subscription to the
+ *  state captured by a snapshot.
  *
  *  @param object The @c GTLRPubsub_UpdateSnapshotRequest to include in the
  *    query.
@@ -372,8 +353,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: pubsub.projects.snapshots.setIamPolicy
  *
@@ -386,8 +367,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -395,13 +376,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy
  */
@@ -411,12 +392,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: pubsub.projects.snapshots.testIamPermissions
  *
@@ -429,26 +409,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSnapshotsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions
  */
@@ -460,10 +439,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Acknowledges the messages associated with the `ack_ids` in the
  *  `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
- *  from the subscription.
- *  Acknowledging a message whose ack deadline has expired may succeed,
- *  but such a message may be redelivered later. Acknowledging a message more
- *  than once will not result in an error.
+ *  from the subscription. Acknowledging a message whose ack deadline has
+ *  expired may succeed, but such a message may be redelivered later.
+ *  Acknowledging a message more than once will not result in an error.
  *
  *  Method: pubsub.projects.subscriptions.acknowledge
  *
@@ -476,8 +454,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsAcknowledgeWithObject:subscription:]
 
 /**
- *  Required. The subscription whose message is being acknowledged.
- *  Format is `projects/{project}/subscriptions/{sub}`.
+ *  Required. The subscription whose message is being acknowledged. Format is
+ *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
@@ -486,15 +464,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Acknowledges the messages associated with the `ack_ids` in the
  *  `AcknowledgeRequest`. The Pub/Sub system can remove the relevant messages
- *  from the subscription.
- *  Acknowledging a message whose ack deadline has expired may succeed,
- *  but such a message may be redelivered later. Acknowledging a message more
- *  than once will not result in an error.
+ *  from the subscription. Acknowledging a message whose ack deadline has
+ *  expired may succeed, but such a message may be redelivered later.
+ *  Acknowledging a message more than once will not result in an error.
  *
  *  @param object The @c GTLRPubsub_AcknowledgeRequest to include in the query.
  *  @param subscription Required. The subscription whose message is being
- *    acknowledged.
- *    Format is `projects/{project}/subscriptions/{sub}`.
+ *    acknowledged. Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsAcknowledge
  */
@@ -505,12 +481,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a subscription to a given topic. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names).
- *  If the subscription already exists, returns `ALREADY_EXISTS`.
- *  If the corresponding topic doesn't exist, returns `NOT_FOUND`.
- *  If the name is not provided in the request, the server will assign a random
- *  name for this subscription on the same project as the topic, conforming
- *  to the [resource name format]
+ *  (https://cloud.google.com/pubsub/docs/admin#resource_names). If the
+ *  subscription already exists, returns `ALREADY_EXISTS`. If the corresponding
+ *  topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the
+ *  request, the server will assign a random name for this subscription on the
+ *  same project as the topic, conforming to the [resource name format]
  *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
  *  name is populated in the returned Subscription object. Note that for REST
  *  API requests, you must specify a name in the request.
@@ -539,12 +514,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Subscription.
  *
  *  Creates a subscription to a given topic. See the [resource name rules]
- *  (https://cloud.google.com/pubsub/docs/admin#resource_names).
- *  If the subscription already exists, returns `ALREADY_EXISTS`.
- *  If the corresponding topic doesn't exist, returns `NOT_FOUND`.
- *  If the name is not provided in the request, the server will assign a random
- *  name for this subscription on the same project as the topic, conforming
- *  to the [resource name format]
+ *  (https://cloud.google.com/pubsub/docs/admin#resource_names). If the
+ *  subscription already exists, returns `ALREADY_EXISTS`. If the corresponding
+ *  topic doesn't exist, returns `NOT_FOUND`. If the name is not provided in the
+ *  request, the server will assign a random name for this subscription on the
+ *  same project as the topic, conforming to the [resource name format]
  *  (https://cloud.google.com/pubsub/docs/admin#resource_names). The generated
  *  name is populated in the returned Subscription object. Note that for REST
  *  API requests, you must specify a name in the request.
@@ -568,8 +542,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an existing subscription. All messages retained in the subscription
  *  are immediately dropped. Calls to `Pull` after deletion will return
  *  `NOT_FOUND`. After a subscription is deleted, a new one may be created with
- *  the same name, but the new one has no association with the old
- *  subscription or its topic unless the same topic is specified.
+ *  the same name, but the new one has no association with the old subscription
+ *  or its topic unless the same topic is specified.
  *
  *  Method: pubsub.projects.subscriptions.delete
  *
@@ -582,8 +556,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsDeleteWithsubscription:]
 
 /**
- *  Required. The subscription to delete.
- *  Format is `projects/{project}/subscriptions/{sub}`.
+ *  Required. The subscription to delete. Format is
+ *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
@@ -593,11 +567,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an existing subscription. All messages retained in the subscription
  *  are immediately dropped. Calls to `Pull` after deletion will return
  *  `NOT_FOUND`. After a subscription is deleted, a new one may be created with
- *  the same name, but the new one has no association with the old
- *  subscription or its topic unless the same topic is specified.
+ *  the same name, but the new one has no association with the old subscription
+ *  or its topic unless the same topic is specified.
  *
- *  @param subscription Required. The subscription to delete.
- *    Format is `projects/{project}/subscriptions/{sub}`.
+ *  @param subscription Required. The subscription to delete. Format is
+ *    `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsDelete
  */
@@ -608,8 +582,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Detaches a subscription from this topic. All messages retained in the
  *  subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
- *  will return FAILED_PRECONDITION. If the subscription is a push
- *  subscription, pushes to the endpoint will stop.
+ *  will return FAILED_PRECONDITION. If the subscription is a push subscription,
+ *  pushes to the endpoint will stop.
  *
  *  Method: pubsub.projects.subscriptions.detach
  *
@@ -622,8 +596,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsDetachWithsubscription:]
 
 /**
- *  Required. The subscription to detach.
- *  Format is `projects/{project}/subscriptions/{subscription}`.
+ *  Required. The subscription to detach. Format is
+ *  `projects/{project}/subscriptions/{subscription}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
@@ -632,11 +606,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Detaches a subscription from this topic. All messages retained in the
  *  subscription are dropped. Subsequent `Pull` and `StreamingPull` requests
- *  will return FAILED_PRECONDITION. If the subscription is a push
- *  subscription, pushes to the endpoint will stop.
+ *  will return FAILED_PRECONDITION. If the subscription is a push subscription,
+ *  pushes to the endpoint will stop.
  *
- *  @param subscription Required. The subscription to detach.
- *    Format is `projects/{project}/subscriptions/{subscription}`.
+ *  @param subscription Required. The subscription to detach. Format is
+ *    `projects/{project}/subscriptions/{subscription}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsDetach
  */
@@ -658,8 +632,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsGetWithsubscription:]
 
 /**
- *  Required. The name of the subscription to get.
- *  Format is `projects/{project}/subscriptions/{sub}`.
+ *  Required. The name of the subscription to get. Format is
+ *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
@@ -668,8 +642,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the configuration details of a subscription.
  *
- *  @param subscription Required. The name of the subscription to get.
- *    Format is `projects/{project}/subscriptions/{sub}`.
+ *  @param subscription Required. The name of the subscription to get. Format is
+ *    `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsGet
  */
@@ -678,9 +652,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: pubsub.projects.subscriptions.getIamPolicy
  *
@@ -693,34 +666,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsGetIamPolicy
  */
@@ -752,8 +722,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the project in which to list subscriptions.
- *  Format is `projects/{project-id}`.
+ *  Required. The name of the project in which to list subscriptions. Format is
+ *  `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -763,8 +733,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists matching subscriptions.
  *
  *  @param project Required. The name of the project in which to list
- *    subscriptions.
- *    Format is `projects/{project-id}`.
+ *    subscriptions. Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsList
  *
@@ -777,11 +746,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Modifies the ack deadline for a specific message. This method is useful
- *  to indicate that more time is needed to process a message by the
- *  subscriber, or to make the message available for redelivery if the
- *  processing was interrupted. Note that this does not modify the
- *  subscription-level `ackDeadlineSeconds` used for subsequent messages.
+ *  Modifies the ack deadline for a specific message. This method is useful to
+ *  indicate that more time is needed to process a message by the subscriber, or
+ *  to make the message available for redelivery if the processing was
+ *  interrupted. Note that this does not modify the subscription-level
+ *  `ackDeadlineSeconds` used for subsequent messages.
  *
  *  Method: pubsub.projects.subscriptions.modifyAckDeadline
  *
@@ -794,24 +763,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyAckDeadlineWithObject:subscription:]
 
 /**
- *  Required. The name of the subscription.
- *  Format is `projects/{project}/subscriptions/{sub}`.
+ *  Required. The name of the subscription. Format is
+ *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_Empty.
  *
- *  Modifies the ack deadline for a specific message. This method is useful
- *  to indicate that more time is needed to process a message by the
- *  subscriber, or to make the message available for redelivery if the
- *  processing was interrupted. Note that this does not modify the
- *  subscription-level `ackDeadlineSeconds` used for subsequent messages.
+ *  Modifies the ack deadline for a specific message. This method is useful to
+ *  indicate that more time is needed to process a message by the subscriber, or
+ *  to make the message available for redelivery if the processing was
+ *  interrupted. Note that this does not modify the subscription-level
+ *  `ackDeadlineSeconds` used for subsequent messages.
  *
  *  @param object The @c GTLRPubsub_ModifyAckDeadlineRequest to include in the
  *    query.
- *  @param subscription Required. The name of the subscription.
- *    Format is `projects/{project}/subscriptions/{sub}`.
+ *  @param subscription Required. The name of the subscription. Format is
+ *    `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsModifyAckDeadline
  */
@@ -821,11 +790,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Modifies the `PushConfig` for a specified subscription.
- *  This may be used to change a push subscription to a pull one (signified by
- *  an empty `PushConfig`) or vice versa, or change the endpoint URL and other
- *  attributes of a push subscription. Messages will accumulate for delivery
- *  continuously through the call regardless of changes to the `PushConfig`.
+ *  Modifies the `PushConfig` for a specified subscription. This may be used to
+ *  change a push subscription to a pull one (signified by an empty
+ *  `PushConfig`) or vice versa, or change the endpoint URL and other attributes
+ *  of a push subscription. Messages will accumulate for delivery continuously
+ *  through the call regardless of changes to the `PushConfig`.
  *
  *  Method: pubsub.projects.subscriptions.modifyPushConfig
  *
@@ -838,24 +807,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyPushConfigWithObject:subscription:]
 
 /**
- *  Required. The name of the subscription.
- *  Format is `projects/{project}/subscriptions/{sub}`.
+ *  Required. The name of the subscription. Format is
+ *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_Empty.
  *
- *  Modifies the `PushConfig` for a specified subscription.
- *  This may be used to change a push subscription to a pull one (signified by
- *  an empty `PushConfig`) or vice versa, or change the endpoint URL and other
- *  attributes of a push subscription. Messages will accumulate for delivery
- *  continuously through the call regardless of changes to the `PushConfig`.
+ *  Modifies the `PushConfig` for a specified subscription. This may be used to
+ *  change a push subscription to a pull one (signified by an empty
+ *  `PushConfig`) or vice versa, or change the endpoint URL and other attributes
+ *  of a push subscription. Messages will accumulate for delivery continuously
+ *  through the call regardless of changes to the `PushConfig`.
  *
  *  @param object The @c GTLRPubsub_ModifyPushConfigRequest to include in the
  *    query.
- *  @param subscription Required. The name of the subscription.
- *    Format is `projects/{project}/subscriptions/{sub}`.
+ *  @param subscription Required. The name of the subscription. Format is
+ *    `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsModifyPushConfig
  */
@@ -911,9 +880,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Pulls messages from the server. The server may return `UNAVAILABLE` if
- *  there are too many concurrent pull requests pending for the given
- *  subscription.
+ *  Pulls messages from the server. The server may return `UNAVAILABLE` if there
+ *  are too many concurrent pull requests pending for the given subscription.
  *
  *  Method: pubsub.projects.subscriptions.pull
  *
@@ -926,22 +894,20 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsPullWithObject:subscription:]
 
 /**
- *  Required. The subscription from which messages should be pulled.
- *  Format is `projects/{project}/subscriptions/{sub}`.
+ *  Required. The subscription from which messages should be pulled. Format is
+ *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
 /**
  *  Fetches a @c GTLRPubsub_PullResponse.
  *
- *  Pulls messages from the server. The server may return `UNAVAILABLE` if
- *  there are too many concurrent pull requests pending for the given
- *  subscription.
+ *  Pulls messages from the server. The server may return `UNAVAILABLE` if there
+ *  are too many concurrent pull requests pending for the given subscription.
  *
  *  @param object The @c GTLRPubsub_PullRequest to include in the query.
  *  @param subscription Required. The subscription from which messages should be
- *    pulled.
- *    Format is `projects/{project}/subscriptions/{sub}`.
+ *    pulled. Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsPull
  */
@@ -995,8 +961,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: pubsub.projects.subscriptions.setIamPolicy
  *
@@ -1009,8 +975,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1018,13 +984,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsSetIamPolicy
  */
@@ -1034,12 +1000,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: pubsub.projects.subscriptions.testIamPermissions
  *
@@ -1052,26 +1017,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsSubscriptionsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsTestIamPermissions
  */
@@ -1098,9 +1062,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
- *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
- *  signs (`%`). It must be between 3 and 255 characters in length, and it
- *  must not start with `"goog"`.
+ *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs
+ *  (`%`). It must be between 3 and 255 characters in length, and it must not
+ *  start with `"goog"`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1126,11 +1090,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
- *  does not exist. After a topic is deleted, a new topic may be created with
- *  the same name; this is an entirely new topic with none of the old
- *  configuration or subscriptions. Existing subscriptions to this topic are
- *  not deleted, but their `topic` field is set to `_deleted-topic_`.
+ *  Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does
+ *  not exist. After a topic is deleted, a new topic may be created with the
+ *  same name; this is an entirely new topic with none of the old configuration
+ *  or subscriptions. Existing subscriptions to this topic are not deleted, but
+ *  their `topic` field is set to `_deleted-topic_`.
  *
  *  Method: pubsub.projects.topics.delete
  *
@@ -1143,22 +1107,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsDeleteWithtopic:]
 
 /**
- *  Required. Name of the topic to delete.
- *  Format is `projects/{project}/topics/{topic}`.
+ *  Required. Name of the topic to delete. Format is
+ *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
 /**
  *  Fetches a @c GTLRPubsub_Empty.
  *
- *  Deletes the topic with the given name. Returns `NOT_FOUND` if the topic
- *  does not exist. After a topic is deleted, a new topic may be created with
- *  the same name; this is an entirely new topic with none of the old
- *  configuration or subscriptions. Existing subscriptions to this topic are
- *  not deleted, but their `topic` field is set to `_deleted-topic_`.
+ *  Deletes the topic with the given name. Returns `NOT_FOUND` if the topic does
+ *  not exist. After a topic is deleted, a new topic may be created with the
+ *  same name; this is an entirely new topic with none of the old configuration
+ *  or subscriptions. Existing subscriptions to this topic are not deleted, but
+ *  their `topic` field is set to `_deleted-topic_`.
  *
- *  @param topic Required. Name of the topic to delete.
- *    Format is `projects/{project}/topics/{topic}`.
+ *  @param topic Required. Name of the topic to delete. Format is
+ *    `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsDelete
  */
@@ -1180,8 +1144,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsGetWithtopic:]
 
 /**
- *  Required. The name of the topic to get.
- *  Format is `projects/{project}/topics/{topic}`.
+ *  Required. The name of the topic to get. Format is
+ *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -1190,8 +1154,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the configuration of a topic.
  *
- *  @param topic Required. The name of the topic to get.
- *    Format is `projects/{project}/topics/{topic}`.
+ *  @param topic Required. The name of the topic to get. Format is
+ *    `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsGet
  */
@@ -1200,9 +1164,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: pubsub.projects.topics.getIamPolicy
  *
@@ -1215,34 +1178,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsGetIamPolicy
  */
@@ -1274,8 +1234,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the project in which to list topics.
- *  Format is `projects/{project-id}`.
+ *  Required. The name of the project in which to list topics. Format is
+ *  `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1298,8 +1258,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing topic. Note that certain properties of a
- *  topic are not modifiable.
+ *  Updates an existing topic. Note that certain properties of a topic are not
+ *  modifiable.
  *
  *  Method: pubsub.projects.topics.patch
  *
@@ -1315,17 +1275,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
- *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
- *  signs (`%`). It must be between 3 and 255 characters in length, and it
- *  must not start with `"goog"`.
+ *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs
+ *  (`%`). It must be between 3 and 255 characters in length, and it must not
+ *  start with `"goog"`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRPubsub_Topic.
  *
- *  Updates an existing topic. Note that certain properties of a
- *  topic are not modifiable.
+ *  Updates an existing topic. Note that certain properties of a topic are not
+ *  modifiable.
  *
  *  @param object The @c GTLRPubsub_UpdateTopicRequest to include in the query.
  *  @param name Required. The name of the topic. It must have the format
@@ -1370,8 +1330,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRPubsub_PublishRequest to include in the query.
  *  @param topic Required. The messages in the request will be published on this
- *    topic.
- *    Format is `projects/{project}/topics/{topic}`.
+ *    topic. Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsPublish
  */
@@ -1382,8 +1341,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: pubsub.projects.topics.setIamPolicy
  *
@@ -1396,8 +1355,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1405,13 +1364,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRPubsub_SetIamPolicyRequest to include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsSetIamPolicy
  */
@@ -1441,15 +1400,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListTopicSnapshotsResponse`; indicates
- *  that this is a continuation of a prior `ListTopicSnapshots` call, and
- *  that the system should return the next page of data.
+ *  The value returned by the last `ListTopicSnapshotsResponse`; indicates that
+ *  this is a continuation of a prior `ListTopicSnapshots` call, and that the
+ *  system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the topic that snapshots are attached to.
- *  Format is `projects/{project}/topics/{topic}`.
+ *  Required. The name of the topic that snapshots are attached to. Format is
+ *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -1495,8 +1454,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the topic that subscriptions are attached to.
- *  Format is `projects/{project}/topics/{topic}`.
+ *  Required. The name of the topic that subscriptions are attached to. Format
+ *  is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -1506,8 +1465,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the names of the attached subscriptions on this topic.
  *
  *  @param topic Required. The name of the topic that subscriptions are attached
- *    to.
- *    Format is `projects/{project}/topics/{topic}`.
+ *    to. Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsSubscriptionsList
  */
@@ -1516,12 +1474,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: pubsub.projects.topics.testIamPermissions
  *
@@ -1534,26 +1491,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryPubsub queryForProjectsTopicsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRPubsub_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRPubsub_TestIamPermissionsRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsTestIamPermissions
  */

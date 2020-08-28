@@ -490,6 +490,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Licensing"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Localservices",
+            targets: ["GoogleAPIClientForREST_Localservices"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Logging",
             targets: ["GoogleAPIClientForREST_Logging"]
         ),
@@ -548,6 +552,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Pubsub",
             targets: ["GoogleAPIClientForREST_Pubsub"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_PubsubLite",
+            targets: ["GoogleAPIClientForREST_PubsubLite"]
         ),
         .library(
             name: "GoogleAPIClientForREST_RealTimeBidding",
@@ -1488,6 +1496,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Localservices",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Localservices",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Logging",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Logging",
@@ -1575,6 +1589,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Pubsub",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Pubsub",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_PubsubLite",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/PubsubLite",
             publicHeadersPath: "."
         ),
         .target(

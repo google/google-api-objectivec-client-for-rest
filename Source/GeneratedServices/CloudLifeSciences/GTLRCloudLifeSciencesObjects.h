@@ -73,183 +73,161 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRCloudLifeSciences_FailedEvent.code
 
 /**
- *  The operation was aborted, typically due to a concurrency issue such as
- *  a sequencer check failure or transaction abort.
- *  See the guidelines above for deciding between `FAILED_PRECONDITION`,
- *  `ABORTED`, and `UNAVAILABLE`.
- *  HTTP Mapping: 409 Conflict
+ *  The operation was aborted, typically due to a concurrency issue such as a
+ *  sequencer check failure or transaction abort. See the guidelines above for
+ *  deciding between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`. HTTP
+ *  Mapping: 409 Conflict
  *
  *  Value: "ABORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Aborted;
 /**
  *  The entity that a client attempted to create (e.g., file or directory)
- *  already exists.
- *  HTTP Mapping: 409 Conflict
+ *  already exists. HTTP Mapping: 409 Conflict
  *
  *  Value: "ALREADY_EXISTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_AlreadyExists;
 /**
- *  The operation was cancelled, typically by the caller.
- *  HTTP Mapping: 499 Client Closed Request
+ *  The operation was cancelled, typically by the caller. HTTP Mapping: 499
+ *  Client Closed Request
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Cancelled;
 /**
- *  Unrecoverable data loss or corruption.
- *  HTTP Mapping: 500 Internal Server Error
+ *  Unrecoverable data loss or corruption. HTTP Mapping: 500 Internal Server
+ *  Error
  *
  *  Value: "DATA_LOSS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_DataLoss;
 /**
  *  The deadline expired before the operation could complete. For operations
- *  that change the state of the system, this error may be returned
- *  even if the operation has completed successfully. For example, a
- *  successful response from a server could have been delayed long
- *  enough for the deadline to expire.
- *  HTTP Mapping: 504 Gateway Timeout
+ *  that change the state of the system, this error may be returned even if the
+ *  operation has completed successfully. For example, a successful response
+ *  from a server could have been delayed long enough for the deadline to
+ *  expire. HTTP Mapping: 504 Gateway Timeout
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_DeadlineExceeded;
 /**
- *  The operation was rejected because the system is not in a state
- *  required for the operation's execution. For example, the directory
- *  to be deleted is non-empty, an rmdir operation is applied to
- *  a non-directory, etc.
- *  Service implementors can use the following guidelines to decide
- *  between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:
- *  (a) Use `UNAVAILABLE` if the client can retry just the failing call.
- *  (b) Use `ABORTED` if the client should retry at a higher level
- *  (e.g., when a client-specified test-and-set fails, indicating the
- *  client should restart a read-modify-write sequence).
- *  (c) Use `FAILED_PRECONDITION` if the client should not retry until
- *  the system state has been explicitly fixed. E.g., if an "rmdir"
- *  fails because the directory is non-empty, `FAILED_PRECONDITION`
- *  should be returned since the client should not retry unless
- *  the files are deleted from the directory.
- *  HTTP Mapping: 400 Bad Request
+ *  The operation was rejected because the system is not in a state required for
+ *  the operation's execution. For example, the directory to be deleted is
+ *  non-empty, an rmdir operation is applied to a non-directory, etc. Service
+ *  implementors can use the following guidelines to decide between
+ *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
+ *  if the client can retry just the failing call. (b) Use `ABORTED` if the
+ *  client should retry at a higher level (e.g., when a client-specified
+ *  test-and-set fails, indicating the client should restart a read-modify-write
+ *  sequence). (c) Use `FAILED_PRECONDITION` if the client should not retry
+ *  until the system state has been explicitly fixed. E.g., if an "rmdir" fails
+ *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
+ *  since the client should not retry unless the files are deleted from the
+ *  directory. HTTP Mapping: 400 Bad Request
  *
  *  Value: "FAILED_PRECONDITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_FailedPrecondition;
 /**
- *  Internal errors. This means that some invariants expected by the
- *  underlying system have been broken. This error code is reserved
- *  for serious errors.
+ *  Internal errors. This means that some invariants expected by the underlying
+ *  system have been broken. This error code is reserved for serious errors.
  *  HTTP Mapping: 500 Internal Server Error
  *
  *  Value: "INTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Internal;
 /**
- *  The client specified an invalid argument. Note that this differs
- *  from `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments
- *  that are problematic regardless of the state of the system
- *  (e.g., a malformed file name).
- *  HTTP Mapping: 400 Bad Request
+ *  The client specified an invalid argument. Note that this differs from
+ *  `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments that are
+ *  problematic regardless of the state of the system (e.g., a malformed file
+ *  name). HTTP Mapping: 400 Bad Request
  *
  *  Value: "INVALID_ARGUMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_InvalidArgument;
 /**
- *  Some requested entity (e.g., file or directory) was not found.
- *  Note to server developers: if a request is denied for an entire class
- *  of users, such as gradual feature rollout or undocumented whitelist,
- *  `NOT_FOUND` may be used. If a request is denied for some users within
- *  a class of users, such as user-based access control, `PERMISSION_DENIED`
- *  must be used.
- *  HTTP Mapping: 404 Not Found
+ *  Some requested entity (e.g., file or directory) was not found. Note to
+ *  server developers: if a request is denied for an entire class of users, such
+ *  as gradual feature rollout or undocumented allowlist, `NOT_FOUND` may be
+ *  used. If a request is denied for some users within a class of users, such as
+ *  user-based access control, `PERMISSION_DENIED` must be used. HTTP Mapping:
+ *  404 Not Found
  *
  *  Value: "NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_NotFound;
 /**
- *  Not an error; returned on success
- *  HTTP Mapping: 200 OK
+ *  Not an error; returned on success HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Ok;
 /**
- *  The operation was attempted past the valid range. E.g., seeking or
- *  reading past end-of-file.
- *  Unlike `INVALID_ARGUMENT`, this error indicates a problem that may
- *  be fixed if the system state changes. For example, a 32-bit file
- *  system will generate `INVALID_ARGUMENT` if asked to read at an
- *  offset that is not in the range [0,2^32-1], but it will generate
- *  `OUT_OF_RANGE` if asked to read from an offset past the current
- *  file size.
- *  There is a fair bit of overlap between `FAILED_PRECONDITION` and
- *  `OUT_OF_RANGE`. We recommend using `OUT_OF_RANGE` (the more specific
- *  error) when it applies so that callers who are iterating through
- *  a space can easily look for an `OUT_OF_RANGE` error to detect when
- *  they are done.
- *  HTTP Mapping: 400 Bad Request
+ *  The operation was attempted past the valid range. E.g., seeking or reading
+ *  past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem
+ *  that may be fixed if the system state changes. For example, a 32-bit file
+ *  system will generate `INVALID_ARGUMENT` if asked to read at an offset that
+ *  is not in the range [0,2^32-1], but it will generate `OUT_OF_RANGE` if asked
+ *  to read from an offset past the current file size. There is a fair bit of
+ *  overlap between `FAILED_PRECONDITION` and `OUT_OF_RANGE`. We recommend using
+ *  `OUT_OF_RANGE` (the more specific error) when it applies so that callers who
+ *  are iterating through a space can easily look for an `OUT_OF_RANGE` error to
+ *  detect when they are done. HTTP Mapping: 400 Bad Request
  *
  *  Value: "OUT_OF_RANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_OutOfRange;
 /**
- *  The caller does not have permission to execute the specified
- *  operation. `PERMISSION_DENIED` must not be used for rejections
- *  caused by exhausting some resource (use `RESOURCE_EXHAUSTED`
- *  instead for those errors). `PERMISSION_DENIED` must not be
- *  used if the caller can not be identified (use `UNAUTHENTICATED`
- *  instead for those errors). This error code does not imply the
- *  request is valid or the requested entity exists or satisfies
- *  other pre-conditions.
- *  HTTP Mapping: 403 Forbidden
+ *  The caller does not have permission to execute the specified operation.
+ *  `PERMISSION_DENIED` must not be used for rejections caused by exhausting
+ *  some resource (use `RESOURCE_EXHAUSTED` instead for those errors).
+ *  `PERMISSION_DENIED` must not be used if the caller can not be identified
+ *  (use `UNAUTHENTICATED` instead for those errors). This error code does not
+ *  imply the request is valid or the requested entity exists or satisfies other
+ *  pre-conditions. HTTP Mapping: 403 Forbidden
  *
  *  Value: "PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_PermissionDenied;
 /**
- *  Some resource has been exhausted, perhaps a per-user quota, or
- *  perhaps the entire file system is out of space.
- *  HTTP Mapping: 429 Too Many Requests
+ *  Some resource has been exhausted, perhaps a per-user quota, or perhaps the
+ *  entire file system is out of space. HTTP Mapping: 429 Too Many Requests
  *
  *  Value: "RESOURCE_EXHAUSTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_ResourceExhausted;
 /**
  *  The request does not have valid authentication credentials for the
- *  operation.
- *  HTTP Mapping: 401 Unauthorized
+ *  operation. HTTP Mapping: 401 Unauthorized
  *
  *  Value: "UNAUTHENTICATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unauthenticated;
 /**
- *  The service is currently unavailable. This is most likely a
- *  transient condition, which can be corrected by retrying with
- *  a backoff. Note that it is not always safe to retry
- *  non-idempotent operations.
- *  See the guidelines above for deciding between `FAILED_PRECONDITION`,
- *  `ABORTED`, and `UNAVAILABLE`.
- *  HTTP Mapping: 503 Service Unavailable
+ *  The service is currently unavailable. This is most likely a transient
+ *  condition, which can be corrected by retrying with a backoff. Note that it
+ *  is not always safe to retry non-idempotent operations. See the guidelines
+ *  above for deciding between `FAILED_PRECONDITION`, `ABORTED`, and
+ *  `UNAVAILABLE`. HTTP Mapping: 503 Service Unavailable
  *
  *  Value: "UNAVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unavailable;
 /**
  *  The operation is not implemented or is not supported/enabled in this
- *  service.
- *  HTTP Mapping: 501 Not Implemented
+ *  service. HTTP Mapping: 501 Not Implemented
  *
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unimplemented;
 /**
- *  Unknown error. For example, this error may be returned when
- *  a `Status` value received from another address space belongs to
- *  an error space that is not known in this address space. Also
- *  errors raised by APIs that do not return enough error information
- *  may be converted to this error.
- *  HTTP Mapping: 500 Internal Server Error
+ *  Unknown error. For example, this error may be returned when a `Status` value
+ *  received from another address space belongs to an error space that is not
+ *  known in this address space. Also errors raised by APIs that do not return
+ *  enough error information may be converted to this error. HTTP Mapping: 500
+ *  Internal Server Error
  *
  *  Value: "UNKNOWN"
  */
@@ -268,13 +246,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  The accelerator type string (for example, "nvidia-tesla-k80").
- *  Only NVIDIA GPU accelerators are currently supported. If an NVIDIA GPU is
- *  attached, the required runtime libraries will be made available to all
- *  containers under `/usr/local/nvidia`. The driver version to install must
- *  be specified using the NVIDIA driver version parameter on the virtual
- *  machine specification. Note that attaching a GPU increases the worker VM
- *  startup time by a few minutes.
+ *  The accelerator type string (for example, "nvidia-tesla-k80"). Only NVIDIA
+ *  GPU accelerators are currently supported. If an NVIDIA GPU is attached, the
+ *  required runtime libraries will be made available to all containers under
+ *  `/usr/local/nvidia`. The driver version to install must be specified using
+ *  the NVIDIA driver version parameter on the virtual machine specification.
+ *  Note that attaching a GPU increases the worker VM startup time by a few
+ *  minutes.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -289,9 +267,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 /**
  *  By default, after an action fails, no further actions are run. This flag
  *  indicates that this action must be run even if the pipeline has already
- *  failed. This is useful for actions that copy output files off of the VM
- *  or for debugging. Note that no actions will be run if image prefetching
- *  fails.
+ *  failed. This is useful for actions that copy output files off of the VM or
+ *  for debugging. Note that no actions will be run if image prefetching fails.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -300,34 +277,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 /**
  *  If specified, overrides the `CMD` specified in the container. If the
  *  container also has an `ENTRYPOINT` the values are used as entrypoint
- *  arguments. Otherwise, they are used as a command and arguments to run
- *  inside the container.
+ *  arguments. Otherwise, they are used as a command and arguments to run inside
+ *  the container.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *commands;
 
 /**
  *  An optional name for the container. The container hostname will be set to
- *  this name, making it useful for inter-container communication. The name
- *  must contain only upper and lowercase alphanumeric characters and hyphens
- *  and cannot start with a hyphen.
+ *  this name, making it useful for inter-container communication. The name must
+ *  contain only upper and lowercase alphanumeric characters and hyphens and
+ *  cannot start with a hyphen.
  */
 @property(nonatomic, copy, nullable) NSString *containerName;
 
 /**
  *  If the specified image is hosted on a private registry other than Google
  *  Container Registry, the credentials required to pull the image must be
- *  specified here as an encrypted secret.
- *  The secret must decrypt to a JSON-encoded dictionary containing both
- *  `username` and `password` keys.
+ *  specified here as an encrypted secret. The secret must decrypt to a
+ *  JSON-encoded dictionary containing both `username` and `password` keys.
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Secret *credentials;
 
 /**
  *  All container images are typically downloaded before any actions are
- *  executed. This helps prevent typos in URIs or issues like lack of disk
- *  space from wasting large amounts of compute resources.
- *  If set, this flag prevents the worker from downloading the image until
- *  just before the action is executed.
+ *  executed. This helps prevent typos in URIs or issues like lack of disk space
+ *  from wasting large amounts of compute resources. If set, this flag prevents
+ *  the worker from downloading the image until just before the action is
+ *  executed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -335,20 +311,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /**
  *  A small portion of the container's standard error stream is typically
- *  captured and returned inside the `ContainerStoppedEvent`. Setting this
- *  flag disables this functionality.
+ *  captured and returned inside the `ContainerStoppedEvent`. Setting this flag
+ *  disables this functionality.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableStandardErrorCapture;
 
 /**
- *  Enable access to the FUSE device for this action. Filesystems can then
- *  be mounted into disks shared with other actions. The other actions do
- *  not need the `enable_fuse` flag to access the mounted filesystem.
- *  This has the effect of causing the container to be executed with
- *  `CAP_SYS_ADMIN` and exposes `/dev/fuse` to the container, so use it only
- *  for containers you trust.
+ *  Enable access to the FUSE device for this action. Filesystems can then be
+ *  mounted into disks shared with other actions. The other actions do not need
+ *  the `enable_fuse` flag to access the mounted filesystem. This has the effect
+ *  of causing the container to be executed with `CAP_SYS_ADMIN` and exposes
+ *  `/dev/fuse` to the container, so use it only for containers you trust.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -358,16 +333,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, copy, nullable) NSString *entrypoint;
 
 /**
- *  The environment to pass into the container. This environment is merged
- *  with values specified in the google.cloud.lifesciences.v2beta.Pipeline
- *  message, overwriting any duplicate values.
- *  In addition to the values passed here, a few other values are
- *  automatically injected into the environment. These cannot be hidden or
- *  overwritten.
- *  `GOOGLE_PIPELINE_FAILED` will be set to "1" if the pipeline failed
- *  because an action has exited with a non-zero status (and did not have the
- *  `IGNORE_EXIT_STATUS` flag set). This can be used to determine if additional
- *  debug or logging actions should execute.
+ *  The environment to pass into the container. This environment is merged with
+ *  values specified in the google.cloud.lifesciences.v2beta.Pipeline message,
+ *  overwriting any duplicate values. In addition to the values passed here, a
+ *  few other values are automatically injected into the environment. These
+ *  cannot be hidden or overwritten. `GOOGLE_PIPELINE_FAILED` will be set to "1"
+ *  if the pipeline failed because an action has exited with a non-zero status
+ *  (and did not have the `IGNORE_EXIT_STATUS` flag set). This can be used to
+ *  determine if additional debug or logging actions should execute.
  *  `GOOGLE_LAST_EXIT_STATUS` will be set to the exit status of the last
  *  non-background action that executed. This can be used by workflow engine
  *  authors to determine whether an individual action has succeeded or failed.
@@ -384,45 +357,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /**
  *  Required. The URI to pull the container image from. Note that all images
- *  referenced
- *  by actions in the pipeline are pulled before the first action runs. If
- *  multiple actions reference the same image, it is only pulled once,
+ *  referenced by actions in the pipeline are pulled before the first action
+ *  runs. If multiple actions reference the same image, it is only pulled once,
  *  ensuring that the same image is used for all actions in a single pipeline.
  *  The image URI can be either a complete host and image specification (e.g.,
  *  quay.io/biocontainers/samtools), a library and image name (e.g.,
  *  google/cloud-sdk) or a bare image name ('bash') to pull from the default
- *  library. No schema is required in any of these cases.
- *  If the specified image is not public, the service account specified for
- *  the Virtual Machine must have access to pull the images from GCR, or
- *  appropriate credentials must be specified in the
- *  google.cloud.lifesciences.v2beta.Action.credentials field.
+ *  library. No schema is required in any of these cases. If the specified image
+ *  is not public, the service account specified for the Virtual Machine must
+ *  have access to pull the images from GCR, or appropriate credentials must be
+ *  specified in the google.cloud.lifesciences.v2beta.Action.credentials field.
  */
 @property(nonatomic, copy, nullable) NSString *imageUri;
 
 /**
  *  Labels to associate with the action. This field is provided to assist
  *  workflow engine authors in identifying actions (for example, to indicate
- *  what sort of action they perform, such as localization or debugging).
- *  They are returned in the operation metadata, but are otherwise ignored.
+ *  what sort of action they perform, such as localization or debugging). They
+ *  are returned in the operation metadata, but are otherwise ignored.
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Action_Labels *labels;
 
 /**
- *  A list of mounts to make available to the action.
- *  In addition to the values specified here, every action has a special
- *  virtual disk mounted under `/google` that contains log files and other
- *  operational components.
- *  <ul>
- *  <li><code>/google/logs</code> All logs written during the pipeline
- *  execution.</li>
- *  <li><code>/google/logs/output</code> The combined standard output and
- *  standard error of all actions run as part of the pipeline
- *  execution.</li>
- *  <li><code>/google/logs/action/ * /stdout</code> The complete contents of
- *  each individual action's standard output.</li>
- *  <li><code>/google/logs/action/ * /stderr</code> The complete contents of
- *  each individual action's standard error output.</li>
- *  </ul>
+ *  A list of mounts to make available to the action. In addition to the values
+ *  specified here, every action has a special virtual disk mounted under
+ *  `/google` that contains log files and other operational components. -
+ *  /google/logs All logs written during the pipeline execution. -
+ *  /google/logs/output The combined standard output and standard error of all
+ *  actions run as part of the pipeline execution. - /google/logs/action/ *
+ *  /stdout The complete contents of each individual action's standard output. -
+ *  /google/logs/action/ * /stderr The complete contents of each individual
+ *  action's standard error output.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudLifeSciences_Mount *> *mounts;
 
@@ -435,18 +400,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /**
  *  A map of containers to host port mappings for this container. If the
- *  container already specifies exposed ports, use the
- *  `PUBLISH_EXPOSED_PORTS` flag instead.
- *  The host port number must be less than 65536. If it is zero, an unused
- *  random port is assigned. To determine the resulting port number, consult
- *  the `ContainerStartedEvent` in the operation metadata.
+ *  container already specifies exposed ports, use the `PUBLISH_EXPOSED_PORTS`
+ *  flag instead. The host port number must be less than 65536. If it is zero,
+ *  an unused random port is assigned. To determine the resulting port number,
+ *  consult the `ContainerStartedEvent` in the operation metadata.
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Action_PortMappings *portMappings;
 
 /**
  *  Exposes all ports specified by `EXPOSE` statements in the container. To
- *  discover the host side port numbers, consult the `ACTION_STARTED` event
- *  in the operation metadata.
+ *  discover the host side port numbers, consult the `ACTION_STARTED` event in
+ *  the operation metadata.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -454,8 +418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /**
  *  This flag allows an action to continue running in the background while
- *  executing subsequent actions. This is useful to provide services to
- *  other actions (or to provide debugging support tools like SSH servers).
+ *  executing subsequent actions. This is useful to provide services to other
+ *  actions (or to provide debugging support tools like SSH servers).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -464,8 +428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 /**
  *  The maximum amount of time to give the action to complete. If the action
  *  fails to complete before the timeout, it will be terminated and the exit
- *  status will be non-zero. The pipeline will continue or terminate based
- *  on the rules defined by the `ALWAYS_RUN` and `IGNORE_EXIT_STATUS` flags.
+ *  status will be non-zero. The pipeline will continue or terminate based on
+ *  the rules defined by the `ALWAYS_RUN` and `IGNORE_EXIT_STATUS` flags.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -473,16 +437,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  The environment to pass into the container. This environment is merged
- *  with values specified in the google.cloud.lifesciences.v2beta.Pipeline
- *  message, overwriting any duplicate values.
- *  In addition to the values passed here, a few other values are
- *  automatically injected into the environment. These cannot be hidden or
- *  overwritten.
- *  `GOOGLE_PIPELINE_FAILED` will be set to "1" if the pipeline failed
- *  because an action has exited with a non-zero status (and did not have the
- *  `IGNORE_EXIT_STATUS` flag set). This can be used to determine if additional
- *  debug or logging actions should execute.
+ *  The environment to pass into the container. This environment is merged with
+ *  values specified in the google.cloud.lifesciences.v2beta.Pipeline message,
+ *  overwriting any duplicate values. In addition to the values passed here, a
+ *  few other values are automatically injected into the environment. These
+ *  cannot be hidden or overwritten. `GOOGLE_PIPELINE_FAILED` will be set to "1"
+ *  if the pipeline failed because an action has exited with a non-zero status
+ *  (and did not have the `IGNORE_EXIT_STATUS` flag set). This can be used to
+ *  determine if additional debug or logging actions should execute.
  *  `GOOGLE_LAST_EXIT_STATUS` will be set to the exit status of the last
  *  non-background action that executed. This can be used by workflow engine
  *  authors to determine whether an individual action has succeeded or failed.
@@ -499,8 +461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 /**
  *  Labels to associate with the action. This field is provided to assist
  *  workflow engine authors in identifying actions (for example, to indicate
- *  what sort of action they perform, such as localization or debugging).
- *  They are returned in the operation metadata, but are otherwise ignored.
+ *  what sort of action they perform, such as localization or debugging). They
+ *  are returned in the operation metadata, but are otherwise ignored.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -513,11 +475,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /**
  *  A map of containers to host port mappings for this container. If the
- *  container already specifies exposed ports, use the
- *  `PUBLISH_EXPOSED_PORTS` flag instead.
- *  The host port number must be less than 65536. If it is zero, an unused
- *  random port is assigned. To determine the resulting port number, consult
- *  the `ContainerStartedEvent` in the operation metadata.
+ *  container already specifies exposed ports, use the `PUBLISH_EXPOSED_PORTS`
+ *  flag instead. The host port number must be less than 65536. If it is zero,
+ *  an unused random port is assigned. To determine the resulting port number,
+ *  consult the `ContainerStartedEvent` in the operation metadata.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
@@ -536,9 +497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  An event generated when a container is forcibly terminated by the
- *  worker. Currently, this only occurs when the container outlives the
- *  timeout specified by the user.
+ *  An event generated when a container is forcibly terminated by the worker.
+ *  Currently, this only occurs when the container outlives the timeout
+ *  specified by the user.
  */
 @interface GTLRCloudLifeSciences_ContainerKilledEvent : GTLRObject
 
@@ -573,9 +534,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
- *  The container-to-host port mappings installed for this container. This
- *  set will contain any ports exposed using the `PUBLISH_EXPOSED_PORTS` flag
- *  as well as any specified in the `Action` definition.
+ *  The container-to-host port mappings installed for this container. This set
+ *  will contain any ports exposed using the `PUBLISH_EXPOSED_PORTS` flag as
+ *  well as any specified in the `Action` definition.
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_ContainerStartedEvent_PortMappings *portMappings;
 
@@ -583,9 +544,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  The container-to-host port mappings installed for this container. This
- *  set will contain any ports exposed using the `PUBLISH_EXPOSED_PORTS` flag
- *  as well as any specified in the `Action` definition.
+ *  The container-to-host port mappings installed for this container. This set
+ *  will contain any ports exposed using the `PUBLISH_EXPOSED_PORTS` flag as
+ *  well as any specified in the `Action` definition.
  *
  *  @note This class is documented as having more properties of NSNumber (Uses
  *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
@@ -616,13 +577,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) NSNumber *exitStatus;
 
 /**
- *  The tail end of any content written to standard error by the container.
- *  If the content emits large amounts of debugging noise or contains
- *  sensitive information, you can prevent the content from being printed by
- *  setting the `DISABLE_STANDARD_ERROR_CAPTURE` flag.
- *  Note that only a small amount of the end of the stream is captured here.
- *  The entire stream is stored in the `/google/logs` directory mounted into
- *  each action, and can be copied off the machine as described elsewhere.
+ *  The tail end of any content written to standard error by the container. If
+ *  the content emits large amounts of debugging noise or contains sensitive
+ *  information, you can prevent the content from being printed by setting the
+ *  `DISABLE_STANDARD_ERROR_CAPTURE` flag. Note that only a small amount of the
+ *  end of the stream is captured here. The entire stream is stored in the
+ *  `/google/logs` directory mounted into each action, and can be copied off the
+ *  machine as described elsewhere.
  */
 @property(nonatomic, copy, nullable) NSString *stderr;
 
@@ -630,8 +591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  An event generated whenever a resource limitation or transient error
- *  delays execution of a pipeline that was otherwise ready to run.
+ *  An event generated whenever a resource limitation or transient error delays
+ *  execution of a pipeline that was otherwise ready to run.
  */
 @interface GTLRCloudLifeSciences_DelayedEvent : GTLRObject
 
@@ -643,10 +604,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, copy, nullable) NSString *cause;
 
 /**
- *  If the delay was caused by a resource shortage, this field lists the
- *  Compute Engine metrics that are preventing this operation from running
- *  (for example, `CPUS` or `INSTANCES`). If the particular metric is not
- *  known, a single `UNKNOWN` metric will be present.
+ *  If the delay was caused by a resource shortage, this field lists the Compute
+ *  Engine metrics that are preventing this operation from running (for example,
+ *  `CPUS` or `INSTANCES`). If the particular metric is not known, a single
+ *  `UNKNOWN` metric will be present.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
@@ -654,26 +615,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  Carries information about a disk that can be attached to a VM.
- *  See https://cloud.google.com/compute/docs/disks/performance for more
- *  information about disk type, size, and performance considerations.
+ *  Carries information about a disk that can be attached to a VM. See
+ *  https://cloud.google.com/compute/docs/disks/performance for more information
+ *  about disk type, size, and performance considerations.
  */
 @interface GTLRCloudLifeSciences_Disk : GTLRObject
 
 /**
- *  A user-supplied name for the disk. Used when mounting the disk into
- *  actions. The name must contain only upper and lowercase alphanumeric
- *  characters and hyphens and cannot start with a hyphen.
+ *  A user-supplied name for the disk. Used when mounting the disk into actions.
+ *  The name must contain only upper and lowercase alphanumeric characters and
+ *  hyphens and cannot start with a hyphen.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The size, in GB, of the disk to attach. If the size is not
- *  specified, a default is chosen to ensure reasonable I/O performance.
- *  If the disk type is specified as `local-ssd`, multiple local drives are
- *  automatically combined to provide the requested size. Note, however, that
- *  each physical SSD is 375GB in size, and no more than 8 drives can be
- *  attached to a single instance.
+ *  The size, in GB, of the disk to attach. If the size is not specified, a
+ *  default is chosen to ensure reasonable I/O performance. If the disk type is
+ *  specified as `local-ssd`, multiple local drives are automatically combined
+ *  to provide the requested size. Note, however, that each physical SSD is
+ *  375GB in size, and no more than 8 drives can be attached to a single
+ *  instance.
  *
  *  Uses NSNumber of intValue.
  */
@@ -691,11 +652,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudLifeSciences_Empty : GTLRObject
 @end
@@ -752,8 +711,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  An event generated when the execution of a pipeline has failed. Note
- *  that other events can continue to occur after this event.
+ *  An event generated when the execution of a pipeline has failed. Note that
+ *  other events can continue to occur after this event.
  */
 @interface GTLRCloudLifeSciences_FailedEvent : GTLRObject
 
@@ -765,120 +724,104 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *
  *  Likely values:
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Aborted The operation was
- *        aborted, typically due to a concurrency issue such as
- *        a sequencer check failure or transaction abort.
- *        See the guidelines above for deciding between `FAILED_PRECONDITION`,
- *        `ABORTED`, and `UNAVAILABLE`.
+ *        aborted, typically due to a concurrency issue such as a sequencer
+ *        check failure or transaction abort. See the guidelines above for
+ *        deciding between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`.
  *        HTTP Mapping: 409 Conflict (Value: "ABORTED")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_AlreadyExists The entity
- *        that a client attempted to create (e.g., file or directory)
- *        already exists.
- *        HTTP Mapping: 409 Conflict (Value: "ALREADY_EXISTS")
+ *        that a client attempted to create (e.g., file or directory) already
+ *        exists. HTTP Mapping: 409 Conflict (Value: "ALREADY_EXISTS")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Cancelled The operation
- *        was cancelled, typically by the caller.
- *        HTTP Mapping: 499 Client Closed Request (Value: "CANCELLED")
+ *        was cancelled, typically by the caller. HTTP Mapping: 499 Client
+ *        Closed Request (Value: "CANCELLED")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_DataLoss Unrecoverable
- *        data loss or corruption.
- *        HTTP Mapping: 500 Internal Server Error (Value: "DATA_LOSS")
+ *        data loss or corruption. HTTP Mapping: 500 Internal Server Error
+ *        (Value: "DATA_LOSS")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_DeadlineExceeded The
  *        deadline expired before the operation could complete. For operations
- *        that change the state of the system, this error may be returned
- *        even if the operation has completed successfully. For example, a
- *        successful response from a server could have been delayed long
- *        enough for the deadline to expire.
- *        HTTP Mapping: 504 Gateway Timeout (Value: "DEADLINE_EXCEEDED")
+ *        that change the state of the system, this error may be returned even
+ *        if the operation has completed successfully. For example, a successful
+ *        response from a server could have been delayed long enough for the
+ *        deadline to expire. HTTP Mapping: 504 Gateway Timeout (Value:
+ *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_FailedPrecondition The
- *        operation was rejected because the system is not in a state
- *        required for the operation's execution. For example, the directory
- *        to be deleted is non-empty, an rmdir operation is applied to
- *        a non-directory, etc.
- *        Service implementors can use the following guidelines to decide
- *        between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:
- *        (a) Use `UNAVAILABLE` if the client can retry just the failing call.
- *        (b) Use `ABORTED` if the client should retry at a higher level
- *        (e.g., when a client-specified test-and-set fails, indicating the
- *        client should restart a read-modify-write sequence).
- *        (c) Use `FAILED_PRECONDITION` if the client should not retry until
- *        the system state has been explicitly fixed. E.g., if an "rmdir"
- *        fails because the directory is non-empty, `FAILED_PRECONDITION`
- *        should be returned since the client should not retry unless
- *        the files are deleted from the directory.
- *        HTTP Mapping: 400 Bad Request (Value: "FAILED_PRECONDITION")
+ *        operation was rejected because the system is not in a state required
+ *        for the operation's execution. For example, the directory to be
+ *        deleted is non-empty, an rmdir operation is applied to a
+ *        non-directory, etc. Service implementors can use the following
+ *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
+ *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
+ *        failing call. (b) Use `ABORTED` if the client should retry at a higher
+ *        level (e.g., when a client-specified test-and-set fails, indicating
+ *        the client should restart a read-modify-write sequence). (c) Use
+ *        `FAILED_PRECONDITION` if the client should not retry until the system
+ *        state has been explicitly fixed. E.g., if an "rmdir" fails because the
+ *        directory is non-empty, `FAILED_PRECONDITION` should be returned since
+ *        the client should not retry unless the files are deleted from the
+ *        directory. HTTP Mapping: 400 Bad Request (Value:
+ *        "FAILED_PRECONDITION")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Internal Internal errors.
- *        This means that some invariants expected by the
- *        underlying system have been broken. This error code is reserved
- *        for serious errors.
- *        HTTP Mapping: 500 Internal Server Error (Value: "INTERNAL")
+ *        This means that some invariants expected by the underlying system have
+ *        been broken. This error code is reserved for serious errors. HTTP
+ *        Mapping: 500 Internal Server Error (Value: "INTERNAL")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_InvalidArgument The client
- *        specified an invalid argument. Note that this differs
- *        from `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments
- *        that are problematic regardless of the state of the system
- *        (e.g., a malformed file name).
- *        HTTP Mapping: 400 Bad Request (Value: "INVALID_ARGUMENT")
+ *        specified an invalid argument. Note that this differs from
+ *        `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments that are
+ *        problematic regardless of the state of the system (e.g., a malformed
+ *        file name). HTTP Mapping: 400 Bad Request (Value: "INVALID_ARGUMENT")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_NotFound Some requested
- *        entity (e.g., file or directory) was not found.
- *        Note to server developers: if a request is denied for an entire class
- *        of users, such as gradual feature rollout or undocumented whitelist,
- *        `NOT_FOUND` may be used. If a request is denied for some users within
- *        a class of users, such as user-based access control,
- *        `PERMISSION_DENIED`
- *        must be used.
- *        HTTP Mapping: 404 Not Found (Value: "NOT_FOUND")
+ *        entity (e.g., file or directory) was not found. Note to server
+ *        developers: if a request is denied for an entire class of users, such
+ *        as gradual feature rollout or undocumented allowlist, `NOT_FOUND` may
+ *        be used. If a request is denied for some users within a class of
+ *        users, such as user-based access control, `PERMISSION_DENIED` must be
+ *        used. HTTP Mapping: 404 Not Found (Value: "NOT_FOUND")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Ok Not an error; returned
- *        on success
- *        HTTP Mapping: 200 OK (Value: "OK")
+ *        on success HTTP Mapping: 200 OK (Value: "OK")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_OutOfRange The operation
- *        was attempted past the valid range. E.g., seeking or
- *        reading past end-of-file.
- *        Unlike `INVALID_ARGUMENT`, this error indicates a problem that may
- *        be fixed if the system state changes. For example, a 32-bit file
- *        system will generate `INVALID_ARGUMENT` if asked to read at an
+ *        was attempted past the valid range. E.g., seeking or reading past
+ *        end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem
+ *        that may be fixed if the system state changes. For example, a 32-bit
+ *        file system will generate `INVALID_ARGUMENT` if asked to read at an
  *        offset that is not in the range [0,2^32-1], but it will generate
- *        `OUT_OF_RANGE` if asked to read from an offset past the current
- *        file size.
- *        There is a fair bit of overlap between `FAILED_PRECONDITION` and
+ *        `OUT_OF_RANGE` if asked to read from an offset past the current file
+ *        size. There is a fair bit of overlap between `FAILED_PRECONDITION` and
  *        `OUT_OF_RANGE`. We recommend using `OUT_OF_RANGE` (the more specific
- *        error) when it applies so that callers who are iterating through
- *        a space can easily look for an `OUT_OF_RANGE` error to detect when
- *        they are done.
- *        HTTP Mapping: 400 Bad Request (Value: "OUT_OF_RANGE")
+ *        error) when it applies so that callers who are iterating through a
+ *        space can easily look for an `OUT_OF_RANGE` error to detect when they
+ *        are done. HTTP Mapping: 400 Bad Request (Value: "OUT_OF_RANGE")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_PermissionDenied The
- *        caller does not have permission to execute the specified
- *        operation. `PERMISSION_DENIED` must not be used for rejections
- *        caused by exhausting some resource (use `RESOURCE_EXHAUSTED`
- *        instead for those errors). `PERMISSION_DENIED` must not be
- *        used if the caller can not be identified (use `UNAUTHENTICATED`
- *        instead for those errors). This error code does not imply the
- *        request is valid or the requested entity exists or satisfies
- *        other pre-conditions.
- *        HTTP Mapping: 403 Forbidden (Value: "PERMISSION_DENIED")
+ *        caller does not have permission to execute the specified operation.
+ *        `PERMISSION_DENIED` must not be used for rejections caused by
+ *        exhausting some resource (use `RESOURCE_EXHAUSTED` instead for those
+ *        errors). `PERMISSION_DENIED` must not be used if the caller can not be
+ *        identified (use `UNAUTHENTICATED` instead for those errors). This
+ *        error code does not imply the request is valid or the requested entity
+ *        exists or satisfies other pre-conditions. HTTP Mapping: 403 Forbidden
+ *        (Value: "PERMISSION_DENIED")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_ResourceExhausted Some
- *        resource has been exhausted, perhaps a per-user quota, or
- *        perhaps the entire file system is out of space.
- *        HTTP Mapping: 429 Too Many Requests (Value: "RESOURCE_EXHAUSTED")
+ *        resource has been exhausted, perhaps a per-user quota, or perhaps the
+ *        entire file system is out of space. HTTP Mapping: 429 Too Many
+ *        Requests (Value: "RESOURCE_EXHAUSTED")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Unauthenticated The
  *        request does not have valid authentication credentials for the
- *        operation.
- *        HTTP Mapping: 401 Unauthorized (Value: "UNAUTHENTICATED")
+ *        operation. HTTP Mapping: 401 Unauthorized (Value: "UNAUTHENTICATED")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Unavailable The service is
- *        currently unavailable. This is most likely a
- *        transient condition, which can be corrected by retrying with
- *        a backoff. Note that it is not always safe to retry
- *        non-idempotent operations.
- *        See the guidelines above for deciding between `FAILED_PRECONDITION`,
- *        `ABORTED`, and `UNAVAILABLE`.
- *        HTTP Mapping: 503 Service Unavailable (Value: "UNAVAILABLE")
+ *        currently unavailable. This is most likely a transient condition,
+ *        which can be corrected by retrying with a backoff. Note that it is not
+ *        always safe to retry non-idempotent operations. See the guidelines
+ *        above for deciding between `FAILED_PRECONDITION`, `ABORTED`, and
+ *        `UNAVAILABLE`. HTTP Mapping: 503 Service Unavailable (Value:
+ *        "UNAVAILABLE")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Unimplemented The
  *        operation is not implemented or is not supported/enabled in this
- *        service.
- *        HTTP Mapping: 501 Not Implemented (Value: "UNIMPLEMENTED")
+ *        service. HTTP Mapping: 501 Not Implemented (Value: "UNIMPLEMENTED")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Unknown Unknown error. For
- *        example, this error may be returned when
- *        a `Status` value received from another address space belongs to
- *        an error space that is not known in this address space. Also
- *        errors raised by APIs that do not return enough error information
- *        may be converted to this error.
- *        HTTP Mapping: 500 Internal Server Error (Value: "UNKNOWN")
+ *        example, this error may be returned when a `Status` value received
+ *        from another address space belongs to an error space that is not known
+ *        in this address space. Also errors raised by APIs that do not return
+ *        enough error information may be converted to this error. HTTP Mapping:
+ *        500 Internal Server Error (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -939,8 +882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @interface GTLRCloudLifeSciences_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -960,8 +903,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -995,8 +938,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  Carries information about the pipeline execution that is returned
- *  in the long running operation's metadata field.
+ *  Carries information about the pipeline execution that is returned in the
+ *  long running operation's metadata field.
  */
 @interface GTLRCloudLifeSciences_Metadata : GTLRObject
 
@@ -1067,19 +1010,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @interface GTLRCloudLifeSciences_Network : GTLRObject
 
 /**
- *  The network name to attach the VM's network interface to. The value will
- *  be prefixed with `global/networks/` unless it contains a `/`, in which
- *  case it is assumed to be a fully specified network resource URL.
- *  If unspecified, the global default network is used.
+ *  The network name to attach the VM's network interface to. The value will be
+ *  prefixed with `global/networks/` unless it contains a `/`, in which case it
+ *  is assumed to be a fully specified network resource URL. If unspecified, the
+ *  global default network is used.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  If the specified network is configured for custom subnet creation, the
- *  name of the subnetwork to attach the instance to must be specified here.
- *  The value is prefixed with `regions/ * /subnetworks/` unless it contains a
- *  `/`, in which case it is assumed to be a fully specified subnetwork
- *  resource URL.
+ *  If the specified network is configured for custom subnet creation, the name
+ *  of the subnetwork to attach the instance to must be specified here. The
+ *  value is prefixed with `regions/ * /subnetworks/` unless it contains a `/`,
+ *  in which case it is assumed to be a fully specified subnetwork resource URL.
  *  If the `*` character appears in the value, it is replaced with the region
  *  that the virtual machine has been allocated in.
  */
@@ -1087,10 +1029,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /**
  *  If set to true, do not attach a public IP address to the VM. Note that
- *  without a public IP address, additional configuration is required to
- *  allow the VM to access Google services.
- *  See https://cloud.google.com/vpc/docs/configure-private-google-access
- *  for more information.
+ *  without a public IP address, additional configuration is required to allow
+ *  the VM to access Google services. See
+ *  https://cloud.google.com/vpc/docs/configure-private-google-access for more
+ *  information.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1106,8 +1048,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @interface GTLRCloudLifeSciences_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1177,9 +1119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 /**
  *  The maximum amount of time to give the pipeline to complete. This includes
  *  the time spent waiting for a worker to be allocated. If the pipeline fails
- *  to complete before the timeout, it will be cancelled and the error code
- *  will be set to DEADLINE_EXCEEDED.
- *  If unspecified, it will default to 7 days.
+ *  to complete before the timeout, it will be cancelled and the error code will
+ *  be set to DEADLINE_EXCEEDED. If unspecified, it will default to 7 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -1223,8 +1164,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  The system resources for the pipeline run.
- *  At least one zone or region must be specified or the pipeline run will fail.
+ *  The system resources for the pipeline run. At least one zone or region must
+ *  be specified or the pipeline run will fail.
  */
 @interface GTLRCloudLifeSciences_Resources : GTLRObject
 
@@ -1247,18 +1188,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  The arguments to the `RunPipeline` method. The requesting user must have
- *  the `iam.serviceAccounts.actAs` permission for the Cloud Life Sciences
- *  service account or the request will fail.
+ *  The arguments to the `RunPipeline` method. The requesting user must have the
+ *  `iam.serviceAccounts.actAs` permission for the Cloud Life Sciences service
+ *  account or the request will fail.
  */
 @interface GTLRCloudLifeSciences_RunPipelineRequest : GTLRObject
 
 /**
- *  User-defined labels to associate with the returned operation. These
- *  labels are not propagated to any Google Cloud Platform resources used by
- *  the operation, and can be modified at any time.
- *  To associate labels with resources created while executing the operation,
- *  see the appropriate resource message (for example, `VirtualMachine`).
+ *  User-defined labels to associate with the returned operation. These labels
+ *  are not propagated to any Google Cloud Platform resources used by the
+ *  operation, and can be modified at any time. To associate labels with
+ *  resources created while executing the operation, see the appropriate
+ *  resource message (for example, `VirtualMachine`).
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_RunPipelineRequest_Labels *labels;
 
@@ -1269,11 +1210,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  User-defined labels to associate with the returned operation. These
- *  labels are not propagated to any Google Cloud Platform resources used by
- *  the operation, and can be modified at any time.
- *  To associate labels with resources created while executing the operation,
- *  see the appropriate resource message (for example, `VirtualMachine`).
+ *  User-defined labels to associate with the returned operation. These labels
+ *  are not propagated to any Google Cloud Platform resources used by the
+ *  operation, and can be modified at any time. To associate labels with
+ *  resources created while executing the operation, see the appropriate
+ *  resource message (for example, `VirtualMachine`).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1293,8 +1234,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  Holds encrypted information that is only decrypted and stored in RAM
- *  by the worker VM when running the pipeline.
+ *  Holds encrypted information that is only decrypted and stored in RAM by the
+ *  worker VM when running the pipeline.
  */
 @interface GTLRCloudLifeSciences_Secret : GTLRObject
 
@@ -1305,9 +1246,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, copy, nullable) NSString *cipherText;
 
 /**
- *  The name of the Cloud KMS key that will be used to decrypt the secret
- *  value. The VM service account must have the required permissions and
- *  authentication scopes to invoke the `decrypt` method on the specified key.
+ *  The name of the Cloud KMS key that will be used to decrypt the secret value.
+ *  The VM service account must have the required permissions and authentication
+ *  scopes to invoke the `decrypt` method on the specified key.
  */
 @property(nonatomic, copy, nullable) NSString *keyName;
 
@@ -1320,14 +1261,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @interface GTLRCloudLifeSciences_ServiceAccount : GTLRObject
 
 /**
- *  Email address of the service account. If not specified, the default
- *  Compute Engine service account for the project will be used.
+ *  Email address of the service account. If not specified, the default Compute
+ *  Engine service account for the project will be used.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  List of scopes to be enabled for this service account on the VM, in
- *  addition to the cloud-platform API scope that will be added by default.
+ *  List of scopes to be enabled for this service account on the VM, in addition
+ *  to the cloud-platform API scope that will be added by default.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
@@ -1338,9 +1279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudLifeSciences_Status : GTLRObject
 
@@ -1380,10 +1321,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  An event generated when the execution of a container results in a
- *  non-zero exit status that was not otherwise ignored. Execution will
- *  continue, but only actions that are flagged as `ALWAYS_RUN` will be
- *  executed. Other actions will be skipped.
+ *  An event generated when the execution of a container results in a non-zero
+ *  exit status that was not otherwise ignored. Execution will continue, but
+ *  only actions that are flagged as `ALWAYS_RUN` will be executed. Other
+ *  actions will be skipped.
  */
 @interface GTLRCloudLifeSciences_UnexpectedExitStatusEvent : GTLRObject
 
@@ -1413,25 +1354,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudLifeSciences_Accelerator *> *accelerators;
 
 /**
- *  The size of the boot disk, in GB. The boot disk must be large
- *  enough to accommodate all of the Docker images from each action in the
- *  pipeline at the same time. If not specified, a small but reasonable
- *  default value is used.
+ *  The size of the boot disk, in GB. The boot disk must be large enough to
+ *  accommodate all of the Docker images from each action in the pipeline at the
+ *  same time. If not specified, a small but reasonable default value is used.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bootDiskSizeGb;
 
 /**
- *  The host operating system image to use.
- *  Currently, only Container-Optimized OS images can be used.
- *  The default value is `projects/cos-cloud/global/images/family/cos-stable`,
- *  which selects the latest stable release of Container-Optimized OS.
- *  This option is provided to allow testing against the beta release of the
- *  operating system to ensure that the new version does not interact
- *  negatively with production pipelines.
- *  To test a pipeline against the beta release of Container-Optimized OS,
- *  use the value `projects/cos-cloud/global/images/family/cos-beta`.
+ *  The host operating system image to use. Currently, only Container-Optimized
+ *  OS images can be used. The default value is
+ *  `projects/cos-cloud/global/images/family/cos-stable`, which selects the
+ *  latest stable release of Container-Optimized OS. This option is provided to
+ *  allow testing against the beta release of the operating system to ensure
+ *  that the new version does not interact negatively with production pipelines.
+ *  To test a pipeline against the beta release of Container-Optimized OS, use
+ *  the value `projects/cos-cloud/global/images/family/cos-beta`.
  */
 @property(nonatomic, copy, nullable) NSString *bootImage;
 
@@ -1439,9 +1378,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  The CPU platform to request. An instance based on a newer platform can be
  *  allocated, but never one with fewer capabilities. The value of this
  *  parameter must be a valid Compute Engine CPU platform name (such as "Intel
- *  Skylake"). This parameter is only useful for carefully optimized work
- *  loads where the CPU platform has a significant impact.
- *  For more information about the effect of this parameter, see
+ *  Skylake"). This parameter is only useful for carefully optimized work loads
+ *  where the CPU platform has a significant impact. For more information about
+ *  the effect of this parameter, see
  *  https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform.
  */
 @property(nonatomic, copy, nullable) NSString *cpuPlatform;
@@ -1451,10 +1390,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /**
  *  The Compute Engine Disk Images to use as a Docker cache. The disks will be
- *  mounted into the Docker folder in a way that the images present in the
- *  cache will not need to be pulled. The digests of the cached images must
- *  match those of the tags used or the latest version will still be pulled.
- *  Only a single image is supported.
+ *  mounted into the Docker folder in a way that the images present in the cache
+ *  will not need to be pulled. The digests of the cached images must match
+ *  those of the tags used or the latest version will still be pulled. The root
+ *  directory of the ext4 image must contain `image` and `overlay2` directories
+ *  copied from the Docker directory of a VM where the desired Docker images
+ *  have already been pulled. Only a single image is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dockerCacheImages;
 
@@ -1469,20 +1410,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  Optional set of labels to apply to the VM and any attached disk resources.
  *  These labels must adhere to the [name and value
  *  restrictions](https://cloud.google.com/compute/docs/labeling-resources) on
- *  VM labels imposed by Compute Engine.
- *  Labels keys with the prefix 'google-' are reserved for use by Google.
- *  Labels applied at creation time to the VM. Applied on a best-effort basis
- *  to attached disk resources shortly after VM creation.
+ *  VM labels imposed by Compute Engine. Labels keys with the prefix 'google-'
+ *  are reserved for use by Google. Labels applied at creation time to the VM.
+ *  Applied on a best-effort basis to attached disk resources shortly after VM
+ *  creation.
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_VirtualMachine_Labels *labels;
 
 /**
  *  Required. The machine type of the virtual machine to create. Must be the
- *  short name
- *  of a standard machine type (such as "n1-standard-1") or a custom machine
- *  type (such as "custom-1-4096", where "1" indicates the number of vCPUs and
- *  "4096" indicates the memory in MB). See
- *  [Creating an instance with a custom machine
+ *  short name of a standard machine type (such as "n1-standard-1") or a custom
+ *  machine type (such as "custom-1-4096", where "1" indicates the number of
+ *  vCPUs and "4096" indicates the memory in MB). See [Creating an instance with
+ *  a custom machine
  *  type](https://cloud.google.com/compute/docs/instances/creating-instance-with-custom-machine-type#create)
  *  for more specifications on creating a custom machine type.
  */
@@ -1507,8 +1447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) NSNumber *preemptible;
 
 /**
- *  The service account to install on the VM. This account does not need
- *  any permissions other than those required by the pipeline.
+ *  The service account to install on the VM. This account does not need any
+ *  permissions other than those required by the pipeline.
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_ServiceAccount *serviceAccount;
 
@@ -1519,10 +1459,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  Optional set of labels to apply to the VM and any attached disk resources.
  *  These labels must adhere to the [name and value
  *  restrictions](https://cloud.google.com/compute/docs/labeling-resources) on
- *  VM labels imposed by Compute Engine.
- *  Labels keys with the prefix 'google-' are reserved for use by Google.
- *  Labels applied at creation time to the VM. Applied on a best-effort basis
- *  to attached disk resources shortly after VM creation.
+ *  VM labels imposed by Compute Engine. Labels keys with the prefix 'google-'
+ *  are reserved for use by Google. Labels applied at creation time to the VM.
+ *  Applied on a best-effort basis to attached disk resources shortly after VM
+ *  creation.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1534,8 +1474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  An event generated after a worker VM has been assigned to run the
- *  pipeline.
+ *  An event generated after a worker VM has been assigned to run the pipeline.
  */
 @interface GTLRCloudLifeSciences_WorkerAssignedEvent : GTLRObject
 
@@ -1556,8 +1495,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  An event generated when the worker VM that was assigned to the pipeline
- *  has been released (deleted).
+ *  An event generated when the worker VM that was assigned to the pipeline has
+ *  been released (deleted).
  */
 @interface GTLRCloudLifeSciences_WorkerReleasedEvent : GTLRObject
 

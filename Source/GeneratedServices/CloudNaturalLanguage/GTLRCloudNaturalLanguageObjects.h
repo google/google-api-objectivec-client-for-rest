@@ -66,8 +66,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequ
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-32 encoding of the input. Python is an example of a language
- *  that uses this encoding natively.
+ *  on the UTF-32 encoding of the input. Python is an example of a language that
+ *  uses this encoding natively.
  *
  *  Value: "UTF32"
  */
@@ -101,8 +101,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentim
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-32 encoding of the input. Python is an example of a language
- *  that uses this encoding natively.
+ *  on the UTF-32 encoding of the input. Python is an example of a language that
+ *  uses this encoding natively.
  *
  *  Value: "UTF32"
  */
@@ -136,8 +136,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentReq
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-32 encoding of the input. Python is an example of a language
- *  that uses this encoding natively.
+ *  on the UTF-32 encoding of the input. Python is an example of a language that
+ *  uses this encoding natively.
  *
  *  Value: "UTF32"
  */
@@ -171,8 +171,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxReques
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-32 encoding of the input. Python is an example of a language
- *  that uses this encoding natively.
+ *  on the UTF-32 encoding of the input. Python is an example of a language that
+ *  uses this encoding natively.
  *
  *  Value: "UTF32"
  */
@@ -206,8 +206,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf16;
 /**
  *  Encoding-dependent information (such as `begin_offset`) is calculated based
- *  on the UTF-32 encoding of the input. Python is an example of a language
- *  that uses this encoding natively.
+ *  on the UTF-32 encoding of the input. Python is an example of a language that
+ *  uses this encoding natively.
  *
  *  Value: "UTF32"
  */
@@ -749,19 +749,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Document_Type_TypeU
 // GTLRCloudNaturalLanguage_Entity.type
 
 /**
- *  Address
- *  The metadata identifies the street number and locality plus whichever
- *  additional elements appear in the text:
- *  * `street_number` - street number
- *  * `locality` - city or town
- *  * `street_name` - street/route name, if detected
- *  * `postal_code` - postal code, if detected
- *  * `country` - country, if detected<
- *  * `broad_region` - administrative area, such as the state, if detected
- *  * `narrow_region` - smaller administrative area, such as county, if
- *  detected
- *  * `sublocality` - used in Asian addresses to demark a district within a
- *  city, if detected
+ *  Address The metadata identifies the street number and locality plus
+ *  whichever additional elements appear in the text: * `street_number` - street
+ *  number * `locality` - city or town * `street_name` - street/route name, if
+ *  detected * `postal_code` - postal code, if detected * `country` - country,
+ *  if detected< * `broad_region` - administrative area, such as the state, if
+ *  detected * `narrow_region` - smaller administrative area, such as county, if
+ *  detected * `sublocality` - used in Asian addresses to demark a district
+ *  within a city, if detected
  *
  *  Value: "ADDRESS"
  */
@@ -773,11 +768,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Address
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood;
 /**
- *  Date
- *  The metadata identifies the components of the date:
- *  * `year` - four digit year, if detected
- *  * `month` - two digit month number, if detected
- *  * `day` - two digit day number, if detected
+ *  Date The metadata identifies the components of the date: * `year` - four
+ *  digit year, if detected * `month` - two digit month number, if detected *
+ *  `day` - two digit day number, if detected
  *
  *  Value: "DATE"
  */
@@ -795,8 +788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Event;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Location;
 /**
- *  Number
- *  The metadata is the number itself.
+ *  Number The metadata is the number itself.
  *
  *  Value: "NUMBER"
  */
@@ -820,22 +812,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Other;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_Person;
 /**
- *  Phone number
- *  The metadata lists the phone number, formatted according to local
- *  convention, plus whichever additional elements appear in the text:
- *  * `number` - the actual number, broken down into sections as per local
- *  convention
- *  * `national_prefix` - country code, if detected
- *  * `area_code` - region or area code, if detected
- *  * `extension` - phone extension (to be dialed after connection), if
- *  detected
+ *  Phone number The metadata lists the phone number, formatted according to
+ *  local convention, plus whichever additional elements appear in the text: *
+ *  `number` - the actual number, broken down into sections as per local
+ *  convention * `national_prefix` - country code, if detected * `area_code` -
+ *  region or area code, if detected * `extension` - phone extension (to be
+ *  dialed after connection), if detected
  *
  *  Value: "PHONE_NUMBER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_Entity_Type_PhoneNumber;
 /**
- *  Price
- *  The metadata identifies the `value` and `currency`.
+ *  Price The metadata identifies the `value` and `currency`.
  *
  *  Value: "PRICE"
  */
@@ -1247,8 +1235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Recipr
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Reciprocity_Reciprocal;
 /**
- *  Reciprocity is not applicable in the analyzed language or is not
- *  predicted.
+ *  Reciprocity is not applicable in the analyzed language or is not predicted.
  *
  *  Value: "RECIPROCITY_UNKNOWN"
  */
@@ -1430,26 +1417,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_None
  *        If `EncodingType` is not specified, encoding-dependent information
- *        (such as
- *        `begin_offset`) will be set at `-1`. (Value: "NONE")
+ *        (such as `begin_offset`) will be set at `-1`. (Value: "NONE")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-16 encoding of the input. Java and JavaScript are examples
- *        of
- *        languages that use this encoding natively. (Value: "UTF16")
+ *        based on the UTF-16 encoding of the input. Java and JavaScript are
+ *        examples of languages that use this encoding natively. (Value:
+ *        "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf32
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-32 encoding of the input. Python is an example of a
- *        language
- *        that uses this encoding natively. (Value: "UTF32")
+ *        based on the UTF-32 encoding of the input. Python is an example of a
+ *        language that uses this encoding natively. (Value: "UTF32")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitiesRequest_EncodingType_Utf8
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-8 encoding of the input. C++ and Go are examples of
- *        languages
- *        that use this encoding natively. (Value: "UTF8")
+ *        based on the UTF-8 encoding of the input. C++ and Go are examples of
+ *        languages that use this encoding natively. (Value: "UTF8")
  */
 @property(nonatomic, copy, nullable) NSString *encodingType;
 
@@ -1488,26 +1469,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_None
  *        If `EncodingType` is not specified, encoding-dependent information
- *        (such as
- *        `begin_offset`) will be set at `-1`. (Value: "NONE")
+ *        (such as `begin_offset`) will be set at `-1`. (Value: "NONE")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-16 encoding of the input. Java and JavaScript are examples
- *        of
- *        languages that use this encoding natively. (Value: "UTF16")
+ *        based on the UTF-16 encoding of the input. Java and JavaScript are
+ *        examples of languages that use this encoding natively. (Value:
+ *        "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf32
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-32 encoding of the input. Python is an example of a
- *        language
- *        that uses this encoding natively. (Value: "UTF32")
+ *        based on the UTF-32 encoding of the input. Python is an example of a
+ *        language that uses this encoding natively. (Value: "UTF32")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeEntitySentimentRequest_EncodingType_Utf8
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-8 encoding of the input. C++ and Go are examples of
- *        languages
- *        that use this encoding natively. (Value: "UTF8")
+ *        based on the UTF-8 encoding of the input. C++ and Go are examples of
+ *        languages that use this encoding natively. (Value: "UTF8")
  */
 @property(nonatomic, copy, nullable) NSString *encodingType;
 
@@ -1548,26 +1523,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_None
  *        If `EncodingType` is not specified, encoding-dependent information
- *        (such as
- *        `begin_offset`) will be set at `-1`. (Value: "NONE")
+ *        (such as `begin_offset`) will be set at `-1`. (Value: "NONE")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-16 encoding of the input. Java and JavaScript are examples
- *        of
- *        languages that use this encoding natively. (Value: "UTF16")
+ *        based on the UTF-16 encoding of the input. Java and JavaScript are
+ *        examples of languages that use this encoding natively. (Value:
+ *        "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf32
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-32 encoding of the input. Python is an example of a
- *        language
- *        that uses this encoding natively. (Value: "UTF32")
+ *        based on the UTF-32 encoding of the input. Python is an example of a
+ *        language that uses this encoding natively. (Value: "UTF32")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSentimentRequest_EncodingType_Utf8
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-8 encoding of the input. C++ and Go are examples of
- *        languages
- *        that use this encoding natively. (Value: "UTF8")
+ *        based on the UTF-8 encoding of the input. C++ and Go are examples of
+ *        languages that use this encoding natively. (Value: "UTF8")
  */
 @property(nonatomic, copy, nullable) NSString *encodingType;
 
@@ -1609,26 +1578,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_None
  *        If `EncodingType` is not specified, encoding-dependent information
- *        (such as
- *        `begin_offset`) will be set at `-1`. (Value: "NONE")
+ *        (such as `begin_offset`) will be set at `-1`. (Value: "NONE")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-16 encoding of the input. Java and JavaScript are examples
- *        of
- *        languages that use this encoding natively. (Value: "UTF16")
+ *        based on the UTF-16 encoding of the input. Java and JavaScript are
+ *        examples of languages that use this encoding natively. (Value:
+ *        "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf32
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-32 encoding of the input. Python is an example of a
- *        language
- *        that uses this encoding natively. (Value: "UTF32")
+ *        based on the UTF-32 encoding of the input. Python is an example of a
+ *        language that uses this encoding natively. (Value: "UTF32")
  *    @arg @c kGTLRCloudNaturalLanguage_AnalyzeSyntaxRequest_EncodingType_Utf8
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-8 encoding of the input. C++ and Go are examples of
- *        languages
- *        that use this encoding natively. (Value: "UTF8")
+ *        based on the UTF-8 encoding of the input. C++ and Go are examples of
+ *        languages that use this encoding natively. (Value: "UTF8")
  */
 @property(nonatomic, copy, nullable) NSString *encodingType;
 
@@ -1671,26 +1634,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_None If
  *        `EncodingType` is not specified, encoding-dependent information (such
- *        as
- *        `begin_offset`) will be set at `-1`. (Value: "NONE")
+ *        as `begin_offset`) will be set at `-1`. (Value: "NONE")
  *    @arg @c kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf16
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-16 encoding of the input. Java and JavaScript are examples
- *        of
- *        languages that use this encoding natively. (Value: "UTF16")
+ *        based on the UTF-16 encoding of the input. Java and JavaScript are
+ *        examples of languages that use this encoding natively. (Value:
+ *        "UTF16")
  *    @arg @c kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf32
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-32 encoding of the input. Python is an example of a
- *        language
- *        that uses this encoding natively. (Value: "UTF32")
+ *        based on the UTF-32 encoding of the input. Python is an example of a
+ *        language that uses this encoding natively. (Value: "UTF32")
  *    @arg @c kGTLRCloudNaturalLanguage_AnnotateTextRequest_EncodingType_Utf8
  *        Encoding-dependent information (such as `begin_offset`) is calculated
- *        based
- *        on the UTF-8 encoding of the input. C++ and Go are examples of
- *        languages
- *        that use this encoding natively. (Value: "UTF8")
+ *        based on the UTF-8 encoding of the input. C++ and Go are examples of
+ *        languages that use this encoding natively. (Value: "UTF8")
  */
 @property(nonatomic, copy, nullable) NSString *encodingType;
 
@@ -1716,8 +1673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 /**
  *  Entities, along with their semantic information, in the input document.
- *  Populated if the user enables
- *  AnnotateTextRequest.Features.extract_entities.
+ *  Populated if the user enables AnnotateTextRequest.Features.extract_entities.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_Entity *> *entities;
 
@@ -1736,8 +1692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 /**
  *  Tokens, along with their syntactic information, in the input document.
- *  Populated if the user enables
- *  AnnotateTextRequest.Features.extract_syntax.
+ *  Populated if the user enables AnnotateTextRequest.Features.extract_syntax.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_Token *> *tokens;
 
@@ -1796,11 +1751,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 @interface GTLRCloudNaturalLanguage_DependencyEdge : GTLRObject
 
 /**
- *  Represents the head of this token in the dependency tree.
- *  This is the index of the token which has an arc going to this token.
- *  The index is the position of the token in the array of tokens returned
- *  by the API method. If this token is a root token, then the
- *  `head_token_index` is its own index.
+ *  Represents the head of this token in the dependency tree. This is the index
+ *  of the token which has an arc going to this token. The index is the position
+ *  of the token in the array of tokens returned by the API method. If this
+ *  token is a root token, then the `head_token_index` is its own index.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1990,34 +1944,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 @interface GTLRCloudNaturalLanguage_Document : GTLRObject
 
 /**
- *  The content of the input in string format.
- *  Cloud audit logging exempt since it is based on user data.
+ *  The content of the input in string format. Cloud audit logging exempt since
+ *  it is based on user data.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
- *  The Google Cloud Storage URI where the file content is located.
- *  This URI must be of the form: gs://bucket_name/object_name. For more
- *  details, see https://cloud.google.com/storage/docs/reference-uris.
- *  NOTE: Cloud Storage object versioning is not supported.
+ *  The Google Cloud Storage URI where the file content is located. This URI
+ *  must be of the form: gs://bucket_name/object_name. For more details, see
+ *  https://cloud.google.com/storage/docs/reference-uris. NOTE: Cloud Storage
+ *  object versioning is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *gcsContentUri;
 
 /**
  *  The language of the document (if not specified, the language is
- *  automatically detected). Both ISO and BCP-47 language codes are
- *  accepted.<br>
- *  [Language
- *  Support](https://cloud.google.com/natural-language/docs/languages) lists
- *  currently supported languages for each API method. If the language (either
- *  specified by the caller or automatically detected) is not supported by the
- *  called API method, an `INVALID_ARGUMENT` error is returned.
+ *  automatically detected). Both ISO and BCP-47 language codes are accepted.
+ *  [Language Support](https://cloud.google.com/natural-language/docs/languages)
+ *  lists currently supported languages for each API method. If the language
+ *  (either specified by the caller or automatically detected) is not supported
+ *  by the called API method, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  Required. If the type is not set or is `TYPE_UNSPECIFIED`,
- *  returns an `INVALID_ARGUMENT` error.
+ *  Required. If the type is not set or is `TYPE_UNSPECIFIED`, returns an
+ *  `INVALID_ARGUMENT` error.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudNaturalLanguage_Document_Type_Html HTML (Value: "HTML")
@@ -2032,9 +1984,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 
 /**
- *  Represents a phrase in the text that is a known entity, such as
- *  a person, an organization, or location. The API associates information, such
- *  as salience and mentions, with entities.
+ *  Represents a phrase in the text that is a known entity, such as a person, an
+ *  organization, or location. The API associates information, such as salience
+ *  and mentions, with entities.
  */
 @interface GTLRCloudNaturalLanguage_Entity : GTLRObject
 
@@ -2045,10 +1997,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudNaturalLanguage_EntityMention *> *mentions;
 
 /**
- *  Metadata associated with the entity.
- *  For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`)
- *  and Knowledge Graph MID (`mid`), if they are available. For the metadata
- *  associated with other entity types, see the Type table below.
+ *  Metadata associated with the entity. For most entity types, the metadata is
+ *  a Wikipedia URL (`wikipedia_url`) and Knowledge Graph MID (`mid`), if they
+ *  are available. For the metadata associated with other entity types, see the
+ *  Type table below.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Entity_Metadata *metadata;
 
@@ -2056,11 +2008,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The salience score associated with the entity in the [0, 1.0] range.
- *  The salience score for an entity provides information about the
- *  importance or centrality of that entity to the entire document text.
- *  Scores closer to 0 are less salient, while scores closer to 1.0 are highly
- *  salient.
+ *  The salience score associated with the entity in the [0, 1.0] range. The
+ *  salience score for an entity provides information about the importance or
+ *  centrality of that entity to the entire document text. Scores closer to 0
+ *  are less salient, while scores closer to 1.0 are highly salient.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2068,9 +2019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 /**
  *  For calls to AnalyzeEntitySentiment or if
- *  AnnotateTextRequest.Features.extract_entity_sentiment is set to
- *  true, this field will contain the aggregate sentiment expressed for this
- *  entity in the provided document.
+ *  AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this
+ *  field will contain the aggregate sentiment expressed for this entity in the
+ *  provided document.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Sentiment *sentiment;
 
@@ -2078,49 +2029,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  *  The entity type.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Address Address
- *        The metadata identifies the street number and locality plus whichever
- *        additional elements appear in the text:
- *        * `street_number` - street number
- *        * `locality` - city or town
- *        * `street_name` - street/route name, if detected
- *        * `postal_code` - postal code, if detected
- *        * `country` - country, if detected<
- *        * `broad_region` - administrative area, such as the state, if detected
- *        * `narrow_region` - smaller administrative area, such as county, if
- *        detected
- *        * `sublocality` - used in Asian addresses to demark a district within
- *        a
- *        city, if detected (Value: "ADDRESS")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Address Address The metadata
+ *        identifies the street number and locality plus whichever additional
+ *        elements appear in the text: * `street_number` - street number *
+ *        `locality` - city or town * `street_name` - street/route name, if
+ *        detected * `postal_code` - postal code, if detected * `country` -
+ *        country, if detected< * `broad_region` - administrative area, such as
+ *        the state, if detected * `narrow_region` - smaller administrative
+ *        area, such as county, if detected * `sublocality` - used in Asian
+ *        addresses to demark a district within a city, if detected (Value:
+ *        "ADDRESS")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_ConsumerGood Consumer
  *        product (Value: "CONSUMER_GOOD")
- *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Date Date
- *        The metadata identifies the components of the date:
- *        * `year` - four digit year, if detected
- *        * `month` - two digit month number, if detected
- *        * `day` - two digit day number, if detected (Value: "DATE")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Date Date The metadata
+ *        identifies the components of the date: * `year` - four digit year, if
+ *        detected * `month` - two digit month number, if detected * `day` - two
+ *        digit day number, if detected (Value: "DATE")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Event Event (Value: "EVENT")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Location Location (Value:
  *        "LOCATION")
- *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Number Number
- *        The metadata is the number itself. (Value: "NUMBER")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Number Number The metadata
+ *        is the number itself. (Value: "NUMBER")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Organization Organization
  *        (Value: "ORGANIZATION")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Other Other types of
  *        entities (Value: "OTHER")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Person Person (Value:
  *        "PERSON")
- *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_PhoneNumber Phone number
- *        The metadata lists the phone number, formatted according to local
- *        convention, plus whichever additional elements appear in the text:
- *        * `number` - the actual number, broken down into sections as per local
- *        convention
- *        * `national_prefix` - country code, if detected
- *        * `area_code` - region or area code, if detected
- *        * `extension` - phone extension (to be dialed after connection), if
- *        detected (Value: "PHONE_NUMBER")
- *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Price Price
- *        The metadata identifies the `value` and `currency`. (Value: "PRICE")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_PhoneNumber Phone number The
+ *        metadata lists the phone number, formatted according to local
+ *        convention, plus whichever additional elements appear in the text: *
+ *        `number` - the actual number, broken down into sections as per local
+ *        convention * `national_prefix` - country code, if detected *
+ *        `area_code` - region or area code, if detected * `extension` - phone
+ *        extension (to be dialed after connection), if detected (Value:
+ *        "PHONE_NUMBER")
+ *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Price Price The metadata
+ *        identifies the `value` and `currency`. (Value: "PRICE")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_Unknown Unknown (Value:
  *        "UNKNOWN")
  *    @arg @c kGTLRCloudNaturalLanguage_Entity_Type_WorkOfArt Artwork (Value:
@@ -2132,10 +2077,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 
 /**
- *  Metadata associated with the entity.
- *  For most entity types, the metadata is a Wikipedia URL (`wikipedia_url`)
- *  and Knowledge Graph MID (`mid`), if they are available. For the metadata
- *  associated with other entity types, see the Type table below.
+ *  Metadata associated with the entity. For most entity types, the metadata is
+ *  a Wikipedia URL (`wikipedia_url`) and Knowledge Graph MID (`mid`), if they
+ *  are available. For the metadata associated with other entity types, see the
+ *  Type table below.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2154,9 +2099,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 /**
  *  For calls to AnalyzeEntitySentiment or if
- *  AnnotateTextRequest.Features.extract_entity_sentiment is set to
- *  true, this field will contain the sentiment expressed for this mention of
- *  the entity in the provided document.
+ *  AnnotateTextRequest.Features.extract_entity_sentiment is set to true, this
+ *  field will contain the sentiment expressed for this mention of the entity in
+ *  the provided document.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Sentiment *sentiment;
 
@@ -2180,8 +2125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 
 /**
- *  All available features for sentiment, syntax, and semantic analysis.
- *  Setting each one to true will enable that specific analysis for the input.
+ *  All available features for sentiment, syntax, and semantic analysis. Setting
+ *  each one to true will enable that specific analysis for the input.
  */
 @interface GTLRCloudNaturalLanguage_Features : GTLRObject
 
@@ -2224,9 +2169,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 
 /**
- *  Represents part of speech information for a token. Parts of speech
- *  are as defined in
- *  http://www.lrec-conf.org/proceedings/lrec2012/pdf/274_Paper.pdf
+ *  Represents part of speech information for a token. Parts of speech are as
+ *  defined in http://www.lrec-conf.org/proceedings/lrec2012/pdf/274_Paper.pdf
  */
 @interface GTLRCloudNaturalLanguage_PartOfSpeech : GTLRObject
 
@@ -2501,8 +2445,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 /**
  *  For calls to AnalyzeSentiment or if
- *  AnnotateTextRequest.Features.extract_document_sentiment is set to
- *  true, this field will contain the sentiment for the sentence.
+ *  AnnotateTextRequest.Features.extract_document_sentiment is set to true, this
+ *  field will contain the sentiment for the sentence.
  */
 @property(nonatomic, strong, nullable) GTLRCloudNaturalLanguage_Sentiment *sentiment;
 
@@ -2513,23 +2457,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
 
 
 /**
- *  Represents the feeling associated with the entire text or entities in
- *  the text.
+ *  Represents the feeling associated with the entire text or entities in the
+ *  text.
  */
 @interface GTLRCloudNaturalLanguage_Sentiment : GTLRObject
 
 /**
- *  A non-negative number in the [0, +inf) range, which represents
- *  the absolute magnitude of sentiment regardless of score (positive or
- *  negative).
+ *  A non-negative number in the [0, +inf) range, which represents the absolute
+ *  magnitude of sentiment regardless of score (positive or negative).
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *magnitude;
 
 /**
- *  Sentiment score between -1.0 (negative sentiment) and 1.0
- *  (positive sentiment).
+ *  Sentiment score between -1.0 (negative sentiment) and 1.0 (positive
+ *  sentiment).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -2542,9 +2485,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_PartOfSpeech_Voice_
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudNaturalLanguage_Status : GTLRObject
 

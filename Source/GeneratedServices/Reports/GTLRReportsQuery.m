@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Reports API (admin/reports_v1)
+//   Admin SDK (admin/reports_v1)
 // Description:
-//   Fetches reports for the administrators of G Suite customers about the
-//   usage, collaboration, security, and risk for their users.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   /admin-sdk/reports/
+//   http://developers.google.com/admin-sdk/
 
 #import "GTLRReportsQuery.h"
 
@@ -19,8 +20,12 @@
 // applicationName
 NSString * const kGTLRReportsApplicationNameAccessTransparency = @"access_transparency";
 NSString * const kGTLRReportsApplicationNameAdmin              = @"admin";
+NSString * const kGTLRReportsApplicationNameApplicationNameUndefined = @"application_name_undefined";
+NSString * const kGTLRReportsApplicationNameApplicationNameUnspecified = @"application_name_unspecified";
 NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
 NSString * const kGTLRReportsApplicationNameChat               = @"chat";
+NSString * const kGTLRReportsApplicationNameChrome             = @"chrome";
+NSString * const kGTLRReportsApplicationNameContextAwareAccess = @"context_aware_access";
 NSString * const kGTLRReportsApplicationNameDrive              = @"drive";
 NSString * const kGTLRReportsApplicationNameGcp                = @"gcp";
 NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
@@ -36,11 +41,13 @@ NSString * const kGTLRReportsApplicationNameToken              = @"token";
 NSString * const kGTLRReportsApplicationNameUserAccounts       = @"user_accounts";
 
 // entityKey
-NSString * const kGTLRReportsEntityKeyAll       = @"all";
-NSString * const kGTLRReportsEntityKeyEntityKey = @"entityKey";
+NSString * const kGTLRReportsEntityKeyAll                = @"all";
+NSString * const kGTLRReportsEntityKeyEntityKey          = @"entityKey";
+NSString * const kGTLRReportsEntityKeyEntityKeyUndefined = @"entityKeyUndefined";
 
 // entityType
-NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
+NSString * const kGTLRReportsEntityTypeEntityTypeUndefined = @"entity_type_undefined";
+NSString * const kGTLRReportsEntityTypeGplusCommunities    = @"gplus_communities";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -62,7 +69,7 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
   NSArray *pathParams = @[
     @"applicationName", @"userKey"
   ];
-  NSString *pathURITemplate = @"activity/users/{userKey}/applications/{applicationName}";
+  NSString *pathURITemplate = @"admin/reports/v1/activity/users/{userKey}/applications/{applicationName}";
   GTLRReportsQuery_ActivitiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -93,7 +100,7 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
   NSArray *pathParams = @[
     @"applicationName", @"userKey"
   ];
-  NSString *pathURITemplate = @"activity/users/{userKey}/applications/{applicationName}/watch";
+  NSString *pathURITemplate = @"admin/reports/v1/activity/users/{userKey}/applications/{applicationName}/watch";
   GTLRReportsQuery_ActivitiesWatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -135,7 +142,7 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 
 + (instancetype)queryWithDate:(NSString *)date {
   NSArray *pathParams = @[ @"date" ];
-  NSString *pathURITemplate = @"usage/dates/{date}";
+  NSString *pathURITemplate = @"admin/reports/v1/usage/dates/{date}";
   GTLRReportsQuery_CustomerUsageReportsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -159,7 +166,7 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
   NSArray *pathParams = @[
     @"date", @"entityKey", @"entityType"
   ];
-  NSString *pathURITemplate = @"usage/{entityType}/{entityKey}/dates/{date}";
+  NSString *pathURITemplate = @"admin/reports/v1/usage/{entityType}/{entityKey}/dates/{date}";
   GTLRReportsQuery_EntityUsageReportsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -184,7 +191,7 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
   NSArray *pathParams = @[
     @"date", @"userKey"
   ];
-  NSString *pathURITemplate = @"usage/users/{userKey}/dates/{date}";
+  NSString *pathURITemplate = @"admin/reports/v1/usage/users/{userKey}/dates/{date}";
   GTLRReportsQuery_UserUsageReportGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

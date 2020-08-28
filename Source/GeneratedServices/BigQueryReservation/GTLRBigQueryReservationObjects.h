@@ -43,15 +43,15 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBigQueryReservation_Assignment.jobType
 
 /**
- *  Invalid type. Requests with this value will be rejected with
- *  error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *  Invalid type. Requests with this value will be rejected with error code
+ *  `google.rpc.Code.INVALID_ARGUMENT`.
  *
  *  Value: "JOB_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified;
 /**
- *  BigQuery ML jobs that use services external to BigQuery for model
- *  training. These jobs will not utilize idle slots from other reservations.
+ *  BigQuery ML jobs that use services external to BigQuery for model training.
+ *  These jobs will not utilize idle slots from other reservations.
  *
  *  Value: "ML_EXTERNAL"
  */
@@ -79,8 +79,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_JobType_Q
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Active;
 /**
- *  Queries from assignee will be executed as on-demand, if related
- *  assignment is pending.
+ *  Queries from assignee will be executed as on-demand, if related assignment
+ *  is pending.
  *
  *  Value: "PENDING"
  */
@@ -104,8 +104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Assignment_State_Sta
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual;
 /**
- *  Invalid plan value. Requests with this value will be rejected with
- *  error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *  Invalid plan value. Requests with this value will be rejected with error
+ *  code `google.rpc.Code.INVALID_ARGUMENT`.
  *
  *  Value: "COMMITMENT_PLAN_UNSPECIFIED"
  */
@@ -127,10 +127,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly;
 /**
- *  Trial commitments have a committed period of 182 days after becoming
- *  ACTIVE. After that, they are converted to a new commitment based on the
- *  `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so
- *  that it can be deleted right after committed period ends.
+ *  Trial commitments have a committed period of 182 days after becoming ACTIVE.
+ *  After that, they are converted to a new commitment based on the
+ *  `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so that
+ *  it can be deleted right after committed period ends.
  *
  *  Value: "TRIAL"
  */
@@ -148,8 +148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Annual;
 /**
- *  Invalid plan value. Requests with this value will be rejected with
- *  error code `google.rpc.Code.INVALID_ARGUMENT`.
+ *  Invalid plan value. Requests with this value will be rejected with error
+ *  code `google.rpc.Code.INVALID_ARGUMENT`.
  *
  *  Value: "COMMITMENT_PLAN_UNSPECIFIED"
  */
@@ -171,10 +171,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly;
 /**
- *  Trial commitments have a committed period of 182 days after becoming
- *  ACTIVE. After that, they are converted to a new commitment based on the
- *  `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so
- *  that it can be deleted right after committed period ends.
+ *  Trial commitments have a committed period of 182 days after becoming ACTIVE.
+ *  After that, they are converted to a new commitment based on the
+ *  `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so that
+ *  it can be deleted right after committed period ends.
  *
  *  Value: "TRIAL"
  */
@@ -184,8 +184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_R
 // GTLRBigQueryReservation_CapacityCommitment.state
 
 /**
- *  Once slots are provisioned, capacity commitment becomes active.
- *  slot_count is added to the parent's slot_capacity.
+ *  Once slots are provisioned, capacity commitment becomes active. slot_count
+ *  is added to the parent's slot_capacity.
  *
  *  Value: "ACTIVE"
  */
@@ -211,14 +211,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified;
 
 /**
- *  A Assignment allows a project to submit jobs
- *  of a certain type using slots from the specified reservation.
+ *  A Assignment allows a project to submit jobs of a certain type using slots
+ *  from the specified reservation.
  */
 @interface GTLRBigQueryReservation_Assignment : GTLRObject
 
 /**
- *  The resource which will use the reservation. E.g.
- *  `projects/myproject`, `folders/123`, or `organizations/456`.
+ *  The resource which will use the reservation. E.g. `projects/myproject`,
+ *  `folders/123`, or `organizations/456`.
  */
 @property(nonatomic, copy, nullable) NSString *assignee;
 
@@ -227,13 +227,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_JobTypeUnspecified
- *        Invalid type. Requests with this value will be rejected with
- *        error code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
+ *        Invalid type. Requests with this value will be rejected with error
+ *        code `google.rpc.Code.INVALID_ARGUMENT`. (Value:
  *        "JOB_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_MlExternal BigQuery ML
- *        jobs that use services external to BigQuery for model
- *        training. These jobs will not utilize idle slots from other
- *        reservations. (Value: "ML_EXTERNAL")
+ *        jobs that use services external to BigQuery for model training. These
+ *        jobs will not utilize idle slots from other reservations. (Value:
+ *        "ML_EXTERNAL")
  *    @arg @c kGTLRBigQueryReservation_Assignment_JobType_Pipeline Pipeline
  *        (load/export) jobs from the project will use the reservation. (Value:
  *        "PIPELINE")
@@ -255,8 +255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *    @arg @c kGTLRBigQueryReservation_Assignment_State_Active Assignment is
  *        ready. (Value: "ACTIVE")
  *    @arg @c kGTLRBigQueryReservation_Assignment_State_Pending Queries from
- *        assignee will be executed as on-demand, if related
- *        assignment is pending. (Value: "PENDING")
+ *        assignee will be executed as on-demand, if related assignment is
+ *        pending. (Value: "PENDING")
  *    @arg @c kGTLRBigQueryReservation_Assignment_State_StateUnspecified Invalid
  *        state value. (Value: "STATE_UNSPECIFIED")
  */
@@ -271,9 +271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @interface GTLRBigQueryReservation_BiReservation : GTLRObject
 
 /**
- *  The resource name of the singleton BI reservation.
- *  Reservation names have the form
- *  `projects/{project_id}/locations/{location_id}/bireservation`.
+ *  The resource name of the singleton BI reservation. Reservation names have
+ *  the form `projects/{project_id}/locations/{location_id}/bireservation`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -294,25 +293,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  Capacity commitment is a way to purchase compute capacity for BigQuery jobs
  *  (in the form of slots) with some committed period of usage. Annual
  *  commitments renew by default. Commitments can be removed after their
- *  commitment end time passes.
- *  In order to remove annual commitment, its plan needs to be changed
- *  to monthly or flex first.
- *  A capacity commitment resource exists as a child resource of the admin
- *  project.
+ *  commitment end time passes. In order to remove annual commitment, its plan
+ *  needs to be changed to monthly or flex first. A capacity commitment resource
+ *  exists as a child resource of the admin project.
  */
 @interface GTLRBigQueryReservation_CapacityCommitment : GTLRObject
 
 /**
  *  Output only. The end of the current commitment period. It is applicable only
- *  for ACTIVE
- *  capacity commitments.
+ *  for ACTIVE capacity commitments.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentEndTime;
 
 /**
  *  Output only. The start of the current commitment period. It is applicable
- *  only for
- *  ACTIVE capacity commitments.
+ *  only for ACTIVE capacity commitments.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitmentStartTime;
 
@@ -332,8 +327,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Annual Annual
- *        commitments have a committed period of 365 days after becoming
- *        ACTIVE. After that they are converted to a new commitment based on the
+ *        commitments have a committed period of 365 days after becoming ACTIVE.
+ *        After that they are converted to a new commitment based on the
  *        renewal_plan. (Value: "ANNUAL")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_CommitmentPlanUnspecified
  *        Invalid plan value. Requests with this value will be rejected with
@@ -342,17 +337,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Flex Flex
  *        commitments have committed period of 1 minute after becoming ACTIVE.
  *        After that, they are not in a committed period anymore and can be
- *        removed
- *        any time. (Value: "FLEX")
+ *        removed any time. (Value: "FLEX")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Monthly Monthly
- *        commitments have a committed period of 30 days after becoming
- *        ACTIVE. After that, they are not in a committed period anymore and can
- *        be
+ *        commitments have a committed period of 30 days after becoming ACTIVE.
+ *        After that, they are not in a committed period anymore and can be
  *        removed any time. (Value: "MONTHLY")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_Plan_Trial Trial
- *        commitments have a committed period of 182 days after becoming
- *        ACTIVE. After that, they are converted to a new commitment based on
- *        the
+ *        commitments have a committed period of 182 days after becoming ACTIVE.
+ *        After that, they are converted to a new commitment based on the
  *        `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so
  *        that it can be deleted right after committed period ends. (Value:
  *        "TRIAL")
@@ -376,20 +368,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Flex Flex
  *        commitments have committed period of 1 minute after becoming ACTIVE.
  *        After that, they are not in a committed period anymore and can be
- *        removed
- *        any time. (Value: "FLEX")
+ *        removed any time. (Value: "FLEX")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Monthly
  *        Monthly commitments have a committed period of 30 days after becoming
  *        ACTIVE. After that, they are not in a committed period anymore and can
- *        be
- *        removed any time. (Value: "MONTHLY")
+ *        be removed any time. (Value: "MONTHLY")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_RenewalPlan_Trial
  *        Trial commitments have a committed period of 182 days after becoming
  *        ACTIVE. After that, they are converted to a new commitment based on
- *        the
- *        `renewal_plan`. Default `renewal_plan` for Trial commitment is Flex so
- *        that it can be deleted right after committed period ends. (Value:
- *        "TRIAL")
+ *        the `renewal_plan`. Default `renewal_plan` for Trial commitment is
+ *        Flex so that it can be deleted right after committed period ends.
+ *        (Value: "TRIAL")
  */
 @property(nonatomic, copy, nullable) NSString *renewalPlan;
 
@@ -405,13 +394,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_State_Active Once
- *        slots are provisioned, capacity commitment becomes active.
- *        slot_count is added to the parent's slot_capacity. (Value: "ACTIVE")
+ *        slots are provisioned, capacity commitment becomes active. slot_count
+ *        is added to the parent's slot_capacity. (Value: "ACTIVE")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_State_Failed Capacity
  *        commitment is failed to be activated by the backend. (Value: "FAILED")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_State_Pending Capacity
- *        commitment is pending provisioning. Pending capacity commitment
- *        does not contribute to the parent's slot_capacity. (Value: "PENDING")
+ *        commitment is pending provisioning. Pending capacity commitment does
+ *        not contribute to the parent's slot_capacity. (Value: "PENDING")
  *    @arg @c kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecified
  *        Invalid state value. (Value: "STATE_UNSPECIFIED")
  */
@@ -421,8 +410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 
 /**
- *  The metadata for operation returned from
- *  ReservationService.CreateSlotPool.
+ *  The metadata for operation returned from ReservationService.CreateSlotPool.
  */
 @interface GTLRBigQueryReservation_CreateSlotPoolMetadata : GTLRObject
 
@@ -438,11 +426,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRBigQueryReservation_Empty : GTLRObject
 @end
@@ -467,8 +453,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_Assignment *> *assignments;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -494,8 +480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_CapacityCommitment *> *capacityCommitments;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -537,8 +523,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @interface GTLRBigQueryReservation_ListReservationsResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -559,10 +545,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @interface GTLRBigQueryReservation_MergeCapacityCommitmentsRequest : GTLRObject
 
 /**
- *  Ids of capacity commitments to merge.
- *  These capacity commitments must exist under admin project and location
- *  specified in the parent.
- *  ID is the last portion of capacity commitment name e.g., 'abc' for
+ *  Ids of capacity commitments to merge. These capacity commitments must exist
+ *  under admin project and location specified in the parent. ID is the last
+ *  portion of capacity commitment name e.g., 'abc' for
  *  projects/myproject/locations/US/capacityCommitments/abc
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *capacityCommitmentIds;
@@ -571,11 +556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 
 /**
- *  The request for
- *  ReservationService.MoveAssignment.
- *  **Note**: "bigquery.reservationAssignments.create" permission is required on
- *  the destination_id.
- *  **Note**: "bigquery.reservationAssignments.create" and
+ *  The request for ReservationService.MoveAssignment. **Note**:
+ *  "bigquery.reservationAssignments.create" permission is required on the
+ *  destination_id. **Note**: "bigquery.reservationAssignments.create" and
  *  "bigquery.reservationAssignments.delete" permission are required on the
  *  related assignee.
  */
@@ -597,8 +580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @interface GTLRBigQueryReservation_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -610,16 +593,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -628,10 +611,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryReservation_Operation_Response *response;
 
@@ -640,8 +622,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -658,10 +640,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -677,6 +658,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  */
 @interface GTLRBigQueryReservation_Reservation : GTLRObject
 
+/** Output only. Creation time of the reservation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
 /**
  *  If false, any query using this reservation will use idle slots from other
  *  reservations within the same admin project. If true, a query using this
@@ -687,8 +671,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) NSNumber *ignoreIdleSlots;
 
 /**
- *  The resource name of the reservation, e.g.,
- *  `projects/ * /locations/ * /reservations/team1-prod`.
+ *  The resource name of the reservation, e.g., `projects/ * /locations/ *
+ *  /reservations/team1-prod`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -696,15 +680,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  Minimum slots available to this reservation. A slot is a unit of
  *  computational power in BigQuery, and serves as the unit of parallelism.
  *  Queries using this reservation might use more slots during runtime if
- *  ignore_idle_slots is set to false.
- *  If the new reservation's slot capacity exceed the parent's slot capacity or
- *  if total slot capacity of the new reservation and its siblings exceeds the
- *  parent's slot capacity, the request will fail with
- *  `google.rpc.Code.RESOURCE_EXHAUSTED`.
+ *  ignore_idle_slots is set to false. If the new reservation's slot capacity
+ *  exceed the parent's slot capacity or if total slot capacity of the new
+ *  reservation and its siblings exceeds the parent's slot capacity, the request
+ *  will fail with `google.rpc.Code.RESOURCE_EXHAUSTED`.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *slotCapacity;
+
+/** Output only. Last update time of the reservation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -728,8 +714,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_Assignment *> *assignments;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -755,8 +741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryReservation_Assignment *> *assignments;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -796,9 +782,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRBigQueryReservation_Status : GTLRObject
 

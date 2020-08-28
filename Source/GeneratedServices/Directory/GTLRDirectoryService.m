@@ -28,7 +28,6 @@ NSString * const kGTLRAuthScopeDirectoryDirectoryGroup         = @"https://www.g
 NSString * const kGTLRAuthScopeDirectoryDirectoryGroupMember   = @"https://www.googleapis.com/auth/admin.directory.group.member";
 NSString * const kGTLRAuthScopeDirectoryDirectoryGroupMemberReadonly = @"https://www.googleapis.com/auth/admin.directory.group.member.readonly";
 NSString * const kGTLRAuthScopeDirectoryDirectoryGroupReadonly = @"https://www.googleapis.com/auth/admin.directory.group.readonly";
-NSString * const kGTLRAuthScopeDirectoryDirectoryNotifications = @"https://www.googleapis.com/auth/admin.directory.notifications";
 NSString * const kGTLRAuthScopeDirectoryDirectoryOrgunit       = @"https://www.googleapis.com/auth/admin.directory.orgunit";
 NSString * const kGTLRAuthScopeDirectoryDirectoryOrgunitReadonly = @"https://www.googleapis.com/auth/admin.directory.orgunit.readonly";
 NSString * const kGTLRAuthScopeDirectoryDirectoryResourceCalendar = @"https://www.googleapis.com/auth/admin.directory.resource.calendar";
@@ -80,8 +79,6 @@ NSString * const kGTLRAuthScopeDirectoryDirectoryUserSecurity  = @"https://www.g
     @"admin#directory#members" : [GTLRDirectory_Members class],
     @"admin#directory#mobiledevice" : [GTLRDirectory_MobileDevice class],
     @"admin#directory#mobiledevices" : [GTLRDirectory_MobileDevices class],
-    @"admin#directory#notification" : [GTLRDirectory_Notification class],
-    @"admin#directory#notifications" : [GTLRDirectory_Notifications class],
     @"admin#directory#orgUnit" : [GTLRDirectory_OrgUnit class],
     @"admin#directory#orgUnits" : [GTLRDirectory_OrgUnits class],
     @"admin#directory#privilege" : [GTLRDirectory_Privilege class],

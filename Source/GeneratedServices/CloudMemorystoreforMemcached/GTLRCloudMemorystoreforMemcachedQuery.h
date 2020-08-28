@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Memcached API (memcache/v1)
+//   Cloud Memorystore for Memcached API (memcache/v1beta2)
 // Description:
 //   Google Cloud Memorystore for Memcached API is used for creating and
 //   managing Memcached instances in GCP.
@@ -86,8 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the Memcached instance for which parameter group
- *  updates
- *  should be applied.
+ *  updates should be applied.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -100,8 +99,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudMemorystoreforMemcached_ApplyParametersRequest
  *    to include in the query.
  *  @param name Required. Resource name of the Memcached instance for which
- *    parameter group updates
- *    should be applied.
+ *    parameter group updates should be applied.
  *
  *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesApplyParameters
  */
@@ -123,20 +121,18 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMemorystoreforMemcached queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /**
- *  Required. The logical name of the Memcached instance in the user
- *  project with the following restrictions:
- *  * Must contain only lowercase letters, numbers, and hyphens.
- *  * Must start with a letter.
- *  * Must be between 1-40 characters.
- *  * Must end with a number or a letter.
- *  * Must be unique within the user project / location
+ *  Required. The logical name of the Memcached instance in the user project
+ *  with the following restrictions: * Must contain only lowercase letters,
+ *  numbers, and hyphens. * Must start with a letter. * Must be between 1-40
+ *  characters. * Must end with a number or a letter. * Must be unique within
+ *  the user project / location
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  Required. The resource name of the instance location using the form:
- *  `projects/{project_id}/locations/{location_id}`
- *  where `location_id` refers to a GCP region
+ *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
+ *  to a GCP region
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -148,9 +144,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudMemorystoreforMemcached_Instance to include in
  *    the query.
  *  @param parent Required. The resource name of the instance location using the
- *    form:
- *    `projects/{project_id}/locations/{location_id}`
- *    where `location_id` refers to a GCP region
+ *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
+ *    refers to a GCP region
  *
  *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesCreate
  */
@@ -251,25 +246,23 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of items to return.
- *  If not specified, a default value of 1000 will be used by the service.
- *  Regardless of the page_size value, the response may include a partial list
- *  and a caller should only rely on response's
- *  next_page_token
- *  to determine if there are more instances left to be queried.
+ *  The maximum number of items to return. If not specified, a default value of
+ *  1000 will be used by the service. Regardless of the page_size value, the
+ *  response may include a partial list and a caller should only rely on
+ *  response's next_page_token to determine if there are more instances left to
+ *  be queried.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value returned from a previous List request,
- *  if any.
+ *  The next_page_token value returned from a previous List request, if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The resource name of the instance location using the form:
- *  `projects/{project_id}/locations/{location_id}`
- *  where `location_id` refers to a GCP region
+ *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
+ *  to a GCP region
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -279,9 +272,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists Instances in a given project and location.
  *
  *  @param parent Required. The resource name of the instance location using the
- *    form:
- *    `projects/{project_id}/locations/{location_id}`
- *    where `location_id` refers to a GCP region
+ *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
+ *    refers to a GCP region
  *
  *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesList
  *
@@ -311,14 +303,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *  Note: Memcached instances are managed and addressed at regional level so
  *  location_id here refers to a GCP region; however, users may choose which
- *  zones Memcached nodes within an instances should be provisioned in.
- *  Refer to [zones] field for more details.
+ *  zones Memcached nodes within an instances should be provisioned in. Refer to
+ *  [zones] field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Mask of fields to update.
- *  * `displayName`
+ *  Required. Mask of fields to update. * `displayName`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -332,13 +323,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudMemorystoreforMemcached_Instance to include in
  *    the query.
  *  @param name Required. Unique name of the resource in this scope including
- *    project and
- *    location using the form:
+ *    project and location using the form:
  *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
  *    Note: Memcached instances are managed and addressed at regional level so
  *    location_id here refers to a GCP region; however, users may choose which
- *    zones Memcached nodes within an instances should be provisioned in.
- *    Refer to [zones] field for more details.
+ *    zones Memcached nodes within an instances should be provisioned in. Refer
+ *    to [zones] field for more details.
  *
  *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesPatch
  */
@@ -348,9 +338,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the defined Memcached Parameters for an existing Instance.
- *  This method only stages the parameters, it must be followed by
- *  ApplyParameters to apply the parameters to nodes of the Memcached Instance.
+ *  Updates the defined Memcached Parameters for an existing Instance. This
+ *  method only stages the parameters, it must be followed by ApplyParameters to
+ *  apply the parameters to nodes of the Memcached Instance.
  *
  *  Method: memcache.projects.locations.instances.updateParameters
  *
@@ -363,24 +353,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the Memcached instance for which the parameters
- *  should be
- *  updated.
+ *  should be updated.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_Operation.
  *
- *  Updates the defined Memcached Parameters for an existing Instance.
- *  This method only stages the parameters, it must be followed by
- *  ApplyParameters to apply the parameters to nodes of the Memcached Instance.
+ *  Updates the defined Memcached Parameters for an existing Instance. This
+ *  method only stages the parameters, it must be followed by ApplyParameters to
+ *  apply the parameters to nodes of the Memcached Instance.
  *
  *  @param object The @c
  *    GTLRCloudMemorystoreforMemcached_UpdateParametersRequest to include in the
  *    query.
  *  @param name Required. Resource name of the Memcached instance for which the
- *    parameters should be
- *    updated.
+ *    parameters should be updated.
  *
  *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesUpdateParameters
  */
@@ -432,15 +420,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: memcache.projects.locations.operations.cancel
  *
@@ -458,15 +445,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudMemorystoreforMemcached_CancelOperationRequest
  *    to include in the query.
@@ -547,14 +533,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: memcache.projects.locations.operations.list
  *
@@ -581,14 +567,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *

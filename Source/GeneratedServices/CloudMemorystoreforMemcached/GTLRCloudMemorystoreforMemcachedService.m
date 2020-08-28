@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Memcached API (memcache/v1)
+//   Cloud Memorystore for Memcached API (memcache/v1beta2)
 // Description:
 //   Google Cloud Memorystore for Memcached API is used for creating and
 //   managing Memcached instances in GCP.

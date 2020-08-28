@@ -82,15 +82,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFilestore queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /**
- *  Required. The name of the instance to create.
- *  The name must be unique for the specified project and location.
+ *  Required. The name of the instance to create. The name must be unique for
+ *  the specified project and location.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  Required. The instance's project and location, in the format
- *  projects/{project_id}/locations/{location}. In Cloud Filestore,
- *  locations map to GCP zones, for example **us-west1-b**.
+ *  projects/{project_id}/locations/{location}. In Cloud Filestore, locations
+ *  map to GCP zones, for example **us-west1-b**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -101,8 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudFilestore_Instance to include in the query.
  *  @param parent Required. The instance's project and location, in the format
- *    projects/{project_id}/locations/{location}. In Cloud Filestore,
- *    locations map to GCP zones, for example **us-west1-b**.
+ *    projects/{project_id}/locations/{location}. In Cloud Filestore, locations
+ *    map to GCP zones, for example **us-west1-b**.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesCreate
  */
@@ -176,8 +176,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all instances in a project for either a specified location
- *  or for all locations.
+ *  Lists all instances in a project for either a specified location or for all
+ *  locations.
  *
  *  Method: file.projects.locations.instances.list
  *
@@ -200,16 +200,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value to use if there are additional
- *  results to retrieve for this list request.
+ *  The next_page_token value to use if there are additional results to retrieve
+ *  for this list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The project and location for which to retrieve instance
- *  information,
- *  in the format projects/{project_id}/locations/{location}. In Cloud
- *  Filestore, locations map to GCP zones, for example **us-west1-b**. To
+ *  information, in the format projects/{project_id}/locations/{location}. In
+ *  Cloud Filestore, locations map to GCP zones, for example **us-west1-b**. To
  *  retrieve instance information for all locations, use "-" for the {location}
  *  value.
  */
@@ -218,16 +217,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudFilestore_ListInstancesResponse.
  *
- *  Lists all instances in a project for either a specified location
- *  or for all locations.
+ *  Lists all instances in a project for either a specified location or for all
+ *  locations.
  *
  *  @param parent Required. The project and location for which to retrieve
- *    instance information,
- *    in the format projects/{project_id}/locations/{location}. In Cloud
- *    Filestore, locations map to GCP zones, for example **us-west1-b**. To
- *    retrieve instance information for all locations, use "-" for the
- *    {location}
- *    value.
+ *    instance information, in the format
+ *    projects/{project_id}/locations/{location}. In Cloud Filestore, locations
+ *    map to GCP zones, for example **us-west1-b**. To retrieve instance
+ *    information for all locations, use "-" for the {location} value.
  *
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesList
  *
@@ -258,12 +255,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Mask of fields to update. At least one path must be supplied in this
- *  field. The elements of the repeated paths field may only include these
- *  fields:
- *  * "description"
- *  * "file_shares"
- *  * "labels"
+ *  Mask of fields to update. At least one path must be supplied in this field.
+ *  The elements of the repeated paths field may only include these fields: *
+ *  "description" * "file_shares" * "labels"
  *
  *  String format is a comma-separated list of fields.
  */
@@ -334,15 +328,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: file.projects.locations.operations.cancel
  *
@@ -360,15 +353,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudFilestore_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudFilestore_CancelOperationRequest to include in
  *    the query.
@@ -449,14 +441,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: file.projects.locations.operations.list
  *
@@ -483,14 +475,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudFilestore_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *

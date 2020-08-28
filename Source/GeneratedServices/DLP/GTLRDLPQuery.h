@@ -54,11 +54,23 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // type
 
-/** Value: "DLP_JOB_TYPE_UNSPECIFIED" */
+/**
+ *  Unused
+ *
+ *  Value: "DLP_JOB_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLPTypeDlpJobTypeUnspecified;
-/** Value: "INSPECT_JOB" */
+/**
+ *  The job inspected Google Cloud for sensitive data.
+ *
+ *  Value: "INSPECT_JOB"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLPTypeInspectJob;
-/** Value: "RISK_ANALYSIS_JOB" */
+/**
+ *  The job executed a Risk Analysis computation.
+ *
+ *  Value: "RISK_ANALYSIS_JOB"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 // ----------------------------------------------------------------------------
@@ -76,9 +88,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Returns a list of the sensitive information types that the DLP API
- *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
- *  learn more.
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
  *
  *  Method: dlp.infoTypes.list
  *
@@ -90,15 +101,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForInfoTypesList]
 
 /**
- *  filter to only return infoTypes supported by certain parts of the
- *  API. Defaults to supported_by=INSPECT.
+ *  filter to only return infoTypes supported by certain parts of the API.
+ *  Defaults to supported_by=INSPECT.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  BCP-47 language code for localized infoType friendly
- *  names. If omitted, or if localized strings are not available,
- *  en-US strings will be returned.
+ *  BCP-47 language code for localized infoType friendly names. If omitted, or
+ *  if localized strings are not available, en-US strings will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -106,17 +116,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The parent resource name.
- *  - Format:locations/[LOCATION-ID]
+ *  The parent resource name. The format of this value is as follows: locations/
+ *  LOCATION_ID
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
  *
- *  Returns a list of the sensitive information types that the DLP API
- *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
- *  learn more.
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
  *
  *  @return GTLRDLPQuery_InfoTypesList
  */
@@ -125,9 +134,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Returns a list of the sensitive information types that the DLP API
- *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
- *  learn more.
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
  *
  *  Method: dlp.locations.infoTypes.list
  *
@@ -139,15 +147,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForLocationsInfoTypesListWithparent:]
 
 /**
- *  filter to only return infoTypes supported by certain parts of the
- *  API. Defaults to supported_by=INSPECT.
+ *  filter to only return infoTypes supported by certain parts of the API.
+ *  Defaults to supported_by=INSPECT.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  BCP-47 language code for localized infoType friendly
- *  names. If omitted, or if localized strings are not available,
- *  en-US strings will be returned.
+ *  BCP-47 language code for localized infoType friendly names. If omitted, or
+ *  if localized strings are not available, en-US strings will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -155,20 +162,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The parent resource name.
- *  - Format:locations/[LOCATION-ID]
+ *  The parent resource name. The format of this value is as follows: locations/
+ *  LOCATION_ID
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInfoTypesResponse.
  *
- *  Returns a list of the sensitive information types that the DLP API
- *  supports. See https://cloud.google.com/dlp/docs/infotypes-reference to
- *  learn more.
+ *  Returns a list of the sensitive information types that the DLP API supports.
+ *  See https://cloud.google.com/dlp/docs/infotypes-reference to learn more.
  *
- *  @param parent The parent resource name.
- *    - Format:locations/[LOCATION-ID]
+ *  @param parent The parent resource name. The format of this value is as
+ *    follows: locations/ LOCATION_ID
  *
  *  @return GTLRDLPQuery_LocationsInfoTypesList
  */
@@ -177,10 +183,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a DeidentifyTemplate for re-using frequently used configuration
- *  for de-identifying content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  de-identifying content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.create
  *
@@ -192,30 +197,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a DeidentifyTemplate for re-using frequently used configuration
- *  for de-identifying content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  de-identifying content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
  *    the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesCreate
  */
@@ -225,9 +243,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Deletes a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.delete
  *
@@ -240,22 +257,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
- *  deleted,
- *  for example `organizations/433245324/deidentifyTemplates/432452342` or
- *  projects/project-id/deidentifyTemplates/432452342.
+ *  deleted, for example `organizations/433245324/deidentifyTemplates/432452342`
+ *  or projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Deletes a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
- *    template to be deleted,
- *    for example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    template to be deleted, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesDelete
@@ -265,9 +280,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Gets a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.get
  *
@@ -280,8 +294,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
- *  read, for
- *  example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  read, for example `organizations/433245324/deidentifyTemplates/432452342` or
  *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -289,13 +302,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Gets a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Gets a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
- *    template to be read, for
- *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    template to be read, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesGet
@@ -305,9 +317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists DeidentifyTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Lists DeidentifyTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.list
  *
@@ -322,52 +333,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the template was created.
- *  - `update_time`: corresponds to time the template was last updated.
- *  - `name`: corresponds to template's name.
- *  - `display_name`: corresponds to template's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the template was created. - `update_time`: corresponds
+ *  to time the template was last updated. - `name`: corresponds to template's
+ *  name. - `display_name`: corresponds to template's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListDeidentifyTemplates`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
- *  Lists DeidentifyTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Lists DeidentifyTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesList
  *
@@ -380,9 +401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Updates the DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.deidentifyTemplates.patch
  *
@@ -395,25 +415,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and deidentify template to be
- *  updated, for
- *  example `organizations/433245324/deidentifyTemplates/432452342` or
- *  projects/project-id/deidentifyTemplates/432452342.
+ *  updated, for example `organizations/433245324/deidentifyTemplates/432452342`
+ *  or projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Updates the DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Updates the DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest to include in
  *    the query.
  *  @param name Required. Resource name of organization and deidentify template
- *    to be updated, for
- *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    to be updated, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsDeidentifyTemplatesPatch
@@ -424,9 +442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an InspectTemplate for re-using frequently used configuration
- *  for inspecting content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  inspecting content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.create
  *
@@ -438,28 +456,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsInspectTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an InspectTemplate for re-using frequently used configuration
- *  for inspecting content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  inspecting content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsInspectTemplatesCreate
  */
@@ -469,8 +501,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Deletes an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.delete
  *
@@ -483,8 +515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be
- *  deleted, for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  deleted, for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -492,12 +523,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Deletes an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
- *    to be deleted, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    to be deleted, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsInspectTemplatesDelete
@@ -507,8 +538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Gets an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.get
  *
@@ -521,8 +552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be read,
- *  for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -530,12 +560,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Gets an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Gets an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
- *    to be read, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    to be read, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsInspectTemplatesGet
@@ -545,8 +575,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists InspectTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Lists InspectTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.list
  *
@@ -561,51 +591,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the template was created.
- *  - `update_time`: corresponds to time the template was last updated.
- *  - `name`: corresponds to template's name.
- *  - `display_name`: corresponds to template's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the template was created. - `update_time`: corresponds
+ *  to time the template was last updated. - `name`: corresponds to template's
+ *  name. - `display_name`: corresponds to template's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListInspectTemplates`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
- *  Lists InspectTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Lists InspectTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsInspectTemplatesList
  *
@@ -618,8 +659,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Updates the InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.inspectTemplates.patch
  *
@@ -632,8 +673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and inspectTemplate to be updated,
- *  for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -641,14 +681,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Updates the InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Updates the InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
  *    to include in the query.
  *  @param name Required. Resource name of organization and inspectTemplate to
- *    be updated, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    be updated, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsInspectTemplatesPatch
@@ -659,10 +699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a DeidentifyTemplate for re-using frequently used configuration
- *  for de-identifying content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  de-identifying content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.create
  *
@@ -674,30 +713,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a DeidentifyTemplate for re-using frequently used configuration
- *  for de-identifying content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  de-identifying content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
  *    the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesCreate
  */
@@ -707,9 +759,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Deletes a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.delete
  *
@@ -722,22 +773,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
- *  deleted,
- *  for example `organizations/433245324/deidentifyTemplates/432452342` or
- *  projects/project-id/deidentifyTemplates/432452342.
+ *  deleted, for example `organizations/433245324/deidentifyTemplates/432452342`
+ *  or projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Deletes a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
- *    template to be deleted,
- *    for example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    template to be deleted, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesDelete
@@ -747,9 +796,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Gets a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.get
  *
@@ -762,8 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
- *  read, for
- *  example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  read, for example `organizations/433245324/deidentifyTemplates/432452342` or
  *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -771,13 +818,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Gets a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Gets a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
- *    template to be read, for
- *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    template to be read, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesGet
@@ -787,9 +833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists DeidentifyTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Lists DeidentifyTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.list
  *
@@ -804,52 +849,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the template was created.
- *  - `update_time`: corresponds to time the template was last updated.
- *  - `name`: corresponds to template's name.
- *  - `display_name`: corresponds to template's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the template was created. - `update_time`: corresponds
+ *  to time the template was last updated. - `name`: corresponds to template's
+ *  name. - `display_name`: corresponds to template's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListDeidentifyTemplates`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
- *  Lists DeidentifyTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Lists DeidentifyTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesList
  *
@@ -862,9 +917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Updates the DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.organizations.locations.deidentifyTemplates.patch
  *
@@ -877,25 +931,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and deidentify template to be
- *  updated, for
- *  example `organizations/433245324/deidentifyTemplates/432452342` or
- *  projects/project-id/deidentifyTemplates/432452342.
+ *  updated, for example `organizations/433245324/deidentifyTemplates/432452342`
+ *  or projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Updates the DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Updates the DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest to include in
  *    the query.
  *  @param name Required. Resource name of organization and deidentify template
- *    to be updated, for
- *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    to be updated, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesPatch
@@ -906,9 +958,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an InspectTemplate for re-using frequently used configuration
- *  for inspecting content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  inspecting content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.create
  *
@@ -920,28 +972,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an InspectTemplate for re-using frequently used configuration
- *  for inspecting content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  inspecting content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesCreate
  */
@@ -951,8 +1017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Deletes an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.delete
  *
@@ -965,8 +1031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be
- *  deleted, for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  deleted, for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -974,12 +1039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Deletes an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
- *    to be deleted, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    to be deleted, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesDelete
@@ -989,8 +1054,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Gets an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.get
  *
@@ -1003,8 +1068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be read,
- *  for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1012,12 +1076,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Gets an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Gets an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
- *    to be read, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    to be read, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesGet
@@ -1027,8 +1091,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists InspectTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Lists InspectTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.list
  *
@@ -1043,51 +1107,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the template was created.
- *  - `update_time`: corresponds to time the template was last updated.
- *  - `name`: corresponds to template's name.
- *  - `display_name`: corresponds to template's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the template was created. - `update_time`: corresponds
+ *  to time the template was last updated. - `name`: corresponds to template's
+ *  name. - `display_name`: corresponds to template's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListInspectTemplates`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
- *  Lists InspectTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Lists InspectTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesList
  *
@@ -1100,8 +1175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Updates the InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.organizations.locations.inspectTemplates.patch
  *
@@ -1114,8 +1189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and inspectTemplate to be updated,
- *  for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1123,14 +1197,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Updates the InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Updates the InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
  *    to include in the query.
  *  @param name Required. Resource name of organization and inspectTemplate to
- *    be updated, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    be updated, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesPatch
@@ -1141,9 +1215,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a pre-built stored infoType to be used for inspection.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Creates a pre-built stored infoType to be used for inspection. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.create
  *
@@ -1155,28 +1228,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
- *  Creates a pre-built stored infoType to be used for inspection.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Creates a pre-built stored infoType to be used for inspection. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesCreate
  */
@@ -1186,9 +1272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Deletes a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.delete
  *
@@ -1201,8 +1286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be
- *  deleted, for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  deleted, for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1210,13 +1294,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Deletes a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
- *    to be deleted, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    to be deleted, for example
+ *    `organizations/433245324/storedInfoTypes/432452342` or
  *    projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesDelete
@@ -1226,9 +1309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Gets a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.get
  *
@@ -1241,8 +1323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be read,
- *  for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1250,13 +1331,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
- *  Gets a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Gets a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
- *    to be read, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    to be read, for example
+ *    `organizations/433245324/storedInfoTypes/432452342` or
  *    projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesGet
@@ -1266,9 +1346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists stored infoTypes.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Lists stored infoTypes. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.list
  *
@@ -1283,53 +1362,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc, display_name, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the most recent version of the
- *  resource was created.
- *  - `state`: corresponds to the state of the resource.
- *  - `name`: corresponds to resource name.
- *  - `display_name`: corresponds to info type's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name asc,
+ *  display_name, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the most recent version of the resource was created. -
+ *  `state`: corresponds to the state of the resource. - `name`: corresponds to
+ *  resource name. - `display_name`: corresponds to info type's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListStoredInfoTypes`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
  *
- *  Lists stored infoTypes.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Lists stored infoTypes. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesList
  *
@@ -1343,9 +1431,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the stored infoType by creating a new version. The existing version
- *  will continue to be used until the new version is ready.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  will continue to be used until the new version is ready. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.locations.storedInfoTypes.patch
  *
@@ -1358,8 +1445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and storedInfoType to be updated,
- *  for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1368,16 +1454,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Updates the stored infoType by creating a new version. The existing version
- *  will continue to be used until the new version is ready.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  will continue to be used until the new version is ready. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
  *    to include in the query.
  *  @param name Required. Resource name of organization and storedInfoType to be
- *    updated, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
- *    projects/project-id/storedInfoTypes/432452342.
+ *    updated, for example `organizations/433245324/storedInfoTypes/432452342`
+ *    or projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesPatch
  */
@@ -1387,9 +1471,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a pre-built stored infoType to be used for inspection.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Creates a pre-built stored infoType to be used for inspection. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.create
  *
@@ -1401,28 +1484,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
- *  Creates a pre-built stored infoType to be used for inspection.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Creates a pre-built stored infoType to be used for inspection. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesCreate
  */
@@ -1432,9 +1528,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Deletes a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.delete
  *
@@ -1447,8 +1542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be
- *  deleted, for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  deleted, for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1456,13 +1550,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Deletes a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
- *    to be deleted, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    to be deleted, for example
+ *    `organizations/433245324/storedInfoTypes/432452342` or
  *    projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesDelete
@@ -1472,9 +1565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Gets a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.get
  *
@@ -1487,8 +1579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be read,
- *  for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1496,13 +1587,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
- *  Gets a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Gets a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
- *    to be read, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    to be read, for example
+ *    `organizations/433245324/storedInfoTypes/432452342` or
  *    projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesGet
@@ -1512,9 +1602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists stored infoTypes.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Lists stored infoTypes. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.list
  *
@@ -1529,53 +1618,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc, display_name, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the most recent version of the
- *  resource was created.
- *  - `state`: corresponds to the state of the resource.
- *  - `name`: corresponds to resource name.
- *  - `display_name`: corresponds to info type's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name asc,
+ *  display_name, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the most recent version of the resource was created. -
+ *  `state`: corresponds to the state of the resource. - `name`: corresponds to
+ *  resource name. - `display_name`: corresponds to info type's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListStoredInfoTypes`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
  *
- *  Lists stored infoTypes.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Lists stored infoTypes. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesList
  *
@@ -1589,9 +1687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the stored infoType by creating a new version. The existing version
- *  will continue to be used until the new version is ready.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  will continue to be used until the new version is ready. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.organizations.storedInfoTypes.patch
  *
@@ -1604,8 +1701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and storedInfoType to be updated,
- *  for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1614,16 +1710,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Updates the stored infoType by creating a new version. The existing version
- *  will continue to be used until the new version is ready.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  will continue to be used until the new version is ready. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
  *    to include in the query.
  *  @param name Required. Resource name of organization and storedInfoType to be
- *    updated, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
- *    projects/project-id/storedInfoTypes/432452342.
+ *    updated, for example `organizations/433245324/storedInfoTypes/432452342`
+ *    or projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_OrganizationsStoredInfoTypesPatch
  */
@@ -1633,10 +1727,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  De-identifies potentially sensitive info from a ContentItem.
- *  This method has limits on input size and output size.
- *  See https://cloud.google.com/dlp/docs/deidentify-sensitive-data to
- *  learn more.
+ *  De-identifies potentially sensitive info from a ContentItem. This method has
+ *  limits on input size and output size. See
+ *  https://cloud.google.com/dlp/docs/deidentify-sensitive-data to learn more.
  *  When no InfoTypes or CustomInfoTypes are specified in this request, the
  *  system will automatically choose what detectors to run. By default this may
  *  be all types, but may change over time as detectors are updated.
@@ -1651,28 +1744,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsContentDeidentifyWithObject:parent:]
 
 /**
- *  Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Parent resource name. The format of this value varies depending on whether
+ *  you have [specified a processing location](/dlp/docs/specifying-location): +
+ *  Projects scope, location specified:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
+ *  specified (defaults to global): `projects/`PROJECT_ID The following example
+ *  `parent` string specifies a parent project with the identifier
+ *  `example-project`, and specifies the `europe-west3` location for processing
+ *  data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentResponse.
  *
- *  De-identifies potentially sensitive info from a ContentItem.
- *  This method has limits on input size and output size.
- *  See https://cloud.google.com/dlp/docs/deidentify-sensitive-data to
- *  learn more.
+ *  De-identifies potentially sensitive info from a ContentItem. This method has
+ *  limits on input size and output size. See
+ *  https://cloud.google.com/dlp/docs/deidentify-sensitive-data to learn more.
  *  When no InfoTypes or CustomInfoTypes are specified in this request, the
  *  system will automatically choose what detectors to run. By default this may
  *  be all types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest to
  *    include in the query.
- *  @param parent Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Parent resource name. The format of this value varies
+ *    depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsContentDeidentify
  */
@@ -1682,13 +1785,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Finds potentially sensitive info in content.
- *  This method has limits on input size, processing time, and output size.
- *  When no InfoTypes or CustomInfoTypes are specified in this request, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
- *  For how to guides, see https://cloud.google.com/dlp/docs/inspecting-images
- *  and https://cloud.google.com/dlp/docs/inspecting-text,
+ *  Finds potentially sensitive info in content. This method has limits on input
+ *  size, processing time, and output size. When no InfoTypes or CustomInfoTypes
+ *  are specified in this request, the system will automatically choose what
+ *  detectors to run. By default this may be all types, but may change over time
+ *  as detectors are updated. For how to guides, see
+ *  https://cloud.google.com/dlp/docs/inspecting-images and
+ *  https://cloud.google.com/dlp/docs/inspecting-text,
  *
  *  Method: dlp.projects.content.inspect
  *
@@ -1700,28 +1803,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsContentInspectWithObject:parent:]
 
 /**
- *  Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Parent resource name. The format of this value varies depending on whether
+ *  you have [specified a processing location](/dlp/docs/specifying-location): +
+ *  Projects scope, location specified:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
+ *  specified (defaults to global): `projects/`PROJECT_ID The following example
+ *  `parent` string specifies a parent project with the identifier
+ *  `example-project`, and specifies the `europe-west3` location for processing
+ *  data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectContentResponse.
  *
- *  Finds potentially sensitive info in content.
- *  This method has limits on input size, processing time, and output size.
- *  When no InfoTypes or CustomInfoTypes are specified in this request, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
- *  For how to guides, see https://cloud.google.com/dlp/docs/inspecting-images
- *  and https://cloud.google.com/dlp/docs/inspecting-text,
+ *  Finds potentially sensitive info in content. This method has limits on input
+ *  size, processing time, and output size. When no InfoTypes or CustomInfoTypes
+ *  are specified in this request, the system will automatically choose what
+ *  detectors to run. By default this may be all types, but may change over time
+ *  as detectors are updated. For how to guides, see
+ *  https://cloud.google.com/dlp/docs/inspecting-images and
+ *  https://cloud.google.com/dlp/docs/inspecting-text,
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
  *    include in the query.
- *  @param parent Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Parent resource name. The format of this value varies
+ *    depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsContentInspect
  */
@@ -1731,8 +1845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Re-identifies content that has been de-identified.
- *  See
+ *  Re-identifies content that has been de-identified. See
  *  https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.
  *
@@ -1746,25 +1859,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsContentReidentifyWithObject:parent:]
 
 /**
- *  Required. The parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse.
  *
- *  Re-identifies content that has been de-identified.
- *  See
+ *  Re-identifies content that has been de-identified. See
  *  https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
  *    include in the query.
- *  @param parent Required. The parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsContentReidentify
  */
@@ -1774,10 +1897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a DeidentifyTemplate for re-using frequently used configuration
- *  for de-identifying content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  de-identifying content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.create
  *
@@ -1789,30 +1911,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a DeidentifyTemplate for re-using frequently used configuration
- *  for de-identifying content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  de-identifying content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
  *    the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesCreate
  */
@@ -1822,9 +1957,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Deletes a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.delete
  *
@@ -1837,22 +1971,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
- *  deleted,
- *  for example `organizations/433245324/deidentifyTemplates/432452342` or
- *  projects/project-id/deidentifyTemplates/432452342.
+ *  deleted, for example `organizations/433245324/deidentifyTemplates/432452342`
+ *  or projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Deletes a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
- *    template to be deleted,
- *    for example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    template to be deleted, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesDelete
@@ -1862,9 +1994,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Gets a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.get
  *
@@ -1877,8 +2008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
- *  read, for
- *  example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  read, for example `organizations/433245324/deidentifyTemplates/432452342` or
  *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1886,13 +2016,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Gets a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Gets a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
- *    template to be read, for
- *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    template to be read, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesGet
@@ -1902,9 +2031,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists DeidentifyTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Lists DeidentifyTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.list
  *
@@ -1919,52 +2047,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the template was created.
- *  - `update_time`: corresponds to time the template was last updated.
- *  - `name`: corresponds to template's name.
- *  - `display_name`: corresponds to template's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the template was created. - `update_time`: corresponds
+ *  to time the template was last updated. - `name`: corresponds to template's
+ *  name. - `display_name`: corresponds to template's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListDeidentifyTemplates`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
- *  Lists DeidentifyTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Lists DeidentifyTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesList
  *
@@ -1977,9 +2115,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Updates the DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.deidentifyTemplates.patch
  *
@@ -1992,25 +2129,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and deidentify template to be
- *  updated, for
- *  example `organizations/433245324/deidentifyTemplates/432452342` or
- *  projects/project-id/deidentifyTemplates/432452342.
+ *  updated, for example `organizations/433245324/deidentifyTemplates/432452342`
+ *  or projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Updates the DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Updates the DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest to include in
  *    the query.
  *  @param name Required. Resource name of organization and deidentify template
- *    to be updated, for
- *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    to be updated, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsDeidentifyTemplatesPatch
@@ -2021,10 +2156,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Starts asynchronous cancellation on a long-running DlpJob. The server
- *  makes a best effort to cancel the DlpJob, but success is not
- *  guaranteed.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Starts asynchronous cancellation on a long-running DlpJob. The server makes
+ *  a best effort to cancel the DlpJob, but success is not guaranteed. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.dlpJobs.cancel
@@ -2042,10 +2176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Starts asynchronous cancellation on a long-running DlpJob. The server
- *  makes a best effort to cancel the DlpJob, but success is not
- *  guaranteed.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Starts asynchronous cancellation on a long-running DlpJob. The server makes
+ *  a best effort to cancel the DlpJob, but success is not guaranteed. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CancelDlpJobRequest to
@@ -2060,12 +2193,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a new job to inspect storage or calculate risk metrics.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
- *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
- *  When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
+ *  Creates a new job to inspect storage or calculate risk metrics. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. When
+ *  no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system
+ *  will automatically choose what detectors to run. By default this may be all
+ *  types, but may change over time as detectors are updated.
  *
  *  Method: dlp.projects.dlpJobs.create
  *
@@ -2077,27 +2210,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsDlpJobsCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
- *  Creates a new job to inspect storage or calculate risk metrics.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
- *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
- *  When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
+ *  Creates a new job to inspect storage or calculate risk metrics. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. When
+ *  no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system
+ *  will automatically choose what detectors to run. By default this may be all
+ *  types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest to
  *    include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsDlpJobsCreate
  */
@@ -2107,10 +2251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a long-running DlpJob. This method indicates that the client is
- *  no longer interested in the DlpJob result. The job will be cancelled if
- *  possible.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Deletes a long-running DlpJob. This method indicates that the client is no
+ *  longer interested in the DlpJob result. The job will be cancelled if
+ *  possible. See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.dlpJobs.delete
@@ -2128,10 +2271,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a long-running DlpJob. This method indicates that the client is
- *  no longer interested in the DlpJob result. The job will be cancelled if
- *  possible.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Deletes a long-running DlpJob. This method indicates that the client is no
+ *  longer interested in the DlpJob result. The job will be cancelled if
+ *  possible. See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param name Required. The name of the DlpJob resource to be deleted.
@@ -2143,8 +2285,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets the latest state of a long-running DlpJob.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Gets the latest state of a long-running DlpJob. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.dlpJobs.get
@@ -2162,8 +2304,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
- *  Gets the latest state of a long-running DlpJob.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Gets the latest state of a long-running DlpJob. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param name Required. The name of the DlpJob resource.
@@ -2175,8 +2317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists DlpJobs that match the specified filter in the request.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Lists DlpJobs that match the specified filter in the request. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.dlpJobs.list
@@ -2189,29 +2331,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsDlpJobsListWithparent:]
 
 /**
- *  Allows filtering.
- *  Supported syntax:
- *  * Filter expressions are made up of one or more restrictions.
- *  * Restrictions can be combined by `AND` or `OR` logical operators. A
- *  sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `{field} {operator} {value}`.
- *  * Supported fields/values for inspect jobs:
- *  - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED
- *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
- *  - `trigger_name` - The resource name of the trigger that created job.
- *  - 'end_time` - Corresponds to time the job finished.
- *  - 'start_time` - Corresponds to time the job finished.
- *  * Supported fields for risk analysis jobs:
- *  - `state` - RUNNING|CANCELED|FINISHED|FAILED
- *  - 'end_time` - Corresponds to time the job finished.
- *  - 'start_time` - Corresponds to time the job finished.
- *  * The operator must be `=` or `!=`.
- *  Examples:
- *  * inspected_storage = cloud_storage AND state = done
- *  * inspected_storage = cloud_storage OR inspected_storage = bigquery
- *  * inspected_storage = cloud_storage AND (state = done OR state = canceled)
- *  * end_time > \\"2017-12-12T00:00:00+00:00\\"
- *  The length of this field should be no more than 500 characters.
+ *  Allows filtering. Supported syntax: * Filter expressions are made up of one
+ *  or more restrictions. * Restrictions can be combined by `AND` or `OR`
+ *  logical operators. A sequence of restrictions implicitly uses `AND`. * A
+ *  restriction has the form of `{field} {operator} {value}`. * Supported
+ *  fields/values for inspect jobs: - `state` -
+ *  PENDING|RUNNING|CANCELED|FINISHED|FAILED - `inspected_storage` -
+ *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The resource name of the
+ *  trigger that created job. - 'end_time` - Corresponds to time the job
+ *  finished. - 'start_time` - Corresponds to time the job finished. * Supported
+ *  fields for risk analysis jobs: - `state` - RUNNING|CANCELED|FINISHED|FAILED
+ *  - 'end_time` - Corresponds to time the job finished. - 'start_time` -
+ *  Corresponds to time the job finished. * The operator must be `=` or `!=`.
+ *  Examples: * inspected_storage = cloud_storage AND state = done *
+ *  inspected_storage = cloud_storage OR inspected_storage = bigquery *
+ *  inspected_storage = cloud_storage AND (state = done OR state = canceled) *
+ *  end_time > \\"2017-12-12T00:00:00+00:00\\" The length of this field should
+ *  be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2219,16 +2355,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc, end_time asc, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the job was created.
- *  - `end_time`: corresponds to time the job ended.
- *  - `name`: corresponds to job's name.
- *  - `state`: corresponds to `state`
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name asc, end_time
+ *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
+ *  time the job was created. - `end_time`: corresponds to time the job ended. -
+ *  `name`: corresponds to job's name. - `state`: corresponds to `state`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2239,9 +2371,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2249,22 +2386,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  The type of job. Defaults to `DlpJobType.INSPECT`
  *
  *  Likely values:
- *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Value "DLP_JOB_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRDLPTypeInspectJob Value "INSPECT_JOB"
- *    @arg @c kGTLRDLPTypeRiskAnalysisJob Value "RISK_ANALYSIS_JOB"
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Unused (Value:
+ *        "DLP_JOB_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
+ *        sensitive data. (Value: "INSPECT_JOB")
+ *    @arg @c kGTLRDLPTypeRiskAnalysisJob The job executed a Risk Analysis
+ *        computation. (Value: "RISK_ANALYSIS_JOB")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse.
  *
- *  Lists DlpJobs that match the specified filter in the request.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Lists DlpJobs that match the specified filter in the request. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsDlpJobsList
  *
@@ -2277,13 +2423,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Redacts potentially sensitive info from an image.
- *  This method has limits on input size, processing time, and output size.
- *  See https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to
- *  learn more.
- *  When no InfoTypes or CustomInfoTypes are specified in this request, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
+ *  Redacts potentially sensitive info from an image. This method has limits on
+ *  input size, processing time, and output size. See
+ *  https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to learn
+ *  more. When no InfoTypes or CustomInfoTypes are specified in this request,
+ *  the system will automatically choose what detectors to run. By default this
+ *  may be all types, but may change over time as detectors are updated.
  *
  *  Method: dlp.projects.image.redact
  *
@@ -2295,28 +2440,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsImageRedactWithObject:parent:]
 
 /**
- *  The parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Parent resource name. The format of this value varies depending on whether
+ *  you have [specified a processing location](/dlp/docs/specifying-location): +
+ *  Projects scope, location specified:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
+ *  specified (defaults to global): `projects/`PROJECT_ID The following example
+ *  `parent` string specifies a parent project with the identifier
+ *  `example-project`, and specifies the `europe-west3` location for processing
+ *  data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2RedactImageResponse.
  *
- *  Redacts potentially sensitive info from an image.
- *  This method has limits on input size, processing time, and output size.
- *  See https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to
- *  learn more.
- *  When no InfoTypes or CustomInfoTypes are specified in this request, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
+ *  Redacts potentially sensitive info from an image. This method has limits on
+ *  input size, processing time, and output size. See
+ *  https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to learn
+ *  more. When no InfoTypes or CustomInfoTypes are specified in this request,
+ *  the system will automatically choose what detectors to run. By default this
+ *  may be all types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2RedactImageRequest to include
  *    in the query.
- *  @param parent The parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Parent resource name. The format of this value varies
+ *    depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsImageRedact
  */
@@ -2326,9 +2481,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an InspectTemplate for re-using frequently used configuration
- *  for inspecting content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  inspecting content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.create
  *
@@ -2340,28 +2495,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsInspectTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an InspectTemplate for re-using frequently used configuration
- *  for inspecting content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  inspecting content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsInspectTemplatesCreate
  */
@@ -2371,8 +2540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Deletes an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.delete
  *
@@ -2385,8 +2554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be
- *  deleted, for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  deleted, for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2394,12 +2562,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Deletes an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
- *    to be deleted, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    to be deleted, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsInspectTemplatesDelete
@@ -2409,8 +2577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Gets an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.get
  *
@@ -2423,8 +2591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be read,
- *  for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2432,12 +2599,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Gets an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Gets an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
- *    to be read, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    to be read, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsInspectTemplatesGet
@@ -2447,8 +2614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists InspectTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Lists InspectTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.list
  *
@@ -2463,51 +2630,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the template was created.
- *  - `update_time`: corresponds to time the template was last updated.
- *  - `name`: corresponds to template's name.
- *  - `display_name`: corresponds to template's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the template was created. - `update_time`: corresponds
+ *  to time the template was last updated. - `name`: corresponds to template's
+ *  name. - `display_name`: corresponds to template's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListInspectTemplates`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
- *  Lists InspectTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Lists InspectTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsInspectTemplatesList
  *
@@ -2520,8 +2698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Updates the InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.inspectTemplates.patch
  *
@@ -2534,8 +2712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and inspectTemplate to be updated,
- *  for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2543,14 +2720,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Updates the InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Updates the InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
  *    to include in the query.
  *  @param name Required. Resource name of organization and inspectTemplate to
- *    be updated, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    be updated, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsInspectTemplatesPatch
@@ -2561,8 +2738,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Activate a job trigger. Causes the immediate execute of a trigger
- *  instead of waiting on the trigger event to occur.
+ *  Activate a job trigger. Causes the immediate execute of a trigger instead of
+ *  waiting on the trigger event to occur.
  *
  *  Method: dlp.projects.jobTriggers.activate
  *
@@ -2582,8 +2759,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
- *  Activate a job trigger. Causes the immediate execute of a trigger
- *  instead of waiting on the trigger event to occur.
+ *  Activate a job trigger. Causes the immediate execute of a trigger instead of
+ *  waiting on the trigger event to occur.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest to
  *    include in the query.
@@ -2599,8 +2776,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a job trigger to run DLP actions such as scanning storage for
- *  sensitive information on a set schedule.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  sensitive information on a set schedule. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.create
  *
@@ -2612,9 +2789,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsJobTriggersCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2622,14 +2804,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Creates a job trigger to run DLP actions such as scanning storage for
- *  sensitive information on a set schedule.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  sensitive information on a set schedule. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
  *    include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersCreate
  */
@@ -2639,8 +2827,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Deletes a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.delete
  *
@@ -2660,12 +2848,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Deletes a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
- *    example
- *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersDelete
  */
@@ -2674,8 +2861,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Gets a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.get
  *
@@ -2695,12 +2882,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
- *  Gets a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Gets a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
- *    example
- *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersGet
  */
@@ -2709,8 +2895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists job triggers.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Lists job triggers. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.list
  *
@@ -2722,25 +2908,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsJobTriggersListWithparent:]
 
 /**
- *  Allows filtering.
- *  Supported syntax:
- *  * Filter expressions are made up of one or more restrictions.
- *  * Restrictions can be combined by `AND` or `OR` logical operators. A
- *  sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `{field} {operator} {value}`.
- *  * Supported fields/values for inspect jobs:
- *  - `status` - HEALTHY|PAUSED|CANCELLED
- *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
- *  - 'last_run_time` - RFC 3339 formatted timestamp, surrounded by
- *  quotation marks. Nanoseconds are ignored.
- *  - 'error_count' - Number of errors that have occurred while running.
- *  * The operator must be `=` or `!=` for status and inspected_storage.
- *  Examples:
- *  * inspected_storage = cloud_storage AND status = HEALTHY
- *  * inspected_storage = cloud_storage OR inspected_storage = bigquery
- *  * inspected_storage = cloud_storage AND (state = PAUSED OR state = HEALTHY)
- *  * last_run_time > \\"2017-12-12T00:00:00+00:00\\"
- *  The length of this field should be no more than 500 characters.
+ *  Allows filtering. Supported syntax: * Filter expressions are made up of one
+ *  or more restrictions. * Restrictions can be combined by `AND` or `OR`
+ *  logical operators. A sequence of restrictions implicitly uses `AND`. * A
+ *  restriction has the form of `{field} {operator} {value}`. * Supported
+ *  fields/values for inspect jobs: - `status` - HEALTHY|PAUSED|CANCELLED -
+ *  `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY - 'last_run_time` -
+ *  RFC 3339 formatted timestamp, surrounded by quotation marks. Nanoseconds are
+ *  ignored. - 'error_count' - Number of errors that have occurred while
+ *  running. * The operator must be `=` or `!=` for status and
+ *  inspected_storage. Examples: * inspected_storage = cloud_storage AND status
+ *  = HEALTHY * inspected_storage = cloud_storage OR inspected_storage =
+ *  bigquery * inspected_storage = cloud_storage AND (state = PAUSED OR state =
+ *  HEALTHY) * last_run_time > \\"2017-12-12T00:00:00+00:00\\" The length of
+ *  this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2748,18 +2929,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of triggeredJob fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the JobTrigger was created.
- *  - `update_time`: corresponds to time the JobTrigger was last updated.
- *  - `last_run_time`: corresponds to the last time the JobTrigger ran.
- *  - `name`: corresponds to JobTrigger's name.
- *  - `display_name`: corresponds to JobTrigger's display name.
- *  - `status`: corresponds to JobTrigger's status.
+ *  Comma separated list of triggeredJob fields to order by, followed by `asc`
+ *  or `desc` postfix. This list is case-insensitive, default sorting order is
+ *  ascending, redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the JobTrigger was created. - `update_time`: corresponds
+ *  to time the JobTrigger was last updated. - `last_run_time`: corresponds to
+ *  the last time the JobTrigger ran. - `name`: corresponds to JobTrigger's
+ *  name. - `display_name`: corresponds to JobTrigger's display name. -
+ *  `status`: corresponds to JobTrigger's status.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2767,28 +2945,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to ListJobTriggers. `order_by` field must not
- *  change for subsequent calls.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  ListJobTriggers. `order_by` field must not change for subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
  *
- *  Lists job triggers.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Lists job triggers. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersList
  *
@@ -2801,8 +2989,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Updates a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.jobTriggers.patch
  *
@@ -2822,14 +3010,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
- *  Updates a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Updates a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest to
  *    include in the query.
  *  @param name Required. Resource name of the project and the triggeredJob, for
- *    example
- *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
  *
  *  @return GTLRDLPQuery_ProjectsJobTriggersPatch
  */
@@ -2839,10 +3026,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  De-identifies potentially sensitive info from a ContentItem.
- *  This method has limits on input size and output size.
- *  See https://cloud.google.com/dlp/docs/deidentify-sensitive-data to
- *  learn more.
+ *  De-identifies potentially sensitive info from a ContentItem. This method has
+ *  limits on input size and output size. See
+ *  https://cloud.google.com/dlp/docs/deidentify-sensitive-data to learn more.
  *  When no InfoTypes or CustomInfoTypes are specified in this request, the
  *  system will automatically choose what detectors to run. By default this may
  *  be all types, but may change over time as detectors are updated.
@@ -2857,28 +3043,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsContentDeidentifyWithObject:parent:]
 
 /**
- *  Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Parent resource name. The format of this value varies depending on whether
+ *  you have [specified a processing location](/dlp/docs/specifying-location): +
+ *  Projects scope, location specified:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
+ *  specified (defaults to global): `projects/`PROJECT_ID The following example
+ *  `parent` string specifies a parent project with the identifier
+ *  `example-project`, and specifies the `europe-west3` location for processing
+ *  data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentResponse.
  *
- *  De-identifies potentially sensitive info from a ContentItem.
- *  This method has limits on input size and output size.
- *  See https://cloud.google.com/dlp/docs/deidentify-sensitive-data to
- *  learn more.
+ *  De-identifies potentially sensitive info from a ContentItem. This method has
+ *  limits on input size and output size. See
+ *  https://cloud.google.com/dlp/docs/deidentify-sensitive-data to learn more.
  *  When no InfoTypes or CustomInfoTypes are specified in this request, the
  *  system will automatically choose what detectors to run. By default this may
  *  be all types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest to
  *    include in the query.
- *  @param parent Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Parent resource name. The format of this value varies
+ *    depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentDeidentify
  */
@@ -2888,13 +3084,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Finds potentially sensitive info in content.
- *  This method has limits on input size, processing time, and output size.
- *  When no InfoTypes or CustomInfoTypes are specified in this request, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
- *  For how to guides, see https://cloud.google.com/dlp/docs/inspecting-images
- *  and https://cloud.google.com/dlp/docs/inspecting-text,
+ *  Finds potentially sensitive info in content. This method has limits on input
+ *  size, processing time, and output size. When no InfoTypes or CustomInfoTypes
+ *  are specified in this request, the system will automatically choose what
+ *  detectors to run. By default this may be all types, but may change over time
+ *  as detectors are updated. For how to guides, see
+ *  https://cloud.google.com/dlp/docs/inspecting-images and
+ *  https://cloud.google.com/dlp/docs/inspecting-text,
  *
  *  Method: dlp.projects.locations.content.inspect
  *
@@ -2906,28 +3102,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsContentInspectWithObject:parent:]
 
 /**
- *  Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Parent resource name. The format of this value varies depending on whether
+ *  you have [specified a processing location](/dlp/docs/specifying-location): +
+ *  Projects scope, location specified:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
+ *  specified (defaults to global): `projects/`PROJECT_ID The following example
+ *  `parent` string specifies a parent project with the identifier
+ *  `example-project`, and specifies the `europe-west3` location for processing
+ *  data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectContentResponse.
  *
- *  Finds potentially sensitive info in content.
- *  This method has limits on input size, processing time, and output size.
- *  When no InfoTypes or CustomInfoTypes are specified in this request, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
- *  For how to guides, see https://cloud.google.com/dlp/docs/inspecting-images
- *  and https://cloud.google.com/dlp/docs/inspecting-text,
+ *  Finds potentially sensitive info in content. This method has limits on input
+ *  size, processing time, and output size. When no InfoTypes or CustomInfoTypes
+ *  are specified in this request, the system will automatically choose what
+ *  detectors to run. By default this may be all types, but may change over time
+ *  as detectors are updated. For how to guides, see
+ *  https://cloud.google.com/dlp/docs/inspecting-images and
+ *  https://cloud.google.com/dlp/docs/inspecting-text,
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2InspectContentRequest to
  *    include in the query.
- *  @param parent Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Parent resource name. The format of this value varies
+ *    depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentInspect
  */
@@ -2937,8 +3144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Re-identifies content that has been de-identified.
- *  See
+ *  Re-identifies content that has been de-identified. See
  *  https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.
  *
@@ -2952,25 +3158,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsContentReidentifyWithObject:parent:]
 
 /**
- *  Required. The parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentResponse.
  *
- *  Re-identifies content that has been de-identified.
- *  See
+ *  Re-identifies content that has been de-identified. See
  *  https://cloud.google.com/dlp/docs/pseudonymization#re-identification_in_free_text_code_example
  *  to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ReidentifyContentRequest to
  *    include in the query.
- *  @param parent Required. The parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsContentReidentify
  */
@@ -2980,10 +3196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a DeidentifyTemplate for re-using frequently used configuration
- *  for de-identifying content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  de-identifying content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.create
  *
@@ -2995,30 +3210,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Creates a DeidentifyTemplate for re-using frequently used configuration
- *  for de-identifying content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Creates a DeidentifyTemplate for re-using frequently used configuration for
+ *  de-identifying content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2CreateDeidentifyTemplateRequest to include in
  *    the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesCreate
  */
@@ -3028,9 +3256,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Deletes a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.delete
  *
@@ -3043,22 +3270,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
- *  deleted,
- *  for example `organizations/433245324/deidentifyTemplates/432452342` or
- *  projects/project-id/deidentifyTemplates/432452342.
+ *  deleted, for example `organizations/433245324/deidentifyTemplates/432452342`
+ *  or projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Deletes a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
- *    template to be deleted,
- *    for example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    template to be deleted, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesDelete
@@ -3068,9 +3293,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Gets a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.get
  *
@@ -3083,8 +3307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
- *  read, for
- *  example `organizations/433245324/deidentifyTemplates/432452342` or
+ *  read, for example `organizations/433245324/deidentifyTemplates/432452342` or
  *  projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3092,13 +3315,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Gets a DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Gets a DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param name Required. Resource name of the organization and deidentify
- *    template to be read, for
- *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    template to be read, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesGet
@@ -3108,9 +3330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists DeidentifyTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Lists DeidentifyTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.list
  *
@@ -3125,52 +3346,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the template was created.
- *  - `update_time`: corresponds to time the template was last updated.
- *  - `name`: corresponds to template's name.
- *  - `display_name`: corresponds to template's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the template was created. - `update_time`: corresponds
+ *  to time the template was last updated. - `name`: corresponds to template's
+ *  name. - `display_name`: corresponds to template's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListDeidentifyTemplates`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListDeidentifyTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDeidentifyTemplatesResponse.
  *
- *  Lists DeidentifyTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Lists DeidentifyTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesList
  *
@@ -3183,9 +3414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Updates the DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  Method: dlp.projects.locations.deidentifyTemplates.patch
  *
@@ -3198,25 +3428,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and deidentify template to be
- *  updated, for
- *  example `organizations/433245324/deidentifyTemplates/432452342` or
- *  projects/project-id/deidentifyTemplates/432452342.
+ *  updated, for example `organizations/433245324/deidentifyTemplates/432452342`
+ *  or projects/project-id/deidentifyTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate.
  *
- *  Updates the DeidentifyTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates-deid to learn
- *  more.
+ *  Updates the DeidentifyTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates-deid to learn more.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2UpdateDeidentifyTemplateRequest to include in
  *    the query.
  *  @param name Required. Resource name of organization and deidentify template
- *    to be updated, for
- *    example `organizations/433245324/deidentifyTemplates/432452342` or
+ *    to be updated, for example
+ *    `organizations/433245324/deidentifyTemplates/432452342` or
  *    projects/project-id/deidentifyTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesPatch
@@ -3227,10 +3455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Starts asynchronous cancellation on a long-running DlpJob. The server
- *  makes a best effort to cancel the DlpJob, but success is not
- *  guaranteed.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Starts asynchronous cancellation on a long-running DlpJob. The server makes
+ *  a best effort to cancel the DlpJob, but success is not guaranteed. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.locations.dlpJobs.cancel
@@ -3248,10 +3475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Starts asynchronous cancellation on a long-running DlpJob. The server
- *  makes a best effort to cancel the DlpJob, but success is not
- *  guaranteed.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Starts asynchronous cancellation on a long-running DlpJob. The server makes
+ *  a best effort to cancel the DlpJob, but success is not guaranteed. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CancelDlpJobRequest to
@@ -3266,12 +3492,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a new job to inspect storage or calculate risk metrics.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
- *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
- *  When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
+ *  Creates a new job to inspect storage or calculate risk metrics. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. When
+ *  no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system
+ *  will automatically choose what detectors to run. By default this may be all
+ *  types, but may change over time as detectors are updated.
  *
  *  Method: dlp.projects.locations.dlpJobs.create
  *
@@ -3283,27 +3509,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsDlpJobsCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
- *  Creates a new job to inspect storage or calculate risk metrics.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
- *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
- *  When no InfoTypes or CustomInfoTypes are specified in inspect jobs, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
+ *  Creates a new job to inspect storage or calculate risk metrics. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more. When
+ *  no InfoTypes or CustomInfoTypes are specified in inspect jobs, the system
+ *  will automatically choose what detectors to run. By default this may be all
+ *  types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest to
  *    include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsCreate
  */
@@ -3313,10 +3550,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a long-running DlpJob. This method indicates that the client is
- *  no longer interested in the DlpJob result. The job will be cancelled if
- *  possible.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Deletes a long-running DlpJob. This method indicates that the client is no
+ *  longer interested in the DlpJob result. The job will be cancelled if
+ *  possible. See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.locations.dlpJobs.delete
@@ -3334,10 +3570,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a long-running DlpJob. This method indicates that the client is
- *  no longer interested in the DlpJob result. The job will be cancelled if
- *  possible.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Deletes a long-running DlpJob. This method indicates that the client is no
+ *  longer interested in the DlpJob result. The job will be cancelled if
+ *  possible. See https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param name Required. The name of the DlpJob resource to be deleted.
@@ -3350,10 +3585,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Finish a running hybrid DlpJob. Triggers the finalization steps and running
- *  of any enabled actions that have not yet run.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
+ *  of any enabled actions that have not yet run. Early access feature is in a
+ *  pre-release state and might change or have limited support. For more
+ *  information, see https://cloud.google.com/products#product-launch-stages.
  *
  *  Method: dlp.projects.locations.dlpJobs.finish
  *
@@ -3371,10 +3605,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Finish a running hybrid DlpJob. Triggers the finalization steps and running
- *  of any enabled actions that have not yet run.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
+ *  of any enabled actions that have not yet run. Early access feature is in a
+ *  pre-release state and might change or have limited support. For more
+ *  information, see https://cloud.google.com/products#product-launch-stages.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest to
  *    include in the query.
@@ -3388,8 +3621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets the latest state of a long-running DlpJob.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Gets the latest state of a long-running DlpJob. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.locations.dlpJobs.get
@@ -3407,8 +3640,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
- *  Gets the latest state of a long-running DlpJob.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Gets the latest state of a long-running DlpJob. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  @param name Required. The name of the DlpJob resource.
@@ -3420,12 +3653,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Inspect hybrid content and store findings to a job.
- *  To review the findings inspect the job. Inspection will occur
- *  asynchronously.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
+ *  Inspect hybrid content and store findings to a job. To review the findings
+ *  inspect the job. Inspection will occur asynchronously. Early access feature
+ *  is in a pre-release state and might change or have limited support. For more
+ *  information, see https://cloud.google.com/products#product-launch-stages.
  *
  *  Method: dlp.projects.locations.dlpJobs.hybridInspect
  *
@@ -3438,26 +3669,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the job to execute a hybrid inspect on, for
- *  example
- *  `projects/dlp-test-project/dlpJob/53234423`.
+ *  example `projects/dlp-test-project/dlpJob/53234423`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse.
  *
- *  Inspect hybrid content and store findings to a job.
- *  To review the findings inspect the job. Inspection will occur
- *  asynchronously.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
+ *  Inspect hybrid content and store findings to a job. To review the findings
+ *  inspect the job. Inspection will occur asynchronously. Early access feature
+ *  is in a pre-release state and might change or have limited support. For more
+ *  information, see https://cloud.google.com/products#product-launch-stages.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2HybridInspectDlpJobRequest to
  *    include in the query.
  *  @param name Required. Resource name of the job to execute a hybrid inspect
- *    on, for example
- *    `projects/dlp-test-project/dlpJob/53234423`.
+ *    on, for example `projects/dlp-test-project/dlpJob/53234423`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsHybridInspect
  */
@@ -3467,8 +3694,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists DlpJobs that match the specified filter in the request.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Lists DlpJobs that match the specified filter in the request. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
  *  Method: dlp.projects.locations.dlpJobs.list
@@ -3481,29 +3708,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsDlpJobsListWithparent:]
 
 /**
- *  Allows filtering.
- *  Supported syntax:
- *  * Filter expressions are made up of one or more restrictions.
- *  * Restrictions can be combined by `AND` or `OR` logical operators. A
- *  sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `{field} {operator} {value}`.
- *  * Supported fields/values for inspect jobs:
- *  - `state` - PENDING|RUNNING|CANCELED|FINISHED|FAILED
- *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
- *  - `trigger_name` - The resource name of the trigger that created job.
- *  - 'end_time` - Corresponds to time the job finished.
- *  - 'start_time` - Corresponds to time the job finished.
- *  * Supported fields for risk analysis jobs:
- *  - `state` - RUNNING|CANCELED|FINISHED|FAILED
- *  - 'end_time` - Corresponds to time the job finished.
- *  - 'start_time` - Corresponds to time the job finished.
- *  * The operator must be `=` or `!=`.
- *  Examples:
- *  * inspected_storage = cloud_storage AND state = done
- *  * inspected_storage = cloud_storage OR inspected_storage = bigquery
- *  * inspected_storage = cloud_storage AND (state = done OR state = canceled)
- *  * end_time > \\"2017-12-12T00:00:00+00:00\\"
- *  The length of this field should be no more than 500 characters.
+ *  Allows filtering. Supported syntax: * Filter expressions are made up of one
+ *  or more restrictions. * Restrictions can be combined by `AND` or `OR`
+ *  logical operators. A sequence of restrictions implicitly uses `AND`. * A
+ *  restriction has the form of `{field} {operator} {value}`. * Supported
+ *  fields/values for inspect jobs: - `state` -
+ *  PENDING|RUNNING|CANCELED|FINISHED|FAILED - `inspected_storage` -
+ *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The resource name of the
+ *  trigger that created job. - 'end_time` - Corresponds to time the job
+ *  finished. - 'start_time` - Corresponds to time the job finished. * Supported
+ *  fields for risk analysis jobs: - `state` - RUNNING|CANCELED|FINISHED|FAILED
+ *  - 'end_time` - Corresponds to time the job finished. - 'start_time` -
+ *  Corresponds to time the job finished. * The operator must be `=` or `!=`.
+ *  Examples: * inspected_storage = cloud_storage AND state = done *
+ *  inspected_storage = cloud_storage OR inspected_storage = bigquery *
+ *  inspected_storage = cloud_storage AND (state = done OR state = canceled) *
+ *  end_time > \\"2017-12-12T00:00:00+00:00\\" The length of this field should
+ *  be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3511,16 +3732,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc, end_time asc, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the job was created.
- *  - `end_time`: corresponds to time the job ended.
- *  - `name`: corresponds to job's name.
- *  - `state`: corresponds to `state`
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name asc, end_time
+ *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
+ *  time the job was created. - `end_time`: corresponds to time the job ended. -
+ *  `name`: corresponds to job's name. - `state`: corresponds to `state`
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3531,9 +3748,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3541,22 +3763,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  The type of job. Defaults to `DlpJobType.INSPECT`
  *
  *  Likely values:
- *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Value "DLP_JOB_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRDLPTypeInspectJob Value "INSPECT_JOB"
- *    @arg @c kGTLRDLPTypeRiskAnalysisJob Value "RISK_ANALYSIS_JOB"
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Unused (Value:
+ *        "DLP_JOB_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
+ *        sensitive data. (Value: "INSPECT_JOB")
+ *    @arg @c kGTLRDLPTypeRiskAnalysisJob The job executed a Risk Analysis
+ *        computation. (Value: "RISK_ANALYSIS_JOB")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse.
  *
- *  Lists DlpJobs that match the specified filter in the request.
- *  See https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  Lists DlpJobs that match the specified filter in the request. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
  *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsDlpJobsList
  *
@@ -3569,13 +3800,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Redacts potentially sensitive info from an image.
- *  This method has limits on input size, processing time, and output size.
- *  See https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to
- *  learn more.
- *  When no InfoTypes or CustomInfoTypes are specified in this request, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
+ *  Redacts potentially sensitive info from an image. This method has limits on
+ *  input size, processing time, and output size. See
+ *  https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to learn
+ *  more. When no InfoTypes or CustomInfoTypes are specified in this request,
+ *  the system will automatically choose what detectors to run. By default this
+ *  may be all types, but may change over time as detectors are updated.
  *
  *  Method: dlp.projects.locations.image.redact
  *
@@ -3587,28 +3817,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsImageRedactWithObject:parent:]
 
 /**
- *  The parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Parent resource name. The format of this value varies depending on whether
+ *  you have [specified a processing location](/dlp/docs/specifying-location): +
+ *  Projects scope, location specified:
+ *  `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no location
+ *  specified (defaults to global): `projects/`PROJECT_ID The following example
+ *  `parent` string specifies a parent project with the identifier
+ *  `example-project`, and specifies the `europe-west3` location for processing
+ *  data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2RedactImageResponse.
  *
- *  Redacts potentially sensitive info from an image.
- *  This method has limits on input size, processing time, and output size.
- *  See https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to
- *  learn more.
- *  When no InfoTypes or CustomInfoTypes are specified in this request, the
- *  system will automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
+ *  Redacts potentially sensitive info from an image. This method has limits on
+ *  input size, processing time, and output size. See
+ *  https://cloud.google.com/dlp/docs/redacting-sensitive-data-images to learn
+ *  more. When no InfoTypes or CustomInfoTypes are specified in this request,
+ *  the system will automatically choose what detectors to run. By default this
+ *  may be all types, but may change over time as detectors are updated.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2RedactImageRequest to include
  *    in the query.
- *  @param parent The parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Parent resource name. The format of this value varies
+ *    depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsImageRedact
  */
@@ -3618,9 +3858,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates an InspectTemplate for re-using frequently used configuration
- *  for inspecting content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  inspecting content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.create
  *
@@ -3632,28 +3872,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Creates an InspectTemplate for re-using frequently used configuration
- *  for inspecting content, images, and storage.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Creates an InspectTemplate for re-using frequently used configuration for
+ *  inspecting content, images, and storage. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateInspectTemplateRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesCreate
  */
@@ -3663,8 +3917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Deletes an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.delete
  *
@@ -3677,8 +3931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be
- *  deleted, for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  deleted, for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3686,12 +3939,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Deletes an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
- *    to be deleted, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    to be deleted, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesDelete
@@ -3701,8 +3954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Gets an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.get
  *
@@ -3715,8 +3968,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be read,
- *  for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3724,12 +3976,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Gets an InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Gets an InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param name Required. Resource name of the organization and inspectTemplate
- *    to be read, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    to be read, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesGet
@@ -3739,8 +3991,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists InspectTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Lists InspectTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.list
  *
@@ -3755,51 +4007,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the template was created.
- *  - `update_time`: corresponds to time the template was last updated.
- *  - `name`: corresponds to template's name.
- *  - `display_name`: corresponds to template's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the template was created. - `update_time`: corresponds
+ *  to time the template was last updated. - `name`: corresponds to template's
+ *  name. - `display_name`: corresponds to template's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListInspectTemplates`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListInspectTemplates`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListInspectTemplatesResponse.
  *
- *  Lists InspectTemplates.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Lists InspectTemplates. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesList
  *
@@ -3812,8 +4075,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates the InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Updates the InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  Method: dlp.projects.locations.inspectTemplates.patch
  *
@@ -3826,8 +4089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and inspectTemplate to be updated,
- *  for
- *  example `organizations/433245324/inspectTemplates/432452342` or
+ *  for example `organizations/433245324/inspectTemplates/432452342` or
  *  projects/project-id/inspectTemplates/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3835,14 +4097,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2InspectTemplate.
  *
- *  Updates the InspectTemplate.
- *  See https://cloud.google.com/dlp/docs/creating-templates to learn more.
+ *  Updates the InspectTemplate. See
+ *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest
  *    to include in the query.
  *  @param name Required. Resource name of organization and inspectTemplate to
- *    be updated, for
- *    example `organizations/433245324/inspectTemplates/432452342` or
+ *    be updated, for example
+ *    `organizations/433245324/inspectTemplates/432452342` or
  *    projects/project-id/inspectTemplates/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsInspectTemplatesPatch
@@ -3853,8 +4115,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Activate a job trigger. Causes the immediate execute of a trigger
- *  instead of waiting on the trigger event to occur.
+ *  Activate a job trigger. Causes the immediate execute of a trigger instead of
+ *  waiting on the trigger event to occur.
  *
  *  Method: dlp.projects.locations.jobTriggers.activate
  *
@@ -3874,8 +4136,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2DlpJob.
  *
- *  Activate a job trigger. Causes the immediate execute of a trigger
- *  instead of waiting on the trigger event to occur.
+ *  Activate a job trigger. Causes the immediate execute of a trigger instead of
+ *  waiting on the trigger event to occur.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest to
  *    include in the query.
@@ -3891,8 +4153,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Creates a job trigger to run DLP actions such as scanning storage for
- *  sensitive information on a set schedule.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  sensitive information on a set schedule. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.create
  *
@@ -3904,9 +4166,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsJobTriggersCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3914,14 +4181,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
  *  Creates a job trigger to run DLP actions such as scanning storage for
- *  sensitive information on a set schedule.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  sensitive information on a set schedule. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
  *    include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersCreate
  */
@@ -3931,8 +4204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Deletes a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.delete
  *
@@ -3952,12 +4225,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Deletes a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
- *    example
- *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersDelete
  */
@@ -3966,8 +4238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Gets a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.get
  *
@@ -3987,12 +4259,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
- *  Gets a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Gets a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param name Required. Resource name of the project and the triggeredJob, for
- *    example
- *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersGet
  */
@@ -4001,11 +4272,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Inspect hybrid content and store findings to a trigger. The inspection
- *  will be processed asynchronously. To review the findings monitor the
- *  jobs within the trigger.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
+ *  Inspect hybrid content and store findings to a trigger. The inspection will
+ *  be processed asynchronously. To review the findings monitor the jobs within
+ *  the trigger. Early access feature is in a pre-release state and might change
+ *  or have limited support. For more information, see
  *  https://cloud.google.com/products#product-launch-stages.
  *
  *  Method: dlp.projects.locations.jobTriggers.hybridInspect
@@ -4019,27 +4289,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the trigger to execute a hybrid inspect on, for
- *  example
- *  `projects/dlp-test-project/jobTriggers/53234423`.
+ *  example `projects/dlp-test-project/jobTriggers/53234423`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse.
  *
- *  Inspect hybrid content and store findings to a trigger. The inspection
- *  will be processed asynchronously. To review the findings monitor the
- *  jobs within the trigger.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
+ *  Inspect hybrid content and store findings to a trigger. The inspection will
+ *  be processed asynchronously. To review the findings monitor the jobs within
+ *  the trigger. Early access feature is in a pre-release state and might change
+ *  or have limited support. For more information, see
  *  https://cloud.google.com/products#product-launch-stages.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2HybridInspectJobTriggerRequest to include in the
  *    query.
  *  @param name Required. Resource name of the trigger to execute a hybrid
- *    inspect on, for example
- *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *    inspect on, for example `projects/dlp-test-project/jobTriggers/53234423`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersHybridInspect
  */
@@ -4049,8 +4316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists job triggers.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Lists job triggers. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.list
  *
@@ -4062,25 +4329,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsJobTriggersListWithparent:]
 
 /**
- *  Allows filtering.
- *  Supported syntax:
- *  * Filter expressions are made up of one or more restrictions.
- *  * Restrictions can be combined by `AND` or `OR` logical operators. A
- *  sequence of restrictions implicitly uses `AND`.
- *  * A restriction has the form of `{field} {operator} {value}`.
- *  * Supported fields/values for inspect jobs:
- *  - `status` - HEALTHY|PAUSED|CANCELLED
- *  - `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY
- *  - 'last_run_time` - RFC 3339 formatted timestamp, surrounded by
- *  quotation marks. Nanoseconds are ignored.
- *  - 'error_count' - Number of errors that have occurred while running.
- *  * The operator must be `=` or `!=` for status and inspected_storage.
- *  Examples:
- *  * inspected_storage = cloud_storage AND status = HEALTHY
- *  * inspected_storage = cloud_storage OR inspected_storage = bigquery
- *  * inspected_storage = cloud_storage AND (state = PAUSED OR state = HEALTHY)
- *  * last_run_time > \\"2017-12-12T00:00:00+00:00\\"
- *  The length of this field should be no more than 500 characters.
+ *  Allows filtering. Supported syntax: * Filter expressions are made up of one
+ *  or more restrictions. * Restrictions can be combined by `AND` or `OR`
+ *  logical operators. A sequence of restrictions implicitly uses `AND`. * A
+ *  restriction has the form of `{field} {operator} {value}`. * Supported
+ *  fields/values for inspect jobs: - `status` - HEALTHY|PAUSED|CANCELLED -
+ *  `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY - 'last_run_time` -
+ *  RFC 3339 formatted timestamp, surrounded by quotation marks. Nanoseconds are
+ *  ignored. - 'error_count' - Number of errors that have occurred while
+ *  running. * The operator must be `=` or `!=` for status and
+ *  inspected_storage. Examples: * inspected_storage = cloud_storage AND status
+ *  = HEALTHY * inspected_storage = cloud_storage OR inspected_storage =
+ *  bigquery * inspected_storage = cloud_storage AND (state = PAUSED OR state =
+ *  HEALTHY) * last_run_time > \\"2017-12-12T00:00:00+00:00\\" The length of
+ *  this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4088,18 +4350,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of triggeredJob fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc,update_time, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the JobTrigger was created.
- *  - `update_time`: corresponds to time the JobTrigger was last updated.
- *  - `last_run_time`: corresponds to the last time the JobTrigger ran.
- *  - `name`: corresponds to JobTrigger's name.
- *  - `display_name`: corresponds to JobTrigger's display name.
- *  - `status`: corresponds to JobTrigger's status.
+ *  Comma separated list of triggeredJob fields to order by, followed by `asc`
+ *  or `desc` postfix. This list is case-insensitive, default sorting order is
+ *  ascending, redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the JobTrigger was created. - `update_time`: corresponds
+ *  to time the JobTrigger was last updated. - `last_run_time`: corresponds to
+ *  the last time the JobTrigger ran. - `name`: corresponds to JobTrigger's
+ *  name. - `display_name`: corresponds to JobTrigger's display name. -
+ *  `status`: corresponds to JobTrigger's status.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4107,28 +4366,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to ListJobTriggers. `order_by` field must not
- *  change for subsequent calls.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  ListJobTriggers. `order_by` field must not change for subsequent calls.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](/dlp/docs/specifying-location): + Projects scope, location
+ *  specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *  no location specified (defaults to global): `projects/`PROJECT_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
  *
- *  Lists job triggers.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Lists job triggers. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersList
  *
@@ -4141,8 +4410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Updates a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Updates a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  Method: dlp.projects.locations.jobTriggers.patch
  *
@@ -4162,14 +4431,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
  *
- *  Updates a job trigger.
- *  See https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *  Updates a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest to
  *    include in the query.
  *  @param name Required. Resource name of the project and the triggeredJob, for
- *    example
- *    `projects/dlp-test-project/jobTriggers/53234423`.
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsJobTriggersPatch
  */
@@ -4179,9 +4447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a pre-built stored infoType to be used for inspection.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Creates a pre-built stored infoType to be used for inspection. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.create
  *
@@ -4193,28 +4460,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
- *  Creates a pre-built stored infoType to be used for inspection.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Creates a pre-built stored infoType to be used for inspection. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesCreate
  */
@@ -4224,9 +4504,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Deletes a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.delete
  *
@@ -4239,8 +4518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be
- *  deleted, for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  deleted, for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4248,13 +4526,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Deletes a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
- *    to be deleted, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    to be deleted, for example
+ *    `organizations/433245324/storedInfoTypes/432452342` or
  *    projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesDelete
@@ -4264,9 +4541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Gets a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.get
  *
@@ -4279,8 +4555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be read,
- *  for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4288,13 +4563,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
- *  Gets a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Gets a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
- *    to be read, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    to be read, for example
+ *    `organizations/433245324/storedInfoTypes/432452342` or
  *    projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesGet
@@ -4304,9 +4578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists stored infoTypes.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Lists stored infoTypes. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.list
  *
@@ -4321,53 +4594,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc, display_name, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the most recent version of the
- *  resource was created.
- *  - `state`: corresponds to the state of the resource.
- *  - `name`: corresponds to resource name.
- *  - `display_name`: corresponds to info type's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name asc,
+ *  display_name, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the most recent version of the resource was created. -
+ *  `state`: corresponds to the state of the resource. - `name`: corresponds to
+ *  resource name. - `display_name`: corresponds to info type's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListStoredInfoTypes`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
  *
- *  Lists stored infoTypes.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Lists stored infoTypes. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesList
  *
@@ -4381,9 +4663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the stored infoType by creating a new version. The existing version
- *  will continue to be used until the new version is ready.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  will continue to be used until the new version is ready. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.locations.storedInfoTypes.patch
  *
@@ -4396,8 +4677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and storedInfoType to be updated,
- *  for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4406,16 +4686,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Updates the stored infoType by creating a new version. The existing version
- *  will continue to be used until the new version is ready.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  will continue to be used until the new version is ready. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
  *    to include in the query.
  *  @param name Required. Resource name of organization and storedInfoType to be
- *    updated, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
- *    projects/project-id/storedInfoTypes/432452342.
+ *    updated, for example `organizations/433245324/storedInfoTypes/432452342`
+ *    or projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsLocationsStoredInfoTypesPatch
  */
@@ -4425,9 +4703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Creates a pre-built stored infoType to be used for inspection.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Creates a pre-built stored infoType to be used for inspection. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.create
  *
@@ -4439,28 +4716,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 //   +[GTLQueryDLP queryForProjectsStoredInfoTypesCreateWithObject:parent:]
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
- *  Creates a pre-built stored infoType to be used for inspection.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Creates a pre-built stored infoType to be used for inspection. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateStoredInfoTypeRequest
  *    to include in the query.
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsStoredInfoTypesCreate
  */
@@ -4470,9 +4760,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Deletes a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Deletes a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.delete
  *
@@ -4485,8 +4774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be
- *  deleted, for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  deleted, for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4494,13 +4782,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
- *  Deletes a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Deletes a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
- *    to be deleted, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    to be deleted, for example
+ *    `organizations/433245324/storedInfoTypes/432452342` or
  *    projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsStoredInfoTypesDelete
@@ -4510,9 +4797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Gets a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Gets a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.get
  *
@@ -4525,8 +4811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be read,
- *  for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4534,13 +4819,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
- *  Gets a stored infoType.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Gets a stored infoType. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param name Required. Resource name of the organization and storedInfoType
- *    to be read, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
+ *    to be read, for example
+ *    `organizations/433245324/storedInfoTypes/432452342` or
  *    projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsStoredInfoTypesGet
@@ -4550,9 +4834,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Lists stored infoTypes.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Lists stored infoTypes. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.list
  *
@@ -4567,53 +4850,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Comma separated list of fields to order by,
- *  followed by `asc` or `desc` postfix. This list is case-insensitive,
- *  default sorting order is ascending, redundant space characters are
- *  insignificant.
- *  Example: `name asc, display_name, create_time desc`
- *  Supported fields are:
- *  - `create_time`: corresponds to time the most recent version of the
- *  resource was created.
- *  - `state`: corresponds to the state of the resource.
- *  - `name`: corresponds to resource name.
- *  - `display_name`: corresponds to info type's display name.
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name asc,
+ *  display_name, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the most recent version of the resource was created. -
+ *  `state`: corresponds to the state of the resource. - `name`: corresponds to
+ *  resource name. - `display_name`: corresponds to info type's display name.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Size of the page, can be limited by server. If zero server returns
- *  a page of max size 100.
+ *  Size of the page, can be limited by server. If zero server returns a page of
+ *  max size 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token to continue retrieval. Comes from previous call
- *  to `ListStoredInfoTypes`.
+ *  Page token to continue retrieval. Comes from previous call to
+ *  `ListStoredInfoTypes`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  - Format:projects/[PROJECT-ID]
- *  - Format:organizations/[ORGANIZATION-ID]
- *  - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *  - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  the scope of the request (project or organization) and whether you have
+ *  [specified a processing location](/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID + Organizations scope, location specified:
+ *  `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *  location specified (defaults to global): `organizations/`ORG_ID The
+ *  following example `parent` string specifies a parent project with the
+ *  identifier `example-project`, and specifies the `europe-west3` location for
+ *  processing data: parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse.
  *
- *  Lists stored infoTypes.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  Lists stored infoTypes. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
- *  @param parent Required. Parent resource name.
- *    - Format:projects/[PROJECT-ID]
- *    - Format:organizations/[ORGANIZATION-ID]
- *    - Format:projects/[PROJECT-ID]/locations/[LOCATION-ID]
- *    - Format:organizations/[ORGANIZATION-ID]/locations/[LOCATION-ID]
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on the scope of the request (project or organization) and
+ *    whether you have [specified a processing
+ *    location](/dlp/docs/specifying-location): + Projects scope, location
+ *    specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope,
+ *    no location specified (defaults to global): `projects/`PROJECT_ID +
+ *    Organizations scope, location specified:
+ *    `organizations/`ORG_ID`/locations/`LOCATION_ID + Organizations scope, no
+ *    location specified (defaults to global): `organizations/`ORG_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
  *
  *  @return GTLRDLPQuery_ProjectsStoredInfoTypesList
  *
@@ -4627,9 +4919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Updates the stored infoType by creating a new version. The existing version
- *  will continue to be used until the new version is ready.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  will continue to be used until the new version is ready. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  Method: dlp.projects.storedInfoTypes.patch
  *
@@ -4642,8 +4933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Required. Resource name of organization and storedInfoType to be updated,
- *  for
- *  example `organizations/433245324/storedInfoTypes/432452342` or
+ *  for example `organizations/433245324/storedInfoTypes/432452342` or
  *  projects/project-id/storedInfoTypes/432452342.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4652,16 +4942,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2StoredInfoType.
  *
  *  Updates the stored infoType by creating a new version. The existing version
- *  will continue to be used until the new version is ready.
- *  See https://cloud.google.com/dlp/docs/creating-stored-infotypes to
- *  learn more.
+ *  will continue to be used until the new version is ready. See
+ *  https://cloud.google.com/dlp/docs/creating-stored-infotypes to learn more.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest
  *    to include in the query.
  *  @param name Required. Resource name of organization and storedInfoType to be
- *    updated, for
- *    example `organizations/433245324/storedInfoTypes/432452342` or
- *    projects/project-id/storedInfoTypes/432452342.
+ *    updated, for example `organizations/433245324/storedInfoTypes/432452342`
+ *    or projects/project-id/storedInfoTypes/432452342.
  *
  *  @return GTLRDLPQuery_ProjectsStoredInfoTypesPatch
  */

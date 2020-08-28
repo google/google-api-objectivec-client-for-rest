@@ -4,14 +4,11 @@
 // API:
 //   Apigee API (apigee/v1)
 // Description:
-//   The Apigee API lets you programmatically manage Apigee hybrid with a set of
-//   RESTful operations, including:<ul> <li>Create, edit, and delete API
-//   proxies</li> <li>Manage users</li> <li>Deploy and undeploy proxy
-//   revisions</li> <li>Configure environments</li></ul><p>For information on
-//   using the APIs described in this section, see <a
-//   href="docs.apigee.com/hybrid/latest/api-get-started">Get started using the
-//   APIs</a>.</p><p><strong>Note:</strong> This product is available as a free
-//   trial for a time period of 60 days.
+//   Use the Apigee API to programmatically develop and manage APIs with a set
+//   of RESTful operations. Develop and secure API proxies, deploy and undeploy
+//   API proxy revisions, monitor APIs, configure environments, manage users,
+//   and more. Get started using the APIs. *Note:* This product is available as
+//   a free trial for a time period of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 

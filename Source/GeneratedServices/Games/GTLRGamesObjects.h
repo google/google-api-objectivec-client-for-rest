@@ -5,8 +5,8 @@
 //   Google Play Game Services (games/v1)
 // Description:
 //   The Google Play games service allows developers to enhance games with
-//   social leaderboards,
-//   achievements, game state, sign-in with Google, and more.
+//   social leaderboards, achievements, game state, sign-in with Google, and
+//   more.
 // Documentation:
 //   https://developers.google.com/games/
 
@@ -205,9 +205,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementUpdateResponse_CurrentS
 // ----------------------------------------------------------------------------
 // GTLRGames_Application.enabledFeatures
 
-/** Value: "APPLICATION_FEATURE_UNSPECIFIED" */
+/**
+ *  Safe default, don't use.
+ *
+ *  Value: "APPLICATION_FEATURE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGames_Application_EnabledFeatures_ApplicationFeatureUnspecified;
-/** Value: "SNAPSHOTS" */
+/**
+ *  Saved Games (snapshots).
+ *
+ *  Value: "SNAPSHOTS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGames_Application_EnabledFeatures_Snapshots;
 
 // ----------------------------------------------------------------------------
@@ -226,8 +234,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCau
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_EventFailureCauseUnspecified;
 /**
- *  An attempt was made to record data faster than the server
- *  will apply updates.
+ *  An attempt was made to record data faster than the server will apply
+ *  updates.
  *
  *  Value: "RECORD_RATE_HIGH"
  */
@@ -251,8 +259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCau
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodShort;
 /**
- *  A batch request was issued with more events than are allowed in
- *  a single batch.
+ *  A batch request was issued with more events than are allowed in a single
+ *  batch.
  *
  *  Value: "TOO_LARGE"
  */
@@ -268,8 +276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_EventBatchRecordFailure_FailureCau
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_EventDefinition_Visibility_EventVisibilityUnspecified;
 /**
- *  This event should only be shown to users that have recorded this event
- *  at least once.
+ *  This event should only be shown to users that have recorded this event at
+ *  least once.
  *
  *  Value: "HIDDEN"
  */
@@ -490,13 +498,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScore_TimeSpan_Weekly;
 // ----------------------------------------------------------------------------
 // GTLRGames_PlayerScoreResponse.beatenScoreTimeSpans
 
-/** Value: "ALL_TIME" */
+/**
+ *  The score is an all-time score.
+ *
+ *  Value: "ALL_TIME"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_AllTime;
-/** Value: "DAILY" */
+/**
+ *  The score is a daily score.
+ *
+ *  Value: "DAILY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Daily;
-/** Value: "SCORE_TIME_SPAN_UNSPECIFIED" */
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_ScoreTimeSpanUnspecified;
-/** Value: "WEEKLY" */
+/**
+ *  The score is a weekly score.
+ *
+ *  Value: "WEEKLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGames_PlayerScoreResponse_BeatenScoreTimeSpans_Weekly;
 
 // ----------------------------------------------------------------------------
@@ -636,16 +660,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *initialState;
 
 /**
- *  Indicates whether the revealed icon image being returned is a default
- *  image, or is provided by the game.
+ *  Indicates whether the revealed icon image being returned is a default image,
+ *  or is provided by the game.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isRevealedIconUrlDefault;
 
 /**
- *  Indicates whether the unlocked icon image being returned is a default
- *  image, or is game-provided.
+ *  Indicates whether the unlocked icon image being returned is a default image,
+ *  or is game-provided.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -707,8 +731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 
 /**
- *  The payload to request to increment an
- *  achievement.
+ *  The payload to request to increment an achievement.
  */
 @interface GTLRGames_AchievementIncrement : GTLRObject
 
@@ -794,8 +817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 
 /**
- *  The payload to request to increment an
- *  achievement.
+ *  The payload to request to increment an achievement.
  */
 @interface GTLRGames_AchievementSetStepsAtLeast : GTLRObject
 
@@ -909,8 +931,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *achievementId;
 
 /**
- *  The payload if an update of type `INCREMENT` was requested for
- *  the achievement.
+ *  The payload if an update of type `INCREMENT` was requested for the
+ *  achievement.
  */
 @property(nonatomic, strong, nullable) GTLRGames_AchievementIncrement *incrementPayload;
 
@@ -921,8 +943,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The payload if an update of type `SET_STEPS_AT_LEAST` was
- *  requested for the achievement.
+ *  The payload if an update of type `SET_STEPS_AT_LEAST` was requested for the
+ *  achievement.
  */
 @property(nonatomic, strong, nullable) GTLRGames_AchievementSetStepsAtLeast *setStepsAtLeastPayload;
 
@@ -1191,8 +1213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        Default value. Should not be used. (Value:
  *        "EVENT_FAILURE_CAUSE_UNSPECIFIED")
  *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_RecordRateHigh An
- *        attempt was made to record data faster than the server
- *        will apply updates. (Value: "RECORD_RATE_HIGH")
+ *        attempt was made to record data faster than the server will apply
+ *        updates. (Value: "RECORD_RATE_HIGH")
  *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_TimePeriodExpired
  *        A batch was sent with data too far in the past to record. (Value:
  *        "TIME_PERIOD_EXPIRED")
@@ -1203,8 +1225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        batch was sent with a time range that was too short. (Value:
  *        "TIME_PERIOD_SHORT")
  *    @arg @c kGTLRGames_EventBatchRecordFailure_FailureCause_TooLarge A batch
- *        request was issued with more events than are allowed in
- *        a single batch. (Value: "TOO_LARGE")
+ *        request was issued with more events than are allowed in a single
+ *        batch. (Value: "TOO_LARGE")
  */
 @property(nonatomic, copy, nullable) NSString *failureCause;
 
@@ -1287,8 +1309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        Default value. Should not be used. (Value:
  *        "EVENT_VISIBILITY_UNSPECIFIED")
  *    @arg @c kGTLRGames_EventDefinition_Visibility_Hidden This event should
- *        only be shown to users that have recorded this event
- *        at least once. (Value: "HIDDEN")
+ *        only be shown to users that have recorded this event at least once.
+ *        (Value: "HIDDEN")
  *    @arg @c kGTLRGames_EventDefinition_Visibility_Revealed This event should
  *        be visible to all users. (Value: "REVEALED")
  */
@@ -1763,8 +1785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, strong, nullable) NSNumber *scoreRank;
 
 /**
- *  Additional information about the score. Values must contain no more than
- *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about the score. Values must contain no more than 64
+ *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -1904,8 +1926,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  The score of the requesting player on the leaderboard. The player's score
  *  may appear both here and in the list of scores above. If you are viewing a
  *  public leaderboard and the player is not sharing their gameplay information
- *  publicly, the `scoreRank`and `formattedScoreRank`
- *  values will not be present.
+ *  publicly, the `scoreRank`and `formattedScoreRank` values will not be
+ *  present.
  */
 @property(nonatomic, strong, nullable) GTLRGames_LeaderboardEntry *playerScore;
 
@@ -1985,9 +2007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 /**
  *  The player ID that was used for this player the first time they signed into
- *  the game in question. This is only populated for calls to player.get for
- *  the requesting player, only if the player ID has subsequently changed, and
- *  only to clients that support remapping player IDs.
+ *  the game in question. This is only populated for calls to player.get for the
+ *  requesting player, only if the player ID has subsequently changed, and only
+ *  to clients that support remapping player IDs.
  */
 @property(nonatomic, copy, nullable) NSString *originalPlayerId;
 
@@ -2225,6 +2247,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  */
 @interface GTLRGames_PlayerLeaderboardScore : GTLRObject
 
+/** The rank of the score in the friends collection for this leaderboard. */
+@property(nonatomic, strong, nullable) GTLRGames_LeaderboardScoreRank *friendsRank;
+
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
  *  string `games#playerLeaderboardScore`.
@@ -2244,8 +2269,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *scoreString;
 
 /**
- *  Additional information about the score. Values must contain no more than
- *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about the score. Values must contain no more than 64
+ *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -2406,8 +2431,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  Additional information about this score. Values will contain no more than
- *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about this score. Values will contain no more than 64
+ *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -2470,16 +2495,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  Additional information about this score. Values will contain no more than
- *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about this score. Values will contain no more than 64
+ *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
 /**
  *  The scores in time spans that have not been beaten. As an example, the
- *  submitted score may be better than the
- *  player's `DAILY` score, but not better than the player's scores
- *  for the `WEEKLY` or `ALL_TIME` time spans.
+ *  submitted score may be better than the player's `DAILY` score, but not
+ *  better than the player's scores for the `WEEKLY` or `ALL_TIME` time spans.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGames_PlayerScore *> *unbeatenScores;
 
@@ -2516,15 +2540,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *        Unused. (Value: "FRIENDS_LIST_VISIBILITY_UNSPECIFIED")
  *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_RequestRequired
  *        The developer does not have access to the friends list, but can call
- *        the
- *        Android API to show a consent dialog. (Value: "REQUEST_REQUIRED")
+ *        the Android API to show a consent dialog. (Value: "REQUEST_REQUIRED")
  *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_Unavailable The
  *        friends list is currently unavailable for this user, and it is not
  *        possible to request access at this time, either because the user has
  *        permanently declined or the friends feature is not available to them.
- *        In
- *        this state, any attempts to request access to the friends list will be
- *        unsuccessful. (Value: "UNAVAILABLE")
+ *        In this state, any attempts to request access to the friends list will
+ *        be unsuccessful. (Value: "UNAVAILABLE")
  *    @arg @c kGTLRGames_ProfileSettings_FriendsListVisibility_Visible The
  *        friends list is currently visible to the game. (Value: "VISIBLE")
  */
@@ -2606,8 +2628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, strong, nullable) NSNumber *score;
 
 /**
- *  Additional information about this score. Values will contain no more than
- *  64 URI-safe characters as defined by section 2.3 of RFC 3986.
+ *  Additional information about this score. Values will contain no more than 64
+ *  URI-safe characters as defined by section 2.3 of RFC 3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -2720,8 +2742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
- *  The URL of the image. This URL may be invalidated at any time and should
- *  not be cached.
+ *  The URL of the image. This URL may be invalidated at any time and should not
+ *  be cached.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 

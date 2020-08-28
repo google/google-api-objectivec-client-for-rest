@@ -137,8 +137,8 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 @implementation GTLRCloudBuild_Build
 @dynamic artifacts, buildTriggerId, createTime, finishTime, identifier, images,
          logsBucket, logUrl, options, projectId, queueTtl, results, secrets,
-         source, sourceProvenance, startTime, status, statusDetail, steps,
-         substitutions, tags, timeout, timing;
+         serviceAccount, source, sourceProvenance, startTime, status,
+         statusDetail, steps, substitutions, tags, timeout, timing;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

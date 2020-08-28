@@ -55,8 +55,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Performs explanation on the data in the request.
- *  <div>{% dynamic include "/ai-platform/includes/___explain-request" %}</div>
+ *  Performs explanation on the data in the request. {% dynamic include
+ *  "/ai-platform/includes/___explain-request" %}
  *
  *  Method: ml.projects.explain
  *
@@ -68,16 +68,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsExplainWithObject:name:]
 
 /**
- *  Required. The resource name of a model or a version.
- *  Authorization: requires the `predict` permission on the specified resource.
+ *  Required. The resource name of a model or a version. Authorization: requires
+ *  the `predict` permission on the specified resource.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleApiHttpBody.
  *
- *  Performs explanation on the data in the request.
- *  <div>{% dynamic include "/ai-platform/includes/___explain-request" %}</div>
+ *  Performs explanation on the data in the request. {% dynamic include
+ *  "/ai-platform/includes/___explain-request" %}
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest to include in
@@ -95,9 +95,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Get the service account information associated with your project. You need
- *  this information in order to grant the service account permissions for
- *  the Google Cloud Storage location where you put your model training code
- *  for training the model with Google Cloud Machine Learning.
+ *  this information in order to grant the service account permissions for the
+ *  Google Cloud Storage location where you put your model training code for
+ *  training the model with Google Cloud Machine Learning.
  *
  *  Method: ml.projects.getConfig
  *
@@ -116,9 +116,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1GetConfigResponse.
  *
  *  Get the service account information associated with your project. You need
- *  this information in order to grant the service account permissions for
- *  the Google Cloud Storage location where you put your model training code
- *  for training the model with Google Cloud Machine Learning.
+ *  this information in order to grant the service account permissions for the
+ *  Google Cloud Storage location where you put your model training code for
+ *  training the model with Google Cloud Machine Learning.
  *
  *  @param name Required. The project name.
  *
@@ -221,9 +221,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: ml.projects.jobs.getIamPolicy
  *
@@ -235,34 +234,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleIamV1Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsGetIamPolicy
  */
@@ -271,9 +267,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the jobs in the project.
- *  If there are no jobs that match the request parameters, the list
- *  request returns an empty response body: {}.
+ *  Lists the jobs in the project. If there are no jobs that match the request
+ *  parameters, the list request returns an empty response body: {}.
  *
  *  Method: ml.projects.jobs.list
  *
@@ -286,30 +281,27 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsListWithparent:]
 
 /**
- *  Optional. Specifies the subset of jobs to retrieve.
- *  You can filter on the value of one or more attributes of the job object.
- *  For example, retrieve jobs with a job identifier that starts with 'census':
- *  <p><code>gcloud ai-platform jobs list --filter='jobId:census*'</code>
- *  <p>List all failed jobs with names that start with 'rnn':
- *  <p><code>gcloud ai-platform jobs list --filter='jobId:rnn*
- *  AND state:FAILED'</code>
- *  <p>For more examples, see the guide to
- *  <a href="/ml-engine/docs/tensorflow/monitor-training">monitoring jobs</a>.
+ *  Optional. Specifies the subset of jobs to retrieve. You can filter on the
+ *  value of one or more attributes of the job object. For example, retrieve
+ *  jobs with a job identifier that starts with 'census': gcloud ai-platform
+ *  jobs list --filter='jobId:census*' List all failed jobs with names that
+ *  start with 'rnn': gcloud ai-platform jobs list --filter='jobId:rnn* AND
+ *  state:FAILED' For more examples, see the guide to monitoring jobs.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The number of jobs to retrieve per "page" of results. If there
- *  are more remaining results than this number, the response message will
- *  contain a valid value in the `next_page_token` field.
- *  The default value is 20, and the maximum page size is 100.
+ *  Optional. The number of jobs to retrieve per "page" of results. If there are
+ *  more remaining results than this number, the response message will contain a
+ *  valid value in the `next_page_token` field. The default value is 20, and the
+ *  maximum page size is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A page token to request the next page of results.
- *  You get the token from the `next_page_token` field of the response from
- *  the previous call.
+ *  Optional. A page token to request the next page of results. You get the
+ *  token from the `next_page_token` field of the response from the previous
+ *  call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -319,9 +311,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListJobsResponse.
  *
- *  Lists the jobs in the project.
- *  If there are no jobs that match the request parameters, the list
- *  request returns an empty response body: {}.
+ *  Lists the jobs in the project. If there are no jobs that match the request
+ *  parameters, the list request returns an empty response body: {}.
  *
  *  @param parent Required. The name of the project for which to list jobs.
  *
@@ -336,8 +327,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a specific job resource.
- *  Currently the only supported fields to update are `labels`.
+ *  Updates a specific job resource. Currently the only supported fields to
+ *  update are `labels`.
  *
  *  Method: ml.projects.jobs.patch
  *
@@ -352,23 +343,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Specifies the path, relative to `Job`, of the field to update.
- *  To adopt etag mechanism, include `etag` field in the mask, and include the
- *  `etag` value in your job resource.
- *  For example, to change the labels of a job, the `update_mask` parameter
- *  would be specified as `labels`, `etag`, and the
- *  `PATCH` request body would specify the new value, as follows:
- *  {
- *  "labels": {
- *  "owner": "Google",
- *  "color": "Blue"
- *  }
- *  "etag": "33a64df551425fcc55e4d42a148795d9f25f89d4"
- *  }
- *  If `etag` matches the one on the server, the labels of the job will be
- *  replaced with the given ones, and the server end `etag` will be
- *  recalculated.
- *  Currently the only supported update masks are `labels` and `etag`.
+ *  Required. Specifies the path, relative to `Job`, of the field to update. To
+ *  adopt etag mechanism, include `etag` field in the mask, and include the
+ *  `etag` value in your job resource. For example, to change the labels of a
+ *  job, the `update_mask` parameter would be specified as `labels`, `etag`, and
+ *  the `PATCH` request body would specify the new value, as follows: {
+ *  "labels": { "owner": "Google", "color": "Blue" } "etag":
+ *  "33a64df551425fcc55e4d42a148795d9f25f89d4" } If `etag` matches the one on
+ *  the server, the labels of the job will be replaced with the given ones, and
+ *  the server end `etag` will be recalculated. Currently the only supported
+ *  update masks are `labels` and `etag`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -377,8 +361,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job.
  *
- *  Updates a specific job resource.
- *  Currently the only supported fields to update are `labels`.
+ *  Updates a specific job resource. Currently the only supported fields to
+ *  update are `labels`.
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job to
  *    include in the query.
@@ -393,8 +377,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: ml.projects.jobs.setIamPolicy
  *
@@ -406,8 +390,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -415,15 +399,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleIamV1Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsSetIamPolicy
  */
@@ -433,12 +417,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: ml.projects.jobs.testIamPermissions
  *
@@ -450,8 +433,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsJobsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -459,19 +442,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsJobsTestIamPermissions
  */
@@ -526,16 +508,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The number of locations to retrieve per "page" of results. If
- *  there are more remaining results than this number, the response message
- *  will contain a valid value in the `next_page_token` field.
- *  The default value is 20, and the maximum page size is 100.
+ *  there are more remaining results than this number, the response message will
+ *  contain a valid value in the `next_page_token` field. The default value is
+ *  20, and the maximum page size is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A page token to request the next page of results.
- *  You get the token from the `next_page_token` field of the response from
- *  the previous call.
+ *  Optional. A page token to request the next page of results. You get the
+ *  token from the `next_page_token` field of the response from the previous
+ *  call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -552,8 +534,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  List all locations that provides at least one type of CMLE capability.
  *
  *  @param parent Required. The name of the project for which available
- *    locations are to be
- *    listed (since some locations might be whitelisted for specific projects).
+ *    locations are to be listed (since some locations might be whitelisted for
+ *    specific projects).
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsLocationsList
  *
@@ -567,15 +549,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: ml.projects.locations.operations.cancel
  *
@@ -593,15 +574,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleProtobufEmpty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
  *
@@ -656,15 +636,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesCreateWithObject:parent:]
 
 /**
- *  Required. The project and location that the study belongs to.
- *  Format: projects/{project}/locations/{location}
+ *  Required. The project and location that the study belongs to. Format:
+ *  projects/{project}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Required. The ID to use for the study, which will become the final component
- *  of
- *  the study's resource name.
+ *  of the study's resource name.
  */
 @property(nonatomic, copy, nullable) NSString *studyId;
 
@@ -754,8 +733,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesListWithparent:]
 
 /**
- *  Required. The project and location that the study belongs to.
- *  Format: projects/{project}/locations/{location}
+ *  Required. The project and location that the study belongs to. Format:
+ *  projects/{project}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -775,8 +754,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds a measurement of the objective metrics to a trial. This measurement
- *  is assumed to have been taken before the trial is complete.
+ *  Adds a measurement of the objective metrics to a trial. This measurement is
+ *  assumed to have been taken before the trial is complete.
  *
  *  Method: ml.projects.locations.studies.trials.addMeasurement
  *
@@ -793,8 +772,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial.
  *
- *  Adds a measurement of the objective metrics to a trial. This measurement
- *  is assumed to have been taken before the trial is complete.
+ *  Adds a measurement of the objective metrics to a trial. This measurement is
+ *  assumed to have been taken before the trial is complete.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1AddTrialMeasurementRequest
@@ -809,9 +788,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Checks whether a trial should stop or not. Returns a
- *  long-running operation. When the operation is successful,
- *  it will contain a
+ *  Checks whether a trial should stop or not. Returns a long-running operation.
+ *  When the operation is successful, it will contain a
  *  CheckTrialEarlyStoppingStateResponse.
  *
  *  Method: ml.projects.locations.studies.trials.checkEarlyStoppingState
@@ -829,9 +807,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Checks whether a trial should stop or not. Returns a
- *  long-running operation. When the operation is successful,
- *  it will contain a
+ *  Checks whether a trial should stop or not. Returns a long-running operation.
+ *  When the operation is successful, it will contain a
  *  CheckTrialEarlyStoppingStateResponse.
  *
  *  @param object The @c
@@ -1027,11 +1004,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds one or more trials to a study, with parameter values
- *  suggested by AI Platform Optimizer. Returns a long-running
- *  operation associated with the generation of trial suggestions.
- *  When this long-running operation succeeds, it will contain
- *  a SuggestTrialsResponse.
+ *  Adds one or more trials to a study, with parameter values suggested by AI
+ *  Platform Optimizer. Returns a long-running operation associated with the
+ *  generation of trial suggestions. When this long-running operation succeeds,
+ *  it will contain a SuggestTrialsResponse.
  *
  *  Method: ml.projects.locations.studies.trials.suggest
  *
@@ -1048,11 +1024,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Adds one or more trials to a study, with parameter values
- *  suggested by AI Platform Optimizer. Returns a long-running
- *  operation associated with the generation of trial suggestions.
- *  When this long-running operation succeeds, it will contain
- *  a SuggestTrialsResponse.
+ *  Adds one or more trials to a study, with parameter values suggested by AI
+ *  Platform Optimizer. Returns a long-running operation associated with the
+ *  generation of trial suggestions. When this long-running operation succeeds,
+ *  it will contain a SuggestTrialsResponse.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsRequest to
@@ -1067,10 +1042,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a model which will later contain one or more versions.
- *  You must add at least one version before you can request predictions from
- *  the model. Add versions by calling
- *  projects.models.versions.create.
+ *  Creates a model which will later contain one or more versions. You must add
+ *  at least one version before you can request predictions from the model. Add
+ *  versions by calling projects.models.versions.create.
  *
  *  Method: ml.projects.models.create
  *
@@ -1087,10 +1061,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model.
  *
- *  Creates a model which will later contain one or more versions.
- *  You must add at least one version before you can request predictions from
- *  the model. Add versions by calling
- *  projects.models.versions.create.
+ *  Creates a model which will later contain one or more versions. You must add
+ *  at least one version before you can request predictions from the model. Add
+ *  versions by calling projects.models.versions.create.
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model to
  *    include in the query.
@@ -1104,10 +1077,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a model.
- *  You can only delete a model if there are no versions in it. You can delete
- *  versions by calling
- *  projects.models.versions.delete.
+ *  Deletes a model. You can only delete a model if there are no versions in it.
+ *  You can delete versions by calling projects.models.versions.delete.
  *
  *  Method: ml.projects.models.delete
  *
@@ -1124,10 +1095,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Deletes a model.
- *  You can only delete a model if there are no versions in it. You can delete
- *  versions by calling
- *  projects.models.versions.delete.
+ *  Deletes a model. You can only delete a model if there are no versions in it.
+ *  You can delete versions by calling projects.models.versions.delete.
  *
  *  @param name Required. The name of the model.
  *
@@ -1139,8 +1108,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets information about a model, including its name, the description (if
- *  set), and the default version (if at least one version of the model has
- *  been deployed).
+ *  set), and the default version (if at least one version of the model has been
+ *  deployed).
  *
  *  Method: ml.projects.models.get
  *
@@ -1159,8 +1128,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model.
  *
  *  Gets information about a model, including its name, the description (if
- *  set), and the default version (if at least one version of the model has
- *  been deployed).
+ *  set), and the default version (if at least one version of the model has been
+ *  deployed).
  *
  *  @param name Required. The name of the model.
  *
@@ -1171,9 +1140,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: ml.projects.models.getIamPolicy
  *
@@ -1185,34 +1153,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleIamV1Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsGetIamPolicy
  */
@@ -1221,11 +1186,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the models in a project.
- *  Each project can contain multiple models, and each model can have multiple
- *  versions.
- *  If there are no models that match the request parameters, the list request
- *  returns an empty response body: {}.
+ *  Lists the models in a project. Each project can contain multiple models, and
+ *  each model can have multiple versions. If there are no models that match the
+ *  request parameters, the list request returns an empty response body: {}.
  *
  *  Method: ml.projects.models.list
  *
@@ -1243,15 +1206,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. The number of models to retrieve per "page" of results. If there
  *  are more remaining results than this number, the response message will
- *  contain a valid value in the `next_page_token` field.
- *  The default value is 20, and the maximum page size is 100.
+ *  contain a valid value in the `next_page_token` field. The default value is
+ *  20, and the maximum page size is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A page token to request the next page of results.
- *  You get the token from the `next_page_token` field of the response from
- *  the previous call.
+ *  Optional. A page token to request the next page of results. You get the
+ *  token from the `next_page_token` field of the response from the previous
+ *  call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1262,11 +1225,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListModelsResponse.
  *
- *  Lists the models in a project.
- *  Each project can contain multiple models, and each model can have multiple
- *  versions.
- *  If there are no models that match the request parameters, the list request
- *  returns an empty response body: {}.
+ *  Lists the models in a project. Each project can contain multiple models, and
+ *  each model can have multiple versions. If there are no models that match the
+ *  request parameters, the list request returns an empty response body: {}.
  *
  *  @param parent Required. The name of the project whose models are to be
  *    listed.
@@ -1282,9 +1243,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a specific model resource.
- *  Currently the only supported fields to update are `description` and
- *  `default_version.name`.
+ *  Updates a specific model resource. Currently the only supported fields to
+ *  update are `description` and `default_version.name`.
  *
  *  Method: ml.projects.models.patch
  *
@@ -1302,16 +1262,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. Specifies the path, relative to `Model`, of the field to update.
  *  For example, to change the description of a model to "foo" and set its
  *  default version to "version_1", the `update_mask` parameter would be
- *  specified as `description`, `default_version.name`, and the `PATCH`
- *  request body would specify the new value, as follows:
- *  {
- *  "description": "foo",
- *  "defaultVersion": {
- *  "name":"version_1"
- *  }
- *  }
- *  Currently the supported update masks are `description` and
- *  `default_version.name`.
+ *  specified as `description`, `default_version.name`, and the `PATCH` request
+ *  body would specify the new value, as follows: { "description": "foo",
+ *  "defaultVersion": { "name":"version_1" } } Currently the supported update
+ *  masks are `description` and `default_version.name`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1320,9 +1274,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Updates a specific model resource.
- *  Currently the only supported fields to update are `description` and
- *  `default_version.name`.
+ *  Updates a specific model resource. Currently the only supported fields to
+ *  update are `description` and `default_version.name`.
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model to
  *    include in the query.
@@ -1337,8 +1290,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: ml.projects.models.setIamPolicy
  *
@@ -1350,8 +1303,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1359,15 +1312,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleIamV1Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleIamV1SetIamPolicyRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsSetIamPolicy
  */
@@ -1377,12 +1330,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: ml.projects.models.testIamPermissions
  *
@@ -1394,8 +1346,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1403,19 +1355,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsTestIamPermissions
  */
@@ -1425,13 +1376,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new version of a model from a trained TensorFlow model.
- *  If the version created in the cloud by this call is the first deployed
- *  version of the specified model, it will be made the default version of the
- *  model. When you add a version to a model that already has one or more
- *  versions, the default version does not automatically change. If you want a
- *  new version to be the default, you must call
- *  projects.models.versions.setDefault.
+ *  Creates a new version of a model from a trained TensorFlow model. If the
+ *  version created in the cloud by this call is the first deployed version of
+ *  the specified model, it will be made the default version of the model. When
+ *  you add a version to a model that already has one or more versions, the
+ *  default version does not automatically change. If you want a new version to
+ *  be the default, you must call projects.models.versions.setDefault.
  *
  *  Method: ml.projects.models.versions.create
  *
@@ -1448,13 +1398,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Creates a new version of a model from a trained TensorFlow model.
- *  If the version created in the cloud by this call is the first deployed
- *  version of the specified model, it will be made the default version of the
- *  model. When you add a version to a model that already has one or more
- *  versions, the default version does not automatically change. If you want a
- *  new version to be the default, you must call
- *  projects.models.versions.setDefault.
+ *  Creates a new version of a model from a trained TensorFlow model. If the
+ *  version created in the cloud by this call is the first deployed version of
+ *  the specified model, it will be made the default version of the model. When
+ *  you add a version to a model that already has one or more versions, the
+ *  default version does not automatically change. If you want a new version to
+ *  be the default, you must call projects.models.versions.setDefault.
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
  *    to include in the query.
@@ -1468,11 +1417,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a model version.
- *  Each model can have multiple versions deployed and in use at any given
- *  time. Use this method to remove a single version.
- *  Note: You cannot delete the version that is set as the default version
- *  of the model unless it is the only remaining version.
+ *  Deletes a model version. Each model can have multiple versions deployed and
+ *  in use at any given time. Use this method to remove a single version. Note:
+ *  You cannot delete the version that is set as the default version of the
+ *  model unless it is the only remaining version.
  *
  *  Method: ml.projects.models.versions.delete
  *
@@ -1484,25 +1432,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsDeleteWithname:]
 
 /**
- *  Required. The name of the version. You can get the names of all the
- *  versions of a model by calling
- *  projects.models.versions.list.
+ *  Required. The name of the version. You can get the names of all the versions
+ *  of a model by calling projects.models.versions.list.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Deletes a model version.
- *  Each model can have multiple versions deployed and in use at any given
- *  time. Use this method to remove a single version.
- *  Note: You cannot delete the version that is set as the default version
- *  of the model unless it is the only remaining version.
+ *  Deletes a model version. Each model can have multiple versions deployed and
+ *  in use at any given time. Use this method to remove a single version. Note:
+ *  You cannot delete the version that is set as the default version of the
+ *  model unless it is the only remaining version.
  *
  *  @param name Required. The name of the version. You can get the names of all
- *    the
- *    versions of a model by calling
- *    projects.models.versions.list.
+ *    the versions of a model by calling projects.models.versions.list.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsDelete
  */
@@ -1511,11 +1455,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets information about a model version.
- *  Models can have multiple versions. You can call
- *  projects.models.versions.list
- *  to get the same information that this method returns for all of the
- *  versions of a model.
+ *  Gets information about a model version. Models can have multiple versions.
+ *  You can call projects.models.versions.list to get the same information that
+ *  this method returns for all of the versions of a model.
  *
  *  Method: ml.projects.models.versions.get
  *
@@ -1532,11 +1474,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.
  *
- *  Gets information about a model version.
- *  Models can have multiple versions. You can call
- *  projects.models.versions.list
- *  to get the same information that this method returns for all of the
- *  versions of a model.
+ *  Gets information about a model version. Models can have multiple versions.
+ *  You can call projects.models.versions.list to get the same information that
+ *  this method returns for all of the versions of a model.
  *
  *  @param name Required. The name of the version.
  *
@@ -1547,12 +1487,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets basic information about all the versions of a model.
- *  If you expect that a model has many versions, or if you need to handle
- *  only a limited number of results at a time, you can request that the list
- *  be retrieved in batches (called pages).
- *  If there are no versions that match the request parameters, the list
- *  request returns an empty response body: {}.
+ *  Gets basic information about all the versions of a model. If you expect that
+ *  a model has many versions, or if you need to handle only a limited number of
+ *  results at a time, you can request that the list be retrieved in batches
+ *  (called pages). If there are no versions that match the request parameters,
+ *  the list request returns an empty response body: {}.
  *
  *  Method: ml.projects.models.versions.list
  *
@@ -1568,17 +1507,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The number of versions to retrieve per "page" of results. If
- *  there are more remaining results than this number, the response message
- *  will contain a valid value in the `next_page_token` field.
- *  The default value is 20, and the maximum page size is 100.
+ *  Optional. The number of versions to retrieve per "page" of results. If there
+ *  are more remaining results than this number, the response message will
+ *  contain a valid value in the `next_page_token` field. The default value is
+ *  20, and the maximum page size is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A page token to request the next page of results.
- *  You get the token from the `next_page_token` field of the response from
- *  the previous call.
+ *  Optional. A page token to request the next page of results. You get the
+ *  token from the `next_page_token` field of the response from the previous
+ *  call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1589,12 +1528,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListVersionsResponse.
  *
- *  Gets basic information about all the versions of a model.
- *  If you expect that a model has many versions, or if you need to handle
- *  only a limited number of results at a time, you can request that the list
- *  be retrieved in batches (called pages).
- *  If there are no versions that match the request parameters, the list
- *  request returns an empty response body: {}.
+ *  Gets basic information about all the versions of a model. If you expect that
+ *  a model has many versions, or if you need to handle only a limited number of
+ *  results at a time, you can request that the list be retrieved in batches
+ *  (called pages). If there are no versions that match the request parameters,
+ *  the list request returns an empty response body: {}.
  *
  *  @param parent Required. The name of the model for which to list the version.
  *
@@ -1609,9 +1547,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the specified Version resource.
- *  Currently the only update-able fields are `description`,
- *  `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
+ *  Updates the specified Version resource. Currently the only update-able
+ *  fields are `description`, `requestLoggingConfig`, `autoScaling.minNodes`,
+ *  and `manualScaling.nodes`.
  *
  *  Method: ml.projects.models.versions.patch
  *
@@ -1626,20 +1564,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Specifies the path, relative to `Version`, of the field to
- *  update. Must be present and non-empty.
- *  For example, to change the description of a version to "foo", the
- *  `update_mask` parameter would be specified as `description`, and the
- *  `PATCH` request body would specify the new value, as follows:
- *  ```
- *  {
- *  "description": "foo"
- *  }
- *  ```
- *  Currently the only supported update mask fields are `description`,
- *  `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
- *  However, you can only update `manualScaling.nodes` if the version uses a
- *  [Compute Engine (N1)
+ *  Required. Specifies the path, relative to `Version`, of the field to update.
+ *  Must be present and non-empty. For example, to change the description of a
+ *  version to "foo", the `update_mask` parameter would be specified as
+ *  `description`, and the `PATCH` request body would specify the new value, as
+ *  follows: ``` { "description": "foo" } ``` Currently the only supported
+ *  update mask fields are `description`, `requestLoggingConfig`,
+ *  `autoScaling.minNodes`, and `manualScaling.nodes`. However, you can only
+ *  update `manualScaling.nodes` if the version uses a [Compute Engine (N1)
  *  machine type](/ml-engine/docs/machine-types-online-prediction).
  *
  *  String format is a comma-separated list of fields.
@@ -1649,9 +1581,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
- *  Updates the specified Version resource.
- *  Currently the only update-able fields are `description`,
- *  `requestLoggingConfig`, `autoScaling.minNodes`, and `manualScaling.nodes`.
+ *  Updates the specified Version resource. Currently the only update-able
+ *  fields are `description`, `requestLoggingConfig`, `autoScaling.minNodes`,
+ *  and `manualScaling.nodes`.
  *
  *  @param object The @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
  *    to include in the query.
@@ -1665,11 +1597,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Designates a version to be the default for the model.
- *  The default version is used for prediction requests made against the model
- *  that don't specify a version.
- *  The first version to be created for a model is automatically set as the
- *  default. You must make any subsequent changes to the default version
+ *  Designates a version to be the default for the model. The default version is
+ *  used for prediction requests made against the model that don't specify a
+ *  version. The first version to be created for a model is automatically set as
+ *  the default. You must make any subsequent changes to the default version
  *  setting manually using this method.
  *
  *  Method: ml.projects.models.versions.setDefault
@@ -1682,8 +1613,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsModelsVersionsSetDefaultWithObject:name:]
 
 /**
- *  Required. The name of the version to make the default for the model. You
- *  can get the names of all the versions of a model by calling
+ *  Required. The name of the version to make the default for the model. You can
+ *  get the names of all the versions of a model by calling
  *  projects.models.versions.list.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1691,19 +1622,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.
  *
- *  Designates a version to be the default for the model.
- *  The default version is used for prediction requests made against the model
- *  that don't specify a version.
- *  The first version to be created for a model is automatically set as the
- *  default. You must make any subsequent changes to the default version
+ *  Designates a version to be the default for the model. The default version is
+ *  used for prediction requests made against the model that don't specify a
+ *  version. The first version to be created for a model is automatically set as
+ *  the default. You must make any subsequent changes to the default version
  *  setting manually using this method.
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest to
  *    include in the query.
  *  @param name Required. The name of the version to make the default for the
- *    model. You
- *    can get the names of all the versions of a model by calling
+ *    model. You can get the names of all the versions of a model by calling
  *    projects.models.versions.list.
  *
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsModelsVersionsSetDefault
@@ -1715,15 +1644,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: ml.projects.operations.cancel
  *
@@ -1741,15 +1669,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleProtobufEmpty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
  *
@@ -1793,14 +1720,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: ml.projects.operations.list
  *
@@ -1828,14 +1755,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRCloudMachineLearningEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -1850,8 +1777,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Performs online prediction on the data in the request.
- *  <div>{% dynamic include "/ai-platform/includes/___predict-request" %}</div>
+ *  Performs online prediction on the data in the request. {% dynamic include
+ *  "/ai-platform/includes/___predict-request" %}
  *
  *  Method: ml.projects.predict
  *
@@ -1863,16 +1790,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudMachineLearningEngine queryForProjectsPredictWithObject:name:]
 
 /**
- *  Required. The resource name of a model or a version.
- *  Authorization: requires the `predict` permission on the specified resource.
+ *  Required. The resource name of a model or a version. Authorization: requires
+ *  the `predict` permission on the specified resource.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleApiHttpBody.
  *
- *  Performs online prediction on the data in the request.
- *  <div>{% dynamic include "/ai-platform/includes/___predict-request" %}</div>
+ *  Performs online prediction on the data in the request. {% dynamic include
+ *  "/ai-platform/includes/___predict-request" %}
  *
  *  @param object The @c
  *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest to include in

@@ -31,6 +31,11 @@ NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Replaced = @"
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Restarted = @"RESTARTED";
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned = @"UNPINNED";
 
+// GTLRAndroidManagement_ApplicationPolicy.connectedWorkAndPersonalApp
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppAllowed = @"CONNECTED_WORK_AND_PERSONAL_APP_ALLOWED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppDisallowed = @"CONNECTED_WORK_AND_PERSONAL_APP_DISALLOWED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppUnspecified = @"CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED";
+
 // GTLRAndroidManagement_ApplicationPolicy.defaultPermissionPolicy
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Deny = @"DENY";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_DefaultPermissionPolicy_Grant = @"GRANT";
@@ -353,6 +358,13 @@ NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Postpone = @"POSTPONE"
 NSString * const kGTLRAndroidManagement_SystemUpdate_Type_SystemUpdateTypeUnspecified = @"SYSTEM_UPDATE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Windowed = @"WINDOWED";
 
+// GTLRAndroidManagement_SystemUpdateInfo.updateStatus
+NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_OsUpdateAvailable = @"OS_UPDATE_AVAILABLE";
+NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_SecurityUpdateAvailable = @"SECURITY_UPDATE_AVAILABLE";
+NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UnknownUpdateAvailable = @"UNKNOWN_UPDATE_AVAILABLE";
+NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpdateStatusUnknown = @"UPDATE_STATUS_UNKNOWN";
+NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate = @"UP_TO_DATE";
+
 // GTLRAndroidManagement_WebApp.displayMode
 NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_DisplayModeUnspecified = @"DISPLAY_MODE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_FullScreen = @"FULL_SCREEN";
@@ -452,10 +464,10 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
-@dynamic accessibleTrackIds, defaultPermissionPolicy, delegatedScopes, disabled,
-         installType, lockTaskAllowed, managedConfiguration,
-         managedConfigurationTemplate, minimumVersionCode, packageName,
-         permissionGrants;
+@dynamic accessibleTrackIds, connectedWorkAndPersonalApp,
+         defaultPermissionPolicy, delegatedScopes, disabled, installType,
+         lockTaskAllowed, managedConfiguration, managedConfigurationTemplate,
+         minimumVersionCode, packageName, permissionGrants;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1332,7 +1344,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @dynamic androidBuildNumber, androidBuildTime, androidDevicePolicyVersionCode,
          androidDevicePolicyVersionName, androidVersion, bootloaderVersion,
          deviceBuildSignature, deviceKernelVersion, primaryLanguageCode,
-         securityPatchLevel;
+         securityPatchLevel, systemUpdateInfo;
 @end
 
 
@@ -1396,6 +1408,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_SystemUpdateInfo
+//
+
+@implementation GTLRAndroidManagement_SystemUpdateInfo
+@dynamic updateReceivedTime, updateStatus;
 @end
 
 

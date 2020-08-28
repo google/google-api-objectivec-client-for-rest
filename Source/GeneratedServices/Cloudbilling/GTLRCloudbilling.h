@@ -5,8 +5,7 @@
 //   Cloud Billing API (cloudbilling/v1)
 // Description:
 //   Allows developers to manage billing for their Google Cloud Platform
-//   projects
-//   programmatically.
+//   projects programmatically.
 // Documentation:
 //   https://cloud.google.com/billing/
 

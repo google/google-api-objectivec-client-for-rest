@@ -85,8 +85,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytr
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_HeuristicRelevanceUnspecified;
 /**
- *  The data point has a strong effect on the result. Changing the data point
- *  is likely to affect the overall determination.
+ *  The data point has a strong effect on the result. Changing the data point is
+ *  likely to affect the overall determination.
  *
  *  Value: "HIGH"
  */
@@ -137,8 +137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytr
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified;
 /**
- *  The data point has a strong effect on the result. Changing the data point
- *  is likely to affect the overall determination.
+ *  The data point has a strong effect on the result. Changing the data point is
+ *  likely to affect the overall determination.
  *
  *  Value: "HIGH"
  */
@@ -155,11 +155,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytr
 // GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership.membership
 
 /**
- *  The binding includes the member. The member can be included directly
- *  or indirectly. For example:
- *  * A member is included directly if that member is listed in the binding.
- *  * A member is included indirectly if that member is in a Google group or
- *  G Suite domain that is listed in the binding.
+ *  The binding includes the member. The member can be included directly or
+ *  indirectly. For example: * A member is included directly if that member is
+ *  listed in the binding. * A member is included indirectly if that member is
+ *  in a Google group or G Suite domain that is listed in the binding.
  *
  *  Value: "MEMBERSHIP_INCLUDED"
  */
@@ -177,8 +176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytr
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownInfoDenied;
 /**
- *  The member is an unsupported type. Only Google Accounts and service
- *  accounts are supported.
+ *  The member is an unsupported type. Only Google Accounts and service accounts
+ *  are supported.
  *
  *  Value: "MEMBERSHIP_UNKNOWN_UNSUPPORTED"
  */
@@ -200,8 +199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytr
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_HeuristicRelevanceUnspecified;
 /**
- *  The data point has a strong effect on the result. Changing the data point
- *  is likely to affect the overall determination.
+ *  The data point has a strong effect on the result. Changing the data point is
+ *  likely to affect the overall determination.
  *
  *  Value: "HIGH"
  */
@@ -260,8 +259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytr
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_HeuristicRelevanceUnspecified;
 /**
- *  The data point has a strong effect on the result. Changing the data point
- *  is likely to affect the overall determination.
+ *  The data point has a strong effect on the result. Changing the data point is
+ *  likely to affect the overall determination.
  *
  *  Value: "HIGH"
  */
@@ -354,20 +353,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 /**
  *  Required. The IAM permission to check for the specified member and resource.
  *  For a complete list of IAM permissions, see
- *  https://cloud.google.com/iam/help/permissions/reference.
- *  For a complete list of predefined IAM roles and the permissions in each
- *  role, see https://cloud.google.com/iam/help/roles/reference.
+ *  https://cloud.google.com/iam/help/permissions/reference. For a complete list
+ *  of predefined IAM roles and the permissions in each role, see
+ *  https://cloud.google.com/iam/help/roles/reference.
  */
 @property(nonatomic, copy, nullable) NSString *permission;
 
 /**
  *  Required. The member, or principal, whose access you want to check, in the
- *  form of
- *  the email address that represents that member. For example,
+ *  form of the email address that represents that member. For example,
  *  `alice\@example.com` or
- *  `my-service-account\@my-project.iam.gserviceaccount.com`.
- *  The member must be a Google Account or a service account. Other types of
- *  members are not supported.
+ *  `my-service-account\@my-project.iam.gserviceaccount.com`. The member must be
+ *  a Google Account or a service account. Other types of members are not
+ *  supported.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
 
@@ -382,13 +380,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 
 /**
  *  Required. Indicates whether _this binding_ provides the specified permission
- *  to the
- *  specified member for the specified resource.
- *  This field does _not_ indicate whether the member actually has the
- *  permission for the resource. There might be another binding that overrides
- *  this binding. To determine whether the member actually has the permission,
- *  use the `access` field in the
- *  TroubleshootIamPolicyResponse.
+ *  to the specified member for the specified resource. This field does _not_
+ *  indicate whether the member actually has the permission for the resource.
+ *  There might be another binding that overrides this binding. To determine
+ *  whether the member actually has the permission, use the `access` field in
+ *  the TroubleshootIamPolicyResponse.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_AccessStateUnspecified
@@ -399,20 +395,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *        The member does not have the permission. (Value: "NOT_GRANTED")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_UnknownConditional
  *        The member has the permission only if a condition expression evaluates
- *        to
- *        `true`. (Value: "UNKNOWN_CONDITIONAL")
+ *        to `true`. (Value: "UNKNOWN_CONDITIONAL")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_UnknownInfoDenied
  *        The sender of the request does not have access to all of the policies
- *        that
- *        Policy Troubleshooter needs to evaluate. (Value:
+ *        that Policy Troubleshooter needs to evaluate. (Value:
  *        "UNKNOWN_INFO_DENIED")
  */
 @property(nonatomic, copy, nullable) NSString *access;
 
 /**
  *  A condition expression that prevents access unless the expression evaluates
- *  to `true`.
- *  To learn about IAM Conditions, see
+ *  to `true`. To learn about IAM Conditions, see
  *  http://cloud.google.com/iam/help/conditions/overview.
  */
 @property(nonatomic, strong, nullable) GTLRPolicyTroubleshooter_GoogleTypeExpr *condition;
@@ -421,18 +414,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *  Indicates whether each member in the binding includes the member specified
  *  in the request, either directly or indirectly. Each key identifies a member
  *  in the binding, and each value indicates whether the member in the binding
- *  includes the member in the request.
- *  For example, suppose that a binding includes the following members:
- *  * `user:alice\@example.com`
- *  * `group:product-eng\@example.com`
- *  You want to troubleshoot access for `user:bob\@example.com`. This user is a
- *  member of the group `group:product-eng\@example.com`.
- *  For the first member in the binding, the key is `user:alice\@example.com`,
- *  and the `membership` field in the value is set to
- *  `MEMBERSHIP_NOT_INCLUDED`.
- *  For the second member in the binding, the key is
- *  `group:product-eng\@example.com`, and the `membership` field in the value is
- *  set to `MEMBERSHIP_INCLUDED`.
+ *  includes the member in the request. For example, suppose that a binding
+ *  includes the following members: * `user:alice\@example.com` *
+ *  `group:product-eng\@example.com` You want to troubleshoot access for
+ *  `user:bob\@example.com`. This user is a member of the group
+ *  `group:product-eng\@example.com`. For the first member in the binding, the
+ *  key is `user:alice\@example.com`, and the `membership` field in the value is
+ *  set to `MEMBERSHIP_NOT_INCLUDED`. For the second member in the binding, the
+ *  key is `group:product-eng\@example.com`, and the `membership` field in the
+ *  value is set to `MEMBERSHIP_INCLUDED`.
  */
 @property(nonatomic, strong, nullable) GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Memberships *memberships;
 
@@ -445,20 +435,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *        Reserved for future use. (Value: "HEURISTIC_RELEVANCE_UNSPECIFIED")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_High
  *        The data point has a strong effect on the result. Changing the data
- *        point
- *        is likely to affect the overall determination. (Value: "HIGH")
+ *        point is likely to affect the overall determination. (Value: "HIGH")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_Normal
  *        The data point has a limited effect on the result. Changing the data
- *        point
- *        is unlikely to affect the overall determination. (Value: "NORMAL")
+ *        point is unlikely to affect the overall determination. (Value:
+ *        "NORMAL")
  */
 @property(nonatomic, copy, nullable) NSString *relevance;
 
 /**
  *  The role that this binding grants. For example,
- *  `roles/compute.serviceAgent`.
- *  For a complete list of predefined IAM roles, as well as the permissions in
- *  each role, see https://cloud.google.com/iam/help/roles/reference.
+ *  `roles/compute.serviceAgent`. For a complete list of predefined IAM roles,
+ *  as well as the permissions in each role, see
+ *  https://cloud.google.com/iam/help/roles/reference.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -482,20 +471,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *rolePermission;
 
 /**
- *  The relevance of the permission's existence, or nonexistence, in the role
- *  to the overall determination for the entire policy.
+ *  The relevance of the permission's existence, or nonexistence, in the role to
+ *  the overall determination for the entire policy.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified
  *        Reserved for future use. (Value: "HEURISTIC_RELEVANCE_UNSPECIFIED")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_High
  *        The data point has a strong effect on the result. Changing the data
- *        point
- *        is likely to affect the overall determination. (Value: "HIGH")
+ *        point is likely to affect the overall determination. (Value: "HIGH")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_Normal
  *        The data point has a limited effect on the result. Changing the data
- *        point
- *        is unlikely to affect the overall determination. (Value: "NORMAL")
+ *        point is unlikely to affect the overall determination. (Value:
+ *        "NORMAL")
  */
 @property(nonatomic, copy, nullable) NSString *rolePermissionRelevance;
 
@@ -506,18 +494,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *  Indicates whether each member in the binding includes the member specified
  *  in the request, either directly or indirectly. Each key identifies a member
  *  in the binding, and each value indicates whether the member in the binding
- *  includes the member in the request.
- *  For example, suppose that a binding includes the following members:
- *  * `user:alice\@example.com`
- *  * `group:product-eng\@example.com`
- *  You want to troubleshoot access for `user:bob\@example.com`. This user is a
- *  member of the group `group:product-eng\@example.com`.
- *  For the first member in the binding, the key is `user:alice\@example.com`,
- *  and the `membership` field in the value is set to
- *  `MEMBERSHIP_NOT_INCLUDED`.
- *  For the second member in the binding, the key is
- *  `group:product-eng\@example.com`, and the `membership` field in the value is
- *  set to `MEMBERSHIP_INCLUDED`.
+ *  includes the member in the request. For example, suppose that a binding
+ *  includes the following members: * `user:alice\@example.com` *
+ *  `group:product-eng\@example.com` You want to troubleshoot access for
+ *  `user:bob\@example.com`. This user is a member of the group
+ *  `group:product-eng\@example.com`. For the first member in the binding, the
+ *  key is `user:alice\@example.com`, and the `membership` field in the value is
+ *  set to `MEMBERSHIP_NOT_INCLUDED`. For the second member in the binding, the
+ *  key is `group:product-eng\@example.com`, and the `membership` field in the
+ *  value is set to `MEMBERSHIP_INCLUDED`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership.
@@ -540,13 +525,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *  Likely values:
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipIncluded
  *        The binding includes the member. The member can be included directly
- *        or indirectly. For example:
- *        * A member is included directly if that member is listed in the
- *        binding.
- *        * A member is included indirectly if that member is in a Google group
- *        or
- *        G Suite domain that is listed in the binding. (Value:
- *        "MEMBERSHIP_INCLUDED")
+ *        or indirectly. For example: * A member is included directly if that
+ *        member is listed in the binding. * A member is included indirectly if
+ *        that member is in a Google group or G Suite domain that is listed in
+ *        the binding. (Value: "MEMBERSHIP_INCLUDED")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipNotIncluded
  *        The binding does not include the member. (Value:
  *        "MEMBERSHIP_NOT_INCLUDED")
@@ -570,12 +552,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *        Reserved for future use. (Value: "HEURISTIC_RELEVANCE_UNSPECIFIED")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_High
  *        The data point has a strong effect on the result. Changing the data
- *        point
- *        is likely to affect the overall determination. (Value: "HIGH")
+ *        point is likely to affect the overall determination. (Value: "HIGH")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_Normal
  *        The data point has a limited effect on the result. Changing the data
- *        point
- *        is unlikely to affect the overall determination. (Value: "NORMAL")
+ *        point is unlikely to affect the overall determination. (Value:
+ *        "NORMAL")
  */
 @property(nonatomic, copy, nullable) NSString *relevance;
 
@@ -583,18 +564,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 
 
 /**
- *  Details about how a specific IAM Policy contributed
- *  to the access check.
+ *  Details about how a specific IAM Policy contributed to the access check.
  */
 @interface GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy : GTLRObject
 
 /**
  *  Indicates whether _this policy_ provides the specified permission to the
- *  specified member for the specified resource.
- *  This field does _not_ indicate whether the member actually has the
- *  permission for the resource. There might be another policy that overrides
- *  this policy. To determine whether the member actually has the permission,
- *  use the `access` field in the
+ *  specified member for the specified resource. This field does _not_ indicate
+ *  whether the member actually has the permission for the resource. There might
+ *  be another policy that overrides this policy. To determine whether the
+ *  member actually has the permission, use the `access` field in the
  *  TroubleshootIamPolicyResponse.
  *
  *  Likely values:
@@ -606,21 +585,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *        The member does not have the permission. (Value: "NOT_GRANTED")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_UnknownConditional
  *        The member has the permission only if a condition expression evaluates
- *        to
- *        `true`. (Value: "UNKNOWN_CONDITIONAL")
+ *        to `true`. (Value: "UNKNOWN_CONDITIONAL")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_UnknownInfoDenied
  *        The sender of the request does not have access to all of the policies
- *        that
- *        Policy Troubleshooter needs to evaluate. (Value:
+ *        that Policy Troubleshooter needs to evaluate. (Value:
  *        "UNKNOWN_INFO_DENIED")
  */
 @property(nonatomic, copy, nullable) NSString *access;
 
 /**
  *  Details about how each binding in the policy affects the member's ability,
- *  or inability, to use the permission for the resource.
- *  If the sender of the request does not have access to the policy, this field
- *  is omitted.
+ *  or inability, to use the permission for the resource. If the sender of the
+ *  request does not have access to the policy, this field is omitted.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation *> *bindingExplanations;
 
@@ -628,36 +604,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *  The full resource name that identifies the resource. For example,
  *  `//compute.googleapis.com/projects/my-project/zones/us-central1-a/instances/my-instance`.
  *  If the sender of the request does not have access to the policy, this field
- *  is omitted.
- *  For examples of full resource names for Google Cloud services, see
- *  https://cloud.google.com/iam/help/troubleshooter/full-resource-names.
+ *  is omitted. For examples of full resource names for Google Cloud services,
+ *  see https://cloud.google.com/iam/help/troubleshooter/full-resource-names.
  */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
 
 /**
- *  The IAM policy attached to the resource.
- *  If the sender of the request does not have access to the policy, this field
- *  is empty.
+ *  The IAM policy attached to the resource. If the sender of the request does
+ *  not have access to the policy, this field is empty.
  */
 @property(nonatomic, strong, nullable) GTLRPolicyTroubleshooter_GoogleIamV1Policy *policy;
 
 /**
  *  The relevance of this policy to the overall determination in the
- *  TroubleshootIamPolicyResponse.
- *  If the sender of the request does not have access to the policy, this field
- *  is omitted.
+ *  TroubleshootIamPolicyResponse. If the sender of the request does not have
+ *  access to the policy, this field is omitted.
  *
  *  Likely values:
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_HeuristicRelevanceUnspecified
  *        Reserved for future use. (Value: "HEURISTIC_RELEVANCE_UNSPECIFIED")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_High
  *        The data point has a strong effect on the result. Changing the data
- *        point
- *        is likely to affect the overall determination. (Value: "HIGH")
+ *        point is likely to affect the overall determination. (Value: "HIGH")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_Normal
  *        The data point has a limited effect on the result. Changing the data
- *        point
- *        is unlikely to affect the overall determination. (Value: "NORMAL")
+ *        point is unlikely to affect the overall determination. (Value:
+ *        "NORMAL")
  */
 @property(nonatomic, copy, nullable) NSString *relevance;
 
@@ -696,12 +668,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
  *        The member does not have the permission. (Value: "NOT_GRANTED")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_UnknownConditional
  *        The member has the permission only if a condition expression evaluates
- *        to
- *        `true`. (Value: "UNKNOWN_CONDITIONAL")
+ *        to `true`. (Value: "UNKNOWN_CONDITIONAL")
  *    @arg @c kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_UnknownInfoDenied
  *        The sender of the request does not have access to all of the policies
- *        that
- *        Policy Troubleshooter needs to evaluate. (Value:
+ *        that Policy Troubleshooter needs to evaluate. (Value:
  *        "UNKNOWN_INFO_DENIED")
  */
 @property(nonatomic, copy, nullable) NSString *access;
@@ -709,10 +679,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 /**
  *  List of IAM policies that were evaluated to check the member's permissions,
  *  with annotations to indicate how each policy contributed to the final
- *  result.
- *  The list of policies can include the policy for the resource itself. It can
- *  also include policies that are inherited from higher levels of the resource
- *  hierarchy, including the organization, the folder, and the project.
+ *  result. The list of policies can include the policy for the resource itself.
+ *  It can also include policies that are inherited from higher levels of the
+ *  resource hierarchy, including the organization, the folder, and the project.
  *  To learn more about the resource hierarchy, see
  *  https://cloud.google.com/iam/help/resource-hierarchy.
  */
@@ -722,50 +691,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 
 
 /**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  },
- *  {
- *  "log_type": "ADMIN_READ"
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ"
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -776,9 +714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig *> *auditLogConfigs;
 
 /**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -786,30 +724,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 
 
 /**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -837,56 +762,51 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 @interface GTLRPolicyTroubleshooter_GoogleIamV1Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRPolicyTroubleshooter_GoogleTypeExpr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -895,66 +815,34 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRPolicyTroubleshooter_GoogleIamV1Policy : GTLRObject
 
@@ -963,23 +851,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicyTroubleshooter_GoogleIamV1Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -987,24 +875,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1017,27 +901,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRPolicyTroubleshooter_GoogleTypeExpr : GTLRObject
 
@@ -1062,9 +939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLog
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 

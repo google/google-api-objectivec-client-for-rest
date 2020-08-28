@@ -49,11 +49,25 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // syncMode
 
-/** Value: "EXTERNAL_SYNC_MODE_UNSPECIFIED" */
+/**
+ *  Unknown external sync mode, will be defaulted to ONLINE mode
+ *
+ *  Value: "EXTERNAL_SYNC_MODE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeExternalSyncModeUnspecified;
-/** Value: "OFFLINE" */
+/**
+ *  Offline external sync only dumps and loads a one-time snapshot of master's
+ *  data
+ *
+ *  Value: "OFFLINE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOffline;
-/** Value: "ONLINE" */
+/**
+ *  Online external sync will set up replication after initial data external
+ *  sync
+ *
+ *  Value: "ONLINE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 
 // ----------------------------------------------------------------------------
@@ -84,8 +98,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 //   +[GTLQuerySQLAdmin queryForBackupRunsDeleteWithproject:instance:identifier:]
 
 /**
- *  The ID of the Backup Run to delete. To find a Backup Run ID, use the
- *  <a href="/sql/docs/db_path/admin-api/rest/v1beta4/backupRuns/list">list</a>
+ *  The ID of the Backup Run to delete. To find a Backup Run ID, use the list
  *  method.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -106,9 +119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *  @param identifier The ID of the Backup Run to delete. To find a Backup Run
- *    ID, use the
- *    <a href="/sql/docs/db_path/admin-api/rest/v1beta4/backupRuns/list">list</a>
- *    method.
+ *    ID, use the list method.
  *
  *  @return GTLRSQLAdminQuery_BackupRunsDelete
  */
@@ -162,8 +173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Creates a new backup run on demand. This method is applicable only to
- *  Second Generation instances.
+ *  Creates a new backup run on demand. This method is applicable only to Second
+ *  Generation instances.
  *
  *  Method: sql.backupRuns.insert
  *
@@ -184,8 +195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Creates a new backup run on demand. This method is applicable only to
- *  Second Generation instances.
+ *  Creates a new backup run on demand. This method is applicable only to Second
+ *  Generation instances.
  *
  *  @param object The @c GTLRSQLAdmin_BackupRun to include in the query.
  *  @param project Project ID of the project that contains the instance.
@@ -592,8 +603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  @param project Project ID of the source as well as the clone Cloud SQL
  *    instance.
  *  @param instance The ID of the Cloud SQL instance to be cloned (source). This
- *    does not
- *    include the project ID.
+ *    does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_InstancesClone
  */
@@ -717,8 +727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Failover the instance to its failover replica instance. Using this
- *  operation might cause your instance to restart.
+ *  Failover the instance to its failover replica instance. Using this operation
+ *  might cause your instance to restart.
  *
  *  Method: sql.instances.failover
  *
@@ -739,8 +749,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Failover the instance to its failover replica instance. Using this
- *  operation might cause your instance to restart.
+ *  Failover the instance to its failover replica instance. Using this operation
+ *  might cause your instance to restart.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesFailoverRequest to include in the
  *    query.
@@ -790,8 +800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in
- *  Cloud Storage.
+ *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud
+ *  Storage.
  *
  *  Method: sql.instances.import
  *
@@ -811,8 +821,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in
- *  Cloud Storage.
+ *  Imports data into a Cloud SQL instance from a SQL dump or CSV file in Cloud
+ *  Storage.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesImportRequest to include in the
  *    query.
@@ -853,8 +863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *
  *  @param object The @c GTLRSQLAdmin_DatabaseInstance to include in the query.
  *  @param project Project ID of the project to which the newly created Cloud
- *    SQL instances
- *    should belong.
+ *    SQL instances should belong.
  *
  *  @return GTLRSQLAdminQuery_InstancesInsert
  */
@@ -877,14 +886,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 //   +[GTLQuerySQLAdmin queryForInstancesListWithproject:]
 
 /**
- *  A filter expression that filters resources listed in the response.
- *  The expression is in the form of field:value. For example,
+ *  A filter expression that filters resources listed in the response. The
+ *  expression is in the form of field:value. For example,
  *  'instanceType:CLOUD_SQL_INSTANCE'. Fields can be nested as needed as per
  *  their JSON representation, such as 'settings.userLabels.auto_start:true'.
- *  Multiple filter queries are space-separated. For example.
- *  'state:RUNNABLE instanceType:CLOUD_SQL_INSTANCE'. By default, each
- *  expression is an AND expression. However, you can include AND and OR
- *  expressions explicitly.
+ *  Multiple filter queries are space-separated. For example. 'state:RUNNABLE
+ *  instanceType:CLOUD_SQL_INSTANCE'. By default, each expression is an AND
+ *  expression. However, you can include AND and OR expressions explicitly.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -922,8 +930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  Lists all of the trusted Certificate Authorities (CAs) for the specified
  *  instance. There can be up to three CAs listed: the CA that was used to sign
  *  the certificate that is currently in use, a CA that has been added but not
- *  yet used to sign a certificate, and a CA used to sign a certificate that
- *  has previously rotated out.
+ *  yet used to sign a certificate, and a CA used to sign a certificate that has
+ *  previously rotated out.
  *
  *  Method: sql.instances.listServerCas
  *
@@ -947,8 +955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  Lists all of the trusted Certificate Authorities (CAs) for the specified
  *  instance. There can be up to three CAs listed: the CA that was used to sign
  *  the certificate that is currently in use, a CA that has been added but not
- *  yet used to sign a certificate, and a CA used to sign a certificate that
- *  has previously rotated out.
+ *  yet used to sign a certificate, and a CA used to sign a certificate that has
+ *  previously rotated out.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -961,8 +969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Updates settings of a Cloud SQL instance.
- *  This method supports patch semantics.
+ *  Updates settings of a Cloud SQL instance. This method supports patch
+ *  semantics.
  *
  *  Method: sql.instances.patch
  *
@@ -983,8 +991,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Updates settings of a Cloud SQL instance.
- *  This method supports patch semantics.
+ *  Updates settings of a Cloud SQL instance. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRSQLAdmin_DatabaseInstance to include in the query.
  *  @param project Project ID of the project that contains the instance.
@@ -1461,17 +1469,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** ID of the project that contains the first generation instance. */
+/** ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
  *  External sync mode
  *
  *  Likely values:
- *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Value
- *        "EXTERNAL_SYNC_MODE_UNSPECIFIED"
- *    @arg @c kGTLRSQLAdminSyncModeOnline Value "ONLINE"
- *    @arg @c kGTLRSQLAdminSyncModeOffline Value "OFFLINE"
+ *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Unknown external
+ *        sync mode, will be defaulted to ONLINE mode (Value:
+ *        "EXTERNAL_SYNC_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdminSyncModeOnline Online external sync will set up
+ *        replication after initial data external sync (Value: "ONLINE")
+ *    @arg @c kGTLRSQLAdminSyncModeOffline Offline external sync only dumps and
+ *        loads a one-time snapshot of master's data (Value: "OFFLINE")
  */
 @property(nonatomic, copy, nullable) NSString *syncMode;
 
@@ -1480,8 +1491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *
  *  Start External master migration.
  *
- *  @param project ID of the project that contains the first generation
- *    instance.
+ *  @param project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_ProjectsInstancesStartExternalSync
@@ -1514,10 +1524,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  External sync mode
  *
  *  Likely values:
- *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Value
- *        "EXTERNAL_SYNC_MODE_UNSPECIFIED"
- *    @arg @c kGTLRSQLAdminSyncModeOnline Value "ONLINE"
- *    @arg @c kGTLRSQLAdminSyncModeOffline Value "OFFLINE"
+ *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Unknown external
+ *        sync mode, will be defaulted to ONLINE mode (Value:
+ *        "EXTERNAL_SYNC_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdminSyncModeOnline Online external sync will set up
+ *        replication after initial data external sync (Value: "ONLINE")
+ *    @arg @c kGTLRSQLAdminSyncModeOffline Offline external sync only dumps and
+ *        loads a one-time snapshot of master's data (Value: "OFFLINE")
  */
 @property(nonatomic, copy, nullable) NSString *syncMode;
 
@@ -1583,8 +1596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Deletes the SSL certificate. For First Generation instances, the
- *  certificate remains valid until the instance is restarted.
+ *  Deletes the SSL certificate. For First Generation instances, the certificate
+ *  remains valid until the instance is restarted.
  *
  *  Method: sql.sslCerts.delete
  *
@@ -1608,8 +1621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Deletes the SSL certificate. For First Generation instances, the
- *  certificate remains valid until the instance is restarted.
+ *  Deletes the SSL certificate. For First Generation instances, the certificate
+ *  remains valid until the instance is restarted.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -1743,8 +1756,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 
 /**
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-n1-standard-1. For related information, see
- *  <a href="/sql/pricing">Pricing</a>.
+ *  db-n1-standard-1. For related information, see Pricing.
  *
  *  Method: sql.tiers.list
  *
@@ -1763,8 +1775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  Fetches a @c GTLRSQLAdmin_TiersListResponse.
  *
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-n1-standard-1. For related information, see
- *  <a href="/sql/pricing">Pricing</a>.
+ *  db-n1-standard-1. For related information, see Pricing.
  *
  *  @param project Project ID of the project for which to list tiers.
  *

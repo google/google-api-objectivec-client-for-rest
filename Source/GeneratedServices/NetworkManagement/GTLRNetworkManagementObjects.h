@@ -81,18 +81,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_CauseU
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InternalError;
 /**
- *  Aborted because the source and/or destination endpoint specified in
- *  the test are invalid. The possible reasons that an endpoint is
- *  invalid include: malformed IP address; nonexistent instance or
- *  network URI; IP address not in the range of specified network URI; and
- *  instance not owning the network interface in the specified network.
+ *  Aborted because the source and/or destination endpoint specified in the test
+ *  are invalid. The possible reasons that an endpoint is invalid include:
+ *  malformed IP address; nonexistent instance or network URI; IP address not in
+ *  the range of specified network URI; and instance not owning the network
+ *  interface in the specified network.
  *
  *  Value: "INVALID_ARGUMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument;
 /**
- *  Aborted because traffic is sent from a public IP to an instance without
- *  an external IP.
+ *  Aborted because traffic is sent from a public IP to an instance without an
+ *  external IP.
  *
  *  Value: "NO_EXTERNAL_IP"
  */
@@ -105,22 +105,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExte
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation;
 /**
- *  Aborted because the user lacks the permission to access all or part of
- *  the network configurations required to run the test.
+ *  Aborted because the user lacks the permission to access all or part of the
+ *  network configurations required to run the test.
  *
  *  Value: "PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied;
 /**
- *  Aborted because the number of steps in the trace exceeding a certain
- *  limit which may be caused by routing loop.
+ *  Aborted because the number of steps in the trace exceeding a certain limit
+ *  which may be caused by routing loop.
  *
  *  Value: "TRACE_TOO_LONG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong;
 /**
- *  Aborted because none of the traces matches destination information
- *  specified in the input test request.
+ *  Aborted because none of the traces matches destination information specified
+ *  in the input test request.
  *
  *  Value: "UNINTENDED_DESTINATION"
  */
@@ -132,18 +132,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Uninte
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp;
 /**
- *  Aborted due to unknown network.
- *  The reachability analysis cannot proceed because the user does not have
- *  access to the host project's network configurations, including firewall
- *  rules and routes. This happens when the project is a service project and
- *  the endpoints being traced are in the host project's network.
+ *  Aborted due to unknown network. The reachability analysis cannot proceed
+ *  because the user does not have access to the host project's network
+ *  configurations, including firewall rules and routes. This happens when the
+ *  project is a service project and the endpoints being traced are in the host
+ *  project's network.
  *
  *  Value: "UNKNOWN_NETWORK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork;
 /**
- *  Aborted because no project information can be derived from the test
- *  input.
+ *  Aborted because no project information can be derived from the test input.
  *
  *  Value: "UNKNOWN_PROJECT"
  */
@@ -215,10 +214,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified;
 /**
- *  Firewalls block the health check probes to the backends and cause
- *  the backends to be unavailable for traffic from the load balancer.
- *  See [Health check firewall rules](/load-balancing/docs/
- *  health-checks#firewall_rules) for more details.
+ *  Firewalls block the health check probes to the backends and cause the
+ *  backends to be unavailable for traffic from the load balancer. See [Health
+ *  check firewall rules](/load-balancing/docs/ health-checks#firewall_rules)
+ *  for more details.
  *
  *  Value: "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK"
  */
@@ -230,8 +229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Firewal
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_FirewallRule;
 /**
- *  a Compute Engine instance can only send or receive a packet with a
- *  foreign IP <code>if ip_forward</code> is enabled.
+ *  a Compute Engine instance can only send or receive a packet with a foreign
+ *  IP if ip_forward is enabled.
  *
  *  Value: "FOREIGN_IP_DISALLOWED"
  */
@@ -249,24 +248,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Forward
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleNoInstances;
 /**
- *  Access to GKE master's endpoint is not authorized.
- *  See [Access to the cluster endpoints](/kubernetes-engine/docs/how-to/
+ *  Access to GKE master's endpoint is not authorized. See [Access to the
+ *  cluster endpoints](/kubernetes-engine/docs/how-to/
  *  private-clusters#access_to_the_cluster_endpoints) for more details.
  *
  *  Value: "GKE_MASTER_UNAUTHORIZED_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess;
 /**
- *  Packet is sent from or to a Compute Engine instance that is not in a
- *  running state.
+ *  Packet is sent from or to a Compute Engine instance that is not in a running
+ *  state.
  *
  *  Value: "INSTANCE_NOT_RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning;
 /**
- *  Instance with only internal IP tries to access external hosts, but
- *  Cloud NAT is not enabled in the subnet, unless special configurations
- *  on a VM allows this connection. See [Special Configurations for VM
+ *  Instance with only internal IP tries to access external hosts, but Cloud NAT
+ *  is not enabled in the subnet, unless special configurations on a VM allows
+ *  this connection. See [Special Configurations for VM
  *  instances](/vpc/docs/special-configurations) for details.
  *
  *  Value: "NO_EXTERNAL_ADDRESS"
@@ -279,8 +278,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExter
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute;
 /**
- *  Instance with only an internal IP tries to access Google API and
- *  Services, and private Google access is not enabled.
+ *  Instance with only an internal IP tries to access Google API and Services,
+ *  and private Google access is not enabled.
  *
  *  Value: "PRIVATE_GOOGLE_ACCESS_DISALLOWED"
  */
@@ -299,15 +298,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Private
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteBlackhole;
 /**
  *  Packet is sent to a wrong (unintended) network. Example: user traces a
- *  packet from VM1:Network1 to VM2:Network2, however, the route configured
- *  in Network1 sends the packet destined for VM2's IP addresss to Network3.
+ *  packet from VM1:Network1 to VM2:Network2, however, the route configured in
+ *  Network1 sends the packet destined for VM2's IP addresss to Network3.
  *
  *  Value: "ROUTE_WRONG_NETWORK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork;
 /**
- *  The type of traffic is blocked and the user cannot configure a firewall
- *  rule to enable it. See [Always blocked traffic](/vpc/docs/firewalls#
+ *  The type of traffic is blocked and the user cannot configure a firewall rule
+ *  to enable it. See [Always blocked traffic](/vpc/docs/firewalls#
  *  blockedtraffic) for more details.
  *
  *  Value: "TRAFFIC_TYPE_BLOCKED"
@@ -330,9 +329,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_Unknown
 // GTLRNetworkManagement_Endpoint.networkType
 
 /**
- *  A network hosted within Google Cloud Platform.
- *  To receive more detailed output, specify the URI for the source or
- *  destination network.
+ *  A network hosted within Google Cloud Platform. To receive more detailed
+ *  output, specify the URI for the source or destination network.
  *
  *  Value: "GCP_NETWORK"
  */
@@ -344,9 +342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_G
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified;
 /**
- *  A network hosted outside of Google Cloud Platform.
- *  This can be an on-premises network, or a network hosted by another cloud
- *  provider.
+ *  A network hosted outside of Google Cloud Platform. This can be an
+ *  on-premises network, or a network hosted by another cloud provider.
  *
  *  Value: "NON_GCP_NETWORK"
  */
@@ -409,11 +406,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_He
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_HealthCheckFirewallStateUnspecified;
 /**
- *  There are firewall rules configured to allow partial health check ranges
- *  or block all health check ranges.
- *  If a health check probe is sent from denied IP ranges,
- *  the health check to the backend will fail. Then, the backend will be
- *  marked unhealthy and will not receive traffic sent to the load balancer.
+ *  There are firewall rules configured to allow partial health check ranges or
+ *  block all health check ranges. If a health check probe is sent from denied
+ *  IP ranges, the health check to the backend will fail. Then, the backend will
+ *  be marked unhealthy and will not receive traffic sent to the load balancer.
  *
  *  Value: "MISCONFIGURED"
  */
@@ -485,10 +481,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadB
 // GTLRNetworkManagement_ReachabilityDetails.result
 
 /**
- *  If the source and destination endpoint does not uniquely identify
- *  the test location in the network, and the reachability result contains
- *  multiple traces with mixed reachable and unreachable states, then this
- *  result is returned.
+ *  If the source and destination endpoint does not uniquely identify the test
+ *  location in the network, and the reachability result contains multiple
+ *  traces with mixed reachable and unreachable states, then this result is
+ *  returned.
  *
  *  Value: "AMBIGUOUS"
  */
@@ -506,21 +502,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Re
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_ResultUnspecified;
 /**
- *  The reachability could not be determined. Possible reasons are:
- *  * Analysis is aborted due to permission error. User does not have read
- *  permission to the projects listed in the test.
- *  * Analysis is aborted due to internal errors.
- *  * Analysis is partially complete based on configurations where the user
- *  has permission.
- *  The Final state indicates that the packet is forwarded to another
- *  network where the user has no permission to access the configurations.
+ *  The reachability could not be determined. Possible reasons are: * Analysis
+ *  is aborted due to permission error. User does not have read permission to
+ *  the projects listed in the test. * Analysis is aborted due to internal
+ *  errors. * Analysis is partially complete based on configurations where the
+ *  user has permission. The Final state indicates that the packet is forwarded
+ *  to another network where the user has no permission to access the
+ *  configurations.
  *
  *  Value: "UNDETERMINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Undetermined;
 /**
- *  Packet originating from source is expected to be dropped before
- *  reaching destination.
+ *  Packet originating from source is expected to be dropped before reaching
+ *  destination.
  *
  *  Value: "UNREACHABLE"
  */
@@ -530,8 +525,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ReachabilityDetails_Re
 // GTLRNetworkManagement_RouteInfo.nextHopType
 
 /**
- *  Next hop is blackhole; that is, the next hop either does not exist or is
- *  not running.
+ *  Next hop is blackhole; that is, the next hop either does not exist or is not
+ *  running.
  *
  *  Value: "NEXT_HOP_BLACKHOLE"
  */
@@ -586,9 +581,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified;
 /**
  *  Next hop is a VPN Gateway. This scenario only happens when tracing
- *  connectivity from an on-premises network to GCP through a VPN. The
- *  analysis simulates a packet departing from the on-premises network
- *  through a VPN tunnel and arrives at a Cloud VPN gateway.
+ *  connectivity from an on-premises network to GCP through a VPN. The analysis
+ *  simulates a packet departing from the on-premises network through a VPN
+ *  tunnel and arrives at a Cloud VPN gateway.
  *
  *  Value: "NEXT_HOP_VPN_GATEWAY"
  */
@@ -742,31 +737,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Nat;
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnection;
 /**
- *  Config checking state: packet sent or received under foreign IP
- *  address and allowed.
+ *  Config checking state: packet sent or received under foreign IP address and
+ *  allowed.
  *
  *  Value: "SPOOFING_APPROVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved;
 /**
- *  Initial state: packet originating from a Compute Engine instance.
- *  An InstanceInfo will be populated with starting instance info.
+ *  Initial state: packet originating from a Compute Engine instance. An
+ *  InstanceInfo will be populated with starting instance info.
  *
  *  Value: "START_FROM_INSTANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromInstance;
 /**
- *  Initial state: packet originating from Internet.
- *  The endpoint info will be populated.
+ *  Initial state: packet originating from Internet. The endpoint info will be
+ *  populated.
  *
  *  Value: "START_FROM_INTERNET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromInternet;
 /**
- *  Initial state: packet originating from a VPC or on-premises network
- *  with internal source IP.
- *  If the source is a VPC network visible to the user, a NetworkInfo
- *  will be populated with details of the network.
+ *  Initial state: packet originating from a VPC or on-premises network with
+ *  internal source IP. If the source is a VPC network visible to the user, a
+ *  NetworkInfo will be populated with details of the network.
  *
  *  Value: "START_FROM_PRIVATE_NETWORK"
  */
@@ -778,8 +772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromPr
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StateUnspecified;
 /**
- *  Special state: viewer of the test result does not have permission to
- *  see the configuration in this step.
+ *  Special state: viewer of the test result does not have permission to see the
+ *  configuration in this step.
  *
  *  Value: "VIEWER_PERMISSION_MISSING"
  */
@@ -827,43 +821,39 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InternalError Aborted due
  *        to internal server error. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_InvalidArgument Aborted
- *        because the source and/or destination endpoint specified in
- *        the test are invalid. The possible reasons that an endpoint is
- *        invalid include: malformed IP address; nonexistent instance or
- *        network URI; IP address not in the range of specified network URI; and
- *        instance not owning the network interface in the specified network.
- *        (Value: "INVALID_ARGUMENT")
+ *        because the source and/or destination endpoint specified in the test
+ *        are invalid. The possible reasons that an endpoint is invalid include:
+ *        malformed IP address; nonexistent instance or network URI; IP address
+ *        not in the range of specified network URI; and instance not owning the
+ *        network interface in the specified network. (Value:
+ *        "INVALID_ARGUMENT")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp Aborted
- *        because traffic is sent from a public IP to an instance without
- *        an external IP. (Value: "NO_EXTERNAL_IP")
+ *        because traffic is sent from a public IP to an instance without an
+ *        external IP. (Value: "NO_EXTERNAL_IP")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation Aborted
  *        because no valid source endpoint is derived from the input test
  *        request. (Value: "NO_SOURCE_LOCATION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied Aborted
- *        because the user lacks the permission to access all or part of
- *        the network configurations required to run the test. (Value:
+ *        because the user lacks the permission to access all or part of the
+ *        network configurations required to run the test. (Value:
  *        "PERMISSION_DENIED")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_TraceTooLong Aborted
- *        because the number of steps in the trace exceeding a certain
- *        limit which may be caused by routing loop. (Value: "TRACE_TOO_LONG")
+ *        because the number of steps in the trace exceeding a certain limit
+ *        which may be caused by routing loop. (Value: "TRACE_TOO_LONG")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnintendedDestination
  *        Aborted because none of the traces matches destination information
  *        specified in the input test request. (Value: "UNINTENDED_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownIp Aborted because
  *        the IP address(es) are unknown. (Value: "UNKNOWN_IP")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownNetwork Aborted due
- *        to unknown network.
- *        The reachability analysis cannot proceed because the user does not
- *        have
- *        access to the host project's network configurations, including
- *        firewall
- *        rules and routes. This happens when the project is a service project
- *        and
- *        the endpoints being traced are in the host project's network. (Value:
- *        "UNKNOWN_NETWORK")
+ *        to unknown network. The reachability analysis cannot proceed because
+ *        the user does not have access to the host project's network
+ *        configurations, including firewall rules and routes. This happens when
+ *        the project is a service project and the endpoints being traced are in
+ *        the host project's network. (Value: "UNKNOWN_NETWORK")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_UnknownProject Aborted
- *        because no project information can be derived from the test
- *        input. (Value: "UNKNOWN_PROJECT")
+ *        because no project information can be derived from the test input.
+ *        (Value: "UNKNOWN_PROJECT")
  */
 @property(nonatomic, copy, nullable) NSString *cause;
 
@@ -874,50 +864,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  },
- *  {
- *  "log_type": "ADMIN_READ"
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ"
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -928,9 +887,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_AuditLogConfig *> *auditLogConfigs;
 
 /**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -938,30 +897,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRNetworkManagement_AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -989,56 +935,51 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @interface GTLRNetworkManagement_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1061,27 +1002,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The user-supplied description of the Connectivity Test.
- *  Maximum of 512 characters.
+ *  The user-supplied description of the Connectivity Test. Maximum of 512
+ *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Destination specification of the Connectivity Test.
- *  You can use a combination of destination IP address, Compute Engine
- *  VM instance, or VPC network to uniquely identify the destination
- *  location.
- *  Even if the destination IP address is not unique, the source IP
- *  location is unique. Usually, the analysis can infer the destination
- *  endpoint from route information.
- *  If the destination you specify is a VM instance and the instance has
- *  multiple network interfaces, then you must also specify either
+ *  Required. Destination specification of the Connectivity Test. You can use a
+ *  combination of destination IP address, Compute Engine VM instance, or VPC
+ *  network to uniquely identify the destination location. Even if the
+ *  destination IP address is not unique, the source IP location is unique.
+ *  Usually, the analysis can infer the destination endpoint from route
+ *  information. If the destination you specify is a VM instance and the
+ *  instance has multiple network interfaces, then you must also specify either
  *  a destination IP address or VPC network to identify the destination
- *  interface.
- *  A reachability analysis proceeds even if the destination location is
- *  ambiguous. However, the result can include endpoints that you don't
+ *  interface. A reachability analysis proceeds even if the destination location
+ *  is ambiguous. However, the result can include endpoints that you don't
  *  intend to test.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Endpoint *destination;
@@ -1102,36 +1040,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *protocol;
 
 /**
- *  Output only. The reachability details of this test from the latest run.
- *  The details are updated when creating a new test, updating an
- *  existing test, or triggering a one-time rerun of an existing test.
+ *  Output only. The reachability details of this test from the latest run. The
+ *  details are updated when creating a new test, updating an existing test, or
+ *  triggering a one-time rerun of an existing test.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_ReachabilityDetails *reachabilityDetails;
 
 /**
- *  Other projects that may be relevant for reachability analysis.
- *  This is applicable to scenarios where a test can cross project boundaries.
+ *  Other projects that may be relevant for reachability analysis. This is
+ *  applicable to scenarios where a test can cross project boundaries.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *relatedProjects;
 
 /**
- *  Required. Source specification of the Connectivity Test.
- *  You can use a combination of source IP address, virtual machine
- *  (VM) instance, or Compute Engine network to uniquely identify
- *  the source location.
- *  Examples:
- *  If the source IP address is an internal IP address within a Google Cloud
- *  Virtual Private Cloud (VPC) network, then you must also specify the VPC
- *  network. Otherwise, specify the VM instance, which already contains its
- *  internal IP address and VPC network information.
- *  If the source of the test is within an on-premises network, then you must
- *  provide the destination VPC network.
- *  If the source endpoint is a Compute Engine VM instance with multiple
- *  network interfaces, the instance itself is not sufficient to identify the
- *  endpoint. So, you must also specify the source IP address or VPC network.
- *  A reachability analysis proceeds even if the source location is
- *  ambiguous. However, the test result may include endpoints that you don't
- *  intend to test.
+ *  Required. Source specification of the Connectivity Test. You can use a
+ *  combination of source IP address, virtual machine (VM) instance, or Compute
+ *  Engine network to uniquely identify the source location. Examples: If the
+ *  source IP address is an internal IP address within a Google Cloud Virtual
+ *  Private Cloud (VPC) network, then you must also specify the VPC network.
+ *  Otherwise, specify the VM instance, which already contains its internal IP
+ *  address and VPC network information. If the source of the test is within an
+ *  on-premises network, then you must provide the destination VPC network. If
+ *  the source endpoint is a Compute Engine VM instance with multiple network
+ *  interfaces, the instance itself is not sufficient to identify the endpoint.
+ *  So, you must also specify the source IP address or VPC network. A
+ *  reachability analysis proceeds even if the source location is ambiguous.
+ *  However, the test result may include endpoints that you don't intend to
+ *  test.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Endpoint *source;
 
@@ -1191,9 +1126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_CauseUnspecified Cause is
  *        unspecified. (Value: "CAUSE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_FirewallBlockingLoadBalancerBackendHealthCheck
- *        Firewalls block the health check probes to the backends and cause
- *        the backends to be unavailable for traffic from the load balancer.
- *        See [Health check firewall rules](/load-balancing/docs/
+ *        Firewalls block the health check probes to the backends and cause the
+ *        backends to be unavailable for traffic from the load balancer. See
+ *        [Health check firewall rules](/load-balancing/docs/
  *        health-checks#firewall_rules) for more details. (Value:
  *        "FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_FirewallRule Dropped due to
@@ -1201,8 +1136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        "FIREWALL_RULE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_ForeignIpDisallowed a
  *        Compute Engine instance can only send or receive a packet with a
- *        foreign IP <code>if ip_forward</code> is enabled. (Value:
- *        "FOREIGN_IP_DISALLOWED")
+ *        foreign IP if ip_forward is enabled. (Value: "FOREIGN_IP_DISALLOWED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_ForwardingRuleMismatch
  *        Forwarding rule's protocol and ports do not match the packet header.
  *        (Value: "FORWARDING_RULE_MISMATCH")
@@ -1210,17 +1144,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Forwarding rule does not have backends configured. (Value:
  *        "FORWARDING_RULE_NO_INSTANCES")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess
- *        Access to GKE master's endpoint is not authorized.
- *        See [Access to the cluster endpoints](/kubernetes-engine/docs/how-to/
+ *        Access to GKE master's endpoint is not authorized. See [Access to the
+ *        cluster endpoints](/kubernetes-engine/docs/how-to/
  *        private-clusters#access_to_the_cluster_endpoints) for more details.
  *        (Value: "GKE_MASTER_UNAUTHORIZED_ACCESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning Packet is
- *        sent from or to a Compute Engine instance that is not in a
- *        running state. (Value: "INSTANCE_NOT_RUNNING")
+ *        sent from or to a Compute Engine instance that is not in a running
+ *        state. (Value: "INSTANCE_NOT_RUNNING")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress Instance
- *        with only internal IP tries to access external hosts, but
- *        Cloud NAT is not enabled in the subnet, unless special configurations
- *        on a VM allows this connection. See [Special Configurations for VM
+ *        with only internal IP tries to access external hosts, but Cloud NAT is
+ *        not enabled in the subnet, unless special configurations on a VM
+ *        allows this connection. See [Special Configurations for VM
  *        instances](/vpc/docs/special-configurations) for details. (Value:
  *        "NO_EXTERNAL_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRoute Dropped due to no
@@ -1236,14 +1170,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        to invalid route. Route's next hop is a blackhole. (Value:
  *        "ROUTE_BLACKHOLE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_RouteWrongNetwork Packet is
- *        sent to a wrong (unintended) network. Example: user traces a
- *        packet from VM1:Network1 to VM2:Network2, however, the route
- *        configured
- *        in Network1 sends the packet destined for VM2's IP addresss to
- *        Network3. (Value: "ROUTE_WRONG_NETWORK")
+ *        sent to a wrong (unintended) network. Example: user traces a packet
+ *        from VM1:Network1 to VM2:Network2, however, the route configured in
+ *        Network1 sends the packet destined for VM2's IP addresss to Network3.
+ *        (Value: "ROUTE_WRONG_NETWORK")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_TrafficTypeBlocked The type
- *        of traffic is blocked and the user cannot configure a firewall
- *        rule to enable it. See [Always blocked traffic](/vpc/docs/firewalls#
+ *        of traffic is blocked and the user cannot configure a firewall rule to
+ *        enable it. See [Always blocked traffic](/vpc/docs/firewalls#
  *        blockedtraffic) for more details. (Value: "TRAFFIC_TYPE_BLOCKED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_UnknownExternalAddress
  *        Destination external address cannot be resolved to a known target.
@@ -1263,11 +1196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRNetworkManagement_Empty : GTLRObject
 @end
@@ -1282,9 +1213,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *instance;
 
 /**
- *  The IP address of the endpoint, which can be an external or internal IP.
- *  An IPv6 address is only allowed when the test's destination is a
- *  [global load balancer VIP](/load-balancing/docs/load-balancing-overview).
+ *  The IP address of the endpoint, which can be an external or internal IP. An
+ *  IPv6 address is only allowed when the test's destination is a [global load
+ *  balancer VIP](/load-balancing/docs/load-balancing-overview).
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
@@ -1292,43 +1223,39 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Type of the network where the endpoint is located.
- *  Applicable only to source endpoint, as destination network type can be
- *  inferred from the source.
+ *  Type of the network where the endpoint is located. Applicable only to source
+ *  endpoint, as destination network type can be inferred from the source.
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork A network
- *        hosted within Google Cloud Platform.
- *        To receive more detailed output, specify the URI for the source or
- *        destination network. (Value: "GCP_NETWORK")
+ *        hosted within Google Cloud Platform. To receive more detailed output,
+ *        specify the URI for the source or destination network. (Value:
+ *        "GCP_NETWORK")
  *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified
  *        Default type if unspecified. (Value: "NETWORK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork A
- *        network hosted outside of Google Cloud Platform.
- *        This can be an on-premises network, or a network hosted by another
- *        cloud
- *        provider. (Value: "NON_GCP_NETWORK")
+ *        network hosted outside of Google Cloud Platform. This can be an
+ *        on-premises network, or a network hosted by another cloud provider.
+ *        (Value: "NON_GCP_NETWORK")
  */
 @property(nonatomic, copy, nullable) NSString *networkType;
 
 /**
- *  The IP protocol port of the endpoint.
- *  Only applicable when protocol is TCP or UDP.
+ *  The IP protocol port of the endpoint. Only applicable when protocol is TCP
+ *  or UDP.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
- *  Project ID where the endpoint is located.
- *  The Project ID can be derived from the URI if you provide a VM instance or
- *  network URI.
- *  The following are two cases where you must provide the project ID:
- *  1. Only the IP address is specified, and the IP address is within a GCP
- *  project.
- *  2. When you are using Shared VPC and the IP address that you provide is
- *  from the service project. In this case, the network that the IP address
- *  resides in is defined in the host project.
+ *  Project ID where the endpoint is located. The Project ID can be derived from
+ *  the URI if you provide a VM instance or network URI. The following are two
+ *  cases where you must provide the project ID: 1. Only the IP address is
+ *  specified, and the IP address is within a GCP project. 2. When you are using
+ *  Shared VPC and the IP address that you provide is from the service project.
+ *  In this case, the network that the IP address resides in is defined in the
+ *  host project.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1377,27 +1304,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRNetworkManagement_Expr : GTLRObject
 
@@ -1422,9 +1342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -1462,8 +1381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetTags;
 
 /**
- *  URI of a Compute Engine firewall rule.
- *  Implied default rule does not have URI.
+ *  URI of a Compute Engine firewall rule. Implied default rule does not have
+ *  URI.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1664,19 +1583,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_Configured
  *        There are configured firewall rules to allow health check probes to
- *        the
- *        backend. (Value: "CONFIGURED")
+ *        the backend. (Value: "CONFIGURED")
  *    @arg @c kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_HealthCheckFirewallStateUnspecified
  *        State is unspecified. Default state if not populated. (Value:
  *        "HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_LoadBalancerBackend_HealthCheckFirewallState_Misconfigured
  *        There are firewall rules configured to allow partial health check
- *        ranges
- *        or block all health check ranges.
- *        If a health check probe is sent from denied IP ranges,
- *        the health check to the backend will fail. Then, the backend will be
- *        marked unhealthy and will not receive traffic sent to the load
- *        balancer. (Value: "MISCONFIGURED")
+ *        ranges or block all health check ranges. If a health check probe is
+ *        sent from denied IP ranges, the health check to the backend will fail.
+ *        Then, the backend will be marked unhealthy and will not receive
+ *        traffic sent to the load balancer. (Value: "MISCONFIGURED")
  */
 @property(nonatomic, copy, nullable) NSString *healthCheckFirewallState;
 
@@ -1742,8 +1658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @interface GTLRNetworkManagement_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1763,8 +1679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1821,8 +1737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @interface GTLRNetworkManagement_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1834,16 +1750,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1852,10 +1768,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Operation_Response *response;
 
@@ -1864,8 +1779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1882,10 +1797,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1934,66 +1848,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRNetworkManagement_Policy : GTLRObject
 
@@ -2002,23 +1884,23 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2026,24 +1908,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -2066,26 +1944,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *
  *  Likely values:
  *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Ambiguous If the
- *        source and destination endpoint does not uniquely identify
- *        the test location in the network, and the reachability result contains
- *        multiple traces with mixed reachable and unreachable states, then this
- *        result is returned. (Value: "AMBIGUOUS")
+ *        source and destination endpoint does not uniquely identify the test
+ *        location in the network, and the reachability result contains multiple
+ *        traces with mixed reachable and unreachable states, then this result
+ *        is returned. (Value: "AMBIGUOUS")
  *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Reachable Packet
  *        originating from source is expected to reach destination. (Value:
  *        "REACHABLE")
  *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_ResultUnspecified
  *        Result is not specified. (Value: "RESULT_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Undetermined The
- *        reachability could not be determined. Possible reasons are:
- *        * Analysis is aborted due to permission error. User does not have read
- *        permission to the projects listed in the test.
- *        * Analysis is aborted due to internal errors.
- *        * Analysis is partially complete based on configurations where the
- *        user
- *        has permission.
- *        The Final state indicates that the packet is forwarded to another
- *        network where the user has no permission to access the configurations.
- *        (Value: "UNDETERMINED")
+ *        reachability could not be determined. Possible reasons are: * Analysis
+ *        is aborted due to permission error. User does not have read permission
+ *        to the projects listed in the test. * Analysis is aborted due to
+ *        internal errors. * Analysis is partially complete based on
+ *        configurations where the user has permission. The Final state
+ *        indicates that the packet is forwarded to another network where the
+ *        user has no permission to access the configurations. (Value:
+ *        "UNDETERMINED")
  *    @arg @c kGTLRNetworkManagement_ReachabilityDetails_Result_Unreachable
  *        Packet originating from source is expected to be dropped before
  *        reaching destination. (Value: "UNREACHABLE")
@@ -2093,9 +1969,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *result;
 
 /**
- *  Result may contain a list of traces if a test has multiple possible
- *  paths in the network, such as when destination endpoint is a load balancer
- *  with multiple backends.
+ *  Result may contain a list of traces if a test has multiple possible paths in
+ *  the network, such as when destination endpoint is a load balancer with
+ *  multiple backends.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_Trace *> *traces;
 
@@ -2190,18 +2066,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_RouteTypeUnspecified
  *        Unspecified type. Default value. (Value: "ROUTE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Static Static route
- *        created by the user including the default route to the
- *        Internet. (Value: "STATIC")
+ *        created by the user including the default route to the Internet.
+ *        (Value: "STATIC")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_RouteType_Subnet Route is a
  *        subnet route automatically created by the system. (Value: "SUBNET")
  */
 @property(nonatomic, copy, nullable) NSString *routeType;
 
 /**
- *  URI of a Compute Engine route.
- *  Dynamic route from cloud router does not have a URI.
- *  Advertised route from Google Cloud VPC to on-premises network also does
- *  not have a URI.
+ *  URI of a Compute Engine route. Dynamic route from cloud router does not have
+ *  a URI. Advertised route from Google Cloud VPC to on-premises network also
+ *  does not have a URI.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -2215,17 +2090,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_Policy *policy;
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
- *  following default mask is used:
- *  `paths: "bindings, etag"`
+ *  following default mask is used: `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2238,9 +2111,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRNetworkManagement_Status : GTLRObject
 
@@ -2280,8 +2153,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  A simulated forwarding path is composed of multiple steps.
- *  Each step has a well-defined state and an associated configuration.
+ *  A simulated forwarding path is composed of multiple steps. Each step has a
+ *  well-defined state and an associated configuration.
  */
 @interface GTLRNetworkManagement_Step : GTLRObject
 
@@ -2309,10 +2182,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_DropInfo *drop;
 
 /**
- *  Display info of the source and destination under analysis.
- *  The endpiont info in an intermediate state may differ with the
- *  initial input, as it might be modified by state like NAT,
- *  or Connection Proxy.
+ *  Display info of the source and destination under analysis. The endpiont info
+ *  in an intermediate state may differ with the initial input, as it might be
+ *  modified by state like NAT, or Connection Proxy.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_EndpointInfo *endpoint;
 
@@ -2381,30 +2253,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_Nat Transition state: packet
  *        header translated. (Value: "NAT")
  *    @arg @c kGTLRNetworkManagement_Step_State_ProxyConnection Transition
- *        state: original connection is terminated and a new proxied
- *        connection is initiated. (Value: "PROXY_CONNECTION")
+ *        state: original connection is terminated and a new proxied connection
+ *        is initiated. (Value: "PROXY_CONNECTION")
  *    @arg @c kGTLRNetworkManagement_Step_State_SpoofingApproved Config checking
- *        state: packet sent or received under foreign IP
- *        address and allowed. (Value: "SPOOFING_APPROVED")
+ *        state: packet sent or received under foreign IP address and allowed.
+ *        (Value: "SPOOFING_APPROVED")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromInstance Initial state:
- *        packet originating from a Compute Engine instance.
- *        An InstanceInfo will be populated with starting instance info. (Value:
+ *        packet originating from a Compute Engine instance. An InstanceInfo
+ *        will be populated with starting instance info. (Value:
  *        "START_FROM_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromInternet Initial state:
- *        packet originating from Internet.
- *        The endpoint info will be populated. (Value: "START_FROM_INTERNET")
+ *        packet originating from Internet. The endpoint info will be populated.
+ *        (Value: "START_FROM_INTERNET")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromPrivateNetwork Initial
- *        state: packet originating from a VPC or on-premises network
- *        with internal source IP.
- *        If the source is a VPC network visible to the user, a NetworkInfo
- *        will be populated with details of the network. (Value:
- *        "START_FROM_PRIVATE_NETWORK")
+ *        state: packet originating from a VPC or on-premises network with
+ *        internal source IP. If the source is a VPC network visible to the
+ *        user, a NetworkInfo will be populated with details of the network.
+ *        (Value: "START_FROM_PRIVATE_NETWORK")
  *    @arg @c kGTLRNetworkManagement_Step_State_StateUnspecified Unspecified
  *        state. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_Step_State_ViewerPermissionMissing Special
- *        state: viewer of the test result does not have permission to
- *        see the configuration in this step. (Value:
- *        "VIEWER_PERMISSION_MISSING")
+ *        state: viewer of the test result does not have permission to see the
+ *        configuration in this step. (Value: "VIEWER_PERMISSION_MISSING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2424,9 +2294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -2439,8 +2308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @interface GTLRNetworkManagement_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -2448,35 +2316,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
- *  Trace represents one simulated packet forwarding path.
- *  <ul>
- *  <li>Each trace contains multiple ordered steps.</li>
- *  <li>Each step is in a particular state and has an associated
- *  configuration.</li> <li>State is categorized as a final or non-final
- *  state.</li> <li>Each final state has a reason associated with it.</li>
- *  <li>Each trace must end with a final state (the last step).</li>
- *  </ul>
- *  <pre><code>
- *  |---------------------Trace----------------------|
- *  Step1(State) Step2(State) --- StepN(State(final))
- *  </code></pre>
+ *  Trace represents one simulated packet forwarding path. - Each trace contains
+ *  multiple ordered steps. - Each step is in a particular state and has an
+ *  associated configuration. - State is categorized as a final or non-final
+ *  state. - Each final state has a reason associated with it. - Each trace must
+ *  end with a final state (the last step).
+ *  |---------------------Trace----------------------| Step1(State) Step2(State)
+ *  --- StepN(State(final))
  */
 @interface GTLRNetworkManagement_Trace : GTLRObject
 
 /**
  *  Derived from the source and destination endpoints definition, and validated
- *  by the data plane model.
- *  If there are multiple traces starting from different source locations, then
- *  the endpoint_info may be different between traces.
+ *  by the data plane model. If there are multiple traces starting from
+ *  different source locations, then the endpoint_info may be different between
+ *  traces.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_EndpointInfo *endpointInfo;
 
 /**
  *  A trace of a test contains multiple steps from the initial state to the
- *  final state (delivered, dropped, forwarded, or aborted).
- *  The steps are ordered by the processing sequence within the simulated
- *  network state machine. It is critical to preserve the order of the steps
- *  and avoid reordering or sorting them.
+ *  final state (delivered, dropped, forwarded, or aborted). The steps are
+ *  ordered by the processing sequence within the simulated network state
+ *  machine. It is critical to preserve the order of the steps and avoid
+ *  reordering or sorting them.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_Step *> *steps;
 
@@ -2504,9 +2367,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /**
- *  A VPN tunnel that is associated with this VPN gateway.
- *  There may be multiple VPN tunnels configured on a VPN gateway, and only
- *  the one relevant to the test is displayed.
+ *  A VPN tunnel that is associated with this VPN gateway. There may be multiple
+ *  VPN tunnels configured on a VPN gateway, and only the one relevant to the
+ *  test is displayed.
  */
 @property(nonatomic, copy, nullable) NSString *vpnTunnelUri;
 

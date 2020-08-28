@@ -40,131 +40,335 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // metricsGranularity
 
-/** Value: "DAILY" */
+/**
+ *  Represents daily metrics over a period of 7 days.
+ *
+ *  Value: "DAILY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptMetricsGranularityDaily;
-/** Value: "UNSPECIFIED_GRANULARITY" */
+/**
+ *  Default metric granularity used to query no metrics.
+ *
+ *  Value: "UNSPECIFIED_GRANULARITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptMetricsGranularityUnspecifiedGranularity;
-/** Value: "WEEKLY" */
+/**
+ *  Represents weekly metrics.
+ *
+ *  Value: "WEEKLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptMetricsGranularityWeekly;
 
 // ----------------------------------------------------------------------------
 // scriptProcessFilterStatuses
 
-/** Value: "CANCELED" */
+/**
+ *  The process was cancelled.
+ *
+ *  Value: "CANCELED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesCanceled;
-/** Value: "COMPLETED" */
+/**
+ *  The process has completed.
+ *
+ *  Value: "COMPLETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesCompleted;
-/** Value: "DELAYED" */
+/**
+ *  The process is delayed, waiting for quota.
+ *
+ *  Value: "DELAYED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesDelayed;
-/** Value: "FAILED" */
+/**
+ *  The process failed.
+ *
+ *  Value: "FAILED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesFailed;
-/** Value: "PAUSED" */
+/**
+ *  The process has paused.
+ *
+ *  Value: "PAUSED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesPaused;
-/** Value: "PROCESS_STATUS_UNSPECIFIED" */
+/**
+ *  Unspecified status.
+ *
+ *  Value: "PROCESS_STATUS_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesProcessStatusUnspecified;
-/** Value: "RUNNING" */
+/**
+ *  The process is currently running.
+ *
+ *  Value: "RUNNING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesRunning;
-/** Value: "TIMED_OUT" */
+/**
+ *  The process timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesTimedOut;
-/** Value: "UNKNOWN" */
+/**
+ *  Process status unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterStatusesUnknown;
 
 // ----------------------------------------------------------------------------
 // scriptProcessFilterTypes
 
-/** Value: "ADD_ON" */
+/**
+ *  The process was started from an add-on entry point.
+ *
+ *  Value: "ADD_ON"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesAddOn;
-/** Value: "BATCH_TASK" */
+/**
+ *  The process was started as a task in a batch job.
+ *
+ *  Value: "BATCH_TASK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesBatchTask;
-/** Value: "EDITOR" */
+/**
+ *  The process was started using the Apps Script IDE.
+ *
+ *  Value: "EDITOR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesEditor;
-/** Value: "EXECUTION_API" */
+/**
+ *  The process was started using the Apps Script API.
+ *
+ *  Value: "EXECUTION_API"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesExecutionApi;
-/** Value: "MENU" */
+/**
+ *  The process was started from a G Suite menu item.
+ *
+ *  Value: "MENU"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesMenu;
-/** Value: "PROCESS_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified type.
+ *
+ *  Value: "PROCESS_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesProcessTypeUnspecified;
-/** Value: "SIMPLE_TRIGGER" */
+/**
+ *  The process was started from a G Suite simple trigger.
+ *
+ *  Value: "SIMPLE_TRIGGER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesSimpleTrigger;
-/** Value: "TIME_DRIVEN" */
+/**
+ *  The process was started from a time-based trigger.
+ *
+ *  Value: "TIME_DRIVEN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesTimeDriven;
-/** Value: "TRIGGER" */
+/**
+ *  The process was started from an event-based trigger.
+ *
+ *  Value: "TRIGGER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesTrigger;
-/** Value: "WEBAPP" */
+/**
+ *  The process was started from a web app entry point.
+ *
+ *  Value: "WEBAPP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterTypesWebapp;
 
 // ----------------------------------------------------------------------------
 // scriptProcessFilterUserAccessLevels
 
-/** Value: "NONE" */
+/**
+ *  The user has no access.
+ *
+ *  Value: "NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsNone;
-/** Value: "OWNER" */
+/**
+ *  The user is an owner.
+ *
+ *  Value: "OWNER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsOwner;
-/** Value: "READ" */
+/**
+ *  The user has read-only access.
+ *
+ *  Value: "READ"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsRead;
-/** Value: "USER_ACCESS_LEVEL_UNSPECIFIED" */
+/**
+ *  User access level unspecified
+ *
+ *  Value: "USER_ACCESS_LEVEL_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsUserAccessLevelUnspecified;
-/** Value: "WRITE" */
+/**
+ *  The user has write access.
+ *
+ *  Value: "WRITE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptScriptProcessFilterUserAccessLevelsWrite;
 
 // ----------------------------------------------------------------------------
 // userProcessFilterStatuses
 
-/** Value: "CANCELED" */
+/**
+ *  The process was cancelled.
+ *
+ *  Value: "CANCELED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCanceled;
-/** Value: "COMPLETED" */
+/**
+ *  The process has completed.
+ *
+ *  Value: "COMPLETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesCompleted;
-/** Value: "DELAYED" */
+/**
+ *  The process is delayed, waiting for quota.
+ *
+ *  Value: "DELAYED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesDelayed;
-/** Value: "FAILED" */
+/**
+ *  The process failed.
+ *
+ *  Value: "FAILED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesFailed;
-/** Value: "PAUSED" */
+/**
+ *  The process has paused.
+ *
+ *  Value: "PAUSED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesPaused;
-/** Value: "PROCESS_STATUS_UNSPECIFIED" */
+/**
+ *  Unspecified status.
+ *
+ *  Value: "PROCESS_STATUS_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesProcessStatusUnspecified;
-/** Value: "RUNNING" */
+/**
+ *  The process is currently running.
+ *
+ *  Value: "RUNNING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesRunning;
-/** Value: "TIMED_OUT" */
+/**
+ *  The process timed out.
+ *
+ *  Value: "TIMED_OUT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesTimedOut;
-/** Value: "UNKNOWN" */
+/**
+ *  Process status unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterStatusesUnknown;
 
 // ----------------------------------------------------------------------------
 // userProcessFilterTypes
 
-/** Value: "ADD_ON" */
+/**
+ *  The process was started from an add-on entry point.
+ *
+ *  Value: "ADD_ON"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesAddOn;
-/** Value: "BATCH_TASK" */
+/**
+ *  The process was started as a task in a batch job.
+ *
+ *  Value: "BATCH_TASK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesBatchTask;
-/** Value: "EDITOR" */
+/**
+ *  The process was started using the Apps Script IDE.
+ *
+ *  Value: "EDITOR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesEditor;
-/** Value: "EXECUTION_API" */
+/**
+ *  The process was started using the Apps Script API.
+ *
+ *  Value: "EXECUTION_API"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesExecutionApi;
-/** Value: "MENU" */
+/**
+ *  The process was started from a G Suite menu item.
+ *
+ *  Value: "MENU"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesMenu;
-/** Value: "PROCESS_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified type.
+ *
+ *  Value: "PROCESS_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesProcessTypeUnspecified;
-/** Value: "SIMPLE_TRIGGER" */
+/**
+ *  The process was started from a G Suite simple trigger.
+ *
+ *  Value: "SIMPLE_TRIGGER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesSimpleTrigger;
-/** Value: "TIME_DRIVEN" */
+/**
+ *  The process was started from a time-based trigger.
+ *
+ *  Value: "TIME_DRIVEN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesTimeDriven;
-/** Value: "TRIGGER" */
+/**
+ *  The process was started from an event-based trigger.
+ *
+ *  Value: "TRIGGER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesTrigger;
-/** Value: "WEBAPP" */
+/**
+ *  The process was started from a web app entry point.
+ *
+ *  Value: "WEBAPP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterTypesWebapp;
 
 // ----------------------------------------------------------------------------
 // userProcessFilterUserAccessLevels
 
-/** Value: "NONE" */
+/**
+ *  The user has no access.
+ *
+ *  Value: "NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsNone;
-/** Value: "OWNER" */
+/**
+ *  The user is an owner.
+ *
+ *  Value: "OWNER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsOwner;
-/** Value: "READ" */
+/**
+ *  The user has read-only access.
+ *
+ *  Value: "READ"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsRead;
-/** Value: "USER_ACCESS_LEVEL_UNSPECIFIED" */
+/**
+ *  User access level unspecified
+ *
+ *  Value: "USER_ACCESS_LEVEL_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsUserAccessLevelUnspecified;
-/** Value: "WRITE" */
+/**
+ *  The user has write access.
+ *
+ *  Value: "WRITE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsWrite;
 
 // ----------------------------------------------------------------------------
@@ -182,8 +386,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 @end
 
 /**
- *  List information about processes made by or on behalf of a user,
- *  such as process type and current status.
+ *  List information about processes made by or on behalf of a user, such as
+ *  process type and current status.
  *
  *  Method: script.processes.list
  *
@@ -213,14 +417,14 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 @property(nonatomic, copy, nullable) NSString *userProcessFilterDeploymentId;
 
 /**
- *  Optional field used to limit returned processes to those that completed
- *  on or before the given timestamp.
+ *  Optional field used to limit returned processes to those that completed on
+ *  or before the given timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *userProcessFilterEndTime;
 
 /**
- *  Optional field used to limit returned processes to those originating from
- *  a script function with the given function name.
+ *  Optional field used to limit returned processes to those originating from a
+ *  script function with the given function name.
  */
 @property(nonatomic, copy, nullable) NSString *userProcessFilterFunctionName;
 
@@ -237,69 +441,88 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 @property(nonatomic, copy, nullable) NSString *userProcessFilterScriptId;
 
 /**
- *  Optional field used to limit returned processes to those that were
- *  started on or after the given timestamp.
+ *  Optional field used to limit returned processes to those that were started
+ *  on or after the given timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *userProcessFilterStartTime;
 
 /**
- *  Optional field used to limit returned processes to those having one of
- *  the specified process statuses.
+ *  Optional field used to limit returned processes to those having one of the
+ *  specified process statuses.
  *
  *  Likely values:
- *    @arg @c kGTLRScriptUserProcessFilterStatusesProcessStatusUnspecified Value
- *        "PROCESS_STATUS_UNSPECIFIED"
- *    @arg @c kGTLRScriptUserProcessFilterStatusesRunning Value "RUNNING"
- *    @arg @c kGTLRScriptUserProcessFilterStatusesPaused Value "PAUSED"
- *    @arg @c kGTLRScriptUserProcessFilterStatusesCompleted Value "COMPLETED"
- *    @arg @c kGTLRScriptUserProcessFilterStatusesCanceled Value "CANCELED"
- *    @arg @c kGTLRScriptUserProcessFilterStatusesFailed Value "FAILED"
- *    @arg @c kGTLRScriptUserProcessFilterStatusesTimedOut Value "TIMED_OUT"
- *    @arg @c kGTLRScriptUserProcessFilterStatusesUnknown Value "UNKNOWN"
- *    @arg @c kGTLRScriptUserProcessFilterStatusesDelayed Value "DELAYED"
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesProcessStatusUnspecified
+ *        Unspecified status. (Value: "PROCESS_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesRunning The process is
+ *        currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesPaused The process has paused.
+ *        (Value: "PAUSED")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesCompleted The process has
+ *        completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesCanceled The process was
+ *        cancelled. (Value: "CANCELED")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesFailed The process failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesTimedOut The process timed
+ *        out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesUnknown Process status
+ *        unknown. (Value: "UNKNOWN")
+ *    @arg @c kGTLRScriptUserProcessFilterStatusesDelayed The process is
+ *        delayed, waiting for quota. (Value: "DELAYED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userProcessFilterStatuses;
 
 /**
- *  Optional field used to limit returned processes to those having one of
- *  the specified process types.
+ *  Optional field used to limit returned processes to those having one of the
+ *  specified process types.
  *
  *  Likely values:
- *    @arg @c kGTLRScriptUserProcessFilterTypesProcessTypeUnspecified Value
- *        "PROCESS_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRScriptUserProcessFilterTypesAddOn Value "ADD_ON"
- *    @arg @c kGTLRScriptUserProcessFilterTypesExecutionApi Value
- *        "EXECUTION_API"
- *    @arg @c kGTLRScriptUserProcessFilterTypesTimeDriven Value "TIME_DRIVEN"
- *    @arg @c kGTLRScriptUserProcessFilterTypesTrigger Value "TRIGGER"
- *    @arg @c kGTLRScriptUserProcessFilterTypesWebapp Value "WEBAPP"
- *    @arg @c kGTLRScriptUserProcessFilterTypesEditor Value "EDITOR"
- *    @arg @c kGTLRScriptUserProcessFilterTypesSimpleTrigger Value
- *        "SIMPLE_TRIGGER"
- *    @arg @c kGTLRScriptUserProcessFilterTypesMenu Value "MENU"
- *    @arg @c kGTLRScriptUserProcessFilterTypesBatchTask Value "BATCH_TASK"
+ *    @arg @c kGTLRScriptUserProcessFilterTypesProcessTypeUnspecified
+ *        Unspecified type. (Value: "PROCESS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesAddOn The process was started
+ *        from an add-on entry point. (Value: "ADD_ON")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesExecutionApi The process was
+ *        started using the Apps Script API. (Value: "EXECUTION_API")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesTimeDriven The process was
+ *        started from a time-based trigger. (Value: "TIME_DRIVEN")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesTrigger The process was started
+ *        from an event-based trigger. (Value: "TRIGGER")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesWebapp The process was started
+ *        from a web app entry point. (Value: "WEBAPP")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesEditor The process was started
+ *        using the Apps Script IDE. (Value: "EDITOR")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesSimpleTrigger The process was
+ *        started from a G Suite simple trigger. (Value: "SIMPLE_TRIGGER")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesMenu The process was started from
+ *        a G Suite menu item. (Value: "MENU")
+ *    @arg @c kGTLRScriptUserProcessFilterTypesBatchTask The process was started
+ *        as a task in a batch job. (Value: "BATCH_TASK")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userProcessFilterTypes;
 
 /**
- *  Optional field used to limit returned processes to those having one of
- *  the specified user access levels.
+ *  Optional field used to limit returned processes to those having one of the
+ *  specified user access levels.
  *
  *  Likely values:
  *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsUserAccessLevelUnspecified
- *        Value "USER_ACCESS_LEVEL_UNSPECIFIED"
- *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsNone Value "NONE"
- *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsRead Value "READ"
- *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsWrite Value "WRITE"
- *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsOwner Value "OWNER"
+ *        User access level unspecified (Value: "USER_ACCESS_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsNone The user has no
+ *        access. (Value: "NONE")
+ *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsRead The user has
+ *        read-only access. (Value: "READ")
+ *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsWrite The user has
+ *        write access. (Value: "WRITE")
+ *    @arg @c kGTLRScriptUserProcessFilterUserAccessLevelsOwner The user is an
+ *        owner. (Value: "OWNER")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *userProcessFilterUserAccessLevels;
 
 /**
  *  Fetches a @c GTLRScript_ListUserProcessesResponse.
  *
- *  List information about processes made by or on behalf of a user,
- *  such as process type and current status.
+ *  List information about processes made by or on behalf of a user, such as
+ *  process type and current status.
  *
  *  @return GTLRScriptQuery_ProcessesList
  *
@@ -346,73 +569,92 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 @property(nonatomic, copy, nullable) NSString *scriptProcessFilterDeploymentId;
 
 /**
- *  Optional field used to limit returned processes to those that completed
- *  on or before the given timestamp.
+ *  Optional field used to limit returned processes to those that completed on
+ *  or before the given timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scriptProcessFilterEndTime;
 
 /**
- *  Optional field used to limit returned processes to those originating from
- *  a script function with the given function name.
+ *  Optional field used to limit returned processes to those originating from a
+ *  script function with the given function name.
  */
 @property(nonatomic, copy, nullable) NSString *scriptProcessFilterFunctionName;
 
 /**
- *  Optional field used to limit returned processes to those that were
- *  started on or after the given timestamp.
+ *  Optional field used to limit returned processes to those that were started
+ *  on or after the given timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scriptProcessFilterStartTime;
 
 /**
- *  Optional field used to limit returned processes to those having one of
- *  the specified process statuses.
+ *  Optional field used to limit returned processes to those having one of the
+ *  specified process statuses.
  *
  *  Likely values:
  *    @arg @c kGTLRScriptScriptProcessFilterStatusesProcessStatusUnspecified
- *        Value "PROCESS_STATUS_UNSPECIFIED"
- *    @arg @c kGTLRScriptScriptProcessFilterStatusesRunning Value "RUNNING"
- *    @arg @c kGTLRScriptScriptProcessFilterStatusesPaused Value "PAUSED"
- *    @arg @c kGTLRScriptScriptProcessFilterStatusesCompleted Value "COMPLETED"
- *    @arg @c kGTLRScriptScriptProcessFilterStatusesCanceled Value "CANCELED"
- *    @arg @c kGTLRScriptScriptProcessFilterStatusesFailed Value "FAILED"
- *    @arg @c kGTLRScriptScriptProcessFilterStatusesTimedOut Value "TIMED_OUT"
- *    @arg @c kGTLRScriptScriptProcessFilterStatusesUnknown Value "UNKNOWN"
- *    @arg @c kGTLRScriptScriptProcessFilterStatusesDelayed Value "DELAYED"
+ *        Unspecified status. (Value: "PROCESS_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesRunning The process is
+ *        currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesPaused The process has
+ *        paused. (Value: "PAUSED")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesCompleted The process has
+ *        completed. (Value: "COMPLETED")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesCanceled The process was
+ *        cancelled. (Value: "CANCELED")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesFailed The process failed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesTimedOut The process timed
+ *        out. (Value: "TIMED_OUT")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesUnknown Process status
+ *        unknown. (Value: "UNKNOWN")
+ *    @arg @c kGTLRScriptScriptProcessFilterStatusesDelayed The process is
+ *        delayed, waiting for quota. (Value: "DELAYED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scriptProcessFilterStatuses;
 
 /**
- *  Optional field used to limit returned processes to those having one of
- *  the specified process types.
+ *  Optional field used to limit returned processes to those having one of the
+ *  specified process types.
  *
  *  Likely values:
- *    @arg @c kGTLRScriptScriptProcessFilterTypesProcessTypeUnspecified Value
- *        "PROCESS_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesAddOn Value "ADD_ON"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesExecutionApi Value
- *        "EXECUTION_API"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesTimeDriven Value "TIME_DRIVEN"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesTrigger Value "TRIGGER"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesWebapp Value "WEBAPP"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesEditor Value "EDITOR"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesSimpleTrigger Value
- *        "SIMPLE_TRIGGER"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesMenu Value "MENU"
- *    @arg @c kGTLRScriptScriptProcessFilterTypesBatchTask Value "BATCH_TASK"
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesProcessTypeUnspecified
+ *        Unspecified type. (Value: "PROCESS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesAddOn The process was started
+ *        from an add-on entry point. (Value: "ADD_ON")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesExecutionApi The process was
+ *        started using the Apps Script API. (Value: "EXECUTION_API")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesTimeDriven The process was
+ *        started from a time-based trigger. (Value: "TIME_DRIVEN")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesTrigger The process was started
+ *        from an event-based trigger. (Value: "TRIGGER")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesWebapp The process was started
+ *        from a web app entry point. (Value: "WEBAPP")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesEditor The process was started
+ *        using the Apps Script IDE. (Value: "EDITOR")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesSimpleTrigger The process was
+ *        started from a G Suite simple trigger. (Value: "SIMPLE_TRIGGER")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesMenu The process was started
+ *        from a G Suite menu item. (Value: "MENU")
+ *    @arg @c kGTLRScriptScriptProcessFilterTypesBatchTask The process was
+ *        started as a task in a batch job. (Value: "BATCH_TASK")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scriptProcessFilterTypes;
 
 /**
- *  Optional field used to limit returned processes to those having one of
- *  the specified user access levels.
+ *  Optional field used to limit returned processes to those having one of the
+ *  specified user access levels.
  *
  *  Likely values:
  *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsUserAccessLevelUnspecified
- *        Value "USER_ACCESS_LEVEL_UNSPECIFIED"
- *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsNone Value "NONE"
- *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsRead Value "READ"
- *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsWrite Value "WRITE"
- *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsOwner Value "OWNER"
+ *        User access level unspecified (Value: "USER_ACCESS_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsNone The user has no
+ *        access. (Value: "NONE")
+ *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsRead The user has
+ *        read-only access. (Value: "READ")
+ *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsWrite The user has
+ *        write access. (Value: "WRITE")
+ *    @arg @c kGTLRScriptScriptProcessFilterUserAccessLevelsOwner The user is an
+ *        owner. (Value: "OWNER")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scriptProcessFilterUserAccessLevels;
 
@@ -433,8 +675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 @end
 
 /**
- *  Creates a new, empty script project with no script files and a base
- *  manifest file.
+ *  Creates a new, empty script project with no script files and a base manifest
+ *  file.
  *
  *  Method: script.projects.create
  *
@@ -448,8 +690,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 /**
  *  Fetches a @c GTLRScript_Project.
  *
- *  Creates a new, empty script project with no script files and a base
- *  manifest file.
+ *  Creates a new, empty script project with no script files and a base manifest
+ *  file.
  *
  *  @param object The @c GTLRScript_CreateProjectRequest to include in the
  *    query.
@@ -704,8 +946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 @end
 
 /**
- *  Get metrics data for scripts, such as number of executions and
- *  active users.
+ *  Get metrics data for scripts, such as number of executions and active users.
  *
  *  Method: script.projects.getMetrics
  *
@@ -725,10 +966,13 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *  Required field indicating what granularity of metrics are returned.
  *
  *  Likely values:
- *    @arg @c kGTLRScriptMetricsGranularityUnspecifiedGranularity Value
- *        "UNSPECIFIED_GRANULARITY"
- *    @arg @c kGTLRScriptMetricsGranularityWeekly Value "WEEKLY"
- *    @arg @c kGTLRScriptMetricsGranularityDaily Value "DAILY"
+ *    @arg @c kGTLRScriptMetricsGranularityUnspecifiedGranularity Default metric
+ *        granularity used to query no metrics. (Value:
+ *        "UNSPECIFIED_GRANULARITY")
+ *    @arg @c kGTLRScriptMetricsGranularityWeekly Represents weekly metrics.
+ *        (Value: "WEEKLY")
+ *    @arg @c kGTLRScriptMetricsGranularityDaily Represents daily metrics over a
+ *        period of 7 days. (Value: "DAILY")
  */
 @property(nonatomic, copy, nullable) NSString *metricsGranularity;
 
@@ -738,8 +982,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 /**
  *  Fetches a @c GTLRScript_Metrics.
  *
- *  Get metrics data for scripts, such as number of executions and
- *  active users.
+ *  Get metrics data for scripts, such as number of executions and active users.
  *
  *  @param scriptId Required field indicating the script to get metrics for.
  *
@@ -750,11 +993,10 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 @end
 
 /**
- *  Updates the content of the specified script project.
- *  This content is stored as the HEAD version, and is used when the script is
- *  executed as a trigger, in the script editor, in add-on preview mode, or as
- *  a web app or Apps Script API in development mode. This clears all the
- *  existing files in the project.
+ *  Updates the content of the specified script project. This content is stored
+ *  as the HEAD version, and is used when the script is executed as a trigger,
+ *  in the script editor, in add-on preview mode, or as a web app or Apps Script
+ *  API in development mode. This clears all the existing files in the project.
  *
  *  Method: script.projects.updateContent
  *
@@ -771,11 +1013,10 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 /**
  *  Fetches a @c GTLRScript_Content.
  *
- *  Updates the content of the specified script project.
- *  This content is stored as the HEAD version, and is used when the script is
- *  executed as a trigger, in the script editor, in add-on preview mode, or as
- *  a web app or Apps Script API in development mode. This clears all the
- *  existing files in the project.
+ *  Updates the content of the specified script project. This content is stored
+ *  as the HEAD version, and is used when the script is executed as a trigger,
+ *  in the script editor, in add-on preview mode, or as a web app or Apps Script
+ *  API in development mode. This clears all the existing files in the project.
  *
  *  @param object The @c GTLRScript_Content to include in the query.
  *  @param scriptId The script project's Drive ID.
@@ -898,17 +1139,15 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 /**
  *  Runs a function in an Apps Script project. The script project must be
  *  deployed for use with the Apps Script API and the calling application must
- *  share the same Cloud Platform project.
- *  This method requires authorization with an OAuth 2.0 token that includes at
- *  least one of the scopes listed in the
- *  [Authorization](#authorization-scopes) section; script projects that do not
- *  require authorization cannot be executed through this API. To find the
+ *  share the same Cloud Platform project. This method requires authorization
+ *  with an OAuth 2.0 token that includes at least one of the scopes listed in
+ *  the [Authorization](#authorization-scopes) section; script projects that do
+ *  not require authorization cannot be executed through this API. To find the
  *  correct scopes to include in the authentication token, open the project in
  *  the script editor, then select **File > Project properties** and click the
- *  **Scopes** tab.
- *  The error `403, PERMISSION_DENIED: The caller does not have permission`
- *  indicates that the Cloud Platform project used to authorize the request is
- *  not the same as the one used by the script.
+ *  **Scopes** tab. The error `403, PERMISSION_DENIED: The caller does not have
+ *  permission` indicates that the Cloud Platform project used to authorize the
+ *  request is not the same as the one used by the script.
  *
  *  Method: script.scripts.run
  *
@@ -931,8 +1170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 //   +[GTLQueryScript queryForScriptsRunWithObject:scriptId:]
 
 /**
- *  The script ID of the script to be executed. To find the script ID, open
- *  the project in the script editor and select **File > Project properties**.
+ *  The script ID of the script to be executed. To find the script ID, open the
+ *  project in the script editor and select **File > Project properties**.
  */
 @property(nonatomic, copy, nullable) NSString *scriptId;
 
@@ -941,22 +1180,20 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *
  *  Runs a function in an Apps Script project. The script project must be
  *  deployed for use with the Apps Script API and the calling application must
- *  share the same Cloud Platform project.
- *  This method requires authorization with an OAuth 2.0 token that includes at
- *  least one of the scopes listed in the
- *  [Authorization](#authorization-scopes) section; script projects that do not
- *  require authorization cannot be executed through this API. To find the
+ *  share the same Cloud Platform project. This method requires authorization
+ *  with an OAuth 2.0 token that includes at least one of the scopes listed in
+ *  the [Authorization](#authorization-scopes) section; script projects that do
+ *  not require authorization cannot be executed through this API. To find the
  *  correct scopes to include in the authentication token, open the project in
  *  the script editor, then select **File > Project properties** and click the
- *  **Scopes** tab.
- *  The error `403, PERMISSION_DENIED: The caller does not have permission`
- *  indicates that the Cloud Platform project used to authorize the request is
- *  not the same as the one used by the script.
+ *  **Scopes** tab. The error `403, PERMISSION_DENIED: The caller does not have
+ *  permission` indicates that the Cloud Platform project used to authorize the
+ *  request is not the same as the one used by the script.
  *
  *  @param object The @c GTLRScript_ExecutionRequest to include in the query.
  *  @param scriptId The script ID of the script to be executed. To find the
- *    script ID, open
- *    the project in the script editor and select **File > Project properties**.
+ *    script ID, open the project in the script editor and select **File >
+ *    Project properties**.
  *
  *  @return GTLRScriptQuery_ScriptsRun
  */

@@ -116,8 +116,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new SecretVersion containing secret data and attaches
- *  it to an existing Secret.
+ *  Creates a new SecretVersion containing secret data and attaches it to an
+ *  existing Secret.
  *
  *  Method: secretmanager.projects.secrets.addVersion
  *
@@ -137,14 +137,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecretManager_SecretVersion.
  *
- *  Creates a new SecretVersion containing secret data and attaches
- *  it to an existing Secret.
+ *  Creates a new SecretVersion containing secret data and attaches it to an
+ *  existing Secret.
  *
  *  @param object The @c GTLRSecretManager_AddSecretVersionRequest to include in
  *    the query.
  *  @param parent Required. The resource name of the Secret to associate with
- *    the
- *    SecretVersion in the format `projects/ * /secrets/ *`.
+ *    the SecretVersion in the format `projects/ * /secrets/ *`.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsAddVersion
  */
@@ -166,16 +165,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecretManager queryForProjectsSecretsCreateWithObject:parent:]
 
 /**
- *  Required. The resource name of the project to associate with the
- *  Secret, in the format `projects/ *`.
+ *  Required. The resource name of the project to associate with the Secret, in
+ *  the format `projects/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. This must be unique within the project.
- *  A secret ID is a string with a maximum length of 255 characters and can
- *  contain uppercase and lowercase letters, numerals, and the hyphen (`-`) and
- *  underscore (`_`) characters.
+ *  Required. This must be unique within the project. A secret ID is a string
+ *  with a maximum length of 255 characters and can contain uppercase and
+ *  lowercase letters, numerals, and the hyphen (`-`) and underscore (`_`)
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *secretId;
 
@@ -186,8 +185,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRSecretManager_Secret to include in the query.
  *  @param parent Required. The resource name of the project to associate with
- *    the
- *    Secret, in the format `projects/ *`.
+ *    the Secret, in the format `projects/ *`.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsCreate
  */
@@ -209,8 +207,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecretManager queryForProjectsSecretsDeleteWithname:]
 
 /**
- *  Required. The resource name of the Secret to delete in the format
- *  `projects/ * /secrets/ *`.
+ *  Required. The resource name of the Secret to delete in the format `projects/
+ *  * /secrets/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -220,8 +218,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a Secret.
  *
  *  @param name Required. The resource name of the Secret to delete in the
- *    format
- *    `projects/ * /secrets/ *`.
+ *    format `projects/ * /secrets/ *`.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsDelete
  */
@@ -262,8 +259,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a secret.
- *  Returns empty policy if the secret exists and does not have a policy set.
+ *  Gets the access control policy for a secret. Returns empty policy if the
+ *  secret exists and does not have a policy set.
  *
  *  Method: secretmanager.projects.secrets.getIamPolicy
  *
@@ -275,33 +272,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecretManager queryForProjectsSecretsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRSecretManager_Policy.
  *
- *  Gets the access control policy for a secret.
- *  Returns empty policy if the secret exists and does not have a policy set.
+ *  Gets the access control policy for a secret. Returns empty policy if the
+ *  secret exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsGetIamPolicy
  */
@@ -323,8 +318,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of results to be returned in a single page. If
- *  set to 0, the server decides the number of results to return. If the
- *  number is greater than 25000, it is capped at 25000.
+ *  set to 0, the server decides the number of results to return. If the number
+ *  is greater than 25000, it is capped at 25000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -335,8 +330,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the project associated with the
- *  Secrets, in the format `projects/ *`.
+ *  Required. The resource name of the project associated with the Secrets, in
+ *  the format `projects/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -401,9 +396,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified secret. Replaces any
- *  existing policy.
- *  Permissions on SecretVersions are enforced according
- *  to the policy set on the associated Secret.
+ *  existing policy. Permissions on SecretVersions are enforced according to the
+ *  policy set on the associated Secret.
  *
  *  Method: secretmanager.projects.secrets.setIamPolicy
  *
@@ -415,8 +409,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecretManager queryForProjectsSecretsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -424,15 +418,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecretManager_Policy.
  *
  *  Sets the access control policy on the specified secret. Replaces any
- *  existing policy.
- *  Permissions on SecretVersions are enforced according
- *  to the policy set on the associated Secret.
+ *  existing policy. Permissions on SecretVersions are enforced according to the
+ *  policy set on the associated Secret.
  *
  *  @param object The @c GTLRSecretManager_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsSetIamPolicy
  */
@@ -442,12 +435,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has for the specified secret.
- *  If the secret does not exist, this call returns an empty set of
- *  permissions, not a NOT_FOUND error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has for the specified secret. If the
+ *  secret does not exist, this call returns an empty set of permissions, not a
+ *  NOT_FOUND error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: secretmanager.projects.secrets.testIamPermissions
  *
@@ -459,26 +451,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecretManager queryForProjectsSecretsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRSecretManager_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has for the specified secret.
- *  If the secret does not exist, this call returns an empty set of
- *  permissions, not a NOT_FOUND error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has for the specified secret. If the
+ *  secret does not exist, this call returns an empty set of permissions, not a
+ *  NOT_FOUND error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRSecretManager_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsTestIamPermissions
  */
@@ -488,9 +479,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Accesses a SecretVersion. This call returns the secret data.
- *  `projects/ * /secrets/ * /versions/latest` is an alias to the `latest`
- *  SecretVersion.
+ *  Accesses a SecretVersion. This call returns the secret data. `projects/ *
+ *  /secrets/ * /versions/latest` is an alias to the `latest` SecretVersion.
  *
  *  Method: secretmanager.projects.secrets.versions.access
  *
@@ -502,17 +492,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecretManager queryForProjectsSecretsVersionsAccessWithname:]
 
 /**
- *  Required. The resource name of the SecretVersion in the format
- *  `projects/ * /secrets/ * /versions/ *`.
+ *  Required. The resource name of the SecretVersion in the format `projects/ *
+ *  /secrets/ * /versions/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRSecretManager_AccessSecretVersionResponse.
  *
- *  Accesses a SecretVersion. This call returns the secret data.
- *  `projects/ * /secrets/ * /versions/latest` is an alias to the `latest`
- *  SecretVersion.
+ *  Accesses a SecretVersion. This call returns the secret data. `projects/ *
+ *  /secrets/ * /versions/latest` is an alias to the `latest` SecretVersion.
  *
  *  @param name Required. The resource name of the SecretVersion in the format
  *    `projects/ * /secrets/ * /versions/ *`.
@@ -524,10 +513,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Destroys a SecretVersion.
- *  Sets the state of the SecretVersion to
- *  DESTROYED and irrevocably destroys the
- *  secret data.
+ *  Destroys a SecretVersion. Sets the state of the SecretVersion to DESTROYED
+ *  and irrevocably destroys the secret data.
  *
  *  Method: secretmanager.projects.secrets.versions.destroy
  *
@@ -547,16 +534,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecretManager_SecretVersion.
  *
- *  Destroys a SecretVersion.
- *  Sets the state of the SecretVersion to
- *  DESTROYED and irrevocably destroys the
- *  secret data.
+ *  Destroys a SecretVersion. Sets the state of the SecretVersion to DESTROYED
+ *  and irrevocably destroys the secret data.
  *
  *  @param object The @c GTLRSecretManager_DestroySecretVersionRequest to
  *    include in the query.
  *  @param name Required. The resource name of the SecretVersion to destroy in
- *    the format
- *    `projects/ * /secrets/ * /versions/ *`.
+ *    the format `projects/ * /secrets/ * /versions/ *`.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsDestroy
  */
@@ -566,9 +550,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Disables a SecretVersion.
- *  Sets the state of the SecretVersion to
- *  DISABLED.
+ *  Disables a SecretVersion. Sets the state of the SecretVersion to DISABLED.
  *
  *  Method: secretmanager.projects.secrets.versions.disable
  *
@@ -588,15 +570,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecretManager_SecretVersion.
  *
- *  Disables a SecretVersion.
- *  Sets the state of the SecretVersion to
- *  DISABLED.
+ *  Disables a SecretVersion. Sets the state of the SecretVersion to DISABLED.
  *
  *  @param object The @c GTLRSecretManager_DisableSecretVersionRequest to
  *    include in the query.
  *  @param name Required. The resource name of the SecretVersion to disable in
- *    the format
- *    `projects/ * /secrets/ * /versions/ *`.
+ *    the format `projects/ * /secrets/ * /versions/ *`.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsDisable
  */
@@ -606,9 +585,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Enables a SecretVersion.
- *  Sets the state of the SecretVersion to
- *  ENABLED.
+ *  Enables a SecretVersion. Sets the state of the SecretVersion to ENABLED.
  *
  *  Method: secretmanager.projects.secrets.versions.enable
  *
@@ -628,15 +605,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSecretManager_SecretVersion.
  *
- *  Enables a SecretVersion.
- *  Sets the state of the SecretVersion to
- *  ENABLED.
+ *  Enables a SecretVersion. Sets the state of the SecretVersion to ENABLED.
  *
  *  @param object The @c GTLRSecretManager_EnableSecretVersionRequest to include
  *    in the query.
  *  @param name Required. The resource name of the SecretVersion to enable in
- *    the format
- *    `projects/ * /secrets/ * /versions/ *`.
+ *    the format `projects/ * /secrets/ * /versions/ *`.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsEnable
  */
@@ -646,9 +620,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets metadata for a SecretVersion.
- *  `projects/ * /secrets/ * /versions/latest` is an alias to the `latest`
- *  SecretVersion.
+ *  Gets metadata for a SecretVersion. `projects/ * /secrets/ *
+ *  /versions/latest` is an alias to the `latest` SecretVersion.
  *
  *  Method: secretmanager.projects.secrets.versions.get
  *
@@ -660,24 +633,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySecretManager queryForProjectsSecretsVersionsGetWithname:]
 
 /**
- *  Required. The resource name of the SecretVersion in the format
- *  `projects/ * /secrets/ * /versions/ *`.
- *  `projects/ * /secrets/ * /versions/latest` is an alias to the `latest`
- *  SecretVersion.
+ *  Required. The resource name of the SecretVersion in the format `projects/ *
+ *  /secrets/ * /versions/ *`. `projects/ * /secrets/ * /versions/latest` is an
+ *  alias to the `latest` SecretVersion.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRSecretManager_SecretVersion.
  *
- *  Gets metadata for a SecretVersion.
- *  `projects/ * /secrets/ * /versions/latest` is an alias to the `latest`
- *  SecretVersion.
+ *  Gets metadata for a SecretVersion. `projects/ * /secrets/ *
+ *  /versions/latest` is an alias to the `latest` SecretVersion.
  *
  *  @param name Required. The resource name of the SecretVersion in the format
- *    `projects/ * /secrets/ * /versions/ *`.
- *    `projects/ * /secrets/ * /versions/latest` is an alias to the `latest`
- *    SecretVersion.
+ *    `projects/ * /secrets/ * /versions/ *`. `projects/ * /secrets/ *
+ *    /versions/latest` is an alias to the `latest` SecretVersion.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsGet
  */
@@ -686,8 +656,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists SecretVersions. This call does not return secret
- *  data.
+ *  Lists SecretVersions. This call does not return secret data.
  *
  *  Method: secretmanager.projects.secrets.versions.list
  *
@@ -700,8 +669,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of results to be returned in a single page. If
- *  set to 0, the server decides the number of results to return. If the
- *  number is greater than 25000, it is capped at 25000.
+ *  set to 0, the server decides the number of results to return. If the number
+ *  is greater than 25000, it is capped at 25000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -712,21 +681,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the Secret associated with the
- *  SecretVersions to list, in the format
- *  `projects/ * /secrets/ *`.
+ *  Required. The resource name of the Secret associated with the SecretVersions
+ *  to list, in the format `projects/ * /secrets/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRSecretManager_ListSecretVersionsResponse.
  *
- *  Lists SecretVersions. This call does not return secret
- *  data.
+ *  Lists SecretVersions. This call does not return secret data.
  *
  *  @param parent Required. The resource name of the Secret associated with the
- *    SecretVersions to list, in the format
- *    `projects/ * /secrets/ *`.
+ *    SecretVersions to list, in the format `projects/ * /secrets/ *`.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsList
  *

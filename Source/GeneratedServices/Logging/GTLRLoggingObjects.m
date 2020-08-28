@@ -381,8 +381,8 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemen
 //
 
 @implementation GTLRLogging_LogBucket
-@dynamic createTime, descriptionProperty, lifecycleState, name, retentionDays,
-         updateTime;
+@dynamic createTime, descriptionProperty, lifecycleState, locked, name,
+         retentionDays, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -533,11 +533,18 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemen
 
 @implementation GTLRLogging_LogSink
 @dynamic bigqueryOptions, createTime, descriptionProperty, destination,
-         disabled, filter, includeChildren, name, outputVersionFormat,
-         updateTime, writerIdentity;
+         disabled, exclusions, filter, includeChildren, name,
+         outputVersionFormat, updateTime, writerIdentity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exclusions" : [GTLRLogging_LogExclusion class]
+  };
+  return map;
 }
 
 @end
@@ -702,6 +709,15 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemen
 
 @implementation GTLRLogging_SourceReference
 @dynamic repository, revisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_UndeleteBucketRequest
+//
+
+@implementation GTLRLogging_UndeleteBucketRequest
 @end
 
 

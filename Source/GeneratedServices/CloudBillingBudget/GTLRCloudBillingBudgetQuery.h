@@ -42,9 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new budget. See
- *  <a href="https://cloud.google.com/billing/quotas">Quotas and limits</a>
- *  for more information on the limits of the number of budgets you can create.
+ *  Creates a new budget. See Quotas and limits for more information on the
+ *  limits of the number of budgets you can create.
  *
  *  Method: billingbudgets.billingAccounts.budgets.create
  *
@@ -64,16 +63,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget.
  *
- *  Creates a new budget. See
- *  <a href="https://cloud.google.com/billing/quotas">Quotas and limits</a>
- *  for more information on the limits of the number of budgets you can create.
+ *  Creates a new budget. See Quotas and limits for more information on the
+ *  limits of the number of budgets you can create.
  *
  *  @param object The @c
  *    GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest
  *    to include in the query.
  *  @param parent Required. The name of the billing account to create the budget
- *    in. Values
- *    are of the form `billingAccounts/{billingAccountId}`.
+ *    in. Values are of the form `billingAccounts/{billingAccountId}`.
  *
  *  @return GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsCreate
  */
@@ -115,10 +112,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a budget.
- *  WARNING: There are some fields exposed on the Google Cloud Console that
- *  aren't available on this API. When reading from the API, you will not
- *  see these fields in the return value, though they may have been set
+ *  Returns a budget. WARNING: There are some fields exposed on the Google Cloud
+ *  Console that aren't available on this API. When reading from the API, you
+ *  will not see these fields in the return value, though they may have been set
  *  in the Cloud Console.
  *
  *  Method: billingbudgets.billingAccounts.budgets.get
@@ -139,10 +135,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget.
  *
- *  Returns a budget.
- *  WARNING: There are some fields exposed on the Google Cloud Console that
- *  aren't available on this API. When reading from the API, you will not
- *  see these fields in the return value, though they may have been set
+ *  Returns a budget. WARNING: There are some fields exposed on the Google Cloud
+ *  Console that aren't available on this API. When reading from the API, you
+ *  will not see these fields in the return value, though they may have been set
  *  in the Cloud Console.
  *
  *  @param name Required. Name of budget to get. Values are of the form
@@ -155,11 +150,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a list of budgets for a billing account.
- *  WARNING: There are some fields exposed on the Google Cloud Console that
- *  aren't available on this API. When reading from the API, you will not
- *  see these fields in the return value, though they may have been set
- *  in the Cloud Console.
+ *  Returns a list of budgets for a billing account. WARNING: There are some
+ *  fields exposed on the Google Cloud Console that aren't available on this
+ *  API. When reading from the API, you will not see these fields in the return
+ *  value, though they may have been set in the Cloud Console.
  *
  *  Method: billingbudgets.billingAccounts.budgets.list
  *
@@ -171,21 +165,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBillingBudget queryForBillingAccountsBudgetsListWithparent:]
 
 /**
- *  Optional. The maximum number of budgets to return per page.
- *  The default and maximum value are 100.
+ *  Optional. The maximum number of budgets to return per page. The default and
+ *  maximum value are 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. The value returned by the last `ListBudgetsResponse` which
- *  indicates that this is a continuation of a prior `ListBudgets` call,
- *  and that the system should return the next page of data.
+ *  indicates that this is a continuation of a prior `ListBudgets` call, and
+ *  that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of billing account to list budgets under. Values
- *  are of the form `billingAccounts/{billingAccountId}`.
+ *  Required. Name of billing account to list budgets under. Values are of the
+ *  form `billingAccounts/{billingAccountId}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -193,15 +187,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ListBudgetsResponse.
  *
- *  Returns a list of budgets for a billing account.
- *  WARNING: There are some fields exposed on the Google Cloud Console that
- *  aren't available on this API. When reading from the API, you will not
- *  see these fields in the return value, though they may have been set
- *  in the Cloud Console.
+ *  Returns a list of budgets for a billing account. WARNING: There are some
+ *  fields exposed on the Google Cloud Console that aren't available on this
+ *  API. When reading from the API, you will not see these fields in the return
+ *  value, though they may have been set in the Cloud Console.
  *
  *  @param parent Required. Name of billing account to list budgets under.
- *    Values
- *    are of the form `billingAccounts/{billingAccountId}`.
+ *    Values are of the form `billingAccounts/{billingAccountId}`.
  *
  *  @return GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsList
  *
@@ -214,10 +206,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a budget and returns the updated budget.
- *  WARNING: There are some fields exposed on the Google Cloud Console that
- *  aren't available on this API. Budget fields that are not exposed in
- *  this API will not be changed by this method.
+ *  Updates a budget and returns the updated budget. WARNING: There are some
+ *  fields exposed on the Google Cloud Console that aren't available on this
+ *  API. Budget fields that are not exposed in this API will not be changed by
+ *  this method.
  *
  *  Method: billingbudgets.billingAccounts.budgets.patch
  *
@@ -229,8 +221,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBillingBudget queryForBillingAccountsBudgetsPatchWithObject:name:]
 
 /**
- *  Output only. Resource name of the budget.
- *  The resource name implies the scope of a budget. Values are of the form
+ *  Output only. Resource name of the budget. The resource name implies the
+ *  scope of a budget. Values are of the form
  *  `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -238,16 +230,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget.
  *
- *  Updates a budget and returns the updated budget.
- *  WARNING: There are some fields exposed on the Google Cloud Console that
- *  aren't available on this API. Budget fields that are not exposed in
- *  this API will not be changed by this method.
+ *  Updates a budget and returns the updated budget. WARNING: There are some
+ *  fields exposed on the Google Cloud Console that aren't available on this
+ *  API. Budget fields that are not exposed in this API will not be changed by
+ *  this method.
  *
  *  @param object The @c
  *    GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest
  *    to include in the query.
- *  @param name Output only. Resource name of the budget.
- *    The resource name implies the scope of a budget. Values are of the form
+ *  @param name Output only. Resource name of the budget. The resource name
+ *    implies the scope of a budget. Values are of the form
  *    `billingAccounts/{billingAccountId}/budgets/{budgetId}`.
  *
  *  @return GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsPatch

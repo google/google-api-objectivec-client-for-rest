@@ -59,49 +59,46 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_BatchTranslateTextRequest : GTLRObject
 
 /**
- *  Optional. Glossaries to be applied for translation.
- *  It's keyed by target language code.
+ *  Optional. Glossaries to be applied for translation. It's keyed by target
+ *  language code.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_BatchTranslateTextRequest_Glossaries *glossaries;
 
 /**
- *  Required. Input configurations.
- *  The total number of files matched should be <= 1000.
- *  The total content size should be <= 100M Unicode codepoints.
- *  The files must use UTF-8 encoding.
+ *  Required. Input configurations. The total number of files matched should be
+ *  <= 1000. The total content size should be <= 100M Unicode codepoints. The
+ *  files must use UTF-8 encoding.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranslate_InputConfig *> *inputConfigs;
 
 /**
- *  Optional. The labels with user-defined metadata for the request.
- *  Label keys and values can be no longer than 63 characters
- *  (Unicode codepoints), can only contain lowercase letters, numeric
- *  characters, underscores and dashes. International characters are allowed.
- *  Label values are optional. Label keys must start with a letter.
- *  See https://cloud.google.com/translate/docs/advanced/labels for more
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter. See
+ *  https://cloud.google.com/translate/docs/advanced/labels for more
  *  information.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_BatchTranslateTextRequest_Labels *labels;
 
 /**
  *  Optional. The models to use for translation. Map's key is target language
- *  code. Map's value is model name. Value can be a built-in general model,
- *  or an AutoML Translation model.
- *  The value format depends on model type:
- *  - AutoML Translation models:
+ *  code. Map's value is model name. Value can be a built-in general model, or
+ *  an AutoML Translation model. The value format depends on model type: -
+ *  AutoML Translation models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
- *  If the map is empty or a specific model is
- *  not requested for a language pair, then default google model (nmt) is used.
+ *  If the map is empty or a specific model is not requested for a language
+ *  pair, then default google model (nmt) is used.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_BatchTranslateTextRequest_Models *models;
 
 /**
- *  Required. Output configuration.
- *  If 2 input configs match to the same file (that is, same input path),
- *  we don't generate output for duplicate inputs.
+ *  Required. Output configuration. If 2 input configs match to the same file
+ *  (that is, same input path), we don't generate output for duplicate inputs.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_OutputConfig *outputConfig;
 
@@ -115,8 +112,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional. Glossaries to be applied for translation.
- *  It's keyed by target language code.
+ *  Optional. Glossaries to be applied for translation. It's keyed by target
+ *  language code.
  *
  *  @note This class is documented as having more properties of
  *        GTLRTranslate_TextGlossaryConfig. Use @c -additionalJSONKeys and @c
@@ -128,12 +125,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional. The labels with user-defined metadata for the request.
- *  Label keys and values can be no longer than 63 characters
- *  (Unicode codepoints), can only contain lowercase letters, numeric
- *  characters, underscores and dashes. International characters are allowed.
- *  Label values are optional. Label keys must start with a letter.
- *  See https://cloud.google.com/translate/docs/advanced/labels for more
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter. See
+ *  https://cloud.google.com/translate/docs/advanced/labels for more
  *  information.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -147,16 +144,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The models to use for translation. Map's key is target language
- *  code. Map's value is model name. Value can be a built-in general model,
- *  or an AutoML Translation model.
- *  The value format depends on model type:
- *  - AutoML Translation models:
+ *  code. Map's value is model name. Value can be a built-in general model, or
+ *  an AutoML Translation model. The value format depends on model type: -
+ *  AutoML Translation models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
- *  If the map is empty or a specific model is
- *  not requested for a language pair, then default google model (nmt) is used.
+ *  If the map is empty or a specific model is not requested for a language
+ *  pair, then default google model (nmt) is used.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -204,12 +200,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
- *  Optional. The labels with user-defined metadata for the request.
- *  Label keys and values can be no longer than 63 characters
- *  (Unicode codepoints), can only contain lowercase letters, numeric
- *  characters, underscores and dashes. International characters are allowed.
- *  Label values are optional. Label keys must start with a letter.
- *  See https://cloud.google.com/translate/docs/advanced/labels for more
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter. See
+ *  https://cloud.google.com/translate/docs/advanced/labels for more
  *  information.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_DetectLanguageRequest_Labels *labels;
@@ -221,8 +217,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
- *  Optional. The language detection model to be used.
- *  Format:
+ *  Optional. The language detection model to be used. Format:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/language-detection/{model-id}`
  *  Only one language detection model is currently supported:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/language-detection/default`.
@@ -234,12 +229,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional. The labels with user-defined metadata for the request.
- *  Label keys and values can be no longer than 63 characters
- *  (Unicode codepoints), can only contain lowercase letters, numeric
- *  characters, underscores and dashes. International characters are allowed.
- *  Label values are optional. Label keys must start with a letter.
- *  See https://cloud.google.com/translate/docs/advanced/labels for more
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter. See
+ *  https://cloud.google.com/translate/docs/advanced/labels for more
  *  information.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -268,11 +263,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRTranslate_Empty : GTLRObject
 @end
@@ -285,11 +278,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The bucket used in 'output_uri_prefix' must exist and there must
- *  be no
- *  files under 'output_uri_prefix'. 'output_uri_prefix' must end with "/" and
- *  start with "gs://". One 'output_uri_prefix' can only be used by one batch
- *  translation job at a time. Otherwise an INVALID_ARGUMENT (400) error is
- *  returned.
+ *  be no files under 'output_uri_prefix'. 'output_uri_prefix' must end with "/"
+ *  and start with "gs://". One 'output_uri_prefix' can only be used by one
+ *  batch translation job at a time. Otherwise an INVALID_ARGUMENT (400) error
+ *  is returned.
  */
 @property(nonatomic, copy, nullable) NSString *outputUriPrefix;
 
@@ -323,8 +315,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *entryCount;
 
 /**
- *  Required. Provides examples to build the glossary from.
- *  Total glossary must not exceed 10M Unicode codepoints.
+ *  Required. Provides examples to build the glossary from. Total glossary must
+ *  not exceed 10M Unicode codepoints.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_GlossaryInputConfig *inputConfig;
 
@@ -352,22 +344,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_GlossaryInputConfig : GTLRObject
 
 /**
- *  Required. Google Cloud Storage location of glossary data.
- *  File format is determined based on the filename extension. API returns
- *  [google.rpc.Code.INVALID_ARGUMENT] for unsupported URI-s and file
- *  formats. Wildcards are not allowed. This must be a single file in one of
- *  the following formats:
- *  For unidirectional glossaries:
- *  - TSV/CSV (`.tsv`/`.csv`): 2 column file, tab- or comma-separated.
- *  The first column is source text. The second column is target text.
- *  The file must not contain headers. That is, the first row is data, not
- *  column names.
- *  - TMX (`.tmx`): TMX file with parallel data defining source/target term
- *  pairs.
- *  For equivalent term sets glossaries:
- *  - CSV (`.csv`): Multi-column CSV file defining equivalent glossary terms
- *  in multiple languages. See documentation for more information -
- *  [glossaries](https://cloud.google.com/translate/docs/advanced/glossary).
+ *  Required. Google Cloud Storage location of glossary data. File format is
+ *  determined based on the filename extension. API returns
+ *  [google.rpc.Code.INVALID_ARGUMENT] for unsupported URI-s and file formats.
+ *  Wildcards are not allowed. This must be a single file in one of the
+ *  following formats: For unidirectional glossaries: - TSV/CSV (`.tsv`/`.csv`):
+ *  2 column file, tab- or comma-separated. The first column is source text. The
+ *  second column is target text. The file must not contain headers. That is,
+ *  the first row is data, not column names. - TMX (`.tmx`): TMX file with
+ *  parallel data defining source/target term pairs. For equivalent term sets
+ *  glossaries: - CSV (`.csv`): Multi-column CSV file defining equivalent
+ *  glossary terms in multiple languages. See documentation for more information
+ *  - [glossaries](https://cloud.google.com/translate/docs/advanced/glossary).
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_GcsSource *gcsSource;
 
@@ -380,30 +368,26 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_InputConfig : GTLRObject
 
 /**
- *  Required. Google Cloud Storage location for the source input.
- *  This can be a single file (for example,
- *  `gs://translation-test/input.tsv`) or a wildcard (for example,
- *  `gs://translation-test/ *`). If a file extension is `.tsv`, it can
- *  contain either one or two columns. The first column (optional) is the id
- *  of the text request. If the first column is missing, we use the row
- *  number (0-based) from the input file as the ID in the output file. The
- *  second column is the actual text to be
- *  translated. We recommend each row be <= 10K Unicode codepoints,
- *  otherwise an error might be returned.
- *  Note that the input tsv must be RFC 4180 compliant.
- *  You could use https://github.com/Clever/csvlint to check potential
- *  formatting errors in your tsv file.
- *  csvlint --delimiter='\\t' your_input_file.tsv
- *  The other supported file extensions are `.txt` or `.html`, which is
- *  treated as a single large chunk of text.
+ *  Required. Google Cloud Storage location for the source input. This can be a
+ *  single file (for example, `gs://translation-test/input.tsv`) or a wildcard
+ *  (for example, `gs://translation-test/ *`). If a file extension is `.tsv`, it
+ *  can contain either one or two columns. The first column (optional) is the id
+ *  of the text request. If the first column is missing, we use the row number
+ *  (0-based) from the input file as the ID in the output file. The second
+ *  column is the actual text to be translated. We recommend each row be <= 10K
+ *  Unicode codepoints, otherwise an error might be returned. Note that the
+ *  input tsv must be RFC 4180 compliant. You could use
+ *  https://github.com/Clever/csvlint to check potential formatting errors in
+ *  your tsv file. csvlint --delimiter='\\t' your_input_file.tsv The other
+ *  supported file extensions are `.txt` or `.html`, which is treated as a
+ *  single large chunk of text.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_GcsSource *gcsSource;
 
 /**
- *  Optional. Can be "text/plain" or "text/html".
- *  For `.tsv`, "text/html" is used if mime_type is missing.
- *  For `.html`, this field must be "text/html" or empty.
- *  For `.txt`, this field must be "text/plain" or empty.
+ *  Optional. Can be "text/plain" or "text/html". For `.tsv`, "text/html" is
+ *  used if mime_type is missing. For `.html`, this field must be "text/html" or
+ *  empty. For `.txt`, this field must be "text/plain" or empty.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
@@ -416,8 +400,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_LanguageCodePair : GTLRObject
 
 /**
- *  Required. The BCP-47 language code of the input text, for example,
- *  "en-US". Expected to be an exact match for GlossaryTerm.language_code.
+ *  Required. The BCP-47 language code of the input text, for example, "en-US".
+ *  Expected to be an exact match for GlossaryTerm.language_code.
  */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
@@ -436,9 +420,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_LanguageCodesSet : GTLRObject
 
 /**
- *  The BCP-47 language code(s) for terms defined in the glossary.
- *  All entries are unique. The list contains at least two entries.
- *  Expected to be an exact match for GlossaryTerm.language_code.
+ *  The BCP-47 language code(s) for terms defined in the glossary. All entries
+ *  are unique. The list contains at least two entries. Expected to be an exact
+ *  match for GlossaryTerm.language_code.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
@@ -527,8 +511,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -548,8 +532,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRTranslate_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -589,8 +573,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -602,16 +586,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -620,10 +604,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_Operation_Response *response;
 
@@ -632,8 +615,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -650,10 +633,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -670,59 +652,48 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_OutputConfig : GTLRObject
 
 /**
- *  Google Cloud Storage destination for output content.
- *  For every single input file (for example, gs://a/b/c.[extension]), we
- *  generate at most 2 * n output files. (n is the # of target_language_codes
- *  in the BatchTranslateTextRequest).
- *  Output files (tsv) generated are compliant with RFC 4180 except that
- *  record delimiters are '\\n' instead of '\\r\\n'. We don't provide any way to
- *  change record delimiters.
- *  While the input files are being processed, we write/update an index file
- *  'index.csv' under 'output_uri_prefix' (for example,
- *  gs://translation-test/index.csv) The index file is generated/updated as
- *  new files are being translated. The format is:
+ *  Google Cloud Storage destination for output content. For every single input
+ *  file (for example, gs://a/b/c.[extension]), we generate at most 2 * n output
+ *  files. (n is the # of target_language_codes in the
+ *  BatchTranslateTextRequest). Output files (tsv) generated are compliant with
+ *  RFC 4180 except that record delimiters are '\\n' instead of '\\r\\n'. We
+ *  don't provide any way to change record delimiters. While the input files are
+ *  being processed, we write/update an index file 'index.csv' under
+ *  'output_uri_prefix' (for example, gs://translation-test/index.csv) The index
+ *  file is generated/updated as new files are being translated. The format is:
  *  input_file,target_language_code,translations_file,errors_file,
- *  glossary_translations_file,glossary_errors_file
- *  input_file is one file we matched using gcs_source.input_uri.
- *  target_language_code is provided in the request.
- *  translations_file contains the translations. (details provided below)
- *  errors_file contains the errors during processing of the file. (details
- *  below). Both translations_file and errors_file could be empty
- *  strings if we have no content to output.
- *  glossary_translations_file and glossary_errors_file are always empty
- *  strings if the input_file is tsv. They could also be empty if we have no
- *  content to output.
- *  Once a row is present in index.csv, the input/output matching never
- *  changes. Callers should also expect all the content in input_file are
- *  processed and ready to be consumed (that is, no partial output file is
- *  written).
- *  The format of translations_file (for target language code 'trg') is:
- *  gs://translation_test/a_b_c_'trg'_translations.[extension]
- *  If the input file extension is tsv, the output has the following
- *  columns:
- *  Column 1: ID of the request provided in the input, if it's not
- *  provided in the input, then the input row number is used (0-based).
- *  Column 2: source sentence.
- *  Column 3: translation without applying a glossary. Empty string if there
- *  is an error.
+ *  glossary_translations_file,glossary_errors_file input_file is one file we
+ *  matched using gcs_source.input_uri. target_language_code is provided in the
+ *  request. translations_file contains the translations. (details provided
+ *  below) errors_file contains the errors during processing of the file.
+ *  (details below). Both translations_file and errors_file could be empty
+ *  strings if we have no content to output. glossary_translations_file and
+ *  glossary_errors_file are always empty strings if the input_file is tsv. They
+ *  could also be empty if we have no content to output. Once a row is present
+ *  in index.csv, the input/output matching never changes. Callers should also
+ *  expect all the content in input_file are processed and ready to be consumed
+ *  (that is, no partial output file is written). The format of
+ *  translations_file (for target language code 'trg') is:
+ *  gs://translation_test/a_b_c_'trg'_translations.[extension] If the input file
+ *  extension is tsv, the output has the following columns: Column 1: ID of the
+ *  request provided in the input, if it's not provided in the input, then the
+ *  input row number is used (0-based). Column 2: source sentence. Column 3:
+ *  translation without applying a glossary. Empty string if there is an error.
  *  Column 4 (only present if a glossary is provided in the request):
- *  translation after applying the glossary. Empty string if there is an
- *  error applying the glossary. Could be same string as column 3 if there is
- *  no glossary applied.
- *  If input file extension is a txt or html, the translation is directly
- *  written to the output file. If glossary is requested, a separate
+ *  translation after applying the glossary. Empty string if there is an error
+ *  applying the glossary. Could be same string as column 3 if there is no
+ *  glossary applied. If input file extension is a txt or html, the translation
+ *  is directly written to the output file. If glossary is requested, a separate
  *  glossary_translations_file has format of
- *  gs://translation_test/a_b_c_'trg'_glossary_translations.[extension]
- *  The format of errors file (for target language code 'trg') is:
- *  gs://translation_test/a_b_c_'trg'_errors.[extension]
- *  If the input file extension is tsv, errors_file contains the following:
- *  Column 1: ID of the request provided in the input, if it's not
- *  provided in the input, then the input row number is used (0-based).
- *  Column 2: source sentence.
- *  Column 3: Error detail for the translation. Could be empty.
- *  Column 4 (only present if a glossary is provided in the request):
- *  Error when applying the glossary.
- *  If the input file extension is txt or html, glossary_error_file will be
+ *  gs://translation_test/a_b_c_'trg'_glossary_translations.[extension] The
+ *  format of errors file (for target language code 'trg') is:
+ *  gs://translation_test/a_b_c_'trg'_errors.[extension] If the input file
+ *  extension is tsv, errors_file contains the following: Column 1: ID of the
+ *  request provided in the input, if it's not provided in the input, then the
+ *  input row number is used (0-based). Column 2: source sentence. Column 3:
+ *  Error detail for the translation. Could be empty. Column 4 (only present if
+ *  a glossary is provided in the request): Error when applying the glossary. If
+ *  the input file extension is txt or html, glossary_error_file will be
  *  generated that contains error details. glossary_error_file has format of
  *  gs://translation_test/a_b_c_'trg'_glossary_errors.[extension]
  */
@@ -735,9 +706,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRTranslate_Status : GTLRObject
 
@@ -777,8 +748,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A single supported language response corresponds to information related
- *  to one supported language.
+ *  A single supported language response corresponds to information related to
+ *  one supported language.
  */
 @interface GTLRTranslate_SupportedLanguage : GTLRObject
 
@@ -789,10 +760,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Supported language code, generally consisting of its ISO 639-1
- *  identifier, for example, 'en', 'ja'. In certain cases, BCP-47 codes
- *  including language and region identifiers are returned (for example,
- *  'zh-TW' and 'zh-CN')
+ *  Supported language code, generally consisting of its ISO 639-1 identifier,
+ *  for example, 'en', 'ja'. In certain cases, BCP-47 codes including language
+ *  and region identifiers are returned (for example, 'zh-TW' and 'zh-CN')
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -819,8 +789,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_SupportedLanguages : GTLRObject
 
 /**
- *  A list of supported language responses. This list contains an entry
- *  for each language the Translation API supports.
+ *  A list of supported language responses. This list contains an entry for each
+ *  language the Translation API supports.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranslate_SupportedLanguage *> *languages;
 
@@ -828,22 +798,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Configures which glossary should be used for a specific target language,
- *  and defines options for applying that glossary.
+ *  Configures which glossary should be used for a specific target language, and
+ *  defines options for applying that glossary.
  */
 @interface GTLRTranslate_TextGlossaryConfig : GTLRObject
 
 /**
- *  Required. The `glossary` to be applied for this translation.
- *  The format depends on glossary:
- *  - User provided custom glossary:
+ *  Required. The `glossary` to be applied for this translation. The format
+ *  depends on glossary: - User provided custom glossary:
  *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`
  */
 @property(nonatomic, copy, nullable) NSString *glossary;
 
 /**
- *  Optional. Indicates match is case-insensitive.
- *  Default value is false if missing.
+ *  Optional. Indicates match is case-insensitive. Default value is false if
+ *  missing.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -858,26 +827,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_TextRequest : GTLRObject
 
 /**
- *  Required. The content of the input in string format.
- *  We recommend the total content be less than 30k codepoints.
- *  Use BatchTranslateText for larger text.
+ *  Required. The content of the input in string format. We recommend the total
+ *  content be less than 30k codepoints. Use BatchTranslateText for larger text.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contents;
 
 /**
- *  Optional. Glossary to be applied. The glossary must be
- *  within the same region (have the same location-id) as the model, otherwise
- *  an INVALID_ARGUMENT (400) error is returned.
+ *  Optional. Glossary to be applied. The glossary must be within the same
+ *  region (have the same location-id) as the model, otherwise an
+ *  INVALID_ARGUMENT (400) error is returned.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_TextGlossaryConfig *glossaryConfig;
 
 /**
- *  Optional. The labels with user-defined metadata for the request.
- *  Label keys and values can be no longer than 63 characters
- *  (Unicode codepoints), can only contain lowercase letters, numeric
- *  characters, underscores and dashes. International characters are allowed.
- *  Label values are optional. Label keys must start with a letter.
- *  See https://cloud.google.com/translate/docs/advanced/labels for more
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter. See
+ *  https://cloud.google.com/translate/docs/advanced/labels for more
  *  information.
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_TextRequest_Labels *labels;
@@ -889,32 +857,31 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
- *  Optional. The `model` type requested for this translation.
- *  The format depends on model type:
- *  - AutoML Translation models:
+ *  Optional. The `model` type requested for this translation. The format
+ *  depends on model type: - AutoML Translation models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
- *  For global (non-regionalized) requests, use `location-id` `global`.
- *  For example,
- *  `projects/{project-number-or-id}/locations/global/models/general/nmt`.
- *  If missing, the system decides which google base model to use.
+ *  For global (non-regionalized) requests, use `location-id` `global`. For
+ *  example,
+ *  `projects/{project-number-or-id}/locations/global/models/general/nmt`. If
+ *  missing, the system decides which google base model to use.
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
- *  Optional. The BCP-47 language code of the input text if
- *  known, for example, "en-US" or "sr-Latn". Supported language codes are
- *  listed in Language Support. If the source language isn't specified, the API
- *  attempts to identify the source language automatically and returns the
- *  source language within the response.
+ *  Optional. The BCP-47 language code of the input text if known, for example,
+ *  "en-US" or "sr-Latn". Supported language codes are listed in Language
+ *  Support. If the source language isn't specified, the API attempts to
+ *  identify the source language automatically and returns the source language
+ *  within the response.
  */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
 /**
- *  Required. The BCP-47 language code to use for translation of the input
- *  text, set to one of the language codes listed in Language Support.
+ *  Required. The BCP-47 language code to use for translation of the input text,
+ *  set to one of the language codes listed in Language Support.
  */
 @property(nonatomic, copy, nullable) NSString *targetLanguageCode;
 
@@ -922,12 +889,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional. The labels with user-defined metadata for the request.
- *  Label keys and values can be no longer than 63 characters
- *  (Unicode codepoints), can only contain lowercase letters, numeric
- *  characters, underscores and dashes. International characters are allowed.
- *  Label values are optional. Label keys must start with a letter.
- *  See https://cloud.google.com/translate/docs/advanced/labels for more
+ *  Optional. The labels with user-defined metadata for the request. Label keys
+ *  and values can be no longer than 63 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. Label values are optional. Label keys
+ *  must start with a letter. See
+ *  https://cloud.google.com/translate/docs/advanced/labels for more
  *  information.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -945,18 +912,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_TextResponse : GTLRObject
 
 /**
- *  Text translation responses if a glossary is provided in the request.
- *  This can be the same as
- *  `translations` if no terms apply.
- *  This field has the same length as
- *  `contents`.
+ *  Text translation responses if a glossary is provided in the request. This
+ *  can be the same as `translations` if no terms apply. This field has the same
+ *  length as `contents`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranslate_Translation *> *glossaryTranslations;
 
 /**
- *  Text translation responses with no glossary applied.
- *  This field has the same length as
- *  `contents`.
+ *  Text translation responses with no glossary applied. This field has the same
+ *  length as `contents`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranslate_Translation *> *translations;
 
@@ -970,9 +934,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The BCP-47 language code of source text in the initial request, detected
- *  automatically, if no source language was passed within the initial
- *  request. If the source language was passed, auto-detection of the language
- *  does not occur and this field is empty.
+ *  automatically, if no source language was passed within the initial request.
+ *  If the source language was passed, auto-detection of the language does not
+ *  occur and this field is empty.
  */
 @property(nonatomic, copy, nullable) NSString *detectedLanguageCode;
 
@@ -980,10 +944,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRTranslate_TextGlossaryConfig *glossaryConfig;
 
 /**
- *  Only present when `model` is present in the request.
- *  `model` here is normalized to have project number.
- *  For example:
- *  If the `model` requested in TranslationTextRequest is
+ *  Only present when `model` is present in the request. `model` here is
+ *  normalized to have project number. For example: If the `model` requested in
+ *  TranslationTextRequest is
  *  `projects/{project-id}/locations/{location-id}/models/general/nmt` then
  *  `model` here would be normalized to
  *  `projects/{project-number}/locations/{location-id}/models/general/nmt`.
@@ -1002,9 +965,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_WaitOperationRequest : GTLRObject
 
 /**
- *  The maximum duration to wait before timing out. If left blank, the wait
- *  will be at most the time permitted by the underlying HTTP/RPC protocol.
- *  If RPC context deadline is also specified, the shorter one will be used.
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 

@@ -4,14 +4,11 @@
 // API:
 //   Apigee API (apigee/v1)
 // Description:
-//   The Apigee API lets you programmatically manage Apigee hybrid with a set of
-//   RESTful operations, including:<ul> <li>Create, edit, and delete API
-//   proxies</li> <li>Manage users</li> <li>Deploy and undeploy proxy
-//   revisions</li> <li>Configure environments</li></ul><p>For information on
-//   using the APIs described in this section, see <a
-//   href="docs.apigee.com/hybrid/latest/api-get-started">Get started using the
-//   APIs</a>.</p><p><strong>Note:</strong> This product is available as a free
-//   trial for a time period of 60 days.
+//   Use the Apigee API to programmatically develop and manage APIs with a set
+//   of RESTful operations. Develop and secure API proxies, deploy and undeploy
+//   API proxy revisions, monitor APIs, configure environments, manage users,
+//   and more. Get started using the APIs. *Note:* This product is available as
+//   a free trial for a time period of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
@@ -196,8 +193,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProduct
 @dynamic apiResources, approvalType, attributes, createdAt, descriptionProperty,
-         displayName, environments, lastModifiedAt, name, proxies, quota,
-         quotaInterval, quotaTimeUnit, scopes;
+         displayName, environments, lastModifiedAt, name, operationGroup,
+         proxies, quota, quotaInterval, quotaTimeUnit, scopes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1526,6 +1523,44 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1OperationConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1OperationConfig
+@dynamic apiSource, attributes, methods, quota, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
+    @"methods" : [NSString class],
+    @"resources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1OperationGroup
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1OperationGroup
+@dynamic operationConfigs, operationConfigType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationConfigs" : [GTLRApigee_GoogleCloudApigeeV1OperationConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1OperationMetadata
 //
 
@@ -1737,6 +1772,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return @{ @"operatorProperty" : @"operator" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1Quota
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1Quota
+@dynamic interval, limit, timeUnit;
 @end
 
 

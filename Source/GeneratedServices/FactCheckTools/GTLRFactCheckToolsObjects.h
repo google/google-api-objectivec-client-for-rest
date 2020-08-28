@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *jobTitle;
 
 /**
- *  A person or organization stating the claim. For instance, "John Doe".<br>
+ *  A person or organization stating the claim. For instance, "John Doe".
  *  Corresponds to `ClaimReview.itemReviewed.author.name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -84,8 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  For numeric ratings, the best value possible in the scale from worst to
- *  best.<br>
- *  Corresponds to `ClaimReview.reviewRating.bestRating`.
+ *  best. Corresponds to `ClaimReview.reviewRating.bestRating`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -99,23 +98,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A numeric rating of this claim, in the range worstRating — bestRating
- *  inclusive.<br>
- *  Corresponds to `ClaimReview.reviewRating.ratingValue`.
+ *  inclusive. Corresponds to `ClaimReview.reviewRating.ratingValue`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ratingValue;
 
 /**
- *  The truthfulness rating as a human-readible short word or phrase.<br>
+ *  The truthfulness rating as a human-readible short word or phrase.
  *  Corresponds to `ClaimReview.reviewRating.alternateName`.
  */
 @property(nonatomic, copy, nullable) NSString *textualRating;
 
 /**
  *  For numeric ratings, the worst value possible in the scale from worst to
- *  best.<br>
- *  Corresponds to `ClaimReview.reviewRating.worstRating`.
+ *  best. Corresponds to `ClaimReview.reviewRating.worstRating`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -159,8 +156,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
 /**
- *  Name of the organization that is publishing the fact check.<br>
- *  Corresponds to `ClaimReview.author.name`.
+ *  Name of the organization that is publishing the fact check. Corresponds to
+ *  `ClaimReview.author.name`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -168,17 +165,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Fields for an individual `ClaimReview` element.
- *  Except for sub-messages that group fields together, each of these fields
- *  correspond those in https://schema.org/ClaimReview. We list the precise
- *  mapping for each field.
+ *  Fields for an individual `ClaimReview` element. Except for sub-messages that
+ *  group fields together, each of these fields correspond those in
+ *  https://schema.org/ClaimReview. We list the precise mapping for each field.
  */
 @interface GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkup : GTLRObject
 
 /**
  *  A list of links to works in which this claim appears, aside from the one
- *  specified in `claim_first_appearance`.<br>
- *  Corresponds to `ClaimReview.itemReviewed[\@type=Claim].appearance.url`.
+ *  specified in `claim_first_appearance`. Corresponds to
+ *  `ClaimReview.itemReviewed[\@type=Claim].appearance.url`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *claimAppearances;
 
@@ -186,26 +182,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimAuthor *claimAuthor;
 
 /**
- *  The date when the claim was made or entered public discourse.<br>
- *  Corresponds to `ClaimReview.itemReviewed.datePublished`.
+ *  The date when the claim was made or entered public discourse. Corresponds to
+ *  `ClaimReview.itemReviewed.datePublished`.
  */
 @property(nonatomic, copy, nullable) NSString *claimDate;
 
 /**
- *  A link to a work in which this claim first appears.<br>
- *  Corresponds to `ClaimReview.itemReviewed[\@type=Claim].firstAppearance.url`.
+ *  A link to a work in which this claim first appears. Corresponds to
+ *  `ClaimReview.itemReviewed[\@type=Claim].firstAppearance.url`.
  */
 @property(nonatomic, copy, nullable) NSString *claimFirstAppearance;
 
 /**
- *  The location where this claim was made.<br>
- *  Corresponds to `ClaimReview.itemReviewed.name`.
+ *  The location where this claim was made. Corresponds to
+ *  `ClaimReview.itemReviewed.name`.
  */
 @property(nonatomic, copy, nullable) NSString *claimLocation;
 
 /**
- *  A short summary of the claim being evaluated.<br>
- *  Corresponds to `ClaimReview.claimReviewed`.
+ *  A short summary of the claim being evaluated. Corresponds to
+ *  `ClaimReview.claimReviewed`.
  */
 @property(nonatomic, copy, nullable) NSString *claimReviewed;
 
@@ -215,7 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  This field is optional, and will default to the page URL. We provide this
  *  field to allow you the override the default value, but the only permitted
- *  override is the page URL plus an optional anchor link ("page jump").<br>
+ *  override is the page URL plus an optional anchor link ("page jump").
  *  Corresponds to `ClaimReview.url`
  */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -229,39 +225,37 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage : GTLRObject
 
 /**
- *  Info about the author of this claim review.
- *  Similar to the above, semantically these are page-level fields, and each
- *  `ClaimReview` on this page will contain the same values.
+ *  Info about the author of this claim review. Similar to the above,
+ *  semantically these are page-level fields, and each `ClaimReview` on this
+ *  page will contain the same values.
  */
 @property(nonatomic, strong, nullable) GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewAuthor *claimReviewAuthor;
 
 /**
- *  A list of individual claim reviews for this page.
- *  Each item in the list corresponds to one `ClaimReview` element.
+ *  A list of individual claim reviews for this page. Each item in the list
+ *  corresponds to one `ClaimReview` element.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkup *> *claimReviewMarkups;
 
 /**
  *  The name of this `ClaimReview` markup page resource, in the form of
- *  `pages/{page_id}`. Except for update requests, this field is output-only
- *  and should not be set by the user.
+ *  `pages/{page_id}`. Except for update requests, this field is output-only and
+ *  should not be set by the user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The URL of the page associated with this `ClaimReview` markup.
- *  While every individual `ClaimReview` has its own URL field, semantically
- *  this is a page-level field, and each `ClaimReview` on this page will use
- *  this value unless individually overridden.<br>
- *  Corresponds to `ClaimReview.url`
+ *  The URL of the page associated with this `ClaimReview` markup. While every
+ *  individual `ClaimReview` has its own URL field, semantically this is a
+ *  page-level field, and each `ClaimReview` on this page will use this value
+ *  unless individually overridden. Corresponds to `ClaimReview.url`
  */
 @property(nonatomic, copy, nullable) NSString *pageUrl;
 
 /**
- *  The date when the fact check was published.
- *  Similar to the URL, semantically this is a page-level field, and each
- *  `ClaimReview` on this page will contain the same value.<br>
- *  Corresponds to `ClaimReview.datePublished`
+ *  The date when the fact check was published. Similar to the URL, semantically
+ *  this is a page-level field, and each `ClaimReview` on this page will contain
+ *  the same value. Corresponds to `ClaimReview.datePublished`
  */
 @property(nonatomic, copy, nullable) NSString *publishDate;
 
@@ -351,11 +345,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRFactCheckTools_GoogleProtobufEmpty : GTLRObject
 @end

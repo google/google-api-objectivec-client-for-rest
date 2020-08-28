@@ -112,8 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a signed device under a
- *  node or customer.
+ *  Creates a signed device under a node or customer.
  *
  *  Method: sasportal.customers.devices.createSigned
  *
@@ -130,8 +129,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSASPortal_Device.
  *
- *  Creates a signed device under a
- *  node or customer.
+ *  Creates a signed device under a node or customer.
  *
  *  @param object The @c GTLRSASPortal_CreateSignedDeviceRequest to include in
  *    the query.
@@ -213,22 +211,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySASPortal queryForCustomersDevicesListWithparent:]
 
 /**
- *  The filter expression. The filter should have one of the following
- *  formats: "sn=123454" or "display_name=MyDevice". sn
- *  corresponds to serial_number of the device. The filter is case insensitive.
+ *  The filter expression. The filter should have one of the following formats:
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of devices to return in the response.
- *  If empty or zero, all devices will be listed.
- *  Must be in the range [0, 1000].
+ *  The maximum number of devices to return in the response. If empty or zero,
+ *  all devices will be listed. Must be in the range [0, 1000].
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListDevices
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListDevices that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -422,16 +419,12 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForCustomersList]
 
-/**
- *  The maximum number of customers
- *  to return in the response.
- */
+/** The maximum number of customers to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A pagination token returned from a previous call to ListCustomers method
- *  that indicates where
- *  this listing should continue from.
+ *  that indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -553,8 +546,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListNodes method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListNodes method that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -590,10 +583,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForCustomersNodesMoveWithObject:name:]
 
-/**
- *  Required. The name of the node to
- *  move.
- */
+/** Required. The name of the node to move. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -602,8 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Moves a node under another node or customer.
  *
  *  @param object The @c GTLRSASPortal_MoveNodeRequest to include in the query.
- *  @param name Required. The name of the node to
- *    move.
+ *  @param name Required. The name of the node to move.
  *
  *  @return GTLRSASPortalQuery_CustomersNodesMove
  */
@@ -659,8 +648,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListNodes method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListNodes method that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -872,8 +861,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a signed device under a
- *  node or customer.
+ *  Creates a signed device under a node or customer.
  *
  *  Method: sasportal.nodes.devices.createSigned
  *
@@ -890,8 +878,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSASPortal_Device.
  *
- *  Creates a signed device under a
- *  node or customer.
+ *  Creates a signed device under a node or customer.
  *
  *  @param object The @c GTLRSASPortal_CreateSignedDeviceRequest to include in
  *    the query.
@@ -973,22 +960,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySASPortal queryForNodesDevicesListWithparent:]
 
 /**
- *  The filter expression. The filter should have one of the following
- *  formats: "sn=123454" or "display_name=MyDevice". sn
- *  corresponds to serial_number of the device. The filter is case insensitive.
+ *  The filter expression. The filter should have one of the following formats:
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of devices to return in the response.
- *  If empty or zero, all devices will be listed.
- *  Must be in the range [0, 1000].
+ *  The maximum number of devices to return in the response. If empty or zero,
+ *  all devices will be listed. Must be in the range [0, 1000].
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListDevices
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListDevices that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1291,8 +1277,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a signed device under a
- *  node or customer.
+ *  Creates a signed device under a node or customer.
  *
  *  Method: sasportal.nodes.nodes.devices.createSigned
  *
@@ -1309,8 +1294,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSASPortal_Device.
  *
- *  Creates a signed device under a
- *  node or customer.
+ *  Creates a signed device under a node or customer.
  *
  *  @param object The @c GTLRSASPortal_CreateSignedDeviceRequest to include in
  *    the query.
@@ -1336,22 +1320,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySASPortal queryForNodesNodesDevicesListWithparent:]
 
 /**
- *  The filter expression. The filter should have one of the following
- *  formats: "sn=123454" or "display_name=MyDevice". sn
- *  corresponds to serial_number of the device. The filter is case insensitive.
+ *  The filter expression. The filter should have one of the following formats:
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of devices to return in the response.
- *  If empty or zero, all devices will be listed.
- *  Must be in the range [0, 1000].
+ *  The maximum number of devices to return in the response. If empty or zero,
+ *  all devices will be listed. Must be in the range [0, 1000].
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListDevices
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListDevices that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1419,8 +1402,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListNodes method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListNodes method that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1456,10 +1439,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForNodesNodesMoveWithObject:name:]
 
-/**
- *  Required. The name of the node to
- *  move.
- */
+/** Required. The name of the node to move. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1468,8 +1448,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Moves a node under another node or customer.
  *
  *  @param object The @c GTLRSASPortal_MoveNodeRequest to include in the query.
- *  @param name Required. The name of the node to
- *    move.
+ *  @param name Required. The name of the node to move.
  *
  *  @return GTLRSASPortalQuery_NodesNodesMove
  */
@@ -1525,8 +1504,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListNodes method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListNodes method that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1588,9 +1567,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: sasportal.policies.get
  *
@@ -1604,9 +1582,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSASPortal_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param object The @c GTLRSASPortal_GetPolicyRequest to include in the query.
  *

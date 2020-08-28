@@ -284,6 +284,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1CreateVersionOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1CreateVersionOperationMetadata
+@dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportAgentResponse
 //
 
@@ -336,9 +346,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage
-@dynamic conversationSuccess, endInteraction, humanAgentHandoff,
-         liveAgentHandoff, mixedAudio, outputAudioText, payload, playAudio,
-         text;
+@dynamic conversationSuccess, endInteraction, liveAgentHandoff, mixedAudio,
+         outputAudioText, payload, playAudio, text;
 @end
 
 
@@ -386,30 +395,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff
-@dynamic metadata;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff_Metadata
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
 @end
 
 
@@ -3184,6 +3169,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateVersionOperationMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateVersionOperationMetadata
+@dynamic version;
 @end
 
 

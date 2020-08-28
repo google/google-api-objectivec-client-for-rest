@@ -29,8 +29,6 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction;
-@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff;
-@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudio;
@@ -218,9 +216,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo_State_Filled;
 /**
- *  Indicates that the parameter value is invalid. This field can be used
- *  by the webhook to invalidate the parameter and ask the server to
- *  collect it from the user again.
+ *  Indicates that the parameter value is invalid. This field can be used by the
+ *  webhook to invalidate the parameter and ask the server to collect it from
+ *  the user again.
  *
  *  Value: "INVALID"
  */
@@ -236,8 +234,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse.mergeBehavior
 
 /**
- *  `messages` will be appended to the list of messages waiting to be sent
- *  to the user.
+ *  `messages` will be appended to the list of messages waiting to be sent to
+ *  the user.
  *
  *  Value: "APPEND"
  */
@@ -249,8 +247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified;
 /**
- *  `messages` will replace the list of messages waiting to be sent to the
- *  user.
+ *  `messages` will replace the list of messages waiting to be sent to the user.
  *
  *  Value: "REPLACE"
  */
@@ -288,8 +285,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_
 // GTLRDialogflow_GoogleCloudDialogflowV2Agent.matchMode
 
 /**
- *  Best for agents with a small number of examples in intents and/or wide
- *  use of templates syntax and composite entities.
+ *  Best for agents with a small number of examples in intents and/or wide use
+ *  of templates syntax and composite entities.
  *
  *  Value: "MATCH_MODE_HYBRID"
  */
@@ -356,8 +353,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2BatchU
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
 
 /**
- *  Allows an agent to recognize values that have not been explicitly
- *  listed in the entity.
+ *  Allows an agent to recognize values that have not been explicitly listed in
+ *  the entity.
  *
  *  Value: "AUTO_EXPANSION_MODE_DEFAULT"
  */
@@ -381,15 +378,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1E
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindList;
 /**
- *  Map entity types allow mapping of a group of synonyms to a reference
- *  value.
+ *  Map entity types allow mapping of a group of synonyms to a reference value.
  *
  *  Value: "KIND_MAP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap;
 /**
- *  Regexp entity types allow to specify regular expressions in entries
- *  values.
+ *  Regexp entity types allow to specify regular expressions in entries values.
  *
  *  Value: "KIND_REGEXP"
  */
@@ -404,27 +399,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1E
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.defaultResponsePlatforms
 
-/** Value: "ACTIONS_ON_GOOGLE" */
+/**
+ *  Google Assistant See [Dialogflow webhook
+ *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
+ *
+ *  Value: "ACTIONS_ON_GOOGLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_ActionsOnGoogle;
-/** Value: "FACEBOOK" */
+/**
+ *  Facebook.
+ *
+ *  Value: "FACEBOOK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Facebook;
-/** Value: "GOOGLE_HANGOUTS" */
+/**
+ *  Google Hangouts.
+ *
+ *  Value: "GOOGLE_HANGOUTS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_GoogleHangouts;
-/** Value: "KIK" */
+/**
+ *  Kik.
+ *
+ *  Value: "KIK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Kik;
-/** Value: "LINE" */
+/**
+ *  Line.
+ *
+ *  Value: "LINE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Line;
-/** Value: "PLATFORM_UNSPECIFIED" */
+/**
+ *  Not specified.
+ *
+ *  Value: "PLATFORM_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_PlatformUnspecified;
-/** Value: "SKYPE" */
+/**
+ *  Skype.
+ *
+ *  Value: "SKYPE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Skype;
-/** Value: "SLACK" */
+/**
+ *  Slack.
+ *
+ *  Value: "SLACK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Slack;
-/** Value: "TELEGRAM" */
+/**
+ *  Telegram.
+ *
+ *  Value: "TELEGRAM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telegram;
-/** Value: "TELEPHONY" */
+/**
+ *  Telephony Gateway.
+ *
+ *  Value: "TELEPHONY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Telephony;
-/** Value: "VIBER" */
+/**
+ *  Viber.
+ *
+ *  Value: "VIBER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_Viber;
 
 // ----------------------------------------------------------------------------
@@ -437,8 +477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1I
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_WebhookState_WebhookStateEnabled;
 /**
- *  Webhook is enabled in the agent and in the intent. Also, each slot
- *  filling prompt is forwarded to the webhook.
+ *  Webhook is enabled in the agent and in the intent. Also, each slot filling
+ *  prompt is forwarded to the webhook.
  *
  *  Value: "WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING"
  */
@@ -454,8 +494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1I
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage.platform
 
 /**
- *  Google Assistant
- *  See [Dialogflow webhook
+ *  Google Assistant See [Dialogflow webhook
  *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *
  *  Value: "ACTIONS_ON_GOOGLE"
@@ -526,40 +565,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1I
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard.imageDisplayOptions
 
 /**
- *  Pad the gaps between image and image frame with a blurred copy of the
- *  same image.
+ *  Pad the gaps between image and image frame with a blurred copy of the same
+ *  image.
  *
  *  Value: "BLURRED_BACKGROUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground;
 /**
- *  Image is scaled such that the image width and height match or exceed
- *  the container dimensions. This may crop the top and bottom of the
- *  image if the scaled image height is greater than the container
- *  height, or crop the left and right of the image if the scaled image
- *  width is greater than the container width. This is similar to "Zoom
- *  Mode" on a widescreen TV when playing a 4:3 video.
+ *  Image is scaled such that the image width and height match or exceed the
+ *  container dimensions. This may crop the top and bottom of the image if the
+ *  scaled image height is greater than the container height, or crop the left
+ *  and right of the image if the scaled image width is greater than the
+ *  container width. This is similar to "Zoom Mode" on a widescreen TV when
+ *  playing a 4:3 video.
  *
  *  Value: "CROPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped;
 /**
- *  Fill the gaps between the image and the image container with gray
- *  bars.
+ *  Fill the gaps between the image and the image container with gray bars.
  *
  *  Value: "GRAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray;
 /**
- *  Fill the gaps between the image and the image container with gray
- *  bars.
+ *  Fill the gaps between the image and the image container with gray bars.
  *
  *  Value: "IMAGE_DISPLAY_OPTIONS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified;
 /**
- *  Fill the gaps between the image and the image container with white
- *  bars.
+ *  Fill the gaps between the image and the image container with white bars.
  *
  *  Value: "WHITE"
  */
@@ -575,8 +611,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1I
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction;
 /**
- *  URL that points directly to AMP content, or to a canonical URL
- *  which refers to AMP content via <link rel="amphtml">.
+ *  URL that points directly to AMP content, or to a canonical URL which refers
+ *  to AMP content via .
  *
  *  Value: "AMP_CONTENT"
  */
@@ -654,8 +690,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1I
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Short;
 /**
- *  264 DP. Not available for rich card carousels when the card width
- *  is set to small.
+ *  264 DP. Not available for rich card carousels when the card width is set to
+ *  small.
  *
  *  Value: "TALL"
  */
@@ -731,19 +767,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1I
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase.type
 
 /**
- *  Examples do not contain \@-prefixed entity type names, but example parts
- *  can be annotated with entity types.
+ *  Examples do not contain \@-prefixed entity type names, but example parts can
+ *  be annotated with entity types.
  *
  *  Value: "EXAMPLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Example;
 /**
  *  Templates are not annotated with entity types, but they can contain
- *  \@-prefixed entity type names as substrings.
- *  Template mode has been deprecated. Example mode is the only supported
- *  way to create new training phrases. If you have existing training
- *  phrases that you've created in template mode, those will continue to
- *  work.
+ *  \@-prefixed entity type names as substrings. Template mode has been
+ *  deprecated. Example mode is the only supported way to create new training
+ *  phrases. If you have existing training phrases that you've created in
+ *  template mode, those will continue to work.
  *
  *  Value: "TEMPLATE"
  */
@@ -815,21 +850,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1K
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType.entityOverrideMode
 
 /**
- *  The collection of session entities overrides the collection of entities
- *  in the corresponding custom entity type.
+ *  The collection of session entities overrides the collection of entities in
+ *  the corresponding custom entity type.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_OVERRIDE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
 /**
- *  The collection of session entities extends the collection of entities in
- *  the corresponding custom entity type.
- *  Note: Even in this override mode calls to `ListSessionEntityTypes`,
- *  `GetSessionEntityType`, `CreateSessionEntityType` and
- *  `UpdateSessionEntityType` only return the additional entities added in
- *  this session entity type. If you want to get the supplemented list,
- *  please call EntityTypes.GetEntityType on the custom entity type
- *  and merge.
+ *  The collection of session entities extends the collection of entities in the
+ *  corresponding custom entity type. Note: Even in this override mode calls to
+ *  `ListSessionEntityTypes`, `GetSessionEntityType`, `CreateSessionEntityType`
+ *  and `UpdateSessionEntityType` only return the additional entities added in
+ *  this session entity type. If you want to get the supplemented list, please
+ *  call EntityTypes.GetEntityType on the custom entity type and merge.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT"
  */
@@ -845,15 +878,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1S
 // GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent.type
 
 /**
- *  An existing conversation has closed. This is fired when a telephone call
- *  is terminated, or a conversation is closed via the API.
+ *  An existing conversation has closed. This is fired when a telephone call is
+ *  terminated, or a conversation is closed via the API.
  *
  *  Value: "CONVERSATION_FINISHED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationFinished;
 /**
- *  A new conversation has been opened. This is fired when a telephone call
- *  is answered, or a conversation is created via the API.
+ *  A new conversation has been opened. This is fired when a telephone call is
+ *  answered, or a conversation is created via the API.
  *
  *  Value: "CONVERSATION_STARTED"
  */
@@ -880,13 +913,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Conver
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified;
 /**
- *  Unrecoverable error during a telephone call.
- *  In general non-recoverable errors only occur if something was
- *  misconfigured in the ConversationProfile corresponding to the call. After
- *  a non-recoverable error, Dialogflow may stop responding.
- *  We don't fire this event:
- *  * in an API call because we can directly return the error, or,
- *  * when we can recover from an error.
+ *  Unrecoverable error during a telephone call. In general non-recoverable
+ *  errors only occur if something was misconfigured in the ConversationProfile
+ *  corresponding to the call. After a non-recoverable error, Dialogflow may
+ *  stop responding. We don't fire this event: * in an API call because we can
+ *  directly return the error, or, * when we can recover from an error.
  *
  *  Value: "UNRECOVERABLE_ERROR"
  */
@@ -896,8 +927,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Conver
 // GTLRDialogflow_GoogleCloudDialogflowV2EntityType.autoExpansionMode
 
 /**
- *  Allows an agent to recognize values that have not been explicitly
- *  listed in the entity.
+ *  Allows an agent to recognize values that have not been explicitly listed in
+ *  the entity.
  *
  *  Value: "AUTO_EXPANSION_MODE_DEFAULT"
  */
@@ -921,15 +952,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Entity
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindList;
 /**
- *  Map entity types allow mapping of a group of synonyms to a reference
- *  value.
+ *  Map entity types allow mapping of a group of synonyms to a reference value.
  *
  *  Value: "KIND_MAP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap;
 /**
- *  Regexp entity types allow to specify regular expressions in entries
- *  values.
+ *  Regexp entity types allow to specify regular expressions in entries values.
  *
  *  Value: "KIND_REGEXP"
  */
@@ -1003,9 +1032,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputA
 /**
  *  [`FLAC`](https://xiph.org/flac/documentation.html) (Free Lossless Audio
  *  Codec) is the recommended encoding because it is lossless (therefore
- *  recognition is not compromised) and requires only about half the
- *  bandwidth of `LINEAR16`. `FLAC` stream encoding supports 16-bit and
- *  24-bit samples, however, not all fields in `STREAMINFO` are supported.
+ *  recognition is not compromised) and requires only about half the bandwidth
+ *  of `LINEAR16`. `FLAC` stream encoding supports 16-bit and 24-bit samples,
+ *  however, not all fields in `STREAMINFO` are supported.
  *
  *  Value: "AUDIO_ENCODING_FLAC"
  */
@@ -1024,26 +1053,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputA
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingMulaw;
 /**
  *  Opus encoded audio frames in Ogg container
- *  ([OggOpus](https://wiki.xiph.org/OggOpus)).
- *  `sample_rate_hertz` must be 16000.
+ *  ([OggOpus](https://wiki.xiph.org/OggOpus)). `sample_rate_hertz` must be
+ *  16000.
  *
  *  Value: "AUDIO_ENCODING_OGG_OPUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingOggOpus;
 /**
  *  Although the use of lossy encodings is not recommended, if a very low
- *  bitrate encoding is required, `OGG_OPUS` is highly preferred over
- *  Speex encoding. The [Speex](https://speex.org/) encoding supported by
- *  Dialogflow API has a header byte in each block, as in MIME type
- *  `audio/x-speex-with-header-byte`.
- *  It is a variant of the RTP Speex encoding defined in
- *  [RFC 5574](https://tools.ietf.org/html/rfc5574).
- *  The stream is a sequence of blocks, one block per RTP packet. Each block
- *  starts with a byte containing the length of the block, in bytes, followed
- *  by one or more frames of Speex data, padded to an integral number of
- *  bytes (octets) as specified in RFC 5574. In other words, each RTP header
- *  is replaced with a single byte containing the block length. Only Speex
- *  wideband is supported. `sample_rate_hertz` must be 16000.
+ *  bitrate encoding is required, `OGG_OPUS` is highly preferred over Speex
+ *  encoding. The [Speex](https://speex.org/) encoding supported by Dialogflow
+ *  API has a header byte in each block, as in MIME type
+ *  `audio/x-speex-with-header-byte`. It is a variant of the RTP Speex encoding
+ *  defined in [RFC 5574](https://tools.ietf.org/html/rfc5574). The stream is a
+ *  sequence of blocks, one block per RTP packet. Each block starts with a byte
+ *  containing the length of the block, in bytes, followed by one or more frames
+ *  of Speex data, padded to an integral number of bytes (octets) as specified
+ *  in RFC 5574. In other words, each RTP header is replaced with a single byte
+ *  containing the block length. Only Speex wideband is supported.
+ *  `sample_rate_hertz` must be 16000.
  *
  *  Value: "AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE"
  */
@@ -1066,27 +1094,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputA
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_SpeechModelVariantUnspecified;
 /**
- *  Use the best available variant of the Speech
- *  model that the caller is eligible for.
- *  Please see the [Dialogflow
- *  docs](https://cloud.google.com/dialogflow/docs/data-logging) for
- *  how to make your project eligible for enhanced models.
+ *  Use the best available variant of the Speech model that the caller is
+ *  eligible for. Please see the [Dialogflow
+ *  docs](https://cloud.google.com/dialogflow/docs/data-logging) for how to make
+ *  your project eligible for enhanced models.
  *
  *  Value: "USE_BEST_AVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseBestAvailable;
 /**
- *  Use an enhanced model variant:
- *  * If an enhanced variant does not exist for the given
- *  model and request language, Dialogflow falls
- *  back to the standard variant.
- *  The [Cloud Speech
+ *  Use an enhanced model variant: * If an enhanced variant does not exist for
+ *  the given model and request language, Dialogflow falls back to the standard
+ *  variant. The [Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
- *  describes which models have enhanced variants.
- *  * If the API caller isn't eligible for enhanced models, Dialogflow returns
- *  an error. Please see the [Dialogflow
- *  docs](https://cloud.google.com/dialogflow/docs/data-logging)
- *  for how to make your project eligible.
+ *  describes which models have enhanced variants. * If the API caller isn't
+ *  eligible for enhanced models, Dialogflow returns an error. Please see the
+ *  [Dialogflow docs](https://cloud.google.com/dialogflow/docs/data-logging) for
+ *  how to make your project eligible.
  *
  *  Value: "USE_ENHANCED"
  */
@@ -1104,25 +1128,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2InputA
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Intent.defaultResponsePlatforms
 
-/** Value: "ACTIONS_ON_GOOGLE" */
+/**
+ *  Google Assistant See [Dialogflow webhook
+ *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
+ *
+ *  Value: "ACTIONS_ON_GOOGLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_ActionsOnGoogle;
-/** Value: "FACEBOOK" */
+/**
+ *  Facebook.
+ *
+ *  Value: "FACEBOOK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Facebook;
-/** Value: "GOOGLE_HANGOUTS" */
+/**
+ *  Google Hangouts.
+ *
+ *  Value: "GOOGLE_HANGOUTS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_GoogleHangouts;
-/** Value: "KIK" */
+/**
+ *  Kik.
+ *
+ *  Value: "KIK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Kik;
-/** Value: "LINE" */
+/**
+ *  Line.
+ *
+ *  Value: "LINE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Line;
-/** Value: "PLATFORM_UNSPECIFIED" */
+/**
+ *  Default platform.
+ *
+ *  Value: "PLATFORM_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_PlatformUnspecified;
-/** Value: "SKYPE" */
+/**
+ *  Skype.
+ *
+ *  Value: "SKYPE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Skype;
-/** Value: "SLACK" */
+/**
+ *  Slack.
+ *
+ *  Value: "SLACK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Slack;
-/** Value: "TELEGRAM" */
+/**
+ *  Telegram.
+ *
+ *  Value: "TELEGRAM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Telegram;
-/** Value: "VIBER" */
+/**
+ *  Viber.
+ *
+ *  Value: "VIBER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Viber;
 
 // ----------------------------------------------------------------------------
@@ -1135,8 +1200,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_WebhookState_WebhookStateEnabled;
 /**
- *  Webhook is enabled in the agent and in the intent. Also, each slot
- *  filling prompt is forwarded to the webhook.
+ *  Webhook is enabled in the agent and in the intent. Also, each slot filling
+ *  prompt is forwarded to the webhook.
  *
  *  Value: "WEBHOOK_STATE_ENABLED_FOR_SLOT_FILLING"
  */
@@ -1152,8 +1217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage.platform
 
 /**
- *  Google Assistant
- *  See [Dialogflow webhook
+ *  Google Assistant See [Dialogflow webhook
  *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *
  *  Value: "ACTIONS_ON_GOOGLE"
@@ -1218,40 +1282,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard.imageDisplayOptions
 
 /**
- *  Pad the gaps between image and image frame with a blurred copy of the
- *  same image.
+ *  Pad the gaps between image and image frame with a blurred copy of the same
+ *  image.
  *
  *  Value: "BLURRED_BACKGROUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_BlurredBackground;
 /**
- *  Image is scaled such that the image width and height match or exceed
- *  the container dimensions. This may crop the top and bottom of the
- *  image if the scaled image height is greater than the container
- *  height, or crop the left and right of the image if the scaled image
- *  width is greater than the container width. This is similar to "Zoom
- *  Mode" on a widescreen TV when playing a 4:3 video.
+ *  Image is scaled such that the image width and height match or exceed the
+ *  container dimensions. This may crop the top and bottom of the image if the
+ *  scaled image height is greater than the container height, or crop the left
+ *  and right of the image if the scaled image width is greater than the
+ *  container width. This is similar to "Zoom Mode" on a widescreen TV when
+ *  playing a 4:3 video.
  *
  *  Value: "CROPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped;
 /**
- *  Fill the gaps between the image and the image container with gray
- *  bars.
+ *  Fill the gaps between the image and the image container with gray bars.
  *
  *  Value: "GRAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray;
 /**
- *  Fill the gaps between the image and the image container with gray
- *  bars.
+ *  Fill the gaps between the image and the image container with gray bars.
  *
  *  Value: "IMAGE_DISPLAY_OPTIONS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_ImageDisplayOptionsUnspecified;
 /**
- *  Fill the gaps between the image and the image container with white
- *  bars.
+ *  Fill the gaps between the image and the image container with white bars.
  *
  *  Value: "WHITE"
  */
@@ -1267,8 +1328,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction;
 /**
- *  URL that points directly to AMP content, or to a canonical URL
- *  which refers to AMP content via <link rel="amphtml">.
+ *  URL that points directly to AMP content, or to a canonical URL which refers
+ *  to AMP content via .
  *
  *  Value: "AMP_CONTENT"
  */
@@ -1328,19 +1389,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent
 // GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase.type
 
 /**
- *  Examples do not contain \@-prefixed entity type names, but example parts
- *  can be annotated with entity types.
+ *  Examples do not contain \@-prefixed entity type names, but example parts can
+ *  be annotated with entity types.
  *
  *  Value: "EXAMPLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Example;
 /**
  *  Templates are not annotated with entity types, but they can contain
- *  \@-prefixed entity type names as substrings.
- *  Template mode has been deprecated. Example mode is the only supported
- *  way to create new training phrases. If you have existing training
- *  phrases that you've created in template mode, those will continue to
- *  work.
+ *  \@-prefixed entity type names as substrings. Template mode has been
+ *  deprecated. Example mode is the only supported way to create new training
+ *  phrases. If you have existing training phrases that you've created in
+ *  template mode, those will continue to work.
  *
  *  Value: "TEMPLATE"
  */
@@ -1362,8 +1422,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_AutomatedAgent;
 /**
- *  Participant is an end user that has called or chatted with
- *  Dialogflow services.
+ *  Participant is an end user that has called or chatted with Dialogflow
+ *  services.
  *
  *  Value: "END_USER"
  */
@@ -1385,8 +1445,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Messag
 // GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig.audioEncoding
 
 /**
- *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
- *  Audio content returned as LINEAR16 also contains a WAV header.
+ *  Uncompressed 16-bit signed little-endian samples (Linear PCM). Audio content
+ *  returned as LINEAR16 also contains a WAV header.
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_LINEAR_16"
  */
@@ -1398,10 +1458,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Output
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3;
 /**
- *  Opus encoded audio wrapped in an ogg container. The result will be a
- *  file which can be played natively on Android, and in browsers (at least
- *  Chrome and Firefox). The quality of the encoding is considerably higher
- *  than MP3 while using approximately the same bitrate.
+ *  Opus encoded audio wrapped in an ogg container. The result will be a file
+ *  which can be played natively on Android, and in browsers (at least Chrome
+ *  and Firefox). The quality of the encoding is considerably higher than MP3
+ *  while using approximately the same bitrate.
  *
  *  Value: "OUTPUT_AUDIO_ENCODING_OGG_OPUS"
  */
@@ -1417,21 +1477,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Output
 // GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType.entityOverrideMode
 
 /**
- *  The collection of session entities overrides the collection of entities
- *  in the corresponding custom entity type.
+ *  The collection of session entities overrides the collection of entities in
+ *  the corresponding custom entity type.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_OVERRIDE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride;
 /**
- *  The collection of session entities extends the collection of entities in
- *  the corresponding custom entity type.
- *  Note: Even in this override mode calls to `ListSessionEntityTypes`,
- *  `GetSessionEntityType`, `CreateSessionEntityType` and
- *  `UpdateSessionEntityType` only return the additional entities added in
- *  this session entity type. If you want to get the supplemented list,
- *  please call EntityTypes.GetEntityType on the custom entity type
- *  and merge.
+ *  The collection of session entities extends the collection of entities in the
+ *  corresponding custom entity type. Note: Even in this override mode calls to
+ *  `ListSessionEntityTypes`, `GetSessionEntityType`, `CreateSessionEntityType`
+ *  and `UpdateSessionEntityType` only return the additional entities added in
+ *  this session entity type. If you want to get the supplemented list, please
+ *  call EntityTypes.GetEntityType on the custom entity type and merge.
  *
  *  Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT"
  */
@@ -1499,12 +1557,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderNeutral;
 /**
- *  An unspecified gender, which means that the client doesn't care which
- *  gender the selected voice will have.
+ *  An unspecified gender, which means that the client doesn't care which gender
+ *  the selected voice will have.
  *
  *  Value: "SSML_VOICE_GENDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified;
+
+/**
+ *  Metadata associated with the long running operation for
+ *  Versions.CreateVersion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1CreateVersionOperationMetadata : GTLRObject
+
+/**
+ *  Name of the created version. Format:
+ *  `projects//locations//agents//flows//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
 
 /**
  *  The response message for Agents.ExportAgent.
@@ -1534,16 +1607,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo : GTLRObject
 
 /**
- *  Always present for WebhookRequest. Ignored for WebhookResponse.
- *  The unique identifier of the current page.
- *  Format: `projects/<Project ID>/locations/<Location
- *  ID>/agents/<Agent ID>/flows/<Flow ID>/pages/<Page ID>`.
+ *  Always present for WebhookRequest. Ignored for WebhookResponse. The unique
+ *  identifier of the current page. Format:
+ *  `projects//locations//agents//flows//pages/`.
  */
 @property(nonatomic, copy, nullable) NSString *currentPage;
 
 /**
- *  Optional for both WebhookRequest and WebhookResponse.
- *  Information about the form.
+ *  Optional for both WebhookRequest and WebhookResponse. Information about the
+ *  form.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfo *formInfo;
 
@@ -1556,9 +1628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfo : GTLRObject
 
 /**
- *  Optional for both WebhookRequest and WebhookResponse.
- *  The parameters contained in the form. Note that the webhook cannot add
- *  or remove any form parameter.
+ *  Optional for both WebhookRequest and WebhookResponse. The parameters
+ *  contained in the form. Note that the webhook cannot add or remove any form
+ *  parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo *> *parameterInfo;
 
@@ -1571,38 +1643,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo : GTLRObject
 
 /**
- *  Always present for WebhookRequest. Required for
- *  WebhookResponse.
- *  The human-readable name of the parameter, unique within the form. This
- *  field cannot be modified by the webhook.
+ *  Always present for WebhookRequest. Required for WebhookResponse. The
+ *  human-readable name of the parameter, unique within the form. This field
+ *  cannot be modified by the webhook.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional for WebhookRequest. Ignored for WebhookResponse.
- *  Indicates if the parameter value was just collected on the last
- *  conversation turn.
+ *  Optional for WebhookRequest. Ignored for WebhookResponse. Indicates if the
+ *  parameter value was just collected on the last conversation turn.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *justCollected;
 
 /**
- *  Optional for both WebhookRequest and WebhookResponse.
- *  Indicates whether the parameter is required. Optional parameters will
- *  not trigger prompts; however, they are filled if the user specifies
- *  them. Required parameters must be filled before form filling concludes.
+ *  Optional for both WebhookRequest and WebhookResponse. Indicates whether the
+ *  parameter is required. Optional parameters will not trigger prompts;
+ *  however, they are filled if the user specifies them. Required parameters
+ *  must be filled before form filling concludes.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *required;
 
 /**
- *  Always present for WebhookRequest. Required for
- *  WebhookResponse. The state of the parameter. This field can be set
- *  to INVALID by
- *  the webhook to invalidate the parameter; other values set by the
- *  webhook will be ignored.
+ *  Always present for WebhookRequest. Required for WebhookResponse. The state
+ *  of the parameter. This field can be set to INVALID by the webhook to
+ *  invalidate the parameter; other values set by the webhook will be ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfoFormInfoParameterInfo_State_Empty
@@ -1620,9 +1688,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Optional for both WebhookRequest and WebhookResponse.
- *  The value of the parameter. This field can be set by the webhook to
- *  change the parameter value.
+ *  Optional for both WebhookRequest and WebhookResponse. The value of the
+ *  parameter. This field can be set by the webhook to change the parameter
+ *  value.
  *
  *  Can be any valid JSON type.
  */
@@ -1633,18 +1701,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Represents a response message that can be returned by a conversational
- *  agent.
- *  Response messages are also used for output audio synthesis. The approach is
- *  as follows:
- *  * If at least one OutputAudioText response is present, then all
- *  OutputAudioText responses are linearly concatenated, and the result is used
- *  for output audio synthesis.
- *  * If the OutputAudioText responses are a mixture of text and SSML, then the
- *  concatenated result is treated as SSML; otherwise, the result is treated as
- *  either text or SSML as appropriate. The agent designer should ideally use
- *  either text or SSML consistently throughout the bot design.
- *  * Otherwise, all Text responses are linearly concatenated, and the result is
- *  used for output audio synthesis.
+ *  agent. Response messages are also used for output audio synthesis. The
+ *  approach is as follows: * If at least one OutputAudioText response is
+ *  present, then all OutputAudioText responses are linearly concatenated, and
+ *  the result is used for output audio synthesis. * If the OutputAudioText
+ *  responses are a mixture of text and SSML, then the concatenated result is
+ *  treated as SSML; otherwise, the result is treated as either text or SSML as
+ *  appropriate. The agent designer should ideally use either text or SSML
+ *  consistently throughout the bot design. * Otherwise, all Text responses are
+ *  linearly concatenated, and the result is used for output audio synthesis.
  *  This approach allows for more sophisticated user experience scenarios, where
  *  the text displayed to the user may differ from what is heard.
  */
@@ -1655,28 +1720,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Output only. A signal that indicates the interaction with the Dialogflow
- *  agent has
- *  ended.
- *  This message is generated by Dialogflow only when the conversation
- *  reaches `END_SESSION` or `END_PAGE` page. It is not supposed to be
- *  defined by the user.
- *  It's guaranteed that there is at most one such message in each response.
+ *  agent has ended. This message is generated by Dialogflow only when the
+ *  conversation reaches `END_SESSION` or `END_PAGE` page. It is not supposed to
+ *  be defined by the user. It's guaranteed that there is at most one such
+ *  message in each response.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction *endInteraction;
-
-/** Hands off conversation to a human agent. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff *humanAgentHandoff;
 
 /** Hands off conversation to a human agent. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff *liveAgentHandoff;
 
 /**
  *  Output only. An audio response message composed of both the synthesized
- *  Dialogflow
- *  agent responses and responses defined via
- *  play_audio.
- *  This message is generated by Dialogflow only and not supposed to be
- *  defined by the user.
+ *  Dialogflow agent responses and responses defined via play_audio. This
+ *  message is generated by Dialogflow only and not supposed to be defined by
+ *  the user.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudio *mixedAudio;
 
@@ -1690,10 +1748,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage_Payload *payload;
 
 /**
- *  Signal that the client should play an audio clip hosted at a
- *  client-specific URI. Dialogflow uses this to construct
- *  mixed_audio. However, Dialogflow itself
- *  does not try to read or process the URI in any way.
+ *  Signal that the client should play an audio clip hosted at a client-specific
+ *  URI. Dialogflow uses this to construct mixed_audio. However, Dialogflow
+ *  itself does not try to read or process the URI in any way.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessagePlayAudio *playAudio;
 
@@ -1717,17 +1774,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Indicates that the conversation succeeded, i.e., the bot handled the issue
- *  that the customer talked to it about.
- *  Dialogflow only uses this to determine which conversations should be
- *  counted as successful and doesn't process the metadata in this message in
- *  any way. Note that Dialogflow also considers conversations that get to the
- *  conversation end page as successful even if they don't return
- *  ConversationSuccess.
- *  You may set this, for example:
- *  * In the entry_fulfillment of a Page if
- *  entering the page indicates that the conversation succeeded.
- *  * In a webhook response when you determine that you handled the customer
- *  issue.
+ *  that the customer talked to it about. Dialogflow only uses this to determine
+ *  which conversations should be counted as successful and doesn't process the
+ *  metadata in this message in any way. Note that Dialogflow also considers
+ *  conversations that get to the conversation end page as successful even if
+ *  they don't return ConversationSuccess. You may set this, for example: * In
+ *  the entry_fulfillment of a Page if entering the page indicates that the
+ *  conversation succeeded. * In a webhook response when you determine that you
+ *  handled the customer issue.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageConversationSuccess : GTLRObject
 
@@ -1750,47 +1804,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Indicates that interaction with the Dialogflow agent has ended.
- *  This message is generated by Dialogflow only and not supposed to be
- *  defined by the user.
+ *  Indicates that interaction with the Dialogflow agent has ended. This message
+ *  is generated by Dialogflow only and not supposed to be defined by the user.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction : GTLRObject
-@end
-
-
-/**
- *  Indicates that the conversation should be handed off to a human agent.
- *  Dialogflow only uses this to determine which conversations were handed off
- *  to a human agent for measurement purposes. What else to do with this signal
- *  is up to you and your handoff procedures.
- *  You may set this, for example:
- *  * In the entry_fulfillment of a Page if
- *  entering the page indicates something went extremely wrong in the
- *  conversation.
- *  * In a webhook response when you determine that the customer issue can only
- *  be handled by a human.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff : GTLRObject
-
-/**
- *  Custom metadata for your handoff procedure. Dialogflow doesn't impose
- *  any structure on this.
- */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff_Metadata *metadata;
-
-@end
-
-
-/**
- *  Custom metadata for your handoff procedure. Dialogflow doesn't impose
- *  any structure on this.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageHumanAgentHandoff_Metadata : GTLRObject
 @end
 
 
@@ -1798,19 +1815,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Indicates that the conversation should be handed off to a live agent.
  *  Dialogflow only uses this to determine which conversations were handed off
  *  to a human agent for measurement purposes. What else to do with this signal
- *  is up to you and your handoff procedures.
- *  You may set this, for example:
- *  * In the entry_fulfillment of a Page if
- *  entering the page indicates something went extremely wrong in the
- *  conversation.
- *  * In a webhook response when you determine that the customer issue can only
- *  be handled by a human.
+ *  is up to you and your handoff procedures. You may set this, for example: *
+ *  In the entry_fulfillment of a Page if entering the page indicates something
+ *  went extremely wrong in the conversation. * In a webhook response when you
+ *  determine that the customer issue can only be handled by a human.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff : GTLRObject
 
 /**
- *  Custom metadata for your handoff procedure. Dialogflow doesn't impose
- *  any structure on this.
+ *  Custom metadata for your handoff procedure. Dialogflow doesn't impose any
+ *  structure on this.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageLiveAgentHandoff_Metadata *metadata;
 
@@ -1818,8 +1832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Custom metadata for your handoff procedure. Dialogflow doesn't impose
- *  any structure on this.
+ *  Custom metadata for your handoff procedure. Dialogflow doesn't impose any
+ *  structure on this.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1831,13 +1845,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Represents an audio message that is composed of both segments
- *  synthesized from the Dialogflow agent prompts and ones hosted externally
- *  at the specified URIs.
- *  The external URIs are specified via
- *  play_audio.
- *  This message is generated by Dialogflow only and not supposed to be
- *  defined by the user.
+ *  Represents an audio message that is composed of both segments synthesized
+ *  from the Dialogflow agent prompts and ones hosted externally at the
+ *  specified URIs. The external URIs are specified via play_audio. This message
+ *  is generated by Dialogflow only and not supposed to be defined by the user.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudio : GTLRObject
 
@@ -1853,8 +1864,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageMixedAudioSegment : GTLRObject
 
 /**
- *  Whether the playback of this segment can be interrupted by the end
- *  user's speech and the client should then start the next Dialogflow
+ *  Output only. Whether the playback of this segment can be interrupted by the
+ *  end user's speech and the client should then start the next Dialogflow
  *  request.
  *
  *  Uses NSNumber of boolValue.
@@ -1862,8 +1873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
 
 /**
- *  Raw audio synthesized from the Dialogflow agent's response using
- *  the output config specified in the request.
+ *  Raw audio synthesized from the Dialogflow agent's response using the output
+ *  config specified in the request.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1871,8 +1882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *audio;
 
 /**
- *  Client-specific URI that points to an audio clip accessible to the
- *  client. Dialogflow does not impose any validation on it.
+ *  Client-specific URI that points to an audio clip accessible to the client.
+ *  Dialogflow does not impose any validation on it.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1903,8 +1914,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessagePlayAudio : GTLRObject
 
 /**
- *  Whether the playback of this message can be interrupted by the end
- *  user's speech and the client can then starts the next Dialogflow
+ *  Output only. Whether the playback of this message can be interrupted by the
+ *  end user's speech and the client can then starts the next Dialogflow
  *  request.
  *
  *  Uses NSNumber of boolValue.
@@ -1913,8 +1924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Required. URI of the audio clip. Dialogflow does not impose any validation
- *  on this
- *  value. It is specific to the client that reads it.
+ *  on this value. It is specific to the client that reads it.
  */
 @property(nonatomic, copy, nullable) NSString *audioUri;
 
@@ -1927,8 +1937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageText : GTLRObject
 
 /**
- *  Whether the playback of this message can be interrupted by the end
- *  user's speech and the client can then starts the next Dialogflow
+ *  Output only. Whether the playback of this message can be interrupted by the
+ *  end user's speech and the client can then starts the next Dialogflow
  *  request.
  *
  *  Uses NSNumber of boolValue.
@@ -1947,21 +1957,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo : GTLRObject
 
 /**
- *  Optional for WebhookRequest. Optional for WebhookResponse.
- *  All parameters collected from forms and intents during the session.
- *  Parameters can be created, updated, or removed by the webhook. To remove a
- *  parameter from the session, the webhook should explicitly set the parameter
- *  value to null in WebhookResponse. The map is keyed by parameters'
- *  display names.
+ *  Optional for WebhookRequest. Optional for WebhookResponse. All parameters
+ *  collected from forms and intents during the session. Parameters can be
+ *  created, updated, or removed by the webhook. To remove a parameter from the
+ *  session, the webhook should explicitly set the parameter value to null in
+ *  WebhookResponse. The map is keyed by parameters' display names.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo_Parameters *parameters;
 
 /**
- *  Always present for WebhookRequest. Ignored for WebhookResponse.
- *  The unique identifier of the session. This
- *  field can be used by the webhook to identify a user.
- *  Format: `projects/<Project ID>/locations/<Location
- *  ID>/agents/<Agent ID>/sessions/<Session ID>`.
+ *  Always present for WebhookRequest. Ignored for WebhookResponse. The unique
+ *  identifier of the session. This field can be used by the webhook to identify
+ *  a user. Format: `projects//locations//agents//sessions/`.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -1969,12 +1976,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Optional for WebhookRequest. Optional for WebhookResponse.
- *  All parameters collected from forms and intents during the session.
- *  Parameters can be created, updated, or removed by the webhook. To remove a
- *  parameter from the session, the webhook should explicitly set the parameter
- *  value to null in WebhookResponse. The map is keyed by parameters'
- *  display names.
+ *  Optional for WebhookRequest. Optional for WebhookResponse. All parameters
+ *  collected from forms and intents during the session. Parameters can be
+ *  created, updated, or removed by the webhook. To remove a parameter from the
+ *  session, the webhook should explicitly set the parameter value to null in
+ *  WebhookResponse. The map is keyed by parameters' display names.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1991,8 +1997,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest : GTLRObject
 
 /**
- *  Always present. The unique identifier of the DetectIntentResponse that
- *  will be returned to the API caller.
+ *  Always present. The unique identifier of the DetectIntentResponse that will
+ *  be returned to the API caller.
  */
 @property(nonatomic, copy, nullable) NSString *detectIntentResponseId;
 
@@ -2042,8 +2048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo : GTLRObject
 
 /**
- *  Always present. The tag used to identify which fulfillment is being
- *  called.
+ *  Always present. The tag used to identify which fulfillment is being called.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
@@ -2056,17 +2061,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo : GTLRObject
 
 /**
- *  Always present. The unique identifier of the last matched
- *  intent. Format: `projects/<Project ID>/locations/<Location
- *  ID>/agents/<Agent ID>/intents/<Intent ID>`.
+ *  Always present. The unique identifier of the last matched intent. Format:
+ *  `projects//locations//agents//intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *lastMatchedIntent;
 
 /**
- *  Parameters identified as a result of intent matching. This is a map of
- *  the name of the identified parameter to the value of the parameter
- *  identified from the user's utterance. All parameters defined in the
- *  matched intent that are identified will be surfaced here.
+ *  Parameters identified as a result of intent matching. This is a map of the
+ *  name of the identified parameter to the value of the parameter identified
+ *  from the user's utterance. All parameters defined in the matched intent that
+ *  are identified will be surfaced here.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo_Parameters *parameters;
 
@@ -2074,10 +2078,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Parameters identified as a result of intent matching. This is a map of
- *  the name of the identified parameter to the value of the parameter
- *  identified from the user's utterance. All parameters defined in the
- *  matched intent that are identified will be surfaced here.
+ *  Parameters identified as a result of intent matching. This is a map of the
+ *  name of the identified parameter to the value of the parameter identified
+ *  from the user's utterance. All parameters defined in the matched intent that
+ *  are identified will be surfaced here.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue.
@@ -2135,16 +2139,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo *sessionInfo;
 
 /**
- *  The target flow to transition to.
- *  Format: `projects/<Project ID>/locations/<Location
- *  ID>/agents/<Agent ID>/flows/<Flow ID>`.
+ *  The target flow to transition to. Format:
+ *  `projects//locations//agents//flows/`.
  */
 @property(nonatomic, copy, nullable) NSString *targetFlow;
 
 /**
- *  The target page to transition to.
- *  Format: `projects/<Project ID>/locations/<Location
- *  ID>/agents/<Agent ID>/flows/<Flow ID>/pages/<Page ID>`.
+ *  The target page to transition to. Format:
+ *  `projects//locations//agents//flows//pages/`.
  */
 @property(nonatomic, copy, nullable) NSString *targetPage;
 
@@ -2193,20 +2195,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  A Dialogflow agent is a virtual agent that handles conversations with your
  *  end-users. It is a natural language understanding module that understands
- *  the
- *  nuances of human language. Dialogflow translates end-user text or audio
+ *  the nuances of human language. Dialogflow translates end-user text or audio
  *  during a conversation to structured data that your apps and services can
  *  understand. You design and build a Dialogflow agent to handle the types of
- *  conversations required for your system.
- *  For more information about agents, see the
- *  [Agent guide](https://cloud.google.com/dialogflow/docs/agents-overview).
+ *  conversations required for your system. For more information about agents,
+ *  see the [Agent
+ *  guide](https://cloud.google.com/dialogflow/docs/agents-overview).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Agent : GTLRObject
 
 /**
- *  Optional. API version displayed in Dialogflow console. If not specified,
- *  V2 API is assumed. Clients are free to query different service endpoints
- *  for different API versions. However, bots connectors and webhook calls will
+ *  Optional. API version displayed in Dialogflow console. If not specified, V2
+ *  API is assumed. Clients are free to query different service endpoints for
+ *  different API versions. However, bots connectors and webhook calls will
  *  follow the specified API version.
  *
  *  Likely values:
@@ -2222,9 +2223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  Optional. The URI of the agent's avatar.
- *  Avatars are used throughout the Dialogflow console and in the self-hosted
- *  [Web
+ *  Optional. The URI of the agent's avatar. Avatars are used throughout the
+ *  Dialogflow console and in the self-hosted [Web
  *  Demo](https://cloud.google.com/dialogflow/docs/integrations/web-demo)
  *  integration.
  */
@@ -2236,25 +2236,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  learning classification threshold. If the returned score value is less than
  *  the threshold value, then a fallback intent will be triggered or, if there
  *  are no fallback intents defined, no intent will be triggered. The score
- *  values range from 0.0 (completely uncertain) to 1.0 (completely certain).
- *  If set to 0.0, the default of 0.3 is used.
+ *  values range from 0.0 (completely uncertain) to 1.0 (completely certain). If
+ *  set to 0.0, the default of 0.3 is used.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *classificationThreshold;
 
 /**
- *  Required. The default language of the agent as a language tag. See
- *  [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
- *  for a list of the currently supported language codes. This field cannot be
- *  set by the `Update` method.
+ *  Required. The default language of the agent as a language tag. See [Language
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
+ *  list of the currently supported language codes. This field cannot be set by
+ *  the `Update` method.
  */
 @property(nonatomic, copy, nullable) NSString *defaultLanguageCode;
 
 /**
- *  Optional. The description of this agent.
- *  The maximum length is 500 characters. If exceeded, the request is rejected.
+ *  Optional. The description of this agent. The maximum length is 500
+ *  characters. If exceeded, the request is rejected.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2287,10 +2286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  */
 @property(nonatomic, copy, nullable) NSString *matchMode;
 
-/**
- *  Required. The project of this agent.
- *  Format: `projects/<Project ID>`.
- */
+/** Required. The project of this agent. Format: `projects/`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2316,9 +2312,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *tier;
 
 /**
- *  Required. The time zone of this agent from the
- *  [time zone database](https://www.iana.org/time-zones), e.g.,
- *  America/New_York, Europe/Paris.
+ *  Required. The time zone of this agent from the [time zone
+ *  database](https://www.iana.org/time-zones), e.g., America/New_York,
+ *  Europe/Paris.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -2334,8 +2330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  The [Dialogflow system entity
- *  type](https://cloud.google.com/dialogflow/docs/reference/system-entities)
- *  of this message part. If this is empty, Dialogflow could not annotate the
+ *  type](https://cloud.google.com/dialogflow/docs/reference/system-entities) of
+ *  this message part. If this is empty, Dialogflow could not annotate the
  *  phrase part with a system entity.
  */
 @property(nonatomic, copy, nullable) NSString *entityType;
@@ -2344,13 +2340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  The [Dialogflow system entity formatted value
  *  ](https://cloud.google.com/dialogflow/docs/reference/system-entities) of
  *  this message part. For example for a system entity of type
- *  `\@sys.unit-currency`, this may contain:
- *  <pre>
- *  {
- *  "amount": 5,
- *  "currency": "USD"
- *  }
- *  </pre>
+ *  `\@sys.unit-currency`, this may contain: { "amount": 5, "currency": "USD" }
  *
  *  Can be any valid JSON type.
  */
@@ -2371,9 +2361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity *> *entities;
 
 /**
- *  Optional. The language used to access language-specific data.
- *  If not specified, the agent's default language is used.
- *  For more information, see
+ *  Optional. The language used to access language-specific data. If not
+ *  specified, the agent's default language is used. For more information, see
  *  [Multilingual intent and entity
  *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
@@ -2388,16 +2377,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchDeleteEntitiesRequest : GTLRObject
 
 /**
- *  Required. The reference `values` of the entities to delete. Note that
- *  these are not fully-qualified names, i.e. they don't start with
- *  `projects/<Project ID>`.
+ *  Required. The reference `values` of the entities to delete. Note that these
+ *  are not fully-qualified names, i.e. they don't start with `projects/`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entityValues;
 
 /**
- *  Optional. The language used to access language-specific data.
- *  If not specified, the agent's default language is used.
- *  For more information, see
+ *  Optional. The language used to access language-specific data. If not
+ *  specified, the agent's default language is used. For more information, see
  *  [Multilingual intent and entity
  *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
@@ -2412,8 +2399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchDeleteEntityTypesRequest : GTLRObject
 
 /**
- *  Required. The names entity types to delete. All names must point to the
- *  same agent as `parent`.
+ *  Required. The names entity types to delete. All names must point to the same
+ *  agent as `parent`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entityTypeNames;
 
@@ -2443,9 +2430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity *> *entities;
 
 /**
- *  Optional. The language used to access language-specific data.
- *  If not specified, the agent's default language is used.
- *  For more information, see
+ *  Optional. The language used to access language-specific data. If not
+ *  specified, the agent's default language is used. For more information, see
  *  [Multilingual intent and entity
  *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
@@ -2470,17 +2456,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeBatch *entityTypeBatchInline;
 
 /**
- *  The URI to a Google Cloud Storage file containing entity types to update
- *  or create. The file format can either be a serialized proto (of
- *  EntityBatch type) or a JSON object. Note: The URI must start with
- *  "gs://".
+ *  The URI to a Google Cloud Storage file containing entity types to update or
+ *  create. The file format can either be a serialized proto (of EntityBatch
+ *  type) or a JSON object. Note: The URI must start with "gs://".
  */
 @property(nonatomic, copy, nullable) NSString *entityTypeBatchUri;
 
 /**
- *  Optional. The language used to access language-specific data.
- *  If not specified, the agent's default language is used.
- *  For more information, see
+ *  Optional. The language used to access language-specific data. If not
+ *  specified, the agent's default language is used. For more information, see
  *  [Multilingual intent and entity
  *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
@@ -2535,9 +2519,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *intentView;
 
 /**
- *  Optional. The language used to access language-specific data.
- *  If not specified, the agent's default language is used.
- *  For more information, see
+ *  Optional. The language used to access language-specific data. If not
+ *  specified, the agent's default language is used. For more information, see
  *  [Multilingual intent and entity
  *  data](https://cloud.google.com/dialogflow/docs/agents-multilingual#intent-entity).
  */
@@ -2565,11 +2548,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Represents an annotated conversation dataset.
- *  ConversationDataset can have multiple AnnotatedConversationDataset, each of
- *  them represents one result from one annotation task.
- *  AnnotatedConversationDataset can only be generated from annotation task,
- *  which will be triggered by LabelConversation.
+ *  Represents an annotated conversation dataset. ConversationDataset can have
+ *  multiple AnnotatedConversationDataset, each of them represents one result
+ *  from one annotation task. AnnotatedConversationDataset can only be generated
+ *  from annotation task, which will be triggered by LabelConversation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset : GTLRObject
 
@@ -2585,16 +2567,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. The description of the annotated conversation dataset.
- *  Maximum of 10000 bytes.
+ *  Optional. The description of the annotated conversation dataset. Maximum of
+ *  10000 bytes.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. The display name of the annotated conversation dataset.
- *  It's specified when user starts an annotation task. Maximum of 64 bytes.
+ *  Required. The display name of the annotated conversation dataset. It's
+ *  specified when user starts an annotation task. Maximum of 64 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2607,16 +2589,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Output only. AnnotatedConversationDataset resource name. Format:
- *  `projects/<Project ID>/conversationDatasets/<Conversation Dataset
- *  ID>/annotatedConversationDatasets/<Annotated Conversation Dataset ID>`
+ *  `projects//conversationDatasets//annotatedConversationDatasets/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Question type name that identifies a labeling task.
- *  A question is a single task that a worker answers. A question type is set
- *  of related questions. Each question belongs to a particular question type.
- *  It can be used in CrowdCompute UI to filter and manage labeling tasks.
+ *  Output only. Question type name that identifies a labeling task. A question
+ *  is a single task that a worker answers. A question type is set of related
+ *  questions. Each question belongs to a particular question type. It can be
+ *  used in CrowdCompute UI to filter and manage labeling tasks.
  */
 @property(nonatomic, copy, nullable) NSString *questionTypeName;
 
@@ -2676,21 +2657,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Dialogflow contexts are similar to natural language context. If a person
- *  says
- *  to you "they are orange", you need context in order to understand what
- *  "they"
- *  is referring to. Similarly, for Dialogflow to handle an end-user expression
- *  like that, it needs to be provided with context in order to correctly match
- *  an intent.
- *  Using contexts, you can control the flow of a conversation. You can
- *  configure
- *  contexts for an intent by setting input and output contexts, which are
- *  identified by string names. When an intent is matched, any configured output
- *  contexts for that intent become active. While any contexts are active,
- *  Dialogflow is more likely to match intents that are configured with input
- *  contexts that correspond to the currently active contexts.
- *  For more information about context, see the
- *  [Contexts
+ *  says to you "they are orange", you need context in order to understand what
+ *  "they" is referring to. Similarly, for Dialogflow to handle an end-user
+ *  expression like that, it needs to be provided with context in order to
+ *  correctly match an intent. Using contexts, you can control the flow of a
+ *  conversation. You can configure contexts for an intent by setting input and
+ *  output contexts, which are identified by string names. When an intent is
+ *  matched, any configured output contexts for that intent become active. While
+ *  any contexts are active, Dialogflow is more likely to match intents that are
+ *  configured with input contexts that correspond to the currently active
+ *  contexts. For more information about context, see the [Contexts
  *  guide](https://cloud.google.com/dialogflow/docs/contexts-overview).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Context : GTLRObject
@@ -2698,8 +2674,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Optional. The number of conversational query requests after which the
  *  context expires. The default is `0`. If set to `0`, the context expires
- *  immediately. Contexts expire automatically after 20 minutes if there
- *  are no matching queries.
+ *  immediately. Contexts expire automatically after 20 minutes if there are no
+ *  matching queries.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2707,35 +2683,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Required. The unique identifier of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
- *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
- *  The `Context ID` is always converted to lowercase, may only contain
- *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
- *  If `Environment ID` is not specified, we assume default 'draft'
- *  environment. If `User ID` is not specified, we assume default '-' user.
- *  The following context names are reserved for internal use by Dialogflow.
- *  You should not use these contexts or create contexts with these names:
- *  * `__system_counters__`
- *  * `*_id_dialog_context`
- *  * `*_dialog_params_size`
+ *  `projects//agent/sessions//contexts/`, or
+ *  `projects//agent/environments//users//sessions//contexts/`. The `Context ID`
+ *  is always converted to lowercase, may only contain characters in
+ *  a-zA-Z0-9_-% and may be at most 250 bytes long. If `Environment ID` is not
+ *  specified, we assume default 'draft' environment. If `User ID` is not
+ *  specified, we assume default '-' user. The following context names are
+ *  reserved for internal use by Dialogflow. You should not use these contexts
+ *  or create contexts with these names: * `__system_counters__` *
+ *  `*_id_dialog_context` * `*_dialog_params_size`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  Depending on your protocol or client library language, this is a map,
+ *  associative array, symbol table, dictionary, or JSON object composed of a
+ *  collection of (MapKey, MapValue) pairs: - MapKey type: string - MapKey
+ *  value: parameter name - MapValue type: - If parameter's entity type is a
+ *  composite entity: map - Else: string or number, depending on parameter value
+ *  type - MapValue value: - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values - Else:
+ *  parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters *parameters;
 
@@ -2744,18 +2713,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  Depending on your protocol or client library language, this is a map,
+ *  associative array, symbol table, dictionary, or JSON object composed of a
+ *  collection of (MapKey, MapValue) pairs: - MapKey type: string - MapKey
+ *  value: parameter name - MapValue type: - If parameter's entity type is a
+ *  composite entity: map - Else: string or number, depending on parameter value
+ *  type - MapValue value: - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values - Else:
+ *  parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2768,21 +2733,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Each intent parameter has a type, called the entity type, which dictates
- *  exactly how data from an end-user expression is extracted.
- *  Dialogflow provides predefined system entities that can match many common
- *  types of data. For example, there are system entities for matching dates,
- *  times, colors, email addresses, and so on. You can also create your own
- *  custom entities for matching custom data. For example, you could define a
- *  vegetable entity that can match the types of vegetables available for
- *  purchase with a grocery store agent.
- *  For more information, see the
- *  [Entity guide](https://cloud.google.com/dialogflow/docs/entities-overview).
+ *  exactly how data from an end-user expression is extracted. Dialogflow
+ *  provides predefined system entities that can match many common types of
+ *  data. For example, there are system entities for matching dates, times,
+ *  colors, email addresses, and so on. You can also create your own custom
+ *  entities for matching custom data. For example, you could define a vegetable
+ *  entity that can match the types of vegetables available for purchase with a
+ *  grocery store agent. For more information, see the [Entity
+ *  guide](https://cloud.google.com/dialogflow/docs/entities-overview).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType : GTLRObject
 
 /**
- *  Optional. Indicates whether the entity type can be automatically
- *  expanded.
+ *  Optional. Indicates whether the entity type can be automatically expanded.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_AutoExpansionMode_AutoExpansionModeDefault
@@ -2815,10 +2778,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindList
  *        List entity types contain a set of entries that do not map to
- *        reference
- *        values. However, list entity types can contain references to other
- *        entity
- *        types (with or without aliases). (Value: "KIND_LIST")
+ *        reference values. However, list entity types can contain references to
+ *        other entity types (with or without aliases). (Value: "KIND_LIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap
  *        Map entity types allow mapping of a group of synonyms to a reference
  *        value. (Value: "KIND_MAP")
@@ -2832,10 +2793,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The unique identifier of the entity type.
- *  Required for EntityTypes.UpdateEntityType and
- *  EntityTypes.BatchUpdateEntityTypes methods.
- *  Format: `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
+ *  The unique identifier of the entity type. Required for
+ *  EntityTypes.UpdateEntityType and EntityTypes.BatchUpdateEntityTypes methods.
+ *  Format: `projects//agent/entityTypes/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2848,23 +2808,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity : GTLRObject
 
 /**
- *  Required. A collection of value synonyms. For example, if the entity type
- *  is *vegetable*, and `value` is *scallions*, a synonym could be *green
- *  onions*.
- *  For `KIND_LIST` entity types:
- *  * This collection must contain exactly one synonym equal to `value`.
+ *  Required. A collection of value synonyms. For example, if the entity type is
+ *  *vegetable*, and `value` is *scallions*, a synonym could be *green onions*.
+ *  For `KIND_LIST` entity types: * This collection must contain exactly one
+ *  synonym equal to `value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
 
 /**
- *  Required. The primary value associated with this entity entry.
- *  For example, if the entity type is *vegetable*, the value could be
- *  *scallions*.
- *  For `KIND_MAP` entity types:
- *  * A reference value to be used in place of synonyms.
- *  For `KIND_LIST` entity types:
- *  * A string that can contain references to other entity types (with or
- *  without aliases).
+ *  Required. The primary value associated with this entity entry. For example,
+ *  if the entity type is *vegetable*, the value could be *scallions*. For
+ *  `KIND_MAP` entity types: * A reference value to be used in place of
+ *  synonyms. For `KIND_LIST` entity types: * A string that can contain
+ *  references to other entity types (with or without aliases).
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -2873,19 +2829,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Events allow for matching intents by event name instead of the natural
- *  language input. For instance, input
- *  `<event: { name: "welcome_event", parameters: { name: "Sam" } }>` can
- *  trigger a personalized welcome response.
- *  The parameter `name` may be used by the agent in the response:
+ *  language input. For instance, input `` can trigger a personalized welcome
+ *  response. The parameter `name` may be used by the agent in the response:
  *  `"Hello #welcome_event.name! What can I do for you today?"`.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput : GTLRObject
 
 /**
  *  Required. The language of this query. See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
- *  for a list of the currently supported language codes. Note that queries in
- *  the same session do not necessarily need to specify the same language.
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
+ *  list of the currently supported language codes. Note that queries in the
+ *  same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2893,19 +2847,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The collection of parameters associated with the event.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  The collection of parameters associated with the event. Depending on your
+ *  protocol or client library language, this is a map, associative array,
+ *  symbol table, dictionary, or JSON object composed of a collection of
+ *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
+ *  name - MapValue type: - If parameter's entity type is a composite entity:
+ *  map - Else: string or number, depending on parameter value type - MapValue
+ *  value: - If parameter's entity type is a composite entity: map from
+ *  composite entity property names to property values - Else: parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput_Parameters *parameters;
 
@@ -2913,19 +2862,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The collection of parameters associated with the event.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  The collection of parameters associated with the event. Depending on your
+ *  protocol or client library language, this is a map, associative array,
+ *  symbol table, dictionary, or JSON object composed of a collection of
+ *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
+ *  name - MapValue type: - If parameter's entity type is a composite entity:
+ *  map - Else: string or number, depending on parameter value type - MapValue
+ *  value: - If parameter's entity type is a composite entity: map from
+ *  composite entity property names to property values - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2961,26 +2905,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  An intent categorizes an end-user's intention for one conversation turn. For
  *  each agent, you define many intents, where your combined intents can handle
- *  a
- *  complete conversation. When an end-user writes or says something, referred
- *  to
- *  as an end-user expression or end-user input, Dialogflow matches the end-user
- *  input to the best intent in your agent. Matching an intent is also known as
- *  intent classification.
- *  For more information, see the [intent
+ *  a complete conversation. When an end-user writes or says something, referred
+ *  to as an end-user expression or end-user input, Dialogflow matches the
+ *  end-user input to the best intent in your agent. Matching an intent is also
+ *  known as intent classification. For more information, see the [intent
  *  guide](https://cloud.google.com/dialogflow/docs/intents-overview).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent : GTLRObject
 
 /**
- *  Optional. The name of the action associated with the intent.
- *  Note: The action name must not contain whitespaces.
+ *  Optional. The name of the action associated with the intent. Note: The
+ *  action name must not contain whitespaces.
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Optional. The list of platforms for which the first responses will be
- *  copied from the messages in PLATFORM_UNSPECIFIED (i.e. default platform).
+ *  Optional. The list of platforms for which the first responses will be copied
+ *  from the messages in PLATFORM_UNSPECIFIED (i.e. default platform).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *defaultResponsePlatforms;
 
@@ -2997,9 +2938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *endInteraction;
 
 /**
- *  Optional. The collection of event names that trigger the intent.
- *  If the collection of input contexts is not empty, all of the contexts must
- *  be present in the active user session for an event to trigger this intent.
+ *  Optional. The collection of event names that trigger the intent. If the
+ *  collection of input contexts is not empty, all of the contexts must be
+ *  present in the active user session for an event to trigger this intent.
  *  Event names are limited to 150 characters.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *events;
@@ -3012,8 +2953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. The list of context names required for this intent to be
- *  triggered.
- *  Format: `projects/<Project ID>/agent/sessions/-/contexts/<Context ID>`.
+ *  triggered. Format: `projects//agent/sessions/-/contexts/`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputContextNames;
 
@@ -3025,16 +2965,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *isFallback;
 
 /**
- *  Optional. The collection of rich messages corresponding to the
- *  `Response` field in the Dialogflow console.
+ *  Optional. The collection of rich messages corresponding to the `Response`
+ *  field in the Dialogflow console.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage *> *messages;
 
 /**
  *  Optional. Indicates whether Machine Learning is disabled for the intent.
- *  Note: If `ml_disabled` setting is set to true, then this intent is not
- *  taken into account during inference in `ML ONLY` match mode. Also,
- *  auto-markup in the UI is turned off.
+ *  Note: If `ml_disabled` setting is set to true, then this intent is not taken
+ *  into account during inference in `ML ONLY` match mode. Also, auto-markup in
+ *  the UI is turned off.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3042,35 +2982,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. Indicates whether Machine Learning is enabled for the intent.
- *  Note: If `ml_enabled` setting is set to false, then this intent is not
- *  taken into account during inference in `ML ONLY` match mode. Also,
- *  auto-markup in the UI is turned off.
- *  DEPRECATED! Please use `ml_disabled` field instead.
+ *  Note: If `ml_enabled` setting is set to false, then this intent is not taken
+ *  into account during inference in `ML ONLY` match mode. Also, auto-markup in
+ *  the UI is turned off. DEPRECATED! Please use `ml_disabled` field instead.
  *  NOTE: If both `ml_enabled` and `ml_disabled` are either not set or false,
- *  then the default value is determined as follows:
- *  - Before April 15th, 2018 the default is:
- *  ml_enabled = false / ml_disabled = true.
- *  - After April 15th, 2018 the default is:
- *  ml_enabled = true / ml_disabled = false.
+ *  then the default value is determined as follows: - Before April 15th, 2018
+ *  the default is: ml_enabled = false / ml_disabled = true. - After April 15th,
+ *  2018 the default is: ml_enabled = true / ml_disabled = false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mlEnabled;
 
 /**
- *  Optional. The unique identifier of this intent.
- *  Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
- *  methods.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  Optional. The unique identifier of this intent. Required for
+ *  Intents.UpdateIntent and Intents.BatchUpdateIntents methods. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The collection of contexts that are activated when the intent
- *  is matched. Context messages in this collection should not set the
- *  parameters field. Setting the `lifespan_count` to 0 will reset the context
- *  when the intent is matched.
- *  Format: `projects/<Project ID>/agent/sessions/-/contexts/<Context ID>`.
+ *  Optional. The collection of contexts that are activated when the intent is
+ *  matched. Context messages in this collection should not set the parameters
+ *  field. Setting the `lifespan_count` to 0 will reset the context when the
+ *  intent is matched. Format: `projects//agent/sessions/-/contexts/`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *> *outputContexts;
 
@@ -3078,23 +3013,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentParameter *> *parameters;
 
 /**
- *  Optional. The unique identifier of the parent intent in the
- *  chain of followup intents. You can set this field when creating an intent,
- *  for example with CreateIntent or
- *  BatchUpdateIntents, in order to make this
- *  intent a followup intent.
- *  It identifies the parent followup intent.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  Optional. The unique identifier of the parent intent in the chain of
+ *  followup intents. You can set this field when creating an intent, for
+ *  example with CreateIntent or BatchUpdateIntents, in order to make this
+ *  intent a followup intent. It identifies the parent followup intent. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *parentFollowupIntentName;
 
 /**
  *  Optional. The priority of this intent. Higher numbers represent higher
- *  priorities.
- *  - If the supplied value is unspecified or 0, the service
- *  translates the value to 500,000, which corresponds to the
- *  `Normal` priority in the console.
- *  - If the supplied value is negative, the intent is ignored
+ *  priorities. - If the supplied value is unspecified or 0, the service
+ *  translates the value to 500,000, which corresponds to the `Normal` priority
+ *  in the console. - If the supplied value is negative, the intent is ignored
  *  in runtime detect intent requests.
  *
  *  Uses NSNumber of intValue.
@@ -3102,8 +3033,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *priority;
 
 /**
- *  Optional. Indicates whether to delete all contexts in the current
- *  session when this intent is matched.
+ *  Optional. Indicates whether to delete all contexts in the current session
+ *  when this intent is matched.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3111,16 +3042,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Output only. The unique identifier of the root intent in the chain of
- *  followup intents. It identifies the correct followup intents chain for
- *  this intent.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  followup intents. It identifies the correct followup intents chain for this
+ *  intent. Format: `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *rootFollowupIntentName;
 
-/**
- *  Optional. The collection of examples that the agent is
- *  trained on.
- */
+/** Optional. The collection of examples that the agent is trained on. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase *> *trainingPhrases;
 
 /**
@@ -3149,14 +3076,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo : GTLRObject
 
 /**
- *  The unique identifier of the followup intent.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  The unique identifier of the followup intent. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *followupIntentName;
 
 /**
- *  The unique identifier of the followup intent's parent.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  The unique identifier of the followup intent's parent. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *parentFollowupIntentName;
 
@@ -3200,8 +3127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_ActionsOnGoogle
- *        Google Assistant
- *        See [Dialogflow webhook
+ *        Google Assistant See [Dialogflow webhook
  *        format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *        (Value: "ACTIONS_ON_GOOGLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage_Platform_Facebook
@@ -3237,8 +3163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard *rbmStandaloneRichCard;
 
 /**
- *  Rich Business Messaging (RBM) text response.
- *  RBM allows businesses to send enriched and branded versions of SMS. See
+ *  Rich Business Messaging (RBM) text response. RBM allows businesses to send
+ *  enriched and branded versions of SMS. See
  *  https://jibe.google.com/business-messaging.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmText *rbmText;
@@ -3347,10 +3273,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped
  *        Image is scaled such that the image width and height match or exceed
  *        the container dimensions. This may crop the top and bottom of the
- *        image if the scaled image height is greater than the container
- *        height, or crop the left and right of the image if the scaled image
- *        width is greater than the container width. This is similar to "Zoom
- *        Mode" on a widescreen TV when playing a 4:3 video. (Value: "CROPPED")
+ *        image if the scaled image height is greater than the container height,
+ *        or crop the left and right of the image if the scaled image width is
+ *        greater than the container width. This is similar to "Zoom Mode" on a
+ *        widescreen TV when playing a 4:3 video. (Value: "CROPPED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray
  *        Fill the gaps between the image and the image container with gray
  *        bars. (Value: "GRAY")
@@ -3364,8 +3290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *imageDisplayOptions;
 
 /**
- *  Required. List of items in the Browse Carousel Card. Minimum of two
- *  items, maximum of ten.
+ *  Required. List of items in the Browse Carousel Card. Minimum of two items,
+ *  maximum of ten.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3381,16 +3307,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItem : GTLRObject
 
 /**
- *  Optional. Description of the carousel item. Maximum of four lines of
- *  text.
+ *  Optional. Description of the carousel item. Maximum of four lines of text.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Text that appears at the bottom of the Browse Carousel
- *  Card. Maximum of one line of text.
+ *  Optional. Text that appears at the bottom of the Browse Carousel Card.
+ *  Maximum of one line of text.
  */
 @property(nonatomic, copy, nullable) NSString *footer;
 
@@ -3415,16 +3340,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *url;
 
 /**
- *  Optional. Specifies the type of viewer that is used when opening
- *  the URL. Defaults to opening via web browser.
+ *  Optional. Specifies the type of viewer that is used when opening the URL.
+ *  Defaults to opening via web browser.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction
  *        Url would be an amp action (Value: "AMP_ACTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent
- *        URL that points directly to AMP content, or to a canonical URL
- *        which refers to AMP content via <link rel="amphtml">. (Value:
- *        "AMP_CONTENT")
+ *        URL that points directly to AMP content, or to a canonical URL which
+ *        refers to AMP content via . (Value: "AMP_CONTENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified
  *        Unspecified (Value: "URL_TYPE_HINT_UNSPECIFIED")
  */
@@ -3458,10 +3382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageCardButton : GTLRObject
 
-/**
- *  Optional. The text to send back to the Dialogflow API or a URI to
- *  open.
- */
+/** Optional. The text to send back to the Dialogflow API or a URI to open. */
 @property(nonatomic, copy, nullable) NSString *postback;
 
 /** Optional. The text to show on the button. */
@@ -3547,8 +3468,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageImage : GTLRObject
 
 /**
- *  A text description of the image to be used for accessibility,
- *  e.g., screen readers. Required if image_uri is set for CarouselSelect.
+ *  A text description of the image to be used for accessibility, e.g., screen
+ *  readers. Required if image_uri is set for CarouselSelect.
  */
 @property(nonatomic, copy, nullable) NSString *accessibilityText;
 
@@ -3559,8 +3480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The suggestion chip message that allows the user to jump out to the app
- *  or website associated with this agent.
+ *  The suggestion chip message that allows the user to jump out to the app or
+ *  website associated with this agent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageLinkOutSuggestion : GTLRObject
 
@@ -3694,16 +3615,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent : GTLRObject
 
 /**
- *  Optional. Description of the card (at most 2000 bytes).
- *  At least one of the title, description or media must be set.
+ *  Optional. Description of the card (at most 2000 bytes). At least one of the
+ *  title, description or media must be set.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. However at least one of the title, description or media must
- *  be set. Media (image, GIF or a video) to include in the card.
+ *  Optional. However at least one of the title, description or media must be
+ *  set. Media (image, GIF or a video) to include in the card.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia *media;
 
@@ -3711,8 +3632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestion *> *suggestions;
 
 /**
- *  Optional. Title of the card (at most 200 bytes).
- *  At least one of the title, description or media must be set.
+ *  Optional. Title of the card (at most 200 bytes). At least one of the title,
+ *  description or media must be set.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -3720,36 +3641,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Rich Business Messaging (RBM) Media displayed in Cards
- *  The following media-types are currently supported:
- *  Image Types
- *  * image/jpeg
- *  * image/jpg'
- *  * image/gif
- *  * image/png
- *  Video Types
- *  * video/h263
- *  * video/m4v
- *  * video/mp4
- *  * video/mpeg
- *  * video/mpeg4
- *  * video/webm
+ *  Rich Business Messaging (RBM) Media displayed in Cards The following
+ *  media-types are currently supported: Image Types * image/jpeg * image/jpg' *
+ *  image/gif * image/png Video Types * video/h263 * video/m4v * video/mp4 *
+ *  video/mpeg * video/mpeg4 * video/webm
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia : GTLRObject
 
 /**
- *  Required. Publicly reachable URI of the file. The RBM platform
- *  determines the MIME type of the file from the content-type field in
- *  the HTTP headers when the platform fetches the file. The content-type
- *  field must be present and accurate in the HTTP response from the URL.
+ *  Required. Publicly reachable URI of the file. The RBM platform determines
+ *  the MIME type of the file from the content-type field in the HTTP headers
+ *  when the platform fetches the file. The content-type field must be present
+ *  and accurate in the HTTP response from the URL.
  */
 @property(nonatomic, copy, nullable) NSString *fileUri;
 
 /**
- *  Required for cards with vertical orientation. The height of the media
- *  within a rich card with a vertical layout.
- *  For a standalone card with horizontal layout, height is not
- *  customizable, and this field is ignored.
+ *  Required for cards with vertical orientation. The height of the media within
+ *  a rich card with a vertical layout. For a standalone card with horizontal
+ *  layout, height is not customizable, and this field is ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_HeightUnspecified
@@ -3759,17 +3669,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Short
  *        112 DP. (Value: "SHORT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMedia_Height_Tall
- *        264 DP. Not available for rich card carousels when the card width
- *        is set to small. (Value: "TALL")
+ *        264 DP. Not available for rich card carousels when the card width is
+ *        set to small. (Value: "TALL")
  */
 @property(nonatomic, copy, nullable) NSString *height;
 
 /**
- *  Optional. Publicly reachable URI of the thumbnail.If you don't
- *  provide a thumbnail URI, the RBM platform displays a blank
- *  placeholder thumbnail until the user's device downloads the file.
- *  Depending on the user's setting, the file may not download
- *  automatically and may require the user to tap a download button.
+ *  Optional. Publicly reachable URI of the thumbnail.If you don't provide a
+ *  thumbnail URI, the RBM platform displays a blank placeholder thumbnail until
+ *  the user's device downloads the file. Depending on the user's setting, the
+ *  file may not download automatically and may require the user to tap a
+ *  download button.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailUri;
 
@@ -3777,17 +3687,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Carousel Rich Business Messaging (RBM) rich card.
- *  Rich cards allow you to respond to users with more vivid content, e.g.
- *  with media and suggestions.
- *  If you want to show a single card with more control over the layout,
- *  please use RbmStandaloneCard instead.
+ *  Carousel Rich Business Messaging (RBM) rich card. Rich cards allow you to
+ *  respond to users with more vivid content, e.g. with media and suggestions.
+ *  If you want to show a single card with more control over the layout, please
+ *  use RbmStandaloneCard instead.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCard : GTLRObject
 
 /**
- *  Required. The cards in the carousel. A carousel must have at least
- *  2 cards and at most 10.
+ *  Required. The cards in the carousel. A carousel must have at least 2 cards
+ *  and at most 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmCardContent *> *cardContents;
 
@@ -3808,9 +3717,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Standalone Rich Business Messaging (RBM) rich card.
- *  Rich cards allow you to respond to users with more vivid content, e.g.
- *  with media and suggestions.
+ *  Standalone Rich Business Messaging (RBM) rich card. Rich cards allow you to
+ *  respond to users with more vivid content, e.g. with media and suggestions.
  *  You can group multiple rich cards into one using RbmCarouselCard but
  *  carousel cards will give you less control over the card layout.
  */
@@ -3833,8 +3741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *cardOrientation;
 
 /**
- *  Required if orientation is horizontal.
- *  Image preview alignment for standalone cards with horizontal layout.
+ *  Required if orientation is horizontal. Image preview alignment for
+ *  standalone cards with horizontal layout.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCard_ThumbnailImageAlignment_Left
@@ -3850,8 +3758,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Rich Business Messaging (RBM) suggested client-side action that the user
- *  can choose from the card.
+ *  Rich Business Messaging (RBM) suggested client-side action that the user can
+ *  choose from the card.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedAction : GTLRObject
 
@@ -3862,9 +3770,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionOpenUri *openUrl;
 
 /**
- *  Opaque payload that the Dialogflow receives in a user event
- *  when the user taps the suggested action. This data will be also
- *  forwarded to webhook to allow performing custom business logic.
+ *  Opaque payload that the Dialogflow receives in a user event when the user
+ *  taps the suggested action. This data will be also forwarded to webhook to
+ *  allow performing custom business logic.
  */
 @property(nonatomic, copy, nullable) NSString *postbackData;
 
@@ -3878,16 +3786,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Opens the user's default dialer app with the specified phone number
- *  but does not dial automatically.
+ *  Opens the user's default dialer app with the specified phone number but does
+ *  not dial automatically.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionDial : GTLRObject
 
 /**
- *  Required. The phone number to fill in the default dialer app.
- *  This field should be in [E.164](https://en.wikipedia.org/wiki/E.164)
- *  format. An example of a correctly formatted phone number:
- *  +15556767888.
+ *  Required. The phone number to fill in the default dialer app. This field
+ *  should be in [E.164](https://en.wikipedia.org/wiki/E.164) format. An example
+ *  of a correctly formatted phone number: +15556767888.
  */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
 
@@ -3895,10 +3802,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Opens the user's default web browser app to the specified uri
- *  If the user has an app installed that is
- *  registered as the default handler for the URL, then this app will be
- *  opened instead, and its icon will be used in the suggested action UI.
+ *  Opens the user's default web browser app to the specified uri If the user
+ *  has an app installed that is registered as the default handler for the URL,
+ *  then this app will be opened instead, and its icon will be used in the
+ *  suggested action UI.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionOpenUri : GTLRObject
 
@@ -3909,8 +3816,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Opens the device's location chooser so the user can pick a location
- *  to send back to the agent.
+ *  Opens the device's location chooser so the user can pick a location to send
+ *  back to the agent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedActionRbmSuggestedActionShareLocation : GTLRObject
 @end
@@ -3923,9 +3830,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestedReply : GTLRObject
 
 /**
- *  Opaque payload that the Dialogflow receives in a user event
- *  when the user taps the suggested reply. This data will be also
- *  forwarded to webhook to allow performing custom business logic.
+ *  Opaque payload that the Dialogflow receives in a user event when the user
+ *  taps the suggested reply. This data will be also forwarded to webhook to
+ *  allow performing custom business logic.
  */
 @property(nonatomic, copy, nullable) NSString *postbackData;
 
@@ -3936,9 +3843,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Rich Business Messaging (RBM) suggestion. Suggestions allow user to
- *  easily select/click a predefined response or perform an action (like
- *  opening a web uri).
+ *  Rich Business Messaging (RBM) suggestion. Suggestions allow user to easily
+ *  select/click a predefined response or perform an action (like opening a web
+ *  uri).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageRbmSuggestion : GTLRObject
 
@@ -3966,20 +3873,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Additional info about the select item for when it is triggered in a
- *  dialog.
+ *  Additional info about the select item for when it is triggered in a dialog.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSelectItemInfo : GTLRObject
 
 /**
- *  Required. A unique key that will be sent back to the agent if this
- *  response is given.
+ *  Required. A unique key that will be sent back to the agent if this response
+ *  is given.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  Optional. A list of synonyms that can also be used to trigger this
- *  item in dialog.
+ *  Optional. A list of synonyms that can also be used to trigger this item in
+ *  dialog.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
 
@@ -3995,15 +3901,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *displayText;
 
 /**
- *  One of text_to_speech or ssml must be provided. Structured spoken
- *  response to the user in the SSML format. Mutually exclusive with
- *  text_to_speech.
+ *  One of text_to_speech or ssml must be provided. Structured spoken response
+ *  to the user in the SSML format. Mutually exclusive with text_to_speech.
  */
 @property(nonatomic, copy, nullable) NSString *ssml;
 
 /**
- *  One of text_to_speech or ssml must be provided. The plain text of the
- *  speech output. Mutually exclusive with ssml.
+ *  One of text_to_speech or ssml must be provided. The plain text of the speech
+ *  output. Mutually exclusive with ssml.
  */
 @property(nonatomic, copy, nullable) NSString *textToSpeech;
 
@@ -4011,8 +3916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The collection of simple response candidates.
- *  This message in `QueryResult.fulfillment_messages` and
+ *  The collection of simple response candidates. This message in
+ *  `QueryResult.fulfillment_messages` and
  *  `WebhookResponse.fulfillment_messages` should contain only one
  *  `SimpleResponse`.
  */
@@ -4025,8 +3930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The suggestion chip message that the user can tap to quickly post a reply
- *  to the conversation.
+ *  The suggestion chip message that the user can tap to quickly post a reply to
+ *  the conversation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageSuggestion : GTLRObject
 
@@ -4108,17 +4013,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyPlayAudio : GTLRObject
 
 /**
- *  Required. URI to a Google Cloud Storage object containing the audio to
- *  play, e.g., "gs://bucket/object". The object must contain a single
- *  channel (mono) of linear PCM audio (2 bytes / sample) at 8kHz.
- *  This object must be readable by the
- *  `service-<Project Number>\@gcp-sa-dialogflow.iam.gserviceaccount.com`
- *  service account
- *  where <Project Number> is the number of the Telephony Gateway project
- *  (usually the same as the Dialogflow agent project). If the Google Cloud
- *  Storage bucket is in the Telephony Gateway project, this permission is
- *  added by default when enabling the Dialogflow V2 API.
- *  For audio from other sources, consider using the
+ *  Required. URI to a Google Cloud Storage object containing the audio to play,
+ *  e.g., "gs://bucket/object". The object must contain a single channel (mono)
+ *  of linear PCM audio (2 bytes / sample) at 8kHz. This object must be readable
+ *  by the `service-\@gcp-sa-dialogflow.iam.gserviceaccount.com` service account
+ *  where is the number of the Telephony Gateway project (usually the same as
+ *  the Dialogflow agent project). If the Google Cloud Storage bucket is in the
+ *  Telephony Gateway project, this permission is added by default when enabling
+ *  the Dialogflow V2 API. For audio from other sources, consider using the
  *  `TelephonySynthesizeSpeech` message with SSML.
  */
 @property(nonatomic, copy, nullable) NSString *audioUri;
@@ -4128,10 +4030,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Synthesizes speech and plays back the synthesized audio to the caller in
- *  Telephony Gateway.
- *  Telephony Gateway takes the synthesizer settings from
- *  `DetectIntentResponse.output_audio_config` which can either be set
- *  at request-level or can come from the agent-level synthesizer config.
+ *  Telephony Gateway. Telephony Gateway takes the synthesizer settings from
+ *  `DetectIntentResponse.output_audio_config` which can either be set at
+ *  request-level or can come from the agent-level synthesizer config.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonySynthesizeSpeech : GTLRObject
 
@@ -4153,9 +4054,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessageTelephonyTransferCall : GTLRObject
 
 /**
- *  Required. The phone number to transfer the call to
- *  in [E.164 format](https://en.wikipedia.org/wiki/E.164).
- *  We currently only allow transferring to US numbers (+1xxxyyyzzzz).
+ *  Required. The phone number to transfer the call to in [E.164
+ *  format](https://en.wikipedia.org/wiki/E.164). We currently only allow
+ *  transferring to US numbers (+1xxxyyyzzzz).
  */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
 
@@ -4179,10 +4080,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentParameter : GTLRObject
 
 /**
- *  Optional. The default value to use when the `value` yields an empty
- *  result.
- *  Default values can be extracted from contexts by using the following
- *  syntax: `#context_name.parameter_name`.
+ *  Optional. The default value to use when the `value` yields an empty result.
+ *  Default values can be extracted from contexts by using the following syntax:
+ *  `#context_name.parameter_name`.
  */
 @property(nonatomic, copy, nullable) NSString *defaultValue;
 
@@ -4190,9 +4090,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. The name of the entity type, prefixed with `\@`, that
- *  describes values of the parameter. If the parameter is
- *  required, this must be provided.
+ *  Optional. The name of the entity type, prefixed with `\@`, that describes
+ *  values of the parameter. If the parameter is required, this must be
+ *  provided.
  */
 @property(nonatomic, copy, nullable) NSString *entityTypeDisplayName;
 
@@ -4204,9 +4104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *isList;
 
 /**
- *  Optional. Indicates whether the parameter is required. That is,
- *  whether the intent cannot be completed without collecting the parameter
- *  value.
+ *  Optional. Indicates whether the parameter is required. That is, whether the
+ *  intent cannot be completed without collecting the parameter value.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4216,18 +4115,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The collection of prompts that the agent can present to the
- *  user in order to collect a value for the parameter.
+ *  Optional. The collection of prompts that the agent can present to the user
+ *  in order to collect a value for the parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *prompts;
 
 /**
- *  Optional. The definition of the parameter value. It can be:
- *  - a constant string,
- *  - a parameter value defined as `$parameter_name`,
- *  - an original parameter value defined as `$parameter_name.original`,
- *  - a parameter value from some context defined as
- *  `#context_name.parameter_name`.
+ *  Optional. The definition of the parameter value. It can be: - a constant
+ *  string, - a parameter value defined as `$parameter_name`, - an original
+ *  parameter value defined as `$parameter_name.original`, - a parameter value
+ *  from some context defined as `#context_name.parameter_name`.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -4243,27 +4140,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The ordered list of training phrase parts.
- *  The parts are concatenated in order to form the training phrase.
- *  Note: The API does not automatically annotate training phrases like the
- *  Dialogflow Console does.
- *  Note: Do not forget to include whitespace at part boundaries,
- *  so the training phrase is well formatted when the parts are concatenated.
- *  If the training phrase does not need to be annotated with parameters,
- *  you just need a single part with only the Part.text field set.
- *  If you want to annotate the training phrase, you must create multiple
- *  parts, where the fields of each part are populated in one of two ways:
- *  - `Part.text` is set to a part of the phrase that has no parameters.
- *  - `Part.text` is set to a part of the phrase that you want to annotate,
- *  and the `entity_type`, `alias`, and `user_defined` fields are all
- *  set.
+ *  Required. The ordered list of training phrase parts. The parts are
+ *  concatenated in order to form the training phrase. Note: The API does not
+ *  automatically annotate training phrases like the Dialogflow Console does.
+ *  Note: Do not forget to include whitespace at part boundaries, so the
+ *  training phrase is well formatted when the parts are concatenated. If the
+ *  training phrase does not need to be annotated with parameters, you just need
+ *  a single part with only the Part.text field set. If you want to annotate the
+ *  training phrase, you must create multiple parts, where the fields of each
+ *  part are populated in one of two ways: - `Part.text` is set to a part of the
+ *  phrase that has no parameters. - `Part.text` is set to a part of the phrase
+ *  that you want to annotate, and the `entity_type`, `alias`, and
+ *  `user_defined` fields are all set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart *> *parts;
 
 /**
- *  Optional. Indicates how many times this example was added to
- *  the intent. Each time a developer adds an existing sample by editing an
- *  intent or training, this counter is increased.
+ *  Optional. Indicates how many times this example was added to the intent.
+ *  Each time a developer adds an existing sample by editing an intent or
+ *  training, this counter is increased.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4275,15 +4170,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Example
  *        Examples do not contain \@-prefixed entity type names, but example
- *        parts
- *        can be annotated with entity types. (Value: "EXAMPLE")
+ *        parts can be annotated with entity types. (Value: "EXAMPLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_Template
  *        Templates are not annotated with entity types, but they can contain
- *        \@-prefixed entity type names as substrings.
- *        Template mode has been deprecated. Example mode is the only supported
- *        way to create new training phrases. If you have existing training
- *        phrases that you've created in template mode, those will continue to
- *        work. (Value: "TEMPLATE")
+ *        \@-prefixed entity type names as substrings. Template mode has been
+ *        deprecated. Example mode is the only supported way to create new
+ *        training phrases. If you have existing training phrases that you've
+ *        created in template mode, those will continue to work. (Value:
+ *        "TEMPLATE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrase_Type_TypeUnspecified
  *        Not specified. This value should never be used. (Value:
  *        "TYPE_UNSPECIFIED")
@@ -4299,15 +4193,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart : GTLRObject
 
 /**
- *  Optional. The parameter name for the value extracted from the
- *  annotated part of the example.
- *  This field is required for annotated parts of the training phrase.
+ *  Optional. The parameter name for the value extracted from the annotated part
+ *  of the example. This field is required for annotated parts of the training
+ *  phrase.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
 /**
- *  Optional. The entity type name prefixed with `\@`.
- *  This field is required for annotated parts of the training phrase.
+ *  Optional. The entity type name prefixed with `\@`. This field is required
+ *  for annotated parts of the training phrase.
  */
 @property(nonatomic, copy, nullable) NSString *entityType;
 
@@ -4315,10 +4209,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  Optional. Indicates whether the text was manually annotated.
- *  This field is set to true when the Dialogflow Console is used to
- *  manually annotate the part. When creating an annotated part with the
- *  API, you must set this to true.
+ *  Optional. Indicates whether the text was manually annotated. This field is
+ *  set to true when the Dialogflow Console is used to manually annotate the
+ *  part. When creating an annotated part with the API, you must set this to
+ *  true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4356,26 +4250,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *faqQuestion;
 
 /**
- *  The system's confidence score that this Knowledge answer is a good match
- *  for this conversational query.
- *  The range is from 0.0 (completely uncertain) to 1.0 (completely certain).
- *  Note: The confidence score is likely to vary somewhat (possibly even for
- *  identical requests), as the underlying model is under constant
- *  improvement. It may be deprecated in the future. We recommend using
- *  `match_confidence_level` which should be generally more stable.
+ *  The system's confidence score that this Knowledge answer is a good match for
+ *  this conversational query. The range is from 0.0 (completely uncertain) to
+ *  1.0 (completely certain). Note: The confidence score is likely to vary
+ *  somewhat (possibly even for identical requests), as the underlying model is
+ *  under constant improvement. It may be deprecated in the future. We recommend
+ *  using `match_confidence_level` which should be generally more stable.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *matchConfidence;
 
 /**
- *  The system's confidence level that this knowledge answer is a good match
- *  for this conversational query.
- *  NOTE: The confidence level for a given `<query, answer>` pair may change
- *  without notice, as it depends on models that are constantly being
- *  improved. However, it will change less frequently than the confidence
- *  score below, and should be preferred for referencing the quality of an
- *  answer.
+ *  The system's confidence level that this knowledge answer is a good match for
+ *  this conversational query. NOTE: The confidence level for a given `` pair
+ *  may change without notice, as it depends on models that are constantly being
+ *  improved. However, it will change less frequently than the confidence score
+ *  below, and should be preferred for referencing the quality of an answer.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_High
@@ -4390,9 +4281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *matchConfidenceLevel;
 
 /**
- *  Indicates which Knowledge Document this answer was extracted from.
- *  Format: `projects/<Project ID>/knowledgeBases/<Knowledge Base
- *  ID>/documents/<Document ID>`.
+ *  Indicates which Knowledge Document this answer was extracted from. Format:
+ *  `projects//knowledgeBases//documents/`.
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -4423,8 +4313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The response for
- *  ConversationDatasets.LabelConversation.
+ *  The response for ConversationDatasets.LabelConversation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1LabelConversationResponse : GTLRObject
 
@@ -4435,25 +4324,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Represents the contents of the original request that was passed to
- *  the `[Streaming]DetectIntent` call.
+ *  Represents the contents of the original request that was passed to the
+ *  `[Streaming]DetectIntent` call.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest : GTLRObject
 
 /**
  *  Optional. This field is set to the value of the `QueryParameters.payload`
- *  field passed in the request. Some integrations that query a Dialogflow
- *  agent may provide additional information in the payload.
- *  In particular, for the Dialogflow Phone Gateway integration, this field has
- *  the form:
- *  <pre>{
- *  "telephony": {
- *  "caller_id": "+18558363987"
- *  }
- *  }</pre>
- *  Note: The caller ID field (`caller_id`) will be redacted for Standard
- *  Edition agents and populated with the caller ID in [E.164
- *  format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
+ *  field passed in the request. Some integrations that query a Dialogflow agent
+ *  may provide additional information in the payload. In particular, for the
+ *  Dialogflow Phone Gateway integration, this field has the form: {
+ *  "telephony": { "caller_id": "+18558363987" } } Note: The caller ID field
+ *  (`caller_id`) will be redacted for Standard Edition agents and populated
+ *  with the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164)
+ *  for Enterprise Edition agents.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest_Payload *payload;
 
@@ -4464,8 +4348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *source;
 
 /**
- *  Optional. The version of the protocol used for this request.
- *  This field is AoG-specific.
+ *  Optional. The version of the protocol used for this request. This field is
+ *  AoG-specific.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -4474,18 +4358,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. This field is set to the value of the `QueryParameters.payload`
- *  field passed in the request. Some integrations that query a Dialogflow
- *  agent may provide additional information in the payload.
- *  In particular, for the Dialogflow Phone Gateway integration, this field has
- *  the form:
- *  <pre>{
- *  "telephony": {
- *  "caller_id": "+18558363987"
- *  }
- *  }</pre>
- *  Note: The caller ID field (`caller_id`) will be redacted for Standard
- *  Edition agents and populated with the caller ID in [E.164
- *  format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
+ *  field passed in the request. Some integrations that query a Dialogflow agent
+ *  may provide additional information in the payload. In particular, for the
+ *  Dialogflow Phone Gateway integration, this field has the form: {
+ *  "telephony": { "caller_id": "+18558363987" } } Note: The caller ID field
+ *  (`caller_id`) will be redacted for Standard Edition agents and populated
+ *  with the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164)
+ *  for Enterprise Edition agents.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4505,9 +4384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  This field is set to:
- *  - `false` if the matched intent has required parameters and not all of
- *  the required parameter values have been collected.
+ *  This field is set to: - `false` if the matched intent has required
+ *  parameters and not all of the required parameter values have been collected.
  *  - `true` if all required parameter values have been collected, or if the
  *  matched intent doesn't contain any required parameters.
  *
@@ -4518,10 +4396,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Free-form diagnostic information for the associated detect intent request.
  *  The fields of this data can change without notice, so you should not write
- *  code that depends on its structure.
- *  The data may contain:
- *  - webhook call latency
- *  - webhook errors
+ *  code that depends on its structure. The data may contain: - webhook call
+ *  latency - webhook errors
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_DiagnosticInfo *diagnosticInfo;
 
@@ -4529,27 +4405,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage *> *fulfillmentMessages;
 
 /**
- *  The text to be pronounced to the user or shown on the screen.
- *  Note: This is a legacy field, `fulfillment_messages` should be preferred.
+ *  The text to be pronounced to the user or shown on the screen. Note: This is
+ *  a legacy field, `fulfillment_messages` should be preferred.
  */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
 
 /**
- *  The intent that matched the conversational query. Some, not
- *  all fields are filled in this message, including but not limited to:
- *  `name`, `display_name`, `end_interaction` and `is_fallback`.
+ *  The intent that matched the conversational query. Some, not all fields are
+ *  filled in this message, including but not limited to: `name`,
+ *  `display_name`, `end_interaction` and `is_fallback`.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent *intent;
 
 /**
- *  The intent detection confidence. Values range from 0.0
- *  (completely uncertain) to 1.0 (completely certain).
- *  This value is for informational purpose only and is only used to
- *  help match the best intent within the classification threshold.
- *  This value may change for the same end-user expression at any time due to a
- *  model retraining or change in implementation.
- *  If there are `multiple knowledge_answers` messages, this value is set to
- *  the greatest `knowledgeAnswers.match_confidence` value in the list.
+ *  The intent detection confidence. Values range from 0.0 (completely
+ *  uncertain) to 1.0 (completely certain). This value is for informational
+ *  purpose only and is only used to help match the best intent within the
+ *  classification threshold. This value may change for the same end-user
+ *  expression at any time due to a model retraining or change in
+ *  implementation. If there are `multiple knowledge_answers` messages, this
+ *  value is set to the greatest `knowledgeAnswers.match_confidence` value in
+ *  the list.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4562,47 +4438,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers *knowledgeAnswers;
 
 /**
- *  The language that was triggered during intent detection.
- *  See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
- *  for a list of the currently supported language codes.
+ *  The language that was triggered during intent detection. See [Language
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
+ *  list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  The collection of output contexts. If applicable,
- *  `output_contexts.parameters` contains entries with name
- *  `<parameter name>.original` containing the original parameter values
- *  before the query.
+ *  `output_contexts.parameters` contains entries with name `.original`
+ *  containing the original parameter values before the query.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *> *outputContexts;
 
 /**
- *  The collection of extracted parameters.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  The collection of extracted parameters. Depending on your protocol or client
+ *  library language, this is a map, associative array, symbol table,
+ *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
+ *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
+ *  - If parameter's entity type is a composite entity: map - Else: string or
+ *  number, depending on parameter value type - MapValue value: - If parameter's
+ *  entity type is a composite entity: map from composite entity property names
+ *  to property values - Else: parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_Parameters *parameters;
 
 /**
- *  The original conversational query text:
- *  - If natural language text was provided as input, `query_text` contains
- *  a copy of the input.
- *  - If natural language speech audio was provided as input, `query_text`
- *  contains the speech recognition result. If speech recognizer produced
- *  multiple alternatives, a particular one is picked.
- *  - If automatic spell correction is enabled, `query_text` will contain the
- *  corrected user input.
+ *  The original conversational query text: - If natural language text was
+ *  provided as input, `query_text` contains a copy of the input. - If natural
+ *  language speech audio was provided as input, `query_text` contains the
+ *  speech recognition result. If speech recognizer produced multiple
+ *  alternatives, a particular one is picked. - If automatic spell correction is
+ *  enabled, `query_text` will contain the corrected user input.
  */
 @property(nonatomic, copy, nullable) NSString *queryText;
 
@@ -4616,25 +4483,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  The Speech recognition confidence between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
  *  correct. The default of 0.0 is a sentinel value indicating that confidence
- *  was not set.
- *  This field is not guaranteed to be accurate or set. In particular this
- *  field isn't set for StreamingDetectIntent since the streaming endpoint has
- *  separate confidence estimates per portion of the audio in
- *  StreamingRecognitionResult.
+ *  was not set. This field is not guaranteed to be accurate or set. In
+ *  particular this field isn't set for StreamingDetectIntent since the
+ *  streaming endpoint has separate confidence estimates per portion of the
+ *  audio in StreamingRecognitionResult.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *speechRecognitionConfidence;
 
 /**
- *  If the query was fulfilled by a webhook call, this field is set to the
- *  value of the `payload` field returned in the webhook response.
+ *  If the query was fulfilled by a webhook call, this field is set to the value
+ *  of the `payload` field returned in the webhook response.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult_WebhookPayload *webhookPayload;
 
 /**
- *  If the query was fulfilled by a webhook call, this field is set to the
- *  value of the `source` field returned in the webhook response.
+ *  If the query was fulfilled by a webhook call, this field is set to the value
+ *  of the `source` field returned in the webhook response.
  */
 @property(nonatomic, copy, nullable) NSString *webhookSource;
 
@@ -4644,10 +4510,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Free-form diagnostic information for the associated detect intent request.
  *  The fields of this data can change without notice, so you should not write
- *  code that depends on its structure.
- *  The data may contain:
- *  - webhook call latency
- *  - webhook errors
+ *  code that depends on its structure. The data may contain: - webhook call
+ *  latency - webhook errors
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4659,19 +4523,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The collection of extracted parameters.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  The collection of extracted parameters. Depending on your protocol or client
+ *  library language, this is a map, associative array, symbol table,
+ *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
+ *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
+ *  - If parameter's entity type is a composite entity: map - Else: string or
+ *  number, depending on parameter value type - MapValue value: - If parameter's
+ *  entity type is a composite entity: map from composite entity property names
+ *  to property values - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4683,8 +4542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  If the query was fulfilled by a webhook call, this field is set to the
- *  value of the `payload` field returned in the webhook response.
+ *  If the query was fulfilled by a webhook call, this field is set to the value
+ *  of the `payload` field returned in the webhook response.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4721,16 +4580,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The result of sentiment analysis. Sentiment analysis inspects user input
- *  and identifies the prevailing subjective opinion, especially to determine a
- *  user's attitude as positive, negative, or neutral.
- *  For Participants.AnalyzeContent, it needs to be configured in
- *  DetectIntentRequest.query_params. For
- *  Participants.StreamingAnalyzeContent, it needs to be configured in
- *  StreamingDetectIntentRequest.query_params.
- *  And for Participants.AnalyzeContent and
- *  Participants.StreamingAnalyzeContent, it needs to be configured in
- *  ConversationProfile.human_agent_assistant_config
+ *  The result of sentiment analysis. Sentiment analysis inspects user input and
+ *  identifies the prevailing subjective opinion, especially to determine a
+ *  user's attitude as positive, negative, or neutral. For
+ *  Participants.AnalyzeContent, it needs to be configured in
+ *  DetectIntentRequest.query_params. For Participants.StreamingAnalyzeContent,
+ *  it needs to be configured in StreamingDetectIntentRequest.query_params. And
+ *  for Participants.AnalyzeContent and Participants.StreamingAnalyzeContent, it
+ *  needs to be configured in ConversationProfile.human_agent_assistant_config
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult : GTLRObject
 
@@ -4745,8 +4602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  end-user. You can create special entities, called session entities, during a
  *  session. Session entities can extend or replace custom entity types and only
  *  exist during the session that they were created for. All session data,
- *  including session entities, is stored by Dialogflow for 20 minutes.
- *  For more information, see the [session entity
+ *  including session entities, is stored by Dialogflow for 20 minutes. For more
+ *  information, see the [session entity
  *  guide](https://cloud.google.com/dialogflow/docs/entities-session).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType : GTLRObject
@@ -4764,19 +4621,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride
  *        The collection of session entities overrides the collection of
- *        entities
- *        in the corresponding custom entity type. (Value:
+ *        entities in the corresponding custom entity type. (Value:
  *        "ENTITY_OVERRIDE_MODE_OVERRIDE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement
  *        The collection of session entities extends the collection of entities
- *        in
- *        the corresponding custom entity type.
- *        Note: Even in this override mode calls to `ListSessionEntityTypes`,
- *        `GetSessionEntityType`, `CreateSessionEntityType` and
- *        `UpdateSessionEntityType` only return the additional entities added in
- *        this session entity type. If you want to get the supplemented list,
- *        please call EntityTypes.GetEntityType on the custom entity type
- *        and merge. (Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
+ *        in the corresponding custom entity type. Note: Even in this override
+ *        mode calls to `ListSessionEntityTypes`, `GetSessionEntityType`,
+ *        `CreateSessionEntityType` and `UpdateSessionEntityType` only return
+ *        the additional entities added in this session entity type. If you want
+ *        to get the supplemented list, please call EntityTypes.GetEntityType on
+ *        the custom entity type and merge. (Value:
+ *        "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified
  *        Not specified. This value should be never used. (Value:
  *        "ENTITY_OVERRIDE_MODE_UNSPECIFIED")
@@ -4785,15 +4640,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Required. The unique identifier of this session entity type. Format:
- *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display Name>`, or
- *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display Name>`.
- *  If `Environment ID` is not specified, we assume default 'draft'
- *  environment. If `User ID` is not specified, we assume default '-' user.
- *  `<Entity Type Display Name>` must be the display name of an existing entity
- *  type in the same agent that will be overridden or supplemented.
+ *  `projects//agent/sessions//entityTypes/`, or
+ *  `projects//agent/environments//users//sessions//entityTypes/`. If
+ *  `Environment ID` is not specified, we assume default 'draft' environment. If
+ *  `User ID` is not specified, we assume default '-' user. `` must be the
+ *  display name of an existing entity type in the same agent that will be
+ *  overridden or supplemented.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4827,11 +4679,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *responseId;
 
 /**
- *  The unique identifier of detectIntent request session.
- *  Can be used to identify end-user inside webhook implementation.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`, or
- *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User ID>/sessions/<Session ID>`.
+ *  The unique identifier of detectIntent request session. Can be used to
+ *  identify end-user inside webhook implementation. Format:
+ *  `projects//agent/sessions/`, or
+ *  `projects//agent/environments//users//sessions/`.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -4839,16 +4690,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The response message for a webhook call.
- *  This response is validated by the Dialogflow server. If validation fails,
- *  an error will be returned in the QueryResult.diagnostic_info field.
- *  Setting JSON fields to an empty value with the wrong type is a common error.
- *  To avoid this error:
- *  - Use `""` for empty strings
- *  - Use `{}` or `null` for empty objects
- *  - Use `[]` or `null` for empty arrays
- *  For more information, see the
- *  [Protocol Buffers Language
+ *  The response message for a webhook call. This response is validated by the
+ *  Dialogflow server. If validation fails, an error will be returned in the
+ *  QueryResult.diagnostic_info field. Setting JSON fields to an empty value
+ *  with the wrong type is a common error. To avoid this error: - Use `""` for
+ *  empty strings - Use `{}` or `null` for empty objects - Use `[]` or `null`
+ *  for empty arrays For more information, see the [Protocol Buffers Language
  *  Guide](https://developers.google.com/protocol-buffers/docs/proto3#json).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse : GTLRObject
@@ -4863,46 +4710,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *endInteraction;
 
 /**
- *  Optional. Invokes the supplied events.
- *  When this field is set, Dialogflow ignores the `fulfillment_text`,
- *  `fulfillment_messages`, and `payload` fields.
+ *  Optional. Invokes the supplied events. When this field is set, Dialogflow
+ *  ignores the `fulfillment_text`, `fulfillment_messages`, and `payload`
+ *  fields.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput *followupEventInput;
 
 /**
- *  Optional. The rich response messages intended for the end-user.
- *  When provided, Dialogflow uses this field to populate
+ *  Optional. The rich response messages intended for the end-user. When
+ *  provided, Dialogflow uses this field to populate
  *  QueryResult.fulfillment_messages sent to the integration or API caller.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage *> *fulfillmentMessages;
 
 /**
- *  Optional. The text response message intended for the end-user.
- *  It is recommended to use `fulfillment_messages.text.text[0]` instead.
- *  When provided, Dialogflow uses this field to populate
+ *  Optional. The text response message intended for the end-user. It is
+ *  recommended to use `fulfillment_messages.text.text[0]` instead. When
+ *  provided, Dialogflow uses this field to populate
  *  QueryResult.fulfillment_text sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
 
 /**
  *  Optional. The collection of output contexts that will overwrite currently
- *  active contexts for the session and reset their lifespans.
- *  When provided, Dialogflow uses this field to populate
- *  QueryResult.output_contexts sent to the integration or API caller.
+ *  active contexts for the session and reset their lifespans. When provided,
+ *  Dialogflow uses this field to populate QueryResult.output_contexts sent to
+ *  the integration or API caller.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1Context *> *outputContexts;
 
 /**
  *  Optional. This field can be used to pass custom data from your webhook to
- *  the
- *  integration or API caller. Arbitrary JSON objects are supported.
- *  When provided, Dialogflow uses this field to populate
- *  QueryResult.webhook_payload sent to the integration or API caller.
- *  This field is also used by the
+ *  the integration or API caller. Arbitrary JSON objects are supported. When
+ *  provided, Dialogflow uses this field to populate QueryResult.webhook_payload
+ *  sent to the integration or API caller. This field is also used by the
  *  [Google Assistant
- *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
- *  for rich response messages.
- *  See the format definition at [Google Assistant Dialogflow webhook
+ *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog) for
+ *  rich response messages. See the format definition at [Google Assistant
+ *  Dialogflow webhook
  *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload *payload;
@@ -4910,16 +4755,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Optional. Additional session entity types to replace or extend developer
  *  entity types with. The entity synonyms apply to all languages and persist
- *  for the session. Setting this data from a webhook overwrites
- *  the session entity types that have been set using `detectIntent`,
+ *  for the session. Setting this data from a webhook overwrites the session
+ *  entity types that have been set using `detectIntent`,
  *  `streamingDetectIntent` or SessionEntityType management methods.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType *> *sessionEntityTypes;
 
 /**
- *  Optional. A custom field used to identify the webhook source.
- *  Arbitrary strings are supported.
- *  When provided, Dialogflow uses this field to populate
+ *  Optional. A custom field used to identify the webhook source. Arbitrary
+ *  strings are supported. When provided, Dialogflow uses this field to populate
  *  QueryResult.webhook_source sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *source;
@@ -4929,15 +4773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. This field can be used to pass custom data from your webhook to
- *  the
- *  integration or API caller. Arbitrary JSON objects are supported.
- *  When provided, Dialogflow uses this field to populate
- *  QueryResult.webhook_payload sent to the integration or API caller.
- *  This field is also used by the
+ *  the integration or API caller. Arbitrary JSON objects are supported. When
+ *  provided, Dialogflow uses this field to populate QueryResult.webhook_payload
+ *  sent to the integration or API caller. This field is also used by the
  *  [Google Assistant
- *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
- *  for rich response messages.
- *  See the format definition at [Google Assistant Dialogflow webhook
+ *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog) for
+ *  rich response messages. See the format definition at [Google Assistant
+ *  Dialogflow webhook
  *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -4951,21 +4793,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Dialogflow contexts are similar to natural language context. If a person
- *  says
- *  to you "they are orange", you need context in order to understand what
- *  "they"
- *  is referring to. Similarly, for Dialogflow to handle an end-user expression
- *  like that, it needs to be provided with context in order to correctly match
- *  an intent.
- *  Using contexts, you can control the flow of a conversation. You can
- *  configure
- *  contexts for an intent by setting input and output contexts, which are
- *  identified by string names. When an intent is matched, any configured output
- *  contexts for that intent become active. While any contexts are active,
- *  Dialogflow is more likely to match intents that are configured with input
- *  contexts that correspond to the currently active contexts.
- *  For more information about context, see the
- *  [Contexts
+ *  says to you "they are orange", you need context in order to understand what
+ *  "they" is referring to. Similarly, for Dialogflow to handle an end-user
+ *  expression like that, it needs to be provided with context in order to
+ *  correctly match an intent. Using contexts, you can control the flow of a
+ *  conversation. You can configure contexts for an intent by setting input and
+ *  output contexts, which are identified by string names. When an intent is
+ *  matched, any configured output contexts for that intent become active. While
+ *  any contexts are active, Dialogflow is more likely to match intents that are
+ *  configured with input contexts that correspond to the currently active
+ *  contexts. For more information about context, see the [Contexts
  *  guide](https://cloud.google.com/dialogflow/docs/contexts-overview).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Context : GTLRObject
@@ -4973,8 +4810,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Optional. The number of conversational query requests after which the
  *  context expires. The default is `0`. If set to `0`, the context expires
- *  immediately. Contexts expire automatically after 20 minutes if there
- *  are no matching queries.
+ *  immediately. Contexts expire automatically after 20 minutes if there are no
+ *  matching queries.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4982,35 +4819,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Required. The unique identifier of the context. Format:
- *  `projects/<Project ID>/agent/sessions/<Session ID>/contexts/<Context ID>`,
- *  or `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User ID>/sessions/<Session ID>/contexts/<Context ID>`.
- *  The `Context ID` is always converted to lowercase, may only contain
- *  characters in a-zA-Z0-9_-% and may be at most 250 bytes long.
- *  If `Environment ID` is not specified, we assume default 'draft'
- *  environment. If `User ID` is not specified, we assume default '-' user.
- *  The following context names are reserved for internal use by Dialogflow.
- *  You should not use these contexts or create contexts with these names:
- *  * `__system_counters__`
- *  * `*_id_dialog_context`
- *  * `*_dialog_params_size`
+ *  `projects//agent/sessions//contexts/`, or
+ *  `projects//agent/environments//users//sessions//contexts/`. The `Context ID`
+ *  is always converted to lowercase, may only contain characters in
+ *  a-zA-Z0-9_-% and may be at most 250 bytes long. If `Environment ID` is not
+ *  specified, we assume default 'draft' environment. If `User ID` is not
+ *  specified, we assume default '-' user. The following context names are
+ *  reserved for internal use by Dialogflow. You should not use these contexts
+ *  or create contexts with these names: * `__system_counters__` *
+ *  `*_id_dialog_context` * `*_dialog_params_size`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  Depending on your protocol or client library language, this is a map,
+ *  associative array, symbol table, dictionary, or JSON object composed of a
+ *  collection of (MapKey, MapValue) pairs: - MapKey type: string - MapKey
+ *  value: parameter name - MapValue type: - If parameter's entity type is a
+ *  composite entity: map - Else: string or number, depending on parameter value
+ *  type - MapValue value: - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values - Else:
+ *  parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters *parameters;
 
@@ -5019,18 +4849,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. The collection of parameters associated with this context.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  Depending on your protocol or client library language, this is a map,
+ *  associative array, symbol table, dictionary, or JSON object composed of a
+ *  collection of (MapKey, MapValue) pairs: - MapKey type: string - MapKey
+ *  value: parameter name - MapValue type: - If parameter's entity type is a
+ *  composite entity: map - Else: string or number, depending on parameter value
+ *  type - MapValue value: - If parameter's entity type is a composite entity:
+ *  map from composite entity property names to property values - Else:
+ *  parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -5048,9 +4874,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent : GTLRObject
 
 /**
- *  The unique identifier of the conversation this notification
- *  refers to.
- *  Format: `projects/<Project ID>/conversations/<Conversation ID>`.
+ *  The unique identifier of the conversation this notification refers to.
+ *  Format: `projects//conversations/`.
  */
 @property(nonatomic, copy, nullable) NSString *conversation;
 
@@ -5069,35 +4894,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationFinished
  *        An existing conversation has closed. This is fired when a telephone
- *        call
- *        is terminated, or a conversation is closed via the API. (Value:
+ *        call is terminated, or a conversation is closed via the API. (Value:
  *        "CONVERSATION_FINISHED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationStarted
  *        A new conversation has been opened. This is fired when a telephone
- *        call
- *        is answered, or a conversation is created via the API. (Value:
+ *        call is answered, or a conversation is created via the API. (Value:
  *        "CONVERSATION_STARTED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_HumanInterventionNeeded
  *        An existing conversation has received notification from Dialogflow
- *        that
- *        human intervention is required. (Value: "HUMAN_INTERVENTION_NEEDED")
+ *        that human intervention is required. (Value:
+ *        "HUMAN_INTERVENTION_NEEDED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_NewMessage
  *        An existing conversation has received a new message, either from API
- *        or
- *        telephony. It is configured in
+ *        or telephony. It is configured in
  *        ConversationProfile.new_message_event_notification_config (Value:
  *        "NEW_MESSAGE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_TypeUnspecified
  *        Type not set. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_UnrecoverableError
- *        Unrecoverable error during a telephone call.
- *        In general non-recoverable errors only occur if something was
- *        misconfigured in the ConversationProfile corresponding to the call.
- *        After
- *        a non-recoverable error, Dialogflow may stop responding.
- *        We don't fire this event:
- *        * in an API call because we can directly return the error, or,
- *        * when we can recover from an error. (Value: "UNRECOVERABLE_ERROR")
+ *        Unrecoverable error during a telephone call. In general
+ *        non-recoverable errors only occur if something was misconfigured in
+ *        the ConversationProfile corresponding to the call. After a
+ *        non-recoverable error, Dialogflow may stop responding. We don't fire
+ *        this event: * in an API call because we can directly return the error,
+ *        or, * when we can recover from an error. (Value:
+ *        "UNRECOVERABLE_ERROR")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5110,9 +4931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentRequest : GTLRObject
 
 /**
- *  The natural language speech audio to be processed. This field
- *  should be populated iff `query_input` is set to an input audio config.
- *  A single request can contain up to 1 minute of speech audio data.
+ *  The natural language speech audio to be processed. This field should be
+ *  populated iff `query_input` is set to an input audio config. A single
+ *  request can contain up to 1 minute of speech audio data.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5120,29 +4941,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *inputAudio;
 
 /**
- *  Instructs the speech synthesizer how to generate the output
- *  audio. If this field is not set and agent-level speech synthesizer is not
- *  configured, no output audio is generated.
+ *  Instructs the speech synthesizer how to generate the output audio. If this
+ *  field is not set and agent-level speech synthesizer is not configured, no
+ *  output audio is generated.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig *outputAudioConfig;
 
 /**
- *  Mask for output_audio_config indicating which settings in this
- *  request-level config should override speech synthesizer settings defined at
- *  agent-level.
- *  If unspecified or empty, output_audio_config replaces the agent-level
- *  config in its entirety.
+ *  Mask for output_audio_config indicating which settings in this request-level
+ *  config should override speech synthesizer settings defined at agent-level.
+ *  If unspecified or empty, output_audio_config replaces the agent-level config
+ *  in its entirety.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *outputAudioConfigMask;
 
 /**
- *  Required. The input specification. It can be set to:
- *  1. an audio config
- *  which instructs the speech recognizer how to process the speech audio,
- *  2. a conversational query in the form of text, or
- *  3. an event that specifies which intent to trigger.
+ *  Required. The input specification. It can be set to: 1. an audio config
+ *  which instructs the speech recognizer how to process the speech audio, 2. a
+ *  conversational query in the form of text, or 3. an event that specifies
+ *  which intent to trigger.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryInput *queryInput;
 
@@ -5158,15 +4977,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2DetectIntentResponse : GTLRObject
 
 /**
- *  The audio data bytes encoded as specified in the request.
- *  Note: The output audio is generated based on the values of default platform
- *  text responses found in the `query_result.fulfillment_messages` field. If
- *  multiple default text responses exist, they will be concatenated when
- *  generating audio. If no default platform text responses exist, the
- *  generated audio content will be empty.
- *  In some scenarios, multiple output audio fields may be present in the
- *  response structure. In these cases, only the top-most-level audio output
- *  has content.
+ *  The audio data bytes encoded as specified in the request. Note: The output
+ *  audio is generated based on the values of default platform text responses
+ *  found in the `query_result.fulfillment_messages` field. If multiple default
+ *  text responses exist, they will be concatenated when generating audio. If no
+ *  default platform text responses exist, the generated audio content will be
+ *  empty. In some scenarios, multiple output audio fields may be present in the
+ *  response structure. In these cases, only the top-most-level audio output has
+ *  content.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5177,14 +4995,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig *outputAudioConfig;
 
 /**
- *  The selected results of the conversational query or event processing.
- *  See `alternative_query_results` for additional potential results.
+ *  The selected results of the conversational query or event processing. See
+ *  `alternative_query_results` for additional potential results.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryResult *queryResult;
 
 /**
- *  The unique identifier of the response. It can be used to
- *  locate a response in the training example set or for reporting issues.
+ *  The unique identifier of the response. It can be used to locate a response
+ *  in the training example set or for reporting issues.
  */
 @property(nonatomic, copy, nullable) NSString *responseId;
 
@@ -5196,21 +5014,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Each intent parameter has a type, called the entity type, which dictates
- *  exactly how data from an end-user expression is extracted.
- *  Dialogflow provides predefined system entities that can match many common
- *  types of data. For example, there are system entities for matching dates,
- *  times, colors, email addresses, and so on. You can also create your own
- *  custom entities for matching custom data. For example, you could define a
- *  vegetable entity that can match the types of vegetables available for
- *  purchase with a grocery store agent.
- *  For more information, see the
- *  [Entity guide](https://cloud.google.com/dialogflow/docs/entities-overview).
+ *  exactly how data from an end-user expression is extracted. Dialogflow
+ *  provides predefined system entities that can match many common types of
+ *  data. For example, there are system entities for matching dates, times,
+ *  colors, email addresses, and so on. You can also create your own custom
+ *  entities for matching custom data. For example, you could define a vegetable
+ *  entity that can match the types of vegetables available for purchase with a
+ *  grocery store agent. For more information, see the [Entity
+ *  guide](https://cloud.google.com/dialogflow/docs/entities-overview).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2EntityType : GTLRObject
 
 /**
- *  Optional. Indicates whether the entity type can be automatically
- *  expanded.
+ *  Optional. Indicates whether the entity type can be automatically expanded.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_AutoExpansionMode_AutoExpansionModeDefault
@@ -5243,10 +5059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindList
  *        List entity types contain a set of entries that do not map to
- *        reference
- *        values. However, list entity types can contain references to other
- *        entity
- *        types (with or without aliases). (Value: "KIND_LIST")
+ *        reference values. However, list entity types can contain references to
+ *        other entity types (with or without aliases). (Value: "KIND_LIST")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap Map
  *        entity types allow mapping of a group of synonyms to a reference
  *        value. (Value: "KIND_MAP")
@@ -5260,10 +5074,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The unique identifier of the entity type.
- *  Required for EntityTypes.UpdateEntityType and
- *  EntityTypes.BatchUpdateEntityTypes methods.
- *  Format: `projects/<Project ID>/agent/entityTypes/<Entity Type ID>`.
+ *  The unique identifier of the entity type. Required for
+ *  EntityTypes.UpdateEntityType and EntityTypes.BatchUpdateEntityTypes methods.
+ *  Format: `projects//agent/entityTypes/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5287,23 +5100,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity : GTLRObject
 
 /**
- *  Required. A collection of value synonyms. For example, if the entity type
- *  is *vegetable*, and `value` is *scallions*, a synonym could be *green
- *  onions*.
- *  For `KIND_LIST` entity types:
- *  * This collection must contain exactly one synonym equal to `value`.
+ *  Required. A collection of value synonyms. For example, if the entity type is
+ *  *vegetable*, and `value` is *scallions*, a synonym could be *green onions*.
+ *  For `KIND_LIST` entity types: * This collection must contain exactly one
+ *  synonym equal to `value`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
 
 /**
- *  Required. The primary value associated with this entity entry.
- *  For example, if the entity type is *vegetable*, the value could be
- *  *scallions*.
- *  For `KIND_MAP` entity types:
- *  * A reference value to be used in place of synonyms.
- *  For `KIND_LIST` entity types:
- *  * A string that can contain references to other entity types (with or
- *  without aliases).
+ *  Required. The primary value associated with this entity entry. For example,
+ *  if the entity type is *vegetable*, the value could be *scallions*. For
+ *  `KIND_MAP` entity types: * A reference value to be used in place of
+ *  synonyms. For `KIND_LIST` entity types: * A string that can contain
+ *  references to other entity types (with or without aliases).
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -5312,47 +5121,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  You can create multiple versions of your agent and publish them to separate
- *  environments.
- *  When you edit an agent, you are editing the draft agent. At any point, you
- *  can save the draft agent as an agent version, which is an immutable snapshot
- *  of your agent.
- *  When you save the draft agent, it is published to the default environment.
- *  When you create agent versions, you can publish them to custom environments.
- *  You can create a variety of custom environments for:
- *  - testing
- *  - development
- *  - production
- *  - etc.
- *  For more information, see the [versions and environments
+ *  environments. When you edit an agent, you are editing the draft agent. At
+ *  any point, you can save the draft agent as an agent version, which is an
+ *  immutable snapshot of your agent. When you save the draft agent, it is
+ *  published to the default environment. When you create agent versions, you
+ *  can publish them to custom environments. You can create a variety of custom
+ *  environments for: - testing - development - production - etc. For more
+ *  information, see the [versions and environments
  *  guide](https://cloud.google.com/dialogflow/docs/agents-versions).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Environment : GTLRObject
 
 /**
- *  Optional. The agent version loaded into this environment.
- *  Format: `projects/<Project ID>/agent/versions/<Version ID>`.
+ *  Optional. The agent version loaded into this environment. Format:
+ *  `projects//agent/versions/`.
  */
 @property(nonatomic, copy, nullable) NSString *agentVersion;
 
 /**
- *  Optional. The developer-provided description for this environment.
- *  The maximum length is 500 characters. If exceeded, the request is rejected.
+ *  Optional. The developer-provided description for this environment. The
+ *  maximum length is 500 characters. If exceeded, the request is rejected.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. The unique identifier of this agent environment.
- *  Format: `projects/<Project ID>/agent/environments/<Environment ID>`.
- *  For Environment ID, "-" is reserved for 'draft' environment.
+ *  Output only. The unique identifier of this agent environment. Format:
+ *  `projects//agent/environments/`. For Environment ID, "-" is reserved for
+ *  'draft' environment.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Output only. The state of this environment. This field is read-only, i.e.,
- *  it cannot be
- *  set by create and update methods.
+ *  it cannot be set by create and update methods.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Environment_State_Loading
@@ -5368,8 +5171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Output only. The last update time of this environment. This field is
- *  read-only, i.e., it
- *  cannot be set by create and update methods.
+ *  read-only, i.e., it cannot be set by create and update methods.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -5378,19 +5180,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Events allow for matching intents by event name instead of the natural
- *  language input. For instance, input
- *  `<event: { name: "welcome_event", parameters: { name: "Sam" } }>` can
- *  trigger a personalized welcome response.
- *  The parameter `name` may be used by the agent in the response:
+ *  language input. For instance, input `` can trigger a personalized welcome
+ *  response. The parameter `name` may be used by the agent in the response:
  *  `"Hello #welcome_event.name! What can I do for you today?"`.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2EventInput : GTLRObject
 
 /**
  *  Required. The language of this query. See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
- *  for a list of the currently supported language codes. Note that queries in
- *  the same session do not necessarily need to specify the same language.
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
+ *  list of the currently supported language codes. Note that queries in the
+ *  same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -5398,19 +5198,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The collection of parameters associated with the event.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  The collection of parameters associated with the event. Depending on your
+ *  protocol or client library language, this is a map, associative array,
+ *  symbol table, dictionary, or JSON object composed of a collection of
+ *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
+ *  name - MapValue type: - If parameter's entity type is a composite entity:
+ *  map - Else: string or number, depending on parameter value type - MapValue
+ *  value: - If parameter's entity type is a composite entity: map from
+ *  composite entity property names to property values - Else: parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters *parameters;
 
@@ -5418,19 +5213,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The collection of parameters associated with the event.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  The collection of parameters associated with the event. Depending on your
+ *  protocol or client library language, this is a map, associative array,
+ *  symbol table, dictionary, or JSON object composed of a collection of
+ *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
+ *  name - MapValue type: - If parameter's entity type is a composite entity:
+ *  map - Else: string or number, depending on parameter value type - MapValue
+ *  value: - If parameter's entity type is a composite entity: map from
+ *  composite entity property names to property values - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -5448,9 +5238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Required. The [Google Cloud Storage](https://cloud.google.com/storage/docs/)
- *  URI to export the agent to.
- *  The format of this URI must be `gs://<bucket-name>/<object-name>`.
- *  If left unspecified, the serialized agent is returned inline.
+ *  URI to export the agent to. The format of this URI must be `gs:///`. If left
+ *  unspecified, the serialized agent is returned inline.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
@@ -5486,8 +5275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  to that intent by calling a service that you define. For example, if an
  *  end-user wants to schedule a haircut on Friday, your service can check your
  *  database and respond to the end-user with availability information for
- *  Friday.
- *  For more information, see the [fulfillment
+ *  Friday. For more information, see the [fulfillment
  *  guide](https://cloud.google.com/dialogflow/docs/fulfillment-overview).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Fulfillment : GTLRObject
@@ -5515,8 +5303,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService *genericWebService;
 
 /**
- *  Required. The unique identifier of the fulfillment.
- *  Format: `projects/<Project ID>/agent/fulfillment`.
+ *  Required. The unique identifier of the fulfillment. Format:
+ *  `projects//agent/fulfillment`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5543,19 +5331,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Represents configuration for a generic web service.
- *  Dialogflow supports two mechanisms for authentications:
- *  - Basic authentication with username and password.
- *  - Authentication with additional authentication headers.
- *  More information could be found at:
+ *  Represents configuration for a generic web service. Dialogflow supports two
+ *  mechanisms for authentications: - Basic authentication with username and
+ *  password. - Authentication with additional authentication headers. More
+ *  information could be found at:
  *  https://cloud.google.com/dialogflow/docs/fulfillment-configure.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService : GTLRObject
 
 /**
  *  Optional. Indicates if generic web service is created through Cloud
- *  Functions
- *  integration. Defaults to false.
+ *  Functions integration. Defaults to false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5571,8 +5357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FulfillmentGenericWebService_RequestHeaders *requestHeaders;
 
 /**
- *  Required. The fulfillment URI for receiving POST requests.
- *  It must use https protocol.
+ *  Required. The fulfillment URI for receiving POST requests. It must use https
+ *  protocol.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -5609,8 +5395,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *agentContent;
 
 /**
- *  The URI to a Google Cloud Storage file containing the agent to import.
- *  Note: The URI must start with "gs://".
+ *  The URI to a Google Cloud Storage file containing the agent to import. Note:
+ *  The URI must start with "gs://".
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
@@ -5634,12 +5420,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *        (Value: "AUDIO_ENCODING_AMR_WB")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingFlac
  *        [`FLAC`](https://xiph.org/flac/documentation.html) (Free Lossless
- *        Audio
- *        Codec) is the recommended encoding because it is lossless (therefore
- *        recognition is not compromised) and requires only about half the
- *        bandwidth of `LINEAR16`. `FLAC` stream encoding supports 16-bit and
- *        24-bit samples, however, not all fields in `STREAMINFO` are supported.
- *        (Value: "AUDIO_ENCODING_FLAC")
+ *        Audio Codec) is the recommended encoding because it is lossless
+ *        (therefore recognition is not compromised) and requires only about
+ *        half the bandwidth of `LINEAR16`. `FLAC` stream encoding supports
+ *        16-bit and 24-bit samples, however, not all fields in `STREAMINFO` are
+ *        supported. (Value: "AUDIO_ENCODING_FLAC")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingLinear16
  *        Uncompressed 16-bit signed little-endian samples (Linear PCM). (Value:
  *        "AUDIO_ENCODING_LINEAR_16")
@@ -5648,36 +5433,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *        PCMU/mu-law. (Value: "AUDIO_ENCODING_MULAW")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingOggOpus
  *        Opus encoded audio frames in Ogg container
- *        ([OggOpus](https://wiki.xiph.org/OggOpus)).
- *        `sample_rate_hertz` must be 16000. (Value: "AUDIO_ENCODING_OGG_OPUS")
+ *        ([OggOpus](https://wiki.xiph.org/OggOpus)). `sample_rate_hertz` must
+ *        be 16000. (Value: "AUDIO_ENCODING_OGG_OPUS")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingSpeexWithHeaderByte
  *        Although the use of lossy encodings is not recommended, if a very low
  *        bitrate encoding is required, `OGG_OPUS` is highly preferred over
  *        Speex encoding. The [Speex](https://speex.org/) encoding supported by
  *        Dialogflow API has a header byte in each block, as in MIME type
- *        `audio/x-speex-with-header-byte`.
- *        It is a variant of the RTP Speex encoding defined in
- *        [RFC 5574](https://tools.ietf.org/html/rfc5574).
+ *        `audio/x-speex-with-header-byte`. It is a variant of the RTP Speex
+ *        encoding defined in [RFC 5574](https://tools.ietf.org/html/rfc5574).
  *        The stream is a sequence of blocks, one block per RTP packet. Each
- *        block
- *        starts with a byte containing the length of the block, in bytes,
- *        followed
- *        by one or more frames of Speex data, padded to an integral number of
- *        bytes (octets) as specified in RFC 5574. In other words, each RTP
- *        header
- *        is replaced with a single byte containing the block length. Only Speex
- *        wideband is supported. `sample_rate_hertz` must be 16000. (Value:
- *        "AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE")
+ *        block starts with a byte containing the length of the block, in bytes,
+ *        followed by one or more frames of Speex data, padded to an integral
+ *        number of bytes (octets) as specified in RFC 5574. In other words,
+ *        each RTP header is replaced with a single byte containing the block
+ *        length. Only Speex wideband is supported. `sample_rate_hertz` must be
+ *        16000. (Value: "AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_AudioEncoding_AudioEncodingUnspecified
  *        Not specified. (Value: "AUDIO_ENCODING_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
 
 /**
- *  If `true`, Dialogflow returns SpeechWordInfo in
- *  StreamingRecognitionResult with information about the recognized speech
- *  words, e.g. start and end time offsets. If false or unspecified, Speech
- *  doesn't return any word-level information.
+ *  If `true`, Dialogflow returns SpeechWordInfo in StreamingRecognitionResult
+ *  with information about the recognized speech words, e.g. start and end time
+ *  offsets. If false or unspecified, Speech doesn't return any word-level
+ *  information.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5686,22 +5467,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Required. The language of the supplied audio. Dialogflow does not do
  *  translations. See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
- *  for a list of the currently supported language codes. Note that queries in
- *  the same session do not necessarily need to specify the same language.
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
+ *  list of the currently supported language codes. Note that queries in the
+ *  same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Which Speech model to select for the given request. Select the
- *  model best suited to your domain to get best results. If a model is not
- *  explicitly specified, then we auto-select a model based on the parameters
- *  in the InputAudioConfig.
- *  If enhanced speech model is enabled for the agent and an enhanced
- *  version of the specified model for the language does not exist, then the
- *  speech is recognized using the standard version of the specified model.
- *  Refer to
- *  [Cloud Speech API
+ *  Which Speech model to select for the given request. Select the model best
+ *  suited to your domain to get best results. If a model is not explicitly
+ *  specified, then we auto-select a model based on the parameters in the
+ *  InputAudioConfig. If enhanced speech model is enabled for the agent and an
+ *  enhanced version of the specified model for the language does not exist,
+ *  then the speech is recognized using the standard version of the specified
+ *  model. Refer to [Cloud Speech API
  *  documentation](https://cloud.google.com/speech-to-text/docs/basics#select-model)
  *  for more details.
  */
@@ -5715,76 +5494,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *        No model variant specified. In this case Dialogflow defaults to
  *        USE_BEST_AVAILABLE. (Value: "SPEECH_MODEL_VARIANT_UNSPECIFIED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseBestAvailable
- *        Use the best available variant of the Speech
- *        model that the caller is eligible for.
- *        Please see the [Dialogflow
- *        docs](https://cloud.google.com/dialogflow/docs/data-logging) for
- *        how to make your project eligible for enhanced models. (Value:
+ *        Use the best available variant of the Speech model that the caller is
+ *        eligible for. Please see the [Dialogflow
+ *        docs](https://cloud.google.com/dialogflow/docs/data-logging) for how
+ *        to make your project eligible for enhanced models. (Value:
  *        "USE_BEST_AVAILABLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseEnhanced
- *        Use an enhanced model variant:
- *        * If an enhanced variant does not exist for the given
- *        model and request language, Dialogflow falls
- *        back to the standard variant.
- *        The [Cloud Speech
+ *        Use an enhanced model variant: * If an enhanced variant does not exist
+ *        for the given model and request language, Dialogflow falls back to the
+ *        standard variant. The [Cloud Speech
  *        documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
- *        describes which models have enhanced variants.
- *        * If the API caller isn't eligible for enhanced models, Dialogflow
- *        returns
- *        an error. Please see the [Dialogflow
- *        docs](https://cloud.google.com/dialogflow/docs/data-logging)
- *        for how to make your project eligible. (Value: "USE_ENHANCED")
+ *        describes which models have enhanced variants. * If the API caller
+ *        isn't eligible for enhanced models, Dialogflow returns an error.
+ *        Please see the [Dialogflow
+ *        docs](https://cloud.google.com/dialogflow/docs/data-logging) for how
+ *        to make your project eligible. (Value: "USE_ENHANCED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2InputAudioConfig_ModelVariant_UseStandard
  *        Use standard model variant even if an enhanced model is available. See
- *        the
- *        [Cloud Speech
+ *        the [Cloud Speech
  *        documentation](https://cloud.google.com/speech-to-text/docs/enhanced-models)
  *        for details about enhanced models. (Value: "USE_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *modelVariant;
 
 /**
- *  A list of strings containing words and phrases that the speech
- *  recognizer should recognize with higher likelihood.
- *  See [the Cloud Speech
+ *  A list of strings containing words and phrases that the speech recognizer
+ *  should recognize with higher likelihood. See [the Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/docs/basics#phrase-hints)
- *  for more details.
- *  This field is deprecated. Please use [speech_contexts]() instead. If you
- *  specify both [phrase_hints]() and [speech_contexts](), Dialogflow will
- *  treat the [phrase_hints]() as a single additional [SpeechContext]().
+ *  for more details. This field is deprecated. Please use [speech_contexts]()
+ *  instead. If you specify both [phrase_hints]() and [speech_contexts](),
+ *  Dialogflow will treat the [phrase_hints]() as a single additional
+ *  [SpeechContext]().
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phraseHints;
 
 /**
  *  Required. Sample rate (in Hertz) of the audio content sent in the query.
- *  Refer to
- *  [Cloud Speech API
- *  documentation](https://cloud.google.com/speech-to-text/docs/basics) for
- *  more details.
+ *  Refer to [Cloud Speech API
+ *  documentation](https://cloud.google.com/speech-to-text/docs/basics) for more
+ *  details.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sampleRateHertz;
 
 /**
- *  If `false` (default), recognition does not cease until the
- *  client closes the stream.
- *  If `true`, the recognizer will detect a single spoken utterance in input
- *  audio. Recognition ceases when it detects the audio's voice has
+ *  If `false` (default), recognition does not cease until the client closes the
+ *  stream. If `true`, the recognizer will detect a single spoken utterance in
+ *  input audio. Recognition ceases when it detects the audio's voice has
  *  stopped or paused. In this case, once a detected intent is received, the
  *  client should close the stream and start a new request with a new stream as
- *  needed.
- *  Note: This setting is relevant only for streaming methods.
- *  Note: When specified, InputAudioConfig.single_utterance takes precedence
- *  over StreamingDetectIntentRequest.single_utterance.
+ *  needed. Note: This setting is relevant only for streaming methods. Note:
+ *  When specified, InputAudioConfig.single_utterance takes precedence over
+ *  StreamingDetectIntentRequest.single_utterance.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *singleUtterance;
 
 /**
- *  Context information to assist speech recognition.
- *  See [the Cloud Speech
+ *  Context information to assist speech recognition. See [the Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/docs/basics#phrase-hints)
  *  for more details.
  */
@@ -5796,26 +5565,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  An intent categorizes an end-user's intention for one conversation turn. For
  *  each agent, you define many intents, where your combined intents can handle
- *  a
- *  complete conversation. When an end-user writes or says something, referred
- *  to
- *  as an end-user expression or end-user input, Dialogflow matches the end-user
- *  input to the best intent in your agent. Matching an intent is also known as
- *  intent classification.
- *  For more information, see the [intent
+ *  a complete conversation. When an end-user writes or says something, referred
+ *  to as an end-user expression or end-user input, Dialogflow matches the
+ *  end-user input to the best intent in your agent. Matching an intent is also
+ *  known as intent classification. For more information, see the [intent
  *  guide](https://cloud.google.com/dialogflow/docs/intents-overview).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Intent : GTLRObject
 
 /**
- *  Optional. The name of the action associated with the intent.
- *  Note: The action name must not contain whitespaces.
+ *  Optional. The name of the action associated with the intent. Note: The
+ *  action name must not contain whitespaces.
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Optional. The list of platforms for which the first responses will be
- *  copied from the messages in PLATFORM_UNSPECIFIED (i.e. default platform).
+ *  Optional. The list of platforms for which the first responses will be copied
+ *  from the messages in PLATFORM_UNSPECIFIED (i.e. default platform).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *defaultResponsePlatforms;
 
@@ -5823,23 +5589,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. The collection of event names that trigger the intent.
- *  If the collection of input contexts is not empty, all of the contexts must
- *  be present in the active user session for an event to trigger this intent.
+ *  Optional. The collection of event names that trigger the intent. If the
+ *  collection of input contexts is not empty, all of the contexts must be
+ *  present in the active user session for an event to trigger this intent.
  *  Event names are limited to 150 characters.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *events;
 
 /**
- *  Read-only. Information about all followup intents that have this intent as
- *  a direct or indirect parent. We populate this field only in the output.
+ *  Read-only. Information about all followup intents that have this intent as a
+ *  direct or indirect parent. We populate this field only in the output.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentFollowupIntentInfo *> *followupIntentInfo;
 
 /**
  *  Optional. The list of context names required for this intent to be
- *  triggered.
- *  Format: `projects/<Project ID>/agent/sessions/-/contexts/<Context ID>`.
+ *  triggered. Format: `projects//agent/sessions/-/contexts/`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputContextNames;
 
@@ -5851,35 +5616,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *isFallback;
 
 /**
- *  Optional. The collection of rich messages corresponding to the
- *  `Response` field in the Dialogflow console.
+ *  Optional. The collection of rich messages corresponding to the `Response`
+ *  field in the Dialogflow console.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage *> *messages;
 
 /**
  *  Optional. Indicates whether Machine Learning is disabled for the intent.
- *  Note: If `ml_disabled` setting is set to true, then this intent is not
- *  taken into account during inference in `ML ONLY` match mode. Also,
- *  auto-markup in the UI is turned off.
+ *  Note: If `ml_disabled` setting is set to true, then this intent is not taken
+ *  into account during inference in `ML ONLY` match mode. Also, auto-markup in
+ *  the UI is turned off.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mlDisabled;
 
 /**
- *  Optional. The unique identifier of this intent.
- *  Required for Intents.UpdateIntent and Intents.BatchUpdateIntents
- *  methods.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  Optional. The unique identifier of this intent. Required for
+ *  Intents.UpdateIntent and Intents.BatchUpdateIntents methods. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The collection of contexts that are activated when the intent
- *  is matched. Context messages in this collection should not set the
- *  parameters field. Setting the `lifespan_count` to 0 will reset the context
- *  when the intent is matched.
- *  Format: `projects/<Project ID>/agent/sessions/-/contexts/<Context ID>`.
+ *  Optional. The collection of contexts that are activated when the intent is
+ *  matched. Context messages in this collection should not set the parameters
+ *  field. Setting the `lifespan_count` to 0 will reset the context when the
+ *  intent is matched. Format: `projects//agent/sessions/-/contexts/`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *outputContexts;
 
@@ -5889,21 +5652,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Read-only after creation. The unique identifier of the parent intent in the
  *  chain of followup intents. You can set this field when creating an intent,
- *  for example with CreateIntent or
- *  BatchUpdateIntents, in order to make this
- *  intent a followup intent.
- *  It identifies the parent followup intent.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  for example with CreateIntent or BatchUpdateIntents, in order to make this
+ *  intent a followup intent. It identifies the parent followup intent. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *parentFollowupIntentName;
 
 /**
  *  Optional. The priority of this intent. Higher numbers represent higher
- *  priorities.
- *  - If the supplied value is unspecified or 0, the service
- *  translates the value to 500,000, which corresponds to the
- *  `Normal` priority in the console.
- *  - If the supplied value is negative, the intent is ignored
+ *  priorities. - If the supplied value is unspecified or 0, the service
+ *  translates the value to 500,000, which corresponds to the `Normal` priority
+ *  in the console. - If the supplied value is negative, the intent is ignored
  *  in runtime detect intent requests.
  *
  *  Uses NSNumber of intValue.
@@ -5911,25 +5670,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *priority;
 
 /**
- *  Optional. Indicates whether to delete all contexts in the current
- *  session when this intent is matched.
+ *  Optional. Indicates whether to delete all contexts in the current session
+ *  when this intent is matched.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resetContexts;
 
 /**
- *  Read-only. The unique identifier of the root intent in the chain of
- *  followup intents. It identifies the correct followup intents chain for
- *  this intent. We populate this field only in the output.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  Read-only. The unique identifier of the root intent in the chain of followup
+ *  intents. It identifies the correct followup intents chain for this intent.
+ *  We populate this field only in the output. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *rootFollowupIntentName;
 
-/**
- *  Optional. The collection of examples that the agent is
- *  trained on.
- */
+/** Optional. The collection of examples that the agent is trained on. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase *> *trainingPhrases;
 
 /**
@@ -5969,14 +5725,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentFollowupIntentInfo : GTLRObject
 
 /**
- *  The unique identifier of the followup intent.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  The unique identifier of the followup intent. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *followupIntentName;
 
 /**
- *  The unique identifier of the followup intent's parent.
- *  Format: `projects/<Project ID>/agent/intents/<Intent ID>`.
+ *  The unique identifier of the followup intent's parent. Format:
+ *  `projects//agent/intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *parentFollowupIntentName;
 
@@ -5984,10 +5740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  A rich response message.
- *  Corresponds to the intent `Response` field in the Dialogflow console.
- *  For more information, see
- *  [Rich response
+ *  A rich response message. Corresponds to the intent `Response` field in the
+ *  Dialogflow console. For more information, see [Rich response
  *  messages](https://cloud.google.com/dialogflow/docs/intents-rich-messages).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage : GTLRObject
@@ -6024,8 +5778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_ActionsOnGoogle
- *        Google Assistant
- *        See [Dialogflow webhook
+ *        Google Assistant See [Dialogflow webhook
  *        format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *        (Value: "ACTIONS_ON_GOOGLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessage_Platform_Facebook
@@ -6147,10 +5900,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Cropped
  *        Image is scaled such that the image width and height match or exceed
  *        the container dimensions. This may crop the top and bottom of the
- *        image if the scaled image height is greater than the container
- *        height, or crop the left and right of the image if the scaled image
- *        width is greater than the container width. This is similar to "Zoom
- *        Mode" on a widescreen TV when playing a 4:3 video. (Value: "CROPPED")
+ *        image if the scaled image height is greater than the container height,
+ *        or crop the left and right of the image if the scaled image width is
+ *        greater than the container width. This is similar to "Zoom Mode" on a
+ *        widescreen TV when playing a 4:3 video. (Value: "CROPPED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCard_ImageDisplayOptions_Gray
  *        Fill the gaps between the image and the image container with gray
  *        bars. (Value: "GRAY")
@@ -6164,8 +5917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *imageDisplayOptions;
 
 /**
- *  Required. List of items in the Browse Carousel Card. Minimum of two
- *  items, maximum of ten.
+ *  Required. List of items in the Browse Carousel Card. Minimum of two items,
+ *  maximum of ten.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -6181,16 +5934,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItem : GTLRObject
 
 /**
- *  Optional. Description of the carousel item. Maximum of four lines of
- *  text.
+ *  Optional. Description of the carousel item. Maximum of four lines of text.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Text that appears at the bottom of the Browse Carousel
- *  Card. Maximum of one line of text.
+ *  Optional. Text that appears at the bottom of the Browse Carousel Card.
+ *  Maximum of one line of text.
  */
 @property(nonatomic, copy, nullable) NSString *footer;
 
@@ -6215,16 +5967,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *url;
 
 /**
- *  Optional. Specifies the type of viewer that is used when opening
- *  the URL. Defaults to opening via web browser.
+ *  Optional. Specifies the type of viewer that is used when opening the URL.
+ *  Defaults to opening via web browser.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpAction
  *        Url would be an amp action (Value: "AMP_ACTION")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_AmpContent
- *        URL that points directly to AMP content, or to a canonical URL
- *        which refers to AMP content via <link rel="amphtml">. (Value:
- *        "AMP_CONTENT")
+ *        URL that points directly to AMP content, or to a canonical URL which
+ *        refers to AMP content via . (Value: "AMP_CONTENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlAction_UrlTypeHint_UrlTypeHintUnspecified
  *        Unspecified (Value: "URL_TYPE_HINT_UNSPECIFIED")
  */
@@ -6258,10 +6009,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageCardButton : GTLRObject
 
-/**
- *  Optional. The text to send back to the Dialogflow API or a URI to
- *  open.
- */
+/** Optional. The text to send back to the Dialogflow API or a URI to open. */
 @property(nonatomic, copy, nullable) NSString *postback;
 
 /** Optional. The text to show on the button. */
@@ -6359,8 +6107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The suggestion chip message that allows the user to jump out to the app
- *  or website associated with this agent.
+ *  The suggestion chip message that allows the user to jump out to the app or
+ *  website associated with this agent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageLinkOutSuggestion : GTLRObject
 
@@ -6489,20 +6237,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Additional info about the select item for when it is triggered in a
- *  dialog.
+ *  Additional info about the select item for when it is triggered in a dialog.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSelectItemInfo : GTLRObject
 
 /**
- *  Required. A unique key that will be sent back to the agent if this
- *  response is given.
+ *  Required. A unique key that will be sent back to the agent if this response
+ *  is given.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  Optional. A list of synonyms that can also be used to trigger this
- *  item in dialog.
+ *  Optional. A list of synonyms that can also be used to trigger this item in
+ *  dialog.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
 
@@ -6518,15 +6265,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *displayText;
 
 /**
- *  One of text_to_speech or ssml must be provided. Structured spoken
- *  response to the user in the SSML format. Mutually exclusive with
- *  text_to_speech.
+ *  One of text_to_speech or ssml must be provided. Structured spoken response
+ *  to the user in the SSML format. Mutually exclusive with text_to_speech.
  */
 @property(nonatomic, copy, nullable) NSString *ssml;
 
 /**
- *  One of text_to_speech or ssml must be provided. The plain text of the
- *  speech output. Mutually exclusive with ssml.
+ *  One of text_to_speech or ssml must be provided. The plain text of the speech
+ *  output. Mutually exclusive with ssml.
  */
 @property(nonatomic, copy, nullable) NSString *textToSpeech;
 
@@ -6534,8 +6280,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The collection of simple response candidates.
- *  This message in `QueryResult.fulfillment_messages` and
+ *  The collection of simple response candidates. This message in
+ *  `QueryResult.fulfillment_messages` and
  *  `WebhookResponse.fulfillment_messages` should contain only one
  *  `SimpleResponse`.
  */
@@ -6548,8 +6294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The suggestion chip message that the user can tap to quickly post a reply
- *  to the conversation.
+ *  The suggestion chip message that the user can tap to quickly post a reply to
+ *  the conversation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentMessageSuggestion : GTLRObject
 
@@ -6642,10 +6388,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentParameter : GTLRObject
 
 /**
- *  Optional. The default value to use when the `value` yields an empty
- *  result.
- *  Default values can be extracted from contexts by using the following
- *  syntax: `#context_name.parameter_name`.
+ *  Optional. The default value to use when the `value` yields an empty result.
+ *  Default values can be extracted from contexts by using the following syntax:
+ *  `#context_name.parameter_name`.
  */
 @property(nonatomic, copy, nullable) NSString *defaultValue;
 
@@ -6653,9 +6398,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Optional. The name of the entity type, prefixed with `\@`, that
- *  describes values of the parameter. If the parameter is
- *  required, this must be provided.
+ *  Optional. The name of the entity type, prefixed with `\@`, that describes
+ *  values of the parameter. If the parameter is required, this must be
+ *  provided.
  */
 @property(nonatomic, copy, nullable) NSString *entityTypeDisplayName;
 
@@ -6667,9 +6412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *isList;
 
 /**
- *  Optional. Indicates whether the parameter is required. That is,
- *  whether the intent cannot be completed without collecting the parameter
- *  value.
+ *  Optional. Indicates whether the parameter is required. That is, whether the
+ *  intent cannot be completed without collecting the parameter value.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6679,18 +6423,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The collection of prompts that the agent can present to the
- *  user in order to collect a value for the parameter.
+ *  Optional. The collection of prompts that the agent can present to the user
+ *  in order to collect a value for the parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *prompts;
 
 /**
- *  Optional. The definition of the parameter value. It can be:
- *  - a constant string,
- *  - a parameter value defined as `$parameter_name`,
- *  - an original parameter value defined as `$parameter_name.original`,
- *  - a parameter value from some context defined as
- *  `#context_name.parameter_name`.
+ *  Optional. The definition of the parameter value. It can be: - a constant
+ *  string, - a parameter value defined as `$parameter_name`, - an original
+ *  parameter value defined as `$parameter_name.original`, - a parameter value
+ *  from some context defined as `#context_name.parameter_name`.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -6706,27 +6448,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The ordered list of training phrase parts.
- *  The parts are concatenated in order to form the training phrase.
- *  Note: The API does not automatically annotate training phrases like the
- *  Dialogflow Console does.
- *  Note: Do not forget to include whitespace at part boundaries,
- *  so the training phrase is well formatted when the parts are concatenated.
- *  If the training phrase does not need to be annotated with parameters,
- *  you just need a single part with only the Part.text field set.
- *  If you want to annotate the training phrase, you must create multiple
- *  parts, where the fields of each part are populated in one of two ways:
- *  - `Part.text` is set to a part of the phrase that has no parameters.
- *  - `Part.text` is set to a part of the phrase that you want to annotate,
- *  and the `entity_type`, `alias`, and `user_defined` fields are all
- *  set.
+ *  Required. The ordered list of training phrase parts. The parts are
+ *  concatenated in order to form the training phrase. Note: The API does not
+ *  automatically annotate training phrases like the Dialogflow Console does.
+ *  Note: Do not forget to include whitespace at part boundaries, so the
+ *  training phrase is well formatted when the parts are concatenated. If the
+ *  training phrase does not need to be annotated with parameters, you just need
+ *  a single part with only the Part.text field set. If you want to annotate the
+ *  training phrase, you must create multiple parts, where the fields of each
+ *  part are populated in one of two ways: - `Part.text` is set to a part of the
+ *  phrase that has no parameters. - `Part.text` is set to a part of the phrase
+ *  that you want to annotate, and the `entity_type`, `alias`, and
+ *  `user_defined` fields are all set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart *> *parts;
 
 /**
- *  Optional. Indicates how many times this example was added to
- *  the intent. Each time a developer adds an existing sample by editing an
- *  intent or training, this counter is increased.
+ *  Optional. Indicates how many times this example was added to the intent.
+ *  Each time a developer adds an existing sample by editing an intent or
+ *  training, this counter is increased.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6738,15 +6478,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Example
  *        Examples do not contain \@-prefixed entity type names, but example
- *        parts
- *        can be annotated with entity types. (Value: "EXAMPLE")
+ *        parts can be annotated with entity types. (Value: "EXAMPLE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template
  *        Templates are not annotated with entity types, but they can contain
- *        \@-prefixed entity type names as substrings.
- *        Template mode has been deprecated. Example mode is the only supported
- *        way to create new training phrases. If you have existing training
- *        phrases that you've created in template mode, those will continue to
- *        work. (Value: "TEMPLATE")
+ *        \@-prefixed entity type names as substrings. Template mode has been
+ *        deprecated. Example mode is the only supported way to create new
+ *        training phrases. If you have existing training phrases that you've
+ *        created in template mode, those will continue to work. (Value:
+ *        "TEMPLATE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified
  *        Not specified. This value should never be used. (Value:
  *        "TYPE_UNSPECIFIED")
@@ -6762,15 +6501,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart : GTLRObject
 
 /**
- *  Optional. The parameter name for the value extracted from the
- *  annotated part of the example.
- *  This field is required for annotated parts of the training phrase.
+ *  Optional. The parameter name for the value extracted from the annotated part
+ *  of the example. This field is required for annotated parts of the training
+ *  phrase.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
 /**
- *  Optional. The entity type name prefixed with `\@`.
- *  This field is required for annotated parts of the training phrase.
+ *  Optional. The entity type name prefixed with `\@`. This field is required
+ *  for annotated parts of the training phrase.
  */
 @property(nonatomic, copy, nullable) NSString *entityType;
 
@@ -6778,10 +6517,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  Optional. Indicates whether the text was manually annotated.
- *  This field is set to true when the Dialogflow Console is used to
- *  manually annotate the part. When creating an annotated part with the
- *  API, you must set this to true.
+ *  Optional. Indicates whether the text was manually annotated. This field is
+ *  set to true when the Dialogflow Console is used to manually annotate the
+ *  part. When creating an annotated part with the API, you must set this to
+ *  true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6801,8 +6540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ListContextsResponse : GTLRCollectionObject
 
 /**
- *  The list of contexts. There will be a maximum number of items
- *  returned based on the page_size field in the request.
+ *  The list of contexts. There will be a maximum number of items returned based
+ *  on the page_size field in the request.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -6810,8 +6549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *contexts;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -6838,8 +6577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2EntityType *> *entityTypes;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -6866,8 +6605,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Environment *> *environments;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -6885,8 +6624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ListIntentsResponse : GTLRCollectionObject
 
 /**
- *  The list of agent intents. There will be a maximum number of items
- *  returned based on the page_size field in the request.
+ *  The list of agent intents. There will be a maximum number of items returned
+ *  based on the page_size field in the request.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -6894,8 +6633,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Intent *> *intents;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -6913,8 +6652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ListSessionEntityTypesResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -6942,9 +6681,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. The message language.
- *  This should be a [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
- *  language tag. Example: "en-US".
+ *  Optional. The message language. This should be a
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
+ *  Example: "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -6952,9 +6691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2MessageAnnotation *messageAnnotation;
 
 /**
- *  The unique identifier of the message.
- *  Format: `projects/<Project ID>/conversations/<Conversation
- *  ID>/messages/<Message ID>`.
+ *  The unique identifier of the message. Format:
+ *  `projects//conversations//messages/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6969,8 +6707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *        Participant is an automated agent, such as a Dialogflow agent. (Value:
  *        "AUTOMATED_AGENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_EndUser
- *        Participant is an end user that has called or chatted with
- *        Dialogflow services. (Value: "END_USER")
+ *        Participant is an end user that has called or chatted with Dialogflow
+ *        services. (Value: "END_USER")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_HumanAgent
  *        Participant is a human agent. (Value: "HUMAN_AGENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2Message_ParticipantRole_RoleUnspecified
@@ -6994,9 +6732,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *containEntities;
 
 /**
- *  The collection of annotated message parts ordered by their
- *  position in the message. You can recover the annotated message by
- *  concatenating [AnnotatedMessagePart.text].
+ *  The collection of annotated message parts ordered by their position in the
+ *  message. You can recover the annotated message by concatenating
+ *  [AnnotatedMessagePart.text].
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart *> *parts;
 
@@ -7004,25 +6742,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Represents the contents of the original request that was passed to
- *  the `[Streaming]DetectIntent` call.
+ *  Represents the contents of the original request that was passed to the
+ *  `[Streaming]DetectIntent` call.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest : GTLRObject
 
 /**
  *  Optional. This field is set to the value of the `QueryParameters.payload`
- *  field passed in the request. Some integrations that query a Dialogflow
- *  agent may provide additional information in the payload.
- *  In particular, for the Dialogflow Phone Gateway integration, this field has
- *  the form:
- *  <pre>{
- *  "telephony": {
- *  "caller_id": "+18558363987"
- *  }
- *  }</pre>
- *  Note: The caller ID field (`caller_id`) will be redacted for Standard
- *  Edition agents and populated with the caller ID in [E.164
- *  format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
+ *  field passed in the request. Some integrations that query a Dialogflow agent
+ *  may provide additional information in the payload. In particular, for the
+ *  Dialogflow Phone Gateway integration, this field has the form: {
+ *  "telephony": { "caller_id": "+18558363987" } } Note: The caller ID field
+ *  (`caller_id`) will be redacted for Standard Edition agents and populated
+ *  with the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164)
+ *  for Enterprise Edition agents.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest_Payload *payload;
 
@@ -7033,8 +6766,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *source;
 
 /**
- *  Optional. The version of the protocol used for this request.
- *  This field is AoG-specific.
+ *  Optional. The version of the protocol used for this request. This field is
+ *  AoG-specific.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -7043,18 +6776,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. This field is set to the value of the `QueryParameters.payload`
- *  field passed in the request. Some integrations that query a Dialogflow
- *  agent may provide additional information in the payload.
- *  In particular, for the Dialogflow Phone Gateway integration, this field has
- *  the form:
- *  <pre>{
- *  "telephony": {
- *  "caller_id": "+18558363987"
- *  }
- *  }</pre>
- *  Note: The caller ID field (`caller_id`) will be redacted for Standard
- *  Edition agents and populated with the caller ID in [E.164
- *  format](https://en.wikipedia.org/wiki/E.164) for Enterprise Edition agents.
+ *  field passed in the request. Some integrations that query a Dialogflow agent
+ *  may provide additional information in the payload. In particular, for the
+ *  Dialogflow Phone Gateway integration, this field has the form: {
+ *  "telephony": { "caller_id": "+18558363987" } } Note: The caller ID field
+ *  (`caller_id`) will be redacted for Standard Edition agents and populated
+ *  with the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164)
+ *  for Enterprise Edition agents.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -7067,9 +6795,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Instructs the speech synthesizer on how to generate the output audio
- *  content.
- *  If this audio config is supplied in a request, it overrides all existing
- *  text-to-speech settings applied to the agent.
+ *  content. If this audio config is supplied in a request, it overrides all
+ *  existing text-to-speech settings applied to the agent.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig : GTLRObject
 
@@ -7078,18 +6805,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingLinear16
- *        Uncompressed 16-bit signed little-endian samples (Linear PCM).
- *        Audio content returned as LINEAR16 also contains a WAV header. (Value:
+ *        Uncompressed 16-bit signed little-endian samples (Linear PCM). Audio
+ *        content returned as LINEAR16 also contains a WAV header. (Value:
  *        "OUTPUT_AUDIO_ENCODING_LINEAR_16")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingMp3
  *        MP3 audio at 32kbps. (Value: "OUTPUT_AUDIO_ENCODING_MP3")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingOggOpus
  *        Opus encoded audio wrapped in an ogg container. The result will be a
  *        file which can be played natively on Android, and in browsers (at
- *        least
- *        Chrome and Firefox). The quality of the encoding is considerably
- *        higher
- *        than MP3 while using approximately the same bitrate. (Value:
+ *        least Chrome and Firefox). The quality of the encoding is considerably
+ *        higher than MP3 while using approximately the same bitrate. (Value:
  *        "OUTPUT_AUDIO_ENCODING_OGG_OPUS")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2OutputAudioConfig_AudioEncoding_OutputAudioEncodingUnspecified
  *        Not specified. (Value: "OUTPUT_AUDIO_ENCODING_UNSPECIFIED")
@@ -7097,11 +6822,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
 
 /**
- *  The synthesis sample rate (in hertz) for this audio. If not
- *  provided, then the synthesizer will use the default sample rate based on
- *  the audio encoding. If this is different from the voice's natural sample
- *  rate, then the synthesizer will honor this request by converting to the
- *  desired sample rate (which might result in worse audio quality).
+ *  The synthesis sample rate (in hertz) for this audio. If not provided, then
+ *  the synthesizer will use the default sample rate based on the audio
+ *  encoding. If this is different from the voice's natural sample rate, then
+ *  the synthesizer will honor this request by converting to the desired sample
+ *  rate (which might result in worse audio quality).
  *
  *  Uses NSNumber of intValue.
  */
@@ -7114,11 +6839,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Represents the query input. It can contain either:
- *  1. An audio config which
- *  instructs the speech recognizer how to process the speech audio.
- *  2. A conversational query in the form of text,.
- *  3. An event that specifies which intent to trigger.
+ *  Represents the query input. It can contain either: 1. An audio config which
+ *  instructs the speech recognizer how to process the speech audio. 2. A
+ *  conversational query in the form of text,. 3. An event that specifies which
+ *  intent to trigger.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2QueryInput : GTLRObject
 
@@ -7140,8 +6864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters : GTLRObject
 
 /**
- *  The collection of contexts to be activated before this query is
- *  executed.
+ *  The collection of contexts to be activated before this query is executed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *contexts;
 
@@ -7149,40 +6872,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleTypeLatLng *geoLocation;
 
 /**
- *  This field can be used to pass custom data to your webhook.
- *  Arbitrary JSON objects are supported.
- *  If supplied, the value is used to populate the
- *  `WebhookRequest.original_detect_intent_request.payload`
- *  field sent to your webhook.
+ *  This field can be used to pass custom data to your webhook. Arbitrary JSON
+ *  objects are supported. If supplied, the value is used to populate the
+ *  `WebhookRequest.original_detect_intent_request.payload` field sent to your
+ *  webhook.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_Payload *payload;
 
 /**
- *  Specifies whether to delete all contexts in the current session
- *  before the new ones are activated.
+ *  Specifies whether to delete all contexts in the current session before the
+ *  new ones are activated.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resetContexts;
 
 /**
- *  Configures the type of sentiment analysis to perform. If not
- *  provided, sentiment analysis is not performed.
+ *  Configures the type of sentiment analysis to perform. If not provided,
+ *  sentiment analysis is not performed.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig *sentimentAnalysisRequestConfig;
 
 /**
- *  Additional session entity types to replace or extend developer
- *  entity types with. The entity synonyms apply to all languages and persist
- *  for the session of this query.
+ *  Additional session entity types to replace or extend developer entity types
+ *  with. The entity synonyms apply to all languages and persist for the session
+ *  of this query.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *> *sessionEntityTypes;
 
 /**
- *  The time zone of this conversational query from the
- *  [time zone database](https://www.iana.org/time-zones), e.g.,
- *  America/New_York, Europe/Paris. If not provided, the time zone specified in
- *  agent settings is used.
+ *  The time zone of this conversational query from the [time zone
+ *  database](https://www.iana.org/time-zones), e.g., America/New_York,
+ *  Europe/Paris. If not provided, the time zone specified in agent settings is
+ *  used.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -7190,11 +6912,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  This field can be used to pass custom data to your webhook.
- *  Arbitrary JSON objects are supported.
- *  If supplied, the value is used to populate the
- *  `WebhookRequest.original_detect_intent_request.payload`
- *  field sent to your webhook.
+ *  This field can be used to pass custom data to your webhook. Arbitrary JSON
+ *  objects are supported. If supplied, the value is used to populate the
+ *  `WebhookRequest.original_detect_intent_request.payload` field sent to your
+ *  webhook.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -7214,9 +6935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  This field is set to:
- *  - `false` if the matched intent has required parameters and not all of
- *  the required parameter values have been collected.
+ *  This field is set to: - `false` if the matched intent has required
+ *  parameters and not all of the required parameter values have been collected.
  *  - `true` if all required parameter values have been collected, or if the
  *  matched intent doesn't contain any required parameters.
  *
@@ -7227,10 +6947,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Free-form diagnostic information for the associated detect intent request.
  *  The fields of this data can change without notice, so you should not write
- *  code that depends on its structure.
- *  The data may contain:
- *  - webhook call latency
- *  - webhook errors
+ *  code that depends on its structure. The data may contain: - webhook call
+ *  latency - webhook errors
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_DiagnosticInfo *diagnosticInfo;
 
@@ -7238,74 +6956,65 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage *> *fulfillmentMessages;
 
 /**
- *  The text to be pronounced to the user or shown on the screen.
- *  Note: This is a legacy field, `fulfillment_messages` should be preferred.
+ *  The text to be pronounced to the user or shown on the screen. Note: This is
+ *  a legacy field, `fulfillment_messages` should be preferred.
  */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
 
 /**
- *  The intent that matched the conversational query. Some, not
- *  all fields are filled in this message, including but not limited to:
- *  `name`, `display_name`, `end_interaction` and `is_fallback`.
+ *  The intent that matched the conversational query. Some, not all fields are
+ *  filled in this message, including but not limited to: `name`,
+ *  `display_name`, `end_interaction` and `is_fallback`.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2Intent *intent;
 
 /**
- *  The intent detection confidence. Values range from 0.0
- *  (completely uncertain) to 1.0 (completely certain).
- *  This value is for informational purpose only and is only used to
- *  help match the best intent within the classification threshold.
- *  This value may change for the same end-user expression at any time due to a
- *  model retraining or change in implementation.
- *  If there are `multiple knowledge_answers` messages, this value is set to
- *  the greatest `knowledgeAnswers.match_confidence` value in the list.
+ *  The intent detection confidence. Values range from 0.0 (completely
+ *  uncertain) to 1.0 (completely certain). This value is for informational
+ *  purpose only and is only used to help match the best intent within the
+ *  classification threshold. This value may change for the same end-user
+ *  expression at any time due to a model retraining or change in
+ *  implementation. If there are `multiple knowledge_answers` messages, this
+ *  value is set to the greatest `knowledgeAnswers.match_confidence` value in
+ *  the list.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *intentDetectionConfidence;
 
 /**
- *  The language that was triggered during intent detection.
- *  See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
- *  for a list of the currently supported language codes.
+ *  The language that was triggered during intent detection. See [Language
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
+ *  list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  The collection of output contexts. If applicable,
- *  `output_contexts.parameters` contains entries with name
- *  `<parameter name>.original` containing the original parameter values
- *  before the query.
+ *  `output_contexts.parameters` contains entries with name `.original`
+ *  containing the original parameter values before the query.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *outputContexts;
 
 /**
- *  The collection of extracted parameters.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  The collection of extracted parameters. Depending on your protocol or client
+ *  library language, this is a map, associative array, symbol table,
+ *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
+ *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
+ *  - If parameter's entity type is a composite entity: map - Else: string or
+ *  number, depending on parameter value type - MapValue value: - If parameter's
+ *  entity type is a composite entity: map from composite entity property names
+ *  to property values - Else: parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_Parameters *parameters;
 
 /**
- *  The original conversational query text:
- *  - If natural language text was provided as input, `query_text` contains
- *  a copy of the input.
- *  - If natural language speech audio was provided as input, `query_text`
- *  contains the speech recognition result. If speech recognizer produced
- *  multiple alternatives, a particular one is picked.
- *  - If automatic spell correction is enabled, `query_text` will contain the
- *  corrected user input.
+ *  The original conversational query text: - If natural language text was
+ *  provided as input, `query_text` contains a copy of the input. - If natural
+ *  language speech audio was provided as input, `query_text` contains the
+ *  speech recognition result. If speech recognizer produced multiple
+ *  alternatives, a particular one is picked. - If automatic spell correction is
+ *  enabled, `query_text` will contain the corrected user input.
  */
 @property(nonatomic, copy, nullable) NSString *queryText;
 
@@ -7319,25 +7028,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  The Speech recognition confidence between 0.0 and 1.0. A higher number
  *  indicates an estimated greater likelihood that the recognized words are
  *  correct. The default of 0.0 is a sentinel value indicating that confidence
- *  was not set.
- *  This field is not guaranteed to be accurate or set. In particular this
- *  field isn't set for StreamingDetectIntent since the streaming endpoint has
- *  separate confidence estimates per portion of the audio in
- *  StreamingRecognitionResult.
+ *  was not set. This field is not guaranteed to be accurate or set. In
+ *  particular this field isn't set for StreamingDetectIntent since the
+ *  streaming endpoint has separate confidence estimates per portion of the
+ *  audio in StreamingRecognitionResult.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *speechRecognitionConfidence;
 
 /**
- *  If the query was fulfilled by a webhook call, this field is set to the
- *  value of the `payload` field returned in the webhook response.
+ *  If the query was fulfilled by a webhook call, this field is set to the value
+ *  of the `payload` field returned in the webhook response.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_WebhookPayload *webhookPayload;
 
 /**
- *  If the query was fulfilled by a webhook call, this field is set to the
- *  value of the `source` field returned in the webhook response.
+ *  If the query was fulfilled by a webhook call, this field is set to the value
+ *  of the `source` field returned in the webhook response.
  */
 @property(nonatomic, copy, nullable) NSString *webhookSource;
 
@@ -7347,10 +7055,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Free-form diagnostic information for the associated detect intent request.
  *  The fields of this data can change without notice, so you should not write
- *  code that depends on its structure.
- *  The data may contain:
- *  - webhook call latency
- *  - webhook errors
+ *  code that depends on its structure. The data may contain: - webhook call
+ *  latency - webhook errors
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -7362,19 +7068,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The collection of extracted parameters.
- *  Depending on your protocol or client library language, this is a
- *  map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs:
- *  - MapKey type: string
- *  - MapKey value: parameter name
- *  - MapValue type:
- *  - If parameter's entity type is a composite entity: map
- *  - Else: string or number, depending on parameter value type
- *  - MapValue value:
- *  - If parameter's entity type is a composite entity:
- *  map from composite entity property names to property values
- *  - Else: parameter value
+ *  The collection of extracted parameters. Depending on your protocol or client
+ *  library language, this is a map, associative array, symbol table,
+ *  dictionary, or JSON object composed of a collection of (MapKey, MapValue)
+ *  pairs: - MapKey type: string - MapKey value: parameter name - MapValue type:
+ *  - If parameter's entity type is a composite entity: map - Else: string or
+ *  number, depending on parameter value type - MapValue value: - If parameter's
+ *  entity type is a composite entity: map from composite entity property names
+ *  to property values - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -7386,8 +7087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  If the query was fulfilled by a webhook call, this field is set to the
- *  value of the `payload` field returned in the webhook response.
+ *  If the query was fulfilled by a webhook call, this field is set to the value
+ *  of the `payload` field returned in the webhook response.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -7440,8 +7141,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Agent *> *agents;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -7479,9 +7180,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisRequestConfig : GTLRObject
 
 /**
- *  Instructs the service to perform sentiment analysis on
- *  `query_text`. If not provided, sentiment analysis is not performed on
- *  `query_text`.
+ *  Instructs the service to perform sentiment analysis on `query_text`. If not
+ *  provided, sentiment analysis is not performed on `query_text`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7491,16 +7191,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The result of sentiment analysis. Sentiment analysis inspects user input
- *  and identifies the prevailing subjective opinion, especially to determine a
- *  user's attitude as positive, negative, or neutral.
- *  For Participants.AnalyzeContent, it needs to be configured in
- *  DetectIntentRequest.query_params. For
- *  Participants.StreamingAnalyzeContent, it needs to be configured in
- *  StreamingDetectIntentRequest.query_params.
- *  And for Participants.AnalyzeContent and
- *  Participants.StreamingAnalyzeContent, it needs to be configured in
- *  ConversationProfile.human_agent_assistant_config
+ *  The result of sentiment analysis. Sentiment analysis inspects user input and
+ *  identifies the prevailing subjective opinion, especially to determine a
+ *  user's attitude as positive, negative, or neutral. For
+ *  Participants.AnalyzeContent, it needs to be configured in
+ *  DetectIntentRequest.query_params. For Participants.StreamingAnalyzeContent,
+ *  it needs to be configured in StreamingDetectIntentRequest.query_params. And
+ *  for Participants.AnalyzeContent and Participants.StreamingAnalyzeContent, it
+ *  needs to be configured in ConversationProfile.human_agent_assistant_config
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult : GTLRObject
 
@@ -7515,8 +7213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  end-user. You can create special entities, called session entities, during a
  *  session. Session entities can extend or replace custom entity types and only
  *  exist during the session that they were created for. All session data,
- *  including session entities, is stored by Dialogflow for 20 minutes.
- *  For more information, see the [session entity
+ *  including session entities, is stored by Dialogflow for 20 minutes. For more
+ *  information, see the [session entity
  *  guide](https://cloud.google.com/dialogflow/docs/entities-session).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType : GTLRObject
@@ -7534,19 +7232,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeOverride
  *        The collection of session entities overrides the collection of
- *        entities
- *        in the corresponding custom entity type. (Value:
+ *        entities in the corresponding custom entity type. (Value:
  *        "ENTITY_OVERRIDE_MODE_OVERRIDE")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeSupplement
  *        The collection of session entities extends the collection of entities
- *        in
- *        the corresponding custom entity type.
- *        Note: Even in this override mode calls to `ListSessionEntityTypes`,
- *        `GetSessionEntityType`, `CreateSessionEntityType` and
- *        `UpdateSessionEntityType` only return the additional entities added in
- *        this session entity type. If you want to get the supplemented list,
- *        please call EntityTypes.GetEntityType on the custom entity type
- *        and merge. (Value: "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
+ *        in the corresponding custom entity type. Note: Even in this override
+ *        mode calls to `ListSessionEntityTypes`, `GetSessionEntityType`,
+ *        `CreateSessionEntityType` and `UpdateSessionEntityType` only return
+ *        the additional entities added in this session entity type. If you want
+ *        to get the supplemented list, please call EntityTypes.GetEntityType on
+ *        the custom entity type and merge. (Value:
+ *        "ENTITY_OVERRIDE_MODE_SUPPLEMENT")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType_EntityOverrideMode_EntityOverrideModeUnspecified
  *        Not specified. This value should be never used. (Value:
  *        "ENTITY_OVERRIDE_MODE_UNSPECIFIED")
@@ -7555,15 +7251,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Required. The unique identifier of this session entity type. Format:
- *  `projects/<Project ID>/agent/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display Name>`, or
- *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User ID>/sessions/<Session
- *  ID>/entityTypes/<Entity Type Display Name>`.
- *  If `Environment ID` is not specified, we assume default 'draft'
- *  environment. If `User ID` is not specified, we assume default '-' user.
- *  `<Entity Type Display Name>` must be the display name of an existing entity
- *  type in the same agent that will be overridden or supplemented.
+ *  `projects//agent/sessions//entityTypes/`, or
+ *  `projects//agent/environments//users//sessions//entityTypes/`. If
+ *  `Environment ID` is not specified, we assume default 'draft' environment. If
+ *  `User ID` is not specified, we assume default '-' user. `` must be the
+ *  display name of an existing entity type in the same agent that will be
+ *  overridden or supplemented.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7577,13 +7270,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SpeechContext : GTLRObject
 
 /**
- *  Optional. Boost for this context compared to other contexts:
- *  * If the boost is positive, Dialogflow will increase the probability that
- *  the phrases in this context are recognized over similar sounding phrases.
- *  * If the boost is unspecified or non-positive, Dialogflow will not apply
- *  any boost.
- *  Dialogflow recommends that you use boosts in the range (0, 20] and that you
- *  find a value that fits your use case with binary search.
+ *  Optional. Boost for this context compared to other contexts: * If the boost
+ *  is positive, Dialogflow will increase the probability that the phrases in
+ *  this context are recognized over similar sounding phrases. * If the boost is
+ *  unspecified or non-positive, Dialogflow will not apply any boost. Dialogflow
+ *  recommends that you use boosts in the range (0, 20] and that you find a
+ *  value that fits your use case with binary search.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -7591,13 +7283,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. A list of strings containing words and phrases that the speech
- *  recognizer should recognize with higher likelihood.
- *  This list can be used to:
- *  * improve accuracy for words and phrases you expect the user to say,
- *  e.g. typical commands for your Dialogflow agent
- *  * add additional words to the speech recognizer vocabulary
- *  * ...
- *  See the [Cloud Speech
+ *  recognizer should recognize with higher likelihood. This list can be used
+ *  to: * improve accuracy for words and phrases you expect the user to say,
+ *  e.g. typical commands for your Dialogflow agent * add additional words to
+ *  the speech recognizer vocabulary * ... See the [Cloud Speech
  *  documentation](https://cloud.google.com/speech-to-text/quotas) for usage
  *  limits.
  */
@@ -7629,9 +7318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. Speaking rate/speed, in the range [0.25, 4.0]. 1.0 is the normal
- *  native speed supported by the specific voice. 2.0 is twice as fast, and
- *  0.5 is half as fast. If unset(0.0), defaults to the native 1.0 speed. Any
- *  other values < 0.25 or > 4.0 will return an error.
+ *  native speed supported by the specific voice. 2.0 is twice as fast, and 0.5
+ *  is half as fast. If unset(0.0), defaults to the native 1.0 speed. Any other
+ *  values < 0.25 or > 4.0 will return an error.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -7664,15 +7353,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Required. The language of this conversational query. See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language)
- *  for a list of the currently supported language codes. Note that queries in
- *  the same session do not necessarily need to specify the same language.
+ *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
+ *  list of the currently supported language codes. Note that queries in the
+ *  same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Required. The UTF-8 encoded natural language text to be processed.
- *  Text length must not exceed 256 characters.
+ *  Required. The UTF-8 encoded natural language text to be processed. Text
+ *  length must not exceed 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -7692,19 +7381,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2ValidationError : GTLRObject
 
 /**
- *  The names of the entries that the error is associated with.
- *  Format:
- *  - "projects/<Project ID>/agent", if the error is associated with the entire
- *  agent.
- *  - "projects/<Project ID>/agent/intents/<Intent ID>", if the error is
- *  associated with certain intents.
- *  - "projects/<Project ID>/agent/intents/<Intent
- *  Id>/trainingPhrases/<Training Phrase ID>", if the
- *  error is associated with certain intent training phrases.
- *  - "projects/<Project ID>/agent/intents/<Intent
- *  Id>/parameters/<Parameter ID>", if the error is associated with certain
- *  intent parameters.
- *  - "projects/<Project ID>/agent/entities/<Entity ID>", if the error is
+ *  The names of the entries that the error is associated with. Format: -
+ *  "projects//agent", if the error is associated with the entire agent. -
+ *  "projects//agent/intents/", if the error is associated with certain intents.
+ *  - "projects//agent/intents//trainingPhrases/", if the error is associated
+ *  with certain intent training phrases. -
+ *  "projects//agent/intents//parameters/", if the error is associated with
+ *  certain intent parameters. - "projects//agent/entities/", if the error is
  *  associated with certain entities.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entries;
@@ -7750,18 +7433,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams : GTLRObject
 
 /**
- *  Optional. The name of the voice. If not set, the service will choose a
- *  voice based on the other parameters such as language_code and
- *  ssml_gender.
+ *  Optional. The name of the voice. If not set, the service will choose a voice
+ *  based on the other parameters such as language_code and ssml_gender.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The preferred gender of the voice. If not set, the service will
- *  choose a voice based on the other parameters such as language_code and
- *  name. Note that this is only a preference, not requirement. If a
- *  voice of the appropriate gender is not available, the synthesizer should
- *  substitute a voice with a different gender rather than failing the request.
+ *  choose a voice based on the other parameters such as language_code and name.
+ *  Note that this is only a preference, not requirement. If a voice of the
+ *  appropriate gender is not available, the synthesizer should substitute a
+ *  voice with a different gender rather than failing the request.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_SsmlGender_SsmlVoiceGenderFemale
@@ -7804,11 +7486,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *responseId;
 
 /**
- *  The unique identifier of detectIntent request session.
- *  Can be used to identify end-user inside webhook implementation.
- *  Format: `projects/<Project ID>/agent/sessions/<Session ID>`, or
- *  `projects/<Project ID>/agent/environments/<Environment
- *  ID>/users/<User ID>/sessions/<Session ID>`.
+ *  The unique identifier of detectIntent request session. Can be used to
+ *  identify end-user inside webhook implementation. Format:
+ *  `projects//agent/sessions/`, or
+ *  `projects//agent/environments//users//sessions/`.
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -7816,61 +7497,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The response message for a webhook call.
- *  This response is validated by the Dialogflow server. If validation fails,
- *  an error will be returned in the QueryResult.diagnostic_info field.
- *  Setting JSON fields to an empty value with the wrong type is a common error.
- *  To avoid this error:
- *  - Use `""` for empty strings
- *  - Use `{}` or `null` for empty objects
- *  - Use `[]` or `null` for empty arrays
- *  For more information, see the
- *  [Protocol Buffers Language
+ *  The response message for a webhook call. This response is validated by the
+ *  Dialogflow server. If validation fails, an error will be returned in the
+ *  QueryResult.diagnostic_info field. Setting JSON fields to an empty value
+ *  with the wrong type is a common error. To avoid this error: - Use `""` for
+ *  empty strings - Use `{}` or `null` for empty objects - Use `[]` or `null`
+ *  for empty arrays For more information, see the [Protocol Buffers Language
  *  Guide](https://developers.google.com/protocol-buffers/docs/proto3#json).
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse : GTLRObject
 
 /**
- *  Optional. Invokes the supplied events.
- *  When this field is set, Dialogflow ignores the `fulfillment_text`,
- *  `fulfillment_messages`, and `payload` fields.
+ *  Optional. Invokes the supplied events. When this field is set, Dialogflow
+ *  ignores the `fulfillment_text`, `fulfillment_messages`, and `payload`
+ *  fields.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2EventInput *followupEventInput;
 
 /**
- *  Optional. The rich response messages intended for the end-user.
- *  When provided, Dialogflow uses this field to populate
+ *  Optional. The rich response messages intended for the end-user. When
+ *  provided, Dialogflow uses this field to populate
  *  QueryResult.fulfillment_messages sent to the integration or API caller.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage *> *fulfillmentMessages;
 
 /**
- *  Optional. The text response message intended for the end-user.
- *  It is recommended to use `fulfillment_messages.text.text[0]` instead.
- *  When provided, Dialogflow uses this field to populate
+ *  Optional. The text response message intended for the end-user. It is
+ *  recommended to use `fulfillment_messages.text.text[0]` instead. When
+ *  provided, Dialogflow uses this field to populate
  *  QueryResult.fulfillment_text sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
 
 /**
  *  Optional. The collection of output contexts that will overwrite currently
- *  active contexts for the session and reset their lifespans.
- *  When provided, Dialogflow uses this field to populate
- *  QueryResult.output_contexts sent to the integration or API caller.
+ *  active contexts for the session and reset their lifespans. When provided,
+ *  Dialogflow uses this field to populate QueryResult.output_contexts sent to
+ *  the integration or API caller.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Context *> *outputContexts;
 
 /**
  *  Optional. This field can be used to pass custom data from your webhook to
- *  the
- *  integration or API caller. Arbitrary JSON objects are supported.
- *  When provided, Dialogflow uses this field to populate
- *  QueryResult.webhook_payload sent to the integration or API caller.
- *  This field is also used by the
+ *  the integration or API caller. Arbitrary JSON objects are supported. When
+ *  provided, Dialogflow uses this field to populate QueryResult.webhook_payload
+ *  sent to the integration or API caller. This field is also used by the
  *  [Google Assistant
- *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
- *  for rich response messages.
- *  See the format definition at [Google Assistant Dialogflow webhook
+ *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog) for
+ *  rich response messages. See the format definition at [Google Assistant
+ *  Dialogflow webhook
  *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload *payload;
@@ -7878,16 +7553,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  Optional. Additional session entity types to replace or extend developer
  *  entity types with. The entity synonyms apply to all languages and persist
- *  for the session. Setting this data from a webhook overwrites
- *  the session entity types that have been set using `detectIntent`,
+ *  for the session. Setting this data from a webhook overwrites the session
+ *  entity types that have been set using `detectIntent`,
  *  `streamingDetectIntent` or SessionEntityType management methods.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType *> *sessionEntityTypes;
 
 /**
- *  Optional. A custom field used to identify the webhook source.
- *  Arbitrary strings are supported.
- *  When provided, Dialogflow uses this field to populate
+ *  Optional. A custom field used to identify the webhook source. Arbitrary
+ *  strings are supported. When provided, Dialogflow uses this field to populate
  *  QueryResult.webhook_source sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *source;
@@ -7897,15 +7571,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. This field can be used to pass custom data from your webhook to
- *  the
- *  integration or API caller. Arbitrary JSON objects are supported.
- *  When provided, Dialogflow uses this field to populate
- *  QueryResult.webhook_payload sent to the integration or API caller.
- *  This field is also used by the
+ *  the integration or API caller. Arbitrary JSON objects are supported. When
+ *  provided, Dialogflow uses this field to populate QueryResult.webhook_payload
+ *  sent to the integration or API caller. This field is also used by the
  *  [Google Assistant
- *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog)
- *  for rich response messages.
- *  See the format definition at [Google Assistant Dialogflow webhook
+ *  integration](https://cloud.google.com/dialogflow/docs/integrations/aog) for
+ *  rich response messages. See the format definition at [Google Assistant
+ *  Dialogflow webhook
  *  format](https://developers.google.com/assistant/actions/build/json/dialogflow-webhook-json)
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -7914,6 +7586,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload : GTLRObject
+@end
+
+
+/**
+ *  Metadata associated with the long running operation for
+ *  Versions.CreateVersion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateVersionOperationMetadata : GTLRObject
+
+/**
+ *  Name of the created version. Format:
+ *  `projects//locations//agents//flows//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
 @end
 
 
@@ -7970,8 +7657,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @interface GTLRDialogflow_GoogleLongrunningOperation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -7983,16 +7670,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleLongrunningOperation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -8001,10 +7688,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleLongrunningOperation_Response *response;
 
@@ -8013,8 +7699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -8031,10 +7717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8048,11 +7733,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRDialogflow_GoogleProtobufEmpty : GTLRObject
 @end
@@ -8062,9 +7745,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRDialogflow_GoogleRpcStatus : GTLRObject
 
@@ -8105,11 +7788,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair
- *  of doubles representing degrees latitude and degrees longitude. Unless
- *  specified otherwise, this must conform to the
- *  <a href="http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf">WGS84
- *  standard</a>. Values must be within normalized ranges.
+ *  pair of doubles representing degrees latitude and degrees longitude. Unless
+ *  specified otherwise, this must conform to the WGS84 standard. Values must be
+ *  within normalized ranges.
  */
 @interface GTLRDialogflow_GoogleTypeLatLng : GTLRObject
 

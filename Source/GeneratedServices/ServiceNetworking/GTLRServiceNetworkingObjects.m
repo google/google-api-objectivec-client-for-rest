@@ -539,6 +539,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_DeletePeeredDnsDomainMetadata
+//
+
+@implementation GTLRServiceNetworking_DeletePeeredDnsDomainMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_DisableVpcServiceControlsRequest
 //
 
@@ -819,6 +828,24 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_ListPeeredDnsDomainsResponse
+//
+
+@implementation GTLRServiceNetworking_ListPeeredDnsDomainsResponse
+@dynamic peeredDnsDomains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"peeredDnsDomains" : [GTLRServiceNetworking_PeeredDnsDomain class]
+  };
+  return map;
 }
 
 @end
@@ -1116,6 +1143,25 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_PeeredDnsDomain
+//
+
+@implementation GTLRServiceNetworking_PeeredDnsDomain
+@dynamic dnsSuffix, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_PeeredDnsDomainMetadata
+//
+
+@implementation GTLRServiceNetworking_PeeredDnsDomainMetadata
 @end
 
 

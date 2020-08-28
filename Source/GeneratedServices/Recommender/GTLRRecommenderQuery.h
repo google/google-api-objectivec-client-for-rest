@@ -85,32 +85,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
- *  filter fields: state
- *  Eg: `state:"DISMISSED" or state:"ACTIVE"
+ *  filter fields: state Eg: `state:"DISMISSED" or state:"ACTIVE"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of results to return from this request.
- *  Non-positive
- *  values are ignored. If not specified, the server will determine the number
- *  of results to return.
+ *  Non-positive values are ignored. If not specified, the server will determine
+ *  the number of results to return.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. If present, retrieves the next batch of results from the preceding
- *  call to
- *  this method. `page_token` must be the value of `next_page_token` from the
- *  previous response. The values of other method parameters must be identical
- *  to those in the previous call.
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of other method parameters must be
+ *  identical to those in the previous call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The container resource on which to execute the request.
- *  Acceptable formats:
- *  1.
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats: 1.
  *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/
@@ -124,9 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  permission for the specified insight type.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request.
- *    Acceptable formats:
- *    1.
+ *    request. Acceptable formats: 1.
  *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/
@@ -142,11 +136,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Marks the Insight State as Accepted. Users can use this method to
- *  indicate to the Recommender API that they have applied some action based
- *  on the insight. This stops the insight content from being updated.
- *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires
- *  the recommender.*.update IAM permission for the specified insight.
+ *  Marks the Insight State as Accepted. Users can use this method to indicate
+ *  to the Recommender API that they have applied some action based on the
+ *  insight. This stops the insight content from being updated.
+ *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the
+ *  recommender.*.update IAM permission for the specified insight.
  *
  *  Method: recommender.projects.locations.insightTypes.insights.markAccepted
  *
@@ -163,11 +157,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Insight.
  *
- *  Marks the Insight State as Accepted. Users can use this method to
- *  indicate to the Recommender API that they have applied some action based
- *  on the insight. This stops the insight content from being updated.
- *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires
- *  the recommender.*.update IAM permission for the specified insight.
+ *  Marks the Insight State as Accepted. Users can use this method to indicate
+ *  to the Recommender API that they have applied some action based on the
+ *  insight. This stops the insight content from being updated.
+ *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the
+ *  recommender.*.update IAM permission for the specified insight.
  *
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest to
@@ -182,8 +176,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the requested recommendation. Requires the recommender.*.get
- *  IAM permission for the specified recommender.
+ *  Gets the requested recommendation. Requires the recommender.*.get IAM
+ *  permission for the specified recommender.
  *
  *  Method: recommender.projects.locations.recommenders.recommendations.get
  *
@@ -200,8 +194,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
  *
- *  Gets the requested recommendation. Requires the recommender.*.get
- *  IAM permission for the specified recommender.
+ *  Gets the requested recommendation. Requires the recommender.*.get IAM
+ *  permission for the specified recommender.
  *
  *  @param name Required. Name of the recommendation.
  *
@@ -225,33 +219,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsListWithparent:]
 
 /**
- *  Filter expression to restrict the recommendations returned. Supported
- *  filter fields: state_info.state
- *  Eg: `state_info.state:"DISMISSED" or state_info.state:"FAILED"
+ *  Filter expression to restrict the recommendations returned. Supported filter
+ *  fields: state_info.state Eg: `state_info.state:"DISMISSED" or
+ *  state_info.state:"FAILED"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of results to return from this request.
- *  Non-positive
- *  values are ignored. If not specified, the server will determine the number
- *  of results to return.
+ *  Non-positive values are ignored. If not specified, the server will determine
+ *  the number of results to return.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. If present, retrieves the next batch of results from the preceding
- *  call to
- *  this method. `page_token` must be the value of `next_page_token` from the
- *  previous response. The values of other method parameters must be identical
- *  to those in the previous call.
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of other method parameters must be
+ *  identical to those in the previous call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The container resource on which to execute the request.
- *  Acceptable formats:
- *  1.
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats: 1.
  *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/
@@ -266,9 +257,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  IAM permission for the specified recommender.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request.
- *    Acceptable formats:
- *    1.
+ *    request. Acceptable formats: 1.
  *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/
@@ -289,9 +278,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  recommendation themselves. This stops the recommendation content from being
  *  updated. Associated insights are frozen and placed in the ACCEPTED state.
  *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
- *  SUCCEEDED, FAILED, or ACTIVE state.
- *  Requires the recommender.*.update IAM permission for the specified
- *  recommender.
+ *  SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
  *
  *  Method: recommender.projects.locations.recommenders.recommendations.markClaimed
  *
@@ -313,9 +301,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  recommendation themselves. This stops the recommendation content from being
  *  updated. Associated insights are frozen and placed in the ACCEPTED state.
  *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
- *  SUCCEEDED, FAILED, or ACTIVE state.
- *  Requires the recommender.*.update IAM permission for the specified
- *  recommender.
+ *  SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
  *
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest
@@ -334,11 +321,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation failed. This stops the recommendation content
  *  from being updated. Associated insights are frozen and placed in the
- *  ACCEPTED state.
- *  MarkRecommendationFailed can be applied to recommendations in ACTIVE,
- *  CLAIMED, SUCCEEDED, or FAILED state.
- *  Requires the recommender.*.update IAM permission for the specified
- *  recommender.
+ *  ACCEPTED state. MarkRecommendationFailed can be applied to recommendations
+ *  in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
  *
  *  Method: recommender.projects.locations.recommenders.recommendations.markFailed
  *
@@ -359,11 +344,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation failed. This stops the recommendation content
  *  from being updated. Associated insights are frozen and placed in the
- *  ACCEPTED state.
- *  MarkRecommendationFailed can be applied to recommendations in ACTIVE,
- *  CLAIMED, SUCCEEDED, or FAILED state.
- *  Requires the recommender.*.update IAM permission for the specified
- *  recommender.
+ *  ACCEPTED state. MarkRecommendationFailed can be applied to recommendations
+ *  in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
  *
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest to
@@ -381,12 +364,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Marks the Recommendation State as Succeeded. Users can use this method to
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation was successful. This stops the recommendation
- *  content from being updated. Associated insights are frozen and placed in
- *  the ACCEPTED state.
- *  MarkRecommendationSucceeded can be applied to recommendations in ACTIVE,
- *  CLAIMED, SUCCEEDED, or FAILED state.
- *  Requires the recommender.*.update IAM permission for the specified
- *  recommender.
+ *  content from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationSucceeded can be applied to
+ *  recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
  *
  *  Method: recommender.projects.locations.recommenders.recommendations.markSucceeded
  *
@@ -406,12 +387,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Marks the Recommendation State as Succeeded. Users can use this method to
  *  indicate to the Recommender API that they have applied the recommendation
  *  themselves, and the operation was successful. This stops the recommendation
- *  content from being updated. Associated insights are frozen and placed in
- *  the ACCEPTED state.
- *  MarkRecommendationSucceeded can be applied to recommendations in ACTIVE,
- *  CLAIMED, SUCCEEDED, or FAILED state.
- *  Requires the recommender.*.update IAM permission for the specified
- *  recommender.
+ *  content from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationSucceeded can be applied to
+ *  recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
  *
  *  @param object The @c
  *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest

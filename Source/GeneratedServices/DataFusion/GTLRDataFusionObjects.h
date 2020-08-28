@@ -2,16 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Data Fusion API (datafusion/v1beta1)
+//   Cloud Data Fusion API (datafusion/v1)
 // Description:
 //   Cloud Data Fusion is a fully-managed, cloud native, enterprise data
-//   integration service for
-//   quickly building and managing data pipelines. It provides a graphical
-//   interface to increase
-//   time efficiency and reduce complexity, and allows business users,
-//   developers, and data
-//   scientists to easily and reliably build scalable data integration solutions
-//   to cleanse,
+//   integration service for quickly building and managing data pipelines. It
+//   provides a graphical interface to increase time efficiency and reduce
+//   complexity, and allows business users, developers, and data scientists to
+//   easily and reliably build scalable data integration solutions to cleanse,
 //   prepare, blend, transfer and transform data without having to wrestle with
 //   infrastructure.
 // Documentation:
@@ -114,6 +111,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTyp
 // GTLRDataFusion_Instance.state
 
 /**
+ *  Instance is active and ready for requests
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Active;
+/**
  *  Instance is being auto-updated
  *
  *  Value: "AUTO_UPDATING"
@@ -150,7 +153,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Failed;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Restarting;
 /**
- *  Instance is running and ready for requests
+ *  RUNNING is an alias of ACTIVE for backward compatibility
  *
  *  Value: "RUNNING"
  */
@@ -178,10 +181,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Upgrading;
 // GTLRDataFusion_Instance.type
 
 /**
- *  Basic Data Fusion instance. In Basic type, the user will be able to
- *  create data pipelines using point and click UI. However, there are
- *  certain limitations, such as fewer number of concurrent pipelines, no
- *  support for streaming pipelines, etc.
+ *  Basic Data Fusion instance. In Basic type, the user will be able to create
+ *  data pipelines using point and click UI. However, there are certain
+ *  limitations, such as fewer number of concurrent pipelines, no support for
+ *  streaming pipelines, etc.
  *
  *  Value: "BASIC"
  */
@@ -196,9 +199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Basic;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_Developer;
 /**
- *  Enterprise Data Fusion instance. In Enterprise type, the user will have
- *  all features available, such as support for streaming pipelines, higher
- *  number of concurrent pipelines, etc.
+ *  Enterprise Data Fusion instance. In Enterprise type, the user will have all
+ *  features available, such as support for streaming pipelines, higher number
+ *  of concurrent pipelines, etc.
  *
  *  Value: "ENTERPRISE"
  */
@@ -234,50 +237,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 
 /**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  },
- *  {
- *  "log_type": "ADMIN_READ"
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ"
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -288,9 +260,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_AuditLogConfig *> *auditLogConfigs;
 
 /**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -298,30 +270,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 
 /**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRDataFusion_AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -349,56 +308,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @interface GTLRDataFusion_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -415,11 +369,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRDataFusion_Empty : GTLRObject
 @end
@@ -428,27 +380,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRDataFusion_Expr : GTLRObject
 
@@ -473,9 +418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -484,7 +428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  Represents a Data Fusion instance.
- *  Next available ID: 23
  */
 @interface GTLRDataFusion_Instance : GTLRObject
 
@@ -535,8 +478,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  The resource labels for instance to use to annotate any related underlying
- *  resources such as Compute Engine VMs. The character '=' is not allowed to
- *  be used within the labels.
+ *  resources such as GCE VMs. The character '=' is not allowed to be used
+ *  within the labels.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Labels *labels;
 
@@ -547,16 +490,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Network configuration options. These are required when a private Data
- *  Fusion instance is to be created.
+ *  Network configuration options. These are required when a private Data Fusion
+ *  instance is to be created.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_NetworkConfig *networkConfig;
 
 /**
- *  Map of additional options used to configure the behavior of
- *  Data Fusion instance.
+ *  Map of additional options used to configure the behavior of Data Fusion
+ *  instance.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Instance_Options *options;
+
+/** Output only. P4 service account for the customer project. */
+@property(nonatomic, copy, nullable) NSString *p4ServiceAccount;
 
 /**
  *  Specifies whether the Data Fusion instance should be private. If set to
@@ -568,8 +514,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSNumber *privateInstance;
 
 /**
- *  Output only. Service account which will be used to access resources in
- *  the customer project."
+ *  Output only. Deprecated. Use tenant_project_id instead to extract the tenant
+ *  project ID.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -580,6 +526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  Output only. The current state of this Data Fusion instance.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataFusion_Instance_State_Active Instance is active and ready
+ *        for requests (Value: "ACTIVE")
  *    @arg @c kGTLRDataFusion_Instance_State_AutoUpdating Instance is being
  *        auto-updated (Value: "AUTO_UPDATING")
  *    @arg @c kGTLRDataFusion_Instance_State_AutoUpgrading Instance is being
@@ -592,8 +540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *        (Value: "FAILED")
  *    @arg @c kGTLRDataFusion_Instance_State_Restarting Instance is being
  *        restarted (Value: "RESTARTING")
- *    @arg @c kGTLRDataFusion_Instance_State_Running Instance is running and
- *        ready for requests (Value: "RUNNING")
+ *    @arg @c kGTLRDataFusion_Instance_State_Running RUNNING is an alias of
+ *        ACTIVE for backward compatibility (Value: "RUNNING")
  *    @arg @c kGTLRDataFusion_Instance_State_StateUnspecified Instance does not
  *        have a state yet (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRDataFusion_Instance_State_Updating Instance is being updated
@@ -609,25 +557,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *stateMessage;
 
+/** Output only. The name of the tenant project. */
+@property(nonatomic, copy, nullable) NSString *tenantProjectId;
+
 /**
  *  Required. Instance type.
  *
  *  Likely values:
  *    @arg @c kGTLRDataFusion_Instance_Type_Basic Basic Data Fusion instance. In
- *        Basic type, the user will be able to
- *        create data pipelines using point and click UI. However, there are
- *        certain limitations, such as fewer number of concurrent pipelines, no
- *        support for streaming pipelines, etc. (Value: "BASIC")
+ *        Basic type, the user will be able to create data pipelines using point
+ *        and click UI. However, there are certain limitations, such as fewer
+ *        number of concurrent pipelines, no support for streaming pipelines,
+ *        etc. (Value: "BASIC")
  *    @arg @c kGTLRDataFusion_Instance_Type_Developer Developer Data Fusion
- *        instance. In Developer type, the user will have all
- *        features available but with restrictive capabilities. This is to help
- *        enterprises design and develop their data ingestion and integration
- *        pipelines at low cost. (Value: "DEVELOPER")
+ *        instance. In Developer type, the user will have all features available
+ *        but with restrictive capabilities. This is to help enterprises design
+ *        and develop their data ingestion and integration pipelines at low
+ *        cost. (Value: "DEVELOPER")
  *    @arg @c kGTLRDataFusion_Instance_Type_Enterprise Enterprise Data Fusion
- *        instance. In Enterprise type, the user will have
- *        all features available, such as support for streaming pipelines,
- *        higher
- *        number of concurrent pipelines, etc. (Value: "ENTERPRISE")
+ *        instance. In Enterprise type, the user will have all features
+ *        available, such as support for streaming pipelines, higher number of
+ *        concurrent pipelines, etc. (Value: "ENTERPRISE")
  *    @arg @c kGTLRDataFusion_Instance_Type_TypeUnspecified No type specified.
  *        The instance creation will fail. (Value: "TYPE_UNSPECIFIED")
  */
@@ -636,11 +586,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 /** Output only. The time the instance was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-/** Current version of Data Fusion. */
+/** Current version of the Data Fusion. Only specifiable in Update. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 /**
- *  Name of the zone in which the Data Fusion instance will be created.
+ *  Name of the zone in which the Data Fusion instance will be created. Only
+ *  DEVELOPER instances use this field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -651,8 +602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  The resource labels for instance to use to annotate any related underlying
- *  resources such as Compute Engine VMs. The character '=' is not allowed to
- *  be used within the labels.
+ *  resources such as GCE VMs. The character '=' is not allowed to be used
+ *  within the labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -664,8 +615,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 
 /**
- *  Map of additional options used to configure the behavior of
- *  Data Fusion instance.
+ *  Map of additional options used to configure the behavior of Data Fusion
+ *  instance.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -787,8 +738,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @interface GTLRDataFusion_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -808,8 +759,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRDataFusion_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -843,11 +794,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 
 /**
- *  Network configuration for a Data Fusion instance. These configurations
- *  are used for peering with the customer network. Configurations are optional
- *  when a public Data Fusion instance is to be created. However, providing
- *  these configurations allows several benefits, such as reduced network
- *  latency
+ *  Network configuration for a Data Fusion instance. These configurations are
+ *  used for peering with the customer network. Configurations are optional when
+ *  a public Data Fusion instance is to be created. However, providing these
+ *  configurations allows several benefits, such as reduced network latency
  *  while accessing the customer resources from managed Data Fusion instance
  *  nodes, as well as access to the customer on-prem resources.
  */
@@ -855,16 +805,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  The IP range in CIDR notation to use for the managed Data Fusion instance
- *  nodes. This range must not overlap with any other ranges used in the Data
- *  Fusion instance network.
+ *  nodes. This range must not overlap with any other ranges used in the
+ *  customer network.
  */
 @property(nonatomic, copy, nullable) NSString *ipAllocation;
 
 /**
  *  Name of the network in the customer project with which the Tenant Project
  *  will be peered for executing pipelines. In case of shared VPC where the
- *  network resides in another host project the network should specified in
- *  the form of projects/{host-project-id}/global/networks/{network}
+ *  network resides in another host project the network should specified in the
+ *  form of projects/{host-project-id}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -878,8 +828,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @interface GTLRDataFusion_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -891,16 +841,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -909,10 +859,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Operation_Response *response;
 
@@ -921,8 +870,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -939,10 +888,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -968,10 +916,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Identifies whether the user has requested cancellation
- *  of the operation. Operations that have successfully been cancelled
- *  have Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  Identifies whether the user has requested cancellation of the operation.
+ *  Operations that have successfully been cancelled have Operation.error value
+ *  with a google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -991,66 +938,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDataFusion_Policy : GTLRObject
 
@@ -1059,23 +974,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1083,24 +998,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1124,17 +1035,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRDataFusion_Policy *policy;
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
- *  following default mask is used:
- *  `paths: "bindings, etag"`
+ *  following default mask is used: `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1147,9 +1056,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRDataFusion_Status : GTLRObject
 
@@ -1195,9 +1104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -1210,8 +1118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @interface GTLRDataFusion_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -1219,17 +1126,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 
 /**
- *  Request message for upgrading a Data Fusion instance.
- *  To change the instance properties, instance update should be used.
- */
-@interface GTLRDataFusion_UpgradeInstanceRequest : GTLRObject
-@end
-
-
-/**
- *  The Data Fusion version.
+ *  The Data Fusion version. This proto message stores information about certain
+ *  Data Fusion version, which is used for Data Fusion version upgrade.
  */
 @interface GTLRDataFusion_Version : GTLRObject
+
+/** Represents a list of available feature names for a given version. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableFeatures;
 
 /**
  *  Whether this is currently the default version for Cloud Data Fusion

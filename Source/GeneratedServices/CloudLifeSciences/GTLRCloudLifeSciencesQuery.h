@@ -111,15 +111,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Starts asynchronous cancellation on a long-running operation.
- *  The server makes a best effort to cancel the operation, but success is not
- *  guaranteed. Clients may use Operations.GetOperation
- *  or Operations.ListOperations
- *  to check whether the cancellation succeeded or the operation completed
- *  despite cancellation.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `lifesciences.operations.cancel`
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  Clients may use Operations.GetOperation or Operations.ListOperations to
+ *  check whether the cancellation succeeded or the operation completed despite
+ *  cancellation. Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission: *
+ *  `lifesciences.operations.cancel`
  *
  *  Method: lifesciences.projects.locations.operations.cancel
  *
@@ -136,15 +134,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudLifeSciences_Empty.
  *
- *  Starts asynchronous cancellation on a long-running operation.
- *  The server makes a best effort to cancel the operation, but success is not
- *  guaranteed. Clients may use Operations.GetOperation
- *  or Operations.ListOperations
- *  to check whether the cancellation succeeded or the operation completed
- *  despite cancellation.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `lifesciences.operations.cancel`
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  Clients may use Operations.GetOperation or Operations.ListOperations to
+ *  check whether the cancellation succeeded or the operation completed despite
+ *  cancellation. Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission: *
+ *  `lifesciences.operations.cancel`
  *
  *  @param object The @c GTLRCloudLifeSciences_CancelOperationRequest to include
  *    in the query.
@@ -158,12 +154,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the latest state of a long-running operation.
- *  Clients can use this method to poll the operation result at intervals as
- *  recommended by the API service.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `lifesciences.operations.get`
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service. Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission: *
+ *  `lifesciences.operations.get`
  *
  *  Method: lifesciences.projects.locations.operations.get
  *
@@ -180,12 +175,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudLifeSciences_Operation.
  *
- *  Gets the latest state of a long-running operation.
- *  Clients can use this method to poll the operation result at intervals as
- *  recommended by the API service.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `lifesciences.operations.get`
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service. Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission: *
+ *  `lifesciences.operations.get`
  *
  *  @param name The name of the operation resource.
  *
@@ -198,8 +192,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists operations that match the specified filter in the request.
  *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `lifesciences.operations.list`
+ *  IAM](https://cloud.google.com/iam) permission: *
+ *  `lifesciences.operations.list`
  *
  *  Method: lifesciences.projects.locations.operations.list
  *
@@ -211,17 +205,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudLifeSciences queryForProjectsLocationsOperationsListWithname:]
 
 /**
- *  A string for filtering Operations.
- *  The following filter fields are supported&#58;
- *  * createTime&#58; The time this job was created
- *  * events&#58; The set of event (names) that have occurred while running
- *  the pipeline. The &#58; operator can be used to determine if a
- *  particular event has occurred.
- *  * error&#58; If the pipeline is running, this value is NULL. Once the
- *  pipeline finishes, the value is the standard Google error code.
- *  * labels.key or labels."key with space" where key is a label key.
- *  * done&#58; If the pipeline is running, this value is false. Once the
- *  pipeline finishes, the value is true.
+ *  A string for filtering Operations. The following filter fields are
+ *  supported: * createTime: The time this job was created * events: The set of
+ *  event (names) that have occurred while running the pipeline. The : operator
+ *  can be used to determine if a particular event has occurred. * error: If the
+ *  pipeline is running, this value is NULL. Once the pipeline finishes, the
+ *  value is the standard Google error code. * labels.key or labels."key with
+ *  space" where key is a label key. * done: If the pipeline is running, this
+ *  value is false. Once the pipeline finishes, the value is true.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -239,8 +230,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists operations that match the specified filter in the request.
  *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `lifesciences.operations.list`
+ *  IAM](https://cloud.google.com/iam) permission: *
+ *  `lifesciences.operations.list`
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -256,19 +247,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Runs a pipeline. The returned Operation's metadata field will contain a
- *  google.cloud.lifesciences.v2beta.Metadata object describing the status
- *  of the pipeline execution. The
- *  response field will contain a
- *  google.cloud.lifesciences.v2beta.RunPipelineResponse object if the
- *  pipeline completes successfully.
- *  **Note:** Before you can use this method, the *Life Sciences Service Agent*
- *  must have access to your project. This is done automatically when the
- *  Cloud Life Sciences API is first enabled, but if you delete this permission
- *  you must disable and re-enable the API to grant the Life Sciences
- *  Service Agent the required permissions.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam/) permission:
- *  * `lifesciences.workflows.run`
+ *  google.cloud.lifesciences.v2beta.Metadata object describing the status of
+ *  the pipeline execution. The response field will contain a
+ *  google.cloud.lifesciences.v2beta.RunPipelineResponse object if the pipeline
+ *  completes successfully. **Note:** Before you can use this method, the *Life
+ *  Sciences Service Agent* must have access to your project. This is done
+ *  automatically when the Cloud Life Sciences API is first enabled, but if you
+ *  delete this permission you must disable and re-enable the API to grant the
+ *  Life Sciences Service Agent the required permissions. Authorization requires
+ *  the following [Google IAM](https://cloud.google.com/iam/) permission: *
+ *  `lifesciences.workflows.run`
  *
  *  Method: lifesciences.projects.locations.pipelines.run
  *
@@ -286,19 +274,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudLifeSciences_Operation.
  *
  *  Runs a pipeline. The returned Operation's metadata field will contain a
- *  google.cloud.lifesciences.v2beta.Metadata object describing the status
- *  of the pipeline execution. The
- *  response field will contain a
- *  google.cloud.lifesciences.v2beta.RunPipelineResponse object if the
- *  pipeline completes successfully.
- *  **Note:** Before you can use this method, the *Life Sciences Service Agent*
- *  must have access to your project. This is done automatically when the
- *  Cloud Life Sciences API is first enabled, but if you delete this permission
- *  you must disable and re-enable the API to grant the Life Sciences
- *  Service Agent the required permissions.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam/) permission:
- *  * `lifesciences.workflows.run`
+ *  google.cloud.lifesciences.v2beta.Metadata object describing the status of
+ *  the pipeline execution. The response field will contain a
+ *  google.cloud.lifesciences.v2beta.RunPipelineResponse object if the pipeline
+ *  completes successfully. **Note:** Before you can use this method, the *Life
+ *  Sciences Service Agent* must have access to your project. This is done
+ *  automatically when the Cloud Life Sciences API is first enabled, but if you
+ *  delete this permission you must disable and re-enable the API to grant the
+ *  Life Sciences Service Agent the required permissions. Authorization requires
+ *  the following [Google IAM](https://cloud.google.com/iam/) permission: *
+ *  `lifesciences.workflows.run`
  *
  *  @param object The @c GTLRCloudLifeSciences_RunPipelineRequest to include in
  *    the query.

@@ -744,8 +744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @end
 
 /**
- *  Lists all models in the specified dataset. Requires the READER dataset
- *  role.
+ *  Lists all models in the specified dataset. Requires the READER dataset role.
  *
  *  Method: bigquery.models.list
  *
@@ -763,14 +762,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  The maximum number of results to return in a single response page.
- *  Leverage the page tokens to iterate through the entire collection.
+ *  The maximum number of results to return in a single response page. Leverage
+ *  the page tokens to iterate through the entire collection.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  Page token, returned by a previous call to request the next page of
- *  results
+ *  Page token, returned by a previous call to request the next page of results
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -780,8 +778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 /**
  *  Fetches a @c GTLRBigquery_ListModelsResponse.
  *
- *  Lists all models in the specified dataset. Requires the READER dataset
- *  role.
+ *  Lists all models in the specified dataset. Requires the READER dataset role.
  *
  *  @param projectId Required. Project ID of the models to list.
  *  @param datasetId Required. Dataset ID of the models to list.
@@ -1054,22 +1051,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  If set, then only the Routines matching this filter are returned.
- *  The current supported form is either "routine_type:<RoutineType>" or
- *  "routineType:<RoutineType>", where <RoutineType> is a RoutineType enum.
- *  Example: "routineType:SCALAR_FUNCTION".
+ *  If set, then only the Routines matching this filter are returned. The
+ *  current supported form is either "routine_type:" or "routineType:", where is
+ *  a RoutineType enum. Example: "routineType:SCALAR_FUNCTION".
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of results to return in a single response page.
- *  Leverage the page tokens to iterate through the entire collection.
+ *  The maximum number of results to return in a single response page. Leverage
+ *  the page tokens to iterate through the entire collection.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  Page token, returned by a previous call, to request the next page of
- *  results
+ *  Page token, returned by a previous call, to request the next page of results
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1078,10 +1073,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /**
  *  If set, then only the Routine fields in the field mask, as well as
- *  project_id, dataset_id and routine_id, are returned in the response.
- *  If unset, then the following Routine fields are returned:
- *  etag, project_id, dataset_id, routine_id, routine_type, creation_time,
- *  last_modified_time, and language.
+ *  project_id, dataset_id and routine_id, are returned in the response. If
+ *  unset, then the following Routine fields are returned: etag, project_id,
+ *  dataset_id, routine_id, routine_type, creation_time, last_modified_time, and
+ *  language.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1347,9 +1342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: bigquery.tables.getIamPolicy
  *
@@ -1364,23 +1358,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRBigquery_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param object The @c GTLRBigquery_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigqueryQuery_TablesGetIamPolicy
  */
@@ -1522,8 +1515,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: bigquery.tables.setIamPolicy
  *
@@ -1536,8 +1529,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1545,14 +1538,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  Fetches a @c GTLRBigquery_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRBigquery_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigqueryQuery_TablesSetIamPolicy
  */
@@ -1562,12 +1555,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: bigquery.tables.testIamPermissions
  *
@@ -1582,26 +1574,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 //   +[GTLQueryBigquery queryForTablesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRBigquery_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRBigquery_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigqueryQuery_TablesTestIamPermissions
  */

@@ -5,8 +5,7 @@
 //   Cloud Billing API (cloudbilling/v1)
 // Description:
 //   Allows developers to manage billing for their Google Cloud Platform
-//   projects
-//   programmatically.
+//   projects programmatically.
 // Documentation:
 //   https://cloud.google.com/billing/
 
@@ -45,13 +44,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a billing account.
- *  This method can only be used to create
- *  [billing subaccounts](https://cloud.google.com/billing/docs/concepts)
- *  by GCP resellers.
- *  When creating a subaccount, the current authenticated user must have the
- *  `billing.accounts.update` IAM permission on the master account, which is
- *  typically given to billing account
+ *  Creates a billing account. This method can only be used to create [billing
+ *  subaccounts](https://cloud.google.com/billing/docs/concepts) by Google Cloud
+ *  resellers. When creating a subaccount, the current authenticated user must
+ *  have the `billing.accounts.update` IAM permission on the master account,
+ *  which is typically given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
  *  This method will return an error if the master account has not been
  *  provisioned as a reseller account.
@@ -59,6 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbilling.billingAccounts.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsCreate : GTLRCloudbillingQuery
@@ -68,13 +66,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudbilling_BillingAccount.
  *
- *  Creates a billing account.
- *  This method can only be used to create
- *  [billing subaccounts](https://cloud.google.com/billing/docs/concepts)
- *  by GCP resellers.
- *  When creating a subaccount, the current authenticated user must have the
- *  `billing.accounts.update` IAM permission on the master account, which is
- *  typically given to billing account
+ *  Creates a billing account. This method can only be used to create [billing
+ *  subaccounts](https://cloud.google.com/billing/docs/concepts) by Google Cloud
+ *  resellers. When creating a subaccount, the current authenticated user must
+ *  have the `billing.accounts.update` IAM permission on the master account,
+ *  which is typically given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
  *  This method will return an error if the master account has not been
  *  provisioned as a reseller account.
@@ -96,6 +92,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbilling.billingAccounts.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsGet : GTLRCloudbillingQuery
@@ -116,8 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  account](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
  *  @param name Required. The resource name of the billing account to retrieve.
- *    For example,
- *    `billingAccounts/012345-567890-ABCDEF`.
+ *    For example, `billingAccounts/012345-567890-ABCDEF`.
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsGet
  */
@@ -126,14 +123,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a billing account.
- *  The caller must have the `billing.accounts.getIamPolicy` permission on the
- *  account, which is often given to billing account
+ *  Gets the access control policy for a billing account. The caller must have
+ *  the `billing.accounts.getIamPolicy` permission on the account, which is
+ *  often given to billing account
  *  [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
  *  Method: cloudbilling.billingAccounts.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsGetIamPolicy : GTLRCloudbillingQuery
@@ -141,35 +140,33 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForBillingAccountsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudbilling_Policy.
  *
- *  Gets the access control policy for a billing account.
- *  The caller must have the `billing.accounts.getIamPolicy` permission on the
- *  account, which is often given to billing account
+ *  Gets the access control policy for a billing account. The caller must have
+ *  the `billing.accounts.getIamPolicy` permission on the account, which is
+ *  often given to billing account
  *  [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsGetIamPolicy
  */
@@ -185,6 +182,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbilling.billingAccounts.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsList : GTLRCloudbillingQuery
@@ -192,25 +191,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForBillingAccountsList]
 
 /**
- *  Options for how to filter the returned billing accounts.
- *  Currently this only supports filtering for
- *  [subaccounts](https://cloud.google.com/billing/docs/concepts) under a
- *  single provided reseller billing account.
- *  (e.g. "master_billing_account=billingAccounts/012345-678901-ABCDEF").
- *  Boolean algebra and other fields are not currently supported.
+ *  Options for how to filter the returned billing accounts. Currently this only
+ *  supports filtering for
+ *  [subaccounts](https://cloud.google.com/billing/docs/concepts) under a single
+ *  provided reseller billing account. (e.g.
+ *  "master_billing_account=billingAccounts/012345-678901-ABCDEF"). Boolean
+ *  algebra and other fields are not currently supported.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Requested page size. The maximum page size is 100; this is also the
- *  default.
+ *  Requested page size. The maximum page size is 100; this is also the default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  A token identifying a page of results to return. This should be a
- *  `next_page_token` value returned from a previous `ListBillingAccounts`
- *  call. If unspecified, the first page of results is returned.
+ *  `next_page_token` value returned from a previous `ListBillingAccounts` call.
+ *  If unspecified, the first page of results is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -232,16 +230,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a billing account's fields.
- *  Currently the only field that can be edited is `display_name`.
- *  The current authenticated user must have the `billing.accounts.update`
- *  IAM permission, which is typically given to the
+ *  Updates a billing account's fields. Currently the only field that can be
+ *  edited is `display_name`. The current authenticated user must have the
+ *  `billing.accounts.update` IAM permission, which is typically given to the
  *  [administrator](https://cloud.google.com/billing/docs/how-to/billing-access)
  *  of the billing account.
  *
  *  Method: cloudbilling.billingAccounts.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsPatch : GTLRCloudbillingQuery
@@ -252,8 +250,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applied to the resource.
- *  Only "display_name" is currently supported.
+ *  The update mask applied to the resource. Only "display_name" is currently
+ *  supported.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -262,10 +260,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudbilling_BillingAccount.
  *
- *  Updates a billing account's fields.
- *  Currently the only field that can be edited is `display_name`.
- *  The current authenticated user must have the `billing.accounts.update`
- *  IAM permission, which is typically given to the
+ *  Updates a billing account's fields. Currently the only field that can be
+ *  edited is `display_name`. The current authenticated user must have the
+ *  `billing.accounts.update` IAM permission, which is typically given to the
  *  [administrator](https://cloud.google.com/billing/docs/how-to/billing-access)
  *  of the billing account.
  *
@@ -290,6 +287,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbilling.billingAccounts.projects.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsProjectsList : GTLRCloudbillingQuery
@@ -298,14 +297,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the billing account associated with the
- *  projects that
- *  you want to list. For example, `billingAccounts/012345-567890-ABCDEF`.
+ *  projects that you want to list. For example,
+ *  `billingAccounts/012345-567890-ABCDEF`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Requested page size. The maximum page size is 100; this is also the
- *  default.
+ *  Requested page size. The maximum page size is 100; this is also the default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -325,8 +323,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  [viewers](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
  *  @param name Required. The resource name of the billing account associated
- *    with the projects that
- *    you want to list. For example, `billingAccounts/012345-567890-ABCDEF`.
+ *    with the projects that you want to list. For example,
+ *    `billingAccounts/012345-567890-ABCDEF`.
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsProjectsList
  *
@@ -340,14 +338,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy for a billing account. Replaces any existing
- *  policy.
- *  The caller must have the `billing.accounts.setIamPolicy` permission on the
- *  account, which is often given to billing account
+ *  policy. The caller must have the `billing.accounts.setIamPolicy` permission
+ *  on the account, which is often given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
  *  Method: cloudbilling.billingAccounts.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsSetIamPolicy : GTLRCloudbillingQuery
@@ -355,8 +353,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForBillingAccountsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -364,16 +362,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudbilling_Policy.
  *
  *  Sets the access control policy for a billing account. Replaces any existing
- *  policy.
- *  The caller must have the `billing.accounts.setIamPolicy` permission on the
- *  account, which is often given to billing account
+ *  policy. The caller must have the `billing.accounts.setIamPolicy` permission
+ *  on the account, which is often given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
  *
  *  @param object The @c GTLRCloudbilling_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsSetIamPolicy
  */
@@ -383,13 +380,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Tests the access control policy for a billing account. This method takes
- *  the resource and a set of permissions as input and returns the subset of
- *  the input permissions that the caller is allowed for that resource.
+ *  Tests the access control policy for a billing account. This method takes the
+ *  resource and a set of permissions as input and returns the subset of the
+ *  input permissions that the caller is allowed for that resource.
  *
  *  Method: cloudbilling.billingAccounts.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsTestIamPermissions : GTLRCloudbillingQuery
@@ -397,23 +396,23 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForBillingAccountsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudbilling_TestIamPermissionsResponse.
  *
- *  Tests the access control policy for a billing account. This method takes
- *  the resource and a set of permissions as input and returns the subset of
- *  the input permissions that the caller is allowed for that resource.
+ *  Tests the access control policy for a billing account. This method takes the
+ *  resource and a set of permissions as input and returns the subset of the
+ *  input permissions that the caller is allowed for that resource.
  *
  *  @param object The @c GTLRCloudbilling_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudbillingQuery_BillingAccountsTestIamPermissions
  */
@@ -431,6 +430,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbilling.projects.getBillingInfo
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ProjectsGetBillingInfo : GTLRCloudbillingQuery
@@ -452,8 +453,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  ).
  *
  *  @param name Required. The resource name of the project for which billing
- *    information is
- *    retrieved. For example, `projects/tokyo-rain-123`.
+ *    information is retrieved. For example, `projects/tokyo-rain-123`.
  *
  *  @return GTLRCloudbillingQuery_ProjectsGetBillingInfo
  */
@@ -468,31 +468,30 @@ NS_ASSUME_NONNULL_BEGIN
  *  Associating a project with an open billing account enables billing on the
  *  project and allows charges for resource usage. If the project already had a
  *  billing account, this method changes the billing account used for resource
- *  usage charges.
- *  *Note:* Incurred charges that have not yet been reported in the transaction
- *  history of the GCP Console might be billed to the new billing
- *  account, even if the charge occurred before the new billing account was
- *  assigned to the project.
- *  The current authenticated user must have ownership privileges for both the
+ *  usage charges. *Note:* Incurred charges that have not yet been reported in
+ *  the transaction history of the Google Cloud Console might be billed to the
+ *  new billing account, even if the charge occurred before the new billing
+ *  account was assigned to the project. The current authenticated user must
+ *  have ownership privileges for both the
  *  [project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
  *  ) and the [billing
- *  account](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  You can disable billing on the project by setting the
- *  `billing_account_name` field to empty. This action disassociates the
- *  current billing account from the project. Any billable activity of your
- *  in-use services will stop, and your application could stop functioning as
- *  expected. Any unbilled charges to date will be billed to the previously
- *  associated account. The current authenticated user must be either an owner
- *  of the project or an owner of the billing account for the project.
- *  Note that associating a project with a *closed* billing account will have
- *  much the same effect as disabling billing on the project: any paid
- *  resources used by the project will be shut down. Thus, unless you wish to
- *  disable billing, you should always call this method with the name of an
- *  *open* billing account.
+ *  account](https://cloud.google.com/billing/docs/how-to/billing-access). You
+ *  can disable billing on the project by setting the `billing_account_name`
+ *  field to empty. This action disassociates the current billing account from
+ *  the project. Any billable activity of your in-use services will stop, and
+ *  your application could stop functioning as expected. Any unbilled charges to
+ *  date will be billed to the previously associated account. The current
+ *  authenticated user must be either an owner of the project or an owner of the
+ *  billing account for the project. Note that associating a project with a
+ *  *closed* billing account will have much the same effect as disabling billing
+ *  on the project: any paid resources used by the project will be shut down.
+ *  Thus, unless you wish to disable billing, you should always call this method
+ *  with the name of an *open* billing account.
  *
  *  Method: cloudbilling.projects.updateBillingInfo
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ProjectsUpdateBillingInfo : GTLRCloudbillingQuery
@@ -501,8 +500,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the project associated with the billing
- *  information
- *  that you want to update. For example, `projects/tokyo-rain-123`.
+ *  information that you want to update. For example, `projects/tokyo-rain-123`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -515,33 +513,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  Associating a project with an open billing account enables billing on the
  *  project and allows charges for resource usage. If the project already had a
  *  billing account, this method changes the billing account used for resource
- *  usage charges.
- *  *Note:* Incurred charges that have not yet been reported in the transaction
- *  history of the GCP Console might be billed to the new billing
- *  account, even if the charge occurred before the new billing account was
- *  assigned to the project.
- *  The current authenticated user must have ownership privileges for both the
+ *  usage charges. *Note:* Incurred charges that have not yet been reported in
+ *  the transaction history of the Google Cloud Console might be billed to the
+ *  new billing account, even if the charge occurred before the new billing
+ *  account was assigned to the project. The current authenticated user must
+ *  have ownership privileges for both the
  *  [project](https://cloud.google.com/docs/permissions-overview#h.bgs0oxofvnoo
  *  ) and the [billing
- *  account](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  You can disable billing on the project by setting the
- *  `billing_account_name` field to empty. This action disassociates the
- *  current billing account from the project. Any billable activity of your
- *  in-use services will stop, and your application could stop functioning as
- *  expected. Any unbilled charges to date will be billed to the previously
- *  associated account. The current authenticated user must be either an owner
- *  of the project or an owner of the billing account for the project.
- *  Note that associating a project with a *closed* billing account will have
- *  much the same effect as disabling billing on the project: any paid
- *  resources used by the project will be shut down. Thus, unless you wish to
- *  disable billing, you should always call this method with the name of an
- *  *open* billing account.
+ *  account](https://cloud.google.com/billing/docs/how-to/billing-access). You
+ *  can disable billing on the project by setting the `billing_account_name`
+ *  field to empty. This action disassociates the current billing account from
+ *  the project. Any billable activity of your in-use services will stop, and
+ *  your application could stop functioning as expected. Any unbilled charges to
+ *  date will be billed to the previously associated account. The current
+ *  authenticated user must be either an owner of the project or an owner of the
+ *  billing account for the project. Note that associating a project with a
+ *  *closed* billing account will have much the same effect as disabling billing
+ *  on the project: any paid resources used by the project will be shut down.
+ *  Thus, unless you wish to disable billing, you should always call this method
+ *  with the name of an *open* billing account.
  *
  *  @param object The @c GTLRCloudbilling_ProjectBillingInfo to include in the
  *    query.
  *  @param name Required. The resource name of the project associated with the
- *    billing information
- *    that you want to update. For example, `projects/tokyo-rain-123`.
+ *    billing information that you want to update. For example,
+ *    `projects/tokyo-rain-123`.
  *
  *  @return GTLRCloudbillingQuery_ProjectsUpdateBillingInfo
  */
@@ -556,6 +552,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbilling.services.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ServicesList : GTLRCloudbillingQuery
@@ -567,8 +565,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A token identifying a page of results to return. This should be a
- *  `next_page_token` value returned from a previous `ListServices`
- *  call. If unspecified, the first page of results is returned.
+ *  `next_page_token` value returned from a previous `ListServices` call. If
+ *  unspecified, the first page of results is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -593,6 +591,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbilling.services.skus.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudbillingCloudBilling
+ *    @c kGTLRAuthScopeCloudbillingCloudBillingReadonly
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ServicesSkusList : GTLRCloudbillingQuery
@@ -600,19 +600,18 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudbilling queryForServicesSkusListWithparent:]
 
 /**
- *  The ISO 4217 currency code for the pricing info in the response proto.
- *  Will use the conversion rate as of start_time.
- *  Optional. If not specified USD will be used.
+ *  The ISO 4217 currency code for the pricing info in the response proto. Will
+ *  use the conversion rate as of start_time. Optional. If not specified USD
+ *  will be used.
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Optional exclusive end time of the time range for which the pricing
- *  versions will be returned. Timestamps in the future are not allowed.
- *  The time range has to be within a single calendar month in
- *  America/Los_Angeles timezone. Time range as a whole is optional. If not
- *  specified, the latest pricing will be returned (up to 12 hours old at
- *  most).
+ *  Optional exclusive end time of the time range for which the pricing versions
+ *  will be returned. Timestamps in the future are not allowed. The time range
+ *  has to be within a single calendar month in America/Los_Angeles timezone.
+ *  Time range as a whole is optional. If not specified, the latest pricing will
+ *  be returned (up to 12 hours old at most).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -621,24 +620,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A token identifying a page of results to return. This should be a
- *  `next_page_token` value returned from a previous `ListSkus`
- *  call. If unspecified, the first page of results is returned.
+ *  `next_page_token` value returned from a previous `ListSkus` call. If
+ *  unspecified, the first page of results is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  Required. The name of the service.
- *  Example: "services/DA34-426B-A397"
- */
+/** Required. The name of the service. Example: "services/DA34-426B-A397" */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional inclusive start time of the time range for which the pricing
- *  versions will be returned. Timestamps in the future are not allowed.
- *  The time range has to be within a single calendar month in
- *  America/Los_Angeles timezone. Time range as a whole is optional. If not
- *  specified, the latest pricing will be returned (up to 12 hours old at
- *  most).
+ *  versions will be returned. Timestamps in the future are not allowed. The
+ *  time range has to be within a single calendar month in America/Los_Angeles
+ *  timezone. Time range as a whole is optional. If not specified, the latest
+ *  pricing will be returned (up to 12 hours old at most).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -647,8 +642,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all publicly available SKUs for a given cloud service.
  *
- *  @param parent Required. The name of the service.
- *    Example: "services/DA34-426B-A397"
+ *  @param parent Required. The name of the service. Example:
+ *    "services/DA34-426B-A397"
  *
  *  @return GTLRCloudbillingQuery_ServicesSkusList
  *

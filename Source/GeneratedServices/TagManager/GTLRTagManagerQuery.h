@@ -117,9 +117,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClickText;
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClickUrl;
 /** Value: "clientName" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeClientName;
-/** Value: "containerId" */
+/**
+ *  For web or mobile.
+ *
+ *  Value: "containerId"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeContainerId;
-/** Value: "containerVersion" */
+/**
+ *  For web or mobile.
+ *
+ *  Value: "containerVersion"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeContainerVersion;
 /** Value: "debugMode" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeDebugMode;
@@ -141,7 +149,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeErrorLine;
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeErrorMessage;
 /** Value: "errorUrl" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeErrorUrl;
-/** Value: "event" */
+/**
+ *  For web or mobile.
+ *
+ *  Value: "event"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeEvent;
 /** Value: "eventName" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeEventName;
@@ -235,7 +247,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypePageUrl;
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypePlatform;
 /** Value: "queryString" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeQueryString;
-/** Value: "randomNumber" */
+/**
+ *  For web or mobile.
+ *
+ *  Value: "randomNumber"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeRandomNumber;
 /** Value: "referrer" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeReferrer;
@@ -296,10 +312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 // Previous library name was
 //   +[GTLQueryTagManager queryForAccountsContainersCreateWithObject:parent:]
 
-/**
- *  GTM Account's API relative path.
- *  Example: accounts/{account_id}.
- */
+/** GTM Account's API relative path. Example: accounts/{account_id}. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -308,8 +321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a Container.
  *
  *  @param object The @c GTLRTagManager_Container to include in the query.
- *  @param parent GTM Account's API relative path.
- *    Example: accounts/{account_id}.
+ *  @param parent GTM Account's API relative path. Example:
+ *    accounts/{account_id}.
  *
  *  @return GTLRTagManagerQuery_AccountsContainersCreate
  */
@@ -331,8 +344,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersDeleteWithpath:]
 
 /**
- *  GTM Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -342,8 +355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a Container.
  *
- *  @param path GTM Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param path GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersDelete
  */
@@ -364,8 +377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsCreateWithObject:parent:]
 
 /**
- *  GTM Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -375,8 +388,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Environment.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param parent GTM Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsCreate
  */
@@ -398,8 +411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsDeleteWithpath:]
 
 /**
- *  GTM Environment's API relative path.
- *  Example:
+ *  GTM Environment's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -410,8 +422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Environment.
  *
- *  @param path GTM Environment's API relative path.
- *    Example:
+ *  @param path GTM Environment's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsDelete
@@ -434,8 +445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsGetWithpath:]
 
 /**
- *  GTM Environment's API relative path.
- *  Example:
+ *  GTM Environment's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -445,8 +455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Environment.
  *
- *  @param path GTM Environment's API relative path.
- *    Example:
+ *  @param path GTM Environment's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsGet
@@ -472,8 +481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -482,8 +491,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Environments of a GTM Container.
  *
- *  @param parent GTM Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsList
  *
@@ -508,8 +517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsReauthorizeWithObject:path:]
 
 /**
- *  GTM Environment's API relative path.
- *  Example:
+ *  GTM Environment's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -520,8 +528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Re-generates the authorization code for a GTM Environment.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param path GTM Environment's API relative path.
- *    Example:
+ *  @param path GTM Environment's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsReauthorize
@@ -550,8 +557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Environment's API relative path.
- *  Example:
+ *  GTM Environment's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -562,8 +568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Environment.
  *
  *  @param object The @c GTLRTagManager_Environment to include in the query.
- *  @param path GTM Environment's API relative path.
- *    Example:
+ *  @param path GTM Environment's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/environments/{environment_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersEnvironmentsUpdate
@@ -587,8 +592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersGetWithpath:]
 
 /**
- *  GTM Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -597,8 +602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a Container.
  *
- *  @param path GTM Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param path GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersGet
  */
@@ -622,10 +627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  GTM Accounts's API relative path.
- *  Example: accounts/{account_id}.
- */
+/** GTM Accounts's API relative path. Example: accounts/{account_id}. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -633,8 +635,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all Containers that belongs to a GTM Account.
  *
- *  @param parent GTM Accounts's API relative path.
- *    Example: accounts/{account_id}.
+ *  @param parent GTM Accounts's API relative path. Example:
+ *    accounts/{account_id}.
  *
  *  @return GTLRTagManagerQuery_AccountsContainersList
  *
@@ -659,14 +661,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the
- *  container in storage.
+ *  When provided, this fingerprint must match the fingerprint of the container
+ *  in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -676,8 +678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a Container.
  *
  *  @param object The @c GTLRTagManager_Container to include in the query.
- *  @param path GTM Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param path GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersUpdate
  */
@@ -700,8 +702,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionHeadersLatestWithparent:]
 
 /**
- *  GTM Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -710,8 +712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets the latest container version header
  *
- *  @param parent GTM Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionHeadersLatest
  */
@@ -740,8 +742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -750,8 +752,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all Container Versions of a GTM Container.
  *
- *  @param parent GTM Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionHeadersList
  *
@@ -776,8 +778,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsDeleteWithpath:]
 
 /**
- *  GTM ContainerVersion's API relative path.
- *  Example:
+ *  GTM ContainerVersion's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -788,8 +789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a Container Version.
  *
- *  @param path GTM ContainerVersion's API relative path.
- *    Example:
+ *  @param path GTM ContainerVersion's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsDelete
@@ -813,14 +813,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsGetWithpath:]
 
 /**
- *  The GTM ContainerVersion ID. Specify <code>published</code> to retrieve
- *  the currently published version.
+ *  The GTM ContainerVersion ID. Specify published to retrieve the currently
+ *  published version.
  */
 @property(nonatomic, copy, nullable) NSString *containerVersionId;
 
 /**
- *  GTM ContainerVersion's API relative path.
- *  Example:
+ *  GTM ContainerVersion's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -830,8 +829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a Container Version.
  *
- *  @param path GTM ContainerVersion's API relative path.
- *    Example:
+ *  @param path GTM ContainerVersion's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsGet
@@ -854,8 +852,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsLiveWithparent:]
 
 /**
- *  GTM Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -864,8 +862,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets the live (i.e. published) container version
  *
- *  @param parent GTM Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsLive
  */
@@ -886,14 +884,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsPublishWithpath:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the
- *  container version in storage.
+ *  When provided, this fingerprint must match the fingerprint of the container
+ *  version in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM ContainerVersion's API relative path.
- *  Example:
+ *  GTM ContainerVersion's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -903,8 +900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Publishes a Container Version.
  *
- *  @param path GTM ContainerVersion's API relative path.
- *    Example:
+ *  @param path GTM ContainerVersion's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsPublish
@@ -927,8 +923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsSetLatestWithpath:]
 
 /**
- *  GTM ContainerVersion's API relative path.
- *  Example:
+ *  GTM ContainerVersion's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -939,8 +934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Sets the latest version used for synchronization of workspaces when
  *  detecting conflicts and errors.
  *
- *  @param path GTM ContainerVersion's API relative path.
- *    Example:
+ *  @param path GTM ContainerVersion's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsSetLatest
@@ -962,8 +956,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsUndeleteWithpath:]
 
 /**
- *  GTM ContainerVersion's API relative path.
- *  Example:
+ *  GTM ContainerVersion's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -973,8 +966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Undeletes a Container Version.
  *
- *  @param path GTM ContainerVersion's API relative path.
- *    Example:
+ *  @param path GTM ContainerVersion's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsUndelete
@@ -996,14 +988,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersVersionsUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the
- *  container version in storage.
+ *  When provided, this fingerprint must match the fingerprint of the container
+ *  version in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM ContainerVersion's API relative path.
- *  Example:
+ *  GTM ContainerVersion's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/versions/{version_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1015,8 +1006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  @param object The @c GTLRTagManager_ContainerVersion to include in the
  *    query.
- *  @param path GTM ContainerVersion's API relative path.
- *    Example:
+ *  @param path GTM ContainerVersion's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/versions/{version_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersVersionsUpdate
@@ -1039,8 +1029,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesCreateWithparent:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1055,7 +1044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
  *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
- *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeEvent For web or mobile. (Value: "event")
  *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
  *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
  *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
@@ -1080,10 +1069,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
  *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
  *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
- *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion For web or mobile. (Value:
+ *        "containerVersion")
  *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
- *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
- *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber For web or mobile. (Value:
+ *        "randomNumber")
+ *    @arg @c kGTLRTagManagerTypeContainerId For web or mobile. (Value:
+ *        "containerId")
  *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
  *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
  *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
@@ -1201,8 +1193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Creates one or more GTM Built-In Variables.
  *
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesCreate
@@ -1224,8 +1215,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesDeleteWithpath:]
 
 /**
- *  GTM BuiltInVariable's API relative path.
- *  Example:
+ *  GTM BuiltInVariable's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1240,7 +1230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
  *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
- *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeEvent For web or mobile. (Value: "event")
  *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
  *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
  *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
@@ -1265,10 +1255,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
  *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
  *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
- *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion For web or mobile. (Value:
+ *        "containerVersion")
  *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
- *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
- *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber For web or mobile. (Value:
+ *        "randomNumber")
+ *    @arg @c kGTLRTagManagerTypeContainerId For web or mobile. (Value:
+ *        "containerId")
  *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
  *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
  *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
@@ -1387,8 +1380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes one or more GTM Built-In Variables.
  *
- *  @param path GTM BuiltInVariable's API relative path.
- *    Example:
+ *  @param path GTM BuiltInVariable's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesDelete
@@ -1414,8 +1406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1425,8 +1416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all the enabled Built-In Variables of a GTM Container.
  *
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesList
@@ -1452,8 +1442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesRevertWithpath:]
 
 /**
- *  GTM BuiltInVariable's API relative path.
- *  Example:
+ *  GTM BuiltInVariable's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1468,7 +1457,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypePageHostname Value "pageHostname"
  *    @arg @c kGTLRTagManagerTypePagePath Value "pagePath"
  *    @arg @c kGTLRTagManagerTypeReferrer Value "referrer"
- *    @arg @c kGTLRTagManagerTypeEvent Value "event"
+ *    @arg @c kGTLRTagManagerTypeEvent For web or mobile. (Value: "event")
  *    @arg @c kGTLRTagManagerTypeClickElement Value "clickElement"
  *    @arg @c kGTLRTagManagerTypeClickClasses Value "clickClasses"
  *    @arg @c kGTLRTagManagerTypeClickId Value "clickId"
@@ -1493,10 +1482,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeNewHistoryState Value "newHistoryState"
  *    @arg @c kGTLRTagManagerTypeOldHistoryState Value "oldHistoryState"
  *    @arg @c kGTLRTagManagerTypeHistorySource Value "historySource"
- *    @arg @c kGTLRTagManagerTypeContainerVersion Value "containerVersion"
+ *    @arg @c kGTLRTagManagerTypeContainerVersion For web or mobile. (Value:
+ *        "containerVersion")
  *    @arg @c kGTLRTagManagerTypeDebugMode Value "debugMode"
- *    @arg @c kGTLRTagManagerTypeRandomNumber Value "randomNumber"
- *    @arg @c kGTLRTagManagerTypeContainerId Value "containerId"
+ *    @arg @c kGTLRTagManagerTypeRandomNumber For web or mobile. (Value:
+ *        "randomNumber")
+ *    @arg @c kGTLRTagManagerTypeContainerId For web or mobile. (Value:
+ *        "containerId")
  *    @arg @c kGTLRTagManagerTypeAppId Value "appId"
  *    @arg @c kGTLRTagManagerTypeAppName Value "appName"
  *    @arg @c kGTLRTagManagerTypeAppVersionCode Value "appVersionCode"
@@ -1614,8 +1606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Built-In Variables in a GTM Workspace.
  *
- *  @param path GTM BuiltInVariable's API relative path.
- *    Example:
+ *  @param path GTM BuiltInVariable's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/built_in_variables
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesRevert
@@ -1637,8 +1628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesCreateWithObject:parent:]
 
 /**
- *  GTM parent Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM parent Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1648,8 +1639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a Workspace.
  *
  *  @param object The @c GTLRTagManager_Workspace to include in the query.
- *  @param parent GTM parent Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM parent Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesCreate
  */
@@ -1673,8 +1664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesCreateVersionWithObject:path:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1689,8 +1679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  @param object The @c
  *    GTLRTagManager_CreateContainerVersionRequestVersionOptions to include in
  *    the query.
- *  @param path GTM Workspace's API relative path.
- *    Example:
+ *  @param path GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesCreateVersion
@@ -1713,8 +1702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesDeleteWithpath:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1725,8 +1713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a Workspace.
  *
- *  @param path GTM Workspace's API relative path.
- *    Example:
+ *  @param path GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesDelete
@@ -1748,8 +1735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1760,8 +1746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Folder.
  *
  *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersCreate
@@ -1784,8 +1769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersDeleteWithpath:]
 
 /**
- *  GTM Folder's API relative path.
- *  Example:
+ *  GTM Folder's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1796,8 +1780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Folder.
  *
- *  @param path GTM Folder's API relative path.
- *    Example:
+ *  @param path GTM Folder's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersDelete
@@ -1823,8 +1806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Folder's API relative path.
- *  Example:
+ *  GTM Folder's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1834,8 +1816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  List all entities in a GTM Folder.
  *
- *  @param path GTM Folder's API relative path.
- *    Example:
+ *  @param path GTM Folder's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersEntities
@@ -1858,8 +1839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersGetWithpath:]
 
 /**
- *  GTM Folder's API relative path.
- *  Example:
+ *  GTM Folder's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1869,8 +1849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Folder.
  *
- *  @param path GTM Folder's API relative path.
- *    Example:
+ *  @param path GTM Folder's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersGet
@@ -1896,8 +1875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1907,8 +1885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Folders of a Container.
  *
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersList
@@ -1934,8 +1911,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersMoveEntitiesToFolderWithObject:path:]
 
 /**
- *  GTM Folder's API relative path.
- *  Example:
+ *  GTM Folder's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1956,8 +1932,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Moves entities to a GTM Folder.
  *
  *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param path GTM Folder's API relative path.
- *    Example:
+ *  @param path GTM Folder's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersMoveEntitiesToFolder
@@ -1980,14 +1955,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersRevertWithpath:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the tag
- *  in storage.
+ *  When provided, this fingerprint must match the fingerprint of the tag in
+ *  storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Folder's API relative path.
- *  Example:
+ *  GTM Folder's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -1997,8 +1971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Folder in a GTM Workspace.
  *
- *  @param path GTM Folder's API relative path.
- *    Example:
+ *  @param path GTM Folder's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersRevert
@@ -2026,8 +1999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Folder's API relative path.
- *  Example:
+ *  GTM Folder's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2038,8 +2010,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Folder.
  *
  *  @param object The @c GTLRTagManager_Folder to include in the query.
- *  @param path GTM Folder's API relative path.
- *    Example:
+ *  @param path GTM Folder's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/folders/{folder_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersUpdate
@@ -2063,8 +2034,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetWithpath:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2074,8 +2044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a Workspace.
  *
- *  @param path GTM Workspace's API relative path.
- *    Example:
+ *  @param path GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGet
@@ -2098,8 +2067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetStatusWithpath:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2109,8 +2077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Finds conflicting and modified entities in the workspace.
  *
- *  @param path GTM Workspace's API relative path.
- *    Example:
+ *  @param path GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesGetStatus
@@ -2136,8 +2103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM parent Container's API relative path.
- *  Example: accounts/{account_id}/containers/{container_id}
+ *  GTM parent Container's API relative path. Example:
+ *  accounts/{account_id}/containers/{container_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2146,8 +2113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all Workspaces that belong to a GTM Container.
  *
- *  @param parent GTM parent Container's API relative path.
- *    Example: accounts/{account_id}/containers/{container_id}
+ *  @param parent GTM parent Container's API relative path. Example:
+ *    accounts/{account_id}/containers/{container_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesList
  *
@@ -2173,8 +2140,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesQuickPreviewWithpath:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2185,8 +2151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Quick previews a workspace by creating a fake container version from all
  *  entities in the provided workspace.
  *
- *  @param path GTM Workspace's API relative path.
- *    Example:
+ *  @param path GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesQuickPreview
@@ -2215,8 +2180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2229,8 +2193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  resolved entity passed in the request.
  *
  *  @param object The @c GTLRTagManager_Entity to include in the query.
- *  @param path GTM Workspace's API relative path.
- *    Example:
+ *  @param path GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesResolveConflict
@@ -2241,9 +2204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @end
 
 /**
- *  Syncs a workspace to the latest container version by updating all
- *  unmodified workspace entities and displaying conflicts for modified
- *  entities.
+ *  Syncs a workspace to the latest container version by updating all unmodified
+ *  workspace entities and displaying conflicts for modified entities.
  *
  *  Method: tagmanager.accounts.containers.workspaces.sync
  *
@@ -2255,8 +2217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesSyncWithpath:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2264,12 +2225,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 /**
  *  Fetches a @c GTLRTagManager_SyncWorkspaceResponse.
  *
- *  Syncs a workspace to the latest container version by updating all
- *  unmodified workspace entities and displaying conflicts for modified
- *  entities.
+ *  Syncs a workspace to the latest container version by updating all unmodified
+ *  workspace entities and displaying conflicts for modified entities.
  *
- *  @param path GTM Workspace's API relative path.
- *    Example:
+ *  @param path GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesSync
@@ -2291,8 +2250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2303,8 +2261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Tag.
  *
  *  @param object The @c GTLRTagManager_Tag to include in the query.
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsCreate
@@ -2327,8 +2284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsDeleteWithpath:]
 
 /**
- *  GTM Tag's API relative path.
- *  Example:
+ *  GTM Tag's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2339,8 +2295,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Tag.
  *
- *  @param path GTM Tag's API relative path.
- *    Example:
+ *  @param path GTM Tag's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsDelete
@@ -2363,8 +2318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsGetWithpath:]
 
 /**
- *  GTM Tag's API relative path.
- *  Example:
+ *  GTM Tag's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2374,8 +2328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Tag.
  *
- *  @param path GTM Tag's API relative path.
- *    Example:
+ *  @param path GTM Tag's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsGet
@@ -2401,8 +2354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2412,8 +2364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Tags of a Container.
  *
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsList
@@ -2439,14 +2390,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsRevertWithpath:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of thetag
- *  in storage.
+ *  When provided, this fingerprint must match the fingerprint of thetag in
+ *  storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Tag's API relative path.
- *  Example:
+ *  GTM Tag's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2456,8 +2406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Tag in a GTM Workspace.
  *
- *  @param path GTM Tag's API relative path.
- *    Example:
+ *  @param path GTM Tag's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsRevert
@@ -2485,8 +2434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Tag's API relative path.
- *  Example:
+ *  GTM Tag's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2497,8 +2445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Tag.
  *
  *  @param object The @c GTLRTagManager_Tag to include in the query.
- *  @param path GTM Tag's API relative path.
- *    Example:
+ *  @param path GTM Tag's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/tags/{tag_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTagsUpdate
@@ -2521,8 +2468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2533,8 +2479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Custom Template.
  *
  *  @param object The @c GTLRTagManager_CustomTemplate to include in the query.
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesCreate
@@ -2557,8 +2502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesDeleteWithpath:]
 
 /**
- *  GTM Custom Template's API relative path.
- *  Example:
+ *  GTM Custom Template's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2569,8 +2513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Template.
  *
- *  @param path GTM Custom Template's API relative path.
- *    Example:
+ *  @param path GTM Custom Template's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesDelete
@@ -2593,8 +2536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesGetWithpath:]
 
 /**
- *  GTM Custom Template's API relative path.
- *  Example:
+ *  GTM Custom Template's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2604,8 +2546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Template.
  *
- *  @param path GTM Custom Template's API relative path.
- *    Example:
+ *  @param path GTM Custom Template's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesGet
@@ -2631,8 +2572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2642,8 +2582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Templates of a GTM container workspace.
  *
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesList
@@ -2675,8 +2614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Custom Template's API relative path.
- *  Example:
+ *  GTM Custom Template's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2686,8 +2624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Template in a GTM Workspace.
  *
- *  @param path GTM Custom Template's API relative path.
- *    Example:
+ *  @param path GTM Custom Template's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesRevert
@@ -2715,8 +2652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Custom Template's API relative path.
- *  Example:
+ *  GTM Custom Template's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2727,8 +2663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Template.
  *
  *  @param object The @c GTLRTagManager_CustomTemplate to include in the query.
- *  @param path GTM Custom Template's API relative path.
- *    Example:
+ *  @param path GTM Custom Template's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/templates/{template_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesUpdate
@@ -2751,8 +2686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersCreateWithObject:parent:]
 
 /**
- *  GTM Workspaces's API relative path.
- *  Example:
+ *  GTM Workspaces's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2763,8 +2697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Trigger.
  *
  *  @param object The @c GTLRTagManager_Trigger to include in the query.
- *  @param parent GTM Workspaces's API relative path.
- *    Example:
+ *  @param parent GTM Workspaces's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersCreate
@@ -2787,8 +2720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersDeleteWithpath:]
 
 /**
- *  GTM Trigger's API relative path.
- *  Example:
+ *  GTM Trigger's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2799,8 +2731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Trigger.
  *
- *  @param path GTM Trigger's API relative path.
- *    Example:
+ *  @param path GTM Trigger's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersDelete
@@ -2823,8 +2754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersGetWithpath:]
 
 /**
- *  GTM Trigger's API relative path.
- *  Example:
+ *  GTM Trigger's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2834,8 +2764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Trigger.
  *
- *  @param path GTM Trigger's API relative path.
- *    Example:
+ *  @param path GTM Trigger's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersGet
@@ -2861,8 +2790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspaces's API relative path.
- *  Example:
+ *  GTM Workspaces's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2872,8 +2800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Triggers of a Container.
  *
- *  @param parent GTM Workspaces's API relative path.
- *    Example:
+ *  @param parent GTM Workspaces's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersList
@@ -2899,14 +2826,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersRevertWithpath:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the trigger
- *  in storage.
+ *  When provided, this fingerprint must match the fingerprint of the trigger in
+ *  storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Trigger's API relative path.
- *  Example:
+ *  GTM Trigger's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2916,8 +2842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Trigger in a GTM Workspace.
  *
- *  @param path GTM Trigger's API relative path.
- *    Example:
+ *  @param path GTM Trigger's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersRevert
@@ -2939,14 +2864,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the trigger
- *  in storage.
+ *  When provided, this fingerprint must match the fingerprint of the trigger in
+ *  storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Trigger's API relative path.
- *  Example:
+ *  GTM Trigger's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2957,8 +2881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Trigger.
  *
  *  @param object The @c GTLRTagManager_Trigger to include in the query.
- *  @param path GTM Trigger's API relative path.
- *    Example:
+ *  @param path GTM Trigger's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/triggers/{trigger_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersUpdate
@@ -2981,14 +2904,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the
- *  workspace in storage.
+ *  When provided, this fingerprint must match the fingerprint of the workspace
+ *  in storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -2999,8 +2921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a Workspace.
  *
  *  @param object The @c GTLRTagManager_Workspace to include in the query.
- *  @param path GTM Workspace's API relative path.
- *    Example:
+ *  @param path GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesUpdate
@@ -3023,8 +2944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3035,8 +2955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Variable.
  *
  *  @param object The @c GTLRTagManager_Variable to include in the query.
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesCreate
@@ -3059,8 +2978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesDeleteWithpath:]
 
 /**
- *  GTM Variable's API relative path.
- *  Example:
+ *  GTM Variable's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3071,8 +2989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Variable.
  *
- *  @param path GTM Variable's API relative path.
- *    Example:
+ *  @param path GTM Variable's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesDelete
@@ -3095,8 +3012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesGetWithpath:]
 
 /**
- *  GTM Variable's API relative path.
- *  Example:
+ *  GTM Variable's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3106,8 +3022,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Variable.
  *
- *  @param path GTM Variable's API relative path.
- *    Example:
+ *  @param path GTM Variable's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesGet
@@ -3133,8 +3048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3144,8 +3058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Variables of a Container.
  *
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesList
@@ -3177,8 +3090,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Variable's API relative path.
- *  Example:
+ *  GTM Variable's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3188,8 +3100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Variable in a GTM Workspace.
  *
- *  @param path GTM Variable's API relative path.
- *    Example:
+ *  @param path GTM Variable's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesRevert
@@ -3217,8 +3128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Variable's API relative path.
- *  Example:
+ *  GTM Variable's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3229,8 +3139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Variable.
  *
  *  @param object The @c GTLRTagManager_Variable to include in the query.
- *  @param path GTM Variable's API relative path.
- *    Example:
+ *  @param path GTM Variable's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/variables/{variable_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesUpdate
@@ -3253,8 +3162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesCreateWithObject:parent:]
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3265,8 +3173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a GTM Zone.
  *
  *  @param object The @c GTLRTagManager_Zone to include in the query.
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesCreate
@@ -3289,8 +3196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesDeleteWithpath:]
 
 /**
- *  GTM Zone's API relative path.
- *  Example:
+ *  GTM Zone's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3301,8 +3207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Deletes a GTM Zone.
  *
- *  @param path GTM Zone's API relative path.
- *    Example:
+ *  @param path GTM Zone's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesDelete
@@ -3325,8 +3230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesGetWithpath:]
 
 /**
- *  GTM Zone's API relative path.
- *  Example:
+ *  GTM Zone's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3336,8 +3240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Zone.
  *
- *  @param path GTM Zone's API relative path.
- *    Example:
+ *  @param path GTM Zone's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesGet
@@ -3363,8 +3266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  GTM Workspace's API relative path.
- *  Example:
+ *  GTM Workspace's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3374,8 +3276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Lists all GTM Zones of a GTM container workspace.
  *
- *  @param parent GTM Workspace's API relative path.
- *    Example:
+ *  @param parent GTM Workspace's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesList
@@ -3407,8 +3308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Zone's API relative path.
- *  Example:
+ *  GTM Zone's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3418,8 +3318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Reverts changes to a GTM Zone in a GTM Workspace.
  *
- *  @param path GTM Zone's API relative path.
- *    Example:
+ *  @param path GTM Zone's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesRevert
@@ -3447,8 +3346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  GTM Zone's API relative path.
- *  Example:
+ *  GTM Zone's API relative path. Example:
  *  accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3459,8 +3357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Zone.
  *
  *  @param object The @c GTLRTagManager_Zone to include in the query.
- *  @param path GTM Zone's API relative path.
- *    Example:
+ *  @param path GTM Zone's API relative path. Example:
  *    accounts/{account_id}/containers/{container_id}/workspaces/{workspace_id}/zones/{zone_id}
  *
  *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesZonesUpdate
@@ -3484,10 +3381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 // Previous library name was
 //   +[GTLQueryTagManager queryForAccountsGetWithpath:]
 
-/**
- *  GTM Accounts's API relative path.
- *  Example: accounts/{account_id}
- */
+/** GTM Accounts's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
@@ -3495,8 +3389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a GTM Account.
  *
- *  @param path GTM Accounts's API relative path.
- *    Example: accounts/{account_id}
+ *  @param path GTM Accounts's API relative path. Example: accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsGet
  */
@@ -3549,15 +3442,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsUpdateWithObject:path:]
 
 /**
- *  When provided, this fingerprint must match the fingerprint of the account
- *  in storage.
+ *  When provided, this fingerprint must match the fingerprint of the account in
+ *  storage.
  */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/**
- *  GTM Accounts's API relative path.
- *  Example: accounts/{account_id}
- */
+/** GTM Accounts's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
@@ -3566,8 +3456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a GTM Account.
  *
  *  @param object The @c GTLRTagManager_Account to include in the query.
- *  @param path GTM Accounts's API relative path.
- *    Example: accounts/{account_id}
+ *  @param path GTM Accounts's API relative path. Example: accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUpdate
  */
@@ -3588,10 +3477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 // Previous library name was
 //   +[GTLQueryTagManager queryForAccountsUserPermissionsCreateWithObject:parent:]
 
-/**
- *  GTM Account's API relative path.
- *  Example: accounts/{account_id}
- */
+/** GTM Account's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3600,8 +3486,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Creates a user's Account & Container access.
  *
  *  @param object The @c GTLRTagManager_UserPermission to include in the query.
- *  @param parent GTM Account's API relative path.
- *    Example: accounts/{account_id}
+ *  @param parent GTM Account's API relative path. Example:
+ *    accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsCreate
  */
@@ -3624,8 +3510,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsUserPermissionsDeleteWithpath:]
 
 /**
- *  GTM UserPermission's API relative path.
- *  Example: accounts/{account_id}/user_permissions/{user_permission_id}
+ *  GTM UserPermission's API relative path. Example:
+ *  accounts/{account_id}/user_permissions/{user_permission_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3636,8 +3522,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Removes a user from the account, revoking access to it and all of its
  *  containers.
  *
- *  @param path GTM UserPermission's API relative path.
- *    Example: accounts/{account_id}/user_permissions/{user_permission_id}
+ *  @param path GTM UserPermission's API relative path. Example:
+ *    accounts/{account_id}/user_permissions/{user_permission_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsDelete
  */
@@ -3658,8 +3544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsUserPermissionsGetWithpath:]
 
 /**
- *  GTM UserPermission's API relative path.
- *  Example: accounts/{account_id}/user_permissions/{user_permission_id}
+ *  GTM UserPermission's API relative path. Example:
+ *  accounts/{account_id}/user_permissions/{user_permission_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3668,8 +3554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *
  *  Gets a user's Account & Container access.
  *
- *  @param path GTM UserPermission's API relative path.
- *    Example: accounts/{account_id}/user_permissions/{user_permission_id}
+ *  @param path GTM UserPermission's API relative path. Example:
+ *    accounts/{account_id}/user_permissions/{user_permission_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsGet
  */
@@ -3693,10 +3579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  GTM Accounts's API relative path.
- *  Example: accounts/{account_id}
- */
+/** GTM Accounts's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -3705,8 +3588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  List all users that have access to the account along with Account and
  *  Container user access granted to each of them.
  *
- *  @param parent GTM Accounts's API relative path.
- *    Example: accounts/{account_id}
+ *  @param parent GTM Accounts's API relative path. Example:
+ *    accounts/{account_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsList
  *
@@ -3731,8 +3614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
 //   +[GTLQueryTagManager queryForAccountsUserPermissionsUpdateWithObject:path:]
 
 /**
- *  GTM UserPermission's API relative path.
- *  Example: accounts/{account_id}/user_permissions/{user_permission_id}
+ *  GTM UserPermission's API relative path. Example:
+ *  accounts/{account_id}/user_permissions/{user_permission_id}
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3742,8 +3625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *  Updates a user's Account & Container access.
  *
  *  @param object The @c GTLRTagManager_UserPermission to include in the query.
- *  @param path GTM UserPermission's API relative path.
- *    Example: accounts/{account_id}/user_permissions/{user_permission_id}
+ *  @param path GTM UserPermission's API relative path. Example:
+ *    accounts/{account_id}/user_permissions/{user_permission_id}
  *
  *  @return GTLRTagManagerQuery_AccountsUserPermissionsUpdate
  */

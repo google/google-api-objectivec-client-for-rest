@@ -36,13 +36,38 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // suggestionsViewMode
 
-/** Value: "DEFAULT_FOR_CURRENT_ACCESS" */
+/**
+ *  The SuggestionsViewMode applied to the returned document depends on the
+ *  user's current access level. If the user only has view access,
+ *  PREVIEW_WITHOUT_SUGGESTIONS is applied. Otherwise, SUGGESTIONS_INLINE is
+ *  applied. This is the default suggestions view mode.
+ *
+ *  Value: "DEFAULT_FOR_CURRENT_ACCESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeDefaultForCurrentAccess;
-/** Value: "PREVIEW_SUGGESTIONS_ACCEPTED" */
+/**
+ *  The returned document is a preview with all suggested changes accepted.
+ *  Requests to retrieve a document using this mode will return a 403 error if
+ *  the user does not have permission to view suggested changes.
+ *
+ *  Value: "PREVIEW_SUGGESTIONS_ACCEPTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModePreviewSuggestionsAccepted;
-/** Value: "PREVIEW_WITHOUT_SUGGESTIONS" */
+/**
+ *  The returned document is a preview with all suggested changes rejected if
+ *  there are any suggestions in the document.
+ *
+ *  Value: "PREVIEW_WITHOUT_SUGGESTIONS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModePreviewWithoutSuggestions;
-/** Value: "SUGGESTIONS_INLINE" */
+/**
+ *  The returned document has suggestions inline. Suggested changes will be
+ *  differentiated from base content within the document. Requests to retrieve a
+ *  document using this mode will return a 403 error if the user does not have
+ *  permission to view suggested changes.
+ *
+ *  Value: "SUGGESTIONS_INLINE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline;
 
 // ----------------------------------------------------------------------------
@@ -60,23 +85,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
 @end
 
 /**
- *  Applies one or more updates to the document.
- *  Each request is validated before
- *  being applied. If any request is not valid, then the entire request will
- *  fail and nothing will be applied.
- *  Some requests have replies to
- *  give you some information about how they are applied. Other requests do
- *  not need to return information; these each return an empty reply.
- *  The order of replies matches that of the requests.
- *  For example, suppose you call batchUpdate with four updates, and only the
- *  third one returns information. The response would have two empty replies,
- *  the reply to the third request, and another empty reply, in that order.
- *  Because other users may be editing the document, the document
- *  might not exactly reflect your changes: your changes may
- *  be altered with respect to collaborator changes. If there are no
- *  collaborators, the document should reflect your changes. In any case,
- *  the updates in your request are guaranteed to be applied together
- *  atomically.
+ *  Applies one or more updates to the document. Each request is validated
+ *  before being applied. If any request is not valid, then the entire request
+ *  will fail and nothing will be applied. Some requests have replies to give
+ *  you some information about how they are applied. Other requests do not need
+ *  to return information; these each return an empty reply. The order of
+ *  replies matches that of the requests. For example, suppose you call
+ *  batchUpdate with four updates, and only the third one returns information.
+ *  The response would have two empty replies, the reply to the third request,
+ *  and another empty reply, in that order. Because other users may be editing
+ *  the document, the document might not exactly reflect your changes: your
+ *  changes may be altered with respect to collaborator changes. If there are no
+ *  collaborators, the document should reflect your changes. In any case, the
+ *  updates in your request are guaranteed to be applied together atomically.
  *
  *  Method: docs.documents.batchUpdate
  *
@@ -95,23 +116,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
 /**
  *  Fetches a @c GTLRDocs_BatchUpdateDocumentResponse.
  *
- *  Applies one or more updates to the document.
- *  Each request is validated before
- *  being applied. If any request is not valid, then the entire request will
- *  fail and nothing will be applied.
- *  Some requests have replies to
- *  give you some information about how they are applied. Other requests do
- *  not need to return information; these each return an empty reply.
- *  The order of replies matches that of the requests.
- *  For example, suppose you call batchUpdate with four updates, and only the
- *  third one returns information. The response would have two empty replies,
- *  the reply to the third request, and another empty reply, in that order.
- *  Because other users may be editing the document, the document
- *  might not exactly reflect your changes: your changes may
- *  be altered with respect to collaborator changes. If there are no
- *  collaborators, the document should reflect your changes. In any case,
- *  the updates in your request are guaranteed to be applied together
- *  atomically.
+ *  Applies one or more updates to the document. Each request is validated
+ *  before being applied. If any request is not valid, then the entire request
+ *  will fail and nothing will be applied. Some requests have replies to give
+ *  you some information about how they are applied. Other requests do not need
+ *  to return information; these each return an empty reply. The order of
+ *  replies matches that of the requests. For example, suppose you call
+ *  batchUpdate with four updates, and only the third one returns information.
+ *  The response would have two empty replies, the reply to the third request,
+ *  and another empty reply, in that order. Because other users may be editing
+ *  the document, the document might not exactly reflect your changes: your
+ *  changes may be altered with respect to collaborator changes. If there are no
+ *  collaborators, the document should reflect your changes. In any case, the
+ *  updates in your request are guaranteed to be applied together atomically.
  *
  *  @param object The @c GTLRDocs_BatchUpdateDocumentRequest to include in the
  *    query.
@@ -126,8 +143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
 
 /**
  *  Creates a blank document using the title given in the request. Other fields
- *  in the request, including any provided content, are ignored.
- *  Returns the created document.
+ *  in the request, including any provided content, are ignored. Returns the
+ *  created document.
  *
  *  Method: docs.documents.create
  *
@@ -144,8 +161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
  *  Fetches a @c GTLRDocs_Document.
  *
  *  Creates a blank document using the title given in the request. Other fields
- *  in the request, including any provided content, are ignored.
- *  Returns the created document.
+ *  in the request, including any provided content, are ignored. Returns the
+ *  created document.
  *
  *  @param object The @c GTLRDocs_Document to include in the query.
  *
@@ -177,18 +194,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDocsSuggestionsViewModeSuggestionsInline
 /**
  *  The suggestions view mode to apply to the document. This allows viewing the
  *  document with all suggestions inline, accepted or rejected. If one is not
- *  specified, DEFAULT_FOR_CURRENT_ACCESS is
- *  used.
+ *  specified, DEFAULT_FOR_CURRENT_ACCESS is used.
  *
  *  Likely values:
- *    @arg @c kGTLRDocsSuggestionsViewModeDefaultForCurrentAccess Value
- *        "DEFAULT_FOR_CURRENT_ACCESS"
- *    @arg @c kGTLRDocsSuggestionsViewModeSuggestionsInline Value
- *        "SUGGESTIONS_INLINE"
- *    @arg @c kGTLRDocsSuggestionsViewModePreviewSuggestionsAccepted Value
- *        "PREVIEW_SUGGESTIONS_ACCEPTED"
- *    @arg @c kGTLRDocsSuggestionsViewModePreviewWithoutSuggestions Value
- *        "PREVIEW_WITHOUT_SUGGESTIONS"
+ *    @arg @c kGTLRDocsSuggestionsViewModeDefaultForCurrentAccess The
+ *        SuggestionsViewMode applied to the returned document depends on the
+ *        user's current access level. If the user only has view access,
+ *        PREVIEW_WITHOUT_SUGGESTIONS is applied. Otherwise, SUGGESTIONS_INLINE
+ *        is applied. This is the default suggestions view mode. (Value:
+ *        "DEFAULT_FOR_CURRENT_ACCESS")
+ *    @arg @c kGTLRDocsSuggestionsViewModeSuggestionsInline The returned
+ *        document has suggestions inline. Suggested changes will be
+ *        differentiated from base content within the document. Requests to
+ *        retrieve a document using this mode will return a 403 error if the
+ *        user does not have permission to view suggested changes. (Value:
+ *        "SUGGESTIONS_INLINE")
+ *    @arg @c kGTLRDocsSuggestionsViewModePreviewSuggestionsAccepted The
+ *        returned document is a preview with all suggested changes accepted.
+ *        Requests to retrieve a document using this mode will return a 403
+ *        error if the user does not have permission to view suggested changes.
+ *        (Value: "PREVIEW_SUGGESTIONS_ACCEPTED")
+ *    @arg @c kGTLRDocsSuggestionsViewModePreviewWithoutSuggestions The returned
+ *        document is a preview with all suggested changes rejected if there are
+ *        any suggestions in the document. (Value:
+ *        "PREVIEW_WITHOUT_SUGGESTIONS")
  */
 @property(nonatomic, copy, nullable) NSString *suggestionsViewMode;
 

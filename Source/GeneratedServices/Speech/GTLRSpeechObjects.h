@@ -66,12 +66,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_AmrWb;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified;
 /**
- *  `FLAC` (Free Lossless Audio
- *  Codec) is the recommended encoding because it is
- *  lossless--therefore recognition is not compromised--and
- *  requires only about half the bandwidth of `LINEAR16`. `FLAC` stream
- *  encoding supports 16-bit and 24-bit samples, however, not all fields in
- *  `STREAMINFO` are supported.
+ *  `FLAC` (Free Lossless Audio Codec) is the recommended encoding because it is
+ *  lossless--therefore recognition is not compromised--and requires only about
+ *  half the bandwidth of `LINEAR16`. `FLAC` stream encoding supports 16-bit and
+ *  24-bit samples, however, not all fields in `STREAMINFO` are supported.
  *
  *  Value: "FLAC"
  */
@@ -90,26 +88,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Linear
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_Mulaw;
 /**
  *  Opus encoded audio frames in Ogg container
- *  ([OggOpus](https://wiki.xiph.org/OggOpus)).
- *  `sample_rate_hertz` must be one of 8000, 12000, 16000, 24000, or 48000.
+ *  ([OggOpus](https://wiki.xiph.org/OggOpus)). `sample_rate_hertz` must be one
+ *  of 8000, 12000, 16000, 24000, or 48000.
  *
  *  Value: "OGG_OPUS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_OggOpus;
 /**
  *  Although the use of lossy encodings is not recommended, if a very low
- *  bitrate encoding is required, `OGG_OPUS` is highly preferred over
- *  Speex encoding. The [Speex](https://speex.org/) encoding supported by
- *  Cloud Speech API has a header byte in each block, as in MIME type
- *  `audio/x-speex-with-header-byte`.
- *  It is a variant of the RTP Speex encoding defined in
- *  [RFC 5574](https://tools.ietf.org/html/rfc5574).
- *  The stream is a sequence of blocks, one block per RTP packet. Each block
- *  starts with a byte containing the length of the block, in bytes, followed
- *  by one or more frames of Speex data, padded to an integral number of
- *  bytes (octets) as specified in RFC 5574. In other words, each RTP header
- *  is replaced with a single byte containing the block length. Only Speex
- *  wideband is supported. `sample_rate_hertz` must be 16000.
+ *  bitrate encoding is required, `OGG_OPUS` is highly preferred over Speex
+ *  encoding. The [Speex](https://speex.org/) encoding supported by Cloud Speech
+ *  API has a header byte in each block, as in MIME type
+ *  `audio/x-speex-with-header-byte`. It is a variant of the RTP Speex encoding
+ *  defined in [RFC 5574](https://tools.ietf.org/html/rfc5574). The stream is a
+ *  sequence of blocks, one block per RTP packet. Each block starts with a byte
+ *  containing the length of the block, in bytes, followed by one or more frames
+ *  of Speex data, padded to an integral number of bytes (octets) as specified
+ *  in RFC 5574. In other words, each RTP header is replaced with a single byte
+ *  containing the block length. Only Speex wideband is supported.
+ *  `sample_rate_hertz` must be 16000.
  *
  *  Value: "SPEEX_WITH_HEADER_BYTE"
  */
@@ -126,10 +123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionConfig_Encoding_SpeexW
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_Dictation;
 /**
- *  Multiple people in a conversation or discussion. For example in a
- *  meeting with two or more people actively participating. Typically
- *  all the primary people speaking would be in the same room (if not,
- *  see PHONE_CALL)
+ *  Multiple people in a conversation or discussion. For example in a meeting
+ *  with two or more people actively participating. Typically all the primary
+ *  people speaking would be in the same room (if not, see PHONE_CALL)
  *
  *  Value: "DISCUSSION"
  */
@@ -142,15 +138,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_InteractionTypeUnspecified;
 /**
- *  A phone-call or video-conference in which two or more people, who are
- *  not in the same room, are actively participating.
+ *  A phone-call or video-conference in which two or more people, who are not in
+ *  the same room, are actively participating.
  *
  *  Value: "PHONE_CALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_InteractionType_PhoneCall;
 /**
- *  One or more persons lecturing or presenting to others, mostly
- *  uninterrupted.
+ *  One or more persons lecturing or presenting to others, mostly uninterrupted.
  *
  *  Value: "PRESENTATION"
  */
@@ -203,8 +198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDis
 FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Midfield;
 /**
  *  The audio was captured from a closely placed microphone. Eg. phone,
- *  dictaphone, or handheld microphone. Generally if there speaker is within
- *  1 meter of the microphone.
+ *  dictaphone, or handheld microphone. Generally if there speaker is within 1
+ *  meter of the microphone.
  *
  *  Value: "NEARFIELD"
  */
@@ -280,23 +275,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 /**
  *  Provides "hints" to the speech recognizer to favor specific words and
- *  phrases
- *  in the results.
+ *  phrases in the results.
  */
 @interface GTLRSpeech_Context : GTLRObject
 
 /**
- *  A list of strings containing words and phrases "hints" so that
- *  the speech recognition is more likely to recognize them. This can be used
- *  to improve the accuracy for specific words and phrases, for example, if
- *  specific commands are typically spoken by the user. This can also be used
- *  to add additional words to the vocabulary of the recognizer. See
- *  [usage limits](https://cloud.google.com/speech-to-text/quotas#content).
- *  List items can also be set to classes for groups of words that represent
- *  common concepts that occur in natural language. For example, rather than
- *  providing phrase hints for every month of the year, using the $MONTH class
- *  improves the likelihood of correctly transcribing audio that includes
- *  months.
+ *  A list of strings containing words and phrases "hints" so that the speech
+ *  recognition is more likely to recognize them. This can be used to improve
+ *  the accuracy for specific words and phrases, for example, if specific
+ *  commands are typically spoken by the user. This can also be used to add
+ *  additional words to the vocabulary of the recognizer. See [usage
+ *  limits](https://cloud.google.com/speech-to-text/quotas#content). List items
+ *  can also be set to classes for groups of words that represent common
+ *  concepts that occur in natural language. For example, rather than providing
+ *  phrase hints for every month of the year, using the $MONTH class improves
+ *  the likelihood of correctly transcribing audio that includes months.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *phrases;
 
@@ -350,8 +343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 /**
  *  Output only. The URI of the audio file being transcribed. Empty if the audio
- *  was sent
- *  as byte content.
+ *  was sent as byte content.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -378,17 +370,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 /**
  *  The only message returned to the client by the `LongRunningRecognize`
- *  method.
- *  It contains the result as zero or more sequential `SpeechRecognitionResult`
- *  messages. It is included in the `result.response` field of the `Operation`
- *  returned by the `GetOperation` call of the `google::longrunning::Operations`
- *  service.
+ *  method. It contains the result as zero or more sequential
+ *  `SpeechRecognitionResult` messages. It is included in the `result.response`
+ *  field of the `Operation` returned by the `GetOperation` call of the
+ *  `google::longrunning::Operations` service.
  */
 @interface GTLRSpeech_LongRunningRecognizeResponse : GTLRObject
 
 /**
- *  Sequential list of transcription results corresponding to
- *  sequential portions of audio.
+ *  Sequential list of transcription results corresponding to sequential
+ *  portions of audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
 
@@ -402,8 +393,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -415,16 +406,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -433,10 +424,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_Operation_Response *response;
 
@@ -445,8 +435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -463,10 +453,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -483,13 +472,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_RecognitionAlternative : GTLRObject
 
 /**
- *  The confidence estimate between 0.0 and 1.0. A higher number
- *  indicates an estimated greater likelihood that the recognized words are
- *  correct. This field is set only for the top alternative of a non-streaming
- *  result or, of a streaming result where `is_final=true`.
- *  This field is not guaranteed to be accurate and users should not rely on it
- *  to be always provided.
- *  The default of 0.0 is a sentinel value indicating `confidence` was not set.
+ *  The confidence estimate between 0.0 and 1.0. A higher number indicates an
+ *  estimated greater likelihood that the recognized words are correct. This
+ *  field is set only for the top alternative of a non-streaming result or, of a
+ *  streaming result where `is_final=true`. This field is not guaranteed to be
+ *  accurate and users should not rely on it to be always provided. The default
+ *  of 0.0 is a sentinel value indicating `confidence` was not set.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -499,9 +487,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @property(nonatomic, copy, nullable) NSString *transcript;
 
 /**
- *  A list of word-specific information for each recognized word.
- *  Note: When `enable_speaker_diarization` is true, you will see all the words
- *  from the beginning of the audio.
+ *  A list of word-specific information for each recognized word. Note: When
+ *  `enable_speaker_diarization` is true, you will see all the words from the
+ *  beginning of the audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_WordInfo *> *words;
 
@@ -511,15 +499,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 /**
  *  Contains audio data in the encoding specified in the `RecognitionConfig`.
  *  Either `content` or `uri` must be supplied. Supplying both or neither
- *  returns google.rpc.Code.INVALID_ARGUMENT. See
- *  [content limits](https://cloud.google.com/speech-to-text/quotas#content).
+ *  returns google.rpc.Code.INVALID_ARGUMENT. See [content
+ *  limits](https://cloud.google.com/speech-to-text/quotas#content).
  */
 @interface GTLRSpeech_RecognitionAudio : GTLRObject
 
 /**
- *  The audio data bytes encoded as specified in
- *  `RecognitionConfig`. Note: as with all bytes fields, proto buffers use a
- *  pure binary representation, whereas JSON representations use base64.
+ *  The audio data bytes encoded as specified in `RecognitionConfig`. Note: as
+ *  with all bytes fields, proto buffers use a pure binary representation,
+ *  whereas JSON representations use base64.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -529,10 +517,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 /**
  *  URI that points to a file that contains audio data bytes as specified in
  *  `RecognitionConfig`. The file must not be compressed (for example, gzip).
- *  Currently, only Google Cloud Storage URIs are
- *  supported, which must be specified in the following format:
- *  `gs://bucket_name/object_name` (other URI formats return
- *  google.rpc.Code.INVALID_ARGUMENT). For more information, see
+ *  Currently, only Google Cloud Storage URIs are supported, which must be
+ *  specified in the following format: `gs://bucket_name/object_name` (other URI
+ *  formats return google.rpc.Code.INVALID_ARGUMENT). For more information, see
  *  [Request URIs](https://cloud.google.com/storage/docs/reference-uris).
  */
 @property(nonatomic, copy, nullable) NSString *uri;
@@ -547,14 +534,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_RecognitionConfig : GTLRObject
 
 /**
- *  The number of channels in the input audio data.
- *  ONLY set this for MULTI-CHANNEL recognition.
- *  Valid values for LINEAR16 and FLAC are `1`-`8`.
- *  Valid values for OGG_OPUS are '1'-'254'.
- *  Valid value for MULAW, AMR, AMR_WB and SPEEX_WITH_HEADER_BYTE is only `1`.
- *  If `0` or omitted, defaults to one channel (mono).
- *  Note: We only recognize the first channel by default.
- *  To perform independent recognition on each channel set
+ *  The number of channels in the input audio data. ONLY set this for
+ *  MULTI-CHANNEL recognition. Valid values for LINEAR16 and FLAC are `1`-`8`.
+ *  Valid values for OGG_OPUS are '1'-'254'. Valid value for MULAW, AMR, AMR_WB
+ *  and SPEEX_WITH_HEADER_BYTE is only `1`. If `0` or omitted, defaults to one
+ *  channel (mono). Note: We only recognize the first channel by default. To
+ *  perform independent recognition on each channel set
  *  `enable_separate_recognition_per_channel` to 'true'.
  *
  *  Uses NSNumber of intValue.
@@ -562,53 +547,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @property(nonatomic, strong, nullable) NSNumber *audioChannelCount;
 
 /**
- *  Config to enable speaker diarization and set additional
- *  parameters to make diarization better suited for your application.
- *  Note: When this is enabled, we send all the words from the beginning of the
- *  audio for the top alternative in every consecutive STREAMING responses.
- *  This is done in order to improve our speaker tags as our models learn to
- *  identify the speakers in the conversation over time.
- *  For non-streaming requests, the diarization results will be provided only
- *  in the top alternative of the FINAL SpeechRecognitionResult.
+ *  Config to enable speaker diarization and set additional parameters to make
+ *  diarization better suited for your application. Note: When this is enabled,
+ *  we send all the words from the beginning of the audio for the top
+ *  alternative in every consecutive STREAMING responses. This is done in order
+ *  to improve our speaker tags as our models learn to identify the speakers in
+ *  the conversation over time. For non-streaming requests, the diarization
+ *  results will be provided only in the top alternative of the FINAL
+ *  SpeechRecognitionResult.
  */
 @property(nonatomic, strong, nullable) GTLRSpeech_SpeakerDiarizationConfig *diarizationConfig;
 
 /**
- *  If 'true', adds punctuation to recognition result hypotheses.
- *  This feature is only available in select languages. Setting this for
- *  requests in other languages has no effect at all.
- *  The default 'false' value does not add punctuation to result hypotheses.
+ *  If 'true', adds punctuation to recognition result hypotheses. This feature
+ *  is only available in select languages. Setting this for requests in other
+ *  languages has no effect at all. The default 'false' value does not add
+ *  punctuation to result hypotheses.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableAutomaticPunctuation;
 
 /**
- *  This needs to be set to `true` explicitly and `audio_channel_count` > 1
- *  to get each channel recognized separately. The recognition result will
- *  contain a `channel_tag` field to state which channel that result belongs
- *  to. If this is not true, we will only recognize the first channel. The
- *  request is billed cumulatively for all channels recognized:
- *  `audio_channel_count` multiplied by the length of the audio.
+ *  This needs to be set to `true` explicitly and `audio_channel_count` > 1 to
+ *  get each channel recognized separately. The recognition result will contain
+ *  a `channel_tag` field to state which channel that result belongs to. If this
+ *  is not true, we will only recognize the first channel. The request is billed
+ *  cumulatively for all channels recognized: `audio_channel_count` multiplied
+ *  by the length of the audio.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableSeparateRecognitionPerChannel;
 
 /**
- *  If `true`, the top result includes a list of words and
- *  the start and end time offsets (timestamps) for those words. If
- *  `false`, no word-level time offset information is returned. The default is
- *  `false`.
+ *  If `true`, the top result includes a list of words and the start and end
+ *  time offsets (timestamps) for those words. If `false`, no word-level time
+ *  offset information is returned. The default is `false`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableWordTimeOffsets;
 
 /**
- *  Encoding of audio data sent in all `RecognitionAudio` messages.
- *  This field is optional for `FLAC` and `WAV` audio files and required
- *  for all other audio formats. For details, see AudioEncoding.
+ *  Encoding of audio data sent in all `RecognitionAudio` messages. This field
+ *  is optional for `FLAC` and `WAV` audio files and required for all other
+ *  audio formats. For details, see AudioEncoding.
  *
  *  Likely values:
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Amr Adaptive Multi-Rate
@@ -618,20 +602,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_EncodingUnspecified Not
  *        specified. (Value: "ENCODING_UNSPECIFIED")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Flac `FLAC` (Free Lossless
- *        Audio
- *        Codec) is the recommended encoding because it is
- *        lossless--therefore recognition is not compromised--and
- *        requires only about half the bandwidth of `LINEAR16`. `FLAC` stream
- *        encoding supports 16-bit and 24-bit samples, however, not all fields
- *        in
+ *        Audio Codec) is the recommended encoding because it is
+ *        lossless--therefore recognition is not compromised--and requires only
+ *        about half the bandwidth of `LINEAR16`. `FLAC` stream encoding
+ *        supports 16-bit and 24-bit samples, however, not all fields in
  *        `STREAMINFO` are supported. (Value: "FLAC")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Linear16 Uncompressed
  *        16-bit signed little-endian samples (Linear PCM). (Value: "LINEAR16")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_Mulaw 8-bit samples that
  *        compand 14-bit audio samples using G.711 PCMU/mu-law. (Value: "MULAW")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_OggOpus Opus encoded audio
- *        frames in Ogg container
- *        ([OggOpus](https://wiki.xiph.org/OggOpus)).
+ *        frames in Ogg container ([OggOpus](https://wiki.xiph.org/OggOpus)).
  *        `sample_rate_hertz` must be one of 8000, 12000, 16000, 24000, or
  *        48000. (Value: "OGG_OPUS")
  *    @arg @c kGTLRSpeech_RecognitionConfig_Encoding_SpeexWithHeaderByte
@@ -639,39 +620,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *        bitrate encoding is required, `OGG_OPUS` is highly preferred over
  *        Speex encoding. The [Speex](https://speex.org/) encoding supported by
  *        Cloud Speech API has a header byte in each block, as in MIME type
- *        `audio/x-speex-with-header-byte`.
- *        It is a variant of the RTP Speex encoding defined in
- *        [RFC 5574](https://tools.ietf.org/html/rfc5574).
+ *        `audio/x-speex-with-header-byte`. It is a variant of the RTP Speex
+ *        encoding defined in [RFC 5574](https://tools.ietf.org/html/rfc5574).
  *        The stream is a sequence of blocks, one block per RTP packet. Each
- *        block
- *        starts with a byte containing the length of the block, in bytes,
- *        followed
- *        by one or more frames of Speex data, padded to an integral number of
- *        bytes (octets) as specified in RFC 5574. In other words, each RTP
- *        header
- *        is replaced with a single byte containing the block length. Only Speex
- *        wideband is supported. `sample_rate_hertz` must be 16000. (Value:
- *        "SPEEX_WITH_HEADER_BYTE")
+ *        block starts with a byte containing the length of the block, in bytes,
+ *        followed by one or more frames of Speex data, padded to an integral
+ *        number of bytes (octets) as specified in RFC 5574. In other words,
+ *        each RTP header is replaced with a single byte containing the block
+ *        length. Only Speex wideband is supported. `sample_rate_hertz` must be
+ *        16000. (Value: "SPEEX_WITH_HEADER_BYTE")
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
 /**
  *  Required. The language of the supplied audio as a
  *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
- *  Example: "en-US".
- *  See [Language
+ *  Example: "en-US". See [Language
  *  Support](https://cloud.google.com/speech-to-text/docs/languages) for a list
  *  of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Maximum number of recognition hypotheses to be returned.
- *  Specifically, the maximum number of `SpeechRecognitionAlternative` messages
- *  within each `SpeechRecognitionResult`.
- *  The server may return fewer than `max_alternatives`.
- *  Valid values are `0`-`30`. A value of `0` or `1` will return a maximum of
- *  one. If omitted, will return a maximum of one.
+ *  Maximum number of recognition hypotheses to be returned. Specifically, the
+ *  maximum number of `SpeechRecognitionAlternative` messages within each
+ *  `SpeechRecognitionResult`. The server may return fewer than
+ *  `max_alternatives`. Valid values are `0`-`30`. A value of `0` or `1` will
+ *  return a maximum of one. If omitted, will return a maximum of one.
  *
  *  Uses NSNumber of intValue.
  */
@@ -681,58 +656,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @property(nonatomic, strong, nullable) GTLRSpeech_RecognitionMetadata *metadata;
 
 /**
- *  Which model to select for the given request. Select the model
- *  best suited to your domain to get best results. If a model is not
- *  explicitly specified, then we auto-select a model based on the parameters
- *  in the RecognitionConfig.
- *  <table>
- *  <tr>
- *  <td><b>Model</b></td>
- *  <td><b>Description</b></td>
- *  </tr>
- *  <tr>
- *  <td><code>command_and_search</code></td>
- *  <td>Best for short queries such as voice commands or voice search.</td>
- *  </tr>
- *  <tr>
- *  <td><code>phone_call</code></td>
- *  <td>Best for audio that originated from a phone call (typically
- *  recorded at an 8khz sampling rate).</td>
- *  </tr>
- *  <tr>
- *  <td><code>video</code></td>
- *  <td>Best for audio that originated from from video or includes multiple
- *  speakers. Ideally the audio is recorded at a 16khz or greater
- *  sampling rate. This is a premium model that costs more than the
- *  standard rate.</td>
- *  </tr>
- *  <tr>
- *  <td><code>default</code></td>
- *  <td>Best for audio that is not one of the specific audio models.
- *  For example, long-form audio. Ideally the audio is high-fidelity,
- *  recorded at a 16khz or greater sampling rate.</td>
- *  </tr>
- *  </table>
+ *  Which model to select for the given request. Select the model best suited to
+ *  your domain to get best results. If a model is not explicitly specified,
+ *  then we auto-select a model based on the parameters in the
+ *  RecognitionConfig. *Model* *Description* command_and_search Best for short
+ *  queries such as voice commands or voice search. phone_call Best for audio
+ *  that originated from a phone call (typically recorded at an 8khz sampling
+ *  rate). video Best for audio that originated from from video or includes
+ *  multiple speakers. Ideally the audio is recorded at a 16khz or greater
+ *  sampling rate. This is a premium model that costs more than the standard
+ *  rate. default Best for audio that is not one of the specific audio models.
+ *  For example, long-form audio. Ideally the audio is high-fidelity, recorded
+ *  at a 16khz or greater sampling rate.
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
 /**
- *  If set to `true`, the server will attempt to filter out
- *  profanities, replacing all but the initial character in each filtered word
- *  with asterisks, e.g. "f***". If set to `false` or omitted, profanities
- *  won't be filtered out.
+ *  If set to `true`, the server will attempt to filter out profanities,
+ *  replacing all but the initial character in each filtered word with
+ *  asterisks, e.g. "f***". If set to `false` or omitted, profanities won't be
+ *  filtered out.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *profanityFilter;
 
 /**
- *  Sample rate in Hertz of the audio data sent in all
- *  `RecognitionAudio` messages. Valid values are: 8000-48000.
- *  16000 is optimal. For best results, set the sampling rate of the audio
- *  source to 16000 Hz. If that's not possible, use the native sample rate of
- *  the audio source (instead of re-sampling).
- *  This field is optional for FLAC and WAV audio files, but is
+ *  Sample rate in Hertz of the audio data sent in all `RecognitionAudio`
+ *  messages. Valid values are: 8000-48000. 16000 is optimal. For best results,
+ *  set the sampling rate of the audio source to 16000 Hz. If that's not
+ *  possible, use the native sample rate of the audio source (instead of
+ *  re-sampling). This field is optional for FLAC and WAV audio files, but is
  *  required for all other audio formats. For details, see AudioEncoding.
  *
  *  Uses NSNumber of intValue.
@@ -740,22 +694,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @property(nonatomic, strong, nullable) NSNumber *sampleRateHertz;
 
 /**
- *  Array of SpeechContext.
- *  A means to provide context to assist the speech recognition. For more
- *  information, see
- *  [speech
+ *  Array of SpeechContext. A means to provide context to assist the speech
+ *  recognition. For more information, see [speech
  *  adaptation](https://cloud.google.com/speech-to-text/docs/context-strength).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Context *> *speechContexts;
 
 /**
- *  Set to true to use an enhanced model for speech recognition.
- *  If `use_enhanced` is set to true and the `model` field is not set, then
- *  an appropriate enhanced model is chosen if an enhanced model exists for
- *  the audio.
- *  If `use_enhanced` is true and an enhanced version of the specified model
- *  does not exist, then the speech is recognized using the standard version
- *  of the specified model.
+ *  Set to true to use an enhanced model for speech recognition. If
+ *  `use_enhanced` is set to true and the `model` field is not set, then an
+ *  appropriate enhanced model is chosen if an enhanced model exists for the
+ *  audio. If `use_enhanced` is true and an enhanced version of the specified
+ *  model does not exist, then the speech is recognized using the standard
+ *  version of the specified model.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -776,10 +727,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @property(nonatomic, copy, nullable) NSString *audioTopic;
 
 /**
- *  The industry vertical to which this speech recognition request most
- *  closely applies. This is most indicative of the topics contained
- *  in the audio. Use the 6-digit NAICS code to identify the industry
- *  vertical - see https://www.naics.com/search/.
+ *  The industry vertical to which this speech recognition request most closely
+ *  applies. This is most indicative of the topics contained in the audio. Use
+ *  the 6-digit NAICS code to identify the industry vertical - see
+ *  https://www.naics.com/search/.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -794,9 +745,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *        text-message, email or report. (Value: "DICTATION")
  *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_Discussion
  *        Multiple people in a conversation or discussion. For example in a
- *        meeting with two or more people actively participating. Typically
- *        all the primary people speaking would be in the same room (if not,
- *        see PHONE_CALL) (Value: "DISCUSSION")
+ *        meeting with two or more people actively participating. Typically all
+ *        the primary people speaking would be in the same room (if not, see
+ *        PHONE_CALL) (Value: "DISCUSSION")
  *    @arg @c kGTLRSpeech_RecognitionMetadata_InteractionType_InteractionTypeUnspecified
  *        Use case is either unknown or is something other than one of the other
  *        values below. (Value: "INTERACTION_TYPE_UNSPECIFIED")
@@ -836,8 +787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *    @arg @c kGTLRSpeech_RecognitionMetadata_MicrophoneDistance_Nearfield The
  *        audio was captured from a closely placed microphone. Eg. phone,
  *        dictaphone, or handheld microphone. Generally if there speaker is
- *        within
- *        1 meter of the microphone. (Value: "NEARFIELD")
+ *        within 1 meter of the microphone. (Value: "NEARFIELD")
  */
 @property(nonatomic, copy, nullable) NSString *microphoneDistance;
 
@@ -857,16 +807,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 
 /**
  *  Mime type of the original audio file. For example `audio/m4a`,
- *  `audio/x-alaw-basic`, `audio/mp3`, `audio/3gpp`.
- *  A list of possible audio mime types is maintained at
+ *  `audio/x-alaw-basic`, `audio/mp3`, `audio/3gpp`. A list of possible audio
+ *  mime types is maintained at
  *  http://www.iana.org/assignments/media-types/media-types.xhtml#audio
  */
 @property(nonatomic, copy, nullable) NSString *originalMimeType;
 
 /**
- *  The device used to make the recording. Examples 'Nexus 5X' or
- *  'Polycom SoundStation IP 6000' or 'POTS' or 'VoIP' or
- *  'Cardioid Microphone'.
+ *  The device used to make the recording. Examples 'Nexus 5X' or 'Polycom
+ *  SoundStation IP 6000' or 'POTS' or 'VoIP' or 'Cardioid Microphone'.
  */
 @property(nonatomic, copy, nullable) NSString *recordingDeviceName;
 
@@ -901,17 +850,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_RecognitionResult : GTLRObject
 
 /**
- *  May contain one or more recognition hypotheses (up to the
- *  maximum specified in `max_alternatives`).
- *  These alternatives are ordered in terms of accuracy, with the top (first)
- *  alternative being the most probable, as ranked by the recognizer.
+ *  May contain one or more recognition hypotheses (up to the maximum specified
+ *  in `max_alternatives`). These alternatives are ordered in terms of accuracy,
+ *  with the top (first) alternative being the most probable, as ranked by the
+ *  recognizer.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionAlternative *> *alternatives;
 
 /**
  *  For multi-channel audio, this is the channel number corresponding to the
- *  recognized result for the audio from that channel.
- *  For audio_channel_count = N, its output values can range from '1' to 'N'.
+ *  recognized result for the audio from that channel. For audio_channel_count =
+ *  N, its output values can range from '1' to 'N'.
  *
  *  Uses NSNumber of intValue.
  */
@@ -945,8 +894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_RecognizeResponse : GTLRObject
 
 /**
- *  Sequential list of transcription results corresponding to
- *  sequential portions of audio.
+ *  Sequential list of transcription results corresponding to sequential
+ *  portions of audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
 
@@ -959,9 +908,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_SpeakerDiarizationConfig : GTLRObject
 
 /**
- *  If 'true', enables speaker detection for each recognized word in
- *  the top alternative of the recognition result using a speaker_tag provided
- *  in the WordInfo.
+ *  If 'true', enables speaker detection for each recognized word in the top
+ *  alternative of the recognition result using a speaker_tag provided in the
+ *  WordInfo.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -999,9 +948,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRSpeech_Status : GTLRObject
 
@@ -1046,12 +995,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @interface GTLRSpeech_WordInfo : GTLRObject
 
 /**
- *  Time offset relative to the beginning of the audio,
- *  and corresponding to the end of the spoken word.
- *  This field is only set if `enable_word_time_offsets=true` and only
- *  in the top hypothesis.
- *  This is an experimental feature and the accuracy of the time offset can
- *  vary.
+ *  Time offset relative to the beginning of the audio, and corresponding to the
+ *  end of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
 
@@ -1067,12 +1014,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 @property(nonatomic, strong, nullable) NSNumber *speakerTag;
 
 /**
- *  Time offset relative to the beginning of the audio,
- *  and corresponding to the start of the spoken word.
- *  This field is only set if `enable_word_time_offsets=true` and only
- *  in the top hypothesis.
- *  This is an experimental feature and the accuracy of the time offset can
- *  vary.
+ *  Time offset relative to the beginning of the audio, and corresponding to the
+ *  start of the spoken word. This field is only set if
+ *  `enable_word_time_offsets=true` and only in the top hypothesis. This is an
+ *  experimental feature and the accuracy of the time offset can vary.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *startTime;
 

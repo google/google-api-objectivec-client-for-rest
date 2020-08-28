@@ -35,13 +35,29 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // include
 
-/** Value: "ATTRIBUTES" */
+/**
+ *  Include the attributes of the product.
+ *
+ *  Value: "ATTRIBUTES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeAttributes;
-/** Value: "DESTINATION_STATUSES" */
+/**
+ *  Include the destination statuses of the product.
+ *
+ *  Value: "DESTINATION_STATUSES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeDestinationStatuses;
-/** Value: "ISSUES" */
+/**
+ *  Include the issues of the product.
+ *
+ *  Value: "ISSUES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeIssues;
-/** Value: "UNKNOWN" */
+/**
+ *  Unknown, never used.
+ *
+ *  Value: "UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 
 // ----------------------------------------------------------------------------
@@ -73,17 +89,16 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 /**
  *  Name in the format `{target_country}:{content_language}:{product_id}`.
  *  `target_country` - The target country of the product as a CLDR territory
- *  code (for example, US).
- *  `content_language` - The content language of the product as a two-letter
- *  ISO 639-1 language code (for example, en).
+ *  code (for example, US). `content_language` - The content language of the
+ *  product as a two-letter ISO 639-1 language code (for example, en).
  *  `product_id` - The ID of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Parent ID in the format `accounts/{account_id}`.
- *  `account_id` - The ID of the Manufacturer Center account.
+ *  Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of
+ *  the Manufacturer Center account.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -92,15 +107,14 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *
  *  Deletes the product from a Manufacturer Center account.
  *
- *  @param parent Parent ID in the format `accounts/{account_id}`.
- *    `account_id` - The ID of the Manufacturer Center account.
+ *  @param parent Parent ID in the format `accounts/{account_id}`. `account_id`
+ *    - The ID of the Manufacturer Center account.
  *  @param name Name in the format
- *    `{target_country}:{content_language}:{product_id}`.
- *    `target_country` - The target country of the product as a CLDR territory
- *    code (for example, US).
+ *    `{target_country}:{content_language}:{product_id}`. `target_country` - The
+ *    target country of the product as a CLDR territory code (for example, US).
  *    `content_language` - The content language of the product as a two-letter
- *    ISO 639-1 language code (for example, en).
- *    `product_id` - The ID of the product. For more information, see
+ *    ISO 639-1 language code (for example, en). `product_id` - The ID of the
+ *    product. For more information, see
  *    https://support.google.com/manufacturers/answer/6124116#id.
  *
  *  @return GTLRManufacturerCenterQuery_AccountsProductsDelete
@@ -112,10 +126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 
 /**
  *  Gets the product from a Manufacturer Center account, including product
- *  issues.
- *  A recently updated product takes around 15 minutes to process. Changes are
- *  only visible after it has been processed. While some issues may be
- *  available once the product has been processed, other issues may take days
+ *  issues. A recently updated product takes around 15 minutes to process.
+ *  Changes are only visible after it has been processed. While some issues may
+ *  be available once the product has been processed, other issues may take days
  *  to appear.
  *
  *  Method: manufacturers.accounts.products.get
@@ -132,28 +145,30 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *  will be returned.
  *
  *  Likely values:
- *    @arg @c kGTLRManufacturerCenterIncludeUnknown Value "UNKNOWN"
- *    @arg @c kGTLRManufacturerCenterIncludeAttributes Value "ATTRIBUTES"
- *    @arg @c kGTLRManufacturerCenterIncludeIssues Value "ISSUES"
- *    @arg @c kGTLRManufacturerCenterIncludeDestinationStatuses Value
- *        "DESTINATION_STATUSES"
+ *    @arg @c kGTLRManufacturerCenterIncludeUnknown Unknown, never used. (Value:
+ *        "UNKNOWN")
+ *    @arg @c kGTLRManufacturerCenterIncludeAttributes Include the attributes of
+ *        the product. (Value: "ATTRIBUTES")
+ *    @arg @c kGTLRManufacturerCenterIncludeIssues Include the issues of the
+ *        product. (Value: "ISSUES")
+ *    @arg @c kGTLRManufacturerCenterIncludeDestinationStatuses Include the
+ *        destination statuses of the product. (Value: "DESTINATION_STATUSES")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *include;
 
 /**
  *  Name in the format `{target_country}:{content_language}:{product_id}`.
  *  `target_country` - The target country of the product as a CLDR territory
- *  code (for example, US).
- *  `content_language` - The content language of the product as a two-letter
- *  ISO 639-1 language code (for example, en).
+ *  code (for example, US). `content_language` - The content language of the
+ *  product as a two-letter ISO 639-1 language code (for example, en).
  *  `product_id` - The ID of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Parent ID in the format `accounts/{account_id}`.
- *  `account_id` - The ID of the Manufacturer Center account.
+ *  Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of
+ *  the Manufacturer Center account.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -161,21 +176,19 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *  Fetches a @c GTLRManufacturerCenter_Product.
  *
  *  Gets the product from a Manufacturer Center account, including product
- *  issues.
- *  A recently updated product takes around 15 minutes to process. Changes are
- *  only visible after it has been processed. While some issues may be
- *  available once the product has been processed, other issues may take days
+ *  issues. A recently updated product takes around 15 minutes to process.
+ *  Changes are only visible after it has been processed. While some issues may
+ *  be available once the product has been processed, other issues may take days
  *  to appear.
  *
- *  @param parent Parent ID in the format `accounts/{account_id}`.
- *    `account_id` - The ID of the Manufacturer Center account.
+ *  @param parent Parent ID in the format `accounts/{account_id}`. `account_id`
+ *    - The ID of the Manufacturer Center account.
  *  @param name Name in the format
- *    `{target_country}:{content_language}:{product_id}`.
- *    `target_country` - The target country of the product as a CLDR territory
- *    code (for example, US).
+ *    `{target_country}:{content_language}:{product_id}`. `target_country` - The
+ *    target country of the product as a CLDR territory code (for example, US).
  *    `content_language` - The content language of the product as a two-letter
- *    ISO 639-1 language code (for example, en).
- *    `product_id` - The ID of the product. For more information, see
+ *    ISO 639-1 language code (for example, en). `product_id` - The ID of the
+ *    product. For more information, see
  *    https://support.google.com/manufacturers/answer/6124116#id.
  *
  *  @return GTLRManufacturerCenterQuery_AccountsProductsGet
@@ -202,11 +215,14 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *  will be returned.
  *
  *  Likely values:
- *    @arg @c kGTLRManufacturerCenterIncludeUnknown Value "UNKNOWN"
- *    @arg @c kGTLRManufacturerCenterIncludeAttributes Value "ATTRIBUTES"
- *    @arg @c kGTLRManufacturerCenterIncludeIssues Value "ISSUES"
- *    @arg @c kGTLRManufacturerCenterIncludeDestinationStatuses Value
- *        "DESTINATION_STATUSES"
+ *    @arg @c kGTLRManufacturerCenterIncludeUnknown Unknown, never used. (Value:
+ *        "UNKNOWN")
+ *    @arg @c kGTLRManufacturerCenterIncludeAttributes Include the attributes of
+ *        the product. (Value: "ATTRIBUTES")
+ *    @arg @c kGTLRManufacturerCenterIncludeIssues Include the issues of the
+ *        product. (Value: "ISSUES")
+ *    @arg @c kGTLRManufacturerCenterIncludeDestinationStatuses Include the
+ *        destination statuses of the product. (Value: "DESTINATION_STATUSES")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *include;
 
@@ -220,8 +236,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Parent ID in the format `accounts/{account_id}`.
- *  `account_id` - The ID of the Manufacturer Center account.
+ *  Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of
+ *  the Manufacturer Center account.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -230,8 +246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *
  *  Lists all the products in a Manufacturer Center account.
  *
- *  @param parent Parent ID in the format `accounts/{account_id}`.
- *    `account_id` - The ID of the Manufacturer Center account.
+ *  @param parent Parent ID in the format `accounts/{account_id}`. `account_id`
+ *    - The ID of the Manufacturer Center account.
  *
  *  @return GTLRManufacturerCenterQuery_AccountsProductsList
  *
@@ -245,18 +261,16 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 
 /**
  *  Inserts or updates the attributes of the product in a Manufacturer Center
- *  account.
- *  Creates a product with the provided attributes. If the product already
- *  exists, then all attributes are replaced with the new ones. The checks at
- *  upload time are minimal. All required attributes need to be present for a
- *  product to be valid. Issues may show up later after the API has accepted a
- *  new upload for a product and it is possible to overwrite an existing valid
- *  product with an invalid product. To detect this, you should retrieve the
- *  product and check it for issues once the new version is available.
- *  Uploaded attributes first need to be processed before they can be
- *  retrieved. Until then, new products will be unavailable, and retrieval
- *  of previously uploaded products will return the original state of the
- *  product.
+ *  account. Creates a product with the provided attributes. If the product
+ *  already exists, then all attributes are replaced with the new ones. The
+ *  checks at upload time are minimal. All required attributes need to be
+ *  present for a product to be valid. Issues may show up later after the API
+ *  has accepted a new upload for a product and it is possible to overwrite an
+ *  existing valid product with an invalid product. To detect this, you should
+ *  retrieve the product and check it for issues once the new version is
+ *  available. Uploaded attributes first need to be processed before they can be
+ *  retrieved. Until then, new products will be unavailable, and retrieval of
+ *  previously uploaded products will return the original state of the product.
  *
  *  Method: manufacturers.accounts.products.update
  *
@@ -270,17 +284,16 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
 /**
  *  Name in the format `{target_country}:{content_language}:{product_id}`.
  *  `target_country` - The target country of the product as a CLDR territory
- *  code (for example, US).
- *  `content_language` - The content language of the product as a two-letter
- *  ISO 639-1 language code (for example, en).
+ *  code (for example, US). `content_language` - The content language of the
+ *  product as a two-letter ISO 639-1 language code (for example, en).
  *  `product_id` - The ID of the product. For more information, see
  *  https://support.google.com/manufacturers/answer/6124116#id.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Parent ID in the format `accounts/{account_id}`.
- *  `account_id` - The ID of the Manufacturer Center account.
+ *  Parent ID in the format `accounts/{account_id}`. `account_id` - The ID of
+ *  the Manufacturer Center account.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -288,30 +301,27 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *  Fetches a @c GTLRManufacturerCenter_Empty.
  *
  *  Inserts or updates the attributes of the product in a Manufacturer Center
- *  account.
- *  Creates a product with the provided attributes. If the product already
- *  exists, then all attributes are replaced with the new ones. The checks at
- *  upload time are minimal. All required attributes need to be present for a
- *  product to be valid. Issues may show up later after the API has accepted a
- *  new upload for a product and it is possible to overwrite an existing valid
- *  product with an invalid product. To detect this, you should retrieve the
- *  product and check it for issues once the new version is available.
- *  Uploaded attributes first need to be processed before they can be
- *  retrieved. Until then, new products will be unavailable, and retrieval
- *  of previously uploaded products will return the original state of the
- *  product.
+ *  account. Creates a product with the provided attributes. If the product
+ *  already exists, then all attributes are replaced with the new ones. The
+ *  checks at upload time are minimal. All required attributes need to be
+ *  present for a product to be valid. Issues may show up later after the API
+ *  has accepted a new upload for a product and it is possible to overwrite an
+ *  existing valid product with an invalid product. To detect this, you should
+ *  retrieve the product and check it for issues once the new version is
+ *  available. Uploaded attributes first need to be processed before they can be
+ *  retrieved. Until then, new products will be unavailable, and retrieval of
+ *  previously uploaded products will return the original state of the product.
  *
  *  @param object The @c GTLRManufacturerCenter_Attributes to include in the
  *    query.
- *  @param parent Parent ID in the format `accounts/{account_id}`.
- *    `account_id` - The ID of the Manufacturer Center account.
+ *  @param parent Parent ID in the format `accounts/{account_id}`. `account_id`
+ *    - The ID of the Manufacturer Center account.
  *  @param name Name in the format
- *    `{target_country}:{content_language}:{product_id}`.
- *    `target_country` - The target country of the product as a CLDR territory
- *    code (for example, US).
+ *    `{target_country}:{content_language}:{product_id}`. `target_country` - The
+ *    target country of the product as a CLDR territory code (for example, US).
  *    `content_language` - The content language of the product as a two-letter
- *    ISO 639-1 language code (for example, en).
- *    `product_id` - The ID of the product. For more information, see
+ *    ISO 639-1 language code (for example, en). `product_id` - The ID of the
+ *    product. For more information, see
  *    https://support.google.com/manufacturers/answer/6124116#id.
  *
  *  @return GTLRManufacturerCenterQuery_AccountsProductsUpdate

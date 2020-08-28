@@ -82,14 +82,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: bigqueryreservation.operations.list
  *
@@ -117,14 +117,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRBigQueryReservation_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -209,8 +209,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  `google.rpc.Code.FAILED_PRECONDITION`.
  *
  *  @param name Required. Resource name of the capacity commitment to delete.
- *    E.g.,
- *    `projects/myproject/locations/US/capacityCommitments/123`
+ *    E.g., `projects/myproject/locations/US/capacityCommitments/123`
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsDelete
  */
@@ -243,8 +242,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns information about the capacity commitment.
  *
  *  @param name Required. Resource name of the capacity commitment to retrieve.
- *    E.g.,
- *    `projects/myproject/locations/US/capacityCommitments/123`
+ *    E.g., `projects/myproject/locations/US/capacityCommitments/123`
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsGet
  */
@@ -298,11 +296,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Merges capacity commitments of the same plan into a single commitment.
- *  The resulting capacity commitment has the greater commitment_end_time
- *  out of the to-be-merged capacity commitments.
- *  Attempting to merge capacity commitments of different plan will fail
- *  with the error code `google.rpc.Code.FAILED_PRECONDITION`.
+ *  Merges capacity commitments of the same plan into a single commitment. The
+ *  resulting capacity commitment has the greater commitment_end_time out of the
+ *  to-be-merged capacity commitments. Attempting to merge capacity commitments
+ *  of different plan will fail with the error code
+ *  `google.rpc.Code.FAILED_PRECONDITION`.
  *
  *  Method: bigqueryreservation.projects.locations.capacityCommitments.merge
  *
@@ -323,17 +321,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryReservation_CapacityCommitment.
  *
- *  Merges capacity commitments of the same plan into a single commitment.
- *  The resulting capacity commitment has the greater commitment_end_time
- *  out of the to-be-merged capacity commitments.
- *  Attempting to merge capacity commitments of different plan will fail
- *  with the error code `google.rpc.Code.FAILED_PRECONDITION`.
+ *  Merges capacity commitments of the same plan into a single commitment. The
+ *  resulting capacity commitment has the greater commitment_end_time out of the
+ *  to-be-merged capacity commitments. Attempting to merge capacity commitments
+ *  of different plan will fail with the error code
+ *  `google.rpc.Code.FAILED_PRECONDITION`.
  *
  *  @param object The @c GTLRBigQueryReservation_MergeCapacityCommitmentsRequest
  *    to include in the query.
  *  @param parent Parent resource that identifies admin project and location
- *    e.g.,
- *    `projects/myproject/locations/us`
+ *    e.g., `projects/myproject/locations/us`
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsMerge
  */
@@ -343,11 +340,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing capacity commitment.
- *  Only `plan` and `renewal_plan` fields can be updated.
- *  Plan can only be changed to a plan of a longer commitment period.
- *  Attempting to change to a plan with shorter commitment period will fail
- *  with the error code `google.rpc.Code.FAILED_PRECONDITION`.
+ *  Updates an existing capacity commitment. Only `plan` and `renewal_plan`
+ *  fields can be updated. Plan can only be changed to a plan of a longer
+ *  commitment period. Attempting to change to a plan with shorter commitment
+ *  period will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`.
  *
  *  Method: bigqueryreservation.projects.locations.capacityCommitments.patch
  *
@@ -375,11 +371,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryReservation_CapacityCommitment.
  *
- *  Updates an existing capacity commitment.
- *  Only `plan` and `renewal_plan` fields can be updated.
- *  Plan can only be changed to a plan of a longer commitment period.
- *  Attempting to change to a plan with shorter commitment period will fail
- *  with the error code `google.rpc.Code.FAILED_PRECONDITION`.
+ *  Updates an existing capacity commitment. Only `plan` and `renewal_plan`
+ *  fields can be updated. Plan can only be changed to a plan of a longer
+ *  commitment period. Attempting to change to a plan with shorter commitment
+ *  period will fail with the error code `google.rpc.Code.FAILED_PRECONDITION`.
  *
  *  @param object The @c GTLRBigQueryReservation_CapacityCommitment to include
  *    in the query.
@@ -395,11 +390,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Splits capacity commitment to two commitments of the same plan and
- *  `commitment_end_time`.
- *  A common use case is to enable downgrading commitments.
- *  For example, in order to downgrade from 10000 slots to 8000, you might
- *  split a 10000 capacity commitment into commitments of 2000 and 8000. Then,
- *  you would change the plan of the first one to `FLEX` and then delete it.
+ *  `commitment_end_time`. A common use case is to enable downgrading
+ *  commitments. For example, in order to downgrade from 10000 slots to 8000,
+ *  you might split a 10000 capacity commitment into commitments of 2000 and
+ *  8000. Then, you would change the plan of the first one to `FLEX` and then
+ *  delete it.
  *
  *  Method: bigqueryreservation.projects.locations.capacityCommitments.split
  *
@@ -421,11 +416,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRBigQueryReservation_SplitCapacityCommitmentResponse.
  *
  *  Splits capacity commitment to two commitments of the same plan and
- *  `commitment_end_time`.
- *  A common use case is to enable downgrading commitments.
- *  For example, in order to downgrade from 10000 slots to 8000, you might
- *  split a 10000 capacity commitment into commitments of 2000 and 8000. Then,
- *  you would change the plan of the first one to `FLEX` and then delete it.
+ *  `commitment_end_time`. A common use case is to enable downgrading
+ *  commitments. For example, in order to downgrade from 10000 slots to 8000,
+ *  you might split a 10000 capacity commitment into commitments of 2000 and
+ *  8000. Then, you would change the plan of the first one to `FLEX` and then
+ *  delete it.
  *
  *  @param object The @c GTLRBigQueryReservation_SplitCapacityCommitmentRequest
  *    to include in the query.
@@ -474,28 +469,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an assignment object which allows the given project to submit jobs
- *  of a certain type using slots from the specified reservation.
- *  Currently a
+ *  of a certain type using slots from the specified reservation. Currently a
  *  resource (project, folder, organization) can only have one assignment per
- *  each (job_type, location) combination, and that reservation will be used
- *  for all jobs of the matching type.
- *  Different assignments can be created on different levels of the
- *  projects, folders or organization hierarchy. During query execution,
- *  the assignment is looked up at the project, folder and organization levels
- *  in that order. The first assignment found is applied to the query.
- *  When creating assignments, it does not matter if other assignments exist at
- *  higher levels.
- *  Example:
- *  * The organization `organizationA` contains two projects, `project1`
- *  and `project2`.
- *  * Assignments for all three entities (`organizationA`, `project1`, and
+ *  each (job_type, location) combination, and that reservation will be used for
+ *  all jobs of the matching type. Different assignments can be created on
+ *  different levels of the projects, folders or organization hierarchy. During
+ *  query execution, the assignment is looked up at the project, folder and
+ *  organization levels in that order. The first assignment found is applied to
+ *  the query. When creating assignments, it does not matter if other
+ *  assignments exist at higher levels. Example: * The organization
+ *  `organizationA` contains two projects, `project1` and `project2`. *
+ *  Assignments for all three entities (`organizationA`, `project1`, and
  *  `project2`) could all be created and mapped to the same or different
- *  reservations.
- *  Returns `google.rpc.Code.PERMISSION_DENIED` if user does not have
- *  'bigquery.admin' permissions on the project using the reservation
- *  and the project that owns this reservation.
- *  Returns `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment
- *  does not match location of the reservation.
+ *  reservations. Returns `google.rpc.Code.PERMISSION_DENIED` if user does not
+ *  have 'bigquery.admin' permissions on the project using the reservation and
+ *  the project that owns this reservation. Returns
+ *  `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment does not
+ *  match location of the reservation.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.assignments.create
  *
@@ -508,8 +498,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsAssignmentsCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name of the assignment
- *  E.g. `projects/myproject/locations/US/reservations/team1-prod`
+ *  Required. The parent resource name of the assignment E.g.
+ *  `projects/myproject/locations/US/reservations/team1-prod`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -517,33 +507,28 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRBigQueryReservation_Assignment.
  *
  *  Creates an assignment object which allows the given project to submit jobs
- *  of a certain type using slots from the specified reservation.
- *  Currently a
+ *  of a certain type using slots from the specified reservation. Currently a
  *  resource (project, folder, organization) can only have one assignment per
- *  each (job_type, location) combination, and that reservation will be used
- *  for all jobs of the matching type.
- *  Different assignments can be created on different levels of the
- *  projects, folders or organization hierarchy. During query execution,
- *  the assignment is looked up at the project, folder and organization levels
- *  in that order. The first assignment found is applied to the query.
- *  When creating assignments, it does not matter if other assignments exist at
- *  higher levels.
- *  Example:
- *  * The organization `organizationA` contains two projects, `project1`
- *  and `project2`.
- *  * Assignments for all three entities (`organizationA`, `project1`, and
+ *  each (job_type, location) combination, and that reservation will be used for
+ *  all jobs of the matching type. Different assignments can be created on
+ *  different levels of the projects, folders or organization hierarchy. During
+ *  query execution, the assignment is looked up at the project, folder and
+ *  organization levels in that order. The first assignment found is applied to
+ *  the query. When creating assignments, it does not matter if other
+ *  assignments exist at higher levels. Example: * The organization
+ *  `organizationA` contains two projects, `project1` and `project2`. *
+ *  Assignments for all three entities (`organizationA`, `project1`, and
  *  `project2`) could all be created and mapped to the same or different
- *  reservations.
- *  Returns `google.rpc.Code.PERMISSION_DENIED` if user does not have
- *  'bigquery.admin' permissions on the project using the reservation
- *  and the project that owns this reservation.
- *  Returns `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment
- *  does not match location of the reservation.
+ *  reservations. Returns `google.rpc.Code.PERMISSION_DENIED` if user does not
+ *  have 'bigquery.admin' permissions on the project using the reservation and
+ *  the project that owns this reservation. Returns
+ *  `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment does not
+ *  match location of the reservation.
  *
  *  @param object The @c GTLRBigQueryReservation_Assignment to include in the
  *    query.
- *  @param parent Required. The parent resource name of the assignment
- *    E.g. `projects/myproject/locations/US/reservations/team1-prod`
+ *  @param parent Required. The parent resource name of the assignment E.g.
+ *    `projects/myproject/locations/US/reservations/team1-prod`
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsCreate
  */
@@ -553,18 +538,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a assignment. No expansion will happen.
- *  Example:
- *  * Organization `organizationA` contains two projects, `project1` and
- *  `project2`.
- *  * Reservation `res1` exists and was created previously.
- *  * CreateAssignment was used previously to define the following
- *  associations between entities and reservations: `<organizationA, res1>`
- *  and `<project1, res1>`
- *  In this example, deletion of the `<organizationA, res1>` assignment won't
- *  affect the other assignment `<project1, res1>`. After said deletion,
- *  queries from `project1` will still use `res1` while queries from
- *  `project2` will switch to use on-demand mode.
+ *  Deletes a assignment. No expansion will happen. Example: * Organization
+ *  `organizationA` contains two projects, `project1` and `project2`. *
+ *  Reservation `res1` exists and was created previously. * CreateAssignment was
+ *  used previously to define the following associations between entities and
+ *  reservations: `` and `` In this example, deletion of the `` assignment won't
+ *  affect the other assignment ``. After said deletion, queries from `project1`
+ *  will still use `res1` while queries from `project2` will switch to use
+ *  on-demand mode.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.assignments.delete
  *
@@ -585,18 +566,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryReservation_Empty.
  *
- *  Deletes a assignment. No expansion will happen.
- *  Example:
- *  * Organization `organizationA` contains two projects, `project1` and
- *  `project2`.
- *  * Reservation `res1` exists and was created previously.
- *  * CreateAssignment was used previously to define the following
- *  associations between entities and reservations: `<organizationA, res1>`
- *  and `<project1, res1>`
- *  In this example, deletion of the `<organizationA, res1>` assignment won't
- *  affect the other assignment `<project1, res1>`. After said deletion,
- *  queries from `project1` will still use `res1` while queries from
- *  `project2` will switch to use on-demand mode.
+ *  Deletes a assignment. No expansion will happen. Example: * Organization
+ *  `organizationA` contains two projects, `project1` and `project2`. *
+ *  Reservation `res1` exists and was created previously. * CreateAssignment was
+ *  used previously to define the following associations between entities and
+ *  reservations: `` and `` In this example, deletion of the `` assignment won't
+ *  affect the other assignment ``. After said deletion, queries from `project1`
+ *  will still use `res1` while queries from `project2` will switch to use
+ *  on-demand mode.
  *
  *  @param name Required. Name of the resource, e.g.
  *    `projects/myproject/locations/US/reservations/team1-prod/assignments/123`
@@ -608,21 +585,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists assignments.
- *  Only explicitly created assignments will be returned.
- *  Example:
- *  * Organization `organizationA` contains two projects, `project1` and
- *  `project2`.
- *  * Reservation `res1` exists and was created previously.
- *  * CreateAssignment was used previously to define the following
- *  associations between entities and reservations: `<organizationA, res1>`
- *  and `<project1, res1>`
- *  In this example, ListAssignments will just return the above two assignments
- *  for reservation `res1`, and no expansion/merge will happen.
- *  The wildcard "-" can be used for
+ *  Lists assignments. Only explicitly created assignments will be returned.
+ *  Example: * Organization `organizationA` contains two projects, `project1`
+ *  and `project2`. * Reservation `res1` exists and was created previously. *
+ *  CreateAssignment was used previously to define the following associations
+ *  between entities and reservations: `` and `` In this example,
+ *  ListAssignments will just return the above two assignments for reservation
+ *  `res1`, and no expansion/merge will happen. The wildcard "-" can be used for
  *  reservations in the request. In that case all assignments belongs to the
- *  specified project and location will be listed.
- *  **Note** "-" cannot be used for projects nor locations.
+ *  specified project and location will be listed. **Note** "-" cannot be used
+ *  for projects nor locations.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.assignments.list
  *
@@ -644,8 +616,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource name e.g.:
- *  `projects/myproject/locations/US/reservations/team1-prod`
- *  Or:
+ *  `projects/myproject/locations/US/reservations/team1-prod` Or:
  *  `projects/myproject/locations/US/reservations/-`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -653,25 +624,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryReservation_ListAssignmentsResponse.
  *
- *  Lists assignments.
- *  Only explicitly created assignments will be returned.
- *  Example:
- *  * Organization `organizationA` contains two projects, `project1` and
- *  `project2`.
- *  * Reservation `res1` exists and was created previously.
- *  * CreateAssignment was used previously to define the following
- *  associations between entities and reservations: `<organizationA, res1>`
- *  and `<project1, res1>`
- *  In this example, ListAssignments will just return the above two assignments
- *  for reservation `res1`, and no expansion/merge will happen.
- *  The wildcard "-" can be used for
+ *  Lists assignments. Only explicitly created assignments will be returned.
+ *  Example: * Organization `organizationA` contains two projects, `project1`
+ *  and `project2`. * Reservation `res1` exists and was created previously. *
+ *  CreateAssignment was used previously to define the following associations
+ *  between entities and reservations: `` and `` In this example,
+ *  ListAssignments will just return the above two assignments for reservation
+ *  `res1`, and no expansion/merge will happen. The wildcard "-" can be used for
  *  reservations in the request. In that case all assignments belongs to the
- *  specified project and location will be listed.
- *  **Note** "-" cannot be used for projects nor locations.
+ *  specified project and location will be listed. **Note** "-" cannot be used
+ *  for projects nor locations.
  *
  *  @param parent Required. The parent resource name e.g.:
- *    `projects/myproject/locations/US/reservations/team1-prod`
- *    Or:
+ *    `projects/myproject/locations/US/reservations/team1-prod` Or:
  *    `projects/myproject/locations/US/reservations/-`
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsList
@@ -685,10 +650,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Moves an assignment under a new reservation.
- *  This differs from removing an existing assignment and recreating a new one
- *  by providing a transactional change that ensures an assignee always has an
- *  associated reservation.
+ *  Moves an assignment under a new reservation. This differs from removing an
+ *  existing assignment and recreating a new one by providing a transactional
+ *  change that ensures an assignee always has an associated reservation.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.assignments.move
  *
@@ -701,8 +665,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsAssignmentsMoveWithObject:name:]
 
 /**
- *  Required. The resource name of the assignment,
- *  e.g.
+ *  Required. The resource name of the assignment, e.g.
  *  `projects/myproject/locations/US/reservations/team1-prod/assignments/123`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -710,15 +673,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryReservation_Assignment.
  *
- *  Moves an assignment under a new reservation.
- *  This differs from removing an existing assignment and recreating a new one
- *  by providing a transactional change that ensures an assignee always has an
- *  associated reservation.
+ *  Moves an assignment under a new reservation. This differs from removing an
+ *  existing assignment and recreating a new one by providing a transactional
+ *  change that ensures an assignee always has an associated reservation.
  *
  *  @param object The @c GTLRBigQueryReservation_MoveAssignmentRequest to
  *    include in the query.
- *  @param name Required. The resource name of the assignment,
- *    e.g.
+ *  @param name Required. The resource name of the assignment, e.g.
  *    `projects/myproject/locations/US/reservations/team1-prod/assignments/123`
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsMove
@@ -741,10 +702,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsCreateWithObject:parent:]
 
-/**
- *  Required. Project, location. E.g.,
- *  `projects/myproject/locations/US`
- */
+/** Required. Project, location. E.g., `projects/myproject/locations/US` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -771,9 +729,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a reservation.
- *  Returns `google.rpc.Code.FAILED_PRECONDITION` when reservation has
- *  assignments.
+ *  Deletes a reservation. Returns `google.rpc.Code.FAILED_PRECONDITION` when
+ *  reservation has assignments.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.delete
  *
@@ -794,9 +751,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryReservation_Empty.
  *
- *  Deletes a reservation.
- *  Returns `google.rpc.Code.FAILED_PRECONDITION` when reservation has
- *  assignments.
+ *  Deletes a reservation. Returns `google.rpc.Code.FAILED_PRECONDITION` when
+ *  reservation has assignments.
  *
  *  @param name Required. Resource name of the reservation to retrieve. E.g.,
  *    `projects/myproject/locations/US/reservations/team1-prod`
@@ -873,8 +829,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all the reservations for the project in the specified location.
  *
  *  @param parent Required. The parent resource name containing project and
- *    location, e.g.:
- *    `projects/myproject/locations/US`
+ *    location, e.g.: `projects/myproject/locations/US`
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsList
  *
@@ -900,8 +855,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsPatchWithObject:name:]
 
 /**
- *  The resource name of the reservation, e.g.,
- *  `projects/ * /locations/ * /reservations/team1-prod`.
+ *  The resource name of the reservation, e.g., `projects/ * /locations/ *
+ *  /reservations/team1-prod`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -919,8 +874,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBigQueryReservation_Reservation to include in the
  *    query.
- *  @param name The resource name of the reservation, e.g.,
- *    `projects/ * /locations/ * /reservations/team1-prod`.
+ *  @param name The resource name of the reservation, e.g., `projects/ *
+ *    /locations/ * /reservations/team1-prod`.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsReservationsPatch
  */
@@ -930,21 +885,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Looks up assignments for a specified resource for a particular region.
- *  If the request is about a project:
- *  1. Assignments created on the project will be returned if they exist.
- *  2. Otherwise assignments created on the closest ancestor will be
- *  returned.
- *  3. Assignments for different JobTypes will all be returned.
- *  The same logic applies if the request is about a folder.
- *  If the request is about an organization, then assignments created on the
+ *  Looks up assignments for a specified resource for a particular region. If
+ *  the request is about a project: 1. Assignments created on the project will
+ *  be returned if they exist. 2. Otherwise assignments created on the closest
+ *  ancestor will be returned. 3. Assignments for different JobTypes will all be
+ *  returned. The same logic applies if the request is about a folder. If the
+ *  request is about an organization, then assignments created on the
  *  organization will be returned (organization doesn't have ancestors).
- *  Comparing to ListAssignments, there are some behavior
- *  differences:
- *  1. permission on the assignee will be verified in this API.
- *  2. Hierarchy lookup (project->folder->organization) happens in this API.
- *  3. Parent here is `projects/ * /locations/ *`, instead of
- *  `projects/ * /locations/ *reservations/ *`.
+ *  Comparing to ListAssignments, there are some behavior differences: 1.
+ *  permission on the assignee will be verified in this API. 2. Hierarchy lookup
+ *  (project->folder->organization) happens in this API. 3. Parent here is
+ *  `projects/ * /locations/ *`, instead of `projects/ * /locations/
+ *  *reservations/ *`.
  *
  *  Method: bigqueryreservation.projects.locations.searchAllAssignments
  *
@@ -966,44 +918,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name with location (project name could be the
- *  wildcard '-'),
- *  e.g.:
- *  `projects/-/locations/US`.
+ *  wildcard '-'), e.g.: `projects/-/locations/US`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Please specify resource name as assignee in the query.
- *  Examples:
- *  * `assignee=projects/myproject`
- *  * `assignee=folders/123`
- *  * `assignee=organizations/456`
+ *  Please specify resource name as assignee in the query. Examples: *
+ *  `assignee=projects/myproject` * `assignee=folders/123` *
+ *  `assignee=organizations/456`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Fetches a @c GTLRBigQueryReservation_SearchAllAssignmentsResponse.
  *
- *  Looks up assignments for a specified resource for a particular region.
- *  If the request is about a project:
- *  1. Assignments created on the project will be returned if they exist.
- *  2. Otherwise assignments created on the closest ancestor will be
- *  returned.
- *  3. Assignments for different JobTypes will all be returned.
- *  The same logic applies if the request is about a folder.
- *  If the request is about an organization, then assignments created on the
+ *  Looks up assignments for a specified resource for a particular region. If
+ *  the request is about a project: 1. Assignments created on the project will
+ *  be returned if they exist. 2. Otherwise assignments created on the closest
+ *  ancestor will be returned. 3. Assignments for different JobTypes will all be
+ *  returned. The same logic applies if the request is about a folder. If the
+ *  request is about an organization, then assignments created on the
  *  organization will be returned (organization doesn't have ancestors).
- *  Comparing to ListAssignments, there are some behavior
- *  differences:
- *  1. permission on the assignee will be verified in this API.
- *  2. Hierarchy lookup (project->folder->organization) happens in this API.
- *  3. Parent here is `projects/ * /locations/ *`, instead of
- *  `projects/ * /locations/ *reservations/ *`.
+ *  Comparing to ListAssignments, there are some behavior differences: 1.
+ *  permission on the assignee will be verified in this API. 2. Hierarchy lookup
+ *  (project->folder->organization) happens in this API. 3. Parent here is
+ *  `projects/ * /locations/ *`, instead of `projects/ * /locations/
+ *  *reservations/ *`.
  *
  *  @param parent Required. The resource name with location (project name could
- *    be the wildcard '-'),
- *    e.g.:
- *    `projects/-/locations/US`.
+ *    be the wildcard '-'), e.g.: `projects/-/locations/US`.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsSearchAllAssignments
  *
@@ -1016,23 +959,18 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Looks up assignments for a specified resource for a particular region.
- *  If the request is about a project:
- *  1. Assignments created on the project will be returned if they exist.
- *  2. Otherwise assignments created on the closest ancestor will be
- *  returned.
- *  3. Assignments for different JobTypes will all be returned.
- *  The same logic applies if the request is about a folder.
- *  If the request is about an organization, then assignments created on the
+ *  Looks up assignments for a specified resource for a particular region. If
+ *  the request is about a project: 1. Assignments created on the project will
+ *  be returned if they exist. 2. Otherwise assignments created on the closest
+ *  ancestor will be returned. 3. Assignments for different JobTypes will all be
+ *  returned. The same logic applies if the request is about a folder. If the
+ *  request is about an organization, then assignments created on the
  *  organization will be returned (organization doesn't have ancestors).
- *  Comparing to ListAssignments, there are some behavior
- *  differences:
- *  1. permission on the assignee will be verified in this API.
- *  2. Hierarchy lookup (project->folder->organization) happens in this API.
- *  3. Parent here is `projects/ * /locations/ *`, instead of
- *  `projects/ * /locations/ *reservations/ *`.
- *  **Note** "-" cannot be used for projects
- *  nor locations.
+ *  Comparing to ListAssignments, there are some behavior differences: 1.
+ *  permission on the assignee will be verified in this API. 2. Hierarchy lookup
+ *  (project->folder->organization) happens in this API. 3. Parent here is
+ *  `projects/ * /locations/ *`, instead of `projects/ * /locations/
+ *  *reservations/ *`. **Note** "-" cannot be used for projects nor locations.
  *
  *  Method: bigqueryreservation.projects.locations.searchAssignments
  *
@@ -1054,46 +992,35 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the admin project(containing project and
- *  location),
- *  e.g.:
- *  `projects/myproject/locations/US`.
+ *  location), e.g.: `projects/myproject/locations/US`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Please specify resource name as assignee in the query.
- *  Examples:
- *  * `assignee=projects/myproject`
- *  * `assignee=folders/123`
- *  * `assignee=organizations/456`
+ *  Please specify resource name as assignee in the query. Examples: *
+ *  `assignee=projects/myproject` * `assignee=folders/123` *
+ *  `assignee=organizations/456`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Fetches a @c GTLRBigQueryReservation_SearchAssignmentsResponse.
  *
- *  Looks up assignments for a specified resource for a particular region.
- *  If the request is about a project:
- *  1. Assignments created on the project will be returned if they exist.
- *  2. Otherwise assignments created on the closest ancestor will be
- *  returned.
- *  3. Assignments for different JobTypes will all be returned.
- *  The same logic applies if the request is about a folder.
- *  If the request is about an organization, then assignments created on the
+ *  Looks up assignments for a specified resource for a particular region. If
+ *  the request is about a project: 1. Assignments created on the project will
+ *  be returned if they exist. 2. Otherwise assignments created on the closest
+ *  ancestor will be returned. 3. Assignments for different JobTypes will all be
+ *  returned. The same logic applies if the request is about a folder. If the
+ *  request is about an organization, then assignments created on the
  *  organization will be returned (organization doesn't have ancestors).
- *  Comparing to ListAssignments, there are some behavior
- *  differences:
- *  1. permission on the assignee will be verified in this API.
- *  2. Hierarchy lookup (project->folder->organization) happens in this API.
- *  3. Parent here is `projects/ * /locations/ *`, instead of
- *  `projects/ * /locations/ *reservations/ *`.
- *  **Note** "-" cannot be used for projects
- *  nor locations.
+ *  Comparing to ListAssignments, there are some behavior differences: 1.
+ *  permission on the assignee will be verified in this API. 2. Hierarchy lookup
+ *  (project->folder->organization) happens in this API. 3. Parent here is
+ *  `projects/ * /locations/ *`, instead of `projects/ * /locations/
+ *  *reservations/ *`. **Note** "-" cannot be used for projects nor locations.
  *
  *  @param parent Required. The resource name of the admin project(containing
- *    project and location),
- *    e.g.:
- *    `projects/myproject/locations/US`.
+ *    project and location), e.g.: `projects/myproject/locations/US`.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsSearchAssignments
  *
@@ -1106,12 +1033,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a BI reservation.
- *  Only fields specified in the `field_mask` are updated.
- *  A singleton BI reservation always exists with default size 0.
- *  In order to reserve BI capacity it needs to be updated to an amount
- *  greater than 0. In order to release BI capacity reservation size
- *  must be set to 0.
+ *  Updates a BI reservation. Only fields specified in the `field_mask` are
+ *  updated. A singleton BI reservation always exists with default size 0. In
+ *  order to reserve BI capacity it needs to be updated to an amount greater
+ *  than 0. In order to release BI capacity reservation size must be set to 0.
  *
  *  Method: bigqueryreservation.projects.locations.updateBiReservation
  *
@@ -1124,9 +1049,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryReservation queryForProjectsLocationsUpdateBiReservationWithObject:name:]
 
 /**
- *  The resource name of the singleton BI reservation.
- *  Reservation names have the form
- *  `projects/{project_id}/locations/{location_id}/bireservation`.
+ *  The resource name of the singleton BI reservation. Reservation names have
+ *  the form `projects/{project_id}/locations/{location_id}/bireservation`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1140,17 +1064,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryReservation_BiReservation.
  *
- *  Updates a BI reservation.
- *  Only fields specified in the `field_mask` are updated.
- *  A singleton BI reservation always exists with default size 0.
- *  In order to reserve BI capacity it needs to be updated to an amount
- *  greater than 0. In order to release BI capacity reservation size
- *  must be set to 0.
+ *  Updates a BI reservation. Only fields specified in the `field_mask` are
+ *  updated. A singleton BI reservation always exists with default size 0. In
+ *  order to reserve BI capacity it needs to be updated to an amount greater
+ *  than 0. In order to release BI capacity reservation size must be set to 0.
  *
  *  @param object The @c GTLRBigQueryReservation_BiReservation to include in the
  *    query.
- *  @param name The resource name of the singleton BI reservation.
- *    Reservation names have the form
+ *  @param name The resource name of the singleton BI reservation. Reservation
+ *    names have the form
  *    `projects/{project_id}/locations/{location_id}/bireservation`.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsUpdateBiReservation

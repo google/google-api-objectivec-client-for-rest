@@ -5,8 +5,8 @@
 //   Google Play Game Services (games/v1)
 // Description:
 //   The Google Play games service allows developers to enhance games with
-//   social leaderboards,
-//   achievements, game state, sign-in with Google, and more.
+//   social leaderboards, achievements, game state, sign-in with Google, and
+//   more.
 // Documentation:
 //   https://developers.google.com/games/
 
@@ -39,71 +39,175 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // collection
 
-/** Value: "ALL" */
+/**
+ *  Retrieve data for all categories. This is the default.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionAll;
-/** Value: "COLLECTION_UNSPECIFIED" */
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "COLLECTION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionCollectionUnspecified;
-/** Value: "CONNECTED" */
+/**
+ *  Retrieve a list of players that are also playing this game in reverse
+ *  chronological order.
+ *
+ *  Value: "CONNECTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionConnected;
-/** Value: "FRIENDS" */
+/**
+ *  List only scores of friends.
+ *
+ *  Value: "FRIENDS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionFriends;
-/** Value: "FRIENDS_ALL" */
+/**
+ *  Retrieve a list of players who are friends of the user in alphabetical
+ *  order.
+ *
+ *  Value: "FRIENDS_ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionFriendsAll;
-/** Value: "PUBLIC" */
+/**
+ *  List all scores in the public leaderboard.
+ *
+ *  Value: "PUBLIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionPublic;
-/** Value: "SCORE_COLLECTION_UNSPECIFIED" */
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCORE_COLLECTION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionScoreCollectionUnspecified;
-/** Value: "SOCIAL" */
+/**
+ *  (Obsolete) Legacy G+ social scores.
+ *
+ *  Value: "SOCIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionSocial;
-/** Value: "VISIBLE" */
+/**
+ *  Retrieve a list of players in the user's social graph that are visible to
+ *  this game.
+ *
+ *  Value: "VISIBLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionVisible;
 
 // ----------------------------------------------------------------------------
 // includeRankType
 
-/** Value: "ALL" */
+/**
+ *  Retrieve all supported ranks. In HTTP, this parameter value can also be
+ *  specified as `ALL`.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeAll;
-/** Value: "INCLUDE_RANK_TYPE_UNSPECIFIED" */
+/**
+ *  Retrieve the rank on the friends collection.
+ *
+ *  Value: "FRIENDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeFriends;
+/**
+ *  Default value. Should be unused.
+ *
+ *  Value: "INCLUDE_RANK_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified;
-/** Value: "PUBLIC" */
+/**
+ *  Retrieve public ranks, if the player is sharing their gameplay activity
+ *  publicly.
+ *
+ *  Value: "PUBLIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypePublic;
-/** Value: "SOCIAL" */
+/**
+ *  (Obsolete) Retrieve the social rank.
+ *
+ *  Value: "SOCIAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesIncludeRankTypeSocial;
 
 // ----------------------------------------------------------------------------
 // platformType
 
-/** Value: "ANDROID" */
+/**
+ *  Retrieve applications that can be played on Android.
+ *
+ *  Value: "ANDROID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeAndroid;
-/** Value: "IOS" */
+/**
+ *  Retrieve applications that can be played on iOS.
+ *
+ *  Value: "IOS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeIos;
-/** Value: "PLATFORM_TYPE_UNSPECIFIED" */
+/**
+ *  Default value, don't use.
+ *
+ *  Value: "PLATFORM_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypePlatformTypeUnspecified;
-/** Value: "WEB_APP" */
+/**
+ *  Retrieve applications that can be played on desktop web.
+ *
+ *  Value: "WEB_APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesPlatformTypeWebApp;
 
 // ----------------------------------------------------------------------------
 // state
 
-/** Value: "ALL" */
+/**
+ *  List all achievements. This is the default.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesStateAll;
-/** Value: "HIDDEN" */
+/**
+ *  List only hidden achievements.
+ *
+ *  Value: "HIDDEN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesStateHidden;
-/** Value: "REVEALED" */
+/**
+ *  List only revealed achievements.
+ *
+ *  Value: "REVEALED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesStateRevealed;
-/** Value: "UNLOCKED" */
+/**
+ *  List only unlocked achievements.
+ *
+ *  Value: "UNLOCKED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesStateUnlocked;
 
 // ----------------------------------------------------------------------------
 // timeSpan
 
-/** Value: "ALL" */
+/**
+ *  Get the high scores for all time spans. If this is used, maxResults values
+ *  will be ignored.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanAll;
 /** Value: "ALL_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanAllTime;
 /** Value: "DAILY" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanDaily;
-/** Value: "SCORE_TIME_SPAN_UNSPECIFIED" */
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCORE_TIME_SPAN_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanScoreTimeSpanUnspecified;
 /** Value: "WEEKLY" */
 FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
@@ -205,8 +309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Lists the progress for all your application's achievements for the
- *  currently authenticated player.
+ *  Lists the progress for all your application's achievements for the currently
+ *  authenticated player.
  *
  *  Method: games.achievements.list
  *
@@ -231,8 +335,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A player ID. A value of `me` may be used in place of the
- *  authenticated player's ID.
+ *  A player ID. A value of `me` may be used in place of the authenticated
+ *  player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -241,18 +345,22 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  this parameter isn't specified, all achievements are returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesStateAll Value "ALL"
- *    @arg @c kGTLRGamesStateHidden Value "HIDDEN"
- *    @arg @c kGTLRGamesStateRevealed Value "REVEALED"
- *    @arg @c kGTLRGamesStateUnlocked Value "UNLOCKED"
+ *    @arg @c kGTLRGamesStateAll List all achievements. This is the default.
+ *        (Value: "ALL")
+ *    @arg @c kGTLRGamesStateHidden List only hidden achievements. (Value:
+ *        "HIDDEN")
+ *    @arg @c kGTLRGamesStateRevealed List only revealed achievements. (Value:
+ *        "REVEALED")
+ *    @arg @c kGTLRGamesStateUnlocked List only unlocked achievements. (Value:
+ *        "UNLOCKED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Fetches a @c GTLRGames_PlayerAchievementListResponse.
  *
- *  Lists the progress for all your application's achievements for the
- *  currently authenticated player.
+ *  Lists the progress for all your application's achievements for the currently
+ *  authenticated player.
  *
  *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
@@ -268,8 +376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Sets the state of the achievement with the given ID to
- *  `REVEALED` for the currently authenticated player.
+ *  Sets the state of the achievement with the given ID to `REVEALED` for the
+ *  currently authenticated player.
  *
  *  Method: games.achievements.reveal
  *
@@ -286,8 +394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  Fetches a @c GTLRGames_AchievementRevealResponse.
  *
- *  Sets the state of the achievement with the given ID to
- *  `REVEALED` for the currently authenticated player.
+ *  Sets the state of the achievement with the given ID to `REVEALED` for the
+ *  currently authenticated player.
  *
  *  @param achievementId The ID of the achievement used by this method.
  *
@@ -299,9 +407,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  Sets the steps for the currently authenticated player towards unlocking an
- *  achievement. If the steps parameter is less than the current number of
- *  steps that the player already gained for the achievement, the achievement
- *  is not modified.
+ *  achievement. If the steps parameter is less than the current number of steps
+ *  that the player already gained for the achievement, the achievement is not
+ *  modified.
  *
  *  Method: games.achievements.setStepsAtLeast
  *
@@ -322,9 +430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Fetches a @c GTLRGames_AchievementSetStepsAtLeastResponse.
  *
  *  Sets the steps for the currently authenticated player towards unlocking an
- *  achievement. If the steps parameter is less than the current number of
- *  steps that the player already gained for the achievement, the achievement
- *  is not modified.
+ *  achievement. If the steps parameter is less than the current number of steps
+ *  that the player already gained for the achievement, the achievement is not
+ *  modified.
  *
  *  @param achievementId The ID of the achievement used by this method.
  *  @param steps The minimum value to set the steps to.
@@ -392,9 +500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  Retrieves the metadata of the application with the given ID. If the
- *  requested application is not available for the specified
- *  `platformType`, the returned response will not include any
- *  instance data.
+ *  requested application is not available for the specified `platformType`, the
+ *  returned response will not include any instance data.
  *
  *  Method: games.applications.get
  *
@@ -415,11 +522,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Restrict application details returned to the specific platform.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesPlatformTypePlatformTypeUnspecified Value
- *        "PLATFORM_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRGamesPlatformTypeAndroid Value "ANDROID"
- *    @arg @c kGTLRGamesPlatformTypeIos Value "IOS"
- *    @arg @c kGTLRGamesPlatformTypeWebApp Value "WEB_APP"
+ *    @arg @c kGTLRGamesPlatformTypePlatformTypeUnspecified Default value, don't
+ *        use. (Value: "PLATFORM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesPlatformTypeAndroid Retrieve applications that can be
+ *        played on Android. (Value: "ANDROID")
+ *    @arg @c kGTLRGamesPlatformTypeIos Retrieve applications that can be played
+ *        on iOS. (Value: "IOS")
+ *    @arg @c kGTLRGamesPlatformTypeWebApp Retrieve applications that can be
+ *        played on desktop web. (Value: "WEB_APP")
  */
 @property(nonatomic, copy, nullable) NSString *platformType;
 
@@ -427,9 +537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Fetches a @c GTLRGames_Application.
  *
  *  Retrieves the metadata of the application with the given ID. If the
- *  requested application is not available for the specified
- *  `platformType`, the returned response will not include any
- *  instance data.
+ *  requested application is not available for the specified `platformType`, the
+ *  returned response will not include any instance data.
  *
  *  @param applicationId The application ID from the Google Play developer
  *    console.
@@ -441,8 +550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Indicate that the currently authenticated user is playing your
- *  application.
+ *  Indicate that the currently authenticated user is playing your application.
  *
  *  Method: games.applications.played
  *
@@ -457,8 +565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Indicate that the currently authenticated user is playing your
- *  application.
+ *  Indicate that the currently authenticated user is playing your application.
  *
  *  @return GTLRGamesQuery_ApplicationsPlayed
  */
@@ -514,9 +621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  The maximum number of events to return in the response, used for paging.
- *  For any response, the actual number of events to return may be less than
- *  the specified maxResults.
+ *  The maximum number of events to return in the response, used for paging. For
+ *  any response, the actual number of events to return may be less than the
+ *  specified maxResults.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -720,9 +827,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of categories for which data will be returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionCollectionUnspecified Value
- *        "COLLECTION_UNSPECIFIED"
- *    @arg @c kGTLRGamesCollectionAll Value "ALL"
+ *    @arg @c kGTLRGamesCollectionCollectionUnspecified Default value. This
+ *        value is unused. (Value: "COLLECTION_UNSPECIFIED")
+ *    @arg @c kGTLRGamesCollectionAll Retrieve data for all categories. This is
+ *        the default. (Value: "ALL")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -730,9 +838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  The maximum number of category resources to return in the response, used
- *  for paging. For any response, the actual number of category resources
- *  returned may be less than the specified `maxResults`.
+ *  The maximum number of category resources to return in the response, used for
+ *  paging. For any response, the actual number of category resources returned
+ *  may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -740,8 +848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A player ID. A value of `me` may be used in place of the
- *  authenticated player's ID.
+ *  A player ID. A value of `me` may be used in place of the authenticated
+ *  player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -757,9 +865,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *    returned.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionCollectionUnspecified Value
- *        "COLLECTION_UNSPECIFIED"
- *    @arg @c kGTLRGamesCollectionAll Value "ALL"
+ *    @arg @c kGTLRGamesCollectionCollectionUnspecified Default value. This
+ *        value is unused. (Value: "COLLECTION_UNSPECIFIED")
+ *    @arg @c kGTLRGamesCollectionAll Retrieve data for all categories. This is
+ *        the default. (Value: "ALL")
  *
  *  @return GTLRGamesQuery_MetagameListCategoriesByPlayer
  *
@@ -773,8 +882,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @end
 
 /**
- *  Retrieves the Player resource with the given ID. To retrieve the player
- *  for the currently authenticated user, set `playerId` to `me`.
+ *  Retrieves the Player resource with the given ID. To retrieve the player for
+ *  the currently authenticated user, set `playerId` to `me`.
  *
  *  Method: games.players.get
  *
@@ -789,16 +898,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  A player ID. A value of `me` may be used in place of the
- *  authenticated player's ID.
+ *  A player ID. A value of `me` may be used in place of the authenticated
+ *  player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
 /**
  *  Fetches a @c GTLRGames_Player.
  *
- *  Retrieves the Player resource with the given ID. To retrieve the player
- *  for the currently authenticated user, set `playerId` to `me`.
+ *  Retrieves the Player resource with the given ID. To retrieve the player for
+ *  the currently authenticated user, set `playerId` to `me`.
  *
  *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
@@ -825,9 +934,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Collection of players being retrieved
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionConnected Value "CONNECTED"
- *    @arg @c kGTLRGamesCollectionVisible Value "VISIBLE"
- *    @arg @c kGTLRGamesCollectionFriendsAll Value "FRIENDS_ALL"
+ *    @arg @c kGTLRGamesCollectionConnected Retrieve a list of players that are
+ *        also playing this game in reverse chronological order. (Value:
+ *        "CONNECTED")
+ *    @arg @c kGTLRGamesCollectionVisible Retrieve a list of players in the
+ *        user's social graph that are visible to this game. (Value: "VISIBLE")
+ *    @arg @c kGTLRGamesCollectionFriendsAll Retrieve a list of players who are
+ *        friends of the user in alphabetical order. (Value: "FRIENDS_ALL")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -836,8 +949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  The maximum number of player resources to return in the response, used for
- *  paging. For any response, the actual number of player resources returned
- *  may be less than the specified `maxResults`.
+ *  paging. For any response, the actual number of player resources returned may
+ *  be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -852,9 +965,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param collection Collection of players being retrieved
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionConnected Value "CONNECTED"
- *    @arg @c kGTLRGamesCollectionVisible Value "VISIBLE"
- *    @arg @c kGTLRGamesCollectionFriendsAll Value "FRIENDS_ALL"
+ *    @arg @c kGTLRGamesCollectionConnected Retrieve a list of players that are
+ *        also playing this game in reverse chronological order. (Value:
+ *        "CONNECTED")
+ *    @arg @c kGTLRGamesCollectionVisible Retrieve a list of players in the
+ *        user's social graph that are visible to this game. (Value: "VISIBLE")
+ *    @arg @c kGTLRGamesCollectionFriendsAll Retrieve a list of players who are
+ *        friends of the user in alphabetical order. (Value: "FRIENDS_ALL")
  *
  *  @return GTLRGamesQuery_PlayersList
  *
@@ -881,9 +998,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  The revision of the client SDK used by your application. Format:
  *  `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE` are:
- *  * `ANDROID` - Client is running the Android SDK.
- *  * `IOS` - Client is running the iOS SDK.
- *  * `WEB_APP` - Client is running as a Web App.
+ *  * `ANDROID` - Client is running the Android SDK. * `IOS` - Client is running
+ *  the iOS SDK. * `WEB_APP` - Client is running as a Web App.
  */
 @property(nonatomic, copy, nullable) NSString *clientRevision;
 
@@ -893,12 +1009,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Checks whether the games client is out of date.
  *
  *  @param clientRevision The revision of the client SDK used by your
- *    application. Format:
- *    `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values of `PLATFORM_TYPE`
- *    are:
- *    * `ANDROID` - Client is running the Android SDK.
- *    * `IOS` - Client is running the iOS SDK.
- *    * `WEB_APP` - Client is running as a Web App.
+ *    application. Format: `[PLATFORM_TYPE]:[VERSION_NUMBER]`. Possible values
+ *    of `PLATFORM_TYPE` are: * `ANDROID` - Client is running the Android SDK. *
+ *    `IOS` - Client is running the iOS SDK. * `WEB_APP` - Client is running as
+ *    a Web App.
  *
  *  @return GTLRGamesQuery_RevisionsCheck
  */
@@ -908,11 +1022,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 
 /**
  *  Get high scores, and optionally ranks, in leaderboards for the currently
- *  authenticated player. For a specific time span, `leaderboardId`
- *  can be set to `ALL` to retrieve data for all leaderboards in a
- *  given time span. `NOTE: You cannot ask for 'ALL' leaderboards and
- *  'ALL' timeSpans in the same request; only one parameter may be set to
- *  'ALL'.
+ *  authenticated player. For a specific time span, `leaderboardId` can be set
+ *  to `ALL` to retrieve data for all leaderboards in a given time span. `NOTE:
+ *  You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same
+ *  request; only one parameter may be set to 'ALL'.
  *
  *  Method: games.scores.get
  *
@@ -928,11 +1041,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  returned.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified Value
- *        "INCLUDE_RANK_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRGamesIncludeRankTypeAll Value "ALL"
- *    @arg @c kGTLRGamesIncludeRankTypePublic Value "PUBLIC"
- *    @arg @c kGTLRGamesIncludeRankTypeSocial Value "SOCIAL"
+ *    @arg @c kGTLRGamesIncludeRankTypeIncludeRankTypeUnspecified Default value.
+ *        Should be unused. (Value: "INCLUDE_RANK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesIncludeRankTypeAll Retrieve all supported ranks. In
+ *        HTTP, this parameter value can also be specified as `ALL`. (Value:
+ *        "ALL")
+ *    @arg @c kGTLRGamesIncludeRankTypePublic Retrieve public ranks, if the
+ *        player is sharing their gameplay activity publicly. (Value: "PUBLIC")
+ *    @arg @c kGTLRGamesIncludeRankTypeSocial (Obsolete) Retrieve the social
+ *        rank. (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesIncludeRankTypeFriends Retrieve the rank on the friends
+ *        collection. (Value: "FRIENDS")
  */
 @property(nonatomic, copy, nullable) NSString *includeRankType;
 
@@ -946,9 +1065,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  The maximum number of leaderboard scores to return in the response. For
- *  any response, the actual number of leaderboard scores returned may be less
- *  than the specified `maxResults`.
+ *  The maximum number of leaderboard scores to return in the response. For any
+ *  response, the actual number of leaderboard scores returned may be less than
+ *  the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -956,8 +1075,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  A player ID. A value of `me` may be used in place of the
- *  authenticated player's ID.
+ *  A player ID. A value of `me` may be used in place of the authenticated
+ *  player's ID.
  */
 @property(nonatomic, copy, nullable) NSString *playerId;
 
@@ -965,12 +1084,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
- *        "SCORE_TIME_SPAN_UNSPECIFIED"
- *    @arg @c kGTLRGamesTimeSpanAll Value "ALL"
- *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
- *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
- *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGamesTimeSpanAll Get the high scores for all time spans. If
+ *        this is used, maxResults values will be ignored. (Value: "ALL")
+ *    @arg @c kGTLRGamesTimeSpanAllTime Get the all time high score. (Value:
+ *        "ALL_TIME")
+ *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current day.
+ *        (Value: "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanDaily List the top scores for the current week.
+ *        (Value: "DAILY")
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -978,26 +1101,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  Fetches a @c GTLRGames_PlayerLeaderboardScoreListResponse.
  *
  *  Get high scores, and optionally ranks, in leaderboards for the currently
- *  authenticated player. For a specific time span, `leaderboardId`
- *  can be set to `ALL` to retrieve data for all leaderboards in a
- *  given time span. `NOTE: You cannot ask for 'ALL' leaderboards and
- *  'ALL' timeSpans in the same request; only one parameter may be set to
- *  'ALL'.
+ *  authenticated player. For a specific time span, `leaderboardId` can be set
+ *  to `ALL` to retrieve data for all leaderboards in a given time span. `NOTE:
+ *  You cannot ask for 'ALL' leaderboards and 'ALL' timeSpans in the same
+ *  request; only one parameter may be set to 'ALL'.
  *
  *  @param playerId A player ID. A value of `me` may be used in place of the
  *    authenticated player's ID.
  *  @param leaderboardId The ID of the leaderboard. Can be set to 'ALL' to
- *    retrieve data for all
- *    leaderboards for this application.
+ *    retrieve data for all leaderboards for this application.
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
- *        "SCORE_TIME_SPAN_UNSPECIFIED"
- *    @arg @c kGTLRGamesTimeSpanAll Value "ALL"
- *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
- *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
- *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGamesTimeSpanAll Get the high scores for all time spans. If
+ *        this is used, maxResults values will be ignored. (Value: "ALL")
+ *    @arg @c kGTLRGamesTimeSpanAllTime Get the all time high score. (Value:
+ *        "ALL_TIME")
+ *    @arg @c kGTLRGamesTimeSpanWeekly List the top scores for the current day.
+ *        (Value: "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanDaily List the top scores for the current week.
+ *        (Value: "DAILY")
  *
  *  @return GTLRGamesQuery_ScoresGet
  *
@@ -1027,11 +1152,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of scores you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Value
- *        "SCORE_COLLECTION_UNSPECIFIED"
- *    @arg @c kGTLRGamesCollectionPublic Value "PUBLIC"
- *    @arg @c kGTLRGamesCollectionSocial Value "SOCIAL"
- *    @arg @c kGTLRGamesCollectionFriends Value "FRIENDS"
+ *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_COLLECTION_UNSPECIFIED")
+ *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
+ *        leaderboard. (Value: "PUBLIC")
+ *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores.
+ *        (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
+ *        "FRIENDS")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -1042,9 +1170,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  The maximum number of leaderboard scores to return in the response. For
- *  any response, the actual number of leaderboard scores returned may be less
- *  than the specified `maxResults`.
+ *  The maximum number of leaderboard scores to return in the response. For any
+ *  response, the actual number of leaderboard scores returned may be less than
+ *  the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1055,11 +1183,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
- *        "SCORE_TIME_SPAN_UNSPECIFIED"
- *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
- *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
- *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGamesTimeSpanAllTime The score is an all-time score. (Value:
+ *        "ALL_TIME")
+ *    @arg @c kGTLRGamesTimeSpanWeekly The score is a weekly score. (Value:
+ *        "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanDaily The score is a daily score. (Value:
+ *        "DAILY")
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -1073,18 +1204,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Value
- *        "SCORE_COLLECTION_UNSPECIFIED"
- *    @arg @c kGTLRGamesCollectionPublic Value "PUBLIC"
- *    @arg @c kGTLRGamesCollectionSocial Value "SOCIAL"
- *    @arg @c kGTLRGamesCollectionFriends Value "FRIENDS"
+ *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_COLLECTION_UNSPECIFIED")
+ *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
+ *        leaderboard. (Value: "PUBLIC")
+ *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores.
+ *        (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
+ *        "FRIENDS")
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
- *        "SCORE_TIME_SPAN_UNSPECIFIED"
- *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
- *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
- *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGamesTimeSpanAllTime The score is an all-time score. (Value:
+ *        "ALL_TIME")
+ *    @arg @c kGTLRGamesTimeSpanWeekly The score is a weekly score. (Value:
+ *        "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanDaily The score is a daily score. (Value:
+ *        "DAILY")
  *
  *  @return GTLRGamesQuery_ScoresList
  *
@@ -1114,11 +1251,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The collection of scores you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Value
- *        "SCORE_COLLECTION_UNSPECIFIED"
- *    @arg @c kGTLRGamesCollectionPublic Value "PUBLIC"
- *    @arg @c kGTLRGamesCollectionSocial Value "SOCIAL"
- *    @arg @c kGTLRGamesCollectionFriends Value "FRIENDS"
+ *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_COLLECTION_UNSPECIFIED")
+ *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
+ *        leaderboard. (Value: "PUBLIC")
+ *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores.
+ *        (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
+ *        "FRIENDS")
  */
 @property(nonatomic, copy, nullable) NSString *collection;
 
@@ -1129,9 +1269,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
 
 /**
- *  The maximum number of leaderboard scores to return in the response. For
- *  any response, the actual number of leaderboard scores returned may be less
- *  than the specified `maxResults`.
+ *  The maximum number of leaderboard scores to return in the response. For any
+ *  response, the actual number of leaderboard scores returned may be less than
+ *  the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1156,11 +1296,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  The time span for the scores and ranks you're requesting.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
- *        "SCORE_TIME_SPAN_UNSPECIFIED"
- *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
- *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
- *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGamesTimeSpanAllTime The score is an all-time score. (Value:
+ *        "ALL_TIME")
+ *    @arg @c kGTLRGamesTimeSpanWeekly The score is a weekly score. (Value:
+ *        "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanDaily The score is a daily score. (Value:
+ *        "DAILY")
  */
 @property(nonatomic, copy, nullable) NSString *timeSpan;
 
@@ -1174,18 +1317,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @param timeSpan The time span for the scores and ranks you're requesting.
  *
  *  Likely values for @c collection:
- *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Value
- *        "SCORE_COLLECTION_UNSPECIFIED"
- *    @arg @c kGTLRGamesCollectionPublic Value "PUBLIC"
- *    @arg @c kGTLRGamesCollectionSocial Value "SOCIAL"
- *    @arg @c kGTLRGamesCollectionFriends Value "FRIENDS"
+ *    @arg @c kGTLRGamesCollectionScoreCollectionUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_COLLECTION_UNSPECIFIED")
+ *    @arg @c kGTLRGamesCollectionPublic List all scores in the public
+ *        leaderboard. (Value: "PUBLIC")
+ *    @arg @c kGTLRGamesCollectionSocial (Obsolete) Legacy G+ social scores.
+ *        (Value: "SOCIAL")
+ *    @arg @c kGTLRGamesCollectionFriends List only scores of friends. (Value:
+ *        "FRIENDS")
  *
  *  Likely values for @c timeSpan:
- *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Value
- *        "SCORE_TIME_SPAN_UNSPECIFIED"
- *    @arg @c kGTLRGamesTimeSpanAllTime Value "ALL_TIME"
- *    @arg @c kGTLRGamesTimeSpanWeekly Value "WEEKLY"
- *    @arg @c kGTLRGamesTimeSpanDaily Value "DAILY"
+ *    @arg @c kGTLRGamesTimeSpanScoreTimeSpanUnspecified Default value. This
+ *        value is unused. (Value: "SCORE_TIME_SPAN_UNSPECIFIED")
+ *    @arg @c kGTLRGamesTimeSpanAllTime The score is an all-time score. (Value:
+ *        "ALL_TIME")
+ *    @arg @c kGTLRGamesTimeSpanWeekly The score is a weekly score. (Value:
+ *        "WEEKLY")
+ *    @arg @c kGTLRGamesTimeSpanDaily The score is a daily score. (Value:
+ *        "DAILY")
  *
  *  @return GTLRGamesQuery_ScoresListWindow
  *
@@ -1220,17 +1369,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 /**
  *  The score you're submitting. The submitted score is ignored if it is worse
  *  than a previously submitted score, where worse depends on the leaderboard
- *  sort order. The meaning of the score value depends on the leaderboard
- *  format type. For fixed-point, the score represents the raw value. For
- *  time, the score represents elapsed time in milliseconds. For currency, the
- *  score represents a value in micro units.
+ *  sort order. The meaning of the score value depends on the leaderboard format
+ *  type. For fixed-point, the score represents the raw value. For time, the
+ *  score represents elapsed time in milliseconds. For currency, the score
+ *  represents a value in micro units.
  */
 @property(nonatomic, assign) long long score;
 
 /**
  *  Additional information about the score you're submitting. Values must
- *  contain no more than 64 URI-safe characters as defined by section 2.3 of
- *  RFC 3986.
+ *  contain no more than 64 URI-safe characters as defined by section 2.3 of RFC
+ *  3986.
  */
 @property(nonatomic, copy, nullable) NSString *scoreTag;
 
@@ -1241,12 +1390,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *
  *  @param leaderboardId The ID of the leaderboard.
  *  @param score The score you're submitting. The submitted score is ignored if
- *    it is worse
- *    than a previously submitted score, where worse depends on the leaderboard
- *    sort order. The meaning of the score value depends on the leaderboard
- *    format type. For fixed-point, the score represents the raw value. For
- *    time, the score represents elapsed time in milliseconds. For currency, the
- *    score represents a value in micro units.
+ *    it is worse than a previously submitted score, where worse depends on the
+ *    leaderboard sort order. The meaning of the score value depends on the
+ *    leaderboard format type. For fixed-point, the score represents the raw
+ *    value. For time, the score represents elapsed time in milliseconds. For
+ *    currency, the score represents a value in micro units.
  *
  *  @return GTLRGamesQuery_ScoresSubmit
  */
@@ -1334,9 +1482,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
- *  The maximum number of snapshot resources to return in the response, used
- *  for paging. For any response, the actual number of snapshot resources
- *  returned may be less than the specified `maxResults`.
+ *  The maximum number of snapshot resources to return in the response, used for
+ *  paging. For any response, the actual number of snapshot resources returned
+ *  may be less than the specified `maxResults`.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1356,8 +1504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  corresponding to the player ID.
  *
  *  @param playerId A player ID. A value of `me` may be used in place of the
- *    authenticated
- *    player's ID.
+ *    authenticated player's ID.
  *
  *  @return GTLRGamesQuery_SnapshotsList
  *

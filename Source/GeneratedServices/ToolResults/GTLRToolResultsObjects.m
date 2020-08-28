@@ -454,8 +454,8 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 //
 
 @implementation GTLRToolResults_FailureDetail
-@dynamic crashed, failedRoboscript, notInstalled, otherNativeCrash, timedOut,
-         unableToCrawl;
+@dynamic crashed, deviceOutOfMemory, failedRoboscript, notInstalled,
+         otherNativeCrash, timedOut, unableToCrawl;
 @end
 
 

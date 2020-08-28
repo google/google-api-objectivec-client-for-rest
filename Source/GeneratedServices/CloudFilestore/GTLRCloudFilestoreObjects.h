@@ -119,8 +119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Creating;
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Deleting;
 /**
  *  The instance is experiencing an issue and might be unusable. You can get
- *  further details from the `statusMessage` field of the `Instance`
- *  resource.
+ *  further details from the `statusMessage` field of the `Instance` resource.
  *
  *  Value: "ERROR"
  */
@@ -149,17 +148,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_StateUnspe
 // GTLRCloudFilestore_Instance.tier
 
 /**
- *  BASIC instances offer a maximum capacity of 63.9 TB.
- *  BASIC_HDD is an alias for STANDARD Tier, offering economical
- *  performance backed by HDD.
+ *  BASIC instances offer a maximum capacity of 63.9 TB. BASIC_HDD is an alias
+ *  for STANDARD Tier, offering economical performance backed by HDD.
  *
  *  Value: "BASIC_HDD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_BasicHdd;
 /**
- *  BASIC instances offer a maximum capacity of 63.9 TB.
- *  BASIC_SSD is an alias for PREMIUM Tier, and offers improved
- *  performance backed by SSD.
+ *  BASIC instances offer a maximum capacity of 63.9 TB. BASIC_SSD is an alias
+ *  for PREMIUM Tier, and offers improved performance backed by SSD.
  *
  *  Value: "BASIC_SSD"
  */
@@ -193,9 +190,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspeci
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_NetworkConfig.modes
 
-/** Value: "ADDRESS_MODE_UNSPECIFIED" */
+/**
+ *  Internet protocol not set.
+ *
+ *  Value: "ADDRESS_MODE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified;
-/** Value: "MODE_IPV4" */
+/**
+ *  Use the IPv4 internet protocol.
+ *
+ *  Value: "MODE_IPV4"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
 
 /**
@@ -208,11 +213,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudFilestore_Empty : GTLRObject
 @end
@@ -224,8 +227,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @interface GTLRCloudFilestore_FileShareConfig : GTLRObject
 
 /**
- *  File share capacity in gigabytes (GB).
- *  Cloud Filestore defines 1 GB as 1024^3 bytes.
+ *  File share capacity in gigabytes (GB). Cloud Filestore defines 1 GB as
+ *  1024^3 bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -245,9 +248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 /**
  *  consumer_defined_name is the name that is set by the consumer. On the other
  *  hand Name field represents system-assigned id of an instance so consumers
- *  are not necessarily aware of it.
- *  consumer_defined_name is used for notification/UI purposes for consumer to
- *  recognize their instances.
+ *  are not necessarily aware of it. consumer_defined_name is used for
+ *  notification/UI purposes for consumer to recognize their instances.
  */
 @property(nonatomic, copy, nullable) NSString *consumerDefinedName;
 
@@ -255,15 +257,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. Resource labels to represent user provided metadata. Each label
- *  is a key-value pair, where both the key and the value are arbitrary strings
+ *  Optional. Resource labels to represent user provided metadata. Each label is
+ *  a key-value pair, where both the key and the value are arbitrary strings
  *  provided by the user.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels *labels;
 
 /**
- *  The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
+ *  The MaintenancePolicies that have been attached to the instance. The key
+ *  must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
@@ -287,35 +289,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 /**
  *  Output only. Custom string attributes used primarily to expose
- *  producer-specific information in monitoring dashboards.
- *  See go/get-instance-metadata.
+ *  producer-specific information in monitoring dashboards. See
+ *  go/get-instance-metadata.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_ProducerMetadata *producerMetadata;
 
 /**
- *  Output only. The list of data plane resources provisioned for this
- *  instance, e.g. compute VMs. See go/get-instance-metadata.
+ *  Output only. The list of data plane resources provisioned for this instance,
+ *  e.g. compute VMs. See go/get-instance-metadata.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource *> *provisionedResources;
 
 /**
  *  Link to the SLM instance template. Only populated when updating SLM
- *  instances via SSA's Actuation service adaptor.
- *  Service producers with custom control plane (e.g. Cloud SQL) doesn't
- *  need to populate this field. Instead they should use software_versions.
+ *  instances via SSA's Actuation service adaptor. Service producers with custom
+ *  control plane (e.g. Cloud SQL) doesn't need to populate this field. Instead
+ *  they should use software_versions.
  */
 @property(nonatomic, copy, nullable) NSString *slmInstanceTemplate;
 
 /**
- *  Output only. SLO metadata for instance classification in the
- *  Standardized dataplane SLO platform.
- *  See go/cloud-ssa-standard-slo for feature description.
+ *  Output only. SLO metadata for instance classification in the Standardized
+ *  dataplane SLO platform. See go/cloud-ssa-standard-slo for feature
+ *  description.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata *sloMetadata;
 
 /**
- *  Software versions that are used to deploy this instance. This can be
- *  mutated by rollout services.
+ *  Software versions that are used to deploy this instance. This can be mutated
+ *  by rollout services.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions *softwareVersions;
 
@@ -343,8 +345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Output only. ID of the associated GCP tenant project.
- *  See go/get-instance-metadata.
+ *  Output only. ID of the associated GCP tenant project. See
+ *  go/get-instance-metadata.
  */
 @property(nonatomic, copy, nullable) NSString *tenantProjectId;
 
@@ -355,8 +357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 
 /**
- *  Optional. Resource labels to represent user provided metadata. Each label
- *  is a key-value pair, where both the key and the value are arbitrary strings
+ *  Optional. Resource labels to represent user provided metadata. Each label is
+ *  a key-value pair, where both the key and the value are arbitrary strings
  *  provided by the user.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -369,8 +371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 
 /**
- *  The MaintenancePolicies that have been attached to the instance.
- *  The key must be of the type name of the oneof policy name defined in
+ *  The MaintenancePolicies that have been attached to the instance. The key
+ *  must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
@@ -400,8 +402,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 /**
  *  Output only. Custom string attributes used primarily to expose
- *  producer-specific information in monitoring dashboards.
- *  See go/get-instance-metadata.
+ *  producer-specific information in monitoring dashboards. See
+ *  go/get-instance-metadata.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -413,8 +415,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 
 /**
- *  Software versions that are used to deploy this instance. This can be
- *  mutated by rollout services.
+ *  Software versions that are used to deploy this instance. This can be mutated
+ *  by rollout services.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -432,9 +434,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
 
 /**
- *  Can this scheduled update be rescheduled?
- *  By default, it's true and API needs to do explicitly check whether it's
- *  set, if it's set as false explicitly, it's false
+ *  Can this scheduled update be rescheduled? By default, it's true and API
+ *  needs to do explicitly check whether it's set, if it's set as false
+ *  explicitly, it's false
  *
  *  Uses NSNumber of boolValue.
  */
@@ -444,9 +446,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  The rollout management policy this maintenance schedule is associated
- *  with. When doing reschedule update request, the reschedule should be
- *  against this given policy.
+ *  The rollout management policy this maintenance schedule is associated with.
+ *  When doing reschedule update request, the reschedule should be against this
+ *  given policy.
  */
 @property(nonatomic, copy, nullable) NSString *rolloutManagementPolicy;
 
@@ -464,8 +466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 /**
  *  Optional. Exclude instance from maintenance. When true, rollout service will
- *  not
- *  attempt maintenance on the instance. Rollout service will include the
+ *  not attempt maintenance on the instance. Rollout service will include the
  *  instance in reported rollout progress as not attempted.
  *
  *  Uses NSNumber of boolValue.
@@ -476,30 +477,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 
 /**
- *  Node information for custom per-node SLO implementations.
- *  SSA does not support per-node SLO, but producers can populate per-node
- *  information in SloMetadata for custom precomputations.
- *  SSA Eligibility Exporter will emit per-node metric based on this
- *  information.
+ *  Node information for custom per-node SLO implementations. SSA does not
+ *  support per-node SLO, but producers can populate per-node information in
+ *  SloMetadata for custom precomputations. SSA Eligibility Exporter will emit
+ *  per-node metric based on this information.
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata : GTLRObject
 
 /**
- *  By default node is eligible if instance is eligible.
- *  But individual node might be excluded from SLO by adding entry here.
- *  For semantic see SloMetadata.exclusions.
- *  If both instance and node level exclusions are present for time period,
- *  the node level's reason will be reported by Eligibility Exporter.
+ *  By default node is eligible if instance is eligible. But individual node
+ *  might be excluded from SLO by adding entry here. For semantic see
+ *  SloMetadata.exclusions. If both instance and node level exclusions are
+ *  present for time period, the node level's reason will be reported by
+ *  Eligibility Exporter.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
 /** The location of the node, if different from instance location. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/**
- *  The id of the node.
- *  This should be equal to SaasInstanceNode.node_id.
- */
+/** The id of the node. This should be equal to SaasInstanceNode.node_id. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
 
 @end
@@ -559,28 +556,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion : GTLRObject
 
 /**
- *  Exclusion duration. No restrictions on the possible values.
- *  When an ongoing operation is taking longer than initially expected,
- *  an existing entry in the exclusion list can be updated by extending the
- *  duration. This is supported by the subsystem exporting eligibility data
- *  as long as such extension is committed at least 10 minutes before the
- *  original exclusion expiration - otherwise it is possible that there will
- *  be "gaps" in the exclusion application in the exported timeseries.
+ *  Exclusion duration. No restrictions on the possible values. When an ongoing
+ *  operation is taking longer than initially expected, an existing entry in the
+ *  exclusion list can be updated by extending the duration. This is supported
+ *  by the subsystem exporting eligibility data as long as such extension is
+ *  committed at least 10 minutes before the original exclusion expiration -
+ *  otherwise it is possible that there will be "gaps" in the exclusion
+ *  application in the exported timeseries.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  Human-readable reason for the exclusion.
- *  This should be a static string (e.g. "Disruptive update in progress")
- *  and should not contain dynamically generated data (e.g. instance name).
- *  Can be left empty.
+ *  Human-readable reason for the exclusion. This should be a static string
+ *  (e.g. "Disruptive update in progress") and should not contain dynamically
+ *  generated data (e.g. instance name). Can be left empty.
  */
 @property(nonatomic, copy, nullable) NSString *reason;
 
 /**
- *  Name of an SLI that this exclusion applies to. Can be left empty,
- *  signaling that the instance should be excluded from all SLIs defined
- *  in the service SLO configuration.
+ *  Name of an SLI that this exclusion applies to. Can be left empty, signaling
+ *  that the instance should be excluded from all SLIs defined in the service
+ *  SLO configuration.
  */
 @property(nonatomic, copy, nullable) NSString *sliName;
 
@@ -603,32 +599,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 /**
  *  List of SLO exclusion windows. When multiple entries in the list match
- *  (matching the exclusion time-window against current time point)
- *  the exclusion reason used in the first matching entry will be published.
- *  It is not needed to include expired exclusion in this list, as only the
- *  currently applicable exclusions are taken into account by the eligibility
- *  exporting subsystem (the historical state of exclusions will be reflected
- *  in the historically produced timeseries regardless of the current state).
- *  This field can be used to mark the instance as temporary ineligible
- *  for the purpose of SLO calculation. For permanent instance SLO exclusion,
- *  use of custom instance eligibility is recommended. See 'eligibility' field
- *  below.
+ *  (matching the exclusion time-window against current time point) the
+ *  exclusion reason used in the first matching entry will be published. It is
+ *  not needed to include expired exclusion in this list, as only the currently
+ *  applicable exclusions are taken into account by the eligibility exporting
+ *  subsystem (the historical state of exclusions will be reflected in the
+ *  historically produced timeseries regardless of the current state). This
+ *  field can be used to mark the instance as temporary ineligible for the
+ *  purpose of SLO calculation. For permanent instance SLO exclusion, use of
+ *  custom instance eligibility is recommended. See 'eligibility' field below.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion *> *exclusions;
 
 /**
- *  Optional. List of nodes.
- *  Some producers need to use per-node metadata to calculate SLO.
- *  This field allows such producers to publish per-node SLO meta data,
- *  which will be consumed by SSA Eligibility Exporter and published in the
- *  form of per node metric to Monarch.
+ *  Optional. List of nodes. Some producers need to use per-node metadata to
+ *  calculate SLO. This field allows such producers to publish per-node SLO meta
+ *  data, which will be consumed by SSA Eligibility Exporter and published in
+ *  the form of per node metric to Monarch.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata *> *nodes;
 
 /**
  *  Name of the SLO tier the Instance belongs to. This name will be expected to
- *  match the tiers specified in the service SLO configuration.
- *  Field is mandatory and must not be empty.
+ *  match the tiers specified in the service SLO configuration. Field is
+ *  mandatory and must not be empty.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
@@ -657,8 +651,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  File system shares on the instance.
- *  For this version, only a single file share is supported.
+ *  File system shares on the instance. For this version, only a single file
+ *  share is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_FileShareConfig *> *fileShares;
 
@@ -672,8 +666,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  VPC networks to which the instance is connected.
- *  For this version, only a single network is supported.
+ *  VPC networks to which the instance is connected. For this version, only a
+ *  single network is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
 
@@ -686,14 +680,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
  *    @arg @c kGTLRCloudFilestore_Instance_State_Deleting The instance is
  *        shutting down. (Value: "DELETING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Error The instance is
- *        experiencing an issue and might be unusable. You can get
- *        further details from the `statusMessage` field of the `Instance`
- *        resource. (Value: "ERROR")
+ *        experiencing an issue and might be unusable. You can get further
+ *        details from the `statusMessage` field of the `Instance` resource.
+ *        (Value: "ERROR")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Ready The instance is available
  *        for use. (Value: "READY")
  *    @arg @c kGTLRCloudFilestore_Instance_State_Repairing Work is being done on
- *        the instance. You can get further details from the
- *        `statusMessage` field of the `Instance` resource. (Value: "REPAIRING")
+ *        the instance. You can get further details from the `statusMessage`
+ *        field of the `Instance` resource. (Value: "REPAIRING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_StateUnspecified State not set.
  *        (Value: "STATE_UNSPECIFIED")
  */
@@ -709,13 +703,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_BasicHdd BASIC instances offer a
- *        maximum capacity of 63.9 TB.
- *        BASIC_HDD is an alias for STANDARD Tier, offering economical
- *        performance backed by HDD. (Value: "BASIC_HDD")
+ *        maximum capacity of 63.9 TB. BASIC_HDD is an alias for STANDARD Tier,
+ *        offering economical performance backed by HDD. (Value: "BASIC_HDD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_BasicSsd BASIC instances offer a
- *        maximum capacity of 63.9 TB.
- *        BASIC_SSD is an alias for PREMIUM Tier, and offers improved
- *        performance backed by SSD. (Value: "BASIC_SSD")
+ *        maximum capacity of 63.9 TB. BASIC_SSD is an alias for PREMIUM Tier,
+ *        and offers improved performance backed by SSD. (Value: "BASIC_SSD")
  *    @arg @c kGTLRCloudFilestore_Instance_Tier_HighScaleSsd HIGH_SCALE
  *        instances offer expanded capacity and performance scaling
  *        capabilities. (Value: "HIGH_SCALE_SSD")
@@ -754,11 +746,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @interface GTLRCloudFilestore_ListInstancesResponse : GTLRCollectionObject
 
 /**
- *  A list of instances in the project for the specified location.
- *  If the {location} value in the request is "-", the response contains a list
- *  of instances from all locations. If any location is unreachable, the
- *  response will only return instances in reachable locations and the
- *  "unreachable" field will be populated with a list of unreachable locations.
+ *  A list of instances in the project for the specified location. If the
+ *  {location} value in the request is "-", the response contains a list of
+ *  instances from all locations. If any location is unreachable, the response
+ *  will only return instances in reachable locations and the "unreachable"
+ *  field will be populated with a list of unreachable locations.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -766,8 +758,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_Instance *> *instances;
 
 /**
- *  The token you can use to retrieve the next page of results. Not returned
- *  if there are no more results in the list.
+ *  The token you can use to retrieve the next page of results. Not returned if
+ *  there are no more results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -831,8 +823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @interface GTLRCloudFilestore_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -852,8 +844,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -892,33 +884,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @interface GTLRCloudFilestore_NetworkConfig : GTLRObject
 
 /**
- *  Output only. IPv4 addresses in the format
- *  {octet 1}.{octet 2}.{octet 3}.{octet 4} or IPv6 addresses in the format
- *  {block 1}:{block 2}:{block 3}:{block 4}:{block 5}:{block 6}:{block
- *  7}:{block 8}.
+ *  Output only. IPv4 addresses in the format {octet 1}.{octet 2}.{octet
+ *  3}.{octet 4} or IPv6 addresses in the format {block 1}:{block 2}:{block
+ *  3}:{block 4}:{block 5}:{block 6}:{block 7}:{block 8}.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
 
 /**
- *  Internet protocol versions for which the instance has IP addresses
- *  assigned. For this version, only MODE_IPV4 is supported.
+ *  Internet protocol versions for which the instance has IP addresses assigned.
+ *  For this version, only MODE_IPV4 is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *modes;
 
 /**
- *  The name of the Google Compute Engine
- *  [VPC network](/compute/docs/networks-and-firewalls#networks) to which the
+ *  The name of the Google Compute Engine [VPC
+ *  network](/compute/docs/networks-and-firewalls#networks) to which the
  *  instance is connected.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  A /29 CIDR block in one of the
- *  [internal IP address
- *  ranges](https://www.arin.net/knowledge/address_filters.html) that
- *  identifies the range of IP addresses reserved for this instance. For
- *  example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap
- *  with either existing subnets or assigned IP address ranges for other Cloud
+ *  A /29 CIDR block in one of the [internal IP address
+ *  ranges](https://www.arin.net/knowledge/address_filters.html) that identifies
+ *  the range of IP addresses reserved for this instance. For example,
+ *  10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap with
+ *  either existing subnets or assigned IP address ranges for other Cloud
  *  Filestore instances in the selected VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
@@ -933,8 +923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @interface GTLRCloudFilestore_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -946,16 +936,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -964,10 +954,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Operation_Response *response;
 
@@ -976,8 +965,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -994,10 +983,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1017,10 +1005,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  [Output only] Identifies whether the user has requested cancellation
- *  of the operation. Operations that have successfully been cancelled
- *  have Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  [Output only] Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1050,9 +1038,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeI
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudFilestore_Status : GTLRObject
 

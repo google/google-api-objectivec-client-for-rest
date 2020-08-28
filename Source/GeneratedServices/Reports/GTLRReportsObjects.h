@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Reports API (admin/reports_v1)
+//   Admin SDK (admin/reports_v1)
 // Description:
-//   Fetches reports for the administrators of G Suite customers about the
-//   usage, collaboration, security, and risk for their users.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   /admin-sdk/reports/
+//   http://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -45,7 +46,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  JSON template for a collection of activites.
+ *  JSON template for a collection of activities.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -162,15 +163,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Name of the event. This is the specific name of the activity reported by the
  *  API. And each eventName is related to a specific G Suite service or feature
- *  which the API organizes into types of events.
- *  For eventName request parameters in general:
- *  - If no eventName is given, the report returns all possible instances of an
- *  eventName.
- *  - When you request an eventName, the API's response returns all activities
- *  which contain that eventName. It is possible that the returned activities
- *  will have other eventName properties in addition to the one requested.
- *  For more information about eventName properties, see the list of event names
- *  for various applications above in applicationName.
+ *  which the API organizes into types of events. For eventName request
+ *  parameters in general: - If no eventName is given, the report returns all
+ *  possible instances of an eventName. - When you request an eventName, the
+ *  API's response returns all activities which contain that eventName. It is
+ *  possible that the returned activities will have other eventName properties
+ *  in addition to the one requested. For more information about eventName
+ *  properties, see the list of event names for various applications above in
+ *  applicationName.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -296,7 +296,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  An notification channel used to watch for resource changes.
+ *  A notification channel used to watch for resource changes.
  */
 @interface GTLRReports_Channel : GTLRObject
 
@@ -417,10 +417,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRReports_UsageReport : GTLRObject
 
-/** The date of the report request. */
+/** Output only. The date of the report request. */
 @property(nonatomic, copy, nullable) NSString *date;
 
-/** Information about the type of the item. */
+/** Output only. Information about the type of the item. */
 @property(nonatomic, strong, nullable) GTLRReports_UsageReport_Entity *entity;
 
 /** ETag of the resource. */
@@ -433,8 +433,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Parameter value pairs for various applications. For the Customers usage
- *  report parameters and values, see the customer usage parameters reference.
+ *  Output only. Parameter value pairs for various applications. For the
+ *  Customers usage report parameters and values, see the customer usage
+ *  parameters reference.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport_Parameters_Item *> *parameters;
 
@@ -442,26 +443,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Information about the type of the item.
+ *  Output only. Information about the type of the item.
  */
 @interface GTLRReports_UsageReport_Entity : GTLRObject
 
-/** The unique identifier of the customer's account. */
+/** Output only. The unique identifier of the customer's account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Object key. Only relevant if entity.type = "OBJECT" Note: external-facing
- *  name of report is "Entities" rather than "Objects".
+ *  Output only. Object key. Only relevant if entity.type = "OBJECT" Note:
+ *  external-facing name of report is "Entities" rather than "Objects".
  */
 @property(nonatomic, copy, nullable) NSString *entityId;
 
-/** The user's immutable G Suite profile identifier. */
+/** Output only. The user's immutable G Suite profile identifier. */
 @property(nonatomic, copy, nullable) NSString *profileId;
 
-/** The type of item. The value is customer. */
+/** Output only. The type of item. The value is customer. */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** The user's email address. Only relevant if entity.type = "USER" */
+/**
+ *  Output only. The user's email address. Only relevant if entity.type = "USER"
+ */
 @property(nonatomic, copy, nullable) NSString *userEmail;
 
 @end
@@ -473,7 +476,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReports_UsageReport_Parameters_Item : GTLRObject
 
 /**
- *  Boolean value of the parameter.
+ *  Output only. Boolean value of the parameter.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -486,18 +489,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *datetimeValue;
 
 /**
- *  Integer value of the parameter.
+ *  Output only. Integer value of the parameter.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *intValue;
 
-/** Nested message value of the parameter. */
+/** Output only. Nested message value of the parameter. */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport_Parameters_Item_MsgValue_Item *> *msgValue;
 
+/** Name of the parameter. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** String value of the parameter. */
+/** Output only. String value of the parameter. */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
 @end
@@ -557,12 +561,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReports_Warnings_Item_Data_Item *> *data;
 
 /**
- *  The human readable messages for a warning are:
- *  - Data is not available warning - Sorry, data for date yyyy-mm-dd for
- *  application "application name" is not available.
- *  - Partial data is available warning - Data for date yyyy-mm-dd for
- *  application "application name" is not available right now, please try again
- *  after a few hours.
+ *  The human readable messages for a warning are: - Data is not available
+ *  warning - Sorry, data for date yyyy-mm-dd for application "application name"
+ *  is not available. - Partial data is available warning - Data for date
+ *  yyyy-mm-dd for application "application name" is not available right now,
+ *  please try again after a few hours.
  */
 @property(nonatomic, copy, nullable) NSString *message;
 

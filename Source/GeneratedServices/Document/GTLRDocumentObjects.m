@@ -15,6 +15,62 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata_State_Succeeded = @"SUCCEEDED";
+
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata_State_Preparing = @"PREPARING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata_State_Queued = @"QUEUED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata_State_Succeeded = @"SUCCEEDED";
+
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata_State_Succeeded = @"SUCCEEDED";
+
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata_State_Waiting = @"WAITING";
+
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata_State_Waiting = @"WAITING";
+
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata_State_Waiting = @"WAITING";
+
+// GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata_State_Succeeded = @"SUCCEEDED";
+
 // GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout.orientation
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout_Orientation_OrientationUnspecified = @"ORIENTATION_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageLayout_Orientation_PageDown = @"PAGE_DOWN";
@@ -58,6 +114,103 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_Sta
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_State_Waiting = @"WAITING";
+
+// GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata.state
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata_State_Waiting = @"WAITING";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateLabelerPoolOperationMetadata
+@dynamic createTime, state, stateMessage, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3CreateProcessorVersionMetadata
+@dynamic createTime, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteLabelerPoolOperationMetadata
+@dynamic createTime, state, stateMessage, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DeleteProcessorMetadata
+@dynamic createTime, state, stateMessage, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorMetadata
+@dynamic createTime, state, stateMessage, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DisableProcessorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorMetadata
+@dynamic createTime, state, stateMessage, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3EnableProcessorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3UpdateLabelerPoolOperationMetadata
+@dynamic createTime, state, stateMessage, updateTime;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -125,7 +278,18 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity
-@dynamic confidence, mentionId, mentionText, textAnchor, type;
+@dynamic confidence, mentionId, mentionText, normalizedValue, redacted,
+         textAnchor, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntityNormalizedValue
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntityNormalizedValue
+@dynamic datetimeValue, dateValue, moneyValue, text;
 @end
 
 
@@ -614,7 +778,18 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_Sta
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntity
-@dynamic confidence, mentionId, mentionText, textAnchor, type;
+@dynamic confidence, mentionId, mentionText, normalizedValue, redacted,
+         textAnchor, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntityNormalizedValue
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntityNormalizedValue
+@dynamic datetimeValue, dateValue, moneyValue, text;
 @end
 
 
@@ -1126,6 +1301,43 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_Sta
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata
+@dynamic createTime, individualProcessStatuses, state, stateMessage, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"individualProcessStatuses" : [GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus
+@dynamic inputGcsSource, outputGcsDestination, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleLongrunningOperation
 //
 
@@ -1159,6 +1371,15 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_Sta
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleProtobufEmpty
+//
+
+@implementation GTLRDocument_GoogleProtobufEmpty
 @end
 
 
@@ -1201,4 +1422,49 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta2OperationMetadata_Sta
 
 @implementation GTLRDocument_GoogleTypeColor
 @dynamic alpha, blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleTypeDate
+//
+
+@implementation GTLRDocument_GoogleTypeDate
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleTypeDateTime
+//
+
+@implementation GTLRDocument_GoogleTypeDateTime
+@dynamic day, hours, minutes, month, nanos, seconds, timeZone, utcOffset, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleTypeMoney
+//
+
+@implementation GTLRDocument_GoogleTypeMoney
+@dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleTypeTimeZone
+//
+
+@implementation GTLRDocument_GoogleTypeTimeZone
+@dynamic identifier, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end

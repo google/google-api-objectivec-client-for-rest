@@ -537,10 +537,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. A field mask to restrict which fields on each person are returned.
  *  Multiple fields can be specified by separating them with commas. Valid
  *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
- *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
- *  * interests * locales * memberships * metadata * miscKeywords * names *
- *  nicknames * occupations * organizations * phoneNumbers * photos * relations
- *  * residences * sipAddresses * skills * urls * userDefined
+ *  * clientData * coverPhotos * emailAddresses * events * externalIds * genders
+ *  * imClients * interests * locales * locations * memberships * metadata *
+ *  miscKeywords * names * nicknames * occupations * organizations *
+ *  phoneNumbers * photos * relations * sipAddresses * skills * urls *
+ *  userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -651,11 +652,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. A field mask to restrict which fields on each person are returned.
  *  Multiple fields can be specified by separating them with commas. Defaults to
  *  all fields if not set. Valid values are: * addresses * ageRanges *
- *  biographies * birthdays * calendarUrls * coverPhotos * emailAddresses *
- *  events * externalIds * genders * imClients * interests * locales *
- *  memberships * metadata * miscKeywords * names * nicknames * occupations *
- *  organizations * phoneNumbers * photos * relations * residences *
- *  sipAddresses * skills * urls * userDefined
+ *  biographies * birthdays * calendarUrls * clientData * coverPhotos *
+ *  emailAddresses * events * externalIds * genders * imClients * interests *
+ *  locales * locations * memberships * metadata * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * photos * relations
+ *  * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -738,11 +739,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Optional. A field mask to restrict which fields on the person are returned.
  *  Multiple fields can be specified by separating them with commas. Defaults to
  *  empty if not set, which will skip the post mutate get. Valid values are: *
- *  addresses * ageRanges * biographies * birthdays * calendarUrls * coverPhotos
- *  * emailAddresses * events * externalIds * genders * imClients * interests *
- *  locales * memberships * metadata * miscKeywords * names * nicknames *
- *  occupations * organizations * phoneNumbers * photos * relations * residences
- *  * sipAddresses * skills * urls * userDefined
+ *  addresses * ageRanges * biographies * birthdays * calendarUrls * clientData
+ *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
+ *  * interests * locales * locations * memberships * metadata * miscKeywords *
+ *  names * nicknames * occupations * organizations * phoneNumbers * photos *
+ *  relations * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -810,10 +811,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. A field mask to restrict which fields on the person are returned.
  *  Multiple fields can be specified by separating them with commas. Valid
  *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
- *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
- *  * interests * locales * memberships * metadata * miscKeywords * names *
- *  nicknames * occupations * organizations * phoneNumbers * photos * relations
- *  * residences * sipAddresses * skills * urls * userDefined
+ *  * clientData * coverPhotos * emailAddresses * events * externalIds * genders
+ *  * imClients * interests * locales * locations * memberships * metadata *
+ *  miscKeywords * names * nicknames * occupations * organizations *
+ *  phoneNumbers * photos * relations * sipAddresses * skills * urls *
+ *  userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -903,10 +905,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. A field mask to restrict which fields on each person are returned.
  *  Multiple fields can be specified by separating them with commas. Valid
  *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
- *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
- *  * interests * locales * memberships * metadata * miscKeywords * names *
- *  nicknames * occupations * organizations * phoneNumbers * photos * relations
- *  * residences * sipAddresses * skills * urls * userDefined
+ *  * clientData * coverPhotos * emailAddresses * events * externalIds * genders
+ *  * imClients * interests * locales * locations * memberships * metadata *
+ *  miscKeywords * names * nicknames * occupations * organizations *
+ *  phoneNumbers * photos * relations * sipAddresses * skills * urls *
+ *  userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1006,10 +1009,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. A field mask to restrict which fields on each person are returned.
  *  Multiple fields can be specified by separating them with commas. Valid
  *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
- *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
- *  * interests * locales * memberships * metadata * miscKeywords * names *
- *  nicknames * occupations * organizations * phoneNumbers * photos * relations
- *  * residences * sipAddresses * skills * urls * userDefined
+ *  * clientData * coverPhotos * emailAddresses * events * externalIds * genders
+ *  * imClients * interests * locales * locations * memberships * metadata *
+ *  miscKeywords * names * nicknames * occupations * organizations *
+ *  phoneNumbers * photos * relations * sipAddresses * skills * urls *
+ *  userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1109,10 +1113,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. A field mask to restrict which fields on each person are returned.
  *  Multiple fields can be specified by separating them with commas. Valid
  *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
- *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
- *  * interests * locales * memberships * metadata * miscKeywords * names *
- *  nicknames * occupations * organizations * phoneNumbers * photos * relations
- *  * residences * sipAddresses * skills * urls * userDefined
+ *  * clientData * coverPhotos * emailAddresses * events * externalIds * genders
+ *  * imClients * interests * locales * locations * memberships * metadata *
+ *  miscKeywords * names * nicknames * occupations * organizations *
+ *  phoneNumbers * photos * relations * sipAddresses * skills * urls *
+ *  userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1175,11 +1180,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Optional. A field mask to restrict which fields on each person are returned.
  *  Multiple fields can be specified by separating them with commas. Defaults to
  *  all fields if not set. Valid values are: * addresses * ageRanges *
- *  biographies * birthdays * calendarUrls * coverPhotos * emailAddresses *
- *  events * externalIds * genders * imClients * interests * locales *
- *  memberships * metadata * miscKeywords * names * nicknames * occupations *
- *  organizations * phoneNumbers * photos * relations * residences *
- *  sipAddresses * skills * urls * userDefined
+ *  biographies * birthdays * calendarUrls * clientData * coverPhotos *
+ *  emailAddresses * events * externalIds * genders * imClients * interests *
+ *  locales * locations * memberships * metadata * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * photos * relations
+ *  * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1212,10 +1217,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Required. A field mask to restrict which fields on the person are updated.
  *  Multiple fields can be specified by separating them with commas. All updated
  *  fields will be replaced. Valid values are: * addresses * biographies *
- *  birthdays * calendarUrls * emailAddresses * events * externalIds * genders *
- *  imClients * interests * locales * memberships * miscKeywords * names *
- *  nicknames * occupations * organizations * phoneNumbers * relations *
- *  residences * sipAddresses * urls * userDefined
+ *  birthdays * calendarUrls * clientData * emailAddresses * events *
+ *  externalIds * genders * imClients * interests * locales * locations *
+ *  memberships * miscKeywords * names * nicknames * occupations * organizations
+ *  * phoneNumbers * relations * sipAddresses * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */

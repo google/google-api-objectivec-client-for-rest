@@ -47,6 +47,7 @@ NSString * const kGTLRAuthScopeShoppingContent = @"https://www.googleapis.com/au
     @"content#accountStatus" : [GTLRShoppingContent_AccountStatus class],
     @"content#accountstatusesCustomBatchResponse" : [GTLRShoppingContent_AccountstatusesCustomBatchResponse class],
     @"content#accountstatusesListResponse" : [GTLRShoppingContent_AccountstatusesListResponse class],
+    @"content#accountsUpdateLabelsResponse" : [GTLRShoppingContent_AccountsUpdateLabelsResponse class],
     @"content#accountTax" : [GTLRShoppingContent_AccountTax class],
     @"content#accounttaxCustomBatchResponse" : [GTLRShoppingContent_AccounttaxCustomBatchResponse class],
     @"content#accounttaxCustomBatchResponseEntry" : [GTLRShoppingContent_AccounttaxCustomBatchResponseEntry class],

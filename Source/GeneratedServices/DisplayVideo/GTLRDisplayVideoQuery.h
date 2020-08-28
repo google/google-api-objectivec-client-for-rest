@@ -353,9 +353,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 
 /**
  *  Audits an advertiser. Returns the counts of used entities per resource type
- *  under the advertiser provided. Used entities count towards their [respective
- *  resource limit]:
- *  (https://support.google.com/displayvideo/answer/6071450?hl=en)
+ *  under the advertiser provided. Used entities count towards their respective
+ *  resource limit. See https://support.google.com/displayvideo/answer/6071450.
  *
  *  Method: displayvideo.advertisers.audit
  *
@@ -372,7 +371,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Optional. The specific fields to return. If no mask is specified, all fields
  *  in the response proto will be filled. Valid values are: * usedLineItemsCount
- *  * usedInsertionOrdersCount * usedCampaignsCount
+ *  * usedInsertionOrdersCount * usedCampaignsCount * channelsCount *
+ *  negativelyTargetedChannelsCount * negativeKeywordListsCount *
+ *  adGroupCriteriaCount * campaignCriteriaCount
  *
  *  String format is a comma-separated list of fields.
  */
@@ -382,9 +383,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  Fetches a @c GTLRDisplayVideo_AuditAdvertiserResponse.
  *
  *  Audits an advertiser. Returns the counts of used entities per resource type
- *  under the advertiser provided. Used entities count towards their [respective
- *  resource limit]:
- *  (https://support.google.com/displayvideo/answer/6071450?hl=en)
+ *  under the advertiser provided. Used entities count towards their respective
+ *  resource limit. See https://support.google.com/displayvideo/answer/6071450.
  *
  *  @param advertiserId Required. The ID of the advertiser to audit.
  *
@@ -632,9 +632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
  *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
- *  `entityStatus` Examples: * All `ENTITY_STATUS_ACTIVE` or
- *  `ENTITY_STATUS_PAUSED` campaigns under an advertiser:
- *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  `campaignId` - `displayName` - `entityStatus` Examples: * All
+ *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` campaigns under an
+ *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
  *  entityStatus="ENTITY_STATUS_PAUSED")` The length of this field should be no
  *  more than 500 characters.
  */
@@ -1567,13 +1567,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
- *  `campaignId` - `entityStatus` Examples: * All insertion orders under a
- *  campaign: `campaignId="1234"` * All `ENTITY_STATUS_ACTIVE` or
- *  `ENTITY_STATUS_PAUSED` insertion orders under an advertiser:
- *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
- *  entityStatus="ENTITY_STATUS_PAUSED")` The length of this field should be no
- *  more than 500 characters.
+ *  {value}`. * The operator used on
+ *  `budget.budget_segments.date_range.end_date` must be LESS THAN (<). * The
+ *  operators used on all other fields must be `EQUALS (=)`. * Supported fields:
+ *  - `campaignId` - `displayName` - `entityStatus` -
+ *  `budget.budget_segments.date_range.end_date` (input as YYYY-MM-DD) Examples:
+ *  * All insertion orders under a campaign: `campaignId="1234"` * All
+ *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` insertion orders under an
+ *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  entityStatus="ENTITY_STATUS_PAUSED")` * All insertion orders whose budget
+ *  segments' dates end before March 28, 2019:
+ *  `budget.budget_segments.date_range.end_date<"2019-03-28"` The length of this
+ *  field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1929,10 +1934,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
  *  {value}`. * The operator used on `flight.dateRange.endDate` must be LESS
  *  THAN (<). * The operators used on all other fields must be `EQUALS (=)`. *
- *  Supported fields: - `campaignId` - `insertionOrderId` - `entityStatus` -
- *  `lineItemType` - `flight.dateRange.endDate` (input formatted as YYYY-MM-DD)
- *  Examples: * All line items under an insertion order:
- *  `insertionOrderId="1234"` * All `ENTITY_STATUS_ACTIVE` or
+ *  Supported fields: - `campaignId` - `displayName` - `insertionOrderId` -
+ *  `entityStatus` - `lineItemId` - `lineItemType` - `flight.dateRange.endDate`
+ *  (input formatted as YYYY-MM-DD) Examples: * All line items under an
+ *  insertion order: `insertionOrderId="1234"` * All `ENTITY_STATUS_ACTIVE` or
  *  `ENTITY_STATUS_PAUSED` and `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under
  *  an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
  *  entityStatus="ENTITY_STATUS_PAUSED") AND
@@ -3235,10 +3240,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
- *  `entityStatus` Examples: * All active advertisers under a partner:
- *  `entityStatus="ENTITY_STATUS_ACTIVE"` The length of this field should be no
- *  more than 500 characters.
+ *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: . -
+ *  `advertiserId` . - `displayName` - `entityStatus` Examples: * All active
+ *  advertisers under a partner: `entityStatus="ENTITY_STATUS_ACTIVE"` The
+ *  length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5449,7 +5454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 //   +[GTLQueryDisplayVideo queryForCustomBiddingAlgorithmsGetWithcustomBiddingAlgorithmId:]
 
 /**
- *  The ID of the DV3 partner that has access to the custom bidding algorithm.
+ *  The ID of the DV360 partner that has access to the custom bidding algorithm.
  */
 @property(nonatomic, assign) long long advertiserId;
 
@@ -5457,7 +5462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, assign) long long customBiddingAlgorithmId;
 
 /**
- *  The ID of the DV3 partner that has access to the custom bidding algorithm.
+ *  The ID of the DV360 partner that has access to the custom bidding algorithm.
  */
 @property(nonatomic, assign) long long partnerId;
 
@@ -5490,7 +5495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 //   +[GTLQueryDisplayVideo queryForCustomBiddingAlgorithmsList]
 
 /**
- *  The ID of the DV3 advertiser that has access to the custom bidding
+ *  The ID of the DV360 advertiser that has access to the custom bidding
  *  algorithm.
  */
 @property(nonatomic, assign) long long advertiserId;
@@ -5539,7 +5544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The ID of the DV3 partner that has access to the custom bidding algorithm.
+ *  The ID of the DV360 partner that has access to the custom bidding algorithm.
  */
 @property(nonatomic, assign) long long partnerId;
 
@@ -6610,9 +6615,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Bulk edits targeting options under a single partner. The operation will
  *  delete the assigned targeting options provided in
- *  BulkEditPartnerAssignedTargetingOptionsRequest.delete_requests and then
+ *  BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then
  *  create the assigned targeting options provided in
- *  BulkEditPartnerAssignedTargetingOptionsRequest.create_requests .
+ *  BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
  *
  *  Method: displayvideo.partners.bulkEditPartnerAssignedTargetingOptions
  *
@@ -6632,9 +6637,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  Bulk edits targeting options under a single partner. The operation will
  *  delete the assigned targeting options provided in
- *  BulkEditPartnerAssignedTargetingOptionsRequest.delete_requests and then
+ *  BulkEditPartnerAssignedTargetingOptionsRequest.deleteRequests and then
  *  create the assigned targeting options provided in
- *  BulkEditPartnerAssignedTargetingOptionsRequest.create_requests .
+ *  BulkEditPartnerAssignedTargetingOptionsRequest.createRequests .
  *
  *  @param object The @c
  *    GTLRDisplayVideo_BulkEditPartnerAssignedTargetingOptionsRequest to include
@@ -8638,8 +8643,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `OR` logical operators. * A restriction has the form of `{field}
  *  {operator} {value}`. * The operator must be "=" (equal sign). * Supported
- *  fields: - `targetingOptionId` The length of this field should be no more
- *  than 500 characters.
+ *  fields: - `carrier_and_isp_details.type` -
+ *  `geo_region_details.geo_region_type` - `targetingOptionId` Examples: * All
+ *  `GEO REGION` targeting options that belong to sub type
+ *  `GEO_REGION_TYPE_COUNTRY` or `GEO_REGION_TYPE_STATE`:
+ *  `geo_region_details.geo_region_type="GEO_REGION_TYPE_COUNTRY" OR
+ *  geo_region_details.geo_region_type="GEO_REGION_TYPE_STATE"` * All `CARRIER
+ *  AND ISP` targeting options that belong to sub type
+ *  `CARRIER_AND_ISP_TYPE_CARRIER`:
+ *  `carrier_and_isp_details.type="CARRIER_AND_ISP_TYPE_CARRIER"`. The length of
+ *  this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8927,9 +8940,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 /**
  *  Bulk edits user roles for a user. The operation will delete the assigned
  *  user roles provided in
- *  BulkEditAssignedUserRolesRequest.deleted_assigned_user_roles and then assign
+ *  BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign
  *  the user roles provided in
- *  BulkEditAssignedUserRolesRequest.created_assigned_user_roles.
+ *  BulkEditAssignedUserRolesRequest.createdAssignedUserRoles.
  *
  *  Method: displayvideo.users.bulkEditAssignedUserRoles
  *
@@ -8948,9 +8961,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  Bulk edits user roles for a user. The operation will delete the assigned
  *  user roles provided in
- *  BulkEditAssignedUserRolesRequest.deleted_assigned_user_roles and then assign
+ *  BulkEditAssignedUserRolesRequest.deletedAssignedUserRoles and then assign
  *  the user roles provided in
- *  BulkEditAssignedUserRolesRequest.created_assigned_user_roles.
+ *  BulkEditAssignedUserRolesRequest.createdAssignedUserRoles.
  *
  *  @param object The @c GTLRDisplayVideo_BulkEditAssignedUserRolesRequest to
  *    include in the query.

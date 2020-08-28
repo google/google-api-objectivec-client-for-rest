@@ -51,8 +51,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRBigQueryDataTransfer_DataSource.authorizationType
 
 /**
- *  Use OAuth 2 authorization codes that can be exchanged
- *  for a refresh token on the backend.
+ *  Use OAuth 2 authorization codes that can be exchanged for a refresh token on
+ *  the backend.
  *
  *  Value: "AUTHORIZATION_CODE"
  */
@@ -64,9 +64,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_Authoriz
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified;
 /**
- *  Use First Party OAuth based on Loas Owned Clients. First Party OAuth
- *  doesn't require a refresh token to get an offline access token. Instead,
- *  it uses a client-signed JWT assertion to retrieve an access token.
+ *  Use First Party OAuth based on Loas Owned Clients. First Party OAuth doesn't
+ *  require a refresh token to get an offline access token. Instead, it uses a
+ *  client-signed JWT assertion to retrieve an access token.
  *
  *  Value: "FIRST_PARTY_OAUTH"
  */
@@ -83,9 +83,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_Authoriz
 // GTLRBigQueryDataTransfer_DataSource.dataRefreshType
 
 /**
- *  The data source supports data auto refresh, and runs will be scheduled
- *  for the past few days. Allows custom values to be set for each transfer
- *  config.
+ *  The data source supports data auto refresh, and runs will be scheduled for
+ *  the past few days. Allows custom values to be set for each transfer config.
  *
  *  Value: "CUSTOM_SLIDING_WINDOW"
  */
@@ -97,9 +96,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefr
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_DataRefreshTypeUnspecified;
 /**
- *  The data source supports data auto refresh, and runs will be scheduled
- *  for the past few days. Does not allow custom values to be set for each
- *  transfer config.
+ *  The data source supports data auto refresh, and runs will be scheduled for
+ *  the past few days. Does not allow custom values to be set for each transfer
+ *  config.
  *
  *  Value: "SLIDING_WINDOW"
  */
@@ -115,8 +114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_DataRefr
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSource_TransferType_Batch;
 /**
- *  Streaming data transfer. Streaming data source currently doesn't
- *  support multiple transfer configs per project.
+ *  Streaming data transfer. Streaming data source currently doesn't support
+ *  multiple transfer configs per project.
  *
  *  Value: "STREAMING"
  */
@@ -144,8 +143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Double;
 /**
- *  Integer parameter (64-bits).
- *  Will be serialized to json as string.
+ *  Integer parameter (64-bits). Will be serialized to json as string.
  *
  *  Value: "INTEGER"
  */
@@ -191,8 +189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_Stat
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Failed;
 /**
- *  Data transfer is scheduled and is waiting to be picked up by
- *  data transfer backend.
+ *  Data transfer is scheduled and is waiting to be picked up by data transfer
+ *  backend.
  *
  *  Value: "PENDING"
  */
@@ -260,8 +258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Failed;
 /**
- *  Data transfer is scheduled and is waiting to be picked up by
- *  data transfer backend.
+ *  Data transfer is scheduled and is waiting to be picked up by data transfer
+ *  backend.
  *
  *  Value: "PENDING"
  */
@@ -287,11 +285,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  A request to determine whether the user has valid credentials. This method
- *  is used to limit the number of OAuth popups in the user interface. The
- *  user id is inferred from the API call context.
- *  If the data source has the Google+ authorization type, this method
- *  returns false, as it cannot be determined whether the credentials are
- *  already valid merely based on the user id.
+ *  is used to limit the number of OAuth popups in the user interface. The user
+ *  id is inferred from the API call context. If the data source has the Google+
+ *  authorization type, this method returns false, as it cannot be determined
+ *  whether the credentials are already valid merely based on the user id.
  */
 @interface GTLRBigQueryDataTransfer_CheckValidCredsRequest : GTLRObject
 @end
@@ -313,8 +310,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
- *  Represents data source metadata. Metadata is sufficient to
- *  render UI and request proper OAuth tokens.
+ *  Represents data source metadata. Metadata is sufficient to render UI and
+ *  request proper OAuth tokens.
  */
 @interface GTLRBigQueryDataTransfer_DataSource : GTLRObject
 
@@ -323,16 +320,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationCode
- *        Use OAuth 2 authorization codes that can be exchanged
- *        for a refresh token on the backend. (Value: "AUTHORIZATION_CODE")
+ *        Use OAuth 2 authorization codes that can be exchanged for a refresh
+ *        token on the backend. (Value: "AUTHORIZATION_CODE")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_AuthorizationTypeUnspecified
  *        Type unspecified. (Value: "AUTHORIZATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_FirstPartyOauth
  *        Use First Party OAuth based on Loas Owned Clients. First Party OAuth
  *        doesn't require a refresh token to get an offline access token.
- *        Instead,
- *        it uses a client-signed JWT assertion to retrieve an access token.
- *        (Value: "FIRST_PARTY_OAUTH")
+ *        Instead, it uses a client-signed JWT assertion to retrieve an access
+ *        token. (Value: "FIRST_PARTY_OAUTH")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_AuthorizationType_GooglePlusAuthorizationCode
  *        Return an authorization code for a given Google+ page that can then be
  *        exchanged for a refresh token on the backend. (Value:
@@ -345,16 +341,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  Specifies whether the data source supports automatic data refresh for the
- *  past few days, and how it's supported.
- *  For some data sources, data might not be complete until a few days later,
- *  so it's useful to refresh data automatically.
+ *  past few days, and how it's supported. For some data sources, data might not
+ *  be complete until a few days later, so it's useful to refresh data
+ *  automatically.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_CustomSlidingWindow
  *        The data source supports data auto refresh, and runs will be scheduled
  *        for the past few days. Allows custom values to be set for each
- *        transfer
- *        config. (Value: "CUSTOM_SLIDING_WINDOW")
+ *        transfer config. (Value: "CUSTOM_SLIDING_WINDOW")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSource_DataRefreshType_DataRefreshTypeUnspecified
  *        The data source won't support data auto refresh, which is default
  *        value. (Value: "DATA_REFRESH_TYPE_UNSPECIFIED")
@@ -369,18 +364,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
- *  Default data refresh window on days.
- *  Only meaningful when `data_refresh_type` = `SLIDING_WINDOW`.
+ *  Default data refresh window on days. Only meaningful when
+ *  `data_refresh_type` = `SLIDING_WINDOW`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *defaultDataRefreshWindowDays;
 
 /**
- *  Default data transfer schedule.
- *  Examples of valid schedules include:
- *  `1st,3rd monday of month 15:30`,
- *  `every wed,fri of jan,jun 13:15`, and
+ *  Default data transfer schedule. Examples of valid schedules include:
+ *  `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`, and
  *  `first sunday of quarter 00:00`.
  */
 @property(nonatomic, copy, nullable) NSString *defaultSchedule;
@@ -399,8 +392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, copy, nullable) NSString *helpUrl;
 
 /**
- *  Disables backfilling and manual run scheduling
- *  for the data source.
+ *  Disables backfilling and manual run scheduling for the data source.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -424,8 +416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  Specifies whether the data source supports a user defined schedule, or
- *  operates on the default schedule.
- *  When set to `true`, user can override default schedule.
+ *  operates on the default schedule. When set to `true`, user can override
+ *  default schedule.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -454,8 +446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, copy, nullable) NSString *transferType;
 
 /**
- *  The number of seconds to wait for an update from the data source
- *  before the Data Transfer Service marks the transfer as FAILED.
+ *  The number of seconds to wait for an update from the data source before the
+ *  Data Transfer Service marks the transfer as FAILED.
  *
  *  Uses NSNumber of intValue.
  */
@@ -465,12 +457,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
- *  Represents a data source parameter with validation rules, so that
- *  parameters can be rendered in the UI. These parameters are given to us by
- *  supported data sources, and include all needed information for rendering
- *  and validation.
- *  Thus, whoever uses this api can decide to generate either generic ui,
- *  or custom data source specific forms.
+ *  Represents a data source parameter with validation rules, so that parameters
+ *  can be rendered in the UI. These parameters are given to us by supported
+ *  data sources, and include all needed information for rendering and
+ *  validation. Thus, whoever uses this api can decide to generate either
+ *  generic ui, or custom data source specific forms.
  */
 @interface GTLRBigQueryDataTransfer_DataSourceParameter : GTLRObject
 
@@ -552,8 +543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Double Double
  *        precision floating point parameter. (Value: "DOUBLE")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Integer Integer
- *        parameter (64-bits).
- *        Will be serialized to json as string. (Value: "INTEGER")
+ *        parameter (64-bits). Will be serialized to json as string. (Value:
+ *        "INTEGER")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_PlusPage Page
  *        ID for a Google+ Page. (Value: "PLUS_PAGE")
  *    @arg @c kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Record
@@ -599,11 +590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRBigQueryDataTransfer_Empty : GTLRObject
 @end
@@ -628,10 +617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_DataSource *> *dataSources;
 
 /**
- *  Output only. The next-pagination token. For multiple-page list results,
- *  this token can be used as the
- *  `ListDataSourcesRequest.page_token`
- *  to request the next page of list results.
+ *  Output only. The next-pagination token. For multiple-page list results, this
+ *  token can be used as the `ListDataSourcesRequest.page_token` to request the
+ *  next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -673,10 +661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @interface GTLRBigQueryDataTransfer_ListTransferConfigsResponse : GTLRCollectionObject
 
 /**
- *  Output only. The next-pagination token. For multiple-page list results,
- *  this token can be used as the
- *  `ListTransferConfigsRequest.page_token`
- *  to request the next page of list results.
+ *  Output only. The next-pagination token. For multiple-page list results, this
+ *  token can be used as the `ListTransferConfigsRequest.page_token` to request
+ *  the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -702,10 +689,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @interface GTLRBigQueryDataTransfer_ListTransferLogsResponse : GTLRCollectionObject
 
 /**
- *  Output only. The next-pagination token. For multiple-page list results,
- *  this token can be used as the
- *  `GetTransferRunLogRequest.page_token`
- *  to request the next page of list results.
+ *  Output only. The next-pagination token. For multiple-page list results, this
+ *  token can be used as the `GetTransferRunLogRequest.page_token` to request
+ *  the next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -731,10 +717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @interface GTLRBigQueryDataTransfer_ListTransferRunsResponse : GTLRCollectionObject
 
 /**
- *  Output only. The next-pagination token. For multiple-page list results,
- *  this token can be used as the
- *  `ListTransferRunsRequest.page_token`
- *  to request the next page of list results.
+ *  Output only. The next-pagination token. For multiple-page list results, this
+ *  token can be used as the `ListTransferRunsRequest.page_token` to request the
+ *  next page of list results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -755,8 +740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @interface GTLRBigQueryDataTransfer_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -776,8 +761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -836,9 +821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 /**
  *  Specifies time to start scheduling transfer runs. The first run will be
  *  scheduled at or after the start time according to a recurrence pattern
- *  defined in the schedule string. The start time can be changed at any
- *  moment. The time when a data transfer can be trigerred manually is not
- *  limited by this option.
+ *  defined in the schedule string. The start time can be changed at any moment.
+ *  The time when a data transfer can be trigerred manually is not limited by
+ *  this option.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -882,8 +867,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @interface GTLRBigQueryDataTransfer_StartManualTransferRunsRequest : GTLRObject
 
 /**
- *  Specific run_time for a transfer run to be started. The
- *  requested_run_time must not be in the future.
+ *  Specific run_time for a transfer run to be started. The requested_run_time
+ *  must not be in the future.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *requestedRunTime;
 
@@ -908,9 +893,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRBigQueryDataTransfer_Status : GTLRObject
 
@@ -965,9 +950,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  Start time of the range of transfer runs. For example,
- *  `"2017-05-25T00:00:00+00:00"`. The start_time must be strictly less than
- *  the end_time. Creates transfer runs where run_time is in the range
- *  between start_time (inclusive) and end_time (exclusive).
+ *  `"2017-05-25T00:00:00+00:00"`. The start_time must be strictly less than the
+ *  end_time. Creates transfer runs where run_time is in the range between
+ *  start_time (inclusive) and end_time (exclusive).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -975,22 +960,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
- *  Represents a data transfer configuration. A transfer configuration
- *  contains all metadata needed to perform a data transfer. For example,
- *  `destination_dataset_id` specifies where data should be stored.
- *  When a new transfer configuration is created, the specified
- *  `destination_dataset_id` is created when needed and shared with the
- *  appropriate data source service account.
+ *  Represents a data transfer configuration. A transfer configuration contains
+ *  all metadata needed to perform a data transfer. For example,
+ *  `destination_dataset_id` specifies where data should be stored. When a new
+ *  transfer configuration is created, the specified `destination_dataset_id` is
+ *  created when needed and shared with the appropriate data source service
+ *  account.
  */
 @interface GTLRBigQueryDataTransfer_TransferConfig : GTLRObject
 
 /**
- *  The number of days to look back to automatically refresh the data.
- *  For example, if `data_refresh_window_days = 10`, then every day
- *  BigQuery reingests data for [today-10, today-1], rather than ingesting data
- *  for just [today-1].
- *  Only valid if the data source supports the feature. Set the value to 0
- *  to use the default value.
+ *  The number of days to look back to automatically refresh the data. For
+ *  example, if `data_refresh_window_days = 10`, then every day BigQuery
+ *  reingests data for [today-10, today-1], rather than ingesting data for just
+ *  [today-1]. Only valid if the data source supports the feature. Set the value
+ *  to 0 to use the default value.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1006,8 +990,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, copy, nullable) NSString *destinationDatasetId;
 
 /**
- *  Is this config disabled. When set to true, no runs are scheduled
- *  for a given transfer.
+ *  Is this config disabled. When set to true, no runs are scheduled for a given
+ *  transfer.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1017,16 +1001,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Email notifications will be sent according to these preferences
- *  to the email address of the user who owns this transfer config.
+ *  Email notifications will be sent according to these preferences to the email
+ *  address of the user who owns this transfer config.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EmailPreferences *emailPreferences;
 
 /**
- *  The resource name of the transfer config.
- *  Transfer config names have the form of
- *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *  The name is automatically generated based on the config_id specified in
+ *  The resource name of the transfer config. Transfer config names have the
+ *  form of
+ *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The
+ *  name is automatically generated based on the config_id specified in
  *  CreateTransferConfigRequest along with project_id and region. If config_id
  *  is not provided, usually a uuid, even though it is not guaranteed or
  *  required, will be generated for config_id.
@@ -1046,16 +1030,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferConfig_Params *params;
 
 /**
- *  Data transfer schedule.
- *  If the data source does not support a custom schedule, this should be
- *  empty. If it is empty, the default value for the data source will be
- *  used.
- *  The specified times are in UTC.
- *  Examples of valid format:
- *  `1st,3rd monday of month 15:30`,
- *  `every wed,fri of jan,jun 13:15`, and
- *  `first sunday of quarter 00:00`.
- *  See more explanation about the format here:
+ *  Data transfer schedule. If the data source does not support a custom
+ *  schedule, this should be empty. If it is empty, the default value for the
+ *  data source will be used. The specified times are in UTC. Examples of valid
+ *  format: `1st,3rd monday of month 15:30`, `every wed,fri of jan,jun 13:15`,
+ *  and `first sunday of quarter 00:00`. See more explanation about the format
+ *  here:
  *  https://cloud.google.com/appengine/docs/flexible/python/scheduling-jobs-with-cron-yaml#the_schedule_format
  *  NOTE: the granularity should be at least 8 hours, or less frequent.
  */
@@ -1073,8 +1053,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Failed Data
  *        transfer failed. (Value: "FAILED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Pending Data
- *        transfer is scheduled and is waiting to be picked up by
- *        data transfer backend. (Value: "PENDING")
+ *        transfer is scheduled and is waiting to be picked up by data transfer
+ *        backend. (Value: "PENDING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Running Data
  *        transfer is in progress. (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded Data
@@ -1152,15 +1132,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, copy, nullable) NSString *destinationDatasetId;
 
 /**
- *  Output only. Email notifications will be sent according to these
- *  preferences to the email address of the user who owns the transfer config
- *  this run was derived from.
+ *  Output only. Email notifications will be sent according to these preferences
+ *  to the email address of the user who owns the transfer config this run was
+ *  derived from.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_EmailPreferences *emailPreferences;
 
 /**
- *  Output only. Time when transfer run ended.
- *  Parameter ignored by server for input requests.
+ *  Output only. Time when transfer run ended. Parameter ignored by server for
+ *  input requests.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -1168,8 +1148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Status *errorStatus;
 
 /**
- *  The resource name of the transfer run.
- *  Transfer run names have the form
+ *  The resource name of the transfer run. Transfer run names have the form
  *  `projects/{project_id}/locations/{location}/transferConfigs/{config_id}/runs/{run_id}`.
  *  The name is ignored when creating a transfer run.
  */
@@ -1191,11 +1170,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) GTLRDateTime *runTime;
 
 /**
- *  Output only. Describes the schedule of this transfer run if it was
- *  created as part of a regular schedule. For batch transfer runs that are
- *  scheduled manually, this is empty.
- *  NOTE: the system might choose to delay the schedule depending on the
- *  current load, so `schedule_time` doesn't always match this.
+ *  Output only. Describes the schedule of this transfer run if it was created
+ *  as part of a regular schedule. For batch transfer runs that are scheduled
+ *  manually, this is empty. NOTE: the system might choose to delay the schedule
+ *  depending on the current load, so `schedule_time` doesn't always match this.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
@@ -1203,8 +1181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
 
 /**
- *  Output only. Time when transfer run was started.
- *  Parameter ignored by server for input requests.
+ *  Output only. Time when transfer run was started. Parameter ignored by server
+ *  for input requests.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -1217,8 +1195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Failed Data transfer
  *        failed. (Value: "FAILED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Pending Data transfer
- *        is scheduled and is waiting to be picked up by
- *        data transfer backend. (Value: "PENDING")
+ *        is scheduled and is waiting to be picked up by data transfer backend.
+ *        (Value: "PENDING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Running Data transfer
  *        is in progress. (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded Data

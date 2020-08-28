@@ -1126,6 +1126,28 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_ListOperationsResponse
+//
+
+@implementation GTLRCloudSearch_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRCloudSearch_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_ListQuerySourcesResponse
 //
 

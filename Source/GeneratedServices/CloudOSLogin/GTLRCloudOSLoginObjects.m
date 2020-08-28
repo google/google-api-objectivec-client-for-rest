@@ -33,7 +33,7 @@ NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows = @"
 //
 
 @implementation GTLRCloudOSLogin_ImportSshPublicKeyResponse
-@dynamic loginProfile;
+@dynamic details, loginProfile;
 @end
 
 

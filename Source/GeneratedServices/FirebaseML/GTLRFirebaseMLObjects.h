@@ -68,11 +68,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRFirebaseML_Empty : GTLRObject
 @end
@@ -103,8 +101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
 
 
 /**
- *  This is returned in the longrunning operations
- *  for create/update.
+ *  This is returned in the longrunning operations for create/update.
  */
 @interface GTLRFirebaseML_ModelOperationMetadata : GTLRObject
 
@@ -125,8 +122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
 @property(nonatomic, copy, nullable) NSString *basicOperationStatus;
 
 /**
- *  The name of the model we are creating/updating
- *  The name must have the form `projects/{project_id}/models/{model_id}`
+ *  The name of the model we are creating/updating The name must have the form
+ *  `projects/{project_id}/models/{model_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -140,8 +137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
 @interface GTLRFirebaseML_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -153,16 +150,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseML_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -171,10 +168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseML_Operation_Response *response;
 
@@ -183,8 +179,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -201,10 +197,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -219,9 +214,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseML_ModelOperationMetadata_BasicO
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRFirebaseML_Status : GTLRObject
 

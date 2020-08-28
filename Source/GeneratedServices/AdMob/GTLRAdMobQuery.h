@@ -50,8 +50,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdMob queryForAccountsGetWithname:]
 
 /**
- *  Resource name of the publisher account to retrieve.
- *  Example: accounts/pub-9876543210987654
+ *  Resource name of the publisher account to retrieve. Example:
+ *  accounts/pub-9876543210987654
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -60,8 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets information about the specified AdMob publisher account.
  *
- *  @param name Resource name of the publisher account to retrieve.
- *    Example: accounts/pub-9876543210987654
+ *  @param name Resource name of the publisher account to retrieve. Example:
+ *    accounts/pub-9876543210987654
  *
  *  @return GTLRAdMobQuery_AccountsGet
  */
@@ -116,8 +116,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdMob queryForAccountsMediationReportGenerateWithObject:parent:]
 
 /**
- *  Resource name of the account to generate the report for.
- *  Example: accounts/pub-9876543210987654
+ *  Resource name of the account to generate the report for. Example:
+ *  accounts/pub-9876543210987654
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -150,8 +150,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAdMob queryForAccountsNetworkReportGenerateWithObject:parent:]
 
 /**
- *  Resource name of the account to generate the report for.
- *  Example: accounts/pub-9876543210987654
+ *  Resource name of the account to generate the report for. Example:
+ *  accounts/pub-9876543210987654
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 

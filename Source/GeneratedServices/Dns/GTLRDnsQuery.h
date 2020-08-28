@@ -70,9 +70,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForChangesCreateWithObject:project:managedZone:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -93,8 +93,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param object The @c GTLRDns_Change to include in the query.
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *
  *  @return GTLRDnsQuery_ChangesCreate
  */
@@ -126,9 +125,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *changeId;
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -148,8 +147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *  @param changeId The identifier of the requested change, from a previous
  *    ResourceRecordSetsChangeResponse.
  *
@@ -189,8 +187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Optional. A tag returned by a previous list request that was truncated.
- *  Use this parameter to continue a previous list request.
+ *  Optional. A tag returned by a previous list request that was truncated. Use
+ *  this parameter to continue a previous list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -218,8 +216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *
  *  @return GTLRDnsQuery_ChangesList
  *
@@ -248,16 +245,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForDnsKeysGetWithproject:managedZone:dnsKeyId:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
 /**
- *  An optional comma-separated list of digest types to compute and display
- *  for key signing keys. If omitted, the recommended digest type will be
- *  computed and displayed.
+ *  An optional comma-separated list of digest types to compute and display for
+ *  key signing keys. If omitted, the recommended digest type will be computed
+ *  and displayed.
  */
 @property(nonatomic, copy, nullable) NSString *digestType;
 
@@ -280,8 +277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *  @param dnsKeyId The identifier of the requested DnsKey.
  *
  *  @return GTLRDnsQuery_DnsKeysGet
@@ -308,9 +304,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForDnsKeysListWithproject:managedZone:]
 
 /**
- *  An optional comma-separated list of digest types to compute and display
- *  for key signing keys. If omitted, the recommended digest type will be
- *  computed and displayed.
+ *  An optional comma-separated list of digest types to compute and display for
+ *  key signing keys. If omitted, the recommended digest type will be computed
+ *  and displayed.
  */
 @property(nonatomic, copy, nullable) NSString *digestType;
 
@@ -327,8 +323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Optional. A tag returned by a previous list request that was truncated.
- *  Use this parameter to continue a previous list request.
+ *  Optional. A tag returned by a previous list request that was truncated. Use
+ *  this parameter to continue a previous list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -342,8 +338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *
  *  @return GTLRDnsQuery_DnsKeysList
  *
@@ -372,9 +367,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForManagedZoneOperationsGetWithproject:managedZone:operation:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -429,8 +424,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Optional. A tag returned by a previous list request that was truncated.
- *  Use this parameter to continue a previous list request.
+ *  Optional. A tag returned by a previous list request that was truncated. Use
+ *  this parameter to continue a previous list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -482,9 +477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForManagedZonesCreateWithObject:project:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -520,9 +515,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForManagedZonesDeleteWithproject:managedZone:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -543,8 +538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *
  *  @return GTLRDnsQuery_ManagedZonesDelete
  */
@@ -569,9 +563,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForManagedZonesGetWithproject:managedZone:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -591,8 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *
  *  @return GTLRDnsQuery_ManagedZonesGet
  */
@@ -626,8 +619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Optional. A tag returned by a previous list request that was truncated.
- *  Use this parameter to continue a previous list request.
+ *  Optional. A tag returned by a previous list request that was truncated. Use
+ *  this parameter to continue a previous list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -665,9 +658,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForManagedZonesPatchWithObject:project:managedZone:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -688,8 +681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *
  *  @return GTLRDnsQuery_ManagedZonesPatch
  */
@@ -713,9 +705,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForManagedZonesUpdateWithObject:project:managedZone:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -736,8 +728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *
  *  @return GTLRDnsQuery_ManagedZonesUpdate
  */
@@ -761,9 +752,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForPoliciesCreateWithObject:project:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -800,9 +791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForPoliciesDeleteWithproject:policy:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -846,9 +837,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForPoliciesGetWithproject:policy:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -896,8 +887,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Optional. A tag returned by a previous list request that was truncated.
- *  Use this parameter to continue a previous list request.
+ *  Optional. A tag returned by a previous list request that was truncated. Use
+ *  this parameter to continue a previous list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -935,9 +926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForPoliciesPatchWithObject:project:policy:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -979,9 +970,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForPoliciesUpdateWithObject:project:policy:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -1025,9 +1016,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 //   +[GTLQueryDns queryForProjectsGetWithproject:]
 
 /**
- *  For mutating operation requests only. An optional identifier
- *  specified by the client. Must be unique for operation resources in the
- *  Operations collection.
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
  */
 @property(nonatomic, copy, nullable) NSString *clientOperationId;
 
@@ -1081,8 +1072,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. A tag returned by a previous list request that was truncated.
- *  Use this parameter to continue a previous list request.
+ *  Optional. A tag returned by a previous list request that was truncated. Use
+ *  this parameter to continue a previous list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1102,8 +1093,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed
- *    zone name or id.
+ *    Can be the managed zone name or id.
  *
  *  @return GTLRDnsQuery_ResourceRecordSetsList
  *

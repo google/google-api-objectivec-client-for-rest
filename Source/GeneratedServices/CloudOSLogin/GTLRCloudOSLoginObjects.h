@@ -61,11 +61,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudOSLogin_Empty : GTLRObject
 @end
@@ -75,6 +73,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
  *  A response message for importing an SSH public key.
  */
 @interface GTLRCloudOSLogin_ImportSshPublicKeyResponse : GTLRObject
+
+/** Detailed information about import results. */
+@property(nonatomic, copy, nullable) NSString *details;
 
 /** The login profile information for the user. */
 @property(nonatomic, strong, nullable) GTLRCloudOSLogin_LoginProfile *loginProfile;
@@ -144,8 +145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
  *        user account information. (Value: "LINUX")
  *    @arg @c kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_OperatingSystemTypeUnspecified
  *        The operating system type associated with the user account information
- *        is
- *        unspecified. (Value: "OPERATING_SYSTEM_TYPE_UNSPECIFIED")
+ *        is unspecified. (Value: "OPERATING_SYSTEM_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows Windows
  *        user account information. (Value: "WINDOWS")
  */
@@ -162,8 +162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
 @property(nonatomic, copy, nullable) NSString *shell;
 
 /**
- *  System identifier for which account the username or uid applies to.
- *  By default, the empty value is used.
+ *  System identifier for which account the username or uid applies to. By
+ *  default, the empty value is used.
  */
 @property(nonatomic, copy, nullable) NSString *systemId;
 
@@ -195,11 +195,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
 /** Output only. The SHA-256 fingerprint of the SSH public key. */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
-/**
- *  Public key text in SSH format, defined by
- *  <a href="https://www.ietf.org/rfc/rfc4253.txt" target="_blank">RFC4253</a>
- *  section 6.6.
- */
+/** Public key text in SSH format, defined by RFC4253 section 6.6. */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /** Output only. The canonical resource name. */

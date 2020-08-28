@@ -46,8 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_AudioEncodingUnspecified;
 /**
- *  Uncompressed 16-bit signed little-endian samples (Linear PCM).
- *  Audio content returned as LINEAR16 also contains a WAV header.
+ *  Uncompressed 16-bit signed little-endian samples (Linear PCM). Audio content
+ *  returned as LINEAR16 also contains a WAV header.
  *
  *  Value: "LINEAR16"
  */
@@ -59,10 +59,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_L
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3;
 /**
- *  Opus encoded audio wrapped in an ogg container. The result will be a
- *  file which can be played natively on Android, and in browsers (at least
- *  Chrome and Firefox). The quality of the encoding is considerably higher
- *  than MP3 while using approximately the same bitrate.
+ *  Opus encoded audio wrapped in an ogg container. The result will be a file
+ *  which can be played natively on Android, and in browsers (at least Chrome
+ *  and Firefox). The quality of the encoding is considerably higher than MP3
+ *  while using approximately the same bitrate.
  *
  *  Value: "OGG_OPUS"
  */
@@ -90,10 +90,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Male;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_Voice_SsmlGender_Neutral;
 /**
- *  An unspecified gender.
- *  In VoiceSelectionParams, this means that the client doesn't care which
- *  gender the selected voice will have. In the Voice field of
- *  ListVoicesResponse, this may mean that the voice doesn't fit any of the
+ *  An unspecified gender. In VoiceSelectionParams, this means that the client
+ *  doesn't care which gender the selected voice will have. In the Voice field
+ *  of ListVoicesResponse, this may mean that the voice doesn't fit any of the
  *  other categories in this enum, or that the gender of the voice isn't known.
  *
  *  Value: "SSML_VOICE_GENDER_UNSPECIFIED"
@@ -122,10 +121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  */
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Neutral;
 /**
- *  An unspecified gender.
- *  In VoiceSelectionParams, this means that the client doesn't care which
- *  gender the selected voice will have. In the Voice field of
- *  ListVoicesResponse, this may mean that the voice doesn't fit any of the
+ *  An unspecified gender. In VoiceSelectionParams, this means that the client
+ *  doesn't care which gender the selected voice will have. In the Voice field
+ *  of ListVoicesResponse, this may mean that the voice doesn't fit any of the
  *  other categories in this enum, or that the gender of the voice isn't known.
  *
  *  Value: "SSML_VOICE_GENDER_UNSPECIFIED"
@@ -145,27 +143,22 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        Not specified. Will return result google.rpc.Code.INVALID_ARGUMENT.
  *        (Value: "AUDIO_ENCODING_UNSPECIFIED")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Linear16 Uncompressed
- *        16-bit signed little-endian samples (Linear PCM).
- *        Audio content returned as LINEAR16 also contains a WAV header. (Value:
- *        "LINEAR16")
+ *        16-bit signed little-endian samples (Linear PCM). Audio content
+ *        returned as LINEAR16 also contains a WAV header. (Value: "LINEAR16")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_Mp3 MP3 audio at
  *        32kbps. (Value: "MP3")
  *    @arg @c kGTLRTexttospeech_AudioConfig_AudioEncoding_OggOpus Opus encoded
- *        audio wrapped in an ogg container. The result will be a
- *        file which can be played natively on Android, and in browsers (at
- *        least
- *        Chrome and Firefox). The quality of the encoding is considerably
- *        higher
- *        than MP3 while using approximately the same bitrate. (Value:
- *        "OGG_OPUS")
+ *        audio wrapped in an ogg container. The result will be a file which can
+ *        be played natively on Android, and in browsers (at least Chrome and
+ *        Firefox). The quality of the encoding is considerably higher than MP3
+ *        while using approximately the same bitrate. (Value: "OGG_OPUS")
  */
 @property(nonatomic, copy, nullable) NSString *audioEncoding;
 
 /**
  *  Optional. Input only. An identifier which selects 'audio effects' profiles
  *  that are applied on (post synthesized) text to speech. Effects are applied
- *  on top of each other in the order they are given. See
- *  [audio
+ *  on top of each other in the order they are given. See [audio
  *  profiles](https://cloud.google.com/text-to-speech/docs/audio-profiles) for
  *  current supported profile ids.
  */
@@ -185,8 +178,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *  specified in SynthesizeSpeechRequest, if this is different from the voice's
  *  natural sample rate, then the synthesizer will honor this request by
  *  converting to the desired sample rate (which might result in worse audio
- *  quality), unless the specified sample rate is not supported for the
- *  encoding chosen, in which case it will fail the request and return
+ *  quality), unless the specified sample rate is not supported for the encoding
+ *  chosen, in which case it will fail the request and return
  *  google.rpc.Code.INVALID_ARGUMENT.
  *
  *  Uses NSNumber of intValue.
@@ -240,8 +233,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @interface GTLRTexttospeech_SynthesisInput : GTLRObject
 
 /**
- *  The SSML document to be synthesized. The SSML document must be valid
- *  and well-formed. Otherwise the RPC will fail and return
+ *  The SSML document to be synthesized. The SSML document must be valid and
+ *  well-formed. Otherwise the RPC will fail and return
  *  google.rpc.Code.INVALID_ARGUMENT. For more information, see
  *  [SSML](https://cloud.google.com/text-to-speech/docs/ssml).
  */
@@ -278,9 +271,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 /**
  *  The audio data bytes encoded as specified in the request, including the
  *  header for encodings that are wrapped in containers (e.g. MP3, OGG_OPUS).
- *  For LINEAR16 audio, we include the WAV header. Note: as
- *  with all bytes fields, protobuffers use a pure binary representation,
- *  whereas JSON representations use base64.
+ *  For LINEAR16 audio, we include the WAV header. Note: as with all bytes
+ *  fields, protobuffers use a pure binary representation, whereas JSON
+ *  representations use base64.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -323,13 +316,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *    @arg @c kGTLRTexttospeech_Voice_SsmlGender_Neutral A gender-neutral voice.
  *        This voice is not yet supported. (Value: "NEUTRAL")
  *    @arg @c kGTLRTexttospeech_Voice_SsmlGender_SsmlVoiceGenderUnspecified An
- *        unspecified gender.
- *        In VoiceSelectionParams, this means that the client doesn't care which
- *        gender the selected voice will have. In the Voice field of
- *        ListVoicesResponse, this may mean that the voice doesn't fit any of
- *        the
- *        other categories in this enum, or that the gender of the voice isn't
- *        known. (Value: "SSML_VOICE_GENDER_UNSPECIFIED")
+ *        unspecified gender. In VoiceSelectionParams, this means that the
+ *        client doesn't care which gender the selected voice will have. In the
+ *        Voice field of ListVoicesResponse, this may mean that the voice
+ *        doesn't fit any of the other categories in this enum, or that the
+ *        gender of the voice isn't known. (Value:
+ *        "SSML_VOICE_GENDER_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *ssmlGender;
 
@@ -343,32 +335,30 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 
 /**
  *  Required. The language (and potentially also the region) of the voice
- *  expressed as a
- *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag, e.g.
- *  "en-US". This should not include a script tag (e.g. use
+ *  expressed as a [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt)
+ *  language tag, e.g. "en-US". This should not include a script tag (e.g. use
  *  "cmn-cn" rather than "cmn-Hant-cn"), because the script will be inferred
- *  from the input provided in the SynthesisInput. The TTS service
- *  will use this parameter to help choose an appropriate voice. Note that
- *  the TTS service may choose a voice with a slightly different language code
- *  than the one selected; it may substitute a different region
- *  (e.g. using en-US rather than en-CA if there isn't a Canadian voice
- *  available), or even a different language, e.g. using "nb" (Norwegian
- *  Bokmal) instead of "no" (Norwegian)".
+ *  from the input provided in the SynthesisInput. The TTS service will use this
+ *  parameter to help choose an appropriate voice. Note that the TTS service may
+ *  choose a voice with a slightly different language code than the one
+ *  selected; it may substitute a different region (e.g. using en-US rather than
+ *  en-CA if there isn't a Canadian voice available), or even a different
+ *  language, e.g. using "nb" (Norwegian Bokmal) instead of "no" (Norwegian)".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  The name of the voice. If not set, the service will choose a
- *  voice based on the other parameters such as language_code and gender.
+ *  The name of the voice. If not set, the service will choose a voice based on
+ *  the other parameters such as language_code and gender.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The preferred gender of the voice. If not set, the service will
- *  choose a voice based on the other parameters such as language_code and
- *  name. Note that this is only a preference, not requirement; if a
- *  voice of the appropriate gender is not available, the synthesizer should
- *  substitute a voice with a different gender rather than failing the request.
+ *  The preferred gender of the voice. If not set, the service will choose a
+ *  voice based on the other parameters such as language_code and name. Note
+ *  that this is only a preference, not requirement; if a voice of the
+ *  appropriate gender is not available, the synthesizer should substitute a
+ *  voice with a different gender rather than failing the request.
  *
  *  Likely values:
  *    @arg @c kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_Female A female
@@ -379,13 +369,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        gender-neutral voice. This voice is not yet supported. (Value:
  *        "NEUTRAL")
  *    @arg @c kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGenderUnspecified
- *        An unspecified gender.
- *        In VoiceSelectionParams, this means that the client doesn't care which
- *        gender the selected voice will have. In the Voice field of
- *        ListVoicesResponse, this may mean that the voice doesn't fit any of
- *        the
- *        other categories in this enum, or that the gender of the voice isn't
- *        known. (Value: "SSML_VOICE_GENDER_UNSPECIFIED")
+ *        An unspecified gender. In VoiceSelectionParams, this means that the
+ *        client doesn't care which gender the selected voice will have. In the
+ *        Voice field of ListVoicesResponse, this may mean that the voice
+ *        doesn't fit any of the other categories in this enum, or that the
+ *        gender of the voice isn't known. (Value:
+ *        "SSML_VOICE_GENDER_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *ssmlGender;
 

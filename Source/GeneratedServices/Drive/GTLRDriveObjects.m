@@ -539,7 +539,7 @@
 @implementation GTLRDrive_Permission
 @dynamic allowFileDiscovery, deleted, displayName, domain, emailAddress,
          expirationTime, identifier, kind, permissionDetails, photoLink, role,
-         teamDrivePermissionDetails, type;
+         teamDrivePermissionDetails, type, view;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

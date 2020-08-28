@@ -242,6 +242,26 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_CertificateChains
+//
+
+@implementation GTLRCloudKMS_CertificateChains
+@dynamic caviumCerts, googleCardCerts, googlePartitionCerts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"caviumCerts" : [NSString class],
+    @"googleCardCerts" : [NSString class],
+    @"googlePartitionCerts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_CryptoKey
 //
 
@@ -401,7 +421,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_KeyOperationAttestation
-@dynamic content, format;
+@dynamic certChains, content, format;
 @end
 
 
