@@ -34,6 +34,7 @@
 @class GTLRBigtableAdmin_CreateInstanceRequest;
 @class GTLRBigtableAdmin_CreateInstanceRequest_Clusters;
 @class GTLRBigtableAdmin_Expr;
+@class GTLRBigtableAdmin_Frame;
 @class GTLRBigtableAdmin_GcRule;
 @class GTLRBigtableAdmin_GetPolicyOptions;
 @class GTLRBigtableAdmin_Instance;
@@ -1139,6 +1140,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Added to the error payload.
+ */
+@interface GTLRBigtableAdmin_FailureTrace : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Frame *> *frames;
+
+@end
+
+
+/**
+ *  GTLRBigtableAdmin_Frame
+ */
+@interface GTLRBigtableAdmin_Frame : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *targetName;
+@property(nonatomic, copy, nullable) NSString *workflowGuid;
+@property(nonatomic, copy, nullable) NSString *zoneId;
 
 @end
 

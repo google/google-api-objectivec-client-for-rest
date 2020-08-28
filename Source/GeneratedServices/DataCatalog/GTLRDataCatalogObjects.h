@@ -130,8 +130,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified;
 /**
- *  An entry type which is a set of files or objects. Example:
- *  Cloud Storage fileset.
+ *  An entry type which is a set of files or objects. Example: Cloud Storage
+ *  fileset.
  *
  *  Value: "FILESET"
  */
@@ -216,9 +216,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy.activatedPolicyTypes
 
-/** Value: "FINE_GRAINED_ACCESS_CONTROL" */
+/**
+ *  Fine grained access control policy, which enables access control on tagged
+ *  resources.
+ *
+ *  Value: "FINE_GRAINED_ACCESS_CONTROL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl;
-/** Value: "POLICY_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified policy type.
+ *
+ *  Value: "POLICY_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
 
 /**
@@ -227,56 +236,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @interface GTLRDataCatalog_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -286,11 +290,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRDataCatalog_Empty : GTLRObject
 @end
@@ -299,27 +301,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRDataCatalog_Expr : GTLRObject
 
@@ -344,9 +339,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -373,14 +367,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @interface GTLRDataCatalog_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -399,8 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Output only. The Data Catalog resource name of the dataset entry the current
- *  table
- *  belongs to, for example,
+ *  table belongs to, for example,
  *  `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
@@ -414,9 +405,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Output only. The table name prefix of the shards. The name of any given
- *  shard is
- *  `[table_prefix]YYYYMMDD`, for example, for shard `MyTable20180101`, the
- *  `table_prefix` is `MyTable`.
+ *  shard is `[table_prefix]YYYYMMDD`, for example, for shard `MyTable20180101`,
+ *  the `table_prefix` is `MyTable`.
  */
 @property(nonatomic, copy, nullable) NSString *tablePrefix;
 
@@ -476,9 +466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Optional. A column's mode indicates whether the values in this column are
- *  required,
- *  nullable, etc. Only `NULLABLE`, `REQUIRED` and `REPEATED` are supported.
- *  Default mode is `NULLABLE`.
+ *  required, nullable, etc. Only `NULLABLE`, `REQUIRED` and `REPEATED` are
+ *  supported. Default mode is `NULLABLE`.
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -494,16 +483,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Entry Metadata.
- *  A Data Catalog Entry resource represents another resource in Google
- *  Cloud Platform (such as a BigQuery dataset or a Pub/Sub topic), or
+ *  Entry Metadata. A Data Catalog Entry resource represents another resource in
+ *  Google Cloud Platform (such as a BigQuery dataset or a Pub/Sub topic), or
  *  outside of Google Cloud Platform. Clients can use the `linked_resource`
- *  field
- *  in the Entry resource to refer to the original resource ID of the source
- *  system.
- *  An Entry resource contains resource details, such as its schema. An Entry
- *  can
- *  also be used to attach flexible metadata, such as a
+ *  field in the Entry resource to refer to the original resource ID of the
+ *  source system. An Entry resource contains resource details, such as its
+ *  schema. An Entry can also be used to attach flexible metadata, such as a
  *  Tag.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry : GTLRObject
@@ -522,8 +507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec *bigqueryTableSpec;
 
 /**
- *  Entry description, which can consist of several sentences or paragraphs
- *  that describe entry contents. Default value is an empty string.
+ *  Entry description, which can consist of several sentences or paragraphs that
+ *  describe entry contents. Default value is an empty string.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -537,15 +522,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Specification that applies to a Cloud Storage fileset. This is only valid
- *  on entries of type FILESET.
+ *  Specification that applies to a Cloud Storage fileset. This is only valid on
+ *  entries of type FILESET.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFilesetSpec *gcsFilesetSpec;
 
 /**
  *  Output only. This field indicates the entry's source system that Data
- *  Catalog
- *  integrates with, such as BigQuery or Pub/Sub.
+ *  Catalog integrates with, such as BigQuery or Pub/Sub.
  *
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery
@@ -558,22 +542,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *integratedSystem;
 
 /**
- *  The resource this metadata entry refers to.
- *  For Google Cloud Platform resources, `linked_resource` is the [full name of
- *  the
+ *  The resource this metadata entry refers to. For Google Cloud Platform
+ *  resources, `linked_resource` is the [full name of the
  *  resource](https://cloud.google.com/apis/design/resource_names#full_resource_name).
- *  For example, the `linked_resource` for a table resource from BigQuery is:
- *  *
+ *  For example, the `linked_resource` for a table resource from BigQuery is: *
  *  //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId
  *  Output only when Entry is of type in the EntryType enum. For entries with
- *  user_specified_type, this field is optional and defaults to an empty
- *  string.
+ *  user_specified_type, this field is optional and defaults to an empty string.
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
 
 /**
- *  The Data Catalog resource name of the entry in URL format. Example:
- *  *
+ *  The Data Catalog resource name of the entry in URL format. Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *  Note that this Entry and its child resources may not actually be stored in
  *  the location in this name.
@@ -585,27 +565,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Output only. Timestamps about the underlying resource, not about this Data
- *  Catalog
- *  entry. Output only when Entry is of type in the EntryType enum. For entries
- *  with user_specified_type, this field is optional and defaults to an empty
- *  timestamp.
+ *  Catalog entry. Output only when Entry is of type in the EntryType enum. For
+ *  entries with user_specified_type, this field is optional and defaults to an
+ *  empty timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps *sourceSystemTimestamps;
 
 /**
- *  The type of the entry.
- *  Only used for Entries with types in the EntryType enum.
+ *  The type of the entry. Only used for Entries with types in the EntryType
+ *  enum.
  *
  *  Likely values:
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream
  *        Output only. An entry type which is used for streaming entries.
- *        Example:
- *        Pub/Sub topic. (Value: "DATA_STREAM")
+ *        Example: Pub/Sub topic. (Value: "DATA_STREAM")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified
  *        Default unknown type. (Value: "ENTRY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset
- *        An entry type which is a set of files or objects. Example:
- *        Cloud Storage fileset. (Value: "FILESET")
+ *        An entry type which is a set of files or objects. Example: Cloud
+ *        Storage fileset. (Value: "FILESET")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model
  *        Output only. The type of models.
  *        https://cloud.google.com/bigquery-ml/docs/bigqueryml-intro (Value:
@@ -618,23 +596,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  This field indicates the entry's source system that Data Catalog does not
- *  integrate with. `user_specified_system` strings must begin with a letter
- *  or underscore and can only contain letters, numbers, and underscores; are
- *  case insensitive; must be at least 1 character and at most 64 characters
- *  long.
+ *  integrate with. `user_specified_system` strings must begin with a letter or
+ *  underscore and can only contain letters, numbers, and underscores; are case
+ *  insensitive; must be at least 1 character and at most 64 characters long.
  */
 @property(nonatomic, copy, nullable) NSString *userSpecifiedSystem;
 
 /**
  *  Entry type if it does not fit any of the input-allowed values listed in
- *  `EntryType` enum above. When creating an entry, users should check the
- *  enum values first, if nothing matches the entry to be created, then
- *  provide a custom value, for example "my_special_type".
- *  `user_specified_type` strings must begin with a letter or underscore and
- *  can only contain letters, numbers, and underscores; are case insensitive;
- *  must be at least 1 character and at most 64 characters long.
- *  Currently, only FILESET enum value is allowed. All other entries created
- *  through Data Catalog must use `user_specified_type`.
+ *  `EntryType` enum above. When creating an entry, users should check the enum
+ *  values first, if nothing matches the entry to be created, then provide a
+ *  custom value, for example "my_special_type". `user_specified_type` strings
+ *  must begin with a letter or underscore and can only contain letters,
+ *  numbers, and underscores; are case insensitive; must be at least 1 character
+ *  and at most 64 characters long. Currently, only FILESET enum value is
+ *  allowed. All other entries created through Data Catalog must use
+ *  `user_specified_type`.
  */
 @property(nonatomic, copy, nullable) NSString *userSpecifiedType;
 
@@ -642,9 +619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  EntryGroup Metadata.
- *  An EntryGroup resource represents a logical grouping of zero or more
- *  Data Catalog Entry resources.
+ *  EntryGroup Metadata. An EntryGroup resource represents a logical grouping of
+ *  zero or more Data Catalog Entry resources.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup : GTLRObject
 
@@ -664,16 +640,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  A short name to identify the entry group, for example,
- *  "analytics data - jan 2011". Default value is an empty string.
+ *  A short name to identify the entry group, for example, "analytics data - jan
+ *  2011". Default value is an empty string.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the entry group in URL format. Example:
- *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
- *  Note that this EntryGroup and its child resources may not actually be
- *  stored in the location in this name.
+ *  The resource name of the entry group in URL format. Example: *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note
+ *  that this EntryGroup and its child resources may not actually be stored in
+ *  the location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -681,8 +657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Response message for
- *  ExportTaxonomies.
+ *  Response message for ExportTaxonomies.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ExportTaxonomiesResponse : GTLRObject
 
@@ -729,14 +704,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  The set of allowed values for this enum. This set must not be empty, the
  *  display names of the values in this set must not be empty and the display
- *  names of the values must be case-insensitively unique within this set.
- *  The order of items in this list is preserved. This field can be used to
- *  Required on create; optional on update. The set of allowed values for
- *  this enum. This set must not be empty, the display names of the values in
- *  this set must not be empty and the display names of the values must be
- *  case-insensitively unique within this set. Currently, enum values can
- *  only be added to the list of allowed values. Deletion and renaming of
- *  enum values are not supported. Can have up to 500 allowed values.
+ *  names of the values must be case-insensitively unique within this set. The
+ *  order of items in this list is preserved. This field can be used to Required
+ *  on create; optional on update. The set of allowed values for this enum. This
+ *  set must not be empty, the display names of the values in this set must not
+ *  be empty and the display names of the values must be case-insensitively
+ *  unique within this set. Currently, enum values can only be added to the list
+ *  of allowed values. Deletion and renaming of enum values are not supported.
+ *  Can have up to 500 allowed values.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue *> *allowedValues;
 
@@ -762,37 +737,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFilesetSpec : GTLRObject
 
 /**
- *  Required. Patterns to identify a set of files in Google Cloud Storage.
- *  See [Cloud Storage
+ *  Required. Patterns to identify a set of files in Google Cloud Storage. See
+ *  [Cloud Storage
  *  documentation](https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames)
  *  for more information. Note that bucket wildcards are currently not
- *  supported.
- *  Examples of valid file_patterns:
- *  * `gs://bucket_name/dir/ *`: matches all files within `bucket_name/dir`
- *  directory.
- *  * `gs://bucket_name/dir/ **`: matches all files in `bucket_name/dir`
- *  spanning all subdirectories.
- *  * `gs://bucket_name/file*`: matches files prefixed by `file` in
- *  `bucket_name`
- *  * `gs://bucket_name/??.txt`: matches files with two characters followed by
- *  `.txt` in `bucket_name`
- *  * `gs://bucket_name/[aeiou].txt`: matches files that contain a single
- *  vowel character followed by `.txt` in
- *  `bucket_name`
- *  * `gs://bucket_name/[a-m].txt`: matches files that contain `a`, `b`, ...
- *  or `m` followed by `.txt` in `bucket_name`
- *  * `gs://bucket_name/a/ * /b`: matches all files in `bucket_name` that match
- *  `a/ * /b` pattern, such as `a/c/b`, `a/d/b`
- *  * `gs://another_bucket/a.txt`: matches `gs://another_bucket/a.txt`
- *  You can combine wildcards to provide more powerful matches, for example:
- *  * `gs://bucket_name/[a-m]??.j*g`
+ *  supported. Examples of valid file_patterns: * `gs://bucket_name/dir/ *`:
+ *  matches all files within `bucket_name/dir` directory. *
+ *  `gs://bucket_name/dir/ **`: matches all files in `bucket_name/dir` spanning
+ *  all subdirectories. * `gs://bucket_name/file*`: matches files prefixed by
+ *  `file` in `bucket_name` * `gs://bucket_name/??.txt`: matches files with two
+ *  characters followed by `.txt` in `bucket_name` *
+ *  `gs://bucket_name/[aeiou].txt`: matches files that contain a single vowel
+ *  character followed by `.txt` in `bucket_name` *
+ *  `gs://bucket_name/[a-m].txt`: matches files that contain `a`, `b`, ... or
+ *  `m` followed by `.txt` in `bucket_name` * `gs://bucket_name/a/ * /b`:
+ *  matches all files in `bucket_name` that match `a/ * /b` pattern, such as
+ *  `a/c/b`, `a/d/b` * `gs://another_bucket/a.txt`: matches
+ *  `gs://another_bucket/a.txt` You can combine wildcards to provide more
+ *  powerful matches, for example: * `gs://bucket_name/[a-m]??.j*g`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filePatterns;
 
 /**
  *  Output only. Sample files contained in this fileset, not all files contained
- *  in this
- *  fileset are represented here.
+ *  in this fileset are represented here.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFileSpec *> *sampleGcsFileSpecs;
 
@@ -821,8 +789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Request message for
- *  ImportTaxonomies.
+ *  Request message for ImportTaxonomies.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest : GTLRObject
 
@@ -833,8 +800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Response message for
- *  ImportTaxonomies.
+ *  Response message for ImportTaxonomies.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse : GTLRObject
 
@@ -856,8 +822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Response message for
- *  ListEntries.
+ *  Response message for ListEntries.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "entries" property. If returned as the result of a query, it
@@ -884,8 +849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Response message for
- *  ListEntryGroups.
+ *  Response message for ListEntryGroups.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "entryGroups" property. If returned as the result of a query, it
@@ -912,8 +876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Response message for
- *  ListPolicyTags.
+ *  Response message for ListPolicyTags.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "policyTags" property. If returned as the result of a query, it
@@ -940,8 +903,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Response message for
- *  ListTags.
+ *  Response message for ListTags.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "tags" property. If returned as the result of a query, it should
@@ -968,8 +930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Response message for
- *  ListTaxonomies.
+ *  Response message for ListTaxonomies.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "taxonomies" property. If returned as the result of a query, it
@@ -997,9 +958,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Denotes one policy tag in a taxonomy (e.g. ssn). Policy Tags can be defined
- *  in a hierarchy. For example, consider the following hierarchy:
- *  Geolocation -&gt; (LatLong, City, ZipCode). PolicyTag "Geolocation"
- *  contains three child policy tags: "LatLong", "City", and "ZipCode".
+ *  in a hierarchy. For example, consider the following hierarchy: Geolocation
+ *  -> (LatLong, City, ZipCode). PolicyTag "Geolocation" contains three child
+ *  policy tags: "LatLong", "City", and "ZipCode".
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag : GTLRObject
 
@@ -1009,8 +970,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Description of this policy tag. It must: contain only unicode characters,
  *  tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
- *  long when encoded in UTF-8. If not set, defaults to an empty description.
- *  If not set, defaults to an empty description.
+ *  long when encoded in UTF-8. If not set, defaults to an empty description. If
+ *  not set, defaults to an empty description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1018,10 +979,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Required. User defined name of this policy tag. It must: be unique within
- *  the parent
- *  taxonomy; contain only unicode letters, numbers, underscores, dashes and
- *  spaces; not start or end with spaces; and be at most 200 bytes long when
- *  encoded in UTF-8.
+ *  the parent taxonomy; contain only unicode letters, numbers, underscores,
+ *  dashes and spaces; not start or end with spaces; and be at most 200 bytes
+ *  long when encoded in UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1032,12 +992,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Resource name of this policy tag's parent policy tag (e.g. for the
- *  "LatLong" policy tag in the example above, this field contains the
- *  resource name of the "Geolocation" policy tag). If empty, it means this
- *  policy tag is a top level policy tag (e.g. this field is empty for the
- *  "Geolocation" policy tag in the example above). If not set, defaults to an
- *  empty string.
+ *  Resource name of this policy tag's parent policy tag (e.g. for the "LatLong"
+ *  policy tag in the example above, this field contains the resource name of
+ *  the "Geolocation" policy tag). If empty, it means this policy tag is a top
+ *  level policy tag (e.g. this field is empty for the "Geolocation" policy tag
+ *  in the example above). If not set, defaults to an empty string.
  */
 @property(nonatomic, copy, nullable) NSString *parentPolicyTag;
 
@@ -1045,8 +1004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Request message for
- *  RenameTagTemplateFieldEnumValue.
+ *  Request message for RenameTagTemplateFieldEnumValue.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest : GTLRObject
 
@@ -1060,8 +1018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Request message for
- *  RenameTagTemplateField.
+ *  Request message for RenameTagTemplateField.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest : GTLRObject
 
@@ -1081,8 +1038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Required. Schema of columns. A maximum of 10,000 columns and sub-columns can
- *  be
- *  specified.
+ *  be specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ColumnSchema *> *columns;
 
@@ -1090,18 +1046,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Request message for
- *  SearchCatalog.
+ *  Request message for SearchCatalog.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequest : GTLRObject
 
 /**
  *  Specifies the ordering of results, currently supported case-sensitive
- *  choices are:
- *  * `relevance`, only supports descending
- *  * `last_modified_timestamp [asc|desc]`, defaults to descending if not
- *  specified
- *  If not specified, defaults to `relevance` descending.
+ *  choices are: * `relevance`, only supports descending *
+ *  `last_modified_timestamp [asc|desc]`, defaults to descending if not
+ *  specified If not specified, defaults to `relevance` descending.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1115,23 +1068,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Optional. Pagination token returned in an earlier
- *  SearchCatalogResponse.next_page_token, which
- *  indicates that this is a continuation of a prior
- *  SearchCatalogRequest
- *  call, and that the system should return the next page of data. If empty,
- *  the first page is returned.
+ *  SearchCatalogResponse.next_page_token, which indicates that this is a
+ *  continuation of a prior SearchCatalogRequest call, and that the system
+ *  should return the next page of data. If empty, the first page is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The query string in search query syntax. The query must be
- *  non-empty.
- *  Query strings can be simple as "x" or more qualified as:
- *  * name:x
- *  * column:x
- *  * description:y
- *  Note: Query tokens need to have a minimum of 3 characters for substring
- *  matching to work correctly. See [Data Catalog Search
+ *  Optional. The query string in search query syntax. An empty query string
+ *  will result in all data assets (in the specified scope) that the user has
+ *  access to. Query strings can be simple as "x" or more qualified as: * name:x
+ *  * column:x * description:y Note: Query tokens need to have a minimum of 3
+ *  characters for substring matching to work correctly. See [Data Catalog
+ *  Search
  *  Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
  *  for more information.
  */
@@ -1154,18 +1103,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope : GTLRObject
 
 /**
- *  If `true`, include Google Cloud Platform (GCP) public datasets in the
- *  search results. Info on GCP public datasets is available at
- *  https://cloud.google.com/public-datasets/. By default, GCP public
- *  datasets are excluded.
+ *  If `true`, include Google Cloud Platform (GCP) public datasets in the search
+ *  results. Info on GCP public datasets is available at
+ *  https://cloud.google.com/public-datasets/. By default, GCP public datasets
+ *  are excluded.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeGcpPublicDatasets;
 
 /**
- *  The list of organization IDs to search within. To find your organization
- *  ID, follow instructions in
+ *  The list of organization IDs to search within. To find your organization ID,
+ *  follow instructions in
  *  https://cloud.google.com/resource-manager/docs/creating-managing-organization.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeOrgIds;
@@ -1178,40 +1127,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeProjectIds;
 
 /**
- *  Optional. The list of locations to search within.
- *  1. If empty, search will be performed in all locations;
- *  2. If any of the locations are NOT in the valid locations list, error
- *  will be returned;
- *  3. Otherwise, search only the given locations for matching results.
- *  Typical usage is to leave this field empty. When a location is
- *  unreachable as returned in the `SearchCatalogResponse.unreachable` field,
- *  users can repeat the search request with this parameter set to get
- *  additional information on the error.
- *  Valid locations:
- *  * asia-east1
- *  * asia-east2
- *  * asia-northeast1
- *  * asia-northeast2
- *  * asia-northeast3
- *  * asia-south1
- *  * asia-southeast1
- *  * australia-southeast1
- *  * eu
- *  * europe-north1
- *  * europe-west1
- *  * europe-west2
- *  * europe-west3
- *  * europe-west4
- *  * europe-west6
- *  * global
- *  * northamerica-northeast1
- *  * southamerica-east1
- *  * us
- *  * us-central1
- *  * us-east1
- *  * us-east4
- *  * us-west1
- *  * us-west2
+ *  Optional. The list of locations to search within. 1. If empty, search will
+ *  be performed in all locations; 2. If any of the locations are NOT in the
+ *  valid locations list, error will be returned; 3. Otherwise, search only the
+ *  given locations for matching results. Typical usage is to leave this field
+ *  empty. When a location is unreachable as returned in the
+ *  `SearchCatalogResponse.unreachable` field, users can repeat the search
+ *  request with this parameter set to get additional information on the error.
+ *  Valid locations: * asia-east1 * asia-east2 * asia-northeast1 *
+ *  asia-northeast2 * asia-northeast3 * asia-south1 * asia-southeast1 *
+ *  australia-southeast1 * eu * europe-north1 * europe-west1 * europe-west2 *
+ *  europe-west3 * europe-west4 * europe-west6 * global *
+ *  northamerica-northeast1 * southamerica-east1 * us * us-central1 * us-east1 *
+ *  us-east4 * us-west1 * us-west2
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedLocations;
 
@@ -1219,8 +1147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Response message for
- *  SearchCatalog.
+ *  Response message for SearchCatalog.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "results" property. If returned as the result of a query, it
@@ -1260,16 +1187,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  The full name of the cloud resource the entry belongs to. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name.
- *  Example:
- *  *
+ *  Example: *
  *  `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
 
 /**
- *  The relative resource name of the resource in URL format.
- *  Examples:
- *  *
+ *  The relative resource name of the resource in URL format. Examples: *
  *  `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`
  *  * `projects/{project_id}/tagTemplates/{tag_template_id}`
  */
@@ -1311,9 +1235,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedPolicyTag *> *childPolicyTags;
 
 /**
- *  Description of the serialized policy tag. The length of the
- *  description is limited to 2000 bytes when encoded in UTF-8. If not set,
- *  defaults to an empty description.
+ *  Description of the serialized policy tag. The length of the description is
+ *  limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an
+ *  empty description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1326,8 +1250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Resource name of the policy tag.
- *  This field will be ignored when calling ImportTaxonomies.
+ *  Resource name of the policy tag. This field will be ignored when calling
+ *  ImportTaxonomies.
  */
 @property(nonatomic, copy, nullable) NSString *policyTag;
 
@@ -1341,9 +1265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy : GTLRObject
 
 /**
- *  Description of the serialized taxonomy. The length of the
- *  description is limited to 2000 bytes when encoded in UTF-8. If not set,
- *  defaults to an empty description.
+ *  Description of the serialized taxonomy. The length of the description is
+ *  limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an
+ *  empty description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1387,9 +1311,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Output only. If the table is a dated shard, i.e., with name pattern
- *  `[prefix]YYYYMMDD`,
- *  `grouped_entry` is the Data Catalog resource name of the date sharded
- *  grouped entry, for example,
+ *  `[prefix]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of the
+ *  date sharded grouped entry, for example,
  *  `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
  *  Otherwise, `grouped_entry` is empty.
  */
@@ -1400,11 +1323,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Tags are used to attach custom metadata to Data Catalog resources. Tags
- *  conform to the specifications within their tag template.
- *  See [Data Catalog
+ *  conform to the specifications within their tag template. See [Data Catalog
  *  IAM](https://cloud.google.com/data-catalog/docs/concepts/iam) for
- *  information
- *  on the permissions needed to create or view tags.
+ *  information on the permissions needed to create or view tags.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag : GTLRObject
 
@@ -1412,25 +1333,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  Resources like Entry can have schemas associated with them. This scope
  *  allows users to attach tags to an individual column based on that schema.
  *  For attaching a tag to a nested column, use `.` to separate the column
- *  names. Example:
- *  * `outer_column.inner_column`
+ *  names. Example: * `outer_column.inner_column`
  */
 @property(nonatomic, copy, nullable) NSString *column;
 
 /**
  *  Required. This maps the ID of a tag field to the value of and additional
- *  information
- *  about that field. Valid field IDs are defined by the tag's template. A tag
- *  must have at least 1 field and at most 500 fields.
+ *  information about that field. Valid field IDs are defined by the tag's
+ *  template. A tag must have at least 1 field and at most 500 fields.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag_Fields *fields;
 
 /**
- *  The resource name of the tag in URL format. Example:
- *  *
+ *  The resource name of the tag in URL format. Example: *
  *  projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
- *  where `tag_id` is a system-generated identifier.
- *  Note that this Tag may not actually be stored in the location in this name.
+ *  where `tag_id` is a system-generated identifier. Note that this Tag may not
+ *  actually be stored in the location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1451,9 +1369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Required. This maps the ID of a tag field to the value of and additional
- *  information
- *  about that field. Valid field IDs are defined by the tag's template. A tag
- *  must have at least 1 field and at most 500 fields.
+ *  information about that field. Valid field IDs are defined by the tag's
+ *  template. A tag must have at least 1 field and at most 500 fields.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagField. Use @c
@@ -1466,8 +1383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Contains the value and supporting information for a field within
- *  a Tag.
+ *  Contains the value and supporting information for a field within a Tag.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagField : GTLRObject
 
@@ -1489,18 +1405,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
- *  Holds the value for a tag field with enum type. This value must be
- *  one of the allowed values in the definition of this enum.
+ *  Holds the value for a tag field with enum type. This value must be one of
+ *  the allowed values in the definition of this enum.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagFieldEnumValue *enumValue;
 
 /**
  *  Output only. The order of this field with respect to other fields in this
- *  tag. It can be
- *  set in Tag. For
- *  example, a higher value can indicate a more important field. The value can
- *  be negative. Multiple fields can have the same order, and field orders
- *  within a tag do not have to be sequential.
+ *  tag. It can be set in Tag. For example, a higher value can indicate a more
+ *  important field. The value can be negative. Multiple fields can have the
+ *  same order, and field orders within a tag do not have to be sequential.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1527,9 +1441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  A tag template defines a tag, which can have one or more typed fields.
- *  The template is used to create and attach the tag to GCP resources.
- *  [Tag template
+ *  A tag template defines a tag, which can have one or more typed fields. The
+ *  template is used to create and attach the tag to GCP resources. [Tag
+ *  template
  *  roles](https://cloud.google.com/iam/docs/understanding-roles#data-catalog-roles)
  *  provide permissions to create, edit, and use the template. See, for example,
  *  the [TagTemplate
@@ -1542,19 +1456,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Required. Map of tag template field IDs to the settings for the field.
- *  This map is an exhaustive list of the allowed fields. This map must contain
- *  at least one field and at most 500 fields.
- *  The keys to this map are tag template field IDs. Field IDs can contain
- *  letters (both uppercase and lowercase), numbers (0-9) and underscores (_).
- *  Field IDs must be at least 1 character long and at most
- *  64 characters long. Field IDs must start with a letter or underscore.
+ *  Required. Map of tag template field IDs to the settings for the field. This
+ *  map is an exhaustive list of the allowed fields. This map must contain at
+ *  least one field and at most 500 fields. The keys to this map are tag
+ *  template field IDs. Field IDs can contain letters (both uppercase and
+ *  lowercase), numbers (0-9) and underscores (_). Field IDs must be at least 1
+ *  character long and at most 64 characters long. Field IDs must start with a
+ *  letter or underscore.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate_Fields *fields;
 
 /**
- *  The resource name of the tag template in URL format. Example:
- *  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+ *  The resource name of the tag template in URL format. Example: *
+ *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
  *  Note that this TagTemplate and its child resources may not actually be
  *  stored in the location in this name.
  */
@@ -1564,13 +1478,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Required. Map of tag template field IDs to the settings for the field.
- *  This map is an exhaustive list of the allowed fields. This map must contain
- *  at least one field and at most 500 fields.
- *  The keys to this map are tag template field IDs. Field IDs can contain
- *  letters (both uppercase and lowercase), numbers (0-9) and underscores (_).
- *  Field IDs must be at least 1 character long and at most
- *  64 characters long. Field IDs must start with a letter or underscore.
+ *  Required. Map of tag template field IDs to the settings for the field. This
+ *  map is an exhaustive list of the allowed fields. This map must contain at
+ *  least one field and at most 500 fields. The keys to this map are tag
+ *  template field IDs. Field IDs can contain letters (both uppercase and
+ *  lowercase), numbers (0-9) and underscores (_). Field IDs must be at least 1
+ *  character long and at most 64 characters long. Field IDs must start with a
+ *  letter or underscore.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField. Use @c
@@ -1599,8 +1513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Output only. The resource name of the tag template field in URL format.
- *  Example:
- *  *
+ *  Example: *
  *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template}/fields/{field}
  *  Note that this TagTemplateField may not actually be stored in the location
  *  in this name.
@@ -1608,10 +1521,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The order of this field with respect to other fields in this tag
- *  template. A higher value indicates a more important field. The value can
- *  be negative. Multiple fields can have the same order, and field orders
- *  within a tag do not have to be sequential.
+ *  The order of this field with respect to other fields in this tag template. A
+ *  higher value indicates a more important field. The value can be negative.
+ *  Multiple fields can have the same order, and field orders within a tag do
+ *  not have to be sequential.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1634,16 +1547,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Optional. A list of policy types that are activated for this taxonomy. If
- *  not set,
- *  defaults to an empty list.
+ *  not set, defaults to an empty list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *activatedPolicyTypes;
 
 /**
  *  Optional. Description of this taxonomy. It must: contain only unicode
- *  characters,
- *  tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
- *  long when encoded in UTF-8. If not set, defaults to an empty description.
+ *  characters, tabs, newlines, carriage returns and page breaks; and be at most
+ *  2000 bytes long when encoded in UTF-8. If not set, defaults to an empty
+ *  description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1651,9 +1563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Required. User defined name of this taxonomy. It must: contain only unicode
- *  letters,
- *  numbers, underscores, dashes and spaces; not start or end with spaces; and
- *  be at most 200 bytes long when encoded in UTF-8.
+ *  letters, numbers, underscores, dashes and spaces; not start or end with
+ *  spaces; and be at most 200 bytes long when encoded in UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1679,88 +1590,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDataCatalog_Policy : GTLRObject
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1768,24 +1647,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1802,9 +1677,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_Policy *policy;
 
@@ -1818,9 +1692,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -1833,8 +1706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @interface GTLRDataCatalog_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

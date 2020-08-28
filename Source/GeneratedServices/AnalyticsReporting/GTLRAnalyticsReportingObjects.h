@@ -157,40 +157,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_Opera
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Exact;
 /**
- *  This option is used to specify a dimension filter whose expression can
- *  take any value from a selected list of values. This helps avoiding
- *  evaluating multiple exact match dimension filters which are OR'ed for
- *  every single response row. For example:
- *  expressions: ["A", "B", "C"]
- *  Any response row whose dimension has it is value as A, B or C, matches
- *  this DimensionFilter.
+ *  This option is used to specify a dimension filter whose expression can take
+ *  any value from a selected list of values. This helps avoiding evaluating
+ *  multiple exact match dimension filters which are OR'ed for every single
+ *  response row. For example: expressions: ["A", "B", "C"] Any response row
+ *  whose dimension has it is value as A, B or C, matches this DimensionFilter.
  *
  *  Value: "IN_LIST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_InList;
 /**
- *  Integer comparison filters.
- *  case sensitivity is ignored for these and the expression
- *  is assumed to be a string representing an integer.
- *  Failure conditions:
- *  - If expression is not a valid int64, the client should expect
- *  an error.
- *  - Input dimensions that are not valid int64 values will never match the
- *  filter.
+ *  Integer comparison filters. case sensitivity is ignored for these and the
+ *  expression is assumed to be a string representing an integer. Failure
+ *  conditions: - If expression is not a valid int64, the client should expect
+ *  an error. - Input dimensions that are not valid int64 values will never
+ *  match the filter.
  *
  *  Value: "NUMERIC_EQUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericEqual;
 /**
- *  Checks if the dimension is numerically greater than the match
- *  expression. Read the description for `NUMERIC_EQUALS` for restrictions.
+ *  Checks if the dimension is numerically greater than the match expression.
+ *  Read the description for `NUMERIC_EQUALS` for restrictions.
  *
  *  Value: "NUMERIC_GREATER_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericGreaterThan;
 /**
- *  Checks if the dimension is numerically less than the match expression.
- *  Read the description for `NUMERIC_EQUALS` for restrictions.
+ *  Checks if the dimension is numerically less than the match expression. Read
+ *  the description for `NUMERIC_EQUALS` for restrictions.
  *
  *  Value: "NUMERIC_LESS_THAN"
  */
@@ -208,8 +203,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_Opera
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Partial;
 /**
- *  The match expression is treated as a regular expression. All match types
- *  are not treated as regular expressions.
+ *  The match expression is treated as a regular expression. All match types are
+ *  not treated as regular expressions.
  *
  *  Value: "REGEXP"
  */
@@ -373,8 +368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_Operator
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_GreaterThan;
 /**
- *  Validates if the metric is missing.
- *  Doesn't take comparisonValue into account.
+ *  Validates if the metric is missing. Doesn't take comparisonValue into
+ *  account.
  *
  *  Value: "IS_MISSING"
  */
@@ -458,24 +453,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_MetricHeaderEntry_Typ
 // GTLRAnalyticsReporting_OrderBy.orderType
 
 /**
- *  The sort order is based on the difference of the values of the chosen
- *  column between the first two date ranges. Usable only if there are
- *  exactly two date ranges.
+ *  The sort order is based on the difference of the values of the chosen column
+ *  between the first two date ranges. Usable only if there are exactly two date
+ *  ranges.
  *
  *  Value: "DELTA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Delta;
 /**
- *  If the dimensions are fixed length numbers, ordinary sort would just
- *  work fine. `DIMENSION_AS_INTEGER` can be used if the dimensions are
- *  variable length numbers.
+ *  If the dimensions are fixed length numbers, ordinary sort would just work
+ *  fine. `DIMENSION_AS_INTEGER` can be used if the dimensions are variable
+ *  length numbers.
  *
  *  Value: "DIMENSION_AS_INTEGER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_DimensionAsInteger;
 /**
- *  Histogram order type is applicable only to dimension columns with
- *  non-empty histogram-buckets.
+ *  Histogram order type is applicable only to dimension columns with non-empty
+ *  histogram-buckets.
  *
  *  Value: "HISTOGRAM_BUCKET"
  */
@@ -487,17 +482,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_His
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_OrderTypeUnspecified;
 /**
- *  The sort order is based on weighted value of the chosen column. If
- *  column has n/d format, then weighted value of this ratio will
- *  be `(n + totals.n)/(d + totals.d)` Usable only for metrics that
- *  represent ratios.
+ *  The sort order is based on weighted value of the chosen column. If column
+ *  has n/d format, then weighted value of this ratio will be `(n + totals.n)/(d
+ *  + totals.d)` Usable only for metrics that represent ratios.
  *
  *  Value: "SMART"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_OrderType_Smart;
 /**
- *  The sort order is based on the value of the chosen column; looks only at
- *  the first date range.
+ *  The sort order is based on the value of the chosen column; looks only at the
+ *  first date range.
  *
  *  Value: "VALUE"
  */
@@ -529,22 +523,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_OrderBy_SortOrder_Sor
 // GTLRAnalyticsReporting_ReportRequest.samplingLevel
 
 /**
- *  Returns response with a sample size that balances speed and
- *  accuracy.
+ *  Returns response with a sample size that balances speed and accuracy.
  *
  *  Value: "DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Default;
 /**
- *  Returns a more accurate response using a large sampling size. But this
- *  may result in response being slower.
+ *  Returns a more accurate response using a large sampling size. But this may
+ *  result in response being slower.
  *
  *  Value: "LARGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Large;
 /**
- *  If the `samplingLevel` field is unspecified the `DEFAULT` sampling level
- *  is used.
+ *  If the `samplingLevel` field is unspecified the `DEFAULT` sampling level is
+ *  used.
  *
  *  Value: "SAMPLING_UNSPECIFIED"
  */
@@ -559,17 +552,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_ReportRequest_Samplin
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsReporting_SearchUserActivityRequest.activityTypes
 
-/** Value: "ACTIVITY_TYPE_UNSPECIFIED" */
+/**
+ *  ActivityType will never have this value in the response. Using this type in
+ *  the request will result in an error.
+ *
+ *  Value: "ACTIVITY_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_ActivityTypeUnspecified;
-/** Value: "ECOMMERCE" */
+/**
+ *  An e-commerce transaction was performed by the visitor on the page.
+ *
+ *  Value: "ECOMMERCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Ecommerce;
-/** Value: "EVENT" */
+/**
+ *  Used when the activity is an event.
+ *
+ *  Value: "EVENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Event;
-/** Value: "GOAL" */
+/**
+ *  Used to denote that a goal type activity.
+ *
+ *  Value: "GOAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Goal;
-/** Value: "PAGEVIEW" */
+/**
+ *  Used when the activity resulted out of a visitor viewing a page.
+ *
+ *  Value: "PAGEVIEW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Pageview;
-/** Value: "SCREENVIEW" */
+/**
+ *  Used when the activity resulted out of a visitor using an application on a
+ *  mobile device.
+ *
+ *  Value: "SCREENVIEW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SearchUserActivityRequest_ActivityTypes_Screenview;
 
 // ----------------------------------------------------------------------------
@@ -594,41 +613,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilte
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_Exact;
 /**
- *  This option is used to specify a dimension filter whose expression can
- *  take any value from a selected list of values. This helps avoiding
- *  evaluating multiple exact match dimension filters which are OR'ed for
- *  every single response row. For example:
- *  expressions: ["A", "B", "C"]
- *  Any response row whose dimension has it is value as A, B or C, matches
- *  this DimensionFilter.
+ *  This option is used to specify a dimension filter whose expression can take
+ *  any value from a selected list of values. This helps avoiding evaluating
+ *  multiple exact match dimension filters which are OR'ed for every single
+ *  response row. For example: expressions: ["A", "B", "C"] Any response row
+ *  whose dimension has it is value as A, B or C, matches this DimensionFilter.
  *
  *  Value: "IN_LIST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_InList;
 /**
- *  Checks if the dimension is numerically between the minimum and maximum
- *  of the match expression, boundaries excluded.
+ *  Checks if the dimension is numerically between the minimum and maximum of
+ *  the match expression, boundaries excluded.
  *
  *  Value: "NUMERIC_BETWEEN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericBetween;
 /**
- *  Checks if the dimension is numerically greater than the match
- *  expression.
+ *  Checks if the dimension is numerically greater than the match expression.
  *
  *  Value: "NUMERIC_GREATER_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericGreaterThan;
 /**
- *  Integer comparison filters.
- *  case sensitivity is ignored for these and the expression
- *  is assumed to be a string representing an integer.
- *  Failure conditions:
- *  - if expression is not a valid int64, the client should expect
- *  an error.
- *  - input dimensions that are not valid int64 values will never match the
- *  filter.
- *  Checks if the dimension is numerically less than the match expression.
+ *  Integer comparison filters. case sensitivity is ignored for these and the
+ *  expression is assumed to be a string representing an integer. Failure
+ *  conditions: - if expression is not a valid int64, the client should expect
+ *  an error. - input dimensions that are not valid int64 values will never
+ *  match the filter. Checks if the dimension is numerically less than the match
+ *  expression.
  *
  *  Value: "NUMERIC_LESS_THAN"
  */
@@ -657,8 +670,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentDimensionFilte
 // GTLRAnalyticsReporting_SegmentMetricFilter.operatorProperty
 
 /**
- *  For between operator, both the minimum and maximum are exclusive.
- *  We will use `LT` and `GT` for comparison.
+ *  For between operator, both the minimum and maximum are exclusive. We will
+ *  use `LT` and `GT` for comparison.
  *
  *  Value: "BETWEEN"
  */
@@ -710,9 +723,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_S
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_Session;
 /**
- *  If the scope is unspecified, it defaults to the condition scope,
- *  `USER` or `SESSION` depending on if the segment is trying to choose
- *  users or sessions.
+ *  If the scope is unspecified, it defaults to the condition scope, `USER` or
+ *  `SESSION` depending on if the segment is trying to choose users or sessions.
  *
  *  Value: "UNSPECIFIED_SCOPE"
  */
@@ -757,8 +769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_SegmentSequenceStep_M
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_ClientId;
 /**
- *  A single user, like a signed-in user account, that may interact with
- *  content across one or more devices and / or browser instances.
+ *  A single user, like a signed-in user account, that may interact with content
+ *  across one or more devices and / or browser instances.
  *
  *  Value: "USER_ID"
  */
@@ -772,11 +784,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserId;
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeUnspecified;
 
 /**
- *  An Activity represents data for an activity of a user. Note that an
- *  Activity is different from a hit.
- *  A hit might result in multiple Activity's. For example, if a hit
- *  includes a transaction and a goal completion, there will be two
- *  Activity protos for this hit, one for ECOMMERCE and one for GOAL.
+ *  An Activity represents data for an activity of a user. Note that an Activity
+ *  is different from a hit. A hit might result in multiple Activity's. For
+ *  example, if a hit includes a transaction and a goal completion, there will
+ *  be two Activity protos for this hit, one for ECOMMERCE and one for GOAL.
  *  Conversely, multiple hits can also construct one Activity. In classic
  *  e-commerce, data for one transaction might be sent through multiple hits.
  *  These hits will be merged into one ECOMMERCE Activity.
@@ -785,11 +796,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  Timestamp of the activity. If activities for a visit cross midnight and
- *  occur in two separate dates, then two sessions (one per date)
- *  share the session identifier.
- *  For example, say session ID 113472 has activity within 2019-08-20, and
- *  session ID 243742 has activity within 2019-08-25 and 2019-08-26. Session ID
- *  113472 is one session, and session ID 243742 is two sessions.
+ *  occur in two separate dates, then two sessions (one per date) share the
+ *  session identifier. For example, say session ID 113472 has activity within
+ *  2019-08-20, and session ID 243742 has activity within 2019-08-25 and
+ *  2019-08-26. Session ID 113472 is one session, and session ID 243742 is two
+ *  sessions.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *activityTime;
 
@@ -799,8 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_Activity_ActivityType_ActivityTypeUnspecified
  *        ActivityType will never have this value in the response. Using this
- *        type in
- *        the request will result in an error. (Value:
+ *        type in the request will result in an error. (Value:
  *        "ACTIVITY_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAnalyticsReporting_Activity_ActivityType_Ecommerce An
  *        e-commerce transaction was performed by the visitor on the page.
@@ -823,9 +833,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  For manual campaign tracking, it is the value of the utm_campaign campaign
- *  tracking parameter. For AdWords autotagging, it is the name(s) of the
- *  online ad campaign(s) you use for the property. If you use neither, its
- *  value is (not set).
+ *  tracking parameter. For AdWords autotagging, it is the name(s) of the online
+ *  ad campaign(s) you use for the property. If you use neither, its value is
+ *  (not set).
  */
 @property(nonatomic, copy, nullable) NSString *campaign;
 
@@ -842,8 +852,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) GTLRAnalyticsReporting_EcommerceData *ecommerce;
 
 /**
- *  This field contains all the details pertaining to an event and will be
- *  set if `activity_type` equals `EVENT`.
+ *  This field contains all the details pertaining to an event and will be set
+ *  if `activity_type` equals `EVENT`.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsReporting_EventData *event;
 
@@ -881,17 +891,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, copy, nullable) NSString *medium;
 
 /**
- *  This will be set if `activity_type` equals `PAGEVIEW`. This field
- *  contains all the details about the visitor and the page that was visited.
+ *  This will be set if `activity_type` equals `PAGEVIEW`. This field contains
+ *  all the details about the visitor and the page that was visited.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsReporting_PageviewData *pageview;
 
 /**
  *  The source of referrals. For manual campaign tracking, it is the value of
  *  the utm_source campaign tracking parameter. For AdWords autotagging, it is
- *  google. If you use neither, it is the domain of the source
- *  (e.g., document.referrer) referring the users. It may also contain a port
- *  address. If users arrived without a referrer, its value is (direct).
+ *  google. If you use neither, it is the domain of the source (e.g.,
+ *  document.referrer) referring the users. It may also contain a port address.
+ *  If users arrived without a referrer, its value is (direct).
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -900,23 +910,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  Defines a cohort. A cohort is a group of users who share a common
- *  characteristic. For example, all users with the same acquisition date
- *  belong to the same cohort.
+ *  characteristic. For example, all users with the same acquisition date belong
+ *  to the same cohort.
  */
 @interface GTLRAnalyticsReporting_Cohort : GTLRObject
 
 /**
- *  This is used for `FIRST_VISIT_DATE` cohort, the cohort selects users
- *  whose first visit date is between start date and end date defined in the
+ *  This is used for `FIRST_VISIT_DATE` cohort, the cohort selects users whose
+ *  first visit date is between start date and end date defined in the
  *  DateRange. The date ranges should be aligned for cohort requests. If the
- *  request contains `ga:cohortNthDay` it should be exactly one day long,
- *  if `ga:cohortNthWeek` it should be aligned to the week boundary (starting
- *  at Sunday and ending Saturday), and for `ga:cohortNthMonth` the date range
- *  should be aligned to the month (starting at the first and ending on the
- *  last day of the month).
- *  For LTV requests there are no such restrictions.
- *  You do not need to supply a date range for the
- *  `reportsRequest.dateRanges` field.
+ *  request contains `ga:cohortNthDay` it should be exactly one day long, if
+ *  `ga:cohortNthWeek` it should be aligned to the week boundary (starting at
+ *  Sunday and ending Saturday), and for `ga:cohortNthMonth` the date range
+ *  should be aligned to the month (starting at the first and ending on the last
+ *  day of the month). For LTV requests there are no such restrictions. You do
+ *  not need to supply a date range for the `reportsRequest.dateRanges` field.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsReporting_DateRange *dateRange;
 
@@ -927,9 +935,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Type of the cohort. The only supported type as of now is
- *  `FIRST_VISIT_DATE`. If this field is unspecified the cohort is treated
- *  as `FIRST_VISIT_DATE` type cohort.
+ *  Type of the cohort. The only supported type as of now is `FIRST_VISIT_DATE`.
+ *  If this field is unspecified the cohort is treated as `FIRST_VISIT_DATE`
+ *  type cohort.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_Cohort_Type_FirstVisitDate Cohorts that
@@ -944,19 +952,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  Defines a cohort group.
- *  For example:
- *  "cohortGroup": {
- *  "cohorts": [{
- *  "name": "cohort 1",
- *  "type": "FIRST_VISIT_DATE",
- *  "dateRange": { "startDate": "2015-08-01", "endDate": "2015-08-01" }
- *  },{
- *  "name": "cohort 2"
- *  "type": "FIRST_VISIT_DATE"
- *  "dateRange": { "startDate": "2015-07-01", "endDate": "2015-07-01" }
- *  }]
- *  }
+ *  Defines a cohort group. For example: "cohortGroup": { "cohorts": [{ "name":
+ *  "cohort 1", "type": "FIRST_VISIT_DATE", "dateRange": { "startDate":
+ *  "2015-08-01", "endDate": "2015-08-01" } },{ "name": "cohort 2" "type":
+ *  "FIRST_VISIT_DATE" "dateRange": { "startDate": "2015-07-01", "endDate":
+ *  "2015-07-01" } }] }
  */
 @interface GTLRAnalyticsReporting_CohortGroup : GTLRObject
 
@@ -964,32 +964,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Cohort *> *cohorts;
 
 /**
- *  Enable Life Time Value (LTV). LTV measures lifetime value for users
- *  acquired through different channels.
- *  Please see:
- *  [Cohort Analysis](https://support.google.com/analytics/answer/6074676) and
- *  [Lifetime Value](https://support.google.com/analytics/answer/6182550)
- *  If the value of lifetimeValue is false:
- *  - The metric values are similar to the values in the web interface cohort
- *  report.
- *  - The cohort definition date ranges must be aligned to the calendar week
- *  and month. i.e. while requesting `ga:cohortNthWeek` the `startDate` in
- *  the cohort definition should be a Sunday and the `endDate` should be the
- *  following Saturday, and for `ga:cohortNthMonth`, the `startDate`
- *  should be the 1st of the month and `endDate` should be the last day
- *  of the month.
- *  When the lifetimeValue is true:
- *  - The metric values will correspond to the values in the web interface
- *  LifeTime value report.
- *  - The Lifetime Value report shows you how user value (Revenue) and
- *  engagement (Appviews, Goal Completions, Sessions, and Session Duration)
- *  grow during the 90 days after a user is acquired.
- *  - The metrics are calculated as a cumulative average per user per the time
- *  increment.
- *  - The cohort definition date ranges need not be aligned to the calendar
- *  week and month boundaries.
- *  - The `viewId` must be an
- *  [app view
+ *  Enable Life Time Value (LTV). LTV measures lifetime value for users acquired
+ *  through different channels. Please see: [Cohort
+ *  Analysis](https://support.google.com/analytics/answer/6074676) and [Lifetime
+ *  Value](https://support.google.com/analytics/answer/6182550) If the value of
+ *  lifetimeValue is false: - The metric values are similar to the values in the
+ *  web interface cohort report. - The cohort definition date ranges must be
+ *  aligned to the calendar week and month. i.e. while requesting
+ *  `ga:cohortNthWeek` the `startDate` in the cohort definition should be a
+ *  Sunday and the `endDate` should be the following Saturday, and for
+ *  `ga:cohortNthMonth`, the `startDate` should be the 1st of the month and
+ *  `endDate` should be the last day of the month. When the lifetimeValue is
+ *  true: - The metric values will correspond to the values in the web interface
+ *  LifeTime value report. - The Lifetime Value report shows you how user value
+ *  (Revenue) and engagement (Appviews, Goal Completions, Sessions, and Session
+ *  Duration) grow during the 90 days after a user is acquired. - The metrics
+ *  are calculated as a cumulative average per user per the time increment. -
+ *  The cohort definition date ranges need not be aligned to the calendar week
+ *  and month boundaries. - The `viewId` must be an [app view
  *  ID](https://support.google.com/analytics/answer/2649553#WebVersusAppViews)
  *
  *  Uses NSNumber of boolValue.
@@ -1035,8 +1027,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  A contiguous set of days: startDate, startDate + 1 day, ..., endDate.
- *  The start and end dates are specified in
+ *  A contiguous set of days: startDate, startDate + 1 day, ..., endDate. The
+ *  start and end dates are specified in
  *  [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) date format `YYYY-MM-DD`.
  */
 @interface GTLRAnalyticsReporting_DateRange : GTLRObject
@@ -1066,39 +1058,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  [Dimensions](https://support.google.com/analytics/answer/1033861)
- *  are attributes of your data. For example, the dimension `ga:city`
- *  indicates the city, for example, "Paris" or "New York", from which
- *  a session originates.
+ *  [Dimensions](https://support.google.com/analytics/answer/1033861) are
+ *  attributes of your data. For example, the dimension `ga:city` indicates the
+ *  city, for example, "Paris" or "New York", from which a session originates.
  */
 @interface GTLRAnalyticsReporting_Dimension : GTLRObject
 
 /**
- *  If non-empty, we place dimension values into buckets after string to
- *  int64. Dimension values that are not the string representation of an
- *  integral value will be converted to zero. The bucket values have to be in
- *  increasing order. Each bucket is closed on the lower end, and open on the
- *  upper end. The "first" bucket includes all values less than the first
- *  boundary, the "last" bucket includes all values up to infinity. Dimension
- *  values that fall in a bucket get transformed to a new dimension value. For
- *  example, if one gives a list of "0, 1, 3, 4, 7", then we return the
- *  following buckets:
- *  - bucket #1: values < 0, dimension value "<0"
- *  - bucket #2: values in [0,1), dimension value "0"
- *  - bucket #3: values in [1,3), dimension value "1-2"
- *  - bucket #4: values in [3,4), dimension value "3"
- *  - bucket #5: values in [4,7), dimension value "4-6"
- *  - bucket #6: values >= 7, dimension value "7+"
- *  NOTE: If you are applying histogram mutation on any dimension, and using
- *  that dimension in sort, you will want to use the sort type
- *  `HISTOGRAM_BUCKET` for that purpose. Without that the dimension values
- *  will be sorted according to dictionary
- *  (lexicographic) order. For example the ascending dictionary order is:
- *  "<50", "1001+", "121-1000", "50-120"
- *  And the ascending `HISTOGRAM_BUCKET` order is:
- *  "<50", "50-120", "121-1000", "1001+"
- *  The client has to explicitly request `"orderType": "HISTOGRAM_BUCKET"`
- *  for a histogram-mutated dimension.
+ *  If non-empty, we place dimension values into buckets after string to int64.
+ *  Dimension values that are not the string representation of an integral value
+ *  will be converted to zero. The bucket values have to be in increasing order.
+ *  Each bucket is closed on the lower end, and open on the upper end. The
+ *  "first" bucket includes all values less than the first boundary, the "last"
+ *  bucket includes all values up to infinity. Dimension values that fall in a
+ *  bucket get transformed to a new dimension value. For example, if one gives a
+ *  list of "0, 1, 3, 4, 7", then we return the following buckets: - bucket #1:
+ *  values < 0, dimension value "<0" - bucket #2: values in [0,1), dimension
+ *  value "0" - bucket #3: values in [1,3), dimension value "1-2" - bucket #4:
+ *  values in [3,4), dimension value "3" - bucket #5: values in [4,7), dimension
+ *  value "4-6" - bucket #6: values >= 7, dimension value "7+" NOTE: If you are
+ *  applying histogram mutation on any dimension, and using that dimension in
+ *  sort, you will want to use the sort type `HISTOGRAM_BUCKET` for that
+ *  purpose. Without that the dimension values will be sorted according to
+ *  dictionary (lexicographic) order. For example the ascending dictionary order
+ *  is: "<50", "1001+", "121-1000", "50-120" And the ascending
+ *  `HISTOGRAM_BUCKET` order is: "<50", "50-120", "121-1000", "1001+" The client
+ *  has to explicitly request `"orderType": "HISTOGRAM_BUCKET"` for a
+ *  histogram-mutated dimension.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1126,10 +1112,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, copy, nullable) NSString *dimensionName;
 
 /**
- *  Strings or regular expression to match against. Only the first value of
- *  the list is used for comparison unless the operator is `IN_LIST`.
- *  If `IN_LIST` operator, then the entire list is used to filter the
- *  dimensions as explained in the description of the `IN_LIST` operator.
+ *  Strings or regular expression to match against. Only the first value of the
+ *  list is used for comparison unless the operator is `IN_LIST`. If `IN_LIST`
+ *  operator, then the entire list is used to filter the dimensions as explained
+ *  in the description of the `IN_LIST` operator.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *expressions;
 
@@ -1159,20 +1145,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *        This option is used to specify a dimension filter whose expression can
  *        take any value from a selected list of values. This helps avoiding
  *        evaluating multiple exact match dimension filters which are OR'ed for
- *        every single response row. For example:
- *        expressions: ["A", "B", "C"]
+ *        every single response row. For example: expressions: ["A", "B", "C"]
  *        Any response row whose dimension has it is value as A, B or C, matches
  *        this DimensionFilter. (Value: "IN_LIST")
  *    @arg @c kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericEqual
- *        Integer comparison filters.
- *        case sensitivity is ignored for these and the expression
- *        is assumed to be a string representing an integer.
- *        Failure conditions:
- *        - If expression is not a valid int64, the client should expect
- *        an error.
- *        - Input dimensions that are not valid int64 values will never match
- *        the
- *        filter. (Value: "NUMERIC_EQUAL")
+ *        Integer comparison filters. case sensitivity is ignored for these and
+ *        the expression is assumed to be a string representing an integer.
+ *        Failure conditions: - If expression is not a valid int64, the client
+ *        should expect an error. - Input dimensions that are not valid int64
+ *        values will never match the filter. (Value: "NUMERIC_EQUAL")
  *    @arg @c kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_NumericGreaterThan
  *        Checks if the dimension is numerically greater than the match
  *        expression. Read the description for `NUMERIC_EQUALS` for
@@ -1188,8 +1169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *        Substring match. (Value: "PARTIAL")
  *    @arg @c kGTLRAnalyticsReporting_DimensionFilter_OperatorProperty_Regexp
  *        The match expression is treated as a regular expression. All match
- *        types
- *        are not treated as regular expressions. (Value: "REGEXP")
+ *        types are not treated as regular expressions. (Value: "REGEXP")
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
@@ -1199,8 +1179,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  A group of dimension filters. Set the operator value to specify how
- *  the filters are logically combined.
+ *  A group of dimension filters. Set the operator value to specify how the
+ *  filters are logically combined.
  */
 @interface GTLRAnalyticsReporting_DimensionFilterClause : GTLRObject
 
@@ -1211,8 +1191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilter *> *filters;
 
 /**
- *  The operator for combining multiple dimension filters. If unspecified, it
- *  is treated as an `OR`.
+ *  The operator for combining multiple dimension filters. If unspecified, it is
+ *  treated as an `OR`.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_DimensionFilterClause_OperatorProperty_And
@@ -1231,8 +1211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  Dynamic segment definition for defining the segment within the request.
- *  A segment can select users, sessions or both.
+ *  Dynamic segment definition for defining the segment within the request. A
+ *  segment can select users, sessions or both.
  */
 @interface GTLRAnalyticsReporting_DynamicSegment : GTLRObject
 
@@ -1339,22 +1319,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @interface GTLRAnalyticsReporting_GetReportsRequest : GTLRObject
 
 /**
- *  Requests, each request will have a separate response.
- *  There can be a maximum of 5 requests. All requests should have the same
- *  `dateRanges`, `viewId`, `segments`, `samplingLevel`, and `cohortGroup`.
+ *  Requests, each request will have a separate response. There can be a maximum
+ *  of 5 requests. All requests should have the same `dateRanges`, `viewId`,
+ *  `segments`, `samplingLevel`, and `cohortGroup`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_ReportRequest *> *reportRequests;
 
 /**
- *  Enables
- *  [resource based
+ *  Enables [resource based
  *  quotas](/analytics/devguides/reporting/core/v4/limits-quotas#analytics_reporting_api_v4),
- *  (defaults to `False`). If this field is set to `True` the
- *  per view (profile) quotas are governed by the computational
- *  cost of the request. Note that using cost based quotas will
- *  higher enable sampling rates. (10 Million for `SMALL`,
- *  100M for `LARGE`. See the
- *  [limits and quotas
+ *  (defaults to `False`). If this field is set to `True` the per view (profile)
+ *  quotas are governed by the computational cost of the request. Note that
+ *  using cost based quotas will higher enable sampling rates. (10 Million for
+ *  `SMALL`, 100M for `LARGE`. See the [limits and quotas
  *  documentation](/analytics/devguides/reporting/core/v4/limits-quotas#analytics_reporting_api_v4)
  *  for details.
  *
@@ -1444,30 +1421,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  [Metrics](https://support.google.com/analytics/answer/1033861)
- *  are the quantitative measurements. For example, the metric `ga:users`
- *  indicates the total number of users for the requested time period.
+ *  [Metrics](https://support.google.com/analytics/answer/1033861) are the
+ *  quantitative measurements. For example, the metric `ga:users` indicates the
+ *  total number of users for the requested time period.
  */
 @interface GTLRAnalyticsReporting_Metric : GTLRObject
 
 /**
- *  An alias for the metric expression is an alternate name for the
- *  expression. The alias can be used for filtering and sorting. This field
- *  is optional and is useful if the expression is not a single metric but
- *  a complex expression which cannot be used in filtering and sorting.
- *  The alias is also used in the response column header.
+ *  An alias for the metric expression is an alternate name for the expression.
+ *  The alias can be used for filtering and sorting. This field is optional and
+ *  is useful if the expression is not a single metric but a complex expression
+ *  which cannot be used in filtering and sorting. The alias is also used in the
+ *  response column header.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
 /**
- *  A metric expression in the request. An expression is constructed from one
- *  or more metrics and numbers. Accepted operators include: Plus (+), Minus
- *  (-), Negation (Unary -), Divided by (/), Multiplied by (*), Parenthesis,
- *  Positive cardinal numbers (0-9), can include decimals and is limited to
- *  1024 characters. Example `ga:totalRefunds/ga:users`, in most cases the
- *  metric expression is just a single metric name like `ga:users`.
- *  Adding mixed `MetricType` (E.g., `CURRENCY` + `PERCENTAGE`) metrics
- *  will result in unexpected results.
+ *  A metric expression in the request. An expression is constructed from one or
+ *  more metrics and numbers. Accepted operators include: Plus (+), Minus (-),
+ *  Negation (Unary -), Divided by (/), Multiplied by (*), Parenthesis, Positive
+ *  cardinal numbers (0-9), can include decimals and is limited to 1024
+ *  characters. Example `ga:totalRefunds/ga:users`, in most cases the metric
+ *  expression is just a single metric name like `ga:users`. Adding mixed
+ *  `MetricType` (E.g., `CURRENCY` + `PERCENTAGE`) metrics will result in
+ *  unexpected results.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
@@ -1520,10 +1497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) NSNumber *notProperty;
 
 /**
- *  Is the metric `EQUAL`, `LESS_THAN` or `GREATER_THAN` the
- *  comparisonValue, the default is `EQUAL`. If the operator is
- *  `IS_MISSING`, checks if the metric is missing and would ignore the
- *  comparisonValue.
+ *  Is the metric `EQUAL`, `LESS_THAN` or `GREATER_THAN` the comparisonValue,
+ *  the default is `EQUAL`. If the operator is `IS_MISSING`, checks if the
+ *  metric is missing and would ignore the comparisonValue.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_Equal Should
@@ -1533,8 +1509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *        Should the value of the metric be greater than to the comparison
  *        value. (Value: "GREATER_THAN")
  *    @arg @c kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_IsMissing
- *        Validates if the metric is missing.
- *        Doesn't take comparisonValue into account. (Value: "IS_MISSING")
+ *        Validates if the metric is missing. Doesn't take comparisonValue into
+ *        account. (Value: "IS_MISSING")
  *    @arg @c kGTLRAnalyticsReporting_MetricFilter_OperatorProperty_LessThan
  *        Should the value of the metric be less than to the comparison value.
  *        (Value: "LESS_THAN")
@@ -1550,8 +1526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  Represents a group of metric filters.
- *  Set the operator value to specify how the filters are logically combined.
+ *  Represents a group of metric filters. Set the operator value to specify how
+ *  the filters are logically combined.
  */
 @interface GTLRAnalyticsReporting_MetricFilterClause : GTLRObject
 
@@ -1632,9 +1608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  The field which to sort by. The default sort order is ascending. Example:
- *  `ga:browser`.
- *  Note, that you can only specify one field for sort here. For example,
- *  `ga:browser, ga:city` is not valid.
+ *  `ga:browser`. Note, that you can only specify one field for sort here. For
+ *  example, `ga:browser, ga:city` is not valid.
  */
 @property(nonatomic, copy, nullable) NSString *fieldName;
 
@@ -1643,12 +1618,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_OrderBy_OrderType_Delta The sort order is
- *        based on the difference of the values of the chosen
- *        column between the first two date ranges. Usable only if there are
- *        exactly two date ranges. (Value: "DELTA")
+ *        based on the difference of the values of the chosen column between the
+ *        first two date ranges. Usable only if there are exactly two date
+ *        ranges. (Value: "DELTA")
  *    @arg @c kGTLRAnalyticsReporting_OrderBy_OrderType_DimensionAsInteger If
- *        the dimensions are fixed length numbers, ordinary sort would just
- *        work fine. `DIMENSION_AS_INTEGER` can be used if the dimensions are
+ *        the dimensions are fixed length numbers, ordinary sort would just work
+ *        fine. `DIMENSION_AS_INTEGER` can be used if the dimensions are
  *        variable length numbers. (Value: "DIMENSION_AS_INTEGER")
  *    @arg @c kGTLRAnalyticsReporting_OrderBy_OrderType_HistogramBucket
  *        Histogram order type is applicable only to dimension columns with
@@ -1657,13 +1632,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *        Unspecified order type will be treated as sort based on value. (Value:
  *        "ORDER_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAnalyticsReporting_OrderBy_OrderType_Smart The sort order is
- *        based on weighted value of the chosen column. If
- *        column has n/d format, then weighted value of this ratio will
- *        be `(n + totals.n)/(d + totals.d)` Usable only for metrics that
- *        represent ratios. (Value: "SMART")
+ *        based on weighted value of the chosen column. If column has n/d
+ *        format, then weighted value of this ratio will be `(n + totals.n)/(d +
+ *        totals.d)` Usable only for metrics that represent ratios. (Value:
+ *        "SMART")
  *    @arg @c kGTLRAnalyticsReporting_OrderBy_OrderType_Value The sort order is
- *        based on the value of the chosen column; looks only at
- *        the first date range. (Value: "VALUE")
+ *        based on the value of the chosen column; looks only at the first date
+ *        range. (Value: "VALUE")
  */
 @property(nonatomic, copy, nullable) NSString *orderType;
 
@@ -1713,57 +1688,56 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  The Pivot describes the pivot section in the request.
- *  The Pivot helps rearrange the information in the table for certain reports
- *  by pivoting your data on a second dimension.
+ *  The Pivot describes the pivot section in the request. The Pivot helps
+ *  rearrange the information in the table for certain reports by pivoting your
+ *  data on a second dimension.
  */
 @interface GTLRAnalyticsReporting_Pivot : GTLRObject
 
 /**
  *  DimensionFilterClauses are logically combined with an `AND` operator: only
- *  data that is included by all these DimensionFilterClauses contributes to
- *  the values in this pivot region. Dimension filters can be used to restrict
- *  the columns shown in the pivot region. For example if you have
- *  `ga:browser` as the requested dimension in the pivot region, and you
- *  specify key filters to restrict `ga:browser` to only "IE" or "Firefox",
- *  then only those two browsers would show up as columns.
+ *  data that is included by all these DimensionFilterClauses contributes to the
+ *  values in this pivot region. Dimension filters can be used to restrict the
+ *  columns shown in the pivot region. For example if you have `ga:browser` as
+ *  the requested dimension in the pivot region, and you specify key filters to
+ *  restrict `ga:browser` to only "IE" or "Firefox", then only those two
+ *  browsers would show up as columns.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilterClause *> *dimensionFilterClauses;
 
 /**
- *  A list of dimensions to show as pivot columns. A Pivot can have a maximum
- *  of 4 dimensions. Pivot dimensions are part of the restriction on the
- *  total number of dimensions allowed in the request.
+ *  A list of dimensions to show as pivot columns. A Pivot can have a maximum of
+ *  4 dimensions. Pivot dimensions are part of the restriction on the total
+ *  number of dimensions allowed in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Dimension *> *dimensions;
 
 /**
- *  Specifies the maximum number of groups to return.
- *  The default value is 10, also the maximum value is 1,000.
+ *  Specifies the maximum number of groups to return. The default value is 10,
+ *  also the maximum value is 1,000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxGroupCount;
 
 /**
- *  The pivot metrics. Pivot metrics are part of the
- *  restriction on total number of metrics allowed in the request.
+ *  The pivot metrics. Pivot metrics are part of the restriction on total number
+ *  of metrics allowed in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Metric *> *metrics;
 
 /**
  *  If k metrics were requested, then the response will contain some
- *  data-dependent multiple of k columns in the report. E.g., if you pivoted
- *  on the dimension `ga:browser` then you'd get k columns for "Firefox", k
- *  columns for "IE", k columns for "Chrome", etc. The ordering of the groups
- *  of columns is determined by descending order of "total" for the first of
- *  the k values. Ties are broken by lexicographic ordering of the first
- *  pivot dimension, then lexicographic ordering of the second pivot
- *  dimension, and so on. E.g., if the totals for the first value for
- *  Firefox, IE, and Chrome were 8, 2, 8, respectively, the order of columns
- *  would be Chrome, Firefox, IE.
- *  The following let you choose which of the groups of k columns are
- *  included in the response.
+ *  data-dependent multiple of k columns in the report. E.g., if you pivoted on
+ *  the dimension `ga:browser` then you'd get k columns for "Firefox", k columns
+ *  for "IE", k columns for "Chrome", etc. The ordering of the groups of columns
+ *  is determined by descending order of "total" for the first of the k values.
+ *  Ties are broken by lexicographic ordering of the first pivot dimension, then
+ *  lexicographic ordering of the second pivot dimension, and so on. E.g., if
+ *  the totals for the first value for Firefox, IE, and Chrome were 8, 2, 8,
+ *  respectively, the order of columns would be Chrome, Firefox, IE. The
+ *  following let you choose which of the groups of k columns are included in
+ *  the response.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1832,8 +1806,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) NSNumber *itemRevenue;
 
 /**
- *  The product name, supplied by the e-commerce tracking application, for
- *  the purchased items.
+ *  The product name, supplied by the e-commerce tracking application, for the
+ *  purchased items.
  */
 @property(nonatomic, copy, nullable) NSString *productName;
 
@@ -1879,25 +1853,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) GTLRDateTime *dataLastRefreshed;
 
 /**
- *  Indicates if response to this request is golden or not. Data is
- *  golden when the exact same request will not produce any new results if
- *  asked at a later point in time.
+ *  Indicates if response to this request is golden or not. Data is golden when
+ *  the exact same request will not produce any new results if asked at a later
+ *  point in time.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isDataGolden;
 
 /**
- *  Minimum and maximum values seen over all matching rows. These are both
- *  empty when `hideValueRanges` in the request is false, or when
- *  rowCount is zero.
+ *  Minimum and maximum values seen over all matching rows. These are both empty
+ *  when `hideValueRanges` in the request is false, or when rowCount is zero.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *maximums;
 
 /**
- *  Minimum and maximum values seen over all matching rows. These are both
- *  empty when `hideValueRanges` in the request is false, or when
- *  rowCount is zero.
+ *  Minimum and maximum values seen over all matching rows. These are both empty
+ *  when `hideValueRanges` in the request is false, or when rowCount is zero.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *minimums;
 
@@ -1913,11 +1885,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  If the results are
- *  [sampled](https://support.google.com/analytics/answer/2637192),
- *  this returns the total number of samples read, one entry per date range.
- *  If the results are not sampled this field will not be defined. See
- *  [developer guide](/analytics/devguides/reporting/core/v4/basics#sampling)
- *  for details.
+ *  [sampled](https://support.google.com/analytics/answer/2637192), this returns
+ *  the total number of samples read, one entry per date range. If the results
+ *  are not sampled this field will not be defined. See [developer
+ *  guide](/analytics/devguides/reporting/core/v4/basics#sampling) for details.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1925,26 +1896,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  If the results are
- *  [sampled](https://support.google.com/analytics/answer/2637192),
- *  this returns the total number of
- *  samples present, one entry per date range. If the results are not sampled
- *  this field will not be defined. See
- *  [developer guide](/analytics/devguides/reporting/core/v4/basics#sampling)
- *  for details.
+ *  [sampled](https://support.google.com/analytics/answer/2637192), this returns
+ *  the total number of samples present, one entry per date range. If the
+ *  results are not sampled this field will not be defined. See [developer
+ *  guide](/analytics/devguides/reporting/core/v4/basics#sampling) for details.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *samplingSpaceSizes;
 
 /**
- *  For each requested date range, for the set of all rows that match
- *  the query, every requested value format gets a total. The total
- *  for a value format is computed by first totaling the metrics
- *  mentioned in the value format and then evaluating the value
- *  format as a scalar expression. E.g., The "totals" for
- *  `3 / (ga:sessions + 2)` we compute
- *  `3 / ((sum of all relevant ga:sessions) + 2)`.
- *  Totals are computed before pagination.
+ *  For each requested date range, for the set of all rows that match the query,
+ *  every requested value format gets a total. The total for a value format is
+ *  computed by first totaling the metrics mentioned in the value format and
+ *  then evaluating the value format as a scalar expression. E.g., The "totals"
+ *  for `3 / (ga:sessions + 2)` we compute `3 / ((sum of all relevant
+ *  ga:sessions) + 2)`. Totals are computed before pagination.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRangeValues *> *totals;
 
@@ -1957,40 +1924,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @interface GTLRAnalyticsReporting_ReportRequest : GTLRObject
 
 /**
- *  Cohort group associated with this request. If there is a cohort group
- *  in the request the `ga:cohort` dimension must be present.
- *  Every [ReportRequest](#ReportRequest) within a `batchGet` method must
- *  contain the same `cohortGroup` definition.
+ *  Cohort group associated with this request. If there is a cohort group in the
+ *  request the `ga:cohort` dimension must be present. Every
+ *  [ReportRequest](#ReportRequest) within a `batchGet` method must contain the
+ *  same `cohortGroup` definition.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsReporting_CohortGroup *cohortGroup;
 
 /**
- *  Date ranges in the request. The request can have a maximum of 2 date
- *  ranges. The response will contain a set of metric values for each
- *  combination of the dimensions for each date range in the request. So, if
- *  there are two date ranges, there will be two set of metric values, one for
- *  the original date range and one for the second date range.
- *  The `reportRequest.dateRanges` field should not be specified for cohorts
- *  or Lifetime value requests.
- *  If a date range is not provided, the default date range is (startDate:
- *  current date - 7 days, endDate: current date - 1 day). Every
- *  [ReportRequest](#ReportRequest) within a `batchGet` method must
- *  contain the same `dateRanges` definition.
+ *  Date ranges in the request. The request can have a maximum of 2 date ranges.
+ *  The response will contain a set of metric values for each combination of the
+ *  dimensions for each date range in the request. So, if there are two date
+ *  ranges, there will be two set of metric values, one for the original date
+ *  range and one for the second date range. The `reportRequest.dateRanges`
+ *  field should not be specified for cohorts or Lifetime value requests. If a
+ *  date range is not provided, the default date range is (startDate: current
+ *  date - 7 days, endDate: current date - 1 day). Every
+ *  [ReportRequest](#ReportRequest) within a `batchGet` method must contain the
+ *  same `dateRanges` definition.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DateRange *> *dateRanges;
 
 /**
  *  The dimension filter clauses for filtering Dimension Values. They are
  *  logically combined with the `AND` operator. Note that filtering occurs
- *  before any dimensions are aggregated, so that the returned metrics
- *  represent the total for only the relevant dimensions.
+ *  before any dimensions are aggregated, so that the returned metrics represent
+ *  the total for only the relevant dimensions.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_DimensionFilterClause *> *dimensionFilterClauses;
 
-/**
- *  The dimensions requested.
- *  Requests can have a total of 9 dimensions.
- */
+/** The dimensions requested. Requests can have a total of 9 dimensions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Dimension *> *dimensions;
 
 /**
@@ -1998,9 +1961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *  request. To use the `filtersExpression`, supply a dimension or metric on
  *  which to filter, followed by the filter expression. For example, the
  *  following expression selects `ga:browser` dimension which starts with
- *  Firefox; `ga:browser=~^Firefox`. For more information on dimensions
- *  and metric filters, see
- *  [Filters
+ *  Firefox; `ga:browser=~^Firefox`. For more information on dimensions and
+ *  metric filters, see [Filters
  *  reference](https://developers.google.com/analytics/devguides/reporting/core/v3/reference#filters).
  */
 @property(nonatomic, copy, nullable) NSString *filtersExpression;
@@ -2014,8 +1976,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) NSNumber *hideTotals;
 
 /**
- *  If set to true, hides the minimum and maximum across all matching rows.
- *  The default is false and the value ranges are returned.
+ *  If set to true, hides the minimum and maximum across all matching rows. The
+ *  default is false and the value ranges are returned.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2039,38 +2001,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_MetricFilterClause *> *metricFilterClauses;
 
 /**
- *  The metrics requested.
- *  Requests must specify at least one metric. Requests can have a
- *  total of 10 metrics.
+ *  The metrics requested. Requests must specify at least one metric. Requests
+ *  can have a total of 10 metrics.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Metric *> *metrics;
 
 /**
  *  Sort order on output rows. To compare two rows, the elements of the
- *  following are applied in order until a difference is found. All date
- *  ranges in the output get the same row order.
+ *  following are applied in order until a difference is found. All date ranges
+ *  in the output get the same row order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_OrderBy *> *orderBys;
 
 /**
  *  Page size is for paging and specifies the maximum number of returned rows.
- *  Page size should be >= 0. A query returns the default of 1,000 rows.
- *  The Analytics Core Reporting API returns a maximum of 100,000 rows per
- *  request, no matter how many you ask for. It can also return fewer rows
- *  than requested, if there aren't as many dimension segments as you expect.
- *  For instance, there are fewer than 300 possible values for `ga:country`,
- *  so when segmenting only by country, you can't get more than 300 rows,
- *  even if you set `pageSize` to a higher value.
+ *  Page size should be >= 0. A query returns the default of 1,000 rows. The
+ *  Analytics Core Reporting API returns a maximum of 100,000 rows per request,
+ *  no matter how many you ask for. It can also return fewer rows than
+ *  requested, if there aren't as many dimension segments as you expect. For
+ *  instance, there are fewer than 300 possible values for `ga:country`, so when
+ *  segmenting only by country, you can't get more than 300 rows, even if you
+ *  set `pageSize` to a higher value.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A continuation token to get the next page of the results. Adding this to
- *  the request will return the rows after the pageToken. The pageToken should
- *  be the value returned in the nextPageToken parameter in the response to
- *  the GetReports request.
+ *  A continuation token to get the next page of the results. Adding this to the
+ *  request will return the rows after the pageToken. The pageToken should be
+ *  the value returned in the nextPageToken parameter in the response to the
+ *  GetReports request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2079,24 +2040,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  The desired report
- *  [sample](https://support.google.com/analytics/answer/2637192) size.
- *  If the the `samplingLevel` field is unspecified the `DEFAULT` sampling
- *  level is used. Every [ReportRequest](#ReportRequest) within a
- *  `batchGet` method must contain the same `samplingLevel` definition. See
- *  [developer guide](/analytics/devguides/reporting/core/v4/basics#sampling)
- *  for details.
+ *  [sample](https://support.google.com/analytics/answer/2637192) size. If the
+ *  the `samplingLevel` field is unspecified the `DEFAULT` sampling level is
+ *  used. Every [ReportRequest](#ReportRequest) within a `batchGet` method must
+ *  contain the same `samplingLevel` definition. See [developer
+ *  guide](/analytics/devguides/reporting/core/v4/basics#sampling) for details.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Default
- *        Returns response with a sample size that balances speed and
- *        accuracy. (Value: "DEFAULT")
+ *        Returns response with a sample size that balances speed and accuracy.
+ *        (Value: "DEFAULT")
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Large Returns
- *        a more accurate response using a large sampling size. But this
- *        may result in response being slower. (Value: "LARGE")
+ *        a more accurate response using a large sampling size. But this may
+ *        result in response being slower. (Value: "LARGE")
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_SamplingUnspecified
  *        If the `samplingLevel` field is unspecified the `DEFAULT` sampling
- *        level
- *        is used. (Value: "SAMPLING_UNSPECIFIED")
+ *        level is used. (Value: "SAMPLING_UNSPECIFIED")
  *    @arg @c kGTLRAnalyticsReporting_ReportRequest_SamplingLevel_Small It
  *        returns a fast response with a smaller sampling size. (Value: "SMALL")
  */
@@ -2105,17 +2064,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 /**
  *  Segment the data returned for the request. A segment definition helps look
  *  at a subset of the segment request. A request can contain up to four
- *  segments. Every [ReportRequest](#ReportRequest) within a
- *  `batchGet` method must contain the same `segments` definition. Requests
- *  with segments must have the `ga:segment` dimension.
+ *  segments. Every [ReportRequest](#ReportRequest) within a `batchGet` method
+ *  must contain the same `segments` definition. Requests with segments must
+ *  have the `ga:segment` dimension.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_Segment *> *segments;
 
 /**
- *  The Analytics
- *  [view ID](https://support.google.com/analytics/answer/1009618)
- *  from which to retrieve data. Every [ReportRequest](#ReportRequest)
- *  within a `batchGet` method must contain the same `viewId`.
+ *  The Analytics [view ID](https://support.google.com/analytics/answer/1009618)
+ *  from which to retrieve data. Every [ReportRequest](#ReportRequest) within a
+ *  `batchGet` method must contain the same `viewId`.
  */
 @property(nonatomic, copy, nullable) NSString *viewId;
 
@@ -2208,10 +2166,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A continuation token to get the next page of the results. Adding this to
- *  the request will return the rows after the pageToken. The pageToken should
- *  be the value returned in the nextPageToken parameter in the response to
- *  the [SearchUserActivityRequest](#SearchUserActivityRequest) request.
+ *  A continuation token to get the next page of the results. Adding this to the
+ *  request will return the rows after the pageToken. The pageToken should be
+ *  the value returned in the nextPageToken parameter in the response to the
+ *  [SearchUserActivityRequest](#SearchUserActivityRequest) request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2223,11 +2181,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) GTLRAnalyticsReporting_User *user;
 
 /**
- *  Required. The Analytics
- *  [view ID](https://support.google.com/analytics/answer/1009618)
- *  from which to retrieve data. Every
- *  [SearchUserActivityRequest](#SearchUserActivityRequest) must contain the
- *  `viewId`.
+ *  Required. The Analytics [view
+ *  ID](https://support.google.com/analytics/answer/1009618) from which to
+ *  retrieve data. Every [SearchUserActivityRequest](#SearchUserActivityRequest)
+ *  must contain the `viewId`.
  */
 @property(nonatomic, copy, nullable) NSString *viewId;
 
@@ -2246,17 +2203,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  This token should be passed to
- *  [SearchUserActivityRequest](#SearchUserActivityRequest) to retrieve the
- *  next page.
+ *  [SearchUserActivityRequest](#SearchUserActivityRequest) to retrieve the next
+ *  page.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  This field represents the
- *  [sampling rate](https://support.google.com/analytics/answer/2637192) for
- *  the given request and is a number between 0.0 to 1.0. See
- *  [developer guide](/analytics/devguides/reporting/core/v4/basics#sampling)
- *  for details.
+ *  This field represents the [sampling
+ *  rate](https://support.google.com/analytics/answer/2637192) for the given
+ *  request and is a number between 0.0 to 1.0. See [developer
+ *  guide](/analytics/devguides/reporting/core/v4/basics#sampling) for details.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2281,9 +2237,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 
 /**
- *  The segment definition, if the report needs to be segmented.
- *  A Segment is a subset of the Analytics data. For example, of the entire
- *  set of users, one Segment might be users from a particular country or city.
+ *  The segment definition, if the report needs to be segmented. A Segment is a
+ *  subset of the Analytics data. For example, of the entire set of users, one
+ *  Segment might be users from a particular country or city.
  */
 @interface GTLRAnalyticsReporting_Segment : GTLRObject
 
@@ -2303,8 +2259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @interface GTLRAnalyticsReporting_SegmentDefinition : GTLRObject
 
 /**
- *  A segment is defined by a set of segment filters which are combined
- *  together with a logical `AND` operation.
+ *  A segment is defined by a set of segment filters which are combined together
+ *  with a logical `AND` operation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_SegmentFilter *> *segmentFilters;
 
@@ -2353,8 +2309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *        This option is used to specify a dimension filter whose expression can
  *        take any value from a selected list of values. This helps avoiding
  *        evaluating multiple exact match dimension filters which are OR'ed for
- *        every single response row. For example:
- *        expressions: ["A", "B", "C"]
+ *        every single response row. For example: expressions: ["A", "B", "C"]
  *        Any response row whose dimension has it is value as A, B or C, matches
  *        this DimensionFilter. (Value: "IN_LIST")
  *    @arg @c kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericBetween
@@ -2365,17 +2320,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *        Checks if the dimension is numerically greater than the match
  *        expression. (Value: "NUMERIC_GREATER_THAN")
  *    @arg @c kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_NumericLessThan
- *        Integer comparison filters.
- *        case sensitivity is ignored for these and the expression
- *        is assumed to be a string representing an integer.
- *        Failure conditions:
- *        - if expression is not a valid int64, the client should expect
- *        an error.
- *        - input dimensions that are not valid int64 values will never match
- *        the
- *        filter.
- *        Checks if the dimension is numerically less than the match expression.
- *        (Value: "NUMERIC_LESS_THAN")
+ *        Integer comparison filters. case sensitivity is ignored for these and
+ *        the expression is assumed to be a string representing an integer.
+ *        Failure conditions: - if expression is not a valid int64, the client
+ *        should expect an error. - input dimensions that are not valid int64
+ *        values will never match the filter. Checks if the dimension is
+ *        numerically less than the match expression. (Value:
+ *        "NUMERIC_LESS_THAN")
  *    @arg @c kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_OperatorUnspecified
  *        If the match type is unspecified, it is treated as a REGEXP. (Value:
  *        "OPERATOR_UNSPECIFIED")
@@ -2383,8 +2334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *        Substring match. (Value: "PARTIAL")
  *    @arg @c kGTLRAnalyticsReporting_SegmentDimensionFilter_OperatorProperty_Regexp
  *        The match expression is treated as a regular expression. All other
- *        match
- *        types are not treated as regular expressions. (Value: "REGEXP")
+ *        match types are not treated as regular expressions. (Value: "REGEXP")
  *
  *  Remapped to 'operatorProperty' to avoid language reserved word 'operator'.
  */
@@ -2402,24 +2352,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @interface GTLRAnalyticsReporting_SegmentFilter : GTLRObject
 
 /**
- *  If true, match the complement of simple or sequence segment.
- *  For example, to match all visits not from "New York", we can define the
- *  segment as follows:
- *  "sessionSegment": {
- *  "segmentFilters": [{
- *  "simpleSegment" :{
- *  "orFiltersForSegment": [{
- *  "segmentFilterClauses":[{
- *  "dimensionFilter": {
- *  "dimensionName": "ga:city",
- *  "expressions": ["New York"]
- *  }
- *  }]
- *  }]
- *  },
- *  "not": "True"
- *  }]
- *  },
+ *  If true, match the complement of simple or sequence segment. For example, to
+ *  match all visits not from "New York", we can define the segment as follows:
+ *  "sessionSegment": { "segmentFilters": [{ "simpleSegment" :{
+ *  "orFiltersForSegment": [{ "segmentFilterClauses":[{ "dimensionFilter": {
+ *  "dimensionName": "ga:city", "expressions": ["New York"] } }] }] }, "not":
+ *  "True" }] },
  *
  *  Remapped to 'notProperty' to avoid language reserved word 'not'.
  *
@@ -2428,9 +2366,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, strong, nullable) NSNumber *notProperty;
 
 /**
- *  Sequence conditions consist of one or more steps, where each step is
- *  defined by one or more dimension/metric conditions. Multiple steps can
- *  be combined with special sequence operators.
+ *  Sequence conditions consist of one or more steps, where each step is defined
+ *  by one or more dimension/metric conditions. Multiple steps can be combined
+ *  with special sequence operators.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsReporting_SequenceSegment *sequenceSegment;
 
@@ -2482,19 +2420,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, copy, nullable) NSString *maxComparisonValue;
 
 /**
- *  The metric that will be filtered on. A `metricFilter` must contain a
- *  metric name.
+ *  The metric that will be filtered on. A `metricFilter` must contain a metric
+ *  name.
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
 /**
- *  Specifies is the operation to perform to compare the metric. The default
- *  is `EQUAL`.
+ *  Specifies is the operation to perform to compare the metric. The default is
+ *  `EQUAL`.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_Between
- *        For between operator, both the minimum and maximum are exclusive.
- *        We will use `LT` and `GT` for comparison. (Value: "BETWEEN")
+ *        For between operator, both the minimum and maximum are exclusive. We
+ *        will use `LT` and `GT` for comparison. (Value: "BETWEEN")
  *    @arg @c kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_Equal
  *        Equals operator. (Value: "EQUAL")
  *    @arg @c kGTLRAnalyticsReporting_SegmentMetricFilter_OperatorProperty_GreaterThan
@@ -2513,9 +2451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 
 /**
  *  Scope for a metric defines the level at which that metric is defined. The
- *  specified metric scope must be equal to or greater than its primary scope
- *  as defined in the data model. The primary scope is defined by if the
- *  segment is selecting users or sessions.
+ *  specified metric scope must be equal to or greater than its primary scope as
+ *  defined in the data model. The primary scope is defined by if the segment is
+ *  selecting users or sessions.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_SegmentMetricFilter_Scope_Hit Hit scope.
@@ -2548,8 +2486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *  Likely values:
  *    @arg @c kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_ImmediatelyPrecedes
  *        Operator indicates that the previous step immediately precedes the
- *        next
- *        step. (Value: "IMMEDIATELY_PRECEDES")
+ *        next step. (Value: "IMMEDIATELY_PRECEDES")
  *    @arg @c kGTLRAnalyticsReporting_SegmentSequenceStep_MatchType_Precedes
  *        Operator indicates that the previous step precedes the next step.
  *        (Value: "PRECEDES")
@@ -2560,8 +2497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @property(nonatomic, copy, nullable) NSString *matchType;
 
 /**
- *  A sequence is specified with a list of Or grouped filters which are
- *  combined with `AND` operator.
+ *  A sequence is specified with a list of Or grouped filters which are combined
+ *  with `AND` operator.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsReporting_OrFiltersForSegment *> *orFiltersForSegment;
 
@@ -2576,8 +2513,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
 @interface GTLRAnalyticsReporting_SequenceSegment : GTLRObject
 
 /**
- *  If set, first step condition must match the first hit of the visitor (in
- *  the date range).
+ *  If set, first step condition must match the first hit of the visitor (in the
+ *  date range).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2653,9 +2590,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsReporting_User_Type_UserIdTypeU
  *    @arg @c kGTLRAnalyticsReporting_User_Type_ClientId Analytics assigned
  *        client_id. (Value: "CLIENT_ID")
  *    @arg @c kGTLRAnalyticsReporting_User_Type_UserId A single user, like a
- *        signed-in user account, that may interact with
- *        content across one or more devices and / or browser instances. (Value:
- *        "USER_ID")
+ *        signed-in user account, that may interact with content across one or
+ *        more devices and / or browser instances. (Value: "USER_ID")
  *    @arg @c kGTLRAnalyticsReporting_User_Type_UserIdTypeUnspecified When the
  *        User Id Type is not specified, the default type used will be
  *        CLIENT_ID. (Value: "USER_ID_TYPE_UNSPECIFIED")

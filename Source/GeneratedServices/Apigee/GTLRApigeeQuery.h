@@ -4,14 +4,11 @@
 // API:
 //   Apigee API (apigee/v1)
 // Description:
-//   The Apigee API lets you programmatically manage Apigee hybrid with a set of
-//   RESTful operations, including:<ul> <li>Create, edit, and delete API
-//   proxies</li> <li>Manage users</li> <li>Deploy and undeploy proxy
-//   revisions</li> <li>Configure environments</li></ul><p>For information on
-//   using the APIs described in this section, see <a
-//   href="docs.apigee.com/hybrid/latest/api-get-started">Get started using the
-//   APIs</a>.</p><p><strong>Note:</strong> This product is available as a free
-//   trial for a time period of 60 days.
+//   Use the Apigee API to programmatically develop and manage APIs with a set
+//   of RESTful operations. Develop and secure API proxies, deploy and undeploy
+//   API proxy revisions, monitor APIs, configure environments, manage users,
+//   and more. Get started using the APIs. *Note:* This product is available as
+//   a free trial for a time period of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
@@ -76,10 +73,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists hybrid services and its trusted issuers service account ids.
- *  This api is authenticated and unauthorized(allow all the users) and used by
- *  runtime authn-authz service to query control plane's issuer service account
- *  ids.
+ *  Lists hybrid services and its trusted issuers service account ids. This api
+ *  is authenticated and unauthorized(allow all the users) and used by runtime
+ *  authn-authz service to query control plane's issuer service account ids.
  *
  *  Method: apigee.hybrid.issuers.list
  *
@@ -96,10 +92,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListHybridIssuersResponse.
  *
- *  Lists hybrid services and its trusted issuers service account ids.
- *  This api is authenticated and unauthorized(allow all the users) and used by
- *  runtime authn-authz service to query control plane's issuer service account
- *  ids.
+ *  Lists hybrid services and its trusted issuers service account ids. This api
+ *  is authenticated and unauthorized(allow all the users) and used by runtime
+ *  authn-authz service to query control plane's issuer service account ids.
  *
  *  @param name Required. Must be of the form `hybrid/issuers`.
  *
@@ -122,8 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresCreateWithObject:parent:]
 
 /**
- *  Required. The parent organization name.
- *  Must be of the form `organizations/{org}`.
+ *  Required. The parent organization name. Must be of the form
+ *  `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -134,8 +129,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Datastore to include in
  *    the query.
- *  @param parent Required. The parent organization name.
- *    Must be of the form `organizations/{org}`.
+ *  @param parent Required. The parent organization name. Must be of the form
+ *    `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresCreate
  */
@@ -157,8 +152,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresDeleteWithname:]
 
 /**
- *  Required. Resource name of the Datastore to be deleted. Must be of the
- *  form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *  Required. Resource name of the Datastore to be deleted. Must be of the form
+ *  `organizations/{org}/analytics/datastores/{datastoreId}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -168,8 +163,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete a Datastore from an org.
  *
  *  @param name Required. Resource name of the Datastore to be deleted. Must be
- *    of the
- *    form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *    of the form `organizations/{org}/analytics/datastores/{datastoreId}`
  *
  *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresDelete
  */
@@ -190,8 +184,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresGetWithname:]
 
 /**
- *  Required. Resource name of the Datastore to be get. Must be of the
- *  form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *  Required. Resource name of the Datastore to be get. Must be of the form
+ *  `organizations/{org}/analytics/datastores/{datastoreId}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -201,8 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get a Datastore
  *
  *  @param name Required. Resource name of the Datastore to be get. Must be of
- *    the
- *    form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *    the form `organizations/{org}/analytics/datastores/{datastoreId}`
  *
  *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresGet
  */
@@ -223,8 +216,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresListWithparent:]
 
 /**
- *  Required. The parent organization name.
- *  Must be of the form `organizations/{org}`.
+ *  Required. The parent organization name. Must be of the form
+ *  `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -238,8 +231,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List Datastores
  *
- *  @param parent Required. The parent organization name.
- *    Must be of the form `organizations/{org}`.
+ *  @param parent Required. The parent organization name. Must be of the form
+ *    `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresList
  */
@@ -248,8 +241,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Test if Datastore configuration is correct. This includes checking
- *  if credentials provided by customer have required permissions in target
+ *  Test if Datastore configuration is correct. This includes checking if
+ *  credentials provided by customer have required permissions in target
  *  destination storage
  *
  *  Method: apigee.organizations.analytics.datastores.test
@@ -262,22 +255,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresTestWithObject:parent:]
 
 /**
- *  Required. The parent organization name
- *  Must be of the form `organizations/{org}`
+ *  Required. The parent organization name Must be of the form
+ *  `organizations/{org}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TestDatastoreResponse.
  *
- *  Test if Datastore configuration is correct. This includes checking
- *  if credentials provided by customer have required permissions in target
+ *  Test if Datastore configuration is correct. This includes checking if
+ *  credentials provided by customer have required permissions in target
  *  destination storage
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Datastore to include in
  *    the query.
- *  @param parent Required. The parent organization name
- *    Must be of the form `organizations/{org}`
+ *  @param parent Required. The parent organization name Must be of the form
+ *    `organizations/{org}`
  *
  *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresTest
  */
@@ -299,8 +292,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresUpdateWithObject:name:]
 
 /**
- *  Required. The resource name of datastore to be updated. Must be of the
- *  form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *  Required. The resource name of datastore to be updated. Must be of the form
+ *  `organizations/{org}/analytics/datastores/{datastoreId}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -312,8 +305,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Datastore to include in
  *    the query.
  *  @param name Required. The resource name of datastore to be updated. Must be
- *    of the
- *    form `organizations/{org}/analytics/datastores/{datastoreId}`
+ *    of the form `organizations/{org}/analytics/datastores/{datastoreId}`
  *
  *  @return GTLRApigeeQuery_OrganizationsAnalyticsDatastoresUpdate
  */
@@ -323,16 +315,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates or creates API product attributes. This API **replaces** the
- *  current list of attributes with the attributes specified in the request
- *  body. In this way, you can update existing attributes, add new attributes,
- *  or delete existing attributes by omitting them from the request body.
- *  OAuth access tokens and Key Management Service (KMS) entities (apps,
- *  developers, and API products) are cached for 180 seconds (current default).
- *  Any custom attributes associated with entities also get cached for at least
- *  180 seconds after entity is accessed during runtime.
- *  In this case, the `ExpiresIn` element on the OAuthV2 policy won't be able
- *  to expire an access token in less than 180 seconds.
+ *  Updates or creates API product attributes. This API **replaces** the current
+ *  list of attributes with the attributes specified in the request body. In
+ *  this way, you can update existing attributes, add new attributes, or delete
+ *  existing attributes by omitting them from the request body. OAuth access
+ *  tokens and Key Management Service (KMS) entities (apps, developers, and API
+ *  products) are cached for 180 seconds (current default). Any custom
+ *  attributes associated with entities also get cached for at least 180 seconds
+ *  after entity is accessed during runtime. In this case, the `ExpiresIn`
+ *  element on the OAuthV2 policy won't be able to expire an access token in
+ *  less than 180 seconds.
  *
  *  Method: apigee.organizations.apiproducts.attributes
  *
@@ -345,28 +337,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  **Required.** API product name in the following form:
- *  <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *  organizations/organization_ID/apiproducts/api_product_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Attributes.
  *
- *  Updates or creates API product attributes. This API **replaces** the
- *  current list of attributes with the attributes specified in the request
- *  body. In this way, you can update existing attributes, add new attributes,
- *  or delete existing attributes by omitting them from the request body.
- *  OAuth access tokens and Key Management Service (KMS) entities (apps,
- *  developers, and API products) are cached for 180 seconds (current default).
- *  Any custom attributes associated with entities also get cached for at least
- *  180 seconds after entity is accessed during runtime.
- *  In this case, the `ExpiresIn` element on the OAuthV2 policy won't be able
- *  to expire an access token in less than 180 seconds.
+ *  Updates or creates API product attributes. This API **replaces** the current
+ *  list of attributes with the attributes specified in the request body. In
+ *  this way, you can update existing attributes, add new attributes, or delete
+ *  existing attributes by omitting them from the request body. OAuth access
+ *  tokens and Key Management Service (KMS) entities (apps, developers, and API
+ *  products) are cached for 180 seconds (current default). Any custom
+ *  attributes associated with entities also get cached for at least 180 seconds
+ *  after entity is accessed during runtime. In this case, the `ExpiresIn`
+ *  element on the OAuthV2 policy won't be able to expire an access token in
+ *  less than 180 seconds.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attributes to include in
  *    the query.
  *  @param name **Required.** API product name in the following form:
- *    <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *    organizations/organization_ID/apiproducts/api_product_name
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributes
  */
@@ -389,7 +381,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  **Required.** API product name in the following form:
- *  <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var>/attributes/<var>attribute_name</var></pre>
+ *  organizations/organization_ID/apiproducts/api_product_name/attributes/attribute_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -399,7 +391,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an API product attribute.
  *
  *  @param name **Required.** API product name in the following form:
- *    <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var>/attributes/<var>attribute_name</var></pre>
+ *    organizations/organization_ID/apiproducts/api_product_name/attributes/attribute_name
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributesDelete
  */
@@ -421,7 +413,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  **Required.** API product name in the following form:
- *  <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var>/attributes/<var>attribute_name</var></pre>
+ *  organizations/organization_ID/apiproducts/api_product_name/attributes/attribute_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -431,7 +423,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the value of an API product attribute.
  *
  *  @param name **Required.** API product name in the following form:
- *    <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var>/attributes/<var>attribute_name</var></pre>
+ *    organizations/organization_ID/apiproducts/api_product_name/attributes/attribute_name
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributesGet
  */
@@ -453,7 +445,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent organization name. Must be in the following form:
- *  <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *  organizations/organization_ID/apiproducts/api_product_name
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -463,8 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a list of all API product attributes.
  *
  *  @param parent Required. The parent organization name. Must be in the
- *    following form:
- *    <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *    following form: organizations/organization_ID/apiproducts/api_product_name
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributesList
  */
@@ -473,13 +464,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the value of an API product attribute. Limitations are:
- *  OAuth access tokens and Key Management Service (KMS) entities (apps,
- *  developers, and API products) are cached for 180 seconds (current default).
- *  Any custom attributes associated with entities also get cached for at least
- *  180 seconds after entity is accessed during runtime.
- *  In this case, the `ExpiresIn` element on the OAuthV2 policy won't be able
- *  to expire an access token in less than 180 seconds.
+ *  Updates the value of an API product attribute. Limitations are: OAuth access
+ *  tokens and Key Management Service (KMS) entities (apps, developers, and API
+ *  products) are cached for 180 seconds (current default). Any custom
+ *  attributes associated with entities also get cached for at least 180 seconds
+ *  after entity is accessed during runtime. In this case, the `ExpiresIn`
+ *  element on the OAuthV2 policy won't be able to expire an access token in
+ *  less than 180 seconds.
  *
  *  Method: apigee.organizations.apiproducts.attributes.updateApiProductAttribute
  *
@@ -492,25 +483,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  **Required.** API product name in the following form:
- *  <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *  organizations/organization_ID/apiproducts/api_product_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Attribute.
  *
- *  Updates the value of an API product attribute. Limitations are:
- *  OAuth access tokens and Key Management Service (KMS) entities (apps,
- *  developers, and API products) are cached for 180 seconds (current default).
- *  Any custom attributes associated with entities also get cached for at least
- *  180 seconds after entity is accessed during runtime.
- *  In this case, the `ExpiresIn` element on the OAuthV2 policy won't be able
- *  to expire an access token in less than 180 seconds.
+ *  Updates the value of an API product attribute. Limitations are: OAuth access
+ *  tokens and Key Management Service (KMS) entities (apps, developers, and API
+ *  products) are cached for 180 seconds (current default). Any custom
+ *  attributes associated with entities also get cached for at least 180 seconds
+ *  after entity is accessed during runtime. In this case, the `ExpiresIn`
+ *  element on the OAuthV2 policy won't be able to expire an access token in
+ *  less than 180 seconds.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attribute to include in
  *    the query.
  *  @param name **Required.** API product name in the following form:
- *    <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *    organizations/organization_ID/apiproducts/api_product_name
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsAttributesUpdateApiProductAttribute
  */
@@ -520,34 +511,23 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an API product in an organization.
- *  You create API products after
- *  you have proxied backend services using API proxies.
- *  An API product is a
+ *  Creates an API product in an organization. You create API products after you
+ *  have proxied backend services using API proxies. An API product is a
  *  collection of API resources combined with quota settings and metadata that
  *  you can use to deliver customized and productized API bundles to your
- *  developer community. This metadata can include:
- *  - Scope
- *  - Environments
- *  - API proxies
- *  - Extensible profile
- *  API products enable you repackage APIs
+ *  developer community. This metadata can include: - Scope - Environments - API
+ *  proxies - Extensible profile API products enable you repackage APIs
  *  on-the-fly, without having to do any additional coding or configuration.
  *  Apigee recommends that you start with a simple API product including only
  *  required elements. You then provision credentials to apps to enable them to
- *  start testing your APIs.
- *  After you have authentication and authorization
+ *  start testing your APIs. After you have authentication and authorization
  *  working against a simple API product, you can iterate to create finer
  *  grained API products, defining different sets of API resources for each API
- *  product.
- *  <aside class="warning"><strong>WARNING:</strong>
- *  - If you don't specify an API proxy in the request body, <em>any</em> app
- *  associated with the product can make calls to <em>any</em> API in your
- *  entire organization.
- *  - If you don't specify an environment in the request body, the product
- *  allows access to all environments.
- *  </aside>
- *  For more information, see {{what_api_product}}
+ *  product. *WARNING:* - If you don't specify an API proxy in the request body,
+ *  *any* app associated with the product can make calls to *any* API in your
+ *  entire organization. - If you don't specify an environment in the request
+ *  body, the product allows access to all environments. For more information,
+ *  see {{what_api_product}}
  *
  *  Method: apigee.organizations.apiproducts.create
  *
@@ -559,50 +539,37 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsApiproductsCreateWithObject:parent:]
 
 /**
- *  Required. The parent organization name under which the API product will
- *  be created. Must be in the following form:
- *  <pre>organizations/<var>organization_ID</var></pre>
+ *  Required. The parent organization name under which the API product will be
+ *  created. Must be in the following form: organizations/organization_ID
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProduct.
  *
- *  Creates an API product in an organization.
- *  You create API products after
- *  you have proxied backend services using API proxies.
- *  An API product is a
+ *  Creates an API product in an organization. You create API products after you
+ *  have proxied backend services using API proxies. An API product is a
  *  collection of API resources combined with quota settings and metadata that
  *  you can use to deliver customized and productized API bundles to your
- *  developer community. This metadata can include:
- *  - Scope
- *  - Environments
- *  - API proxies
- *  - Extensible profile
- *  API products enable you repackage APIs
+ *  developer community. This metadata can include: - Scope - Environments - API
+ *  proxies - Extensible profile API products enable you repackage APIs
  *  on-the-fly, without having to do any additional coding or configuration.
  *  Apigee recommends that you start with a simple API product including only
  *  required elements. You then provision credentials to apps to enable them to
- *  start testing your APIs.
- *  After you have authentication and authorization
+ *  start testing your APIs. After you have authentication and authorization
  *  working against a simple API product, you can iterate to create finer
  *  grained API products, defining different sets of API resources for each API
- *  product.
- *  <aside class="warning"><strong>WARNING:</strong>
- *  - If you don't specify an API proxy in the request body, <em>any</em> app
- *  associated with the product can make calls to <em>any</em> API in your
- *  entire organization.
- *  - If you don't specify an environment in the request body, the product
- *  allows access to all environments.
- *  </aside>
- *  For more information, see {{what_api_product}}
+ *  product. *WARNING:* - If you don't specify an API proxy in the request body,
+ *  *any* app associated with the product can make calls to *any* API in your
+ *  entire organization. - If you don't specify an environment in the request
+ *  body, the product allows access to all environments. For more information,
+ *  see {{what_api_product}}
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiProduct to include in
  *    the query.
  *  @param parent Required. The parent organization name under which the API
- *    product will
- *    be created. Must be in the following form:
- *    <pre>organizations/<var>organization_ID</var></pre>
+ *    product will be created. Must be in the following form:
+ *    organizations/organization_ID
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsCreate
  */
@@ -612,17 +579,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an API product from an organization.
- *  Deleting an API product
- *  causes app requests to the resource URIs defined in the API product to
- *  fail.
- *  Ensure that you create a new API product to serve existing apps, unless
- *  your intention is to disable access to the resources defined in the API
- *  product.
- *  The API product name required in the request URL is the internal name of
- *  the product, not the display name. While they may be the same, it depends
- *  on whether the API product was created via the UI or the API. View the list
- *  of API products to verify the internal name.
+ *  Deletes an API product from an organization. Deleting an API product causes
+ *  app requests to the resource URIs defined in the API product to fail. Ensure
+ *  that you create a new API product to serve existing apps, unless your
+ *  intention is to disable access to the resources defined in the API product.
+ *  The API product name required in the request URL is the internal name of the
+ *  product, not the display name. While they may be the same, it depends on
+ *  whether the API product was created via the UI or the API. View the list of
+ *  API products to verify the internal name.
  *
  *  Method: apigee.organizations.apiproducts.delete
  *
@@ -635,27 +599,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. API product name in the following form:
- *  <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *  organizations/organization_ID/apiproducts/api_product_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProduct.
  *
- *  Deletes an API product from an organization.
- *  Deleting an API product
- *  causes app requests to the resource URIs defined in the API product to
- *  fail.
- *  Ensure that you create a new API product to serve existing apps, unless
- *  your intention is to disable access to the resources defined in the API
- *  product.
- *  The API product name required in the request URL is the internal name of
- *  the product, not the display name. While they may be the same, it depends
- *  on whether the API product was created via the UI or the API. View the list
- *  of API products to verify the internal name.
+ *  Deletes an API product from an organization. Deleting an API product causes
+ *  app requests to the resource URIs defined in the API product to fail. Ensure
+ *  that you create a new API product to serve existing apps, unless your
+ *  intention is to disable access to the resources defined in the API product.
+ *  The API product name required in the request URL is the internal name of the
+ *  product, not the display name. While they may be the same, it depends on
+ *  whether the API product was created via the UI or the API. View the list of
+ *  API products to verify the internal name.
  *
  *  @param name Required. API product name in the following form:
- *    <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *    organizations/organization_ID/apiproducts/api_product_name
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsDelete
  */
@@ -664,11 +625,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets configuration details for an API product.
- *  The API product name required in the request URL is the internal name of
- *  the product, not the display name. While they may be the same, it depends
- *  on whether the API product was created via the UI or the API. View the list
- *  of API products to verify the internal name.
+ *  Gets configuration details for an API product. The API product name required
+ *  in the request URL is the internal name of the product, not the display
+ *  name. While they may be the same, it depends on whether the API product was
+ *  created via the UI or the API. View the list of API products to verify the
+ *  internal name.
  *
  *  Method: apigee.organizations.apiproducts.get
  *
@@ -681,21 +642,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  **Required.** API product name in the following form:
- *  <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *  organizations/organization_ID/apiproducts/api_product_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProduct.
  *
- *  Gets configuration details for an API product.
- *  The API product name required in the request URL is the internal name of
- *  the product, not the display name. While they may be the same, it depends
- *  on whether the API product was created via the UI or the API. View the list
- *  of API products to verify the internal name.
+ *  Gets configuration details for an API product. The API product name required
+ *  in the request URL is the internal name of the product, not the display
+ *  name. While they may be the same, it depends on whether the API product was
+ *  created via the UI or the API. View the list of API products to verify the
+ *  internal name.
  *
  *  @param name **Required.** API product name in the following form:
- *    <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *    organizations/organization_ID/apiproducts/api_product_name
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsGet
  */
@@ -704,11 +665,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all API product names for an organization.
- *  Filter the list by passing an `attributename` and `attibutevalue`.
- *  The limit on the number of API products returned by the API is 1000. You
- *  can paginate the list of API products returned using the `startKey` and
- *  `count` query parameters.
+ *  Lists all API product names for an organization. Filter the list by passing
+ *  an `attributename` and `attibutevalue`. The limit on the number of API
+ *  products returned by the API is 1000. You can paginate the list of API
+ *  products returned using the `startKey` and `count` query parameters.
  *
  *  Method: apigee.organizations.apiproducts.list
  *
@@ -736,7 +696,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  **Required.** The parent organization name in the following form:
- *  <pre>organizations/<var>organization_ID</var></pre>
+ *  organizations/organization_ID
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -744,23 +704,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a list of API products starting with a specific API product in the
  *  list. For example, if you're returning 50 API products at a time (using the
  *  `count` query parameter), you can view products 50-99 by entering the name
- *  of the 50th API product in the first API (without using `startKey`).
- *  Product name is case sensitive.
+ *  of the 50th API product in the first API (without using `startKey`). Product
+ *  name is case sensitive.
  */
 @property(nonatomic, copy, nullable) NSString *startKey;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListApiProductsResponse.
  *
- *  Lists all API product names for an organization.
- *  Filter the list by passing an `attributename` and `attibutevalue`.
- *  The limit on the number of API products returned by the API is 1000. You
- *  can paginate the list of API products returned using the `startKey` and
- *  `count` query parameters.
+ *  Lists all API product names for an organization. Filter the list by passing
+ *  an `attributename` and `attibutevalue`. The limit on the number of API
+ *  products returned by the API is 1000. You can paginate the list of API
+ *  products returned using the `startKey` and `count` query parameters.
  *
  *  @param parent **Required.** The parent organization name in the following
- *    form:
- *    <pre>organizations/<var>organization_ID</var></pre>
+ *    form: organizations/organization_ID
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsList
  */
@@ -771,8 +729,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates an existing API product. You must include all required values,
  *  whether or not you are updating them, as well as any optional values that
- *  you are updating.
- *  The API product name required in the request URL is the
+ *  you are updating. The API product name required in the request URL is the
  *  internal name of the product, not the Display Name. While they may be the
  *  same, it depends on whether the API product was created via UI or API. View
  *  the list of API products to identify their internal names.
@@ -788,7 +745,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  **Required.** API product name in the following form:
- *  <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *  organizations/organization_ID/apiproducts/api_product_name
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -797,8 +754,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates an existing API product. You must include all required values,
  *  whether or not you are updating them, as well as any optional values that
- *  you are updating.
- *  The API product name required in the request URL is the
+ *  you are updating. The API product name required in the request URL is the
  *  internal name of the product, not the Display Name. While they may be the
  *  same, it depends on whether the API product was created via UI or API. View
  *  the list of API products to identify their internal names.
@@ -806,7 +762,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiProduct to include in
  *    the query.
  *  @param name **Required.** API product name in the following form:
- *    <pre>organizations/<var>organization_ID</var>/apiproducts/<var>api_product_name</var></pre>
+ *    organizations/organization_ID/apiproducts/api_product_name
  *
  *  @return GTLRApigeeQuery_OrganizationsApiproductsUpdate
  */
@@ -816,27 +772,21 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an API proxy.
- *  The API proxy created will not be accessible at runtime until it is
- *  deployed to an environment.
- *  Create a new API proxy by setting the `name` query parameter to the
- *  name of the API proxy.
- *  Import an API proxy configuration bundle stored in zip format
- *  on your local machine to your organization by doing the following:
- *  * Set the `name` query parameter to the name of the API proxy.
- *  * Set the `action` query parameter to `import`.
- *  * Set the `Content-Type` header to `multipart/form-data`.
- *  * Pass as a file the name of API proxy
- *  configuration bundle stored in zip format on your local machine using
- *  the `file` form field.
- *  **Note**: To validate the API proxy configuration bundle only
- *  without importing it, set the `action` query
- *  parameter to `validate`.
- *  When importing an API proxy configuration bundle, if the API proxy
- *  does not exist, it will be created.
- *  If the API proxy exists, then a new revision is created. Invalid API
- *  proxy configurations are rejected, and a list of validation errors is
- *  returned to the client.
+ *  Creates an API proxy. The API proxy created will not be accessible at
+ *  runtime until it is deployed to an environment. Create a new API proxy by
+ *  setting the `name` query parameter to the name of the API proxy. Import an
+ *  API proxy configuration bundle stored in zip format on your local machine to
+ *  your organization by doing the following: * Set the `name` query parameter
+ *  to the name of the API proxy. * Set the `action` query parameter to
+ *  `import`. * Set the `Content-Type` header to `multipart/form-data`. * Pass
+ *  as a file the name of API proxy configuration bundle stored in zip format on
+ *  your local machine using the `file` form field. **Note**: To validate the
+ *  API proxy configuration bundle only without importing it, set the `action`
+ *  query parameter to `validate`. When importing an API proxy configuration
+ *  bundle, if the API proxy does not exist, it will be created. If the API
+ *  proxy exists, then a new revision is created. Invalid API proxy
+ *  configurations are rejected, and a list of validation errors is returned to
+ *  the client.
  *
  *  Method: apigee.organizations.apis.create
  *
@@ -848,11 +798,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsApisCreateWithObject:parent:]
 
 /**
- *  Action to perform when importing an API proxy configuration bundle. Set
- *  this parameter to one of the following values:
- *  * `import` to import the API proxy configuration bundle.
- *  * `validate` to validate the API proxy configuration bundle without
- *  importing it.
+ *  Action to perform when importing an API proxy configuration bundle. Set this
+ *  parameter to one of the following values: * `import` to import the API proxy
+ *  configuration bundle. * `validate` to validate the API proxy configuration
+ *  bundle without importing it.
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -866,35 +815,29 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Ignored. All uploads are validated regardless of the value of this
- *  field. Maintained for compatibility with Apigee Edge API.
+ *  Ignored. All uploads are validated regardless of the value of this field.
+ *  Maintained for compatibility with Apigee Edge API.
  */
 @property(nonatomic, assign) BOOL validate;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision.
  *
- *  Creates an API proxy.
- *  The API proxy created will not be accessible at runtime until it is
- *  deployed to an environment.
- *  Create a new API proxy by setting the `name` query parameter to the
- *  name of the API proxy.
- *  Import an API proxy configuration bundle stored in zip format
- *  on your local machine to your organization by doing the following:
- *  * Set the `name` query parameter to the name of the API proxy.
- *  * Set the `action` query parameter to `import`.
- *  * Set the `Content-Type` header to `multipart/form-data`.
- *  * Pass as a file the name of API proxy
- *  configuration bundle stored in zip format on your local machine using
- *  the `file` form field.
- *  **Note**: To validate the API proxy configuration bundle only
- *  without importing it, set the `action` query
- *  parameter to `validate`.
- *  When importing an API proxy configuration bundle, if the API proxy
- *  does not exist, it will be created.
- *  If the API proxy exists, then a new revision is created. Invalid API
- *  proxy configurations are rejected, and a list of validation errors is
- *  returned to the client.
+ *  Creates an API proxy. The API proxy created will not be accessible at
+ *  runtime until it is deployed to an environment. Create a new API proxy by
+ *  setting the `name` query parameter to the name of the API proxy. Import an
+ *  API proxy configuration bundle stored in zip format on your local machine to
+ *  your organization by doing the following: * Set the `name` query parameter
+ *  to the name of the API proxy. * Set the `action` query parameter to
+ *  `import`. * Set the `Content-Type` header to `multipart/form-data`. * Pass
+ *  as a file the name of API proxy configuration bundle stored in zip format on
+ *  your local machine using the `file` form field. **Note**: To validate the
+ *  API proxy configuration bundle only without importing it, set the `action`
+ *  query parameter to `validate`. When importing an API proxy configuration
+ *  bundle, if the API proxy does not exist, it will be created. If the API
+ *  proxy exists, then a new revision is created. Invalid API proxy
+ *  configurations are rejected, and a list of validation errors is returned to
+ *  the client.
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param parent Required. Name of the organization in the following format:
@@ -955,9 +898,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the API proxy for which to return deployment information
- *  in the
- *  following format:
- *  `organizations/{org}/apis/{api}`
+ *  in the following format: `organizations/{org}/apis/{api}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -967,9 +908,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all deployments of an API proxy.
  *
  *  @param parent Required. Name of the API proxy for which to return deployment
- *    information in the
- *    following format:
- *    `organizations/{org}/apis/{api}`
+ *    information in the following format: `organizations/{org}/apis/{api}`
  *
  *  @return GTLRApigeeQuery_OrganizationsApisDeploymentsList
  */
@@ -1023,8 +962,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the environment in which to create the key value map.
- *  Must be of the form
- *  `organizations/{organization}/apis/{api}`.
+ *  Must be of the form `organizations/{organization}/apis/{api}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1036,8 +974,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
  *    the query.
  *  @param parent Required. The name of the environment in which to create the
- *    key value map.
- *    Must be of the form
+ *    key value map. Must be of the form
  *    `organizations/{organization}/apis/{api}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsCreate
@@ -1060,8 +997,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsApisKeyvaluemapsDeleteWithname:]
 
 /**
- *  Required. The name of the key value map.
- *  Must be of the form
+ *  Required. The name of the key value map. Must be of the form
  *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1071,8 +1007,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a key value map in an api proxy.
  *
- *  @param name Required. The name of the key value map.
- *    Must be of the form
+ *  @param name Required. The name of the key value map. Must be of the form
  *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsDelete
@@ -1128,8 +1063,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an API proxy revision and all policies, resources, endpoints,
- *  and revisions associated with it. The API proxy revision must be undeployed
+ *  Deletes an API proxy revision and all policies, resources, endpoints, and
+ *  revisions associated with it. The API proxy revision must be undeployed
  *  before you can delete it.
  *
  *  Method: apigee.organizations.apis.revisions.delete
@@ -1150,8 +1085,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision.
  *
- *  Deletes an API proxy revision and all policies, resources, endpoints,
- *  and revisions associated with it. The API proxy revision must be undeployed
+ *  Deletes an API proxy revision and all policies, resources, endpoints, and
+ *  revisions associated with it. The API proxy revision must be undeployed
  *  before you can delete it.
  *
  *  @param name Required. API proxy revision in the following format:
@@ -1177,8 +1112,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the API proxy revision for which to return deployment
- *  information
- *  in the following format:
+ *  information in the following format:
  *  `organizations/{org}/apis/{api}/revisions/{rev}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1189,8 +1123,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all deployments of an API proxy revision.
  *
  *  @param parent Required. Name of the API proxy revision for which to return
- *    deployment information
- *    in the following format:
+ *    deployment information in the following format:
  *    `organizations/{org}/apis/{api}/revisions/{rev}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsApisRevisionsDeploymentsList
@@ -1200,15 +1133,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets an API proxy revision.
- *  To download the API proxy configuration bundle for the specified revision
- *  as a zip file, do the following:
- *  * Set the `format` query parameter to `bundle`.
- *  * Set the `Accept` header to `application/zip`.
- *  If you are using curl, specify `-o filename.zip` to save the output to a
- *  file; otherwise, it displays to `stdout`. Then, develop the API proxy
- *  configuration locally and upload the updated API proxy configuration
- *  revision, as described in
+ *  Gets an API proxy revision. To download the API proxy configuration bundle
+ *  for the specified revision as a zip file, do the following: * Set the
+ *  `format` query parameter to `bundle`. * Set the `Accept` header to
+ *  `application/zip`. If you are using curl, specify `-o filename.zip` to save
+ *  the output to a file; otherwise, it displays to `stdout`. Then, develop the
+ *  API proxy configuration locally and upload the updated API proxy
+ *  configuration revision, as described in
  *  [updateApiProxyRevision](updateApiProxyRevision).
  *
  *  Method: apigee.organizations.apis.revisions.get
@@ -1221,9 +1152,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsApisRevisionsGetWithname:]
 
 /**
- *  Format used when downloading the API proxy configuration revision.
- *  Set to `bundle` to download the API proxy configuration revision as a zip
- *  file.
+ *  Format used when downloading the API proxy configuration revision. Set to
+ *  `bundle` to download the API proxy configuration revision as a zip file.
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
@@ -1236,15 +1166,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
- *  Gets an API proxy revision.
- *  To download the API proxy configuration bundle for the specified revision
- *  as a zip file, do the following:
- *  * Set the `format` query parameter to `bundle`.
- *  * Set the `Accept` header to `application/zip`.
- *  If you are using curl, specify `-o filename.zip` to save the output to a
- *  file; otherwise, it displays to `stdout`. Then, develop the API proxy
- *  configuration locally and upload the updated API proxy configuration
- *  revision, as described in
+ *  Gets an API proxy revision. To download the API proxy configuration bundle
+ *  for the specified revision as a zip file, do the following: * Set the
+ *  `format` query parameter to `bundle`. * Set the `Accept` header to
+ *  `application/zip`. If you are using curl, specify `-o filename.zip` to save
+ *  the output to a file; otherwise, it displays to `stdout`. Then, develop the
+ *  API proxy configuration locally and upload the updated API proxy
+ *  configuration revision, as described in
  *  [updateApiProxyRevision](updateApiProxyRevision).
  *
  *  @param name Required. API proxy revision in the following format:
@@ -1258,12 +1186,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates an existing API proxy revision by uploading the API proxy
- *  configuration bundle as a zip file from your local machine.
- *  You can update only API proxy revisions
- *  that have never been deployed. After deployment, an API proxy revision
- *  becomes immutable, even if it is undeployed.
- *  Set the `Content-Type` header to either
- *  `multipart/form-data` or `application/octet-stream`.
+ *  configuration bundle as a zip file from your local machine. You can update
+ *  only API proxy revisions that have never been deployed. After deployment, an
+ *  API proxy revision becomes immutable, even if it is undeployed. Set the
+ *  `Content-Type` header to either `multipart/form-data` or
+ *  `application/octet-stream`.
  *
  *  Method: apigee.organizations.apis.revisions.updateApiProxyRevision
  *
@@ -1290,12 +1217,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApiProxyRevision.
  *
  *  Updates an existing API proxy revision by uploading the API proxy
- *  configuration bundle as a zip file from your local machine.
- *  You can update only API proxy revisions
- *  that have never been deployed. After deployment, an API proxy revision
- *  becomes immutable, even if it is undeployed.
- *  Set the `Content-Type` header to either
- *  `multipart/form-data` or `application/octet-stream`.
+ *  configuration bundle as a zip file from your local machine. You can update
+ *  only API proxy revisions that have never been deployed. After deployment, an
+ *  API proxy revision becomes immutable, even if it is undeployed. Set the
+ *  `Content-Type` header to either `multipart/form-data` or
+ *  `application/octet-stream`.
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param name Required. API proxy revision to update in the following format:
@@ -1321,8 +1247,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsAppsGetWithname:]
 
 /**
- *  Required. App ID in the following format:
- *  `organizations/{org}/apps/{app}`
+ *  Required. App ID in the following format: `organizations/{org}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1342,8 +1267,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists IDs of apps within an organization that have the specified app status
- *  (approved or revoked) or are of the specified app type
- *  (developer or company).
+ *  (approved or revoked) or are of the specified app type (developer or
+ *  company).
  *
  *  Method: apigee.organizations.apps.list
  *
@@ -1364,8 +1289,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *apptype;
 
 /**
- *  Optional. Flag that specifies whether to return an expanded list of
- *  apps for the organization. Defaults to `false`.
+ *  Optional. Flag that specifies whether to return an expanded list of apps for
+ *  the organization. Defaults to `false`.
  */
 @property(nonatomic, assign) BOOL expand;
 
@@ -1397,8 +1322,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *startKey;
 
 /**
- *  Optional. Filter by the status of the app. Valid values are `approved`
- *  or `revoked`. Defaults to `approved`.
+ *  Optional. Filter by the status of the app. Valid values are `approved` or
+ *  `revoked`. Defaults to `approved`.
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -1406,8 +1331,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListAppsResponse.
  *
  *  Lists IDs of apps within an organization that have the specified app status
- *  (approved or revoked) or are of the specified app type
- *  (developer or company).
+ *  (approved or revoked) or are of the specified app type (developer or
+ *  company).
  *
  *  @param parent Required. Resource path of the parent in the following format:
  *    `organizations/{org}`
@@ -1419,8 +1344,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an Apigee organization. See
- *  [Create an
+ *  Creates an Apigee organization. See [Create an
  *  organization](https://docs.apigee.com/hybrid/latest/precog-provision).
  *
  *  Method: apigee.organizations.create
@@ -1434,18 +1358,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the GCP project in which to associate the Apigee
- *  organization.
- *  Pass the information as a query parameter using the following structure
- *  in your request:
- *  `projects/<project>`
+ *  organization. Pass the information as a query parameter using the following
+ *  structure in your request: `projects/`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
- *  Creates an Apigee organization. See
- *  [Create an
+ *  Creates an Apigee organization. See [Create an
  *  organization](https://docs.apigee.com/hybrid/latest/precog-provision).
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Organization to include
@@ -1471,16 +1392,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the organization for which to return deployment
- *  information in the
- *  following format:
- *  `organizations/{org}`
+ *  information in the following format: `organizations/{org}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. Flag that specifies whether to return shared flow or API proxy
- *  deployments.
- *  Set to `true` to return shared flow deployments; set to `false`
+ *  deployments. Set to `true` to return shared flow deployments; set to `false`
  *  to return API proxy deployments. Defaults to `false`.
  */
 @property(nonatomic, assign) BOOL sharedFlows;
@@ -1491,9 +1409,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all deployments of API proxies or shared flows.
  *
  *  @param parent Required. Name of the organization for which to return
- *    deployment information in the
- *    following format:
- *    `organizations/{org}`
+ *    deployment information in the following format: `organizations/{org}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDeploymentsList
  */
@@ -1502,8 +1418,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates attributes for a developer app. This API replaces the
- *  current attributes with those specified in the request.
+ *  Updates attributes for a developer app. This API replaces the current
+ *  attributes with those specified in the request.
  *
  *  Method: apigee.organizations.developers.apps.attributes
  *
@@ -1516,16 +1432,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}/apps/{app}`
+ *  request: `organizations/{org}/developers/{developer_email}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Attributes.
  *
- *  Updates attributes for a developer app. This API replaces the
- *  current attributes with those specified in the request.
+ *  Updates attributes for a developer app. This API replaces the current
+ *  attributes with those specified in the request.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attributes to include in
  *    the query.
@@ -1554,8 +1469,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
- *  in your
- *  request:
+ *  in your request:
  *  `organizations/{org}/developers/{developer_email}/apps/{app}/attributes/{attribute}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1566,8 +1480,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a developer app attribute.
  *
  *  @param name Required. Name of the developer app attribute. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}/apps/{app}/attributes/{attribute}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesDelete
@@ -1590,8 +1503,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
- *  in your
- *  request:
+ *  in your request:
  *  `organizations/{org}/developers/{developer_email}/apps/{app}/attributes/{attribute}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1602,8 +1514,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a developer app attribute.
  *
  *  @param name Required. Name of the developer app attribute. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}/apps/{app}/attributes/{attribute}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesGet
@@ -1626,8 +1537,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}/apps/{app}`
+ *  request: `organizations/{org}/developers/{developer_email}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1647,12 +1557,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a developer app attribute.
- *  **Note**: OAuth access tokens and Key Management Service (KMS) entities
- *  (apps, developers, and API products) are cached for 180 seconds
- *  (current default). Any custom attributes associated with these entities
- *  are cached for at least 180 seconds after the entity is accessed at
- *  runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
+ *  Updates a developer app attribute. **Note**: OAuth access tokens and Key
+ *  Management Service (KMS) entities (apps, developers, and API products) are
+ *  cached for 180 seconds (current default). Any custom attributes associated
+ *  with these entities are cached for at least 180 seconds after the entity is
+ *  accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
  *  won't be able to expire an access token in less than 180 seconds.
  *
  *  Method: apigee.organizations.developers.apps.attributes.updateDeveloperAppAttribute
@@ -1666,8 +1575,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
- *  in your
- *  request:
+ *  in your request:
  *  `organizations/{org}/developers/{developer_email}/apps/{app}/attributes/{attribute}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1675,19 +1583,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Attribute.
  *
- *  Updates a developer app attribute.
- *  **Note**: OAuth access tokens and Key Management Service (KMS) entities
- *  (apps, developers, and API products) are cached for 180 seconds
- *  (current default). Any custom attributes associated with these entities
- *  are cached for at least 180 seconds after the entity is accessed at
- *  runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
+ *  Updates a developer app attribute. **Note**: OAuth access tokens and Key
+ *  Management Service (KMS) entities (apps, developers, and API products) are
+ *  cached for 180 seconds (current default). Any custom attributes associated
+ *  with these entities are cached for at least 180 seconds after the entity is
+ *  accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
  *  won't be able to expire an access token in less than 180 seconds.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attribute to include in
  *    the query.
  *  @param name Required. Name of the developer app attribute. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}/apps/{app}/attributes/{attribute}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesUpdateDeveloperAppAttribute
@@ -1699,12 +1605,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an app associated with a developer. This API associates the
- *  developer app with the specified API
- *  product and auto-generates an API key for the app to use in calls to API
- *  proxies inside that API product.
- *  The `name` is the unique ID of the app
- *  that you can use in API calls. The `DisplayName` (set as an
- *  attribute) appears in the UI. If you don't set the
+ *  developer app with the specified API product and auto-generates an API key
+ *  for the app to use in calls to API proxies inside that API product. The
+ *  `name` is the unique ID of the app that you can use in API calls. The
+ *  `DisplayName` (set as an attribute) appears in the UI. If you don't set the
  *  `DisplayName` attribute, the `name` appears in the UI.
  *
  *  Method: apigee.organizations.developers.apps.create
@@ -1718,8 +1622,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}`
+ *  request: `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1727,19 +1630,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperApp.
  *
  *  Creates an app associated with a developer. This API associates the
- *  developer app with the specified API
- *  product and auto-generates an API key for the app to use in calls to API
- *  proxies inside that API product.
- *  The `name` is the unique ID of the app
- *  that you can use in API calls. The `DisplayName` (set as an
- *  attribute) appears in the UI. If you don't set the
+ *  developer app with the specified API product and auto-generates an API key
+ *  for the app to use in calls to API proxies inside that API product. The
+ *  `name` is the unique ID of the app that you can use in API calls. The
+ *  `DisplayName` (set as an attribute) appears in the UI. If you don't set the
  *  `DisplayName` attribute, the `name` appears in the UI.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperApp to include
  *    in the query.
  *  @param parent Required. Name of the developer. Use the following structure
- *    in your request:
- *    `organizations/{org}/developers/{developer_email}`
+ *    in your request: `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsCreate
  */
@@ -1749,12 +1649,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a developer app.
- *  **Note**: The delete operation is asynchronous. The developer app is
- *  deleted immediately,
- *  but its associated resources, such as app
- *  keys or access tokens, may take anywhere from a few seconds to a
- *  few minutes to be deleted.
+ *  Deletes a developer app. **Note**: The delete operation is asynchronous. The
+ *  developer app is deleted immediately, but its associated resources, such as
+ *  app keys or access tokens, may take anywhere from a few seconds to a few
+ *  minutes to be deleted.
  *
  *  Method: apigee.organizations.developers.apps.delete
  *
@@ -1767,20 +1665,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}/apps/{app}`
+ *  request: `organizations/{org}/developers/{developer_email}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperApp.
  *
- *  Deletes a developer app.
- *  **Note**: The delete operation is asynchronous. The developer app is
- *  deleted immediately,
- *  but its associated resources, such as app
- *  keys or access tokens, may take anywhere from a few seconds to a
- *  few minutes to be deleted.
+ *  Deletes a developer app. **Note**: The delete operation is asynchronous. The
+ *  developer app is deleted immediately, but its associated resources, such as
+ *  app keys or access tokens, may take anywhere from a few seconds to a few
+ *  minutes to be deleted.
  *
  *  @param name Required. Name of the developer app. Use the following structure
  *    in your request:
@@ -1793,37 +1688,29 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Manages access to a developer app by enabling you to:
- *  * Approve or revoke a developer app
- *  * Generate a new consumer key and secret for a developer app
+ *  Manages access to a developer app by enabling you to: * Approve or revoke a
+ *  developer app * Generate a new consumer key and secret for a developer app
  *  To approve or revoke a developer app, set the `action` query parameter to
- *  `approved` or `revoked`, respectively, and the
- *  `Content-Type` header to `application/octet-stream`. If a developer app is
- *  revoked, none of its API keys are valid for API calls even though
- *  the keys are still `approved`. If successful, the API call returns the
- *  following HTTP status code: `204 No Content`
- *  To generate a new consumer key and secret for a developer
- *  app, pass the new key/secret details. Rather than
- *  replace an existing key, this API generates a new
- *  key. In this case, multiple key
- *  pairs may be associated with a single developer app. Each key pair has an
- *  independent status (`approved` or `revoked`) and expiration time.
- *  Any approved, non-expired key can be used in an API call.
- *  For example, if you're using API key rotation, you can generate new
- *  keys with expiration times that overlap keys that are going to expire.
- *  You might also generate a new consumer key/secret if the security of the
- *  original key/secret is compromised.
- *  The `keyExpiresIn` property defines the
- *  expiration time for the API key in milliseconds. If you don't set
- *  this property or set it to `-1`, the API key never expires.
- *  **Notes**:
- *  * When generating a new key/secret, this API replaces the
- *  existing attributes, notes, and callback URLs with those specified in the
- *  request. Include or exclude any existing information that you want to
- *  retain or delete, respectively.
- *  * To migrate existing consumer keys and secrets to hybrid from another
- *  system, see the
- *  CreateDeveloperAppKey API.
+ *  `approved` or `revoked`, respectively, and the `Content-Type` header to
+ *  `application/octet-stream`. If a developer app is revoked, none of its API
+ *  keys are valid for API calls even though the keys are still `approved`. If
+ *  successful, the API call returns the following HTTP status code: `204 No
+ *  Content` To generate a new consumer key and secret for a developer app, pass
+ *  the new key/secret details. Rather than replace an existing key, this API
+ *  generates a new key. In this case, multiple key pairs may be associated with
+ *  a single developer app. Each key pair has an independent status (`approved`
+ *  or `revoked`) and expiration time. Any approved, non-expired key can be used
+ *  in an API call. For example, if you're using API key rotation, you can
+ *  generate new keys with expiration times that overlap keys that are going to
+ *  expire. You might also generate a new consumer key/secret if the security of
+ *  the original key/secret is compromised. The `keyExpiresIn` property defines
+ *  the expiration time for the API key in milliseconds. If you don't set this
+ *  property or set it to `-1`, the API key never expires. **Notes**: * When
+ *  generating a new key/secret, this API replaces the existing attributes,
+ *  notes, and callback URLs with those specified in the request. Include or
+ *  exclude any existing information that you want to retain or delete,
+ *  respectively. * To migrate existing consumer keys and secrets to hybrid from
+ *  another system, see the CreateDeveloperAppKey API.
  *
  *  Method: apigee.organizations.developers.apps.generateKeyPairOrUpdateDeveloperAppStatus
  *
@@ -1839,45 +1726,36 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}/apps/{app}`
+ *  request: `organizations/{org}/developers/{developer_email}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperApp.
  *
- *  Manages access to a developer app by enabling you to:
- *  * Approve or revoke a developer app
- *  * Generate a new consumer key and secret for a developer app
+ *  Manages access to a developer app by enabling you to: * Approve or revoke a
+ *  developer app * Generate a new consumer key and secret for a developer app
  *  To approve or revoke a developer app, set the `action` query parameter to
- *  `approved` or `revoked`, respectively, and the
- *  `Content-Type` header to `application/octet-stream`. If a developer app is
- *  revoked, none of its API keys are valid for API calls even though
- *  the keys are still `approved`. If successful, the API call returns the
- *  following HTTP status code: `204 No Content`
- *  To generate a new consumer key and secret for a developer
- *  app, pass the new key/secret details. Rather than
- *  replace an existing key, this API generates a new
- *  key. In this case, multiple key
- *  pairs may be associated with a single developer app. Each key pair has an
- *  independent status (`approved` or `revoked`) and expiration time.
- *  Any approved, non-expired key can be used in an API call.
- *  For example, if you're using API key rotation, you can generate new
- *  keys with expiration times that overlap keys that are going to expire.
- *  You might also generate a new consumer key/secret if the security of the
- *  original key/secret is compromised.
- *  The `keyExpiresIn` property defines the
- *  expiration time for the API key in milliseconds. If you don't set
- *  this property or set it to `-1`, the API key never expires.
- *  **Notes**:
- *  * When generating a new key/secret, this API replaces the
- *  existing attributes, notes, and callback URLs with those specified in the
- *  request. Include or exclude any existing information that you want to
- *  retain or delete, respectively.
- *  * To migrate existing consumer keys and secrets to hybrid from another
- *  system, see the
- *  CreateDeveloperAppKey API.
+ *  `approved` or `revoked`, respectively, and the `Content-Type` header to
+ *  `application/octet-stream`. If a developer app is revoked, none of its API
+ *  keys are valid for API calls even though the keys are still `approved`. If
+ *  successful, the API call returns the following HTTP status code: `204 No
+ *  Content` To generate a new consumer key and secret for a developer app, pass
+ *  the new key/secret details. Rather than replace an existing key, this API
+ *  generates a new key. In this case, multiple key pairs may be associated with
+ *  a single developer app. Each key pair has an independent status (`approved`
+ *  or `revoked`) and expiration time. Any approved, non-expired key can be used
+ *  in an API call. For example, if you're using API key rotation, you can
+ *  generate new keys with expiration times that overlap keys that are going to
+ *  expire. You might also generate a new consumer key/secret if the security of
+ *  the original key/secret is compromised. The `keyExpiresIn` property defines
+ *  the expiration time for the API key in milliseconds. If you don't set this
+ *  property or set it to `-1`, the API key never expires. **Notes**: * When
+ *  generating a new key/secret, this API replaces the existing attributes,
+ *  notes, and callback URLs with those specified in the request. Include or
+ *  exclude any existing information that you want to retain or delete,
+ *  respectively. * To migrate existing consumer keys and secrets to hybrid from
+ *  another system, see the CreateDeveloperAppKey API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperApp to include
  *    in the query.
@@ -1905,26 +1783,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsDevelopersAppsGetWithname:]
 
 /**
- *  **Note**: Must be used in conjunction with the `query` parameter.
- *  Set to `apiresources`
- *  to return the number of API resources
- *  that have been approved for access by a developer app in the
- *  specified Apigee organization.
+ *  **Note**: Must be used in conjunction with the `query` parameter. Set to
+ *  `apiresources` to return the number of API resources that have been approved
+ *  for access by a developer app in the specified Apigee organization.
  */
 @property(nonatomic, copy, nullable) NSString *entity;
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}/apps/{app}`
+ *  request: `organizations/{org}/developers/{developer_email}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  **Note**: Must be used in conjunction with the `entity` parameter.
- *  Set to `count` to return the number of API resources
- *  that have been approved for access by a developer app in the
- *  specified Apigee organization.
+ *  **Note**: Must be used in conjunction with the `entity` parameter. Set to
+ *  `count` to return the number of API resources that have been approved for
+ *  access by a developer app in the specified Apigee organization.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1945,10 +1819,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Removes an API product from an app's consumer key. After the API product is
- *  removed, the app cannot access the API resources defined in
- *  that API product.
- *  **Note**: The consumer key is not removed, only its association with the
- *  API product.
+ *  removed, the app cannot access the API resources defined in that API
+ *  product. **Note**: The consumer key is not removed, only its association
+ *  with the API product.
  *
  *  Method: apigee.organizations.developers.apps.keys.apiproducts.delete
  *
@@ -1960,8 +1833,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysApiproductsDeleteWithname:]
 
 /**
- *  Name of the API product in the developer app key in the following
- *  format:
+ *  Name of the API product in the developer app key in the following format:
  *  `organizations/{org}/developers/{developer_email}/apps/{app}/keys/{key}/apiproducts/{apiproduct}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1970,14 +1842,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey.
  *
  *  Removes an API product from an app's consumer key. After the API product is
- *  removed, the app cannot access the API resources defined in
- *  that API product.
- *  **Note**: The consumer key is not removed, only its association with the
- *  API product.
+ *  removed, the app cannot access the API resources defined in that API
+ *  product. **Note**: The consumer key is not removed, only its association
+ *  with the API product.
  *
  *  @param name Name of the API product in the developer app key in the
- *    following
- *    format:
+ *    following format:
  *    `organizations/{org}/developers/{developer_email}/apps/{app}/keys/{key}/apiproducts/{apiproduct}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsKeysApiproductsDelete
@@ -1988,11 +1858,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Approve or revoke an app's consumer key. After a consumer key is approved,
- *  the app can use it to access APIs.
- *  A consumer key that is revoked or pending cannot be used to access an API.
- *  Any access tokens associated with a revoked consumer key will remain
- *  active. However, Apigee hybrid checks the status of the consumer key and
- *  if set to `revoked` will not allow access to the API.
+ *  the app can use it to access APIs. A consumer key that is revoked or pending
+ *  cannot be used to access an API. Any access tokens associated with a revoked
+ *  consumer key will remain active. However, Apigee hybrid checks the status of
+ *  the consumer key and if set to `revoked` will not allow access to the API.
  *
  *  Method: apigee.organizations.developers.apps.keys.apiproducts.updateDeveloperAppKeyApiProduct
  *
@@ -2004,14 +1873,13 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysApiproductsUpdateDeveloperAppKeyApiProductWithname:]
 
 /**
- *  Approve or revoke the consumer key by setting this value to
- *  `approve` or `revoke`, respectively.
+ *  Approve or revoke the consumer key by setting this value to `approve` or
+ *  `revoke`, respectively.
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Name of the API product in the developer app key in the following
- *  format:
+ *  Name of the API product in the developer app key in the following format:
  *  `organizations/{org}/developers/{developer_email}/apps/{app}/keys/{key}/apiproducts/{apiproduct}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2020,15 +1888,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
  *  Approve or revoke an app's consumer key. After a consumer key is approved,
- *  the app can use it to access APIs.
- *  A consumer key that is revoked or pending cannot be used to access an API.
- *  Any access tokens associated with a revoked consumer key will remain
- *  active. However, Apigee hybrid checks the status of the consumer key and
- *  if set to `revoked` will not allow access to the API.
+ *  the app can use it to access APIs. A consumer key that is revoked or pending
+ *  cannot be used to access an API. Any access tokens associated with a revoked
+ *  consumer key will remain active. However, Apigee hybrid checks the status of
+ *  the consumer key and if set to `revoked` will not allow access to the API.
  *
  *  @param name Name of the API product in the developer app key in the
- *    following
- *    format:
+ *    following format:
  *    `organizations/{org}/developers/{developer_email}/apps/{app}/keys/{key}/apiproducts/{apiproduct}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsKeysApiproductsUpdateDeveloperAppKeyApiProduct
@@ -2040,18 +1906,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a custom consumer key and secret for a developer app. This is
  *  particularly useful if you want to migrate existing consumer keys and
- *  secrets to Apigee hybrid from another system.
- *  Consumer keys and secrets can contain letters, numbers, underscores, and
- *  hyphens. No other special characters are allowed. To avoid service
- *  disruptions, a consumer key and secret should not exceed 2 KBs each.
- *  **Note**: When creating the consumer key and secret, an association to
- *  API products will not be made. Therefore, you should not specify the
- *  associated API products in your request. Instead, use the
- *  UpdateDeveloperAppKey API to
- *  make the association after the consumer key and secret are created.
- *  If a consumer key and secret already exist, you can keep them or
- *  delete them using the
- *  DeleteDeveloperAppKey API.
+ *  secrets to Apigee hybrid from another system. Consumer keys and secrets can
+ *  contain letters, numbers, underscores, and hyphens. No other special
+ *  characters are allowed. To avoid service disruptions, a consumer key and
+ *  secret should not exceed 2 KBs each. **Note**: When creating the consumer
+ *  key and secret, an association to API products will not be made. Therefore,
+ *  you should not specify the associated API products in your request. Instead,
+ *  use the UpdateDeveloperAppKey API to make the association after the consumer
+ *  key and secret are created. If a consumer key and secret already exist, you
+ *  can keep them or delete them using the DeleteDeveloperAppKey API.
  *
  *  Method: apigee.organizations.developers.apps.keys.create
  *
@@ -2064,8 +1927,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Parent of the developer app key. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}/apps`
+ *  request: `organizations/{org}/developers/{developer_email}/apps`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2074,25 +1936,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a custom consumer key and secret for a developer app. This is
  *  particularly useful if you want to migrate existing consumer keys and
- *  secrets to Apigee hybrid from another system.
- *  Consumer keys and secrets can contain letters, numbers, underscores, and
- *  hyphens. No other special characters are allowed. To avoid service
- *  disruptions, a consumer key and secret should not exceed 2 KBs each.
- *  **Note**: When creating the consumer key and secret, an association to
- *  API products will not be made. Therefore, you should not specify the
- *  associated API products in your request. Instead, use the
- *  UpdateDeveloperAppKey API to
- *  make the association after the consumer key and secret are created.
- *  If a consumer key and secret already exist, you can keep them or
- *  delete them using the
- *  DeleteDeveloperAppKey API.
+ *  secrets to Apigee hybrid from another system. Consumer keys and secrets can
+ *  contain letters, numbers, underscores, and hyphens. No other special
+ *  characters are allowed. To avoid service disruptions, a consumer key and
+ *  secret should not exceed 2 KBs each. **Note**: When creating the consumer
+ *  key and secret, an association to API products will not be made. Therefore,
+ *  you should not specify the associated API products in your request. Instead,
+ *  use the UpdateDeveloperAppKey API to make the association after the consumer
+ *  key and secret are created. If a consumer key and secret already exist, you
+ *  can keep them or delete them using the DeleteDeveloperAppKey API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
  *  @param parent Parent of the developer app key. Use the following structure
- *    in your
- *    request:
- *    `organizations/{org}/developers/{developer_email}/apps`
+ *    in your request: `organizations/{org}/developers/{developer_email}/apps`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsKeysCreate
  */
@@ -2104,18 +1961,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a custom consumer key and secret for a developer app. This is
  *  particularly useful if you want to migrate existing consumer keys and
- *  secrets to Apigee hybrid from another system.
- *  Consumer keys and secrets can contain letters, numbers, underscores, and
- *  hyphens. No other special characters are allowed. To avoid service
- *  disruptions, a consumer key and secret should not exceed 2 KBs each.
- *  **Note**: When creating the consumer key and secret, an association to
- *  API products will not be made. Therefore, you should not specify the
- *  associated API products in your request. Instead, use the
- *  UpdateDeveloperAppKey API to
- *  make the association after the consumer key and secret are created.
- *  If a consumer key and secret already exist, you can keep them or
- *  delete them using the
- *  DeleteDeveloperAppKey API.
+ *  secrets to Apigee hybrid from another system. Consumer keys and secrets can
+ *  contain letters, numbers, underscores, and hyphens. No other special
+ *  characters are allowed. To avoid service disruptions, a consumer key and
+ *  secret should not exceed 2 KBs each. **Note**: When creating the consumer
+ *  key and secret, an association to API products will not be made. Therefore,
+ *  you should not specify the associated API products in your request. Instead,
+ *  use the UpdateDeveloperAppKey API to make the association after the consumer
+ *  key and secret are created. If a consumer key and secret already exist, you
+ *  can keep them or delete them using the DeleteDeveloperAppKey API.
  *
  *  Method: apigee.organizations.developers.apps.keys.create.create
  *
@@ -2128,8 +1982,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Parent of the developer app key. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}/apps`
+ *  request: `organizations/{org}/developers/{developer_email}/apps`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2138,25 +1991,20 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Creates a custom consumer key and secret for a developer app. This is
  *  particularly useful if you want to migrate existing consumer keys and
- *  secrets to Apigee hybrid from another system.
- *  Consumer keys and secrets can contain letters, numbers, underscores, and
- *  hyphens. No other special characters are allowed. To avoid service
- *  disruptions, a consumer key and secret should not exceed 2 KBs each.
- *  **Note**: When creating the consumer key and secret, an association to
- *  API products will not be made. Therefore, you should not specify the
- *  associated API products in your request. Instead, use the
- *  UpdateDeveloperAppKey API to
- *  make the association after the consumer key and secret are created.
- *  If a consumer key and secret already exist, you can keep them or
- *  delete them using the
- *  DeleteDeveloperAppKey API.
+ *  secrets to Apigee hybrid from another system. Consumer keys and secrets can
+ *  contain letters, numbers, underscores, and hyphens. No other special
+ *  characters are allowed. To avoid service disruptions, a consumer key and
+ *  secret should not exceed 2 KBs each. **Note**: When creating the consumer
+ *  key and secret, an association to API products will not be made. Therefore,
+ *  you should not specify the associated API products in your request. Instead,
+ *  use the UpdateDeveloperAppKey API to make the association after the consumer
+ *  key and secret are created. If a consumer key and secret already exist, you
+ *  can keep them or delete them using the DeleteDeveloperAppKey API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
  *  @param parent Parent of the developer app key. Use the following structure
- *    in your
- *    request:
- *    `organizations/{org}/developers/{developer_email}/apps`
+ *    in your request: `organizations/{org}/developers/{developer_email}/apps`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsKeysCreateCreate
  */
@@ -2166,15 +2014,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an app's consumer key and removes all API products
- *  associated with the app. After the consumer key is deleted,
- *  it cannot be used to access any APIs.
- *  **Note**: After you delete a consumer key, you may want to:
- *  1. Create a new consumer key and secret for the developer app using the
- *  CreateDeveloperAppKey API, and
- *  subsequently add an API product to the key using the
- *  UpdateDeveloperAppKey API.
- *  2. Delete the developer app, if it is no longer required.
+ *  Deletes an app's consumer key and removes all API products associated with
+ *  the app. After the consumer key is deleted, it cannot be used to access any
+ *  APIs. **Note**: After you delete a consumer key, you may want to: 1. Create
+ *  a new consumer key and secret for the developer app using the
+ *  CreateDeveloperAppKey API, and subsequently add an API product to the key
+ *  using the UpdateDeveloperAppKey API. 2. Delete the developer app, if it is
+ *  no longer required.
  *
  *  Method: apigee.organizations.developers.apps.keys.delete
  *
@@ -2194,15 +2040,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey.
  *
- *  Deletes an app's consumer key and removes all API products
- *  associated with the app. After the consumer key is deleted,
- *  it cannot be used to access any APIs.
- *  **Note**: After you delete a consumer key, you may want to:
- *  1. Create a new consumer key and secret for the developer app using the
- *  CreateDeveloperAppKey API, and
- *  subsequently add an API product to the key using the
- *  UpdateDeveloperAppKey API.
- *  2. Delete the developer app, if it is no longer required.
+ *  Deletes an app's consumer key and removes all API products associated with
+ *  the app. After the consumer key is deleted, it cannot be used to access any
+ *  APIs. **Note**: After you delete a consumer key, you may want to: 1. Create
+ *  a new consumer key and secret for the developer app using the
+ *  CreateDeveloperAppKey API, and subsequently add an API product to the key
+ *  using the UpdateDeveloperAppKey API. 2. Delete the developer app, if it is
+ *  no longer required.
  *
  *  @param name Name of the developer app key. Use the following structure in
  *    your request:
@@ -2250,14 +2094,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the scope of an app.
- *  This API replaces the
- *  existing scopes with those specified in the request.
- *  Include or exclude any existing scopes that you want to retain or
- *  delete, respectively. The specified scopes must already
- *  be defined for the API products associated with the app.
- *  This API sets the `scopes` element
- *  under the `apiProducts` element in the attributes of the app.
+ *  Updates the scope of an app. This API replaces the existing scopes with
+ *  those specified in the request. Include or exclude any existing scopes that
+ *  you want to retain or delete, respectively. The specified scopes must
+ *  already be defined for the API products associated with the app. This API
+ *  sets the `scopes` element under the `apiProducts` element in the attributes
+ *  of the app.
  *
  *  Method: apigee.organizations.developers.apps.keys.replaceDeveloperAppKey
  *
@@ -2277,14 +2119,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey.
  *
- *  Updates the scope of an app.
- *  This API replaces the
- *  existing scopes with those specified in the request.
- *  Include or exclude any existing scopes that you want to retain or
- *  delete, respectively. The specified scopes must already
- *  be defined for the API products associated with the app.
- *  This API sets the `scopes` element
- *  under the `apiProducts` element in the attributes of the app.
+ *  Updates the scope of an app. This API replaces the existing scopes with
+ *  those specified in the request. Include or exclude any existing scopes that
+ *  you want to retain or delete, respectively. The specified scopes must
+ *  already be defined for the API products associated with the app. This API
+ *  sets the `scopes` element under the `apiProducts` element in the attributes
+ *  of the app.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
@@ -2300,15 +2140,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Adds an API product to a developer app key, enabling the app that holds
- *  the key to access the API resources bundled in the API product.
- *  In addition, you can add
- *  attributes to a developer app key. This API replaces the
- *  existing attributes with those specified in the request.
- *  Include or exclude any existing attributes that you want to retain or
- *  delete, respectively.
- *  You can use the same key to access all API products
- *  associated with the app.
+ *  Adds an API product to a developer app key, enabling the app that holds the
+ *  key to access the API resources bundled in the API product. In addition, you
+ *  can add attributes to a developer app key. This API replaces the existing
+ *  attributes with those specified in the request. Include or exclude any
+ *  existing attributes that you want to retain or delete, respectively. You can
+ *  use the same key to access all API products associated with the app.
  *
  *  Method: apigee.organizations.developers.apps.keys.updateDeveloperAppKey
  *
@@ -2320,8 +2157,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysUpdateDeveloperAppKeyWithObject:name:]
 
 /**
- *  Approve or revoke the consumer key by setting this value to
- *  `approve` or `revoke`, respectively.
+ *  Approve or revoke the consumer key by setting this value to `approve` or
+ *  `revoke`, respectively.
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -2334,15 +2171,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey.
  *
- *  Adds an API product to a developer app key, enabling the app that holds
- *  the key to access the API resources bundled in the API product.
- *  In addition, you can add
- *  attributes to a developer app key. This API replaces the
- *  existing attributes with those specified in the request.
- *  Include or exclude any existing attributes that you want to retain or
- *  delete, respectively.
- *  You can use the same key to access all API products
- *  associated with the app.
+ *  Adds an API product to a developer app key, enabling the app that holds the
+ *  key to access the API resources bundled in the API product. In addition, you
+ *  can add attributes to a developer app key. This API replaces the existing
+ *  attributes with those specified in the request. Include or exclude any
+ *  existing attributes that you want to retain or delete, respectively. You can
+ *  use the same key to access all API products associated with the app.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey to
  *    include in the query.
@@ -2358,11 +2192,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all apps created by a developer in an Apigee organization.
- *  Optionally, you can request an expanded view of the developer apps.
- *  A maximum of 100 developer apps are returned per API call. You can paginate
- *  the list of deveoper apps returned using the `startKey` and `count` query
- *  parameters.
+ *  Lists all apps created by a developer in an Apigee organization. Optionally,
+ *  you can request an expanded view of the developer apps. A maximum of 100
+ *  developer apps are returned per API call. You can paginate the list of
+ *  deveoper apps returned using the `startKey` and `count` query parameters.
  *
  *  Method: apigee.organizations.developers.apps.list
  *
@@ -2375,53 +2208,48 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Number of developer apps to return in the API call. Use with the `startKey`
- *  parameter to provide more targeted filtering.
- *  The limit is 1000.
+ *  parameter to provide more targeted filtering. The limit is 1000.
  */
 @property(nonatomic, assign) long long count;
 
 /**
- *  Optional. Specifies whether to expand the results. Set to `true`
- *  to expand the results. This query parameter is not valid if you use
- *  the `count` or `startKey` query parameters.
+ *  Optional. Specifies whether to expand the results. Set to `true` to expand
+ *  the results. This query parameter is not valid if you use the `count` or
+ *  `startKey` query parameters.
  */
 @property(nonatomic, assign) BOOL expand;
 
 /**
  *  Required. Name of the developer. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}`
+ *  request: `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Specifies whether to expand the results in shallow mode.
- *  Set to `true` to expand the results in shallow mode.
+ *  Optional. Specifies whether to expand the results in shallow mode. Set to
+ *  `true` to expand the results in shallow mode.
  */
 @property(nonatomic, assign) BOOL shallowExpand;
 
 /**
- *  **Note**: Must be used in conjunction with the `count` parameter.
- *  Name of the developer app from which to start displaying the list of
- *  developer apps. For example, if you're returning 50 developer apps at
- *  a time (using the `count` query parameter), you can view developer apps
- *  50-99 by entering the name of the 50th developer app.
- *  The developer app name is case sensitive.
+ *  **Note**: Must be used in conjunction with the `count` parameter. Name of
+ *  the developer app from which to start displaying the list of developer apps.
+ *  For example, if you're returning 50 developer apps at a time (using the
+ *  `count` query parameter), you can view developer apps 50-99 by entering the
+ *  name of the 50th developer app. The developer app name is case sensitive.
  */
 @property(nonatomic, copy, nullable) NSString *startKey;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListDeveloperAppsResponse.
  *
- *  Lists all apps created by a developer in an Apigee organization.
- *  Optionally, you can request an expanded view of the developer apps.
- *  A maximum of 100 developer apps are returned per API call. You can paginate
- *  the list of deveoper apps returned using the `startKey` and `count` query
- *  parameters.
+ *  Lists all apps created by a developer in an Apigee organization. Optionally,
+ *  you can request an expanded view of the developer apps. A maximum of 100
+ *  developer apps are returned per API call. You can paginate the list of
+ *  deveoper apps returned using the `startKey` and `count` query parameters.
  *
  *  @param parent Required. Name of the developer. Use the following structure
- *    in your request:
- *    `organizations/{org}/developers/{developer_email}`
+ *    in your request: `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAppsList
  */
@@ -2430,22 +2258,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the details for a developer app. In addition, you can
- *  add an API product to a developer app and automatically generate
- *  an API key for the app to use when calling APIs in the API product.
- *  If you want to use an existing API key for the API product,
- *  add the API product to the API key using the
- *  UpdateDeveloperAppKey
- *  API.
- *  Using this API, you cannot update the following:
- *  * App name as it is the primary key used to identify the app and cannot
- *  be changed.
- *  * Scopes associated with the app. Instead, use the
- *  ReplaceDeveloperAppKey API.
- *  This API replaces the
- *  existing attributes with those specified in the request.
- *  Include or exclude any existing attributes that you want to retain or
- *  delete, respectively.
+ *  Updates the details for a developer app. In addition, you can add an API
+ *  product to a developer app and automatically generate an API key for the app
+ *  to use when calling APIs in the API product. If you want to use an existing
+ *  API key for the API product, add the API product to the API key using the
+ *  UpdateDeveloperAppKey API. Using this API, you cannot update the following:
+ *  * App name as it is the primary key used to identify the app and cannot be
+ *  changed. * Scopes associated with the app. Instead, use the
+ *  ReplaceDeveloperAppKey API. This API replaces the existing attributes with
+ *  those specified in the request. Include or exclude any existing attributes
+ *  that you want to retain or delete, respectively.
  *
  *  Method: apigee.organizations.developers.apps.update
  *
@@ -2458,30 +2280,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
- *  request:
- *  `organizations/{org}/developers/{developer_email}/apps/{app}`
+ *  request: `organizations/{org}/developers/{developer_email}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperApp.
  *
- *  Updates the details for a developer app. In addition, you can
- *  add an API product to a developer app and automatically generate
- *  an API key for the app to use when calling APIs in the API product.
- *  If you want to use an existing API key for the API product,
- *  add the API product to the API key using the
- *  UpdateDeveloperAppKey
- *  API.
- *  Using this API, you cannot update the following:
- *  * App name as it is the primary key used to identify the app and cannot
- *  be changed.
- *  * Scopes associated with the app. Instead, use the
- *  ReplaceDeveloperAppKey API.
- *  This API replaces the
- *  existing attributes with those specified in the request.
- *  Include or exclude any existing attributes that you want to retain or
- *  delete, respectively.
+ *  Updates the details for a developer app. In addition, you can add an API
+ *  product to a developer app and automatically generate an API key for the app
+ *  to use when calling APIs in the API product. If you want to use an existing
+ *  API key for the API product, add the API product to the API key using the
+ *  UpdateDeveloperAppKey API. Using this API, you cannot update the following:
+ *  * App name as it is the primary key used to identify the app and cannot be
+ *  changed. * Scopes associated with the app. Instead, use the
+ *  ReplaceDeveloperAppKey API. This API replaces the existing attributes with
+ *  those specified in the request. Include or exclude any existing attributes
+ *  that you want to retain or delete, respectively.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperApp to include
  *    in the query.
@@ -2497,18 +2312,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates developer attributes.
- *  This API replaces the
- *  existing attributes with those specified in the request.
- *  Add new attributes, and include or exclude any existing
- *  attributes that you want to retain or
- *  remove, respectively.
- *  The custom attribute limit is 18.
- *  **Note**: OAuth access tokens and Key Management Service (KMS) entities
- *  (apps, developers, and API products) are cached for 180 seconds
- *  (default). Any custom attributes associated with these entities
- *  are cached for at least 180 seconds after the entity is accessed at
- *  runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
+ *  Updates developer attributes. This API replaces the existing attributes with
+ *  those specified in the request. Add new attributes, and include or exclude
+ *  any existing attributes that you want to retain or remove, respectively. The
+ *  custom attribute limit is 18. **Note**: OAuth access tokens and Key
+ *  Management Service (KMS) entities (apps, developers, and API products) are
+ *  cached for 180 seconds (default). Any custom attributes associated with
+ *  these entities are cached for at least 180 seconds after the entity is
+ *  accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
  *  won't be able to expire an access token in less than 180 seconds.
  *
  *  Method: apigee.organizations.developers.attributes
@@ -2522,8 +2333,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Email address of the developer for which attributes are being
- *  updated in
- *  the following format:
+ *  updated in the following format:
  *  `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2531,25 +2341,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Attributes.
  *
- *  Updates developer attributes.
- *  This API replaces the
- *  existing attributes with those specified in the request.
- *  Add new attributes, and include or exclude any existing
- *  attributes that you want to retain or
- *  remove, respectively.
- *  The custom attribute limit is 18.
- *  **Note**: OAuth access tokens and Key Management Service (KMS) entities
- *  (apps, developers, and API products) are cached for 180 seconds
- *  (default). Any custom attributes associated with these entities
- *  are cached for at least 180 seconds after the entity is accessed at
- *  runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
+ *  Updates developer attributes. This API replaces the existing attributes with
+ *  those specified in the request. Add new attributes, and include or exclude
+ *  any existing attributes that you want to retain or remove, respectively. The
+ *  custom attribute limit is 18. **Note**: OAuth access tokens and Key
+ *  Management Service (KMS) entities (apps, developers, and API products) are
+ *  cached for 180 seconds (default). Any custom attributes associated with
+ *  these entities are cached for at least 180 seconds after the entity is
+ *  accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
  *  won't be able to expire an access token in less than 180 seconds.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attributes to include in
  *    the query.
  *  @param parent Required. Email address of the developer for which attributes
- *    are being updated in
- *    the following format:
+ *    are being updated in the following format:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributes
@@ -2573,8 +2378,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
- *  your
- *  request:
+ *  your request:
  *  `organizations/{org}/developers/{developer_email}/attributes/{attribute}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2585,8 +2389,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a developer attribute.
  *
  *  @param name Required. Name of the developer attribute. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}/attributes/{attribute}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributesDelete
@@ -2609,8 +2412,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
- *  your
- *  request:
+ *  your request:
  *  `organizations/{org}/developers/{developer_email}/attributes/{attribute}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2621,8 +2423,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns the value of the specified developer attribute.
  *
  *  @param name Required. Name of the developer attribute. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}/attributes/{attribute}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributesGet
@@ -2645,8 +2446,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Email address of the developer for which attributes are being
- *  listed in the
- *  following format:
+ *  listed in the following format:
  *  `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2657,8 +2457,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a list of all developer attributes.
  *
  *  @param parent Required. Email address of the developer for which attributes
- *    are being listed in the
- *    following format:
+ *    are being listed in the following format:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributesList
@@ -2668,12 +2467,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a developer attribute.
- *  **Note**: OAuth access tokens and Key Management Service (KMS) entities
- *  (apps, developers, and API products) are cached for 180 seconds
- *  (default). Any custom attributes associated with these entities
- *  are cached for at least 180 seconds after the entity is accessed at
- *  runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
+ *  Updates a developer attribute. **Note**: OAuth access tokens and Key
+ *  Management Service (KMS) entities (apps, developers, and API products) are
+ *  cached for 180 seconds (default). Any custom attributes associated with
+ *  these entities are cached for at least 180 seconds after the entity is
+ *  accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
  *  won't be able to expire an access token in less than 180 seconds.
  *
  *  Method: apigee.organizations.developers.attributes.updateDeveloperAttribute
@@ -2687,8 +2485,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
- *  your
- *  request:
+ *  your request:
  *  `organizations/{org}/developers/{developer_email}/attributes/{attribute}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2696,19 +2493,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Attribute.
  *
- *  Updates a developer attribute.
- *  **Note**: OAuth access tokens and Key Management Service (KMS) entities
- *  (apps, developers, and API products) are cached for 180 seconds
- *  (default). Any custom attributes associated with these entities
- *  are cached for at least 180 seconds after the entity is accessed at
- *  runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
+ *  Updates a developer attribute. **Note**: OAuth access tokens and Key
+ *  Management Service (KMS) entities (apps, developers, and API products) are
+ *  cached for 180 seconds (default). Any custom attributes associated with
+ *  these entities are cached for at least 180 seconds after the entity is
+ *  accessed at runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
  *  won't be able to expire an access token in less than 180 seconds.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attribute to include in
  *    the query.
  *  @param name Required. Name of the developer attribute. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}/attributes/{attribute}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributesUpdateDeveloperAttribute
@@ -2719,10 +2514,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a developer. Once created,
- *  the developer can register an app and obtain an API key.
- *  At creation time, a developer is set as `active`. To change the developer
- *  status, use the SetDeveloperStatus API.
+ *  Creates a developer. Once created, the developer can register an app and
+ *  obtain an API key. At creation time, a developer is set as `active`. To
+ *  change the developer status, use the SetDeveloperStatus API.
  *
  *  Method: apigee.organizations.developers.create
  *
@@ -2735,24 +2529,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Apigee organization in which the developer is created.
- *  Use the following structure in your request:
- *  `organizations/{org}`.
+ *  Use the following structure in your request: `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Developer.
  *
- *  Creates a developer. Once created,
- *  the developer can register an app and obtain an API key.
- *  At creation time, a developer is set as `active`. To change the developer
- *  status, use the SetDeveloperStatus API.
+ *  Creates a developer. Once created, the developer can register an app and
+ *  obtain an API key. At creation time, a developer is set as `active`. To
+ *  change the developer status, use the SetDeveloperStatus API.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Developer to include in
  *    the query.
  *  @param parent Required. Name of the Apigee organization in which the
- *    developer is created.
- *    Use the following structure in your request:
+ *    developer is created. Use the following structure in your request:
  *    `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersCreate
@@ -2763,17 +2554,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a developer. All apps and API keys associated
- *  with the developer are also removed.
- *  **Warning**: This API will permanently delete the developer
- *  and related artifacts.
- *  To avoid permanently deleting developers and their artifacts,
- *  set the developer status to `inactive` using
- *  the SetDeveloperStatus API.
- *  **Note**: The delete operation is asynchronous. The developer app is
- *  deleted immediately,
- *  but its associated resources, such as apps and API keys, may take anywhere
- *  from a few seconds to a few minutes to be deleted.
+ *  Deletes a developer. All apps and API keys associated with the developer are
+ *  also removed. **Warning**: This API will permanently delete the developer
+ *  and related artifacts. To avoid permanently deleting developers and their
+ *  artifacts, set the developer status to `inactive` using the
+ *  SetDeveloperStatus API. **Note**: The delete operation is asynchronous. The
+ *  developer app is deleted immediately, but its associated resources, such as
+ *  apps and API keys, may take anywhere from a few seconds to a few minutes to
+ *  be deleted.
  *
  *  Method: apigee.organizations.developers.delete
  *
@@ -2786,30 +2574,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Email address of the developer. Use the following structure in
- *  your
- *  request:
- *  `organizations/{org}/developers/{developer_email}`
+ *  your request: `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Developer.
  *
- *  Deletes a developer. All apps and API keys associated
- *  with the developer are also removed.
- *  **Warning**: This API will permanently delete the developer
- *  and related artifacts.
- *  To avoid permanently deleting developers and their artifacts,
- *  set the developer status to `inactive` using
- *  the SetDeveloperStatus API.
- *  **Note**: The delete operation is asynchronous. The developer app is
- *  deleted immediately,
- *  but its associated resources, such as apps and API keys, may take anywhere
- *  from a few seconds to a few minutes to be deleted.
+ *  Deletes a developer. All apps and API keys associated with the developer are
+ *  also removed. **Warning**: This API will permanently delete the developer
+ *  and related artifacts. To avoid permanently deleting developers and their
+ *  artifacts, set the developer status to `inactive` using the
+ *  SetDeveloperStatus API. **Note**: The delete operation is asynchronous. The
+ *  developer app is deleted immediately, but its associated resources, such as
+ *  apps and API keys, may take anywhere from a few seconds to a few minutes to
+ *  be deleted.
  *
  *  @param name Required. Email address of the developer. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersDelete
@@ -2819,9 +2601,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the developer details, including the
- *  developer's name, email address, apps, and other information.
- *  **Note**: The response includes only the first 100 developer apps.
+ *  Returns the developer details, including the developer's name, email
+ *  address, apps, and other information. **Note**: The response includes only
+ *  the first 100 developer apps.
  *
  *  Method: apigee.organizations.developers.get
  *
@@ -2837,22 +2619,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Email address of the developer. Use the following structure in
- *  your
- *  request:
- *  `organizations/{org}/developers/{developer_email}`
+ *  your request: `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Developer.
  *
- *  Returns the developer details, including the
- *  developer's name, email address, apps, and other information.
- *  **Note**: The response includes only the first 100 developer apps.
+ *  Returns the developer details, including the developer's name, email
+ *  address, apps, and other information. **Note**: The response includes only
+ *  the first 100 developer apps.
  *
  *  @param name Required. Email address of the developer. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersGet
@@ -2862,13 +2641,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all developers in an organization by email address.
- *  By default,
- *  the response does not include company developers. Set the `includeCompany`
- *  query parameter to `true` to include company developers.
- *  **Note**: A maximum of 1000 developers are returned in the response. You
- *  paginate the list of developers returned using the `startKey` and `count`
- *  query parameters.
+ *  Lists all developers in an organization by email address. By default, the
+ *  response does not include company developers. Set the `includeCompany` query
+ *  parameter to `true` to include company developers. **Note**: A maximum of
+ *  1000 developers are returned in the response. You paginate the list of
+ *  developers returned using the `startKey` and `count` query parameters.
  *
  *  Method: apigee.organizations.developers.list
  *
@@ -2881,16 +2658,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Number of developers to return in the API call. Use with the
- *  `startKey`
- *  parameter to provide more targeted filtering.
- *  The limit is 1000.
+ *  `startKey` parameter to provide more targeted filtering. The limit is 1000.
  */
 @property(nonatomic, assign) long long count;
 
 /**
- *  Specifies whether to expand the results. Set to `true`
- *  to expand the results. This query parameter is not valid if you use
- *  the `count` or `startKey` query parameters.
+ *  Specifies whether to expand the results. Set to `true` to expand the
+ *  results. This query parameter is not valid if you use the `count` or
+ *  `startKey` query parameters.
  */
 @property(nonatomic, assign) BOOL expand;
 
@@ -2902,44 +2677,31 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Apigee organization. Use the following structure in
- *  your
- *  request:
- *  `organizations/{org}`.
+ *  your request: `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  **Note**: Must be used in conjunction with the `count` parameter.
- *  Email address of the developer from which to start displaying the list of
- *  developers. For example, if the an unfiltered list returns:
- *  ```
- *  westley\@example.com
- *  fezzik\@example.com
- *  buttercup\@example.com
- *  ```
- *  and your `startKey` is `fezzik\@example.com`, the list returned will be
- *  ```
- *  fezzik\@example.com
- *  buttercup\@example.com
- *  ```
+ *  **Note**: Must be used in conjunction with the `count` parameter. Email
+ *  address of the developer from which to start displaying the list of
+ *  developers. For example, if the an unfiltered list returns: ```
+ *  westley\@example.com fezzik\@example.com buttercup\@example.com ``` and your
+ *  `startKey` is `fezzik\@example.com`, the list returned will be ```
+ *  fezzik\@example.com buttercup\@example.com ```
  */
 @property(nonatomic, copy, nullable) NSString *startKey;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListOfDevelopersResponse.
  *
- *  Lists all developers in an organization by email address.
- *  By default,
- *  the response does not include company developers. Set the `includeCompany`
- *  query parameter to `true` to include company developers.
- *  **Note**: A maximum of 1000 developers are returned in the response. You
- *  paginate the list of developers returned using the `startKey` and `count`
- *  query parameters.
+ *  Lists all developers in an organization by email address. By default, the
+ *  response does not include company developers. Set the `includeCompany` query
+ *  parameter to `true` to include company developers. **Note**: A maximum of
+ *  1000 developers are returned in the response. You paginate the list of
+ *  developers returned using the `startKey` and `count` query parameters.
  *
  *  @param parent Required. Name of the Apigee organization. Use the following
- *    structure in your
- *    request:
- *    `organizations/{org}`.
+ *    structure in your request: `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersList
  */
@@ -2948,14 +2710,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the status of a developer. Valid values are `active` or `inactive`.
- *  A developer is `active` by default. If you set a developer's status to
+ *  Sets the status of a developer. Valid values are `active` or `inactive`. A
+ *  developer is `active` by default. If you set a developer's status to
  *  `inactive`, the API keys assigned to the developer apps are no longer valid
- *  even though the API keys are set to `approved`. Inactive developers
- *  can still sign in to the developer portal and create apps; however, any
- *  new API keys generated during app creation won't work.
- *  If successful, the API call returns the
- *  following HTTP status code: `204 No Content`
+ *  even though the API keys are set to `approved`. Inactive developers can
+ *  still sign in to the developer portal and create apps; however, any new API
+ *  keys generated during app creation won't work. If successful, the API call
+ *  returns the following HTTP status code: `204 No Content`
  *
  *  Method: apigee.organizations.developers.setDeveloperStatus
  *
@@ -2971,27 +2732,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Email address of the developer. Use the following structure in
- *  your
- *  request:
- *  `organizations/{org}/developers/{developer_email}`
+ *  your request: `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
- *  Sets the status of a developer. Valid values are `active` or `inactive`.
- *  A developer is `active` by default. If you set a developer's status to
+ *  Sets the status of a developer. Valid values are `active` or `inactive`. A
+ *  developer is `active` by default. If you set a developer's status to
  *  `inactive`, the API keys assigned to the developer apps are no longer valid
- *  even though the API keys are set to `approved`. Inactive developers
- *  can still sign in to the developer portal and create apps; however, any
- *  new API keys generated during app creation won't work.
- *  If successful, the API call returns the
- *  following HTTP status code: `204 No Content`
+ *  even though the API keys are set to `approved`. Inactive developers can
+ *  still sign in to the developer portal and create apps; however, any new API
+ *  keys generated during app creation won't work. If successful, the API call
+ *  returns the following HTTP status code: `204 No Content`
  *
  *  @param name Required. Email address of the developer. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersSetDeveloperStatus
@@ -3001,17 +2758,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a developer.
- *  This API replaces the existing developer details with those specified
- *  in the request. Include or exclude any existing details that
- *  you want to retain or delete, respectively.
- *  The custom attribute limit is 18.
- *  **Note**: OAuth access tokens and Key Management Service (KMS) entities
- *  (apps, developers, and API products) are cached for 180 seconds
- *  (current default). Any custom attributes associated with these entities
- *  are cached for at least 180 seconds after the entity is accessed at
- *  runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
- *  won't be able to expire an access token in less than 180 seconds.
+ *  Updates a developer. This API replaces the existing developer details with
+ *  those specified in the request. Include or exclude any existing details that
+ *  you want to retain or delete, respectively. The custom attribute limit is
+ *  18. **Note**: OAuth access tokens and Key Management Service (KMS) entities
+ *  (apps, developers, and API products) are cached for 180 seconds (current
+ *  default). Any custom attributes associated with these entities are cached
+ *  for at least 180 seconds after the entity is accessed at runtime. Therefore,
+ *  an `ExpiresIn` element on the OAuthV2 policy won't be able to expire an
+ *  access token in less than 180 seconds.
  *
  *  Method: apigee.organizations.developers.update
  *
@@ -3024,32 +2779,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Email address of the developer. Use the following structure in
- *  your
- *  request:
- *  `organizations/{org}/developers/{developer_email}`
+ *  your request: `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Developer.
  *
- *  Updates a developer.
- *  This API replaces the existing developer details with those specified
- *  in the request. Include or exclude any existing details that
- *  you want to retain or delete, respectively.
- *  The custom attribute limit is 18.
- *  **Note**: OAuth access tokens and Key Management Service (KMS) entities
- *  (apps, developers, and API products) are cached for 180 seconds
- *  (current default). Any custom attributes associated with these entities
- *  are cached for at least 180 seconds after the entity is accessed at
- *  runtime. Therefore, an `ExpiresIn` element on the OAuthV2 policy
- *  won't be able to expire an access token in less than 180 seconds.
+ *  Updates a developer. This API replaces the existing developer details with
+ *  those specified in the request. Include or exclude any existing details that
+ *  you want to retain or delete, respectively. The custom attribute limit is
+ *  18. **Note**: OAuth access tokens and Key Management Service (KMS) entities
+ *  (apps, developers, and API products) are cached for 180 seconds (current
+ *  default). Any custom attributes associated with these entities are cached
+ *  for at least 180 seconds after the entity is accessed at runtime. Therefore,
+ *  an `ExpiresIn` element on the OAuthV2 policy won't be able to expire an
+ *  access token in less than 180 seconds.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Developer to include in
  *    the query.
  *  @param name Required. Email address of the developer. Use the following
- *    structure in your
- *    request:
+ *    structure in your request:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersUpdate
@@ -3073,8 +2823,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. EnvironmentGroup under which to create the attachment in the
- *  following
- *  format: `organizations/{org}/envgroups/{envgroup}`.
+ *  following format: `organizations/{org}/envgroups/{envgroup}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3087,8 +2836,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment to include in the
  *    query.
  *  @param parent Required. EnvironmentGroup under which to create the
- *    attachment in the following
- *    format: `organizations/{org}/envgroups/{envgroup}`.
+ *    attachment in the following format:
+ *    `organizations/{org}/envgroups/{envgroup}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsCreate
  */
@@ -3233,8 +2982,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the organization in which to create the environment group
- *  in the
- *  following format: `organizations/{org}`.
+ *  in the following format: `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3246,8 +2994,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup to
  *    include in the query.
  *  @param parent Required. Name of the organization in which to create the
- *    environment group in the
- *    following format: `organizations/{org}`.
+ *    environment group in the following format: `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvgroupsCreate
  */
@@ -3333,8 +3080,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvgroupsListWithparent:]
 
 /**
- *  Maximum number of environment groups to return. The page size defaults
- *  to 25.
+ *  Maximum number of environment groups to return. The page size defaults to
+ *  25.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -3346,8 +3093,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the organization for which to list environment groups in
- *  the
- *  following format: `organizations/{org}`.
+ *  the following format: `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3357,8 +3103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all environment groups.
  *
  *  @param parent Required. Name of the organization for which to list
- *    environment groups in the
- *    following format: `organizations/{org}`.
+ *    environment groups in the following format: `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvgroupsList
  *
@@ -3414,9 +3159,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Get a list of metrics and dimensions which can be used for creating
- *  analytics queries and reports.
- *  Each schema element contains the name of the field with its associated type
- *  and if it is either custom field or standard field.
+ *  analytics queries and reports. Each schema element contains the name of the
+ *  field with its associated type and if it is either custom field or standard
+ *  field.
  *
  *  Method: apigee.organizations.environments.analytics.admin.getSchemav2
  *
@@ -3428,14 +3173,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsAdminGetSchemav2Withname:]
 
 /**
- *  Required. The parent organization and environment names. Must be of the
- *  form `organizations/{org}/environments/{env}/analytics/admin/schemav2`.
+ *  Required. The parent organization and environment names. Must be of the form
+ *  `organizations/{org}/environments/{env}/analytics/admin/schemav2`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Type refers to the dataset name whose schema needs to be
- *  retrieved E.g. type=fact or type=agg_cus1
+ *  Required. Type refers to the dataset name whose schema needs to be retrieved
+ *  E.g. type=fact or type=agg_cus1
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3443,13 +3188,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Schema.
  *
  *  Get a list of metrics and dimensions which can be used for creating
- *  analytics queries and reports.
- *  Each schema element contains the name of the field with its associated type
- *  and if it is either custom field or standard field.
+ *  analytics queries and reports. Each schema element contains the name of the
+ *  field with its associated type and if it is either custom field or standard
+ *  field.
  *
  *  @param name Required. The parent organization and environment names. Must be
- *    of the
- *    form `organizations/{org}/environments/{env}/analytics/admin/schemav2`.
+ *    of the form
+ *    `organizations/{org}/environments/{env}/analytics/admin/schemav2`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsAdminGetSchemav2
  */
@@ -3458,10 +3203,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Submit a data export job to be processed in the background.
- *  If the request is successful, the API returns a 201 status, a URI that can
- *  be used to retrieve the status of the export job, and the `state` value of
- *  "enqueued".
+ *  Submit a data export job to be processed in the background. If the request
+ *  is successful, the API returns a 201 status, a URI that can be used to
+ *  retrieve the status of the export job, and the `state` value of "enqueued".
  *
  *  Method: apigee.organizations.environments.analytics.exports.create
  *
@@ -3473,18 +3217,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsCreateWithObject:parent:]
 
 /**
- *  Required. Names of the parent organization and environment.
- *  Must be of the form `organizations/{org}/environments/{env}`.
+ *  Required. Names of the parent organization and environment. Must be of the
+ *  form `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Export.
  *
- *  Submit a data export job to be processed in the background.
- *  If the request is successful, the API returns a 201 status, a URI that can
- *  be used to retrieve the status of the export job, and the `state` value of
- *  "enqueued".
+ *  Submit a data export job to be processed in the background. If the request
+ *  is successful, the API returns a 201 status, a URI that can be used to
+ *  retrieve the status of the export job, and the `state` value of "enqueued".
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ExportRequest to include
  *    in the query.
@@ -3499,11 +3242,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the details and status of an analytics export job.
- *  If the export job is still in progress, its `state` is set to "running".
- *  After the export job has completed successfully, its `state` is set to
- *  "completed".
- *  If the export job fails, its `state` is set to `failed`.
+ *  Gets the details and status of an analytics export job. If the export job is
+ *  still in progress, its `state` is set to "running". After the export job has
+ *  completed successfully, its `state` is set to "completed". If the export job
+ *  fails, its `state` is set to `failed`.
  *
  *  Method: apigee.organizations.environments.analytics.exports.get
  *
@@ -3520,11 +3262,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Export.
  *
- *  Gets the details and status of an analytics export job.
- *  If the export job is still in progress, its `state` is set to "running".
- *  After the export job has completed successfully, its `state` is set to
- *  "completed".
- *  If the export job fails, its `state` is set to `failed`.
+ *  Gets the details and status of an analytics export job. If the export job is
+ *  still in progress, its `state` is set to "running". After the export job has
+ *  completed successfully, its `state` is set to "completed". If the export job
+ *  fails, its `state` is set to `failed`.
  *
  *  @param name Required. Resource name of the export to get.
  *
@@ -3548,8 +3289,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsListWithparent:]
 
 /**
- *  Required. Names of the parent organization and environment.
- *  Must be of the form `organizations/{org}/environments/{env}`.
+ *  Required. Names of the parent organization and environment. Must be of the
+ *  form `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3582,8 +3323,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name representing an API proxy in an environment in the following
- *  format:
- *  `organizations/{org}/environments/{env}/apis/{api}`
+ *  format: `organizations/{org}/environments/{env}/apis/{api}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3593,9 +3333,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all deployments of an API proxy in an environment.
  *
  *  @param parent Required. Name representing an API proxy in an environment in
- *    the following
- *    format:
- *    `organizations/{org}/environments/{env}/apis/{api}`
+ *    the following format: `organizations/{org}/environments/{env}/apis/{api}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisDeploymentsList
  */
@@ -3623,8 +3361,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. The time in seconds after which this DebugSession should end.
- *  A timeout specified in DebugSession will overwrite this value.
+ *  Optional. The time in seconds after which this DebugSession should end. A
+ *  timeout specified in DebugSession will overwrite this value.
  */
 @property(nonatomic, assign) long long timeout;
 
@@ -3636,8 +3374,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DebugSession to include
  *    in the query.
  *  @param parent Required. The resource name of the API Proxy revision
- *    deployment for which
- *    to create the DebugSession. Must be of the form
+ *    deployment for which to create the DebugSession. Must be of the form
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsCreate
@@ -3682,8 +3419,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes the data from a debug session. This does not cancel the debug
- *  session or prevent further data from being collected if the session is
- *  still active in runtime pods.
+ *  session or prevent further data from being collected if the session is still
+ *  active in runtime pods.
  *
  *  Method: apigee.organizations.environments.apis.revisions.debugsessions.deleteData
  *
@@ -3695,8 +3432,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsDeleteDataWithname:]
 
 /**
- *  Required. The name of the debug session to delete.
- *  Must be of the form:
+ *  Required. The name of the debug session to delete. Must be of the form:
  *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debugsession}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3705,11 +3441,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
  *  Deletes the data from a debug session. This does not cancel the debug
- *  session or prevent further data from being collected if the session is
- *  still active in runtime pods.
+ *  session or prevent further data from being collected if the session is still
+ *  active in runtime pods.
  *
- *  @param name Required. The name of the debug session to delete.
- *    Must be of the form:
+ *  @param name Required. The name of the debug session to delete. Must be of
+ *    the form:
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{debugsession}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsDeleteData
@@ -3731,8 +3467,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsGetWithname:]
 
 /**
- *  Required. The name of the debug session to retrieve.
- *  Must be of the form:
+ *  Required. The name of the debug session to retrieve. Must be of the form:
  *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3742,8 +3477,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Retrieves a debug session.
  *
- *  @param name Required. The name of the debug session to retrieve.
- *    Must be of the form:
+ *  @param name Required. The name of the debug session to retrieve. Must be of
+ *    the form:
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}/debugsessions/{session}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsGet
@@ -3766,20 +3501,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsListWithparent:]
 
 /**
- *  Maximum number of debug sessions to return. The page size defaults
- *  to 25.
+ *  Maximum number of debug sessions to return. The page size defaults to 25.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token, returned from a previous ListDebugSessions call, that you
- *  can use to retrieve the next page.
+ *  Page token, returned from a previous ListDebugSessions call, that you can
+ *  use to retrieve the next page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the API Proxy revision deployment for which
- *  to list debug sessions. Must be of the form:
+ *  Required. The name of the API Proxy revision deployment for which to list
+ *  debug sessions. Must be of the form:
  *  `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3791,8 +3525,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  revision.
  *
  *  @param parent Required. The name of the API Proxy revision deployment for
- *    which
- *    to list debug sessions. Must be of the form:
+ *    which to list debug sessions. Must be of the form:
  *    `organizations/{organization}/environments/{environment}/apis/{api}/revisions/{revision}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsList
@@ -3806,19 +3539,22 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Undeploys an API proxy revision from an environment.
- *  Because multiple revisions of the same API proxy can be deployed in
- *  the same environment if the base paths are different, you must specify the
- *  revision number of the API proxy.
+ *  Deploys a revision of an API proxy. If an API proxy revision is currently
+ *  deployed, to ensure seamless deployment with zero downtime set the
+ *  `override` parameter to `true`. In this case, hybrid attempts to deploy the
+ *  new revision fully before undeploying the existing revision. You cannot
+ *  invoke an API proxy until it has been deployed to an environment. After you
+ *  deploy an API proxy revision, you cannot edit it. To edit the API proxy, you
+ *  must create and deploy a new revision.
  *
- *  Method: apigee.organizations.environments.apis.revisions.deployments
+ *  Method: apigee.organizations.environments.apis.revisions.deploy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
-@interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeployments : GTLRApigeeQuery
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploy : GTLRApigeeQuery
 // Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeploymentsWithname:]
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeployWithname:]
 
 /**
  *  Required. Name of the API proxy revision deployment in the following format:
@@ -3827,31 +3563,45 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If true, a best-effort attempt will be made to remove the environment group
- *  routing rules corresponding to this deployment before removing the
- *  deployment from the runtime. This is likely to be a rare use case; it is
- *  only needed when the intended effect of undeploying this proxy is to cause
- *  the traffic it currently handles to be rerouted to some other existing
- *  proxy in the environment group. The GenerateUndeployChangeReport API may be
- *  used to examine routing changes before issuing the undeployment request,
- *  and its response will indicate if a sequenced rollout is recommended for
- *  the undeployment.
+ *  Flag that specifies whether the new deployment replaces other deployed
+ *  revisions of the API proxy in the environment. Set override to true to
+ *  replace other deployed revisions. By default, override is false and the
+ *  deployment is rejected if other revisions of the API proxy are deployed in
+ *  the environment.
+ */
+@property(nonatomic, assign) BOOL override;
+
+/**
+ *  If true, a best-effort attempt will be made to roll out the routing rules
+ *  corresponding to this deployment and the environment changes to add this
+ *  deployment in a safe order. This reduces the risk of downtime that could be
+ *  caused by changing the environment group's routing before the new
+ *  destination for the affected traffic is ready to receive it. This should
+ *  only be necessary if the new deployment will be capturing traffic from
+ *  another environment under a shared environment group or if traffic will be
+ *  rerouted to a different environment due to a basepath removal. The
+ *  GenerateDeployChangeReport API may be used to examine routing changes before
+ *  issuing the deployment request, and its response will indicate if a
+ *  sequenced rollout is recommended for the deployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
 
 /**
- *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
  *
- *  Undeploys an API proxy revision from an environment.
- *  Because multiple revisions of the same API proxy can be deployed in
- *  the same environment if the base paths are different, you must specify the
- *  revision number of the API proxy.
+ *  Deploys a revision of an API proxy. If an API proxy revision is currently
+ *  deployed, to ensure seamless deployment with zero downtime set the
+ *  `override` parameter to `true`. In this case, hybrid attempts to deploy the
+ *  new revision fully before undeploying the existing revision. You cannot
+ *  invoke an API proxy until it has been deployed to an environment. After you
+ *  deploy an API proxy revision, you cannot edit it. To edit the API proxy, you
+ *  must create and deploy a new revision.
  *
  *  @param name Required. Name of the API proxy revision deployment in the
  *    following format:
  *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
  *
- *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeployments
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploy
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -3859,12 +3609,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Generates a report for a dry run analysis of a DeployApiProxy request
- *  without committing the deployment.
- *  In addition to the standard validations performed when adding deployments,
- *  additional analysis will be done to detect possible traffic routing changes
- *  that would result from this deployment being created. Any potential routing
- *  conflicts or unsafe changes will be reported in the response. This routing
- *  analysis is not performed for a non-dry-run DeployApiProxy request.
+ *  without committing the deployment. In addition to the standard validations
+ *  performed when adding deployments, additional analysis will be done to
+ *  detect possible traffic routing changes that would result from this
+ *  deployment being created. Any potential routing conflicts or unsafe changes
+ *  will be reported in the response. This routing analysis is not performed for
+ *  a non-dry-run DeployApiProxy request.
  *
  *  Method: apigee.organizations.environments.apis.revisions.deployments.generateDeployChangeReport
  *
@@ -3888,8 +3638,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Flag that specifies whether to force the deployment of the new revision
- *  over the currently deployed revision by overriding conflict checks.
+ *  Flag that specifies whether to force the deployment of the new revision over
+ *  the currently deployed revision by overriding conflict checks.
  */
 @property(nonatomic, assign) BOOL override;
 
@@ -3897,12 +3647,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReport.
  *
  *  Generates a report for a dry run analysis of a DeployApiProxy request
- *  without committing the deployment.
- *  In addition to the standard validations performed when adding deployments,
- *  additional analysis will be done to detect possible traffic routing changes
- *  that would result from this deployment being created. Any potential routing
- *  conflicts or unsafe changes will be reported in the response. This routing
- *  analysis is not performed for a non-dry-run DeployApiProxy request.
+ *  without committing the deployment. In addition to the standard validations
+ *  performed when adding deployments, additional analysis will be done to
+ *  detect possible traffic routing changes that would result from this
+ *  deployment being created. Any potential routing conflicts or unsafe changes
+ *  will be reported in the response. This routing analysis is not performed for
+ *  a non-dry-run DeployApiProxy request.
  *
  *  @param name Name of the API proxy revision deployment in the following
  *    format:
@@ -3916,13 +3666,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Generates a report for a dry run analysis of an UndeployApiProxy request
- *  without committing the undeploy.
- *  In addition to the standard validations performed when removing
- *  deployments, additional analysis will be done to detect possible traffic
- *  routing changes that would result from this deployment being removed. Any
- *  potential routing conflicts or unsafe changes will be reported in the
- *  response. This routing analysis is not performed for a non-dry-run
- *  UndeployApiProxy request.
+ *  without committing the undeploy. In addition to the standard validations
+ *  performed when removing deployments, additional analysis will be done to
+ *  detect possible traffic routing changes that would result from this
+ *  deployment being removed. Any potential routing conflicts or unsafe changes
+ *  will be reported in the response. This routing analysis is not performed for
+ *  a non-dry-run UndeployApiProxy request.
  *
  *  Method: apigee.organizations.environments.apis.revisions.deployments.generateUndeployChangeReport
  *
@@ -3943,13 +3692,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReport.
  *
  *  Generates a report for a dry run analysis of an UndeployApiProxy request
- *  without committing the undeploy.
- *  In addition to the standard validations performed when removing
- *  deployments, additional analysis will be done to detect possible traffic
- *  routing changes that would result from this deployment being removed. Any
- *  potential routing conflicts or unsafe changes will be reported in the
- *  response. This routing analysis is not performed for a non-dry-run
- *  UndeployApiProxy request.
+ *  without committing the undeploy. In addition to the standard validations
+ *  performed when removing deployments, additional analysis will be done to
+ *  detect possible traffic routing changes that would result from this
+ *  deployment being removed. Any potential routing conflicts or unsafe changes
+ *  will be reported in the response. This routing analysis is not performed for
+ *  a non-dry-run UndeployApiProxy request.
  *
  *  @param name Name of the API proxy revision deployment in the following
  *    format:
@@ -3975,8 +3723,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsGetDeploymentsWithname:]
 
 /**
- *  Required. Name representing an API proxy revision in an
- *  environment in the following format:
+ *  Required. Name representing an API proxy revision in an environment in the
+ *  following format:
  *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3992,6 +3740,58 @@ NS_ASSUME_NONNULL_BEGIN
  *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsGetDeployments
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Undeploys an API proxy revision from an environment. Because multiple
+ *  revisions of the same API proxy can be deployed in the same environment if
+ *  the base paths are different, you must specify the revision number of the
+ *  API proxy.
+ *
+ *  Method: apigee.organizations.environments.apis.revisions.undeploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsUndeploy : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsUndeployWithname:]
+
+/**
+ *  Required. Name of the API proxy revision deployment in the following format:
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If true, a best-effort attempt will be made to remove the environment group
+ *  routing rules corresponding to this deployment before removing the
+ *  deployment from the runtime. This is likely to be a rare use case; it is
+ *  only needed when the intended effect of undeploying this proxy is to cause
+ *  the traffic it currently handles to be rerouted to some other existing proxy
+ *  in the environment group. The GenerateUndeployChangeReport API may be used
+ *  to examine routing changes before issuing the undeployment request, and its
+ *  response will indicate if a sequenced rollout is recommended for the
+ *  undeployment.
+ */
+@property(nonatomic, assign) BOOL sequencedRollout;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Undeploys an API proxy revision from an environment. Because multiple
+ *  revisions of the same API proxy can be deployed in the same environment if
+ *  the base paths are different, you must specify the revision number of the
+ *  API proxy.
+ *
+ *  @param name Required. Name of the API proxy revision deployment in the
+ *    following format:
+ *    `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsUndeploy
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -4042,16 +3842,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsCreateWithObject:parent:]
 
 /**
- *  Optional. Name of the environment. Alternatively, the name may
- *  be specified in the request body in the
- *  name field.
+ *  Optional. Name of the environment. Alternatively, the name may be specified
+ *  in the request body in the name field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Name of the organization in which the environment will
- *  be created. Use the following structure in your request:
- *  `organizations/{org}`
+ *  Required. Name of the organization in which the environment will be created.
+ *  Use the following structure in your request: `organizations/{org}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4063,8 +3861,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Environment to include in
  *    the query.
  *  @param parent Required. Name of the organization in which the environment
- *    will
- *    be created. Use the following structure in your request:
+ *    will be created. Use the following structure in your request:
  *    `organizations/{org}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsCreate
@@ -4088,8 +3885,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment. Use the following structure in your
- *  request:
- *  `organizations/{org}/environments/{env}`
+ *  request: `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4099,9 +3895,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an environment from an organization.
  *
  *  @param name Required. Name of the environment. Use the following structure
- *    in your
- *    request:
- *    `organizations/{org}/environments/{env}`
+ *    in your request: `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsDelete
  */
@@ -4123,16 +3917,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment for which to return deployment information
- *  in the
- *  following format:
- *  `organizations/{org}/environments/{env}`
+ *  in the following format: `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. Flag that specifies whether to return shared flow or API proxy
- *  deployments.
- *  Set to `true` to return shared flow deployments; set to `false`
+ *  deployments. Set to `true` to return shared flow deployments; set to `false`
  *  to return API proxy deployments. Defaults to `false`.
  */
 @property(nonatomic, assign) BOOL sharedFlows;
@@ -4143,8 +3934,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all deployments of API proxies or shared flows in an environment.
  *
  *  @param parent Required. Name of the environment for which to return
- *    deployment information in the
- *    following format:
+ *    deployment information in the following format:
  *    `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsList
@@ -4166,8 +3956,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsFlowhooksAttachSharedFlowToFlowHookWithObject:name:]
 
 /**
- *  Required. Name of the flow hook to which the shared flow should be
- *  attached in the following format:
+ *  Required. Name of the flow hook to which the shared flow should be attached
+ *  in the following format:
  *  `organizations/{org}/environments/{env}/flowhooks/{flowhook}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4180,8 +3970,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1FlowHook to include in
  *    the query.
  *  @param name Required. Name of the flow hook to which the shared flow should
- *    be
- *    attached in the following format:
+ *    be attached in the following format:
  *    `organizations/{org}/environments/{env}/flowhooks/{flowhook}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsFlowhooksAttachSharedFlowToFlowHook
@@ -4215,8 +4004,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Detaches a shared flow from a flow hook.
  *
  *  @param name Required. Name of the flow hook to detach in the following
- *    format:
- *    `organizations/{org}/environments/{env}/flowhooks/{flowhook}`
+ *    format: `organizations/{org}/environments/{env}/flowhooks/{flowhook}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsFlowhooksDetachSharedFlowFromFlowHook
  */
@@ -4226,8 +4014,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns the name of the shared flow attached to the specified flow hook. If
- *  there's no shared flow attached to the flow hook, the API does not return
- *  an error; it simply does not return a name in the response.
+ *  there's no shared flow attached to the flow hook, the API does not return an
+ *  error; it simply does not return a name in the response.
  *
  *  Method: apigee.organizations.environments.flowhooks.get
  *
@@ -4248,8 +4036,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1FlowHook.
  *
  *  Returns the name of the shared flow attached to the specified flow hook. If
- *  there's no shared flow attached to the flow hook, the API does not return
- *  an error; it simply does not return a name in the response.
+ *  there's no shared flow attached to the flow hook, the API does not return an
+ *  error; it simply does not return a name in the response.
  *
  *  @param name Required. Name of the flow hook in the following format:
  *    `organizations/{org}/environments/{env}/flowhooks/{flowhook}`
@@ -4274,8 +4062,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment. Use the following structure in your
- *  request:
- *  `organizations/{org}/environments/{env}`
+ *  request: `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4285,8 +4072,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets environment details.
  *
  *  @param name Required. Name of the environment. Use the following structure
- *    in your request:
- *    `organizations/{org}/environments/{env}`
+ *    in your request: `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGet
  */
@@ -4308,8 +4094,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the debug mask. Use the following structure in your
- *  request:
- *  `organizations/{org}/environments/{env}/debugmask`.
+ *  request: `organizations/{org}/environments/{env}/debugmask`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4319,8 +4104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the debug mask singleton resource for an environment.
  *
  *  @param name Required. Name of the debug mask. Use the following structure in
- *    your request:
- *    `organizations/{org}/environments/{env}/debugmask`.
+ *    your request: `organizations/{org}/environments/{env}/debugmask`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetDebugmask
  */
@@ -4342,8 +4126,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment deployed configuration resource. Use the
- *  following
- *  structure in your request:
+ *  following structure in your request:
  *  `organizations/{org}/environments/{env}/deployedConfig`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4354,8 +4137,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the deployed configuration for an environment.
  *
  *  @param name Required. Name of the environment deployed configuration
- *    resource. Use the following
- *    structure in your request:
+ *    resource. Use the following structure in your request:
  *    `organizations/{org}/environments/{env}/deployedConfig`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetDeployedConfig
@@ -4365,11 +4147,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the IAM policy on an environment. For more information, see
- *  [Manage users, roles, and permissions
- *  using the API](https://docs.apigee.com/hybrid/latest/manage-users-roles).
- *  You must have the `apigee.environments.getIamPolicy` permission to call
- *  this API.
+ *  Gets the IAM policy on an environment. For more information, see [Manage
+ *  users, roles, and permissions using the
+ *  API](https://docs.apigee.com/hybrid/latest/manage-users-roles). You must
+ *  have the `apigee.environments.getIamPolicy` permission to call this API.
  *
  *  Method: apigee.organizations.environments.getIamPolicy
  *
@@ -4381,36 +4162,33 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleIamV1Policy.
  *
- *  Gets the IAM policy on an environment. For more information, see
- *  [Manage users, roles, and permissions
- *  using the API](https://docs.apigee.com/hybrid/latest/manage-users-roles).
- *  You must have the `apigee.environments.getIamPolicy` permission to call
- *  this API.
+ *  Gets the IAM policy on an environment. For more information, see [Manage
+ *  users, roles, and permissions using the
+ *  API](https://docs.apigee.com/hybrid/latest/manage-users-roles). You must
+ *  have the `apigee.environments.getIamPolicy` permission to call this API.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetIamPolicy
  */
@@ -4419,16 +4197,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an alias from a key, certificate pair.
- *  The structure of the request is controlled by the `format` query parameter:
- *  * `keycertfile` - Separate PEM-encoded key and certificate files are
- *  uploaded. The request must have `Content-Type: multipart/form-data` and
- *  include fields `keyFile` and `certFile`. If uploading to a truststore,
- *  omit `keyFile`.
- *  * `pkcs12` - A PKCS12 file is uploaded. The request must have
- *  `Content-Type: multipart/form-data` with the file provided in the only
- *  field.
- *  * `selfsignedcert` - A new private key and certificate are generated. The
+ *  Creates an alias from a key, certificate pair. The structure of the request
+ *  is controlled by the `format` query parameter: * `keycertfile` - Separate
+ *  PEM-encoded key and certificate files are uploaded. The request must have
+ *  `Content-Type: multipart/form-data` and include fields `keyFile` and
+ *  `certFile`. If uploading to a truststore, omit `keyFile`. * `pkcs12` - A
+ *  PKCS12 file is uploaded. The request must have `Content-Type:
+ *  multipart/form-data` with the file provided in the only field. *
+ *  `selfsignedcert` - A new private key and certificate are generated. The
  *  request must have `Content-Type: application/json` and a body of
  *  CertificateGenerationSpec.
  *
@@ -4445,11 +4221,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *xPassword;
 
 /**
- *  The alias for the key, certificate pair. Values must match
- *  regular expression `[\\w\\s-.]{1,255}`. This must be provided for all
- *  formats
- *  except 'selfsignedcert'; self-signed certs may specify the alias in either
- *  this parameter or the JSON body.
+ *  The alias for the key, certificate pair. Values must match regular
+ *  expression `[\\w\\s-.]{1,255}`. This must be provided for all formats except
+ *  'selfsignedcert'; self-signed certs may specify the alias in either this
+ *  parameter or the JSON body.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
@@ -4478,16 +4253,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Alias.
  *
- *  Creates an alias from a key, certificate pair.
- *  The structure of the request is controlled by the `format` query parameter:
- *  * `keycertfile` - Separate PEM-encoded key and certificate files are
- *  uploaded. The request must have `Content-Type: multipart/form-data` and
- *  include fields `keyFile` and `certFile`. If uploading to a truststore,
- *  omit `keyFile`.
- *  * `pkcs12` - A PKCS12 file is uploaded. The request must have
- *  `Content-Type: multipart/form-data` with the file provided in the only
- *  field.
- *  * `selfsignedcert` - A new private key and certificate are generated. The
+ *  Creates an alias from a key, certificate pair. The structure of the request
+ *  is controlled by the `format` query parameter: * `keycertfile` - Separate
+ *  PEM-encoded key and certificate files are uploaded. The request must have
+ *  `Content-Type: multipart/form-data` and include fields `keyFile` and
+ *  `certFile`. If uploading to a truststore, omit `keyFile`. * `pkcs12` - A
+ *  PKCS12 file is uploaded. The request must have `Content-Type:
+ *  multipart/form-data` with the file provided in the only field. *
+ *  `selfsignedcert` - A new private key and certificate are generated. The
  *  request must have `Content-Type: application/json` and a body of
  *  CertificateGenerationSpec.
  *
@@ -4503,8 +4276,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Generates a PKCS #10 Certificate Signing Request for the private key in
- *  an alias.
+ *  Generates a PKCS #10 Certificate Signing Request for the private key in an
+ *  alias.
  *
  *  Method: apigee.organizations.environments.keystores.aliases.csr
  *
@@ -4524,8 +4297,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
- *  Generates a PKCS #10 Certificate Signing Request for the private key in
- *  an alias.
+ *  Generates a PKCS #10 Certificate Signing Request for the private key in an
+ *  alias.
  *
  *  @param name Required. The name of the alias. Must be of the form
  *    `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
@@ -4677,11 +4450,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a keystore or truststore:
- *  * Keystore: Contains certificates and their associated keys.
- *  * Truststore: Contains trusted certificates used to validate a
- *  server's certificate. These certificates are typically self-signed
- *  certificates or certificates that are not signed by a trusted CA.
+ *  Creates a keystore or truststore: * Keystore: Contains certificates and
+ *  their associated keys. * Truststore: Contains trusted certificates used to
+ *  validate a server's certificate. These certificates are typically
+ *  self-signed certificates or certificates that are not signed by a trusted
+ *  CA.
  *
  *  Method: apigee.organizations.environments.keystores.create
  *
@@ -4696,26 +4469,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The name of the environment in which to create the keystore.
- *  Must be of the form
- *  `organizations/{organization}/environments/{environment}`.
+ *  Required. The name of the environment in which to create the keystore. Must
+ *  be of the form `organizations/{organization}/environments/{environment}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Keystore.
  *
- *  Creates a keystore or truststore:
- *  * Keystore: Contains certificates and their associated keys.
- *  * Truststore: Contains trusted certificates used to validate a
- *  server's certificate. These certificates are typically self-signed
- *  certificates or certificates that are not signed by a trusted CA.
+ *  Creates a keystore or truststore: * Keystore: Contains certificates and
+ *  their associated keys. * Truststore: Contains trusted certificates used to
+ *  validate a server's certificate. These certificates are typically
+ *  self-signed certificates or certificates that are not signed by a trusted
+ *  CA.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Keystore to include in
  *    the query.
  *  @param parent Required. The name of the environment in which to create the
- *    keystore.
- *    Must be of the form
+ *    keystore. Must be of the form
  *    `organizations/{organization}/environments/{environment}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresCreate
@@ -4816,8 +4587,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
  *    the query.
  *  @param parent Required. The name of the environment in which to create the
- *    key value map.
- *    Must be of the form
+ *    key value map. Must be of the form
  *    `organizations/{organization}/environments/{environment}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsCreate
@@ -4840,8 +4610,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeyvaluemapsDeleteWithname:]
 
 /**
- *  Required. The name of the key value map.
- *  Must be of the form
+ *  Required. The name of the key value map. Must be of the form
  *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4851,8 +4620,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a key value map in an environment.
  *
- *  @param name Required. The name of the key value map.
- *    Must be of the form
+ *  @param name Required. The name of the key value map. Must be of the form
  *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsDelete
@@ -4862,12 +4630,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  This api is similar to GetStats
- *  except that the response is less verbose.
- *  In the current scheme, a query parameter _optimized instructs
- *  Edge Analytics to change the response but since this behavior
- *  is not possible with protocol buffer and since this parameter is
- *  predominantly used by Edge UI, we are introducing a separate api.
+ *  This api is similar to GetStats except that the response is less verbose. In
+ *  the current scheme, a query parameter _optimized instructs Edge Analytics to
+ *  change the response but since this behavior is not possible with protocol
+ *  buffer and since this parameter is predominantly used by Edge UI, we are
+ *  introducing a separate api.
  *
  *  Method: apigee.organizations.environments.optimizedStats.get
  *
@@ -4882,9 +4649,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *accuracy;
 
 /**
- *  If customers want to query custom aggregate tables, then this parameter
- *  can be used to specify the table name. If this parameter is skipped, then
- *  Edge Query will try to retrieve the data from fact tables which will be
+ *  If customers want to query custom aggregate tables, then this parameter can
+ *  be used to specify the table name. If this parameter is skipped, then Edge
+ *  Query will try to retrieve the data from fact tables which will be
  *  expensive.
  */
 @property(nonatomic, copy, nullable) NSString *aggTable;
@@ -4893,26 +4660,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  This parameter is used to limit the number of result items.
- *  Default and the max value is 14400.
+ *  This parameter is used to limit the number of result items. Default and the
+ *  max value is 14400.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
  *  Required. The resource name for which the interactive query will be
- *  executed.
- *  Must be of the form
+ *  executed. Must be of the form
  *  `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
  *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
- *  target_host. The value of dimensions should be comma separated list as
- *  shown below
- *  `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
+ *  target_host. The value of dimensions should be comma separated list as shown
+ *  below `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Use offset with limit to enable pagination of results. For example,
- *  to display results 11-20, set limit to '10' and offset to '10'.
+ *  Use offset with limit to enable pagination of results. For example, to
+ *  display results 11-20, set limit to '10' and offset to '10'.
  */
 @property(nonatomic, copy, nullable) NSString *offset;
 
@@ -4931,8 +4696,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL sonar;
 
 /**
- *  This parameter specifies if the sort order should be ascending or
- *  descending Supported values are DESC and ASC.
+ *  This parameter specifies if the sort order should be ascending or descending
+ *  Supported values are DESC and ASC.
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
@@ -4940,26 +4705,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
- *  Required. Time interval for the interactive query.
- *  Time range is specified as start~end E.g. 04/15/2017 00:00~05/15/2017 23:59
+ *  Required. Time interval for the interactive query. Time range is specified
+ *  as start~end E.g. 04/15/2017 00:00~05/15/2017 23:59
  */
 @property(nonatomic, copy, nullable) NSString *timeRange;
 
 /**
- *  A value of second, minute, hour, day, week, month.
- *  Time Unit specifies the granularity of metrics returned.
+ *  A value of second, minute, hour, day, week, month. Time Unit specifies the
+ *  granularity of metrics returned.
  */
 @property(nonatomic, copy, nullable) NSString *timeUnit;
 
 /**
- *  Take 'top k' results from results, for example, to return the top 5
- *  results 'topk=5'.
+ *  Take 'top k' results from results, for example, to return the top 5 results
+ *  'topk=5'.
  */
 @property(nonatomic, copy, nullable) NSString *topk;
 
 /**
- *  Lists timestamps in ascending order if set to true. Recommend setting
- *  this value to true if you are using sortby with sort=DESC.
+ *  Lists timestamps in ascending order if set to true. Recommend setting this
+ *  value to true if you are using sortby with sort=DESC.
  */
 @property(nonatomic, assign) BOOL tsAscending;
 
@@ -4969,16 +4734,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1OptimizedStats.
  *
- *  This api is similar to GetStats
- *  except that the response is less verbose.
- *  In the current scheme, a query parameter _optimized instructs
- *  Edge Analytics to change the response but since this behavior
- *  is not possible with protocol buffer and since this parameter is
- *  predominantly used by Edge UI, we are introducing a separate api.
+ *  This api is similar to GetStats except that the response is less verbose. In
+ *  the current scheme, a query parameter _optimized instructs Edge Analytics to
+ *  change the response but since this behavior is not possible with protocol
+ *  buffer and since this parameter is predominantly used by Edge UI, we are
+ *  introducing a separate api.
  *
  *  @param name Required. The resource name for which the interactive query will
- *    be executed.
- *    Must be of the form
+ *    be executed. Must be of the form
  *    `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
  *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *    target_host. The value of dimensions should be comma separated list as
@@ -4992,10 +4755,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Submit a query to be processed in the background.
- *  If the submission of the query succeeds, the API returns a 201 status and
- *  an ID that refer to the query. In addition to the HTTP status 201, the
- *  `state` of "enqueued" means that the request succeeded.
+ *  Submit a query to be processed in the background. If the submission of the
+ *  query succeeds, the API returns a 201 status and an ID that refer to the
+ *  query. In addition to the HTTP status 201, the `state` of "enqueued" means
+ *  that the request succeeded.
  *
  *  Method: apigee.organizations.environments.queries.create
  *
@@ -5007,23 +4770,23 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name.
- *  Must be of the form `organizations/{org}/environments/{env}`.
+ *  Required. The parent resource name. Must be of the form
+ *  `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AsyncQuery.
  *
- *  Submit a query to be processed in the background.
- *  If the submission of the query succeeds, the API returns a 201 status and
- *  an ID that refer to the query. In addition to the HTTP status 201, the
- *  `state` of "enqueued" means that the request succeeded.
+ *  Submit a query to be processed in the background. If the submission of the
+ *  query succeeds, the API returns a 201 status and an ID that refer to the
+ *  query. In addition to the HTTP status 201, the `state` of "enqueued" means
+ *  that the request succeeded.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Query to include in the
  *    query.
- *  @param parent Required. The parent resource name.
- *    Must be of the form `organizations/{org}/environments/{env}`.
+ *  @param parent Required. The parent resource name. Must be of the form
+ *    `organizations/{org}/environments/{env}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesCreate
  */
@@ -5033,9 +4796,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get query status
- *  If the query is still in progress, the `state` is set to "running"
- *  After the query has completed successfully, `state` is set to "completed"
+ *  Get query status If the query is still in progress, the `state` is set to
+ *  "running" After the query has completed successfully, `state` is set to
+ *  "completed"
  *
  *  Method: apigee.organizations.environments.queries.get
  *
@@ -5055,13 +4818,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AsyncQuery.
  *
- *  Get query status
- *  If the query is still in progress, the `state` is set to "running"
- *  After the query has completed successfully, `state` is set to "completed"
+ *  Get query status If the query is still in progress, the `state` is set to
+ *  "running" After the query has completed successfully, `state` is set to
+ *  "completed"
  *
  *  @param name Required. Name of the asynchronous query to get. Must be of the
- *    form
- *    `organizations/{org}/environments/{env}/queries/{queryId}`.
+ *    form `organizations/{org}/environments/{env}/queries/{queryId}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGet
  */
@@ -5070,12 +4832,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  After the query is completed, use this API to retrieve the results.
- *  If the request succeeds, and there is a non-zero result set, the result is
- *  downloaded to the client as a zipped JSON file.
- *  The name of the downloaded file will be:
- *  OfflineQueryResult-<query-id>.zip
- *  Example: `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
+ *  After the query is completed, use this API to retrieve the results. If the
+ *  request succeeds, and there is a non-zero result set, the result is
+ *  downloaded to the client as a zipped JSON file. The name of the downloaded
+ *  file will be: OfflineQueryResult-.zip Example:
+ *  `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
  *
  *  Method: apigee.organizations.environments.queries.getResult
  *
@@ -5087,24 +4848,23 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesGetResultWithname:]
 
 /**
- *  Required. Name of the asynchronous query result to get. Must be of the
- *  form `organizations/{org}/environments/{env}/queries/{queryId}/result`.
+ *  Required. Name of the asynchronous query result to get. Must be of the form
+ *  `organizations/{org}/environments/{env}/queries/{queryId}/result`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
- *  After the query is completed, use this API to retrieve the results.
- *  If the request succeeds, and there is a non-zero result set, the result is
- *  downloaded to the client as a zipped JSON file.
- *  The name of the downloaded file will be:
- *  OfflineQueryResult-<query-id>.zip
- *  Example: `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
+ *  After the query is completed, use this API to retrieve the results. If the
+ *  request succeeds, and there is a non-zero result set, the result is
+ *  downloaded to the client as a zipped JSON file. The name of the downloaded
+ *  file will be: OfflineQueryResult-.zip Example:
+ *  `OfflineQueryResult-9cfc0d85-0f30-46d6-ae6f-318d0cb961bd.zip`
  *
  *  @param name Required. Name of the asynchronous query result to get. Must be
- *    of the
- *    form `organizations/{org}/environments/{env}/queries/{queryId}/result`.
+ *    of the form
+ *    `organizations/{org}/environments/{env}/queries/{queryId}/result`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResult
  */
@@ -5124,16 +4884,13 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesListWithparent:]
 
-/**
- *  Filter response list by dataset.
- *  Example: `api`, `mint`
- */
+/** Filter response list by dataset. Example: `api`, `mint` */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
 /**
- *  Filter response list by returning asynchronous queries that
- *  created after this date time.
- *  Time must be in ISO date-time format like '2011-12-03T10:15:30Z'.
+ *  Filter response list by returning asynchronous queries that created after
+ *  this date time. Time must be in ISO date-time format like
+ *  '2011-12-03T10:15:30Z'.
  */
 @property(nonatomic, copy, nullable) NSString *from;
 
@@ -5143,8 +4900,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *inclQueriesWithoutReport;
 
 /**
- *  Required. The parent resource name.
- *  Must be of the form `organizations/{org}/environments/{env}`.
+ *  Required. The parent resource name. Must be of the form
+ *  `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5155,9 +4912,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *submittedBy;
 
 /**
- *  Filter response list by returning asynchronous queries that
- *  created before this date time.
- *  Time must be in ISO date-time format like '2011-12-03T10:16:30Z'.
+ *  Filter response list by returning asynchronous queries that created before
+ *  this date time. Time must be in ISO date-time format like
+ *  '2011-12-03T10:16:30Z'.
  */
 @property(nonatomic, copy, nullable) NSString *to;
 
@@ -5166,8 +4923,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Return a list of Asynchronous Queries
  *
- *  @param parent Required. The parent resource name.
- *    Must be of the form `organizations/{org}/environments/{env}`.
+ *  @param parent Required. The parent resource name. Must be of the form
+ *    `organizations/{org}/environments/{env}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsQueriesList
  */
@@ -5188,8 +4945,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesCreateWithObject:parent:]
 
 /**
- *  Required. The parent environment name under which the Reference will
- *  be created. Must be of the form `organizations/{org}/environments/{env}`.
+ *  Required. The parent environment name under which the Reference will be
+ *  created. Must be of the form `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5201,8 +4958,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Reference to include in
  *    the query.
  *  @param parent Required. The parent environment name under which the
- *    Reference will
- *    be created. Must be of the form `organizations/{org}/environments/{env}`.
+ *    Reference will be created. Must be of the form
+ *    `organizations/{org}/environments/{env}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsReferencesCreate
  */
@@ -5212,8 +4969,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Reference from an environment. Returns the deleted
- *  Reference resource.
+ *  Deletes a Reference from an environment. Returns the deleted Reference
+ *  resource.
  *
  *  Method: apigee.organizations.environments.references.delete
  *
@@ -5225,19 +4982,19 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesDeleteWithname:]
 
 /**
- *  Required. The name of the Reference to delete. Must be
- *  of the form `organizations/{org}/environments/{env}/references/{ref}`.
+ *  Required. The name of the Reference to delete. Must be of the form
+ *  `organizations/{org}/environments/{env}/references/{ref}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Reference.
  *
- *  Deletes a Reference from an environment. Returns the deleted
- *  Reference resource.
+ *  Deletes a Reference from an environment. Returns the deleted Reference
+ *  resource.
  *
- *  @param name Required. The name of the Reference to delete. Must be
- *    of the form `organizations/{org}/environments/{env}/references/{ref}`.
+ *  @param name Required. The name of the Reference to delete. Must be of the
+ *    form `organizations/{org}/environments/{env}/references/{ref}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsReferencesDelete
  */
@@ -5278,9 +5035,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing Reference. Note that this operation has PUT
- *  semantics; it will replace the entirety of the existing Reference with
- *  the resource in the request body.
+ *  Updates an existing Reference. Note that this operation has PUT semantics;
+ *  it will replace the entirety of the existing Reference with the resource in
+ *  the request body.
  *
  *  Method: apigee.organizations.environments.references.update
  *
@@ -5300,15 +5057,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Reference.
  *
- *  Updates an existing Reference. Note that this operation has PUT
- *  semantics; it will replace the entirety of the existing Reference with
- *  the resource in the request body.
+ *  Updates an existing Reference. Note that this operation has PUT semantics;
+ *  it will replace the entirety of the existing Reference with the resource in
+ *  the request body.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Reference to include in
  *    the query.
  *  @param name Required. The name of the Reference to update. Must be of the
- *    form
- *    `organizations/{org}/environments/{env}/references/{ref}`.
+ *    form `organizations/{org}/environments/{env}/references/{ref}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsReferencesUpdate
  */
@@ -5318,11 +5074,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a resource file.
- *  Specify the `Content-Type` as `application/octet-stream` or
- *  `multipart/form-data`.
- *  For more information about resource files, see
- *  [Resource files](/api-platform/develop/resource-files).
+ *  Creates a resource file. Specify the `Content-Type` as
+ *  `application/octet-stream` or `multipart/form-data`. For more information
+ *  about resource files, see [Resource
+ *  files](/api-platform/develop/resource-files).
  *
  *  Method: apigee.organizations.environments.resourcefiles.create
  *
@@ -5335,15 +5090,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the resource file. Must match the regular expression:
- *  <var>[a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}</var>
+ *  [a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Name of the environment in which to create the resource file in
- *  the
- *  following format:
- *  `organizations/{org}/environments/{env}`.
+ *  the following format: `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5353,16 +5106,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ResourceFile.
  *
- *  Creates a resource file.
- *  Specify the `Content-Type` as `application/octet-stream` or
- *  `multipart/form-data`.
- *  For more information about resource files, see
- *  [Resource files](/api-platform/develop/resource-files).
+ *  Creates a resource file. Specify the `Content-Type` as
+ *  `application/octet-stream` or `multipart/form-data`. For more information
+ *  about resource files, see [Resource
+ *  files](/api-platform/develop/resource-files).
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param parent Required. Name of the environment in which to create the
- *    resource file in the
- *    following format:
+ *    resource file in the following format:
  *    `organizations/{org}/environments/{env}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesCreate
@@ -5373,8 +5124,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a resource file.
- *  For more information about resource files, see
+ *  Deletes a resource file. For more information about resource files, see
  *  [Resource files](/api-platform/develop/resource-files).
  *
  *  Method: apigee.organizations.environments.resourcefiles.delete
@@ -5388,7 +5138,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. ID of the resource file to delete. Must match the regular
- *  expression: <var>[a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}</var>
+ *  expression: [a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5404,17 +5154,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ResourceFile.
  *
- *  Deletes a resource file.
- *  For more information about resource files, see
+ *  Deletes a resource file. For more information about resource files, see
  *  [Resource files](/api-platform/develop/resource-files).
  *
  *  @param parent Required. Name of the environment in the following format:
  *    `organizations/{org}/environments/{env}`.
  *  @param type Required. Resource file type. {{ resource_file_type }}
  *  @param name Required. ID of the resource file to delete. Must match the
- *    regular
- *    expression: <var>[a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'`
- *    ]{1,255}</var>
+ *    regular expression: [a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesDelete
  */
@@ -5425,9 +5172,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the contents of a resource file.
- *  For more information about resource files, see
- *  [Resource files](/api-platform/develop/resource-files).
+ *  Gets the contents of a resource file. For more information about resource
+ *  files, see [Resource files](/api-platform/develop/resource-files).
  *
  *  Method: apigee.organizations.environments.resourcefiles.get
  *
@@ -5439,8 +5185,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesGetWithparent:type:name:]
 
 /**
- *  Required. ID of the resource file. Must match the regular
- *  expression: <var>[a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}</var>
+ *  Required. ID of the resource file. Must match the regular expression:
+ *  [a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5456,16 +5202,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
- *  Gets the contents of a resource file.
- *  For more information about resource files, see
- *  [Resource files](/api-platform/develop/resource-files).
+ *  Gets the contents of a resource file. For more information about resource
+ *  files, see [Resource files](/api-platform/develop/resource-files).
  *
  *  @param parent Required. Name of the environment in the following format:
  *    `organizations/{org}/environments/{env}`.
  *  @param type Required. Resource file type. {{ resource_file_type }}
  *  @param name Required. ID of the resource file. Must match the regular
- *    expression: <var>[a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'`
- *    ]{1,255}</var>
+ *    expression: [a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesGet
  */
@@ -5476,8 +5220,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all resource files.
- *  For more information about resource files, see
+ *  Lists all resource files. For more information about resource files, see
  *  [Resource files](/api-platform/develop/resource-files).
  *
  *  Method: apigee.organizations.environments.resourcefiles.list
@@ -5491,29 +5234,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment in which to list resource files in the
- *  following
- *  format:
- *  `organizations/{org}/environments/{env}`.
+ *  following format: `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/**
- *  Optional. Type of resource files to list.
- *  {{ resource_file_type }}
- */
+/** Optional. Type of resource files to list. {{ resource_file_type }} */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListEnvironmentResourcesResponse.
  *
- *  Lists all resource files.
- *  For more information about resource files, see
+ *  Lists all resource files. For more information about resource files, see
  *  [Resource files](/api-platform/develop/resource-files).
  *
  *  @param parent Required. Name of the environment in which to list resource
- *    files in the following
- *    format:
- *    `organizations/{org}/environments/{env}`.
+ *    files in the following format: `organizations/{org}/environments/{env}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesList
  */
@@ -5522,8 +5257,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all resource files.
- *  For more information about resource files, see
+ *  Lists all resource files. For more information about resource files, see
  *  [Resource files](/api-platform/develop/resource-files).
  *
  *  Method: apigee.organizations.environments.resourcefiles.listEnvironmentResources
@@ -5537,31 +5271,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment in which to list resource files in the
- *  following
- *  format:
- *  `organizations/{org}/environments/{env}`.
+ *  following format: `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/**
- *  Optional. Type of resource files to list.
- *  {{ resource_file_type }}
- */
+/** Optional. Type of resource files to list. {{ resource_file_type }} */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListEnvironmentResourcesResponse.
  *
- *  Lists all resource files.
- *  For more information about resource files, see
+ *  Lists all resource files. For more information about resource files, see
  *  [Resource files](/api-platform/develop/resource-files).
  *
  *  @param parent Required. Name of the environment in which to list resource
- *    files in the following
- *    format:
- *    `organizations/{org}/environments/{env}`.
- *  @param type Optional. Type of resource files to list.
- *    {{ resource_file_type }}
+ *    files in the following format: `organizations/{org}/environments/{env}`.
+ *  @param type Optional. Type of resource files to list. {{ resource_file_type
+ *    }}
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesListEnvironmentResources
  */
@@ -5571,11 +5297,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a resource file.
- *  Specify the `Content-Type` as `application/octet-stream` or
- *  `multipart/form-data`.
- *  For more information about resource files, see
- *  [Resource files](/api-platform/develop/resource-files).
+ *  Updates a resource file. Specify the `Content-Type` as
+ *  `application/octet-stream` or `multipart/form-data`. For more information
+ *  about resource files, see [Resource
+ *  files](/api-platform/develop/resource-files).
  *
  *  Method: apigee.organizations.environments.resourcefiles.update
  *
@@ -5588,7 +5313,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. ID of the resource file to update. Must match the regular
- *  expression: <var>[a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}</var>
+ *  expression: [a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5604,20 +5329,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ResourceFile.
  *
- *  Updates a resource file.
- *  Specify the `Content-Type` as `application/octet-stream` or
- *  `multipart/form-data`.
- *  For more information about resource files, see
- *  [Resource files](/api-platform/develop/resource-files).
+ *  Updates a resource file. Specify the `Content-Type` as
+ *  `application/octet-stream` or `multipart/form-data`. For more information
+ *  about resource files, see [Resource
+ *  files](/api-platform/develop/resource-files).
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param parent Required. Name of the environment in the following format:
  *    `organizations/{org}/environments/{env}`.
  *  @param type Required. Resource file type. {{ resource_file_type }}
  *  @param name Required. ID of the resource file to update. Must match the
- *    regular
- *    expression: <var>[a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'`
- *    ]{1,255}</var>
+ *    regular expression: [a-zA-Z0-9:/\\\\!\@#$%^&{}\\[\\]()+\\-=,.~'` ]{1,255}
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesUpdate
  */
@@ -5629,12 +5351,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the IAM policy on an environment, if the policy already
- *  exists it will be replaced. For more information, see
- *  [Manage users, roles, and permissions
+ *  Sets the IAM policy on an environment, if the policy already exists it will
+ *  be replaced. For more information, see [Manage users, roles, and permissions
  *  using the API](https://docs.apigee.com/hybrid/latest/manage-users-roles).
- *  You must have the `apigee.environments.setIamPolicy` permission to
- *  call this API.
+ *  You must have the `apigee.environments.setIamPolicy` permission to call this
+ *  API.
  *
  *  Method: apigee.organizations.environments.setIamPolicy
  *
@@ -5646,26 +5367,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleIamV1Policy.
  *
- *  Sets the IAM policy on an environment, if the policy already
- *  exists it will be replaced. For more information, see
- *  [Manage users, roles, and permissions
+ *  Sets the IAM policy on an environment, if the policy already exists it will
+ *  be replaced. For more information, see [Manage users, roles, and permissions
  *  using the API](https://docs.apigee.com/hybrid/latest/manage-users-roles).
- *  You must have the `apigee.environments.setIamPolicy` permission to
- *  call this API.
+ *  You must have the `apigee.environments.setIamPolicy` permission to call this
+ *  API.
  *
  *  @param object The @c GTLRApigee_GoogleIamV1SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSetIamPolicy
  */
@@ -5688,8 +5408,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name representing a shared flow in an environment in the following
- *  format:
- *  `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
+ *  format: `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5699,8 +5418,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all deployments of a shared flow in an environment.
  *
  *  @param parent Required. Name representing a shared flow in an environment in
- *    the following
- *    format:
+ *    the following format:
  *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsDeploymentsList
@@ -5710,34 +5428,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Undeploys a shared flow revision from an environment.
+ *  Deploys a revision of a shared flow. If a shared flow revision is currently
+ *  deployed, to ensure seamless deployment with zero downtime set the
+ *  `override` parameter to `true`. In this case, hybrid attempts to deply the
+ *  new revision fully before undeploying the existing revision. You cannot use
+ *  a shared flows until it has been deployed to an environment.
  *
- *  Method: apigee.organizations.environments.sharedflows.revisions.deployments
+ *  Method: apigee.organizations.environments.sharedflows.revisions.deploy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
-@interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsDeployments : GTLRApigeeQuery
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsDeploy : GTLRApigeeQuery
 // Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsDeploymentsWithname:]
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsDeployWithname:]
 
 /**
- *  Required. Name of the shared flow revision to undeploy in the following
+ *  Required. Name of the shared flow revision to deploy in the following
  *  format:
  *  `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *  Flag that specifies whether to force the deployment of the new revision over
+ *  the currently deployed revision by overriding conflict checks. If an
+ *  existing shared flow revision is deployed, to ensure seamless deployment
+ *  with no downtime, set this parameter to `true`. In this case, hybrid deploys
+ *  the new revision fully before undeploying the existing revision. If set to
+ *  `false`, you must undeploy the existing revision before deploying the new
+ *  revision.
+ */
+@property(nonatomic, assign) BOOL override;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
  *
- *  Undeploys a shared flow revision from an environment.
+ *  Deploys a revision of a shared flow. If a shared flow revision is currently
+ *  deployed, to ensure seamless deployment with zero downtime set the
+ *  `override` parameter to `true`. In this case, hybrid attempts to deply the
+ *  new revision fully before undeploying the existing revision. You cannot use
+ *  a shared flows until it has been deployed to an environment.
  *
- *  @param name Required. Name of the shared flow revision to undeploy in the
+ *  @param name Required. Name of the shared flow revision to deploy in the
  *    following format:
  *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
  *
- *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsDeployments
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsDeploy
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -5770,8 +5507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  runtime pods.
  *
  *  @param name Required. Name representing a shared flow in an environment in
- *    the following
- *    format:
+ *    the following format:
  *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsGetDeployments
@@ -5781,13 +5517,46 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Retrieve metrics grouped by dimensions.
- *  The types of metrics you can retrieve include traffic, message counts,
- *  API call latency, response size, and cache hits and counts.
- *  Dimensions let you view metrics in meaningful groups.
- *  The stats api does accept dimensions as path params. The dimensions are
- *  optional in which case the metrics are computed on the entire data
- *  for the given timerange.
+ *  Undeploys a shared flow revision from an environment.
+ *
+ *  Method: apigee.organizations.environments.sharedflows.revisions.undeploy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsUndeploy : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsUndeployWithname:]
+
+/**
+ *  Required. Name of the shared flow revision to undeploy in the following
+ *  format:
+ *  `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Undeploys a shared flow revision from an environment.
+ *
+ *  @param name Required. Name of the shared flow revision to undeploy in the
+ *    following format:
+ *    `organizations/{org}/environments/{env}/sharedflows/{sharedflow}/revisions/{rev}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsUndeploy
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve metrics grouped by dimensions. The types of metrics you can
+ *  retrieve include traffic, message counts, API call latency, response size,
+ *  and cache hits and counts. Dimensions let you view metrics in meaningful
+ *  groups. The stats api does accept dimensions as path params. The dimensions
+ *  are optional in which case the metrics are computed on the entire data for
+ *  the given timerange.
  *
  *  Method: apigee.organizations.environments.stats.get
  *
@@ -5799,15 +5568,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsStatsGetWithname:]
 
 /**
- *  Legacy field: not used anymore.
- *  This field is present to support UI calls which still use this parameter.
+ *  Legacy field: not used anymore. This field is present to support UI calls
+ *  which still use this parameter.
  */
 @property(nonatomic, copy, nullable) NSString *accuracy;
 
 /**
- *  If customers want to query custom aggregate tables, then this parameter
- *  can be used to specify the table name. If this parameter is skipped, then
- *  Edge Query will try to retrieve the data from fact tables which will be
+ *  If customers want to query custom aggregate tables, then this parameter can
+ *  be used to specify the table name. If this parameter is skipped, then Edge
+ *  Query will try to retrieve the data from fact tables which will be
  *  expensive.
  */
 @property(nonatomic, copy, nullable) NSString *aggTable;
@@ -5816,26 +5585,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  This parameter is used to limit the number of result items.
- *  Default and the max value is 14400.
+ *  This parameter is used to limit the number of result items. Default and the
+ *  max value is 14400.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
  *  Required. The resource name for which the interactive query will be
- *  executed.
- *  Must be of the form
+ *  executed. Must be of the form
  *  `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
  *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
- *  target_host. The value of dimensions should be comma separated list as
- *  shown below
- *  `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
+ *  target_host. The value of dimensions should be comma separated list as shown
+ *  below `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Use offset with limit to enable pagination of results. For example,
- *  to display results 11-20, set limit to '10' and offset to '10'.
+ *  Use offset with limit to enable pagination of results. For example, to
+ *  display results 11-20, set limit to '10' and offset to '10'.
  */
 @property(nonatomic, copy, nullable) NSString *offset;
 
@@ -5843,8 +5610,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL realtime;
 
 /**
- *  The select parameter contains a comma separated list of metrics.
- *  E.g. sum(message_count),sum(error_count)
+ *  The select parameter contains a comma separated list of metrics. E.g.
+ *  sum(message_count),sum(error_count)
  */
 @property(nonatomic, copy, nullable) NSString *select;
 
@@ -5854,8 +5621,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL sonar;
 
 /**
- *  This parameter specifies if the sort order should be ascending or
- *  descending Supported values are DESC and ASC.
+ *  This parameter specifies if the sort order should be ascending or descending
+ *  Supported values are DESC and ASC.
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 
@@ -5863,26 +5630,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *sortby;
 
 /**
- *  Time interval for the interactive query.
- *  Time range is specified as start~end E.g. 04/15/2017 00:00~05/15/2017 23:59
+ *  Time interval for the interactive query. Time range is specified as
+ *  start~end E.g. 04/15/2017 00:00~05/15/2017 23:59
  */
 @property(nonatomic, copy, nullable) NSString *timeRange;
 
 /**
- *  A value of second, minute, hour, day, week, month.
- *  Time Unit specifies the granularity of metrics returned.
+ *  A value of second, minute, hour, day, week, month. Time Unit specifies the
+ *  granularity of metrics returned.
  */
 @property(nonatomic, copy, nullable) NSString *timeUnit;
 
 /**
- *  Take 'top k' results from results, for example, to return the top 5
- *  results 'topk=5'.
+ *  Take 'top k' results from results, for example, to return the top 5 results
+ *  'topk=5'.
  */
 @property(nonatomic, copy, nullable) NSString *topk;
 
 /**
- *  Lists timestamps in ascending order if set to true. Recommend setting
- *  this value to true if you are using sortby with sort=DESC.
+ *  Lists timestamps in ascending order if set to true. Recommend setting this
+ *  value to true if you are using sortby with sort=DESC.
  */
 @property(nonatomic, assign) BOOL tsAscending;
 
@@ -5892,17 +5659,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Stats.
  *
- *  Retrieve metrics grouped by dimensions.
- *  The types of metrics you can retrieve include traffic, message counts,
- *  API call latency, response size, and cache hits and counts.
- *  Dimensions let you view metrics in meaningful groups.
- *  The stats api does accept dimensions as path params. The dimensions are
- *  optional in which case the metrics are computed on the entire data
- *  for the given timerange.
+ *  Retrieve metrics grouped by dimensions. The types of metrics you can
+ *  retrieve include traffic, message counts, API call latency, response size,
+ *  and cache hits and counts. Dimensions let you view metrics in meaningful
+ *  groups. The stats api does accept dimensions as path params. The dimensions
+ *  are optional in which case the metrics are computed on the entire data for
+ *  the given timerange.
  *
  *  @param name Required. The resource name for which the interactive query will
- *    be executed.
- *    Must be of the form
+ *    be executed. Must be of the form
  *    `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
  *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *    target_host. The value of dimensions should be comma separated list as
@@ -5916,9 +5681,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a subscription for the environment's Pub/Sub topic.
- *  The server will assign a random name for this subscription.
- *  The "name" and "push_config" must *not* be specified.
+ *  Creates a subscription for the environment's Pub/Sub topic. The server will
+ *  assign a random name for this subscription. The "name" and "push_config"
+ *  must *not* be specified.
  *
  *  Method: apigee.organizations.environments.subscribe
  *
@@ -5931,21 +5696,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment. Use the following structure in your
- *  request:
- *  `organizations/{org}/environments/{env}`
+ *  request: `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Subscription.
  *
- *  Creates a subscription for the environment's Pub/Sub topic.
- *  The server will assign a random name for this subscription.
- *  The "name" and "push_config" must *not* be specified.
+ *  Creates a subscription for the environment's Pub/Sub topic. The server will
+ *  assign a random name for this subscription. The "name" and "push_config"
+ *  must *not* be specified.
  *
  *  @param parent Required. Name of the environment. Use the following structure
- *    in your request:
- *    `organizations/{org}/environments/{env}`
+ *    in your request: `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSubscribe
  */
@@ -5966,14 +5729,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversCreateWithObject:parent:]
 
 /**
- *  Optional. The ID to give the TargetServer. This will overwrite the
- *  value in TargetServer.
+ *  Optional. The ID to give the TargetServer. This will overwrite the value in
+ *  TargetServer.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The parent environment name under which the TargetServer will
- *  be created. Must be of the form `organizations/{org}/environments/{env}`.
+ *  Required. The parent environment name under which the TargetServer will be
+ *  created. Must be of the form `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -5985,8 +5748,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1TargetServer to include
  *    in the query.
  *  @param parent Required. The parent environment name under which the
- *    TargetServer will
- *    be created. Must be of the form `organizations/{org}/environments/{env}`.
+ *    TargetServer will be created. Must be of the form
+ *    `organizations/{org}/environments/{env}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversCreate
  */
@@ -5996,8 +5759,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a TargetServer from an environment. Returns the deleted
- *  TargetServer resource.
+ *  Deletes a TargetServer from an environment. Returns the deleted TargetServer
+ *  resource.
  *
  *  Method: apigee.organizations.environments.targetservers.delete
  *
@@ -6009,8 +5772,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversDeleteWithname:]
 
 /**
- *  Required. The name of the TargetServer to delete. Must be
- *  of the form
+ *  Required. The name of the TargetServer to delete. Must be of the form
  *  `organizations/{org}/environments/{env}/targetservers/{target_server_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6018,11 +5780,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TargetServer.
  *
- *  Deletes a TargetServer from an environment. Returns the deleted
- *  TargetServer resource.
+ *  Deletes a TargetServer from an environment. Returns the deleted TargetServer
+ *  resource.
  *
- *  @param name Required. The name of the TargetServer to delete. Must be
- *    of the form
+ *  @param name Required. The name of the TargetServer to delete. Must be of the
+ *    form
  *    `organizations/{org}/environments/{env}/targetservers/{target_server_id}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversDelete
@@ -6105,10 +5867,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Tests the permissions of a user on an environment,
- *  and returns a subset of permissions that the user has on the environment.
- *  If the environment does not exist, an empty permission set is returned
- *  (a NOT_FOUND error is not returned).
+ *  Tests the permissions of a user on an environment, and returns a subset of
+ *  permissions that the user has on the environment. If the environment does
+ *  not exist, an empty permission set is returned (a NOT_FOUND error is not
+ *  returned).
  *
  *  Method: apigee.organizations.environments.testIamPermissions
  *
@@ -6120,24 +5882,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleIamV1TestIamPermissionsResponse.
  *
- *  Tests the permissions of a user on an environment,
- *  and returns a subset of permissions that the user has on the environment.
- *  If the environment does not exist, an empty permission set is returned
- *  (a NOT_FOUND error is not returned).
+ *  Tests the permissions of a user on an environment, and returns a subset of
+ *  permissions that the user has on the environment. If the environment does
+ *  not exist, an empty permission set is returned (a NOT_FOUND error is not
+ *  returned).
  *
  *  @param object The @c GTLRApigee_GoogleIamV1TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTestIamPermissions
  */
@@ -6160,8 +5922,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment. Use the following structure in your
- *  request:
- *  `organizations/{org}/environments/{env}`
+ *  request: `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6173,8 +5934,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Subscription to include
  *    in the query.
  *  @param parent Required. Name of the environment. Use the following structure
- *    in your request:
- *    `organizations/{org}/environments/{env}`
+ *    in your request: `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsUnsubscribe
  */
@@ -6184,11 +5944,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing environment.
- *  When updating properties, you must pass all existing properties to the API,
- *  even if they are not being changed. If you omit properties from the
- *  payload, the properties are removed. To get the current list of
- *  properties for the environment, use the [Get Environment API](get).
+ *  Updates an existing environment. When updating properties, you must pass all
+ *  existing properties to the API, even if they are not being changed. If you
+ *  omit properties from the payload, the properties are removed. To get the
+ *  current list of properties for the environment, use the [Get Environment
+ *  API](get).
  *
  *  Method: apigee.organizations.environments.update
  *
@@ -6201,25 +5961,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment. Use the following structure in your
- *  request:
- *  `organizations/{org}/environments/{env}`
+ *  request: `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Environment.
  *
- *  Updates an existing environment.
- *  When updating properties, you must pass all existing properties to the API,
- *  even if they are not being changed. If you omit properties from the
- *  payload, the properties are removed. To get the current list of
- *  properties for the environment, use the [Get Environment API](get).
+ *  Updates an existing environment. When updating properties, you must pass all
+ *  existing properties to the API, even if they are not being changed. If you
+ *  omit properties from the payload, the properties are removed. To get the
+ *  current list of properties for the environment, use the [Get Environment
+ *  API](get).
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Environment to include in
  *    the query.
  *  @param name Required. Name of the environment. Use the following structure
- *    in your request:
- *    `organizations/{org}/environments/{env}`
+ *    in your request: `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsUpdate
  */
@@ -6245,8 +6003,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Boolean flag that specifies whether to replace existing values in the debug
- *  mask when doing an update. Set to true to replace existing values.
- *  The default behavior is to append the values (false).
+ *  mask when doing an update. Set to true to replace existing values. The
+ *  default behavior is to append the values (false).
  */
 @property(nonatomic, assign) BOOL replaceRepeatedFields;
 
@@ -6274,11 +6032,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing environment.
- *  When updating properties, you must pass all existing properties to the API,
- *  even if they are not being changed. If you omit properties from the
- *  payload, the properties are removed. To get the current list of
- *  properties for the environment, use the [Get Environment API](get).
+ *  Updates an existing environment. When updating properties, you must pass all
+ *  existing properties to the API, even if they are not being changed. If you
+ *  omit properties from the payload, the properties are removed. To get the
+ *  current list of properties for the environment, use the [Get Environment
+ *  API](get).
  *
  *  Method: apigee.organizations.environments.updateEnvironment
  *
@@ -6291,25 +6049,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the environment. Use the following structure in your
- *  request:
- *  `organizations/{org}/environments/{env}`
+ *  request: `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Environment.
  *
- *  Updates an existing environment.
- *  When updating properties, you must pass all existing properties to the API,
- *  even if they are not being changed. If you omit properties from the
- *  payload, the properties are removed. To get the current list of
- *  properties for the environment, use the [Get Environment API](get).
+ *  Updates an existing environment. When updating properties, you must pass all
+ *  existing properties to the API, even if they are not being changed. If you
+ *  omit properties from the payload, the properties are removed. To get the
+ *  current list of properties for the environment, use the [Get Environment
+ *  API](get).
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Environment to include in
  *    the query.
  *  @param name Required. Name of the environment. Use the following structure
- *    in your request:
- *    `organizations/{org}/environments/{env}`
+ *    in your request: `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsUpdateEnvironment
  */
@@ -6319,8 +6075,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the profile for an Apigee organization.
- *  See
+ *  Gets the profile for an Apigee organization. See
  *  [Organizations](https://docs.apigee.com/hybrid/latest/terminology#organizations).
  *
  *  Method: apigee.organizations.get
@@ -6341,8 +6096,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Organization.
  *
- *  Gets the profile for an Apigee organization.
- *  See
+ *  Gets the profile for an Apigee organization. See
  *  [Organizations](https://docs.apigee.com/hybrid/latest/terminology#organizations).
  *
  *  @param name Required. Apigee organization name in the following format:
@@ -6368,8 +6122,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the deployed configuration for the organization in the
- *  following
- *  format: 'organizations/{org}/deployedIngressConfig'.
+ *  following format: 'organizations/{org}/deployedIngressConfig'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6379,8 +6132,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the deployed ingress configuration for an organization.
  *
  *  @param name Required. Name of the deployed configuration for the
- *    organization in the following
- *    format: 'organizations/{org}/deployedIngressConfig'.
+ *    organization in the following format:
+ *    'organizations/{org}/deployedIngressConfig'.
  *
  *  @return GTLRApigeeQuery_OrganizationsGetDeployedIngressConfig
  */
@@ -6389,15 +6142,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the service accounts with the permissions required to allow
- *  the Synchronizer to download environment data from the control plane.
- *  An ETag is returned in the response to `getSyncAuthorization`.
- *  Pass that ETag when calling [setSyncAuthorization](setSyncAuthorization)
- *  to ensure that you are updating the correct version. If you don't pass the
- *  ETag in the call to `setSyncAuthorization`, then the existing authorization
- *  is overwritten indiscriminately.
- *  For more information, see
- *  [Enable Synchronizer
+ *  Lists the service accounts with the permissions required to allow the
+ *  Synchronizer to download environment data from the control plane. An ETag is
+ *  returned in the response to `getSyncAuthorization`. Pass that ETag when
+ *  calling [setSyncAuthorization](setSyncAuthorization) to ensure that you are
+ *  updating the correct version. If you don't pass the ETag in the call to
+ *  `setSyncAuthorization`, then the existing authorization is overwritten
+ *  indiscriminately. For more information, see [Enable Synchronizer
  *  access](https://docs.apigee.com/hybrid/latest/synchronizer-access#enable-synchronizer-access).
  *  **Note**: Available to Apigee hybrid only.
  *
@@ -6412,24 +6163,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Apigee organization. Use the following structure in
- *  your
- *  request:
- *  `organizations/{org}`
+ *  your request: `organizations/{org}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SyncAuthorization.
  *
- *  Lists the service accounts with the permissions required to allow
- *  the Synchronizer to download environment data from the control plane.
- *  An ETag is returned in the response to `getSyncAuthorization`.
- *  Pass that ETag when calling [setSyncAuthorization](setSyncAuthorization)
- *  to ensure that you are updating the correct version. If you don't pass the
- *  ETag in the call to `setSyncAuthorization`, then the existing authorization
- *  is overwritten indiscriminately.
- *  For more information, see
- *  [Enable Synchronizer
+ *  Lists the service accounts with the permissions required to allow the
+ *  Synchronizer to download environment data from the control plane. An ETag is
+ *  returned in the response to `getSyncAuthorization`. Pass that ETag when
+ *  calling [setSyncAuthorization](setSyncAuthorization) to ensure that you are
+ *  updating the correct version. If you don't pass the ETag in the call to
+ *  `setSyncAuthorization`, then the existing authorization is overwritten
+ *  indiscriminately. For more information, see [Enable Synchronizer
  *  access](https://docs.apigee.com/hybrid/latest/synchronizer-access#enable-synchronizer-access).
  *  **Note**: Available to Apigee hybrid only.
  *
@@ -6437,9 +6184,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRApigee_GoogleCloudApigeeV1GetSyncAuthorizationRequest to include in
  *    the query.
  *  @param name Required. Name of the Apigee organization. Use the following
- *    structure in your
- *    request:
- *    `organizations/{org}`
+ *    structure in your request: `organizations/{org}`
  *
  *  @return GTLRApigeeQuery_OrganizationsGetSyncAuthorization
  */
@@ -6449,8 +6194,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new attachment of an environment to an instance.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Creates a new attachment of an environment to an instance. **Note:** Not
+ *  supported for Apigee hybrid.
  *
  *  Method: apigee.organizations.instances.attachments.create
  *
@@ -6470,14 +6215,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
- *  Creates a new attachment of an environment to an instance.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Creates a new attachment of an environment to an instance. **Note:** Not
+ *  supported for Apigee hybrid.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1InstanceAttachment to
  *    include in the query.
  *  @param parent Required. Name of the instance. Use the following structure in
- *    your request:
- *    `organizations/{org}/instances/{instance}`.
+ *    your request: `organizations/{org}/instances/{instance}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesAttachmentsCreate
  */
@@ -6487,8 +6231,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an attachment.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Deletes an attachment. **Note:** Not supported for Apigee hybrid.
  *
  *  Method: apigee.organizations.instances.attachments.delete
  *
@@ -6509,8 +6252,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
- *  Deletes an attachment.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Deletes an attachment. **Note:** Not supported for Apigee hybrid.
  *
  *  @param name Required. Name of the attachment. Use the following structure in
  *    your request:
@@ -6523,8 +6265,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets an attachment.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Gets an attachment. **Note:** Not supported for Apigee hybrid.
  *
  *  Method: apigee.organizations.instances.attachments.get
  *
@@ -6537,16 +6278,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the attachment. Use the following structure in your
- *  request:
- *  `organizations/{org}/instances/{instance}/attachments/{attachment}`
+ *  request: `organizations/{org}/instances/{instance}/attachments/{attachment}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1InstanceAttachment.
  *
- *  Gets an attachment.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Gets an attachment. **Note:** Not supported for Apigee hybrid.
  *
  *  @param name Required. Name of the attachment. Use the following structure in
  *    your request:
@@ -6559,8 +6298,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all attachments to an instance.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Lists all attachments to an instance. **Note:** Not supported for Apigee
+ *  hybrid.
  *
  *  Method: apigee.organizations.instances.attachments.list
  *
@@ -6582,20 +6321,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the organization. Use the following structure in your
- *  request:
- *  `organizations/{org}/instances/{instance}`
+ *  request: `organizations/{org}/instances/{instance}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListInstanceAttachmentsResponse.
  *
- *  Lists all attachments to an instance.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Lists all attachments to an instance. **Note:** Not supported for Apigee
+ *  hybrid.
  *
  *  @param parent Required. Name of the organization. Use the following
- *    structure in your request:
- *    `organizations/{org}/instances/{instance}`
+ *    structure in your request: `organizations/{org}/instances/{instance}`
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesAttachmentsList
  *
@@ -6609,8 +6346,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an Apigee runtime instance. The instance is accessible from the
- *  authorized network configured on the organization.
- *  **Note:** Not supported for Apigee hybrid.
+ *  authorized network configured on the organization. **Note:** Not supported
+ *  for Apigee hybrid.
  *
  *  Method: apigee.organizations.instances.create
  *
@@ -6623,8 +6360,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the organization. Use the following structure in your
- *  request:
- *  `organizations/{org}`.
+ *  request: `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -6632,14 +6368,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
  *  Creates an Apigee runtime instance. The instance is accessible from the
- *  authorized network configured on the organization.
- *  **Note:** Not supported for Apigee hybrid.
+ *  authorized network configured on the organization. **Note:** Not supported
+ *  for Apigee hybrid.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Instance to include in
  *    the query.
  *  @param parent Required. Name of the organization. Use the following
- *    structure in your request:
- *    `organizations/{org}`.
+ *    structure in your request: `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesCreate
  */
@@ -6649,9 +6384,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an Apigee runtime instance. The instance stops serving
- *  requests and the runtime data is deleted.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Deletes an Apigee runtime instance. The instance stops serving requests and
+ *  the runtime data is deleted. **Note:** Not supported for Apigee hybrid.
  *
  *  Method: apigee.organizations.instances.delete
  *
@@ -6671,13 +6405,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
  *
- *  Deletes an Apigee runtime instance. The instance stops serving
- *  requests and the runtime data is deleted.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Deletes an Apigee runtime instance. The instance stops serving requests and
+ *  the runtime data is deleted. **Note:** Not supported for Apigee hybrid.
  *
  *  @param name Required. Name of the instance. Use the following structure in
- *    your request:
- *    `organizations/{org}/instance/{instance}`.
+ *    your request: `organizations/{org}/instance/{instance}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesDelete
  */
@@ -6686,8 +6418,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the details for an Apigee runtime instance.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Gets the details for an Apigee runtime instance. **Note:** Not supported for
+ *  Apigee hybrid.
  *
  *  Method: apigee.organizations.instances.get
  *
@@ -6707,12 +6439,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Instance.
  *
- *  Gets the details for an Apigee runtime instance.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Gets the details for an Apigee runtime instance. **Note:** Not supported for
+ *  Apigee hybrid.
  *
  *  @param name Required. Name of the instance. Use the following structure in
- *    your request:
- *    `organizations/{org}/instances/{instance}`.
+ *    your request: `organizations/{org}/instances/{instance}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesGet
  */
@@ -6721,8 +6452,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists all Apigee runtime instances for the organization.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Lists all Apigee runtime instances for the organization. **Note:** Not
+ *  supported for Apigee hybrid.
  *
  *  Method: apigee.organizations.instances.list
  *
@@ -6737,27 +6468,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token, returned from a previous ListInstances call, that you can
- *  use to retrieve the next page of content.
+ *  Page token, returned from a previous ListInstances call, that you can use to
+ *  retrieve the next page of content.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. Name of the organization. Use the following structure in your
- *  request:
- *  `organizations/{org}`.
+ *  request: `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListInstancesResponse.
  *
- *  Lists all Apigee runtime instances for the organization.
- *  **Note:** Not supported for Apigee hybrid.
+ *  Lists all Apigee runtime instances for the organization. **Note:** Not
+ *  supported for Apigee hybrid.
  *
  *  @param parent Required. Name of the organization. Use the following
- *    structure in your request:
- *    `organizations/{org}`.
+ *    structure in your request: `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesList
  *
@@ -6782,9 +6511,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsInstancesReportStatusWithObject:instance:]
 
 /**
- *  The name of the instance reporting this status. For SaaS the request
- *  will be rejected if no instance exists under this name.
- *  Format is organizations/{org}/instances/{instance}
+ *  The name of the instance reporting this status. For SaaS the request will be
+ *  rejected if no instance exists under this name. Format is
+ *  organizations/{org}/instances/{instance}
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
@@ -6797,9 +6526,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRApigee_GoogleCloudApigeeV1ReportInstanceStatusRequest to include in
  *    the query.
  *  @param instance The name of the instance reporting this status. For SaaS the
- *    request
- *    will be rejected if no instance exists under this name.
- *    Format is organizations/{org}/instances/{instance}
+ *    request will be rejected if no instance exists under this name. Format is
+ *    organizations/{org}/instances/{instance}
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesReportStatus
  */
@@ -6834,8 +6562,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
  *    the query.
  *  @param parent Required. The name of the organization in which to create the
- *    key value map
- *    file. Must be of the form `organizations/{organization}`.
+ *    key value map file. Must be of the form `organizations/{organization}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsCreate
  */
@@ -6857,8 +6584,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsKeyvaluemapsDeleteWithname:]
 
 /**
- *  Required. The name of the key value map.
- *  Must be of the form
+ *  Required. The name of the key value map. Must be of the form
  *  `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6868,8 +6594,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Delete a key value map in an organization.
  *
- *  @param name Required. The name of the key value map.
- *    Must be of the form
+ *  @param name Required. The name of the key value map. Must be of the form
  *    `organizations/{organization}/keyvaluemaps/{keyvaluemap}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsDelete
@@ -6892,10 +6617,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryApigee queryForOrganizationsListWithparent:]
 
-/**
- *  Required. Use the following structure in your request:
- *  `organizations`
- */
+/** Required. Use the following structure in your request: `organizations` */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -6948,14 +6670,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: apigee.organizations.operations.list
  *
@@ -6982,14 +6704,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRApigee_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -7004,13 +6726,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a Custom Report for an Organization. A Custom Report
- *  provides Apigee Customers to create custom dashboards in addition
- *  to the standard dashboards which are provided. The Custom Report in its
- *  simplest form contains specifications about metrics, dimensions and
- *  filters. It is important to note that the custom report by itself does not
- *  provide an executable entity. The Edge UI converts the custom report
- *  definition into an analytics query and displays the result in a chart.
+ *  Creates a Custom Report for an Organization. A Custom Report provides Apigee
+ *  Customers to create custom dashboards in addition to the standard dashboards
+ *  which are provided. The Custom Report in its simplest form contains
+ *  specifications about metrics, dimensions and filters. It is important to
+ *  note that the custom report by itself does not provide an executable entity.
+ *  The Edge UI converts the custom report definition into an analytics query
+ *  and displays the result in a chart.
  *
  *  Method: apigee.organizations.reports.create
  *
@@ -7022,28 +6744,26 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsReportsCreateWithObject:parent:]
 
 /**
- *  Required. The parent organization name under which the Custom Report will
- *  be created. Must be of the form:
- *  `organizations/{organization_id}/reports`
+ *  Required. The parent organization name under which the Custom Report will be
+ *  created. Must be of the form: `organizations/{organization_id}/reports`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1CustomReport.
  *
- *  Creates a Custom Report for an Organization. A Custom Report
- *  provides Apigee Customers to create custom dashboards in addition
- *  to the standard dashboards which are provided. The Custom Report in its
- *  simplest form contains specifications about metrics, dimensions and
- *  filters. It is important to note that the custom report by itself does not
- *  provide an executable entity. The Edge UI converts the custom report
- *  definition into an analytics query and displays the result in a chart.
+ *  Creates a Custom Report for an Organization. A Custom Report provides Apigee
+ *  Customers to create custom dashboards in addition to the standard dashboards
+ *  which are provided. The Custom Report in its simplest form contains
+ *  specifications about metrics, dimensions and filters. It is important to
+ *  note that the custom report by itself does not provide an executable entity.
+ *  The Edge UI converts the custom report definition into an analytics query
+ *  and displays the result in a chart.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1CustomReport to include
  *    in the query.
  *  @param parent Required. The parent organization name under which the Custom
- *    Report will
- *    be created. Must be of the form:
+ *    Report will be created. Must be of the form:
  *    `organizations/{organization_id}/reports`
  *
  *  @return GTLRApigeeQuery_OrganizationsReportsCreate
@@ -7133,9 +6853,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL expand;
 
 /**
- *  Required. The parent organization name under which the API product will
- *  be listed
- *  `organizations/{organization_id}/reports`
+ *  Required. The parent organization name under which the API product will be
+ *  listed `organizations/{organization_id}/reports`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7145,9 +6864,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Return a list of Custom Reports
  *
  *  @param parent Required. The parent organization name under which the API
- *    product will
- *    be listed
- *    `organizations/{organization_id}/reports`
+ *    product will be listed `organizations/{organization_id}/reports`
  *
  *  @return GTLRApigeeQuery_OrganizationsReportsList
  */
@@ -7193,13 +6910,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Sets the permissions required to allow the Synchronizer to download
  *  environment data from the control plane. You must call this API to enable
- *  proper functioning of hybrid.
- *  Pass the ETag when calling `setSyncAuthorization` to ensure that
- *  you are updating the correct version. To get an ETag,
- *  call [getSyncAuthorization](getSyncAuthorization).
- *  If you don't pass the ETag in the call to `setSyncAuthorization`, then the
- *  existing authorization is overwritten indiscriminately.
- *  For more information, see
+ *  proper functioning of hybrid. Pass the ETag when calling
+ *  `setSyncAuthorization` to ensure that you are updating the correct version.
+ *  To get an ETag, call [getSyncAuthorization](getSyncAuthorization). If you
+ *  don't pass the ETag in the call to `setSyncAuthorization`, then the existing
+ *  authorization is overwritten indiscriminately. For more information, see
  *  [Enable Synchronizer
  *  access](https://docs.apigee.com/hybrid/latest/synchronizer-access#enable-synchronizer-access).
  *  **Note**: Available to Apigee hybrid only.
@@ -7215,9 +6930,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the Apigee organization. Use the following structure in
- *  your
- *  request:
- *  `organizations/{org}`
+ *  your request: `organizations/{org}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7226,13 +6939,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Sets the permissions required to allow the Synchronizer to download
  *  environment data from the control plane. You must call this API to enable
- *  proper functioning of hybrid.
- *  Pass the ETag when calling `setSyncAuthorization` to ensure that
- *  you are updating the correct version. To get an ETag,
- *  call [getSyncAuthorization](getSyncAuthorization).
- *  If you don't pass the ETag in the call to `setSyncAuthorization`, then the
- *  existing authorization is overwritten indiscriminately.
- *  For more information, see
+ *  proper functioning of hybrid. Pass the ETag when calling
+ *  `setSyncAuthorization` to ensure that you are updating the correct version.
+ *  To get an ETag, call [getSyncAuthorization](getSyncAuthorization). If you
+ *  don't pass the ETag in the call to `setSyncAuthorization`, then the existing
+ *  authorization is overwritten indiscriminately. For more information, see
  *  [Enable Synchronizer
  *  access](https://docs.apigee.com/hybrid/latest/synchronizer-access#enable-synchronizer-access).
  *  **Note**: Available to Apigee hybrid only.
@@ -7240,9 +6951,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SyncAuthorization to
  *    include in the query.
  *  @param name Required. Name of the Apigee organization. Use the following
- *    structure in your
- *    request:
- *    `organizations/{org}`
+ *    structure in your request: `organizations/{org}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSetSyncAuthorization
  */
@@ -7252,12 +6961,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Uploads a ZIP-formatted shared flow configuration bundle to an
- *  organization. If the shared flow already exists, this creates a new
- *  revision of it. If the shared flow does not exist, this creates it.
- *  Once imported, the shared flow revision must be deployed before it can be
- *  accessed at runtime.
- *  The size limit of a shared flow bundle is 15 MB.
+ *  Uploads a ZIP-formatted shared flow configuration bundle to an organization.
+ *  If the shared flow already exists, this creates a new revision of it. If the
+ *  shared flow does not exist, this creates it. Once imported, the shared flow
+ *  revision must be deployed before it can be accessed at runtime. The size
+ *  limit of a shared flow bundle is 15 MB.
  *
  *  Method: apigee.organizations.sharedflows.create
  *
@@ -7276,25 +6984,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the parent organization under which to create the
- *  shared flow. Must be of the form:
- *  `organizations/{organization_id}`
+ *  shared flow. Must be of the form: `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision.
  *
- *  Uploads a ZIP-formatted shared flow configuration bundle to an
- *  organization. If the shared flow already exists, this creates a new
- *  revision of it. If the shared flow does not exist, this creates it.
- *  Once imported, the shared flow revision must be deployed before it can be
- *  accessed at runtime.
- *  The size limit of a shared flow bundle is 15 MB.
+ *  Uploads a ZIP-formatted shared flow configuration bundle to an organization.
+ *  If the shared flow already exists, this creates a new revision of it. If the
+ *  shared flow does not exist, this creates it. Once imported, the shared flow
+ *  revision must be deployed before it can be accessed at runtime. The size
+ *  limit of a shared flow bundle is 15 MB.
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
  *  @param parent Required. The name of the parent organization under which to
- *    create the
- *    shared flow. Must be of the form:
+ *    create the shared flow. Must be of the form:
  *    `organizations/{organization_id}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsCreate
@@ -7352,9 +7057,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the shared flow for which to return deployment information
- *  in the
- *  following format:
- *  `organizations/{org}/sharedflows/{sharedflow}`
+ *  in the following format: `organizations/{org}/sharedflows/{sharedflow}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7364,8 +7067,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all deployments of a shared flow.
  *
  *  @param parent Required. Name of the shared flow for which to return
- *    deployment information in the
- *    following format:
+ *    deployment information in the following format:
  *    `organizations/{org}/sharedflows/{sharedflow}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsDeploymentsList
@@ -7387,8 +7089,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsSharedflowsGetWithname:]
 
 /**
- *  Required. The name of the shared flow to get. Must be of the
- *  form:
+ *  Required. The name of the shared flow to get. Must be of the form:
  *  `organizations/{organization_id}/sharedflows/{shared_flow_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -7399,8 +7100,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a shared flow by name, including a list of its revisions.
  *
  *  @param name Required. The name of the shared flow to get. Must be of the
- *    form:
- *    `organizations/{organization_id}/sharedflows/{shared_flow_id}`
+ *    form: `organizations/{organization_id}/sharedflows/{shared_flow_id}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsGet
  */
@@ -7428,8 +7128,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the parent organization under which to get shared
- *  flows. Must be of the form:
- *  `organizations/{organization_id}`
+ *  flows. Must be of the form: `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -7439,9 +7138,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all shared flows in the organization.
  *
  *  @param parent Required. The name of the parent organization under which to
- *    get shared
- *    flows. Must be of the form:
- *    `organizations/{organization_id}`
+ *    get shared flows. Must be of the form: `organizations/{organization_id}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsList
  */
@@ -7450,8 +7147,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a shared flow and all associated policies, resources, and
- *  revisions. You must undeploy the shared flow before deleting it.
+ *  Deletes a shared flow and all associated policies, resources, and revisions.
+ *  You must undeploy the shared flow before deleting it.
  *
  *  Method: apigee.organizations.sharedflows.revisions.delete
  *
@@ -7472,12 +7169,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision.
  *
- *  Deletes a shared flow and all associated policies, resources, and
- *  revisions. You must undeploy the shared flow before deleting it.
+ *  Deletes a shared flow and all associated policies, resources, and revisions.
+ *  You must undeploy the shared flow before deleting it.
  *
  *  @param name Required. The name of the shared flow revision to delete. Must
- *    be of the
- *    form:
+ *    be of the form:
  *    `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsRevisionsDelete
@@ -7500,8 +7196,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the API proxy revision for which to return deployment
- *  information
- *  in the following format:
+ *  information in the following format:
  *  `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -7512,8 +7207,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all deployments of a shared flow revision.
  *
  *  @param parent Required. Name of the API proxy revision for which to return
- *    deployment information
- *    in the following format:
+ *    deployment information in the following format:
  *    `organizations/{org}/sharedflows/{sharedflow}/revisions/{rev}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsRevisionsDeploymentsList
@@ -7523,9 +7217,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a revision of a shared flow.
- *  If `format=bundle` is passed, it instead outputs a shared flow revision as
- *  a ZIP-formatted bundle of code and config files.
+ *  Gets a revision of a shared flow. If `format=bundle` is passed, it instead
+ *  outputs a shared flow revision as a ZIP-formatted bundle of code and config
+ *  files.
  *
  *  Method: apigee.organizations.sharedflows.revisions.get
  *
@@ -7543,8 +7237,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  Required. The name of the shared flow revision to get. Must be of the
- *  form:
+ *  Required. The name of the shared flow revision to get. Must be of the form:
  *  `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -7552,13 +7245,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
- *  Gets a revision of a shared flow.
- *  If `format=bundle` is passed, it instead outputs a shared flow revision as
- *  a ZIP-formatted bundle of code and config files.
+ *  Gets a revision of a shared flow. If `format=bundle` is passed, it instead
+ *  outputs a shared flow revision as a ZIP-formatted bundle of code and config
+ *  files.
  *
  *  @param name Required. The name of the shared flow revision to get. Must be
- *    of the
- *    form:
+ *    of the form:
  *    `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsRevisionsGet
@@ -7570,9 +7262,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Updates a shared flow revision. This operation is only allowed on revisions
  *  which have never been deployed. After deployment a revision becomes
- *  immutable, even if it becomes undeployed.
- *  The payload is a ZIP-formatted shared flow. Content type must be either
- *  multipart/form-data or application/octet-stream.
+ *  immutable, even if it becomes undeployed. The payload is a ZIP-formatted
+ *  shared flow. Content type must be either multipart/form-data or
+ *  application/octet-stream.
  *
  *  Method: apigee.organizations.sharedflows.revisions.updateSharedFlowRevision
  *
@@ -7584,16 +7276,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsUpdateSharedFlowRevisionWithObject:name:]
 
 /**
- *  Required. The name of the shared flow revision to update.
- *  Must be of the form:
+ *  Required. The name of the shared flow revision to update. Must be of the
+ *  form:
  *  `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Ignored. All uploads are validated regardless of the value of this field.
- *  It is kept for compatibility with existing APIs. Must be `true` or `false`
- *  if provided.
+ *  Ignored. All uploads are validated regardless of the value of this field. It
+ *  is kept for compatibility with existing APIs. Must be `true` or `false` if
+ *  provided.
  */
 @property(nonatomic, assign) BOOL validate;
 
@@ -7602,13 +7294,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Updates a shared flow revision. This operation is only allowed on revisions
  *  which have never been deployed. After deployment a revision becomes
- *  immutable, even if it becomes undeployed.
- *  The payload is a ZIP-formatted shared flow. Content type must be either
- *  multipart/form-data or application/octet-stream.
+ *  immutable, even if it becomes undeployed. The payload is a ZIP-formatted
+ *  shared flow. Content type must be either multipart/form-data or
+ *  application/octet-stream.
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
- *  @param name Required. The name of the shared flow revision to update.
- *    Must be of the form:
+ *  @param name Required. The name of the shared flow revision to update. Must
+ *    be of the form:
  *    `organizations/{organization_id}/sharedflows/{shared_flow_id}/revisions/{revision_id}`
  *
  *  @return GTLRApigeeQuery_OrganizationsSharedflowsRevisionsUpdateSharedFlowRevision

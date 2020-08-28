@@ -81,8 +81,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_Device_Attributes *attributes;
 
 /**
- *  Custom device attributes stored in Home Graph and provided to your
- *  smart home Action in each
+ *  Custom device attributes stored in Home Graph and provided to your smart
+ *  home Action in each
  *  [QUERY](https://developers.google.com/assistant/smarthome/reference/intent/query)
  *  and
  *  [EXECUTE](https://developers.google.com/assistant/smarthome/reference/intent/execute)
@@ -104,54 +104,49 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_DeviceNames *name;
 
 /**
- *  Indicates whether your smart home Action will report notifications
- *  to Google for this device via
- *  ReportStateAndNotification.
- *  If your smart home Action enables users to control device notifications,
- *  you should update this field and call
- *  RequestSyncDevices.
+ *  Indicates whether your smart home Action will report notifications to Google
+ *  for this device via ReportStateAndNotification. If your smart home Action
+ *  enables users to control device notifications, you should update this field
+ *  and call RequestSyncDevices.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *notificationSupportedByAgent;
 
 /**
- *  Alternate IDs associated with this device.
- *  This is used to identify cloud synced devices enabled for [local
+ *  Alternate IDs associated with this device. This is used to identify cloud
+ *  synced devices enabled for [local
  *  fulfillment](https://developers.google.com/assistant/smarthome/concepts/local).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_AgentOtherDeviceId *> *otherDeviceIds;
 
 /**
- *  Suggested name for the room where this device is installed.
- *  Google attempts to use this value during user setup.
+ *  Suggested name for the room where this device is installed. Google attempts
+ *  to use this value during user setup.
  */
 @property(nonatomic, copy, nullable) NSString *roomHint;
 
 /**
- *  Suggested name for the structure where this device is installed.
- *  Google attempts to use this value during user setup.
+ *  Suggested name for the structure where this device is installed. Google
+ *  attempts to use this value during user setup.
  */
 @property(nonatomic, copy, nullable) NSString *structureHint;
 
 /**
- *  Traits supported by the device.
- *  See [device
+ *  Traits supported by the device. See [device
  *  traits](https://developers.google.com/assistant/smarthome/traits).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *traits;
 
 /**
- *  Hardware type of the device.
- *  See [device
+ *  Hardware type of the device. See [device
  *  types](https://developers.google.com/assistant/smarthome/guides).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Indicates whether your smart home Action will report state of this device
- *  to Google via
- *  ReportStateAndNotification.
+ *  Indicates whether your smart home Action will report state of this device to
+ *  Google via ReportStateAndNotification.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -173,8 +168,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Custom device attributes stored in Home Graph and provided to your
- *  smart home Action in each
+ *  Custom device attributes stored in Home Graph and provided to your smart
+ *  home Action in each
  *  [QUERY](https://developers.google.com/assistant/smarthome/reference/intent/query)
  *  and
  *  [EXECUTE](https://developers.google.com/assistant/smarthome/reference/intent/execute)
@@ -232,11 +227,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRHomeGraphService_Empty : GTLRObject
 @end
@@ -252,8 +245,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *agentUserId;
 
 /**
- *  Required. Inputs containing third-party device IDs for which to
- *  get the device states.
+ *  Required. Inputs containing third-party device IDs for which to get the
+ *  device states.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_QueryRequestInput *> *inputs;
 
@@ -287,33 +280,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Response type for the
- *  [`Query`](#google.home.graph.v1.HomeGraphApiService.Query) call.
- *  This should follow the same format as the Google smart home
- *  `action.devices.QUERY`
+ *  [`Query`](#google.home.graph.v1.HomeGraphApiService.Query) call. This should
+ *  follow the same format as the Google smart home `action.devices.QUERY`
  *  [response](https://developers.google.com/assistant/smarthome/reference/intent/query).
- *  # Example
- *  ```json
- *  {
- *  "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
- *  "payload": {
- *  "devices": {
- *  "123": {
- *  "on": true,
- *  "online": true
- *  },
- *  "456": {
- *  "on": true,
- *  "online": true,
- *  "brightness": 80,
- *  "color": {
- *  "name": "cerulean",
- *  "spectrumRGB": 31655
- *  }
- *  }
- *  }
- *  }
- *  }
- *  ```
+ *  # Example ```json { "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
+ *  "payload": { "devices": { "123": { "on": true, "online": true }, "456": {
+ *  "on": true, "online": true, "brightness": 80, "color": { "name": "cerulean",
+ *  "spectrumRGB": 31655 } } } } } ```
  */
 @interface GTLRHomeGraphService_QueryResponse : GTLRObject
 
@@ -372,15 +345,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRHomeGraphService_ReportStateAndNotificationDevice : GTLRObject
 
 /**
- *  Notifications metadata for devices. See the **Device NOTIFICATIONS**
- *  section of the individual trait [reference
+ *  Notifications metadata for devices. See the **Device NOTIFICATIONS** section
+ *  of the individual trait [reference
  *  guides](https://developers.google.com/assistant/smarthome/traits).
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_ReportStateAndNotificationDevice_Notifications *notifications;
 
 /**
- *  States of devices to update. See the **Device STATES** section
- *  of the individual trait [reference
+ *  States of devices to update. See the **Device STATES** section of the
+ *  individual trait [reference
  *  guides](https://developers.google.com/assistant/smarthome/traits).
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_ReportStateAndNotificationDevice_States *states;
@@ -389,8 +362,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Notifications metadata for devices. See the **Device NOTIFICATIONS**
- *  section of the individual trait [reference
+ *  Notifications metadata for devices. See the **Device NOTIFICATIONS** section
+ *  of the individual trait [reference
  *  guides](https://developers.google.com/assistant/smarthome/traits).
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -403,8 +376,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  States of devices to update. See the **Device STATES** section
- *  of the individual trait [reference
+ *  States of devices to update. See the **Device STATES** section of the
+ *  individual trait [reference
  *  guides](https://developers.google.com/assistant/smarthome/traits).
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -420,29 +393,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Request type for the
  *  [`ReportStateAndNotification`](#google.home.graph.v1.HomeGraphApiService.ReportStateAndNotification)
  *  call. It may include states, notifications, or both. States and
- *  notifications
- *  are defined per `device_id` (for example, "123" and "456" in the following
- *  example).
- *  # Example
- *  ```json
- *  {
- *  "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
- *  "agentUserId": "1234",
- *  "payload": {
- *  "devices": {
- *  "states": {
- *  "123": {
- *  "on": true
- *  },
- *  "456": {
- *  "on": true,
- *  "brightness": 10
- *  }
- *  },
- *  }
- *  }
- *  }
- *  ```
+ *  notifications are defined per `device_id` (for example, "123" and "456" in
+ *  the following example). # Example ```json { "requestId":
+ *  "ff36a3cc-ec34-11e6-b1a0-64510650abcf", "agentUserId": "1234", "payload": {
+ *  "devices": { "states": { "123": { "on": true }, "456": { "on": true,
+ *  "brightness": 10 } }, } } } ```
  */
 @interface GTLRHomeGraphService_ReportStateAndNotificationRequest : GTLRObject
 
@@ -453,8 +408,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
- *  Token to maintain state in the follow up notification response.
- *  Deprecated. See the [notifications
+ *  Token to maintain state in the follow up notification response. Deprecated.
+ *  See the [notifications
  *  guide](https://developers.google.com/assistant/smarthome/develop/notifications)
  *  for details on implementing follow up notifications.
  */
@@ -509,8 +464,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Response type for the
  *  [`RequestSyncDevices`](#google.home.graph.v1.HomeGraphApiService.RequestSyncDevices)
- *  call.
- *  Intentionally empty upon success. An HTTP response code is returned
+ *  call. Intentionally empty upon success. An HTTP response code is returned
  *  with more details upon failure.
  */
 @interface GTLRHomeGraphService_RequestSyncDevicesResponse : GTLRObject
@@ -530,8 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Request type for the
- *  [`Sync`](#google.home.graph.v1.HomeGraphApiService.Sync)
- *  call.
+ *  [`Sync`](#google.home.graph.v1.HomeGraphApiService.Sync) call.
  */
 @interface GTLRHomeGraphService_SyncRequest : GTLRObject
 
@@ -546,43 +499,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Response type for the
- *  [`Sync`](#google.home.graph.v1.HomeGraphApiService.Sync) call.
- *  This should follow the same format as the Google smart home
- *  `action.devices.SYNC`
+ *  [`Sync`](#google.home.graph.v1.HomeGraphApiService.Sync) call. This should
+ *  follow the same format as the Google smart home `action.devices.SYNC`
  *  [response](https://developers.google.com/assistant/smarthome/reference/intent/sync).
- *  # Example
- *  ```json
- *  {
- *  "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
- *  "payload": {
- *  "agentUserId": "1836.15267389",
- *  "devices": [{
- *  "id": "123",
- *  "type": "action.devices.types.OUTLET",
- *  "traits": [
- *  "action.devices.traits.OnOff"
- *  ],
- *  "name": {
- *  "defaultNames": ["My Outlet 1234"],
- *  "name": "Night light",
- *  "nicknames": ["wall plug"]
- *  },
- *  "willReportState": false,
- *  "deviceInfo": {
- *  "manufacturer": "lights-out-inc",
- *  "model": "hs1234",
- *  "hwVersion": "3.2",
- *  "swVersion": "11.4"
- *  },
- *  "customData": {
- *  "fooValue": 74,
- *  "barValue": true,
- *  "bazValue": "foo"
- *  }
- *  }]
- *  }
- *  }
- *  ```
+ *  # Example ```json { "requestId": "ff36a3cc-ec34-11e6-b1a0-64510650abcf",
+ *  "payload": { "agentUserId": "1836.15267389", "devices": [{ "id": "123",
+ *  "type": "action.devices.types.OUTLET", "traits": [
+ *  "action.devices.traits.OnOff" ], "name": { "defaultNames": ["My Outlet
+ *  1234"], "name": "Night light", "nicknames": ["wall plug"] },
+ *  "willReportState": false, "deviceInfo": { "manufacturer": "lights-out-inc",
+ *  "model": "hs1234", "hwVersion": "3.2", "swVersion": "11.4" }, "customData":
+ *  { "fooValue": 74, "barValue": true, "bazValue": "foo" } }] } } ```
  */
 @interface GTLRHomeGraphService_SyncResponse : GTLRObject
 

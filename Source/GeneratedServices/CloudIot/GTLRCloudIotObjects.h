@@ -69,8 +69,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Debug;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIot_Device_LogLevel_Error;
 /**
- *  Informational events will be logged, such as connections and
- *  disconnections.
+ *  Informational events will be logged, such as connections and disconnections.
  *
  *  Value: "INFO"
  */
@@ -104,8 +103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Debug;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIot_DeviceRegistry_LogLevel_Error;
 /**
- *  Informational events will be logged, such as connections and
- *  disconnections.
+ *  Informational events will be logged, such as connections and disconnections.
  *
  *  Value: "INFO"
  */
@@ -142,8 +140,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationOnly;
 /**
- *  The device is authenticated through its own credentials. Gateway
- *  association is not checked.
+ *  The device is authenticated through its own credentials. Gateway association
+ *  is not checked.
  *
  *  Value: "DEVICE_AUTH_TOKEN_ONLY"
  */
@@ -194,8 +192,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_Htt
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpEnabled;
 /**
- *  No HTTP state specified. If not specified, DeviceService will be
- *  enabled by default.
+ *  No HTTP state specified. If not specified, DeviceService will be enabled by
+ *  default.
  *
  *  Value: "HTTP_STATE_UNSPECIFIED"
  */
@@ -227,8 +225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_MqttConfig_MqttEnabledState_Mqt
 // GTLRCloudIot_PublicKeyCertificate.format
 
 /**
- *  The format has not been specified. This is an invalid default value and
- *  must not be used.
+ *  The format has not been specified. This is an invalid default value and must
+ *  not be used.
  *
  *  Value: "UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT"
  */
@@ -247,10 +245,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCertificate_Format_X50
 
 /**
  *  Public key for the ECDSA algorithm using P-256 and SHA-256, encoded in
- *  base64, and wrapped by `-----BEGIN PUBLIC KEY-----` and `-----END
- *  PUBLIC KEY-----`. This can be used to verify JWT tokens with the `ES256`
- *  algorithm ([RFC7518](https://www.ietf.org/rfc/rfc7518.txt)). This curve is
- *  defined in [OpenSSL](https://www.openssl.org/) as the `prime256v1` curve.
+ *  base64, and wrapped by `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC
+ *  KEY-----`. This can be used to verify JWT tokens with the `ES256` algorithm
+ *  ([RFC7518](https://www.ietf.org/rfc/rfc7518.txt)). This curve is defined in
+ *  [OpenSSL](https://www.openssl.org/) as the `prime256v1` curve.
  *
  *  Value: "ES256_PEM"
  */
@@ -264,10 +262,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es25
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Es256X509Pem;
 /**
- *  An RSA public key encoded in base64, and wrapped by
- *  `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`. This can be
- *  used to verify `RS256` signatures in JWT tokens ([RFC7518](
- *  https://www.ietf.org/rfc/rfc7518.txt)).
+ *  An RSA public key encoded in base64, and wrapped by `-----BEGIN PUBLIC
+ *  KEY-----` and `-----END PUBLIC KEY-----`. This can be used to verify `RS256`
+ *  signatures in JWT tokens ([RFC7518]( https://www.ietf.org/rfc/rfc7518.txt)).
  *
  *  Value: "RSA_PEM"
  */
@@ -281,8 +278,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_RsaX509Pem;
 /**
- *  The format has not been specified. This is an invalid default value and
- *  must not be used.
+ *  The format has not been specified. This is an invalid default value and must
+ *  not be used.
  *
  *  Value: "UNSPECIFIED_PUBLIC_KEY_FORMAT"
  */
@@ -302,8 +299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 
 /**
  *  Required. The value of `gateway_id` can be either the device numeric ID or
- *  the
- *  user-defined device identifier.
+ *  the user-defined device identifier.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayId;
 
@@ -323,56 +319,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @interface GTLRCloudIot_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudIot_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -394,20 +385,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @property(nonatomic, strong, nullable) NSNumber *blocked;
 
 /**
- *  The most recent device configuration, which is eventually sent from
- *  Cloud IoT Core to the device. If not present on creation, the
- *  configuration will be initialized with an empty payload and version value
- *  of `1`. To update this field after creation, use the
- *  `DeviceManager.ModifyCloudToDeviceConfig` method.
+ *  The most recent device configuration, which is eventually sent from Cloud
+ *  IoT Core to the device. If not present on creation, the configuration will
+ *  be initialized with an empty payload and version value of `1`. To update
+ *  this field after creation, use the `DeviceManager.ModifyCloudToDeviceConfig`
+ *  method.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIot_DeviceConfig *config;
 
 /**
  *  The credentials used to authenticate this device. To allow credential
  *  rotation without interruption, multiple device credentials can be bound to
- *  this device. No more than 3 credentials can be bound to a single device at
- *  a time. When new credentials are added to a device, they are verified
- *  against the registry credentials. For details, see the description of the
+ *  this device. No more than 3 credentials can be bound to a single device at a
+ *  time. When new credentials are added to a device, they are verified against
+ *  the registry credentials. For details, see the description of the
  *  `DeviceRegistry.credentials` field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIot_DeviceCredential *> *credentials;
@@ -416,8 +407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @property(nonatomic, strong, nullable) GTLRCloudIot_GatewayConfig *gatewayConfig;
 
 /**
- *  The user-defined device identifier. The device ID must be unique
- *  within a device registry.
+ *  The user-defined device identifier. The device ID must be unique within a
+ *  device registry.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -425,23 +416,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 
 /**
  *  [Output only] The last time a cloud-to-device config version acknowledgment
- *  was received from the device. This field is only for configurations
- *  sent through MQTT.
+ *  was received from the device. This field is only for configurations sent
+ *  through MQTT.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastConfigAckTime;
 
 /**
- *  [Output only] The last time a cloud-to-device config version was sent to
- *  the device.
+ *  [Output only] The last time a cloud-to-device config version was sent to the
+ *  device.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastConfigSendTime;
 
 /**
  *  [Output only] The error message of the most recent error, such as a failure
  *  to publish to Cloud Pub/Sub. 'last_error_time' is the timestamp of this
- *  field. If no errors have occurred, this field has an empty message
- *  and the status code 0 == OK. Otherwise, this field is expected to have a
- *  status code other than OK.
+ *  field. If no errors have occurred, this field has an empty message and the
+ *  status code 0 == OK. Otherwise, this field is expected to have a status code
+ *  other than OK.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIot_Status *lastErrorStatus;
 
@@ -476,8 +467,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @property(nonatomic, strong, nullable) GTLRDateTime *lastStateTime;
 
 /**
- *  **Beta Feature**
- *  The logging verbosity for device activity. If unspecified,
+ *  **Beta Feature** The logging verbosity for device activity. If unspecified,
  *  DeviceRegistry.log_level will be used.
  *
  *  Likely values:
@@ -486,8 +476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *    @arg @c kGTLRCloudIot_Device_LogLevel_Error Error events will be logged.
  *        (Value: "ERROR")
  *    @arg @c kGTLRCloudIot_Device_LogLevel_Info Informational events will be
- *        logged, such as connections and
- *        disconnections. (Value: "INFO")
+ *        logged, such as connections and disconnections. (Value: "INFO")
  *    @arg @c kGTLRCloudIot_Device_LogLevel_LogLevelUnspecified No logging
  *        specified. If not specified, logging will be disabled. (Value:
  *        "LOG_LEVEL_UNSPECIFIED")
@@ -499,13 +488,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 /**
  *  The metadata key-value pairs assigned to the device. This metadata is not
  *  interpreted or indexed by Cloud IoT Core. It can be used to add contextual
- *  information for the device.
- *  Keys must conform to the regular expression a-zA-Z+ and
- *  be less than 128 bytes in length.
- *  Values are free-form strings. Each value must be less than or equal to 32
- *  KB in size.
- *  The total size of all keys and values must be less than 256 KB, and the
- *  maximum number of key-value pairs is 500.
+ *  information for the device. Keys must conform to the regular expression
+ *  a-zA-Z+ and be less than 128 bytes in length. Values are free-form strings.
+ *  Each value must be less than or equal to 32 KB in size. The total size of
+ *  all keys and values must be less than 256 KB, and the maximum number of
+ *  key-value pairs is 500.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIot_Device_Metadata *metadata;
 
@@ -513,8 +500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *  The resource path name. For example,
  *  `projects/p1/locations/us-central1/registries/registry0/devices/dev0` or
  *  `projects/p1/locations/us-central1/registries/registry0/devices/{num_id}`.
- *  When `name` is populated as a response from the service, it always ends
- *  in the device numeric ID.
+ *  When `name` is populated as a response from the service, it always ends in
+ *  the device numeric ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -538,13 +525,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 /**
  *  The metadata key-value pairs assigned to the device. This metadata is not
  *  interpreted or indexed by Cloud IoT Core. It can be used to add contextual
- *  information for the device.
- *  Keys must conform to the regular expression a-zA-Z+ and
- *  be less than 128 bytes in length.
- *  Values are free-form strings. Each value must be less than or equal to 32
- *  KB in size.
- *  The total size of all keys and values must be less than 256 KB, and the
- *  maximum number of key-value pairs is 500.
+ *  information for the device. Keys must conform to the regular expression
+ *  a-zA-Z+ and be less than 128 bytes in length. Values are free-form strings.
+ *  Each value must be less than or equal to 32 KB in size. The total size of
+ *  all keys and values must be less than 256 KB, and the maximum number of
+ *  key-value pairs is 500.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -575,23 +560,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @property(nonatomic, strong, nullable) GTLRDateTime *cloudUpdateTime;
 
 /**
- *  [Output only] The time at which Cloud IoT Core received the
- *  acknowledgment from the device, indicating that the device has received
- *  this configuration version. If this field is not present, the device has
- *  not yet acknowledged that it received this version. Note that when
- *  the config was sent to the device, many config versions may have been
- *  available in Cloud IoT Core while the device was disconnected, and on
- *  connection, only the latest version is sent to the device. Some
- *  versions may never be sent to the device, and therefore are never
- *  acknowledged. This timestamp is set by Cloud IoT Core.
+ *  [Output only] The time at which Cloud IoT Core received the acknowledgment
+ *  from the device, indicating that the device has received this configuration
+ *  version. If this field is not present, the device has not yet acknowledged
+ *  that it received this version. Note that when the config was sent to the
+ *  device, many config versions may have been available in Cloud IoT Core while
+ *  the device was disconnected, and on connection, only the latest version is
+ *  sent to the device. Some versions may never be sent to the device, and
+ *  therefore are never acknowledged. This timestamp is set by Cloud IoT Core.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *deviceAckTime;
 
 /**
  *  [Output only] The version of this update. The version number is assigned by
- *  the server, and is always greater than 0 after device creation. The
- *  version must be 0 on the `CreateDevice` request if a `config` is
- *  specified; the response of `CreateDevice` will always have a value of 1.
+ *  the server, and is always greater than 0 after device creation. The version
+ *  must be 0 on the `CreateDevice` request if a `config` is specified; the
+ *  response of `CreateDevice` will always have a value of 1.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -607,23 +591,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 
 /**
  *  [Optional] The time at which this credential becomes invalid. This
- *  credential will be ignored for new client authentication requests after
- *  this timestamp; however, it will not be automatically deleted.
+ *  credential will be ignored for new client authentication requests after this
+ *  timestamp; however, it will not be automatically deleted.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /**
- *  A public key used to verify the signature of JSON Web Tokens (JWTs).
- *  When adding a new device credential, either via device creation or via
+ *  A public key used to verify the signature of JSON Web Tokens (JWTs). When
+ *  adding a new device credential, either via device creation or via
  *  modifications, this public key credential may be required to be signed by
- *  one of the registry level certificates. More specifically, if the
- *  registry contains at least one certificate, any new device credential
- *  must be signed by one of the registry certificates. As a result,
- *  when the registry contains certificates, only X.509 certificates are
- *  accepted as device credentials. However, if the registry does
- *  not contain a certificate, self-signed certificates and public keys will
- *  be accepted. New device credentials must be different from every
- *  registry-level certificate.
+ *  one of the registry level certificates. More specifically, if the registry
+ *  contains at least one certificate, any new device credential must be signed
+ *  by one of the registry certificates. As a result, when the registry contains
+ *  certificates, only X.509 certificates are accepted as device credentials.
+ *  However, if the registry does not contain a certificate, self-signed
+ *  certificates and public keys will be accepted. New device credentials must
+ *  be different from every registry-level certificate.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIot_PublicKeyCredential *publicKey;
 
@@ -641,24 +624,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *  process occurs at the time of device creation or update. If this field is
  *  empty, no verification is performed. Otherwise, the credentials of a newly
  *  created device or added credentials of an updated device should be signed
- *  with one of these registry credentials.
- *  Note, however, that existing devices will never be affected by
- *  modifications to this list of credentials: after a device has been
- *  successfully created in a registry, it should be able to connect even if
- *  its registry credentials are revoked, deleted, or modified.
+ *  with one of these registry credentials. Note, however, that existing devices
+ *  will never be affected by modifications to this list of credentials: after a
+ *  device has been successfully created in a registry, it should be able to
+ *  connect even if its registry credentials are revoked, deleted, or modified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIot_RegistryCredential *> *credentials;
 
 /**
  *  The configuration for notification of telemetry events received from the
- *  device. All telemetry events that were successfully published by the
- *  device and acknowledged by Cloud IoT Core are guaranteed to be
- *  delivered to Cloud Pub/Sub. If multiple configurations match a message,
- *  only the first matching configuration is used. If you try to publish a
- *  device telemetry event using MQTT without specifying a Cloud Pub/Sub topic
- *  for the device's registry, the connection closes automatically. If you try
- *  to do so using an HTTP connection, an error is returned. Up to 10
- *  configurations may be provided.
+ *  device. All telemetry events that were successfully published by the device
+ *  and acknowledged by Cloud IoT Core are guaranteed to be delivered to Cloud
+ *  Pub/Sub. If multiple configurations match a message, only the first matching
+ *  configuration is used. If you try to publish a device telemetry event using
+ *  MQTT without specifying a Cloud Pub/Sub topic for the device's registry, the
+ *  connection closes automatically. If you try to do so using an HTTP
+ *  connection, an error is returned. Up to 10 configurations may be provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIot_EventNotificationConfig *> *eventNotificationConfigs;
 
@@ -673,9 +654,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  **Beta Feature**
- *  The default logging verbosity for activity from devices in this registry.
- *  The verbosity level can be overridden by Device.log_level.
+ *  **Beta Feature** The default logging verbosity for activity from devices in
+ *  this registry. The verbosity level can be overridden by Device.log_level.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_Debug All events will be
@@ -683,8 +663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_Error Error events will be
  *        logged. (Value: "ERROR")
  *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_Info Informational events
- *        will be logged, such as connections and
- *        disconnections. (Value: "INFO")
+ *        will be logged, such as connections and disconnections. (Value:
+ *        "INFO")
  *    @arg @c kGTLRCloudIot_DeviceRegistry_LogLevel_LogLevelUnspecified No
  *        logging specified. If not specified, logging will be disabled. (Value:
  *        "LOG_LEVEL_UNSPECIFIED")
@@ -729,8 +709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @property(nonatomic, copy, nullable) NSString *binaryData;
 
 /**
- *  [Output only] The time at which this state version was updated in Cloud
- *  IoT Core.
+ *  [Output only] The time at which this state version was updated in Cloud IoT
+ *  Core.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -740,11 +720,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudIot_Empty : GTLRObject
 @end
@@ -775,27 +753,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRCloudIot_Expr : GTLRObject
 
@@ -820,9 +791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -841,10 +811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *  Likely values:
  *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationAndDeviceAuthToken
  *        The device is authenticated through both device credentials and
- *        gateway
- *        association. The device must be bound to the gateway and must provide
- *        its
- *        own credentials. (Value: "ASSOCIATION_AND_DEVICE_AUTH_TOKEN")
+ *        gateway association. The device must be bound to the gateway and must
+ *        provide its own credentials. (Value:
+ *        "ASSOCIATION_AND_DEVICE_AUTH_TOKEN")
  *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_AssociationOnly The
  *        device is authenticated through the gateway association only. Device
  *        credentials are ignored even if provided. (Value: "ASSOCIATION_ONLY")
@@ -853,8 +822,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *        association is not checked. (Value: "DEVICE_AUTH_TOKEN_ONLY")
  *    @arg @c kGTLRCloudIot_GatewayConfig_GatewayAuthMethod_GatewayAuthMethodUnspecified
  *        No authentication/authorization method specified. No devices are
- *        allowed to
- *        access the gateway. (Value: "GATEWAY_AUTH_METHOD_UNSPECIFIED")
+ *        allowed to access the gateway. (Value:
+ *        "GATEWAY_AUTH_METHOD_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *gatewayAuthMethod;
 
@@ -904,14 +873,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @interface GTLRCloudIot_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -937,8 +904,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *    @arg @c kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpEnabled Enables
  *        DeviceService (HTTP) service for the registry. (Value: "HTTP_ENABLED")
  *    @arg @c kGTLRCloudIot_HttpConfig_HttpEnabledState_HttpStateUnspecified No
- *        HTTP state specified. If not specified, DeviceService will be
- *        enabled by default. (Value: "HTTP_STATE_UNSPECIFIED")
+ *        HTTP state specified. If not specified, DeviceService will be enabled
+ *        by default. (Value: "HTTP_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *httpEnabledState;
 
@@ -951,8 +918,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @interface GTLRCloudIot_ListDeviceConfigVersionsResponse : GTLRObject
 
 /**
- *  The device configuration for the last few versions. Versions are listed
- *  in decreasing order, starting from the most recent one.
+ *  The device configuration for the last few versions. Versions are listed in
+ *  decreasing order, starting from the most recent one.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIot_DeviceConfig *> *deviceConfigs;
 
@@ -979,8 +946,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 
 /**
  *  If not empty, indicates that there may be more registries that match the
- *  request; this value should be passed in a new
- *  `ListDeviceRegistriesRequest`.
+ *  request; this value should be passed in a new `ListDeviceRegistriesRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1080,88 +1046,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudIot_Policy : GTLRObject
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIot_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1169,24 +1103,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1210,8 +1140,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *  Likely values:
  *    @arg @c kGTLRCloudIot_PublicKeyCertificate_Format_UnspecifiedPublicKeyCertificateFormat
  *        The format has not been specified. This is an invalid default value
- *        and
- *        must not be used. (Value: "UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT")
+ *        and must not be used. (Value:
+ *        "UNSPECIFIED_PUBLIC_KEY_CERTIFICATE_FORMAT")
  *    @arg @c kGTLRCloudIot_PublicKeyCertificate_Format_X509CertificatePem An
  *        X.509v3 certificate ([RFC5280](https://www.ietf.org/rfc/rfc5280.txt)),
  *        encoded in base64, and wrapped by `-----BEGIN CERTIFICATE-----` and
@@ -1237,36 +1167,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIot_PublicKeyCredential_Format_Es256Pem Public key for
- *        the ECDSA algorithm using P-256 and SHA-256, encoded in
- *        base64, and wrapped by `-----BEGIN PUBLIC KEY-----` and `-----END
- *        PUBLIC KEY-----`. This can be used to verify JWT tokens with the
- *        `ES256`
+ *        the ECDSA algorithm using P-256 and SHA-256, encoded in base64, and
+ *        wrapped by `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC
+ *        KEY-----`. This can be used to verify JWT tokens with the `ES256`
  *        algorithm ([RFC7518](https://www.ietf.org/rfc/rfc7518.txt)). This
- *        curve is
- *        defined in [OpenSSL](https://www.openssl.org/) as the `prime256v1`
- *        curve. (Value: "ES256_PEM")
+ *        curve is defined in [OpenSSL](https://www.openssl.org/) as the
+ *        `prime256v1` curve. (Value: "ES256_PEM")
  *    @arg @c kGTLRCloudIot_PublicKeyCredential_Format_Es256X509Pem As
  *        ES256_PEM, but wrapped in an X.509v3 certificate ([RFC5280](
  *        https://www.ietf.org/rfc/rfc5280.txt)), encoded in base64, and wrapped
- *        by
- *        `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`. (Value:
- *        "ES256_X509_PEM")
+ *        by `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`.
+ *        (Value: "ES256_X509_PEM")
  *    @arg @c kGTLRCloudIot_PublicKeyCredential_Format_RsaPem An RSA public key
- *        encoded in base64, and wrapped by
- *        `-----BEGIN PUBLIC KEY-----` and `-----END PUBLIC KEY-----`. This can
- *        be
- *        used to verify `RS256` signatures in JWT tokens ([RFC7518](
+ *        encoded in base64, and wrapped by `-----BEGIN PUBLIC KEY-----` and
+ *        `-----END PUBLIC KEY-----`. This can be used to verify `RS256`
+ *        signatures in JWT tokens ([RFC7518](
  *        https://www.ietf.org/rfc/rfc7518.txt)). (Value: "RSA_PEM")
  *    @arg @c kGTLRCloudIot_PublicKeyCredential_Format_RsaX509Pem As RSA_PEM,
  *        but wrapped in an X.509v3 certificate ([RFC5280](
  *        https://www.ietf.org/rfc/rfc5280.txt)), encoded in base64, and wrapped
- *        by
- *        `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`. (Value:
- *        "RSA_X509_PEM")
+ *        by `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE-----`.
+ *        (Value: "RSA_X509_PEM")
  *    @arg @c kGTLRCloudIot_PublicKeyCredential_Format_UnspecifiedPublicKeyFormat
  *        The format has not been specified. This is an invalid default value
- *        and
- *        must not be used. (Value: "UNSPECIFIED_PUBLIC_KEY_FORMAT")
+ *        and must not be used. (Value: "UNSPECIFIED_PUBLIC_KEY_FORMAT")
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
@@ -1326,9 +1250,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIot_Policy *policy;
 
@@ -1353,9 +1276,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudIot_Status : GTLRObject
 
@@ -1401,9 +1324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -1416,8 +1338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 @interface GTLRCloudIot_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -1431,16 +1352,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
 
 /**
  *  Required. The device to disassociate from the specified gateway. The value
- *  of
- *  `device_id` can be either the device numeric ID or the user-defined device
- *  identifier.
+ *  of `device_id` can be either the device numeric ID or the user-defined
+ *  device identifier.
  */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
  *  Required. The value of `gateway_id` can be either the device numeric ID or
- *  the
- *  user-defined device identifier.
+ *  the user-defined device identifier.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayId;
 

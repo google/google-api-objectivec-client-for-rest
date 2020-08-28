@@ -504,6 +504,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Licensing/*.{h,m}'
   end
+  s.subspec 'Localservices' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Localservices/*.{h,m}'
+  end
   s.subspec 'Logging' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Logging/*.{h,m}'
@@ -563,6 +567,10 @@ Pod::Spec.new do |s|
   s.subspec 'Pubsub' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Pubsub/*.{h,m}'
+  end
+  s.subspec 'PubsubLite' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PubsubLite/*.{h,m}'
   end
   s.subspec 'RealTimeBidding' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

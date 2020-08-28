@@ -62,8 +62,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *connectionId;
 
 /**
- *  Required. Parent resource name.
- *  Must be in the format `projects/{project_id}/locations/{location_id}`
+ *  Required. Parent resource name. Must be in the format
+ *  `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -74,8 +74,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBigQueryConnectionService_Connection to include in
  *    the query.
- *  @param parent Required. Parent resource name.
- *    Must be in the format `projects/{project_id}/locations/{location_id}`
+ *  @param parent Required. Parent resource name. Must be in the format
+ *    `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsCreate
  */
@@ -151,9 +151,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: bigqueryconnection.projects.locations.connections.getIamPolicy
  *
@@ -166,23 +165,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRBigQueryConnectionService_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param object The @c GTLRBigQueryConnectionService_GetIamPolicyRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsGetIamPolicy
  */
@@ -211,8 +209,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Parent resource name.
- *  Must be in the form: `projects/{project_id}/locations/{location_id}`
+ *  Required. Parent resource name. Must be in the form:
+ *  `projects/{project_id}/locations/{location_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -221,8 +219,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Returns a list of connections in the given project.
  *
- *  @param parent Required. Parent resource name.
- *    Must be in the form: `projects/{project_id}/locations/{location_id}`
+ *  @param parent Required. Parent resource name. Must be in the form:
+ *    `projects/{project_id}/locations/{location_id}`
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsList
  *
@@ -281,8 +279,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: bigqueryconnection.projects.locations.connections.setIamPolicy
  *
@@ -295,8 +293,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -304,14 +302,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRBigQueryConnectionService_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRBigQueryConnectionService_SetIamPolicyRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsSetIamPolicy
  */
@@ -321,12 +319,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: bigqueryconnection.projects.locations.connections.testIamPermissions
  *
@@ -339,26 +336,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryBigQueryConnectionService queryForProjectsLocationsConnectionsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRBigQueryConnectionService_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRBigQueryConnectionService_TestIamPermissionsRequest
  *    to include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigQueryConnectionServiceQuery_ProjectsLocationsConnectionsTestIamPermissions
  */

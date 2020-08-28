@@ -177,6 +177,16 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPeopleService_ClientData
+//
+
+@implementation GTLRPeopleService_ClientData
+@dynamic key, metadata, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPeopleService_ContactGroup
 //
 
@@ -508,6 +518,17 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPeopleService_Location
+//
+
+@implementation GTLRPeopleService_Location
+@dynamic buildingId, current, deskCode, floor, floorSection, metadata, type,
+         value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPeopleService_Membership
 //
 
@@ -616,12 +637,12 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 @implementation GTLRPeopleService_Person
 @dynamic addresses, ageRange, ageRanges, biographies, birthdays, braggingRights,
-         calendarUrls, coverPhotos, emailAddresses, ETag, events, externalIds,
-         fileAses, genders, imClients, interests, locales, memberships,
-         metadata, miscKeywords, names, nicknames, occupations, organizations,
-         phoneNumbers, photos, relations, relationshipInterests,
-         relationshipStatuses, residences, resourceName, sipAddresses, skills,
-         taglines, urls, userDefined;
+         calendarUrls, clientData, coverPhotos, emailAddresses, ETag, events,
+         externalIds, fileAses, genders, imClients, interests, locales,
+         locations, memberships, metadata, miscKeywords, names, nicknames,
+         occupations, organizations, phoneNumbers, photos, relations,
+         relationshipInterests, relationshipStatuses, residences, resourceName,
+         sipAddresses, skills, taglines, urls, userDefined;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -635,6 +656,7 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
     @"birthdays" : [GTLRPeopleService_Birthday class],
     @"braggingRights" : [GTLRPeopleService_BraggingRights class],
     @"calendarUrls" : [GTLRPeopleService_CalendarUrl class],
+    @"clientData" : [GTLRPeopleService_ClientData class],
     @"coverPhotos" : [GTLRPeopleService_CoverPhoto class],
     @"emailAddresses" : [GTLRPeopleService_EmailAddress class],
     @"events" : [GTLRPeopleService_Event class],
@@ -644,6 +666,7 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
     @"imClients" : [GTLRPeopleService_ImClient class],
     @"interests" : [GTLRPeopleService_Interest class],
     @"locales" : [GTLRPeopleService_Locale class],
+    @"locations" : [GTLRPeopleService_Location class],
     @"memberships" : [GTLRPeopleService_Membership class],
     @"miscKeywords" : [GTLRPeopleService_MiscKeyword class],
     @"names" : [GTLRPeopleService_Name class],

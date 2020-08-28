@@ -306,37 +306,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_An
 // GTLRDatastore_GoogleDatastoreAdminV1Index.state
 
 /**
- *  The index is being created, and cannot be used by queries.
- *  There is an active long-running operation for the index.
- *  The index is updated when writing an entity.
- *  Some index data may exist.
+ *  The index is being created, and cannot be used by queries. There is an
+ *  active long-running operation for the index. The index is updated when
+ *  writing an entity. Some index data may exist.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Creating;
 /**
- *  The index is being deleted, and cannot be used by queries.
- *  There is an active long-running operation for the index.
- *  The index is not updated when writing an entity.
- *  Some index data may exist.
+ *  The index is being deleted, and cannot be used by queries. There is an
+ *  active long-running operation for the index. The index is not updated when
+ *  writing an entity. Some index data may exist.
  *
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Deleting;
 /**
- *  The index was being created or deleted, but something went wrong.
- *  The index cannot by used by queries.
- *  There is no active long-running operation for the index,
- *  and the most recently finished long-running operation failed.
- *  The index is not updated when writing an entity.
- *  Some index data may exist.
+ *  The index was being created or deleted, but something went wrong. The index
+ *  cannot by used by queries. There is no active long-running operation for the
+ *  index, and the most recently finished long-running operation failed. The
+ *  index is not updated when writing an entity. Some index data may exist.
  *
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Error;
 /**
- *  The index is ready to be used.
- *  The index is updated when writing an entity.
+ *  The index is ready to be used. The index is updated when writing an entity.
  *  The index is fully populated from all stored entities it applies to.
  *
  *  Value: "READY"
@@ -353,15 +348,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1Index_St
 // GTLRDatastore_GoogleDatastoreAdminV1IndexedProperty.direction
 
 /**
- *  The property's values are indexed so as to support sequencing in
- *  ascending order and also query by <, >, <=, >=, and =.
+ *  The property's values are indexed so as to support sequencing in ascending
+ *  order and also query by <, >, <=, >=, and =.
  *
  *  Value: "ASCENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastore_GoogleDatastoreAdminV1IndexedProperty_Direction_Ascending;
 /**
- *  The property's values are indexed so as to support sequencing in
- *  descending order and also query by <, >, <=, >=, and =.
+ *  The property's values are indexed so as to support sequencing in descending
+ *  order and also query by <, >, <=, >=, and =.
  *
  *  Value: "DESCENDING"
  */
@@ -473,8 +468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_QueryResultBatch_EntityResultT
 // GTLRDatastore_QueryResultBatch.moreResults
 
 /**
- *  The query is finished, but there may be more results after the end
- *  cursor.
+ *  The query is finished, but there may be more results after the end cursor.
  *
  *  Value: "MORE_RESULTS_AFTER_CURSOR"
  */
@@ -543,8 +537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  Required. A list of keys with incomplete key paths for which to allocate
- *  IDs.
- *  No key may be reserved/read-only.
+ *  IDs. No key may be reserved/read-only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
@@ -557,8 +550,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_AllocateIdsResponse : GTLRObject
 
 /**
- *  The keys specified in the request (in the same order), each with
- *  its key path completed with a newly allocated ID.
+ *  The keys specified in the request (in the same order), each with its key
+ *  path completed with a newly allocated ID.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
@@ -571,9 +564,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_ArrayValue : GTLRObject
 
 /**
- *  Values in the array.
- *  The order of values in an array is preserved as long as all values have
- *  identical settings for 'exclude_from_indexes'.
+ *  Values in the array. The order of values in an array is preserved as long as
+ *  all values have identical settings for 'exclude_from_indexes'.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Value *> *values;
 
@@ -622,31 +614,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *        Non-transactional: The mutations may not apply as all or none. (Value:
  *        "NON_TRANSACTIONAL")
  *    @arg @c kGTLRDatastore_CommitRequest_Mode_Transactional Transactional: The
- *        mutations are either all applied, or none are applied.
- *        Learn about transactions
+ *        mutations are either all applied, or none are applied. Learn about
+ *        transactions
  *        [here](https://cloud.google.com/datastore/docs/concepts/transactions).
  *        (Value: "TRANSACTIONAL")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
- *  The mutations to perform.
- *  When mode is `TRANSACTIONAL`, mutations affecting a single entity are
- *  applied in order. The following sequences of mutations affecting a single
- *  entity are not permitted in a single `Commit` request:
- *  - `insert` followed by `insert`
- *  - `update` followed by `insert`
- *  - `upsert` followed by `insert`
- *  - `delete` followed by `update`
- *  When mode is `NON_TRANSACTIONAL`, no two mutations may affect a single
- *  entity.
+ *  The mutations to perform. When mode is `TRANSACTIONAL`, mutations affecting
+ *  a single entity are applied in order. The following sequences of mutations
+ *  affecting a single entity are not permitted in a single `Commit` request: -
+ *  `insert` followed by `insert` - `update` followed by `insert` - `upsert`
+ *  followed by `insert` - `delete` followed by `update` When mode is
+ *  `NON_TRANSACTIONAL`, no two mutations may affect a single entity.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Mutation *> *mutations;
 
 /**
- *  The identifier of the transaction associated with the commit. A
- *  transaction identifier is returned by a call to
- *  Datastore.BeginTransaction.
+ *  The identifier of the transaction associated with the commit. A transaction
+ *  identifier is returned by a call to Datastore.BeginTransaction.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -670,8 +657,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *indexUpdates;
 
 /**
- *  The result of performing the mutations.
- *  The i-th mutation result corresponds to the i-th mutation in the request.
+ *  The result of performing the mutations. The i-th mutation result corresponds
+ *  to the i-th mutation in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_MutationResult *> *mutationResults;
 
@@ -683,10 +670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  */
 @interface GTLRDatastore_CompositeFilter : GTLRObject
 
-/**
- *  The list of filters to combine.
- *  Must contain at least one filter.
- */
+/** The list of filters to combine. Must contain at least one filter. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Filter *> *filters;
 
 /**
@@ -706,40 +690,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRDatastore_Empty : GTLRObject
 @end
 
 
 /**
- *  A Datastore data object.
- *  An entity is limited to 1 megabyte when stored. That _roughly_
- *  corresponds to a limit of 1 megabyte for the serialized form of this
- *  message.
+ *  A Datastore data object. An entity is limited to 1 megabyte when stored.
+ *  That _roughly_ corresponds to a limit of 1 megabyte for the serialized form
+ *  of this message.
  */
 @interface GTLRDatastore_Entity : GTLRObject
 
 /**
- *  The entity's key.
- *  An entity must have a key, unless otherwise documented (for example,
- *  an entity in `Value.entity_value` may have no key).
- *  An entity's kind is its key path's last element's kind,
- *  or null if it has no key.
+ *  The entity's key. An entity must have a key, unless otherwise documented
+ *  (for example, an entity in `Value.entity_value` may have no key). An
+ *  entity's kind is its key path's last element's kind, or null if it has no
+ *  key.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Key *key;
 
 /**
- *  The entity's properties.
- *  The map's keys are property names.
- *  A property name matching regex `__.*__` is reserved.
- *  A reserved property name is forbidden in certain documented contexts.
- *  The name must not contain more than 500 characters.
- *  The name cannot be `""`.
+ *  The entity's properties. The map's keys are property names. A property name
+ *  matching regex `__.*__` is reserved. A reserved property name is forbidden
+ *  in certain documented contexts. The name must not contain more than 500
+ *  characters. The name cannot be `""`.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity_Properties *properties;
 
@@ -747,12 +725,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The entity's properties.
- *  The map's keys are property names.
- *  A property name matching regex `__.*__` is reserved.
- *  A reserved property name is forbidden in certain documented contexts.
- *  The name must not contain more than 500 characters.
- *  The name cannot be `""`.
+ *  The entity's properties. The map's keys are property names. A property name
+ *  matching regex `__.*__` is reserved. A reserved property name is forbidden
+ *  in certain documented contexts. The name must not contain more than 500
+ *  characters. The name cannot be `""`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDatastore_Value. Use @c -additionalJSONKeys and @c
@@ -769,8 +745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_EntityResult : GTLRObject
 
 /**
- *  A cursor that points to the position after the result entity.
- *  Set only when the `EntityResult` is part of a `QueryResultBatch` message.
+ *  A cursor that points to the position after the result entity. Set only when
+ *  the `EntityResult` is part of a `QueryResultBatch` message.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -782,12 +758,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  The version of the entity, a strictly positive number that monotonically
- *  increases with changes to the entity.
- *  This field is set for `FULL` entity
- *  results.
- *  For missing entities in `LookupResponse`, this
- *  is the version of the snapshot that was used to look up the entity, and it
- *  is always set except for eventually consistent reads.
+ *  increases with changes to the entity. This field is set for `FULL` entity
+ *  results. For missing entities in `LookupResponse`, this is the version of
+ *  the snapshot that was used to look up the entity, and it is always set
+ *  except for eventually consistent reads.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -825,8 +799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_Labels *labels;
 
 /**
- *  The type of the operation. Can be used as a filter in
- *  ListOperationsRequest.
+ *  The type of the operation. Can be used as a filter in ListOperationsRequest.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1beta1CommonMetadata_OperationType_ExportEntities
@@ -888,18 +861,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  Identifies a subset of entities in a project. This is specified as
  *  combinations of kinds and namespaces (either or both of which may be all, as
- *  described in the following examples).
- *  Example usage:
- *  Entire project:
- *  kinds=[], namespace_ids=[]
- *  Kinds Foo and Bar in all namespaces:
- *  kinds=['Foo', 'Bar'], namespace_ids=[]
- *  Kinds Foo and Bar only in the default namespace:
- *  kinds=['Foo', 'Bar'], namespace_ids=['']
- *  Kinds Foo and Bar in both the default and Baz namespaces:
- *  kinds=['Foo', 'Bar'], namespace_ids=['', 'Baz']
- *  The entire Baz namespace:
- *  kinds=[], namespace_ids=['Baz']
+ *  described in the following examples). Example usage: Entire project:
+ *  kinds=[], namespace_ids=[] Kinds Foo and Bar in all namespaces:
+ *  kinds=['Foo', 'Bar'], namespace_ids=[] Kinds Foo and Bar only in the default
+ *  namespace: kinds=['Foo', 'Bar'], namespace_ids=[''] Kinds Foo and Bar in
+ *  both the default and Baz namespaces: kinds=['Foo', 'Bar'],
+ *  namespace_ids=['', 'Baz'] The entire Baz namespace: kinds=[],
+ *  namespace_ids=['Baz']
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1beta1EntityFilter : GTLRObject
 
@@ -907,12 +875,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *kinds;
 
 /**
- *  An empty list represents all namespaces. This is the preferred
- *  usage for projects that don't use namespaces.
- *  An empty string element represents the default namespace. This should be
- *  used if the project has data in non-default namespaces, but doesn't want to
- *  include them.
- *  Each namespace in this list must be unique.
+ *  An empty list represents all namespaces. This is the preferred usage for
+ *  projects that don't use namespaces. An empty string element represents the
+ *  default namespace. This should be used if the project has data in
+ *  non-default namespaces, but doesn't want to include them. Each namespace in
+ *  this list must be unique.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
@@ -931,8 +898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1beta1EntityFilter *entityFilter;
 
 /**
- *  Location for the export metadata and data files. This will be the same
- *  value as the
+ *  Location for the export metadata and data files. This will be the same value
+ *  as the
  *  google.datastore.admin.v1beta1.ExportEntitiesRequest.output_url_prefix
  *  field. The final output location is provided in
  *  google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url.
@@ -957,8 +924,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  Location of the output metadata file. This can be used to begin an import
  *  into Cloud Datastore (this project or another project). See
- *  google.datastore.admin.v1beta1.ImportEntitiesRequest.input_url.
- *  Only present if the operation completed successfully.
+ *  google.datastore.admin.v1beta1.ImportEntitiesRequest.input_url. Only present
+ *  if the operation completed successfully.
  */
 @property(nonatomic, copy, nullable) NSString *outputUrl;
 
@@ -977,9 +944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1beta1EntityFilter *entityFilter;
 
 /**
- *  The location of the import metadata file. This will be the same value as
- *  the google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url
- *  field.
+ *  The location of the import metadata file. This will be the same value as the
+ *  google.datastore.admin.v1beta1.ExportEntitiesResponse.output_url field.
  */
 @property(nonatomic, copy, nullable) NSString *inputUrl;
 
@@ -1006,8 +972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *workCompleted;
 
 /**
- *  An estimate of how much work needs to be performed. May be zero if the
- *  work estimate is unavailable.
+ *  An estimate of how much work needs to be performed. May be zero if the work
+ *  estimate is unavailable.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1031,8 +997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_Labels *labels;
 
 /**
- *  The type of the operation. Can be used as a filter in
- *  ListOperationsRequest.
+ *  The type of the operation. Can be used as a filter in ListOperationsRequest.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1CommonMetadata_OperationType_CreateIndex
@@ -1098,18 +1063,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 /**
  *  Identifies a subset of entities in a project. This is specified as
  *  combinations of kinds and namespaces (either or both of which may be all, as
- *  described in the following examples).
- *  Example usage:
- *  Entire project:
- *  kinds=[], namespace_ids=[]
- *  Kinds Foo and Bar in all namespaces:
- *  kinds=['Foo', 'Bar'], namespace_ids=[]
- *  Kinds Foo and Bar only in the default namespace:
- *  kinds=['Foo', 'Bar'], namespace_ids=['']
- *  Kinds Foo and Bar in both the default and Baz namespaces:
- *  kinds=['Foo', 'Bar'], namespace_ids=['', 'Baz']
- *  The entire Baz namespace:
- *  kinds=[], namespace_ids=['Baz']
+ *  described in the following examples). Example usage: Entire project:
+ *  kinds=[], namespace_ids=[] Kinds Foo and Bar in all namespaces:
+ *  kinds=['Foo', 'Bar'], namespace_ids=[] Kinds Foo and Bar only in the default
+ *  namespace: kinds=['Foo', 'Bar'], namespace_ids=[''] Kinds Foo and Bar in
+ *  both the default and Baz namespaces: kinds=['Foo', 'Bar'],
+ *  namespace_ids=['', 'Baz'] The entire Baz namespace: kinds=[],
+ *  namespace_ids=['Baz']
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1EntityFilter : GTLRObject
 
@@ -1117,12 +1077,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *kinds;
 
 /**
- *  An empty list represents all namespaces. This is the preferred
- *  usage for projects that don't use namespaces.
- *  An empty string element represents the default namespace. This should be
- *  used if the project has data in non-default namespaces, but doesn't want to
- *  include them.
- *  Each namespace in this list must be unique.
+ *  An empty list represents all namespaces. This is the preferred usage for
+ *  projects that don't use namespaces. An empty string element represents the
+ *  default namespace. This should be used if the project has data in
+ *  non-default namespaces, but doesn't want to include them. Each namespace in
+ *  this list must be unique.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *namespaceIds;
 
@@ -1141,9 +1100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1EntityFilter *entityFilter;
 
 /**
- *  Location for the export metadata and data files. This will be the same
- *  value as the
- *  google.datastore.admin.v1.ExportEntitiesRequest.output_url_prefix
+ *  Location for the export metadata and data files. This will be the same value
+ *  as the google.datastore.admin.v1.ExportEntitiesRequest.output_url_prefix
  *  field. The final output location is provided in
  *  google.datastore.admin.v1.ExportEntitiesResponse.output_url.
  */
@@ -1159,8 +1117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The request for
- *  google.datastore.admin.v1.DatastoreAdmin.ExportEntities.
+ *  The request for google.datastore.admin.v1.DatastoreAdmin.ExportEntities.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest : GTLRObject
 
@@ -1171,21 +1128,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesRequest_Labels *labels;
 
 /**
- *  Required. Location for the export metadata and data files.
- *  The full resource URL of the external storage location. Currently, only
- *  Google Cloud Storage is supported. So output_url_prefix should be of the
- *  form: `gs://BUCKET_NAME[/NAMESPACE_PATH]`, where `BUCKET_NAME` is the
- *  name of the Cloud Storage bucket and `NAMESPACE_PATH` is an optional Cloud
- *  Storage namespace path (this is not a Cloud Datastore namespace). For more
- *  information about Cloud Storage namespace paths, see
- *  [Object name
+ *  Required. Location for the export metadata and data files. The full resource
+ *  URL of the external storage location. Currently, only Google Cloud Storage
+ *  is supported. So output_url_prefix should be of the form:
+ *  `gs://BUCKET_NAME[/NAMESPACE_PATH]`, where `BUCKET_NAME` is the name of the
+ *  Cloud Storage bucket and `NAMESPACE_PATH` is an optional Cloud Storage
+ *  namespace path (this is not a Cloud Datastore namespace). For more
+ *  information about Cloud Storage namespace paths, see [Object name
  *  considerations](https://cloud.google.com/storage/docs/naming#object-considerations).
- *  The resulting files will be nested deeper than the specified URL prefix.
- *  The final output URL will be provided in the
+ *  The resulting files will be nested deeper than the specified URL prefix. The
+ *  final output URL will be provided in the
  *  google.datastore.admin.v1.ExportEntitiesResponse.output_url field. That
- *  value should be used for subsequent ImportEntities operations.
- *  By nesting the data files deeper, the same Cloud Storage bucket can be used
- *  in multiple ExportEntities operations without conflict.
+ *  value should be used for subsequent ImportEntities operations. By nesting
+ *  the data files deeper, the same Cloud Storage bucket can be used in multiple
+ *  ExportEntities operations without conflict.
  */
 @property(nonatomic, copy, nullable) NSString *outputUrlPrefix;
 
@@ -1205,16 +1161,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for
- *  google.datastore.admin.v1.DatastoreAdmin.ExportEntities.
+ *  The response for google.datastore.admin.v1.DatastoreAdmin.ExportEntities.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1ExportEntitiesResponse : GTLRObject
 
 /**
  *  Location of the output metadata file. This can be used to begin an import
  *  into Cloud Datastore (this project or another project). See
- *  google.datastore.admin.v1.ImportEntitiesRequest.input_url.
- *  Only present if the operation completed successfully.
+ *  google.datastore.admin.v1.ImportEntitiesRequest.input_url. Only present if
+ *  the operation completed successfully.
  */
 @property(nonatomic, copy, nullable) NSString *outputUrl;
 
@@ -1233,8 +1188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleDatastoreAdminV1EntityFilter *entityFilter;
 
 /**
- *  The location of the import metadata file. This will be the same value as
- *  the google.datastore.admin.v1.ExportEntitiesResponse.output_url field.
+ *  The location of the import metadata file. This will be the same value as the
+ *  google.datastore.admin.v1.ExportEntitiesResponse.output_url field.
  */
 @property(nonatomic, copy, nullable) NSString *inputUrl;
 
@@ -1248,8 +1203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The request for
- *  google.datastore.admin.v1.DatastoreAdmin.ImportEntities.
+ *  The request for google.datastore.admin.v1.DatastoreAdmin.ImportEntities.
  */
 @interface GTLRDatastore_GoogleDatastoreAdminV1ImportEntitiesRequest : GTLRObject
 
@@ -1263,15 +1217,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  Required. The full resource URL of the external storage location. Currently,
- *  only
- *  Google Cloud Storage is supported. So input_url should be of the form:
+ *  only Google Cloud Storage is supported. So input_url should be of the form:
  *  `gs://BUCKET_NAME[/NAMESPACE_PATH]/OVERALL_EXPORT_METADATA_FILE`, where
  *  `BUCKET_NAME` is the name of the Cloud Storage bucket, `NAMESPACE_PATH` is
  *  an optional Cloud Storage namespace path (this is not a Cloud Datastore
  *  namespace), and `OVERALL_EXPORT_METADATA_FILE` is the metadata file written
  *  by the ExportEntities operation. For more information about Cloud Storage
- *  namespace paths, see
- *  [Object name
+ *  namespace paths, see [Object name
  *  considerations](https://cloud.google.com/storage/docs/naming#object-considerations).
  *  For more information, see
  *  google.datastore.admin.v1.ExportEntitiesResponse.output_url.
@@ -1334,26 +1286,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Creating The
- *        index is being created, and cannot be used by queries.
- *        There is an active long-running operation for the index.
- *        The index is updated when writing an entity.
- *        Some index data may exist. (Value: "CREATING")
+ *        index is being created, and cannot be used by queries. There is an
+ *        active long-running operation for the index. The index is updated when
+ *        writing an entity. Some index data may exist. (Value: "CREATING")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Deleting The
- *        index is being deleted, and cannot be used by queries.
- *        There is an active long-running operation for the index.
- *        The index is not updated when writing an entity.
- *        Some index data may exist. (Value: "DELETING")
+ *        index is being deleted, and cannot be used by queries. There is an
+ *        active long-running operation for the index. The index is not updated
+ *        when writing an entity. Some index data may exist. (Value: "DELETING")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Error The index
- *        was being created or deleted, but something went wrong.
- *        The index cannot by used by queries.
- *        There is no active long-running operation for the index,
- *        and the most recently finished long-running operation failed.
- *        The index is not updated when writing an entity.
- *        Some index data may exist. (Value: "ERROR")
+ *        was being created or deleted, but something went wrong. The index
+ *        cannot by used by queries. There is no active long-running operation
+ *        for the index, and the most recently finished long-running operation
+ *        failed. The index is not updated when writing an entity. Some index
+ *        data may exist. (Value: "ERROR")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_Ready The index
- *        is ready to be used.
- *        The index is updated when writing an entity.
- *        The index is fully populated from all stored entities it applies to.
+ *        is ready to be used. The index is updated when writing an entity. The
+ *        index is fully populated from all stored entities it applies to.
  *        (Value: "READY")
  *    @arg @c kGTLRDatastore_GoogleDatastoreAdminV1Index_State_StateUnspecified
  *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
@@ -1410,8 +1358,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for
- *  google.datastore.admin.v1.DatastoreAdmin.ListIndexes.
+ *  The response for google.datastore.admin.v1.DatastoreAdmin.ListIndexes.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "indexes" property. If returned as the result of a query, it
@@ -1448,8 +1395,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *workCompleted;
 
 /**
- *  An estimate of how much work needs to be performed. May be zero if the
- *  work estimate is unavailable.
+ *  An estimate of how much work needs to be performed. May be zero if the work
+ *  estimate is unavailable.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1489,8 +1436,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_GoogleLongrunningOperation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1502,16 +1449,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleLongrunningOperation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1520,10 +1467,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_GoogleLongrunningOperation_Response *response;
 
@@ -1532,8 +1478,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1550,10 +1496,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1572,9 +1517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  When false, the query string must not contain any literals and instead must
- *  bind all values. For example,
- *  `SELECT * FROM Kind WHERE a = 'string literal'` is not allowed, while
- *  `SELECT * FROM Kind WHERE a = \@value` is.
+ *  bind all values. For example, `SELECT * FROM Kind WHERE a = 'string
+ *  literal'` is not allowed, while `SELECT * FROM Kind WHERE a = \@value` is.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1582,17 +1526,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  For each non-reserved named binding site in the query string, there must be
- *  a named parameter with that name, but not necessarily the inverse.
- *  Key must match regex `A-Za-z_$*`, must not match regex
- *  `__.*__`, and must not be `""`.
+ *  a named parameter with that name, but not necessarily the inverse. Key must
+ *  match regex `A-Za-z_$*`, must not match regex `__.*__`, and must not be
+ *  `""`.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery_NamedBindings *namedBindings;
 
 /**
  *  Numbered binding site \@1 references the first numbered parameter,
- *  effectively using 1-based indexing, rather than the usual 0.
- *  For each binding site numbered i in `query_string`, there must be an i-th
- *  numbered parameter. The inverse must also be true.
+ *  effectively using 1-based indexing, rather than the usual 0. For each
+ *  binding site numbered i in `query_string`, there must be an i-th numbered
+ *  parameter. The inverse must also be true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_GqlQueryParameter *> *positionalBindings;
 
@@ -1607,9 +1551,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  For each non-reserved named binding site in the query string, there must be
- *  a named parameter with that name, but not necessarily the inverse.
- *  Key must match regex `A-Za-z_$*`, must not match regex
- *  `__.*__`, and must not be `""`.
+ *  a named parameter with that name, but not necessarily the inverse. Key must
+ *  match regex `A-Za-z_$*`, must not match regex `__.*__`, and must not be
+ *  `""`.
  *
  *  @note This class is documented as having more properties of
  *        GTLRDatastore_GqlQueryParameter. Use @c -additionalJSONKeys and @c
@@ -1626,8 +1570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_GqlQueryParameter : GTLRObject
 
 /**
- *  A query cursor. Query cursors are returned in query
- *  result batches.
+ *  A query cursor. Query cursors are returned in query result batches.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1641,35 +1584,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  A unique identifier for an entity.
- *  If a key's partition ID or any of its path kinds or names are
- *  reserved/read-only, the key is reserved/read-only.
- *  A reserved/read-only key is forbidden in certain documented contexts.
+ *  A unique identifier for an entity. If a key's partition ID or any of its
+ *  path kinds or names are reserved/read-only, the key is reserved/read-only. A
+ *  reserved/read-only key is forbidden in certain documented contexts.
  */
 @interface GTLRDatastore_Key : GTLRObject
 
 /**
- *  Entities are partitioned into subsets, currently identified by a project
- *  ID and namespace ID.
- *  Queries are scoped to a single partition.
+ *  Entities are partitioned into subsets, currently identified by a project ID
+ *  and namespace ID. Queries are scoped to a single partition.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_PartitionId *partitionId;
 
 /**
- *  The entity path.
- *  An entity path consists of one or more elements composed of a kind and a
- *  string or numerical identifier, which identify entities. The first
- *  element identifies a _root entity_, the second element identifies
- *  a _child_ of the root entity, the third element identifies a child of the
- *  second entity, and so forth. The entities identified by all prefixes of
- *  the path are called the element's _ancestors_.
- *  An entity path is always fully complete: *all* of the entity's ancestors
- *  are required to be in the path along with the entity identifier itself.
- *  The only exception is that in some documented cases, the identifier in the
- *  last path element (for the entity) itself may be omitted. For example,
- *  the last path element of the key of `Mutation.insert` may have no
- *  identifier.
- *  A path can never be empty, and a path can have at most 100 elements.
+ *  The entity path. An entity path consists of one or more elements composed of
+ *  a kind and a string or numerical identifier, which identify entities. The
+ *  first element identifies a _root entity_, the second element identifies a
+ *  _child_ of the root entity, the third element identifies a child of the
+ *  second entity, and so forth. The entities identified by all prefixes of the
+ *  path are called the element's _ancestors_. An entity path is always fully
+ *  complete: *all* of the entity's ancestors are required to be in the path
+ *  along with the entity identifier itself. The only exception is that in some
+ *  documented cases, the identifier in the last path element (for the entity)
+ *  itself may be omitted. For example, the last path element of the key of
+ *  `Mutation.insert` may have no identifier. A path can never be empty, and a
+ *  path can have at most 100 elements.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_PathElement *> *path;
 
@@ -1689,11 +1628,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair
- *  of doubles representing degrees latitude and degrees longitude. Unless
- *  specified otherwise, this must conform to the
- *  <a href="http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf">WGS84
- *  standard</a>. Values must be within normalized ranges.
+ *  pair of doubles representing degrees latitude and degrees longitude. Unless
+ *  specified otherwise, this must conform to the WGS84 standard. Values must be
+ *  within normalized ranges.
  */
 @interface GTLRDatastore_LatLng : GTLRObject
 
@@ -1735,8 +1672,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  A list of keys that were not looked up due to resource constraints. The
- *  order of results in this field is undefined and has no relation to the
- *  order of the keys in the input.
+ *  order of results in this field is undefined and has no relation to the order
+ *  of the keys in the input.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *deferred;
 
@@ -1749,8 +1686,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  Entities not found as `ResultType.KEY_ONLY` entities. The order of results
- *  in this field is undefined and has no relation to the order of the keys
- *  in the input.
+ *  in this field is undefined and has no relation to the order of the keys in
+ *  the input.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_EntityResult *> *missing;
 
@@ -1779,20 +1716,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_Key *deleteProperty;
 
 /**
- *  The entity to insert. The entity must not already exist.
- *  The entity key's final path element may be incomplete.
+ *  The entity to insert. The entity must not already exist. The entity key's
+ *  final path element may be incomplete.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity *insert;
 
 /**
- *  The entity to update. The entity must already exist.
- *  Must have a complete key path.
+ *  The entity to update. The entity must already exist. Must have a complete
+ *  key path.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity *update;
 
 /**
- *  The entity to upsert. The entity may or may not already exist.
- *  The entity key's final path element may be incomplete.
+ *  The entity to upsert. The entity may or may not already exist. The entity
+ *  key's final path element may be incomplete.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity *upsert;
 
@@ -1813,15 +1750,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *conflictDetected;
 
 /**
- *  The automatically allocated key.
- *  Set only when the mutation allocated a key.
+ *  The automatically allocated key. Set only when the mutation allocated a key.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Key *key;
 
 /**
  *  The version of the entity on the server after processing the mutation. If
- *  the mutation doesn't change anything on the server, then the version will
- *  be the version of the current entity or, if no entity is present, a version
+ *  the mutation doesn't change anything on the server, then the version will be
+ *  the version of the current entity or, if no entity is present, a version
  *  that is strictly greater than the version of any previous entity and less
  *  than the version of any possible future entity.
  *
@@ -1833,22 +1769,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  A partition ID identifies a grouping of entities. The grouping is always
- *  by project and namespace, however the namespace ID may be empty.
- *  A partition ID contains several dimensions:
- *  project ID and namespace ID.
- *  Partition dimensions:
- *  - May be `""`.
- *  - Must be valid UTF-8 bytes.
- *  - Must have values that match regex `[A-Za-z\\d\\.\\-_]{1,100}`
- *  If the value of any dimension matches regex `__.*__`, the partition is
- *  reserved/read-only.
- *  A reserved/read-only partition ID is forbidden in certain documented
- *  contexts.
- *  Foreign partition IDs (in which the project ID does
- *  not match the context project ID ) are discouraged.
- *  Reads and writes of foreign partition IDs may fail if the project is not in
- *  an active state.
+ *  A partition ID identifies a grouping of entities. The grouping is always by
+ *  project and namespace, however the namespace ID may be empty. A partition ID
+ *  contains several dimensions: project ID and namespace ID. Partition
+ *  dimensions: - May be `""`. - Must be valid UTF-8 bytes. - Must have values
+ *  that match regex `[A-Za-z\\d\\.\\-_]{1,100}` If the value of any dimension
+ *  matches regex `__.*__`, the partition is reserved/read-only. A
+ *  reserved/read-only partition ID is forbidden in certain documented contexts.
+ *  Foreign partition IDs (in which the project ID does not match the context
+ *  project ID ) are discouraged. Reads and writes of foreign partition IDs may
+ *  fail if the project is not in an active state.
  */
 @interface GTLRDatastore_PartitionId : GTLRObject
 
@@ -1862,16 +1792,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  A (kind, ID/name) pair used to construct a key path.
- *  If either name or ID is set, the element is complete.
- *  If neither is set, the element is incomplete.
+ *  A (kind, ID/name) pair used to construct a key path. If either name or ID is
+ *  set, the element is complete. If neither is set, the element is incomplete.
  */
 @interface GTLRDatastore_PathElement : GTLRObject
 
 /**
- *  The auto-allocated ID of the entity.
- *  Never equal to zero. Values less than zero are discouraged and may not
- *  be supported in the future.
+ *  The auto-allocated ID of the entity. Never equal to zero. Values less than
+ *  zero are discouraged and may not be supported in the future.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -1880,18 +1808,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The kind of the entity.
- *  A kind matching regex `__.*__` is reserved/read-only.
- *  A kind must not contain more than 1500 bytes when UTF-8 encoded.
- *  Cannot be `""`.
+ *  The kind of the entity. A kind matching regex `__.*__` is
+ *  reserved/read-only. A kind must not contain more than 1500 bytes when UTF-8
+ *  encoded. Cannot be `""`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the entity.
- *  A name matching regex `__.*__` is reserved/read-only.
- *  A name must not be more than 1500 bytes when UTF-8 encoded.
- *  Cannot be `""`.
+ *  The name of the entity. A name matching regex `__.*__` is
+ *  reserved/read-only. A name must not be more than 1500 bytes when UTF-8
+ *  encoded. Cannot be `""`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1974,8 +1900,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_PropertyReference : GTLRObject
 
 /**
- *  The name of the property.
- *  If name includes "."s, it may be interpreted as a property name path.
+ *  The name of the property. If name includes "."s, it may be interpreted as a
+ *  property name path.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1989,15 +1915,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  The properties to make distinct. The query results will contain the first
- *  result for each distinct combination of values for the given properties
- *  (if empty, all results are returned).
+ *  result for each distinct combination of values for the given properties (if
+ *  empty, all results are returned).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_PropertyReference *> *distinctOn;
 
 /**
- *  An ending point for the query results. Query cursors are
- *  returned in query result batches and
- *  [can only be used to limit the same
+ *  An ending point for the query results. Query cursors are returned in query
+ *  result batches and [can only be used to limit the same
  *  query](https://cloud.google.com/datastore/docs/concepts/queries#cursors_limits_and_offsets).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -2009,16 +1934,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_Filter *filter;
 
 /**
- *  The kinds to query (if empty, returns entities of all kinds).
- *  Currently at most 1 kind may be specified.
+ *  The kinds to query (if empty, returns entities of all kinds). Currently at
+ *  most 1 kind may be specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_KindExpression *> *kind;
 
 /**
  *  The maximum number of results to return. Applies after all other
- *  constraints. Optional.
- *  Unspecified is interpreted as no limit.
- *  Must be >= 0 if specified.
+ *  constraints. Optional. Unspecified is interpreted as no limit. Must be >= 0
+ *  if specified.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2041,9 +1965,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Projection *> *projection;
 
 /**
- *  A starting point for the query results. Query cursors are
- *  returned in query result batches and
- *  [can only be used to continue the same
+ *  A starting point for the query results. Query cursors are returned in query
+ *  result batches and [can only be used to continue the same
  *  query](https://cloud.google.com/datastore/docs/concepts/queries#cursors_limits_and_offsets).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -2110,8 +2033,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *moreResults;
 
 /**
- *  A cursor that points to the position after the last skipped result.
- *  Will be set when `skipped_results` != 0.
+ *  A cursor that points to the position after the last skipped result. Will be
+ *  set when `skipped_results` != 0.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2126,13 +2049,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *skippedResults;
 
 /**
- *  The version number of the snapshot this batch was returned from.
- *  This applies to the range of results from the query's `start_cursor` (or
- *  the beginning of the query if no cursor was given) to this batch's
- *  `end_cursor` (not the query's `end_cursor`).
- *  In a single transaction, subsequent query result batches for the same query
- *  can have a greater snapshot version number. Each batch's snapshot version
- *  is valid for all preceding batches.
+ *  The version number of the snapshot this batch was returned from. This
+ *  applies to the range of results from the query's `start_cursor` (or the
+ *  beginning of the query if no cursor was given) to this batch's `end_cursor`
+ *  (not the query's `end_cursor`). In a single transaction, subsequent query
+ *  result batches for the same query can have a greater snapshot version
+ *  number. Each batch's snapshot version is valid for all preceding batches.
  *  The value will be zero for eventually consistent queries.
  *
  *  Uses NSNumber of longLongValue.
@@ -2155,8 +2077,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_ReadOptions : GTLRObject
 
 /**
- *  The non-transactional read consistency to use.
- *  Cannot be set to `STRONG` for global queries.
+ *  The non-transactional read consistency to use. Cannot be set to `STRONG` for
+ *  global queries.
  *
  *  Likely values:
  *    @arg @c kGTLRDatastore_ReadOptions_ReadConsistency_Eventual Eventual
@@ -2170,9 +2092,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *readConsistency;
 
 /**
- *  The identifier of the transaction in which to read. A
- *  transaction identifier is returned by a call to
- *  Datastore.BeginTransaction.
+ *  The identifier of the transaction in which to read. A transaction identifier
+ *  is returned by a call to Datastore.BeginTransaction.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2208,8 +2129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 /**
  *  Required. A list of keys with complete key paths whose numeric IDs should
- *  not be
- *  auto-allocated.
+ *  not be auto-allocated.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastore_Key *> *keys;
 
@@ -2241,8 +2161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  The response for Datastore.Rollback.
- *  (an empty message).
+ *  The response for Datastore.Rollback. (an empty message).
  */
 @interface GTLRDatastore_RollbackResponse : GTLRObject
 @end
@@ -2257,10 +2176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDatastore_GqlQuery *gqlQuery;
 
 /**
- *  Entities are partitioned into subsets, identified by a partition ID.
- *  Queries are scoped to a single partition.
- *  This partition ID is normalized with the standard default context
- *  partition ID.
+ *  Entities are partitioned into subsets, identified by a partition ID. Queries
+ *  are scoped to a single partition. This partition ID is normalized with the
+ *  standard default context partition ID.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_PartitionId *partitionId;
 
@@ -2291,9 +2209,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRDatastore_Status : GTLRObject
 
@@ -2333,9 +2251,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 
 
 /**
- *  Options for beginning a new transaction.
- *  Transactions can be created explicitly with calls to
- *  Datastore.BeginTransaction or implicitly by setting
+ *  Options for beginning a new transaction. Transactions can be created
+ *  explicitly with calls to Datastore.BeginTransaction or implicitly by setting
  *  ReadOptions.new_transaction in read requests.
  */
 @interface GTLRDatastore_TransactionOptions : GTLRObject
@@ -2356,18 +2273,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @interface GTLRDatastore_Value : GTLRObject
 
 /**
- *  An array value.
- *  Cannot contain another array value.
- *  A `Value` instance that sets field `array_value` must not set fields
- *  `meaning` or `exclude_from_indexes`.
+ *  An array value. Cannot contain another array value. A `Value` instance that
+ *  sets field `array_value` must not set fields `meaning` or
+ *  `exclude_from_indexes`.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_ArrayValue *arrayValue;
 
 /**
- *  A blob value.
- *  May have at most 1,000,000 bytes.
- *  When `exclude_from_indexes` is false, may have at most 1500 bytes.
- *  In JSON requests, must be base64-encoded.
+ *  A blob value. May have at most 1,000,000 bytes. When `exclude_from_indexes`
+ *  is false, may have at most 1500 bytes. In JSON requests, must be
+ *  base64-encoded.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2389,10 +2304,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
- *  An entity value.
- *  - May have no key.
- *  - May have a key with an incomplete key path.
- *  - May have a reserved/read-only key.
+ *  An entity value. - May have no key. - May have a key with an incomplete key
+ *  path. - May have a reserved/read-only key.
  */
 @property(nonatomic, strong, nullable) GTLRDatastore_Entity *entityValue;
 
@@ -2434,17 +2347,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *nullValue;
 
 /**
- *  A UTF-8 encoded string value.
- *  When `exclude_from_indexes` is false (it is indexed) , may have at most 1500
- *  bytes.
- *  Otherwise, may be set to at most 1,000,000 bytes.
+ *  A UTF-8 encoded string value. When `exclude_from_indexes` is false (it is
+ *  indexed) , may have at most 1500 bytes. Otherwise, may be set to at most
+ *  1,000,000 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
 /**
- *  A timestamp value.
- *  When stored in the Datastore, precise only to microseconds;
- *  any additional precision is rounded down.
+ *  A timestamp value. When stored in the Datastore, precise only to
+ *  microseconds; any additional precision is rounded down.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
 

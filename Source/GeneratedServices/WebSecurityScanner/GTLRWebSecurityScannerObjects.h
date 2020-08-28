@@ -169,15 +169,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfig_UserAgent_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiBackendError;
 /**
- *  One of the seed URLs is an App Engine URL but we cannot access the
- *  App Engine API to validate scan settings.
+ *  One of the seed URLs is an App Engine URL but we cannot access the App
+ *  Engine API to validate scan settings.
  *
  *  Value: "APPENGINE_API_NOT_ACCESSIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiNotAccessible;
 /**
- *  One of the seed URLs is an App Engine URL but the Default Host of the
- *  App Engine is not set.
+ *  One of the seed URLs is an App Engine URL but the Default Host of the App
+ *  Engine is not set.
  *
  *  Value: "APPENGINE_DEFAULT_HOST_MISSING"
  */
@@ -201,8 +201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CodeUnspecified;
 /**
- *  This scan targets Compute Engine, but we cannot validate scan settings
- *  due to a Compute Engine API backend error.
+ *  This scan targets Compute Engine, but we cannot validate scan settings due
+ *  to a Compute Engine API backend error.
  *
  *  Value: "COMPUTE_API_BACKEND_ERROR"
  */
@@ -227,8 +227,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlHasNonRoutableIpAddress;
 /**
- *  The Custom Login URL has an IP address which is not reserved for the
- *  current project.
+ *  The Custom Login URL has an IP address which is not reserved for the current
+ *  project.
  *
  *  Value: "CUSTOM_LOGIN_URL_HAS_UNRESERVED_IP_ADDRESS"
  */
@@ -284,8 +284,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenUpdateToManagedScan;
 /**
- *  Indicates an internal server error.
- *  Please DO NOT USE THIS ERROR CODE unless the root cause is truly unknown.
+ *  Indicates an internal server error. Please DO NOT USE THIS ERROR CODE unless
+ *  the root cause is truly unknown.
  *
  *  Value: "INTERNAL_ERROR"
  */
@@ -298,8 +298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_InvalidFieldValue;
 /**
  *  The supplied filter is malformed. For example, it can not be parsed, does
- *  not have a filter type in expression, or the same filter type appears
- *  more than once.
+ *  not have a filter type in expression, or the same filter type appears more
+ *  than once.
  *
  *  Value: "MALFORMED_FILTER"
  */
@@ -329,8 +329,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_RequiredField;
 /**
- *  Project id, scanconfig id, scanrun id, or finding id are not consistent
- *  with each other in resource name.
+ *  Project id, scanconfig id, scanrun id, or finding id are not consistent with
+ *  each other in resource name.
  *
  *  Value: "RESOURCE_NAME_INCONSISTENT"
  */
@@ -360,8 +360,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlHasNonRoutableIpAddress;
 /**
- *  One of the seed URLs has an IP address that is not reserved
- *  for the current project.
+ *  One of the seed URLs has an IP address that is not reserved for the current
+ *  project.
  *
  *  Value: "SEED_URL_HAS_UNRESERVED_IP_ADDRESS"
  */
@@ -379,8 +379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMappedToNonRoutableAddress;
 /**
- *  One of the seed URLs is mapped to an IP address which is not reserved
- *  for the current project.
+ *  One of the seed URLs is mapped to an IP address which is not reserved for
+ *  the current project.
  *
  *  Value: "SEED_URL_MAPPED_TO_UNRESERVED_ADDRESS"
  */
@@ -417,8 +417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanConfigError_Code_UnsupportedFilter;
 /**
- *  The supplied finding type is not supported. For example, we do not
- *  provide findings of the given finding type.
+ *  The supplied finding type is not supported. For example, we do not provide
+ *  findings of the given finding type.
  *
  *  Value: "UNSUPPORTED_FINDING_TYPE"
  */
@@ -475,8 +475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_E
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRun_ResultState_Killed;
 /**
- *  Default value. This value is returned when the ScanRun is not yet
- *  finished.
+ *  Default value. This value is returned when the ScanRun is not yet finished.
  *
  *  Value: "RESULT_STATE_UNSPECIFIED"
  */
@@ -524,9 +523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Cod
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TimedOutWhileScanning;
 /**
- *  Indicates that a scan encountered numerous errors from the web site
- *  pages. When available, most_common_http_error_code field indicates the
- *  most common HTTP error code encountered during the scan.
+ *  Indicates that a scan encountered numerous errors from the web site pages.
+ *  When available, most_common_http_error_code field indicates the most common
+ *  HTTP error code encountered during the scan.
  *
  *  Value: "TOO_MANY_HTTP_ERRORS"
  */
@@ -555,9 +554,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_CodeUnspecified;
 /**
- *  Indicates that a scan discovered an unexpectedly low number of URLs. This
- *  is sometimes caused by complex navigation features or by using a single
- *  URL for numerous pages.
+ *  Indicates that a scan discovered an unexpectedly low number of URLs. This is
+ *  sometimes caused by complex navigation features or by using a single URL for
+ *  numerous pages.
  *
  *  Value: "INSUFFICIENT_CRAWL_RESULTS"
  */
@@ -571,8 +570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_C
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyCrawlResults;
 /**
  *  Indicates that too many tests have been generated for the scan. Customer
- *  should try reducing the number of starting URLs, increasing the QPS rate,
- *  or narrowing down the scope of the scan using the excluded patterns.
+ *  should try reducing the number of starting URLs, increasing the QPS rate, or
+ *  narrowing down the scope of the scan using the excluded patterns.
  *
  *  Value: "TOO_MANY_FUZZ_TASKS"
  */
@@ -698,9 +697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  A CrawledUrl resource represents a URL that was crawled during a ScanRun.
- *  Web
- *  Security Scanner Service crawls the web applications, following all links
- *  within the scope of sites, to find the URLs to test against.
+ *  Web Security Scanner Service crawls the web applications, following all
+ *  links within the scope of sites, to find the URLs to test against.
  */
 @interface GTLRWebSecurityScanner_CrawledUrl : GTLRObject
 
@@ -709,8 +707,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. The http method of the request that was used to visit the URL,
- *  in
- *  uppercase.
+ *  in uppercase.
  */
 @property(nonatomic, copy, nullable) NSString *httpMethod;
 
@@ -730,8 +727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Required. Input only. The password of the custom account. The credential is
- *  stored encrypted
- *  and not returned in any response nor included in audit logs.
+ *  stored encrypted and not returned in any response nor included in audit
+ *  logs.
  */
 @property(nonatomic, copy, nullable) NSString *password;
 
@@ -744,11 +741,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRWebSecurityScanner_Empty : GTLRObject
 @end
@@ -777,37 +772,33 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, copy, nullable) NSString *finalUrl;
 
 /**
- *  Output only. The type of the Finding.
- *  Detailed and up-to-date information on findings can be found here:
+ *  Output only. The type of the Finding. Detailed and up-to-date information on
+ *  findings can be found here:
  *  https://cloud.google.com/security-command-center/docs/how-to-remediate-web-security-scanner-findings
  */
 @property(nonatomic, copy, nullable) NSString *findingType;
 
 /**
  *  Output only. An addon containing information reported for a vulnerability
- *  with an HTML
- *  form, if any.
+ *  with an HTML form, if any.
  */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_Form *form;
 
 /**
  *  Output only. If the vulnerability was originated from nested IFrame, the
- *  immediate
- *  parent IFrame is reported.
+ *  immediate parent IFrame is reported.
  */
 @property(nonatomic, copy, nullable) NSString *frameUrl;
 
 /**
  *  Output only. The URL produced by the server-side fuzzer and used in the
- *  request that
- *  triggered the vulnerability.
+ *  request that triggered the vulnerability.
  */
 @property(nonatomic, copy, nullable) NSString *fuzzedUrl;
 
 /**
  *  Output only. The http method of the request that triggered the
- *  vulnerability, in
- *  uppercase.
+ *  vulnerability, in uppercase.
  */
 @property(nonatomic, copy, nullable) NSString *httpMethod;
 
@@ -824,8 +815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. The URL containing human-readable payload that user can
- *  leverage to
- *  reproduce the vulnerability.
+ *  leverage to reproduce the vulnerability.
  */
 @property(nonatomic, copy, nullable) NSString *reproductionUrl;
 
@@ -848,15 +838,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. The tracking ID uniquely identifies a vulnerability instance
- *  across
- *  multiple ScanRuns.
+ *  across multiple ScanRuns.
  */
 @property(nonatomic, copy, nullable) NSString *trackingId;
 
 /**
  *  Output only. An addon containing detailed information regarding any resource
- *  causing the
- *  vulnerability such as JavaScript sources, image, audio files, etc.
+ *  causing the vulnerability such as JavaScript sources, image, audio files,
+ *  etc.
  */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_ViolatingResource *violatingResource;
 
@@ -868,8 +857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. An addon containing information about request parameters which
- *  were found
- *  to be vulnerable.
+ *  were found to be vulnerable.
  */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_VulnerableParameters *vulnerableParameters;
 
@@ -883,8 +871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  A FindingTypeStats resource represents stats regarding a specific
- *  FindingType
- *  of Findings under a given ScanRun.
+ *  FindingType of Findings under a given ScanRun.
  */
 @interface GTLRWebSecurityScanner_FindingTypeStats : GTLRObject
 
@@ -922,8 +909,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Required. Input only. The password of the Google account. The credential is
- *  stored encrypted
- *  and not returned in any response nor included in audit logs.
+ *  stored encrypted and not returned in any response nor included in audit
+ *  logs.
  */
 @property(nonatomic, copy, nullable) NSString *password;
 
@@ -953,8 +940,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @interface GTLRWebSecurityScanner_IapCredential : GTLRObject
 
 /**
- *  Authentication configuration when Web-Security-Scanner service
- *  account is added in Identity-Aware-Proxy (IAP) access policies.
+ *  Authentication configuration when Web-Security-Scanner service account is
+ *  added in Identity-Aware-Proxy (IAP) access policies.
  */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_IapTestServiceAccountInfo *iapTestServiceAccountInfo;
 
@@ -962,8 +949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 
 /**
- *  Describes authentication configuration when Web-Security-Scanner
- *  service account is added in Identity-Aware-Proxy (IAP) access policies.
+ *  Describes authentication configuration when Web-Security-Scanner service
+ *  account is added in Identity-Aware-Proxy (IAP) access policies.
  */
 @interface GTLRWebSecurityScanner_IapTestServiceAccountInfo : GTLRObject
 
@@ -995,8 +982,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, strong, nullable) NSArray<GTLRWebSecurityScanner_CrawledUrl *> *crawledUrls;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1022,8 +1009,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, strong, nullable) NSArray<GTLRWebSecurityScanner_Finding *> *findings;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1052,8 +1039,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @interface GTLRWebSecurityScanner_ListScanConfigsResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1079,8 +1066,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @interface GTLRWebSecurityScanner_ListScanRunsResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1135,8 +1122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Controls export of scan configurations and results to Security
- *  Command Center.
+ *  Controls export of scan configurations and results to Security Command
+ *  Center.
  *
  *  Likely values:
  *    @arg @c kGTLRWebSecurityScanner_ScanConfig_ExportToSecurityCommandCenter_Disabled
@@ -1152,8 +1139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, copy, nullable) NSString *exportToSecurityCommandCenter;
 
 /**
- *  Whether the scan config is managed by Web Security Scanner, output
- *  only.
+ *  Whether the scan config is managed by Web Security Scanner, output only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1226,8 +1212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 /**
  *  Defines a custom error message used by CreateScanConfig and UpdateScanConfig
  *  APIs when scan configuration validation fails. It is also reported as part
- *  of
- *  a ScanRunErrorTrace message if scan validation fails due to a scan
+ *  of a ScanRunErrorTrace message if scan validation fails due to a scan
  *  configuration error.
  */
 @interface GTLRWebSecurityScanner_ScanConfigError : GTLRObject
@@ -1238,12 +1223,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *  Likely values:
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiBackendError
  *        One of the seed URLs is an App Engine URL but we cannot validate the
- *        scan
- *        settings due to an App Engine API backend error. (Value:
+ *        scan settings due to an App Engine API backend error. (Value:
  *        "APPENGINE_API_BACKEND_ERROR")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineApiNotAccessible
- *        One of the seed URLs is an App Engine URL but we cannot access the
- *        App Engine API to validate scan settings. (Value:
+ *        One of the seed URLs is an App Engine URL but we cannot access the App
+ *        Engine API to validate scan settings. (Value:
  *        "APPENGINE_API_NOT_ACCESSIBLE")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_AppengineDefaultHostMissing
  *        One of the seed URLs is an App Engine URL but the Default Host of the
@@ -1262,8 +1246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        "COMPUTE_API_BACKEND_ERROR")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_ComputeApiNotAccessible
  *        This scan targets Compute Engine, but we cannot access the Compute
- *        Engine
- *        API to validate the scan settings. (Value:
+ *        Engine API to validate the scan settings. (Value:
  *        "COMPUTE_API_NOT_ACCESSIBLE")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlDoesNotBelongToCurrentProject
  *        The Custom Login URL does not belong to the current project. (Value:
@@ -1282,8 +1265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        (Value: "CUSTOM_LOGIN_URL_MAPPED_TO_NON_ROUTABLE_ADDRESS")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_CustomLoginUrlMappedToUnreservedAddress
  *        The Custom Login URL is mapped to an IP address which is not reserved
- *        for
- *        the current project. (Value:
+ *        for the current project. (Value:
  *        "CUSTOM_LOGIN_URL_MAPPED_TO_UNRESERVED_ADDRESS")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_DuplicateScanName
  *        Another scan with the same name (case-sensitive) already exists.
@@ -1296,16 +1278,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        (Value: "FINDING_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenToScanCompute
  *        Scan targets Compute Engine, yet current project was not whitelisted
- *        for
- *        Google Compute Engine Scanning Alpha access. (Value:
+ *        for Google Compute Engine Scanning Alpha access. (Value:
  *        "FORBIDDEN_TO_SCAN_COMPUTE")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_ForbiddenUpdateToManagedScan
  *        User tries to update managed scan (Value:
  *        "FORBIDDEN_UPDATE_TO_MANAGED_SCAN")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_InternalError
- *        Indicates an internal server error.
- *        Please DO NOT USE THIS ERROR CODE unless the root cause is truly
- *        unknown. (Value: "INTERNAL_ERROR")
+ *        Indicates an internal server error. Please DO NOT USE THIS ERROR CODE
+ *        unless the root cause is truly unknown. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_InvalidFieldValue A
  *        field is set to an invalid value. (Value: "INVALID_FIELD_VALUE")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_MalformedFilter The
@@ -1323,8 +1303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        required field is not set. (Value: "REQUIRED_FIELD")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_ResourceNameInconsistent
  *        Project id, scanconfig id, scanrun id, or finding id are not
- *        consistent
- *        with each other in resource name. (Value:
+ *        consistent with each other in resource name. (Value:
  *        "RESOURCE_NAME_INCONSISTENT")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_ScanAlreadyRunning
  *        The scan being requested to start is already running. (Value:
@@ -1339,8 +1318,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        One of the seed URLs has on-routable IP address. (Value:
  *        "SEED_URL_HAS_NON_ROUTABLE_IP_ADDRESS")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlHasUnreservedIpAddress
- *        One of the seed URLs has an IP address that is not reserved
- *        for the current project. (Value: "SEED_URL_HAS_UNRESERVED_IP_ADDRESS")
+ *        One of the seed URLs has an IP address that is not reserved for the
+ *        current project. (Value: "SEED_URL_HAS_UNRESERVED_IP_ADDRESS")
  *    @arg @c kGTLRWebSecurityScanner_ScanConfigError_Code_SeedUrlMalformed One
  *        of the seed URLs is malformed (can not be parsed). (Value:
  *        "SEED_URL_MALFORMED")
@@ -1377,10 +1356,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. Indicates the full name of the ScanConfig field that triggers
- *  this error,
- *  for example "scan_config.max_qps". This field is provided for
- *  troubleshooting purposes only and its actual value can change in the
- *  future.
+ *  this error, for example "scan_config.max_qps". This field is provided for
+ *  troubleshooting purposes only and its actual value can change in the future.
  */
 @property(nonatomic, copy, nullable) NSString *fieldName;
 
@@ -1395,15 +1372,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. The time at which the ScanRun reached termination state - that
- *  the ScanRun
- *  is either finished or stopped by user.
+ *  the ScanRun is either finished or stopped by user.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
  *  Output only. If result_state is an ERROR, this field provides the primary
- *  reason for
- *  scan's termination and more details, if such are available.
+ *  reason for scan's termination and more details, if such are available.
  */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_ScanRunErrorTrace *errorTrace;
 
@@ -1413,8 +1388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *  Likely values:
  *    @arg @c kGTLRWebSecurityScanner_ScanRun_ExecutionState_ExecutionStateUnspecified
  *        Represents an invalid state caused by internal server error. This
- *        value
- *        should never be returned. (Value: "EXECUTION_STATE_UNSPECIFIED")
+ *        value should never be returned. (Value: "EXECUTION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRWebSecurityScanner_ScanRun_ExecutionState_Finished The scan
  *        is either finished or stopped by user. (Value: "FINISHED")
  *    @arg @c kGTLRWebSecurityScanner_ScanRun_ExecutionState_Queued The scan is
@@ -1433,17 +1407,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. The resource name of the ScanRun. The name follows the format
- *  of
- *  'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
+ *  of 'projects/{projectId}/scanConfigs/{scanConfigId}/scanRuns/{scanRunId}'.
  *  The ScanRun IDs are generated by the system.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The percentage of total completion ranging from 0 to 100.
- *  If the scan is in queue, the value is 0.
- *  If the scan is running, the value ranges from 0 to 100.
- *  If the scan is finished, the value is 100.
+ *  Output only. The percentage of total completion ranging from 0 to 100. If
+ *  the scan is in queue, the value is 0. If the scan is running, the value
+ *  ranges from 0 to 100. If the scan is finished, the value is 100.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1451,8 +1423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. The result state of the ScanRun. This field is only available
- *  after the
- *  execution state reaches "FINISHED".
+ *  after the execution state reaches "FINISHED".
  *
  *  Likely values:
  *    @arg @c kGTLRWebSecurityScanner_ScanRun_ResultState_Error The scan
@@ -1472,8 +1443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. The number of URLs crawled during this ScanRun. If the scan is
- *  in progress,
- *  the value represents the number of URLs crawled up to now.
+ *  in progress, the value represents the number of URLs crawled up to now.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1481,9 +1451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. The number of URLs tested during this ScanRun. If the scan is
- *  in progress,
- *  the value represents the number of URLs tested up to now. The number of
- *  URLs tested is usually larger than the number URLS crawled because
+ *  in progress, the value represents the number of URLs tested up to now. The
+ *  number of URLs tested is usually larger than the number URLS crawled because
  *  typically a crawled URL is tested with multiple test payloads.
  *
  *  Uses NSNumber of longLongValue.
@@ -1500,8 +1469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 
 /**
- *  Output only.
- *  Defines an error trace message for a ScanRun.
+ *  Output only. Defines an error trace message for a ScanRun.
  */
 @interface GTLRWebSecurityScanner_ScanRunErrorTrace : GTLRObject
 
@@ -1519,9 +1487,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_ScanConfigIssue
  *        Indicates a scan configuration error, usually due to outdated
- *        ScanConfig
- *        settings, such as starting_urls or the DNS configuration. (Value:
- *        "SCAN_CONFIG_ISSUE")
+ *        ScanConfig settings, such as starting_urls or the DNS configuration.
+ *        (Value: "SCAN_CONFIG_ISSUE")
  *    @arg @c kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TimedOutWhileScanning
  *        Indicates a scan operation timeout, usually caused by a very large
  *        site. (Value: "TIMED_OUT_WHILE_SCANNING")
@@ -1539,9 +1506,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. If the scan encounters TOO_MANY_HTTP_ERRORS, this field
- *  indicates the most
- *  common HTTP error code, if such is available. For example, if this code is
- *  404, the scan has encountered too many NOT_FOUND responses.
+ *  indicates the most common HTTP error code, if such is available. For
+ *  example, if this code is 404, the scan has encountered too many NOT_FOUND
+ *  responses.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1549,9 +1516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  Output only. If the scan encounters SCAN_CONFIG_ISSUE error, this field has
- *  the error
- *  message encountered during scan configuration validation that is performed
- *  before each scan run.
+ *  the error message encountered during scan configuration validation that is
+ *  performed before each scan run.
  */
 @property(nonatomic, strong, nullable) GTLRWebSecurityScanner_ScanConfigError *scanConfigError;
 
@@ -1559,10 +1525,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 
 /**
- *  Output only.
- *  Defines a warning trace message for ScanRun. Warning traces provide
- *  customers
- *  with useful information that helps make the scanning process more effective.
+ *  Output only. Defines a warning trace message for ScanRun. Warning traces
+ *  provide customers with useful information that helps make the scanning
+ *  process more effective.
  */
 @interface GTLRWebSecurityScanner_ScanRunWarningTrace : GTLRObject
 
@@ -1576,20 +1541,16 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        Default value is never used. (Value: "CODE_UNSPECIFIED")
  *    @arg @c kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_InsufficientCrawlResults
  *        Indicates that a scan discovered an unexpectedly low number of URLs.
- *        This
- *        is sometimes caused by complex navigation features or by using a
- *        single
- *        URL for numerous pages. (Value: "INSUFFICIENT_CRAWL_RESULTS")
+ *        This is sometimes caused by complex navigation features or by using a
+ *        single URL for numerous pages. (Value: "INSUFFICIENT_CRAWL_RESULTS")
  *    @arg @c kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyCrawlResults
  *        Indicates that a scan discovered too many URLs to test, or excessive
  *        redundant URLs. (Value: "TOO_MANY_CRAWL_RESULTS")
  *    @arg @c kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyFuzzTasks
  *        Indicates that too many tests have been generated for the scan.
- *        Customer
- *        should try reducing the number of starting URLs, increasing the QPS
- *        rate,
- *        or narrowing down the scope of the scan using the excluded patterns.
- *        (Value: "TOO_MANY_FUZZ_TASKS")
+ *        Customer should try reducing the number of starting URLs, increasing
+ *        the QPS rate, or narrowing down the scope of the scan using the
+ *        excluded patterns. (Value: "TOO_MANY_FUZZ_TASKS")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -1610,8 +1571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 /**
  *  A timestamp indicates when the next run will be scheduled. The value is
- *  refreshed by the server after each run. If unspecified, it will default
- *  to current server time, which means the scan will be scheduled to start
+ *  refreshed by the server after each run. If unspecified, it will default to
+ *  current server time, which means the scan will be scheduled to start
  *  immediately.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
@@ -1634,8 +1595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 
 
 /**
- *  Information regarding any resource causing the vulnerability such
- *  as JavaScript sources, image, audio files, etc.
+ *  Information regarding any resource causing the vulnerability such as
+ *  JavaScript sources, image, audio files, etc.
  */
 @interface GTLRWebSecurityScanner_ViolatingResource : GTLRObject
 

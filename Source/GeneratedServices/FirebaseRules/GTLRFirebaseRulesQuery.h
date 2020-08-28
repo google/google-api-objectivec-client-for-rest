@@ -39,11 +39,24 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // executableVersion
 
-/** Value: "FIREBASE_RULES_EXECUTABLE_V1" */
+/**
+ *  Firebase Rules syntax 'rules2' executable versions: Custom AST for use with
+ *  Java clients.
+ *
+ *  Value: "FIREBASE_RULES_EXECUTABLE_V1"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV1;
-/** Value: "FIREBASE_RULES_EXECUTABLE_V2" */
+/**
+ *  CEL-based executable for use with C++ clients.
+ *
+ *  Value: "FIREBASE_RULES_EXECUTABLE_V2"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV2;
-/** Value: "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED" */
+/**
+ *  Executable format unspecified. Defaults to FIREBASE_RULES_EXECUTABLE_V1
+ *
+ *  Value: "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -61,24 +74,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @end
 
 /**
- *  Create a `Release`.
- *  Release names should reflect the developer's deployment practices. For
- *  example, the release name may include the environment name, application
- *  name, application version, or any other name meaningful to the developer.
- *  Once a `Release` refers to a `Ruleset`, the rules can be enforced by
- *  Firebase Rules-enabled services.
- *  More than one `Release` may be 'live' concurrently. Consider the following
- *  three `Release` names for `projects/foo` and the `Ruleset` to which they
- *  refer.
- *  Release Name | Ruleset Name
- *  --------------------------------|-------------
+ *  Create a `Release`. Release names should reflect the developer's deployment
+ *  practices. For example, the release name may include the environment name,
+ *  application name, application version, or any other name meaningful to the
+ *  developer. Once a `Release` refers to a `Ruleset`, the rules can be enforced
+ *  by Firebase Rules-enabled services. More than one `Release` may be 'live'
+ *  concurrently. Consider the following three `Release` names for
+ *  `projects/foo` and the `Ruleset` to which they refer. Release Name | Ruleset
+ *  Name --------------------------------|-------------
  *  projects/foo/releases/prod | projects/foo/rulesets/uuid123
  *  projects/foo/releases/prod/beta | projects/foo/rulesets/uuid123
- *  projects/foo/releases/prod/v23 | projects/foo/rulesets/uuid456
- *  The table reflects the `Ruleset` rollout in progress. The `prod` and
- *  `prod/beta` releases refer to the same `Ruleset`. However, `prod/v23`
- *  refers to a new `Ruleset`. The `Ruleset` reference for a `Release` may be
- *  updated using the UpdateRelease method.
+ *  projects/foo/releases/prod/v23 | projects/foo/rulesets/uuid456 The table
+ *  reflects the `Ruleset` rollout in progress. The `prod` and `prod/beta`
+ *  releases refer to the same `Ruleset`. However, `prod/v23` refers to a new
+ *  `Ruleset`. The `Ruleset` reference for a `Release` may be updated using the
+ *  UpdateRelease method.
  *
  *  Method: firebaserules.projects.releases.create
  *
@@ -91,36 +101,33 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsReleasesCreateWithObject:name:]
 
 /**
- *  Resource name for the project which owns this `Release`.
- *  Format: `projects/{project_id}`
+ *  Resource name for the project which owns this `Release`. Format:
+ *  `projects/{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRules_Release.
  *
- *  Create a `Release`.
- *  Release names should reflect the developer's deployment practices. For
- *  example, the release name may include the environment name, application
- *  name, application version, or any other name meaningful to the developer.
- *  Once a `Release` refers to a `Ruleset`, the rules can be enforced by
- *  Firebase Rules-enabled services.
- *  More than one `Release` may be 'live' concurrently. Consider the following
- *  three `Release` names for `projects/foo` and the `Ruleset` to which they
- *  refer.
- *  Release Name | Ruleset Name
- *  --------------------------------|-------------
+ *  Create a `Release`. Release names should reflect the developer's deployment
+ *  practices. For example, the release name may include the environment name,
+ *  application name, application version, or any other name meaningful to the
+ *  developer. Once a `Release` refers to a `Ruleset`, the rules can be enforced
+ *  by Firebase Rules-enabled services. More than one `Release` may be 'live'
+ *  concurrently. Consider the following three `Release` names for
+ *  `projects/foo` and the `Ruleset` to which they refer. Release Name | Ruleset
+ *  Name --------------------------------|-------------
  *  projects/foo/releases/prod | projects/foo/rulesets/uuid123
  *  projects/foo/releases/prod/beta | projects/foo/rulesets/uuid123
- *  projects/foo/releases/prod/v23 | projects/foo/rulesets/uuid456
- *  The table reflects the `Ruleset` rollout in progress. The `prod` and
- *  `prod/beta` releases refer to the same `Ruleset`. However, `prod/v23`
- *  refers to a new `Ruleset`. The `Ruleset` reference for a `Release` may be
- *  updated using the UpdateRelease method.
+ *  projects/foo/releases/prod/v23 | projects/foo/rulesets/uuid456 The table
+ *  reflects the `Ruleset` rollout in progress. The `prod` and `prod/beta`
+ *  releases refer to the same `Ruleset`. However, `prod/v23` refers to a new
+ *  `Ruleset`. The `Ruleset` reference for a `Release` may be updated using the
+ *  UpdateRelease method.
  *
  *  @param object The @c GTLRFirebaseRules_Release to include in the query.
- *  @param name Resource name for the project which owns this `Release`.
- *    Format: `projects/{project_id}`
+ *  @param name Resource name for the project which owns this `Release`. Format:
+ *    `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesCreate
  */
@@ -143,8 +150,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsReleasesDeleteWithname:]
 
 /**
- *  Resource name for the `Release` to delete.
- *  Format: `projects/{project_id}/releases/{release_id}`
+ *  Resource name for the `Release` to delete. Format:
+ *  `projects/{project_id}/releases/{release_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -153,8 +160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  Delete a `Release` by resource name.
  *
- *  @param name Resource name for the `Release` to delete.
- *    Format: `projects/{project_id}/releases/{release_id}`
+ *  @param name Resource name for the `Release` to delete. Format:
+ *    `projects/{project_id}/releases/{release_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesDelete
  */
@@ -177,8 +184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsReleasesGetWithname:]
 
 /**
- *  Resource name of the `Release`.
- *  Format: `projects/{project_id}/releases/{release_id}`
+ *  Resource name of the `Release`. Format:
+ *  `projects/{project_id}/releases/{release_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -187,8 +194,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  Get a `Release` by name.
  *
- *  @param name Resource name of the `Release`.
- *    Format: `projects/{project_id}/releases/{release_id}`
+ *  @param name Resource name of the `Release`. Format:
+ *    `projects/{project_id}/releases/{release_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesGet
  */
@@ -211,22 +218,26 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsReleasesGetExecutableWithname:]
 
 /**
- *  The requested runtime executable version.
- *  Defaults to FIREBASE_RULES_EXECUTABLE_V1.
+ *  The requested runtime executable version. Defaults to
+ *  FIREBASE_RULES_EXECUTABLE_V1.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseRulesExecutableVersionReleaseExecutableVersionUnspecified
- *        Value "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED"
- *    @arg @c kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV1 Value
- *        "FIREBASE_RULES_EXECUTABLE_V1"
- *    @arg @c kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV2 Value
- *        "FIREBASE_RULES_EXECUTABLE_V2"
+ *        Executable format unspecified. Defaults to
+ *        FIREBASE_RULES_EXECUTABLE_V1 (Value:
+ *        "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV1
+ *        Firebase Rules syntax 'rules2' executable versions: Custom AST for use
+ *        with Java clients. (Value: "FIREBASE_RULES_EXECUTABLE_V1")
+ *    @arg @c kGTLRFirebaseRulesExecutableVersionFirebaseRulesExecutableV2
+ *        CEL-based executable for use with C++ clients. (Value:
+ *        "FIREBASE_RULES_EXECUTABLE_V2")
  */
 @property(nonatomic, copy, nullable) NSString *executableVersion;
 
 /**
- *  Resource name of the `Release`.
- *  Format: `projects/{project_id}/releases/{release_id}`
+ *  Resource name of the `Release`. Format:
+ *  `projects/{project_id}/releases/{release_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -235,8 +246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  Get the `Release` executable to use when enforcing rules.
  *
- *  @param name Resource name of the `Release`.
- *    Format: `projects/{project_id}/releases/{release_id}`
+ *  @param name Resource name of the `Release`. Format:
+ *    `projects/{project_id}/releases/{release_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable
  */
@@ -264,37 +275,30 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  `Release` filter. The list method supports filters with restrictions on the
  *  `Release.name`, `Release.ruleset_name`, and `Release.test_suite_name`.
  *  Example 1: A filter of 'name=prod*' might return `Release`s with names
- *  within 'projects/foo' prefixed with 'prod':
- *  Name | Ruleset Name
- *  ------------------------------|-------------
- *  projects/foo/releases/prod | projects/foo/rulesets/uuid1234
- *  projects/foo/releases/prod/v1 | projects/foo/rulesets/uuid1234
- *  projects/foo/releases/prod/v2 | projects/foo/rulesets/uuid8888
- *  Example 2: A filter of `name=prod* ruleset_name=uuid1234` would return only
- *  `Release` instances for 'projects/foo' with names prefixed with 'prod'
- *  referring to the same `Ruleset` name of 'uuid1234':
- *  Name | Ruleset Name
- *  ------------------------------|-------------
- *  projects/foo/releases/prod | projects/foo/rulesets/1234
- *  projects/foo/releases/prod/v1 | projects/foo/rulesets/1234
- *  In the examples, the filter parameters refer to the search filters are
- *  relative to the project. Fully qualified prefixed may also be used. e.g.
- *  `test_suite_name=projects/foo/testsuites/uuid1`
+ *  within 'projects/foo' prefixed with 'prod': Name | Ruleset Name
+ *  ------------------------------|------------- projects/foo/releases/prod |
+ *  projects/foo/rulesets/uuid1234 projects/foo/releases/prod/v1 |
+ *  projects/foo/rulesets/uuid1234 projects/foo/releases/prod/v2 |
+ *  projects/foo/rulesets/uuid8888 Example 2: A filter of `name=prod*
+ *  ruleset_name=uuid1234` would return only `Release` instances for
+ *  'projects/foo' with names prefixed with 'prod' referring to the same
+ *  `Ruleset` name of 'uuid1234': Name | Ruleset Name
+ *  ------------------------------|------------- projects/foo/releases/prod |
+ *  projects/foo/rulesets/1234 projects/foo/releases/prod/v1 |
+ *  projects/foo/rulesets/1234 In the examples, the filter parameters refer to
+ *  the search filters are relative to the project. Fully qualified prefixed may
+ *  also be used. e.g. `test_suite_name=projects/foo/testsuites/uuid1`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  Resource name for the project.
- *  Format: `projects/{project_id}`
- */
+/** Resource name for the project. Format: `projects/{project_id}` */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Page size to load. Maximum of 100. Defaults to 10.
- *  Note: `page_size` is just a hint and the service may choose to load fewer
- *  than `page_size` results due to the size of the output. To traverse all of
- *  the releases, the caller should iterate until the `page_token` on the
- *  response is empty.
+ *  Page size to load. Maximum of 100. Defaults to 10. Note: `page_size` is just
+ *  a hint and the service may choose to load fewer than `page_size` results due
+ *  to the size of the output. To traverse all of the releases, the caller
+ *  should iterate until the `page_token` on the response is empty.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -308,8 +312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  filtered by `Release` name, `Ruleset` name, `TestSuite` name, or any
  *  combination thereof.
  *
- *  @param name Resource name for the project.
- *    Format: `projects/{project_id}`
+ *  @param name Resource name for the project. Format: `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesList
  *
@@ -322,10 +325,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @end
 
 /**
- *  Update a `Release` via PATCH.
- *  Only updates to the `ruleset_name` and `test_suite_name` fields will be
- *  honored. `Release` rename is not supported. To create a `Release` use the
- *  CreateRelease method.
+ *  Update a `Release` via PATCH. Only updates to the `ruleset_name` and
+ *  `test_suite_name` fields will be honored. `Release` rename is not supported.
+ *  To create a `Release` use the CreateRelease method.
  *
  *  Method: firebaserules.projects.releases.patch
  *
@@ -338,23 +340,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsReleasesPatchWithObject:name:]
 
 /**
- *  Resource name for the project which owns this `Release`.
- *  Format: `projects/{project_id}`
+ *  Resource name for the project which owns this `Release`. Format:
+ *  `projects/{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRules_Release.
  *
- *  Update a `Release` via PATCH.
- *  Only updates to the `ruleset_name` and `test_suite_name` fields will be
- *  honored. `Release` rename is not supported. To create a `Release` use the
- *  CreateRelease method.
+ *  Update a `Release` via PATCH. Only updates to the `ruleset_name` and
+ *  `test_suite_name` fields will be honored. `Release` rename is not supported.
+ *  To create a `Release` use the CreateRelease method.
  *
  *  @param object The @c GTLRFirebaseRules_UpdateReleaseRequest to include in
  *    the query.
- *  @param name Resource name for the project which owns this `Release`.
- *    Format: `projects/{project_id}`
+ *  @param name Resource name for the project which owns this `Release`. Format:
+ *    `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesPatch
  */
@@ -364,11 +365,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @end
 
 /**
- *  Create a `Ruleset` from `Source`.
- *  The `Ruleset` is given a unique generated name which is returned to the
- *  caller. `Source` containing syntactic or semantics errors will result in an
- *  error response indicating the first error encountered. For a detailed view
- *  of `Source` issues, use TestRuleset.
+ *  Create a `Ruleset` from `Source`. The `Ruleset` is given a unique generated
+ *  name which is returned to the caller. `Source` containing syntactic or
+ *  semantics errors will result in an error response indicating the first error
+ *  encountered. For a detailed view of `Source` issues, use TestRuleset.
  *
  *  Method: firebaserules.projects.rulesets.create
  *
@@ -381,23 +381,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsRulesetsCreateWithObject:name:]
 
 /**
- *  Resource name for Project which owns this `Ruleset`.
- *  Format: `projects/{project_id}`
+ *  Resource name for Project which owns this `Ruleset`. Format:
+ *  `projects/{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRules_Ruleset.
  *
- *  Create a `Ruleset` from `Source`.
- *  The `Ruleset` is given a unique generated name which is returned to the
- *  caller. `Source` containing syntactic or semantics errors will result in an
- *  error response indicating the first error encountered. For a detailed view
- *  of `Source` issues, use TestRuleset.
+ *  Create a `Ruleset` from `Source`. The `Ruleset` is given a unique generated
+ *  name which is returned to the caller. `Source` containing syntactic or
+ *  semantics errors will result in an error response indicating the first error
+ *  encountered. For a detailed view of `Source` issues, use TestRuleset.
  *
  *  @param object The @c GTLRFirebaseRules_Ruleset to include in the query.
- *  @param name Resource name for Project which owns this `Ruleset`.
- *    Format: `projects/{project_id}`
+ *  @param name Resource name for Project which owns this `Ruleset`. Format:
+ *    `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsCreate
  */
@@ -407,8 +406,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @end
 
 /**
- *  Delete a `Ruleset` by resource name.
- *  If the `Ruleset` is referenced by a `Release` the operation will fail.
+ *  Delete a `Ruleset` by resource name. If the `Ruleset` is referenced by a
+ *  `Release` the operation will fail.
  *
  *  Method: firebaserules.projects.rulesets.delete
  *
@@ -421,19 +420,19 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsRulesetsDeleteWithname:]
 
 /**
- *  Resource name for the ruleset to delete.
- *  Format: `projects/{project_id}/rulesets/{ruleset_id}`
+ *  Resource name for the ruleset to delete. Format:
+ *  `projects/{project_id}/rulesets/{ruleset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseRules_Empty.
  *
- *  Delete a `Ruleset` by resource name.
- *  If the `Ruleset` is referenced by a `Release` the operation will fail.
+ *  Delete a `Ruleset` by resource name. If the `Ruleset` is referenced by a
+ *  `Release` the operation will fail.
  *
- *  @param name Resource name for the ruleset to delete.
- *    Format: `projects/{project_id}/rulesets/{ruleset_id}`
+ *  @param name Resource name for the ruleset to delete. Format:
+ *    `projects/{project_id}/rulesets/{ruleset_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsDelete
  */
@@ -456,8 +455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsRulesetsGetWithname:]
 
 /**
- *  Resource name for the ruleset to get.
- *  Format: `projects/{project_id}/rulesets/{ruleset_id}`
+ *  Resource name for the ruleset to get. Format:
+ *  `projects/{project_id}/rulesets/{ruleset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -466,8 +465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  Get a `Ruleset` by name including the full `Source` contents.
  *
- *  @param name Resource name for the ruleset to get.
- *    Format: `projects/{project_id}/rulesets/{ruleset_id}`
+ *  @param name Resource name for the ruleset to get. Format:
+ *    `projects/{project_id}/rulesets/{ruleset_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsGet
  */
@@ -477,8 +476,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 
 /**
  *  List `Ruleset` metadata only and optionally filter the results by `Ruleset`
- *  name.
- *  The full `Source` contents of a `Ruleset` may be retrieved with
+ *  name. The full `Source` contents of a `Ruleset` may be retrieved with
  *  GetRuleset.
  *
  *  Method: firebaserules.projects.rulesets.list
@@ -494,24 +492,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 
 /**
  *  `Ruleset` filter. The list method supports filters with restrictions on
- *  `Ruleset.name`.
- *  Filters on `Ruleset.create_time` should use the `date` function which
- *  parses strings that conform to the RFC 3339 date/time specifications.
- *  Example: `create_time > date("2017-01-01T00:00:00Z") AND name=UUID-*`
+ *  `Ruleset.name`. Filters on `Ruleset.create_time` should use the `date`
+ *  function which parses strings that conform to the RFC 3339 date/time
+ *  specifications. Example: `create_time > date("2017-01-01T00:00:00Z") AND
+ *  name=UUID-*`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  Resource name for the project.
- *  Format: `projects/{project_id}`
- */
+/** Resource name for the project. Format: `projects/{project_id}` */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Page size to load. Maximum of 100. Defaults to 10.
- *  Note: `page_size` is just a hint and the service may choose to load less
- *  than `page_size` due to the size of the output. To traverse all of the
- *  releases, caller should iterate until the `page_token` is empty.
+ *  Page size to load. Maximum of 100. Defaults to 10. Note: `page_size` is just
+ *  a hint and the service may choose to load less than `page_size` due to the
+ *  size of the output. To traverse all of the releases, caller should iterate
+ *  until the `page_token` is empty.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -522,12 +517,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  Fetches a @c GTLRFirebaseRules_ListRulesetsResponse.
  *
  *  List `Ruleset` metadata only and optionally filter the results by `Ruleset`
- *  name.
- *  The full `Source` contents of a `Ruleset` may be retrieved with
+ *  name. The full `Source` contents of a `Ruleset` may be retrieved with
  *  GetRuleset.
  *
- *  @param name Resource name for the project.
- *    Format: `projects/{project_id}`
+ *  @param name Resource name for the project. Format: `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsList
  *
@@ -541,23 +534,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 
 /**
  *  Test `Source` for syntactic and semantic correctness. Issues present, if
- *  any, will be returned to the caller with a description, severity, and
- *  source location.
- *  The test method may be executed with `Source` or a `Ruleset` name.
+ *  any, will be returned to the caller with a description, severity, and source
+ *  location. The test method may be executed with `Source` or a `Ruleset` name.
  *  Passing `Source` is useful for unit testing new rules. Passing a `Ruleset`
- *  name is useful for regression testing an existing rule.
- *  The following is an example of `Source` that permits users to upload images
- *  to a bucket bearing their user id and matching the correct metadata:
- *  _*Example*_
- *  // Users are allowed to subscribe and unsubscribe to the blog.
- *  service firebase.storage {
- *  match /users/{userId}/images/{imageName} {
- *  allow write: if userId == request.auth.uid
- *  && (imageName.matches('*.png$')
- *  || imageName.matches('*.jpg$'))
- *  && resource.mimeType.matches('^image/')
- *  }
- *  }
+ *  name is useful for regression testing an existing rule. The following is an
+ *  example of `Source` that permits users to upload images to a bucket bearing
+ *  their user id and matching the correct metadata: _*Example*_ // Users are
+ *  allowed to subscribe and unsubscribe to the blog. service firebase.storage {
+ *  match /users/{userId}/images/{imageName} { allow write: if userId ==
+ *  request.auth.uid && (imageName.matches('*.png$') ||
+ *  imageName.matches('*.jpg$')) && resource.mimeType.matches('^image/') } }
  *
  *  Method: firebaserules.projects.test
  *
@@ -571,11 +557,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 //   +[GTLQueryFirebaseRules queryForProjectsTestWithObject:name:]
 
 /**
- *  Tests may either provide `source` or a `Ruleset` resource name.
- *  For tests against `source`, the resource name must refer to the project:
- *  Format: `projects/{project_id}`
- *  For tests against a `Ruleset`, this must be the `Ruleset` resource name:
- *  Format: `projects/{project_id}/rulesets/{ruleset_id}`
+ *  Tests may either provide `source` or a `Ruleset` resource name. For tests
+ *  against `source`, the resource name must refer to the project: Format:
+ *  `projects/{project_id}` For tests against a `Ruleset`, this must be the
+ *  `Ruleset` resource name: Format:
+ *  `projects/{project_id}/rulesets/{ruleset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -583,31 +569,24 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  Fetches a @c GTLRFirebaseRules_TestRulesetResponse.
  *
  *  Test `Source` for syntactic and semantic correctness. Issues present, if
- *  any, will be returned to the caller with a description, severity, and
- *  source location.
- *  The test method may be executed with `Source` or a `Ruleset` name.
+ *  any, will be returned to the caller with a description, severity, and source
+ *  location. The test method may be executed with `Source` or a `Ruleset` name.
  *  Passing `Source` is useful for unit testing new rules. Passing a `Ruleset`
- *  name is useful for regression testing an existing rule.
- *  The following is an example of `Source` that permits users to upload images
- *  to a bucket bearing their user id and matching the correct metadata:
- *  _*Example*_
- *  // Users are allowed to subscribe and unsubscribe to the blog.
- *  service firebase.storage {
- *  match /users/{userId}/images/{imageName} {
- *  allow write: if userId == request.auth.uid
- *  && (imageName.matches('*.png$')
- *  || imageName.matches('*.jpg$'))
- *  && resource.mimeType.matches('^image/')
- *  }
- *  }
+ *  name is useful for regression testing an existing rule. The following is an
+ *  example of `Source` that permits users to upload images to a bucket bearing
+ *  their user id and matching the correct metadata: _*Example*_ // Users are
+ *  allowed to subscribe and unsubscribe to the blog. service firebase.storage {
+ *  match /users/{userId}/images/{imageName} { allow write: if userId ==
+ *  request.auth.uid && (imageName.matches('*.png$') ||
+ *  imageName.matches('*.jpg$')) && resource.mimeType.matches('^image/') } }
  *
  *  @param object The @c GTLRFirebaseRules_TestRulesetRequest to include in the
  *    query.
  *  @param name Tests may either provide `source` or a `Ruleset` resource name.
  *    For tests against `source`, the resource name must refer to the project:
- *    Format: `projects/{project_id}`
- *    For tests against a `Ruleset`, this must be the `Ruleset` resource name:
- *    Format: `projects/{project_id}/rulesets/{ruleset_id}`
+ *    Format: `projects/{project_id}` For tests against a `Ruleset`, this must
+ *    be the `Ruleset` resource name: Format:
+ *    `projects/{project_id}/rulesets/{ruleset_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsTest
  */

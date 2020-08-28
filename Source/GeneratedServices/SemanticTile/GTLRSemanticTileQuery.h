@@ -33,31 +33,75 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // clientInfoPlatform
 
-/** Value: "ANDROID" */
+/**
+ *  Android
+ *
+ *  Value: "ANDROID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileClientInfoPlatformAndroid;
-/** Value: "EDITOR" */
+/**
+ *  Development environment.
+ *
+ *  Value: "EDITOR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileClientInfoPlatformEditor;
-/** Value: "IOS" */
+/**
+ *  iOS
+ *
+ *  Value: "IOS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileClientInfoPlatformIos;
-/** Value: "LINUX" */
+/**
+ *  Linux
+ *
+ *  Value: "LINUX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileClientInfoPlatformLinux;
-/** Value: "MAC_OS" */
+/**
+ *  macOS.
+ *
+ *  Value: "MAC_OS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileClientInfoPlatformMacOs;
-/** Value: "PLATFORM_UNSPECIFIED" */
+/**
+ *  Unspecified or unknown OS.
+ *
+ *  Value: "PLATFORM_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileClientInfoPlatformPlatformUnspecified;
-/** Value: "WEB_GL" */
+/**
+ *  WebGL.
+ *
+ *  Value: "WEB_GL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileClientInfoPlatformWebGl;
-/** Value: "WINDOWS" */
+/**
+ *  Windows.
+ *
+ *  Value: "WINDOWS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileClientInfoPlatformWindows;
 
 // ----------------------------------------------------------------------------
 // terrainFormats
 
-/** Value: "FIRST_DERIVATIVE" */
+/**
+ *  Terrain elevation data encoded as a FirstDerivativeElevationGrid. .
+ *
+ *  Value: "FIRST_DERIVATIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsFirstDerivative;
-/** Value: "SECOND_DERIVATIVE" */
+/**
+ *  Terrain elevation data encoded as a SecondDerivativeElevationGrid.
+ *
+ *  Value: "SECOND_DERIVATIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsSecondDerivative;
-/** Value: "TERRAIN_FORMAT_UNKNOWN" */
+/**
+ *  An unknown or unspecified terrain format.
+ *
+ *  Value: "TERRAIN_FORMAT_UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatUnknown;
 
 // ----------------------------------------------------------------------------
@@ -84,8 +128,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 //   +[GTLQuerySemanticTile queryForFeaturetilesGetWithname:]
 
 /**
- *  API client name and version. For example, the SDK calling the API. The
- *  exact format is up to the client.
+ *  API client name and version. For example, the SDK calling the API. The exact
+ *  format is up to the client.
  */
 @property(nonatomic, copy, nullable) NSString *clientInfoApiClient;
 
@@ -108,8 +152,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 @property(nonatomic, copy, nullable) NSString *clientInfoDeviceModel;
 
 /**
- *  Operating system name and version as reported by the OS. For example,
- *  "Mac OS X 10.10.4". The exact format is platform-dependent.
+ *  Operating system name and version as reported by the OS. For example, "Mac
+ *  OS X 10.10.4". The exact format is platform-dependent.
  */
 @property(nonatomic, copy, nullable) NSString *clientInfoOperatingSystem;
 
@@ -117,22 +161,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Platform where the application is running.
  *
  *  Likely values:
- *    @arg @c kGTLRSemanticTileClientInfoPlatformPlatformUnspecified Value
- *        "PLATFORM_UNSPECIFIED"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformEditor Value "EDITOR"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformMacOs Value "MAC_OS"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformWindows Value "WINDOWS"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformLinux Value "LINUX"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformAndroid Value "ANDROID"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformIos Value "IOS"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformWebGl Value "WEB_GL"
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformPlatformUnspecified Unspecified
+ *        or unknown OS. (Value: "PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformEditor Development environment.
+ *        (Value: "EDITOR")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformMacOs macOS. (Value: "MAC_OS")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformWindows Windows. (Value:
+ *        "WINDOWS")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformLinux Linux (Value: "LINUX")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformAndroid Android (Value:
+ *        "ANDROID")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformIos iOS (Value: "IOS")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformWebGl WebGL. (Value: "WEB_GL")
  */
 @property(nonatomic, copy, nullable) NSString *clientInfoPlatform;
 
 /**
- *  A client-generated user ID. The ID should be generated and persisted during
- *  the first user session or whenever a pre-existing ID is not found. The
- *  exact format is up to the client. This must be non-empty in a
+ *  Required. A client-generated user ID. The ID should be generated and
+ *  persisted during the first user session or whenever a pre-existing ID is not
+ *  found. The exact format is up to the client. This must be non-empty in a
  *  GetFeatureTileRequest (whether via the header or
  *  GetFeatureTileRequest.client_info).
  */
@@ -141,19 +188,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 /**
  *  Optional version id identifying the tile that is already in the client's
  *  cache. This field should be populated with the most recent version_id value
- *  returned by the API for the requested tile.
- *  If the version id is empty the server always returns a newly rendered tile.
- *  If it is provided the server checks if the tile contents would be identical
- *  to one that's already on the client, and if so, returns a stripped-down
- *  response tile with STATUS_OK_DATA_UNCHANGED instead.
+ *  returned by the API for the requested tile. If the version id is empty the
+ *  server always returns a newly rendered tile. If it is provided the server
+ *  checks if the tile contents would be identical to one that's already on the
+ *  client, and if so, returns a stripped-down response tile with
+ *  STATUS_OK_DATA_UNCHANGED instead.
  */
 @property(nonatomic, copy, nullable) NSString *clientTileVersionId;
 
 /**
  *  Flag indicating whether detailed highway types should be returned. If this
  *  is set, the CONTROLLED_ACCESS_HIGHWAY type may be returned. If not, then
- *  these highways will have the generic HIGHWAY type.
- *  This exists for backwards compatibility reasons.
+ *  these highways will have the generic HIGHWAY type. This exists for backwards
+ *  compatibility reasons.
  */
 @property(nonatomic, assign) BOOL enableDetailedHighwayTypes;
 
@@ -165,9 +212,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 @property(nonatomic, assign) BOOL enableFeatureNames;
 
 /**
- *  Flag indicating whether 3D building models should be enabled. If this is
- *  set structures will be returned as 3D modeled volumes rather than 2.5D
- *  extruded areas where possible.
+ *  Flag indicating whether 3D building models should be enabled. If this is set
+ *  structures will be returned as 3D modeled volumes rather than 2.5D extruded
+ *  areas where possible.
  */
 @property(nonatomic, assign) BOOL enableModeledVolumes;
 
@@ -190,25 +237,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 
 /**
  *  Required. The BCP-47 language code corresponding to the language in which
- *  the name was requested, such as "en-US" or "sr-Latn".
- *  For more information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
+ *  the name was requested, such as "en-US" or "sr-Latn". For more information,
+ *  see http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  Required. Resource name of the tile. The tile resource name is prefixed by
  *  its collection ID `tiles/` followed by the resource ID, which encodes the
- *  tile's global x and y coordinates and zoom level as `\@<x>,<y>,<zoom>z`.
- *  For example, `tiles/\@1,2,3z`.
+ *  tile's global x and y coordinates and zoom level as `\@,,z`. For example,
+ *  `tiles/\@1,2,3z`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. The Unicode country/region code (CLDR) of the location from which
- *  the request is coming from, such as "US" and "419".
- *  For more information, see
- *  http://www.unicode.org/reports/tr35/#unicode_region_subtag.
+ *  the request is coming from, such as "US" and "419". For more information,
+ *  see http://www.unicode.org/reports/tr35/#unicode_region_subtag.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
@@ -218,9 +263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Gets a feature tile by its tile resource name.
  *
  *  @param name Required. Resource name of the tile. The tile resource name is
- *    prefixed by
- *    its collection ID `tiles/` followed by the resource ID, which encodes the
- *    tile's global x and y coordinates and zoom level as `\@<x>,<y>,<zoom>z`.
+ *    prefixed by its collection ID `tiles/` followed by the resource ID, which
+ *    encodes the tile's global x and y coordinates and zoom level as `\@,,z`.
  *    For example, `tiles/\@1,2,3z`.
  *
  *  @return GTLRSemanticTileQuery_FeaturetilesGet
@@ -239,15 +283,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 //   +[GTLQuerySemanticTile queryForTerraintilesGetWithname:]
 
 /**
- *  The precision of terrain altitudes in centimeters.
- *  Possible values: between 1 (cm level precision) and 1,000,000 (10-kilometer
- *  level precision).
+ *  The precision of terrain altitudes in centimeters. Possible values: between
+ *  1 (cm level precision) and 1,000,000 (10-kilometer level precision).
  */
 @property(nonatomic, assign) NSInteger altitudePrecisionCentimeters;
 
 /**
- *  API client name and version. For example, the SDK calling the API. The
- *  exact format is up to the client.
+ *  API client name and version. For example, the SDK calling the API. The exact
+ *  format is up to the client.
  */
 @property(nonatomic, copy, nullable) NSString *clientInfoApiClient;
 
@@ -270,8 +313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 @property(nonatomic, copy, nullable) NSString *clientInfoDeviceModel;
 
 /**
- *  Operating system name and version as reported by the OS. For example,
- *  "Mac OS X 10.10.4". The exact format is platform-dependent.
+ *  Operating system name and version as reported by the OS. For example, "Mac
+ *  OS X 10.10.4". The exact format is platform-dependent.
  */
 @property(nonatomic, copy, nullable) NSString *clientInfoOperatingSystem;
 
@@ -279,22 +322,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Platform where the application is running.
  *
  *  Likely values:
- *    @arg @c kGTLRSemanticTileClientInfoPlatformPlatformUnspecified Value
- *        "PLATFORM_UNSPECIFIED"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformEditor Value "EDITOR"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformMacOs Value "MAC_OS"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformWindows Value "WINDOWS"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformLinux Value "LINUX"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformAndroid Value "ANDROID"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformIos Value "IOS"
- *    @arg @c kGTLRSemanticTileClientInfoPlatformWebGl Value "WEB_GL"
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformPlatformUnspecified Unspecified
+ *        or unknown OS. (Value: "PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformEditor Development environment.
+ *        (Value: "EDITOR")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformMacOs macOS. (Value: "MAC_OS")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformWindows Windows. (Value:
+ *        "WINDOWS")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformLinux Linux (Value: "LINUX")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformAndroid Android (Value:
+ *        "ANDROID")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformIos iOS (Value: "IOS")
+ *    @arg @c kGTLRSemanticTileClientInfoPlatformWebGl WebGL. (Value: "WEB_GL")
  */
 @property(nonatomic, copy, nullable) NSString *clientInfoPlatform;
 
 /**
- *  A client-generated user ID. The ID should be generated and persisted during
- *  the first user session or whenever a pre-existing ID is not found. The
- *  exact format is up to the client. This must be non-empty in a
+ *  Required. A client-generated user ID. The ID should be generated and
+ *  persisted during the first user session or whenever a pre-existing ID is not
+ *  found. The exact format is up to the client. This must be non-empty in a
  *  GetFeatureTileRequest (whether via the header or
  *  GetFeatureTileRequest.client_info).
  */
@@ -303,14 +349,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 /**
  *  The maximum allowed resolution for the returned elevation heightmap.
  *  Possible values: between 1 and 1024 (and not less than
- *  min_elevation_resolution_cells).
- *  Over-sized heightmaps will be non-uniformly down-sampled such that each
- *  edge is no longer than this value. Non-uniformity is chosen to maximise the
- *  amount of preserved data.
- *  For example:
- *  Original resolution: 100px (width) * 30px (height)
- *  max_elevation_resolution: 30
- *  New resolution: 30px (width) * 30px (height)
+ *  min_elevation_resolution_cells). Over-sized heightmaps will be non-uniformly
+ *  down-sampled such that each edge is no longer than this value.
+ *  Non-uniformity is chosen to maximise the amount of preserved data. For
+ *  example: Original resolution: 100px (width) * 30px (height)
+ *  max_elevation_resolution: 30 New resolution: 30px (width) * 30px (height)
  */
 @property(nonatomic, assign) NSInteger maxElevationResolutionCells;
 
@@ -318,22 +361,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  The minimum allowed resolution for the returned elevation heightmap.
  *  Possible values: between 0 and 1024 (and not more than
  *  max_elevation_resolution_cells). Zero is supported for backward
- *  compatibility.
- *  Under-sized heightmaps will be non-uniformly up-sampled
- *  such that each edge is no shorter than this value. Non-uniformity is chosen
- *  to maximise the amount of preserved data.
- *  For example:
- *  Original resolution: 30px (width) * 10px (height)
- *  min_elevation_resolution: 30
- *  New resolution: 30px (width) * 30px (height)
+ *  compatibility. Under-sized heightmaps will be non-uniformly up-sampled such
+ *  that each edge is no shorter than this value. Non-uniformity is chosen to
+ *  maximise the amount of preserved data. For example: Original resolution:
+ *  30px (width) * 10px (height) min_elevation_resolution: 30 New resolution:
+ *  30px (width) * 30px (height)
  */
 @property(nonatomic, assign) NSInteger minElevationResolutionCells;
 
 /**
  *  Required. Resource name of the tile. The tile resource name is prefixed by
- *  its collection ID `terraintiles/` followed by the resource ID, which
- *  encodes the tile's global x and y coordinates and zoom level as
- *  `\@<x>,<y>,<zoom>z`. For example, `terraintiles/\@1,2,3z`.
+ *  its collection ID `terraintiles/` followed by the resource ID, which encodes
+ *  the tile's global x and y coordinates and zoom level as `\@,,z`. For
+ *  example, `terraintiles/\@1,2,3z`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -341,12 +381,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Terrain formats that the client understands.
  *
  *  Likely values:
- *    @arg @c kGTLRSemanticTileTerrainFormatsTerrainFormatUnknown Value
- *        "TERRAIN_FORMAT_UNKNOWN"
- *    @arg @c kGTLRSemanticTileTerrainFormatsFirstDerivative Value
- *        "FIRST_DERIVATIVE"
- *    @arg @c kGTLRSemanticTileTerrainFormatsSecondDerivative Value
- *        "SECOND_DERIVATIVE"
+ *    @arg @c kGTLRSemanticTileTerrainFormatsTerrainFormatUnknown An unknown or
+ *        unspecified terrain format. (Value: "TERRAIN_FORMAT_UNKNOWN")
+ *    @arg @c kGTLRSemanticTileTerrainFormatsFirstDerivative Terrain elevation
+ *        data encoded as a FirstDerivativeElevationGrid. . (Value:
+ *        "FIRST_DERIVATIVE")
+ *    @arg @c kGTLRSemanticTileTerrainFormatsSecondDerivative Terrain elevation
+ *        data encoded as a SecondDerivativeElevationGrid. (Value:
+ *        "SECOND_DERIVATIVE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *terrainFormats;
 
@@ -356,10 +398,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Gets a terrain tile by its tile resource name.
  *
  *  @param name Required. Resource name of the tile. The tile resource name is
- *    prefixed by
- *    its collection ID `terraintiles/` followed by the resource ID, which
- *    encodes the tile's global x and y coordinates and zoom level as
- *    `\@<x>,<y>,<zoom>z`. For example, `terraintiles/\@1,2,3z`.
+ *    prefixed by its collection ID `terraintiles/` followed by the resource ID,
+ *    which encodes the tile's global x and y coordinates and zoom level as
+ *    `\@,,z`. For example, `terraintiles/\@1,2,3z`.
  *
  *  @return GTLRSemanticTileQuery_TerraintilesGet
  */

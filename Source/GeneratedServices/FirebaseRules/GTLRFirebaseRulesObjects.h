@@ -54,8 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRFirebaseRules_GetReleaseExecutableResponse.executableVersion
 
 /**
- *  Firebase Rules syntax 'rules2' executable versions:
- *  Custom AST for use with Java clients.
+ *  Firebase Rules syntax 'rules2' executable versions: Custom AST for use with
+ *  Java clients.
  *
  *  Value: "FIREBASE_RULES_EXECUTABLE_V1"
  */
@@ -67,8 +67,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableRespon
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_FirebaseRulesExecutableV2;
 /**
- *  Executable format unspecified.
- *  Defaults to FIREBASE_RULES_EXECUTABLE_V1
+ *  Executable format unspecified. Defaults to FIREBASE_RULES_EXECUTABLE_V1
  *
  *  Value: "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED"
  */
@@ -100,8 +99,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_GetReleaseExecutableRespon
 // GTLRFirebaseRules_Issue.severity
 
 /**
- *  Deprecation issue for statements and method that may no longer be
- *  supported or maintained.
+ *  Deprecation issue for statements and method that may no longer be supported
+ *  or maintained.
  *
  *  Value: "DEPRECATION"
  */
@@ -191,8 +190,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_Enco
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestCase_PathEncoding_Plain;
 /**
- *  Treats path segments as URL encoded but with non-encoded separators
- *  ("/"). This is the default behavior.
+ *  Treats path segments as URL encoded but with non-encoded separators ("/").
+ *  This is the default behavior.
  *
  *  Value: "URL_ENCODED"
  */
@@ -241,19 +240,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRFirebaseRules_Empty : GTLRObject
 @end
 
 
 /**
- *  Describes where in a file an expression is found and what it was
- *  evaluated to over the course of its use.
+ *  Describes where in a file an expression is found and what it was evaluated
+ *  to over the course of its use.
  */
 @interface GTLRFirebaseRules_ExpressionReport : GTLRObject
 
@@ -311,27 +308,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 
 
 /**
- *  Mock function definition.
- *  Mocks must refer to a function declared by the target service. The type of
- *  the function args and result will be inferred at test time. If either the
- *  arg or result values are not compatible with function type declaration, the
- *  request will be considered invalid.
- *  More than one `FunctionMock` may be provided for a given function name so
- *  long as the `Arg` matchers are distinct. There may be only one function
- *  for a given overload where all `Arg` values are `Arg.any_value`.
+ *  Mock function definition. Mocks must refer to a function declared by the
+ *  target service. The type of the function args and result will be inferred at
+ *  test time. If either the arg or result values are not compatible with
+ *  function type declaration, the request will be considered invalid. More than
+ *  one `FunctionMock` may be provided for a given function name so long as the
+ *  `Arg` matchers are distinct. There may be only one function for a given
+ *  overload where all `Arg` values are `Arg.any_value`.
  */
 @interface GTLRFirebaseRules_FunctionMock : GTLRObject
 
 /**
  *  The list of `Arg` values to match. The order in which the arguments are
- *  provided is the order in which they must appear in the function
- *  invocation.
+ *  provided is the order in which they must appear in the function invocation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_Arg *> *args;
 
 /**
- *  The name of the function.
- *  The function name must match one provided by a service declaration.
+ *  The name of the function. The function name must match one provided by a
+ *  service declaration.
  */
 @property(nonatomic, copy, nullable) NSString *function;
 
@@ -359,15 +354,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_FirebaseRulesExecutableV1
- *        Firebase Rules syntax 'rules2' executable versions:
- *        Custom AST for use with Java clients. (Value:
- *        "FIREBASE_RULES_EXECUTABLE_V1")
+ *        Firebase Rules syntax 'rules2' executable versions: Custom AST for use
+ *        with Java clients. (Value: "FIREBASE_RULES_EXECUTABLE_V1")
  *    @arg @c kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_FirebaseRulesExecutableV2
  *        CEL-based executable for use with C++ clients. (Value:
  *        "FIREBASE_RULES_EXECUTABLE_V2")
  *    @arg @c kGTLRFirebaseRules_GetReleaseExecutableResponse_ExecutableVersion_ReleaseExecutableVersionUnspecified
- *        Executable format unspecified.
- *        Defaults to FIREBASE_RULES_EXECUTABLE_V1 (Value:
+ *        Executable format unspecified. Defaults to
+ *        FIREBASE_RULES_EXECUTABLE_V1 (Value:
  *        "RELEASE_EXECUTABLE_VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *executableVersion;
@@ -390,9 +384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @property(nonatomic, copy, nullable) NSString *rulesetName;
 
 /**
- *  Optional, indicates the freshness of the result. The response is
- *  guaranteed to be the latest within an interval up to the
- *  sync_time (inclusive).
+ *  Optional, indicates the freshness of the result. The response is guaranteed
+ *  to be the latest within an interval up to the sync_time (inclusive).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *syncTime;
 
@@ -419,8 +412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseRules_Issue_Severity_Deprecation Deprecation issue
- *        for statements and method that may no longer be
- *        supported or maintained. (Value: "DEPRECATION")
+ *        for statements and method that may no longer be supported or
+ *        maintained. (Value: "DEPRECATION")
  *    @arg @c kGTLRFirebaseRules_Issue_Severity_Error Errors such as: unmatched
  *        curly braces or variable redefinition. (Value: "ERROR")
  *    @arg @c kGTLRFirebaseRules_Issue_Severity_SeverityUnspecified An
@@ -496,8 +489,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @interface GTLRFirebaseRules_Metadata : GTLRObject
 
 /**
- *  Services that this ruleset has declarations for (e.g.,
- *  "cloud.firestore"). There may be 0+ of these.
+ *  Services that this ruleset has declarations for (e.g., "cloud.firestore").
+ *  There may be 0+ of these.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -510,32 +503,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @interface GTLRFirebaseRules_Release : GTLRObject
 
-/**
- *  Time the release was created.
- *  Output only.
- */
+/** Time the release was created. Output only. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Resource name for the `Release`.
- *  `Release` names may be structured `app1/prod/v2` or flat `app1_prod_v2`
- *  which affords developers a great deal of flexibility in mapping the name
- *  to the style that best fits their existing development practices. For
- *  example, a name could refer to an environment, an app, a version, or some
- *  combination of three.
- *  In the table below, for the project name `projects/foo`, the following
- *  relative release paths show how flat and structured names might be chosen
- *  to match a desired development / deployment strategy.
- *  Use Case | Flat Name | Structured Name
- *  -------------|---------------------|----------------
- *  Environments | releases/qa | releases/qa
- *  Apps | releases/app1_qa | releases/app1/qa
- *  Versions | releases/app1_v2_qa | releases/app1/v2/qa
- *  The delimiter between the release name path elements can be almost anything
- *  and it should work equally well with the release name list filter, but in
- *  many ways the structured paths provide a clearer picture of the
- *  relationship between `Release` instances.
- *  Format: `projects/{project_id}/releases/{release_id}`
+ *  Resource name for the `Release`. `Release` names may be structured
+ *  `app1/prod/v2` or flat `app1_prod_v2` which affords developers a great deal
+ *  of flexibility in mapping the name to the style that best fits their
+ *  existing development practices. For example, a name could refer to an
+ *  environment, an app, a version, or some combination of three. In the table
+ *  below, for the project name `projects/foo`, the following relative release
+ *  paths show how flat and structured names might be chosen to match a desired
+ *  development / deployment strategy. Use Case | Flat Name | Structured Name
+ *  -------------|---------------------|---------------- Environments |
+ *  releases/qa | releases/qa Apps | releases/app1_qa | releases/app1/qa
+ *  Versions | releases/app1_v2_qa | releases/app1/v2/qa The delimiter between
+ *  the release name path elements can be almost anything and it should work
+ *  equally well with the release name list filter, but in many ways the
+ *  structured paths provide a clearer picture of the relationship between
+ *  `Release` instances. Format: `projects/{project_id}/releases/{release_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -545,10 +531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @property(nonatomic, copy, nullable) NSString *rulesetName;
 
-/**
- *  Time the release was updated.
- *  Output only.
- */
+/** Time the release was updated. Output only. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -563,8 +546,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_Empty *undefined;
 
 /**
- *  The result is an actual value. The type of the value must match that
- *  of the type declared by the service.
+ *  The result is an actual value. The type of the value must match that of the
+ *  type declared by the service.
  *
  *  Can be any valid JSON type.
  */
@@ -579,22 +562,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  */
 @interface GTLRFirebaseRules_Ruleset : GTLRObject
 
-/**
- *  Time the `Ruleset` was created.
- *  Output only.
- */
+/** Time the `Ruleset` was created. Output only. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/**
- *  The metadata for this ruleset.
- *  Output only.
- */
+/** The metadata for this ruleset. Output only. */
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_Metadata *metadata;
 
 /**
  *  Name of the `Ruleset`. The ruleset_id is auto generated by the service.
- *  Format: `projects/{project_id}/rulesets/{ruleset_id}`
- *  Output only.
+ *  Format: `projects/{project_id}/rulesets/{ruleset_id}` Output only.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -658,11 +634,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 /**
  *  `TestCase` messages provide the request context and an expectation as to
  *  whether the given context will be allowed or denied. Test cases may specify
- *  the `request`, `resource`, and `function_mocks` to mock a function call to
- *  a service-provided function.
- *  The `request` object represents context present at request-time.
- *  The `resource` is the value of the target resource as it appears in
- *  persistent storage before the request is executed.
+ *  the `request`, `resource`, and `function_mocks` to mock a function call to a
+ *  service-provided function. The `request` object represents context present
+ *  at request-time. The `resource` is the value of the target resource as it
+ *  appears in persistent storage before the request is executed.
  */
 @interface GTLRFirebaseRules_TestCase : GTLRObject
 
@@ -713,28 +688,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
  *    @arg @c kGTLRFirebaseRules_TestCase_PathEncoding_Plain Treats total path
  *        as non-URL encoded e.g. raw. (Value: "PLAIN")
  *    @arg @c kGTLRFirebaseRules_TestCase_PathEncoding_UrlEncoded Treats path
- *        segments as URL encoded but with non-encoded separators
- *        ("/"). This is the default behavior. (Value: "URL_ENCODED")
+ *        segments as URL encoded but with non-encoded separators ("/"). This is
+ *        the default behavior. (Value: "URL_ENCODED")
  */
 @property(nonatomic, copy, nullable) NSString *pathEncoding;
 
 /**
- *  Request context.
- *  The exact format of the request context is service-dependent. See the
- *  appropriate service documentation for information about the supported
- *  fields and types on the request. Minimally, all services support the
- *  following fields and types:
- *  Request field | Type
- *  ---------------|-----------------
- *  auth.uid | `string`
- *  auth.token | `map<string, string>`
- *  headers | `map<string, string>`
- *  method | `string`
- *  params | `map<string, string>`
- *  path | `string`
- *  time | `google.protobuf.Timestamp`
- *  If the request value is not well-formed for the service, the request will
- *  be rejected as an invalid argument.
+ *  Request context. The exact format of the request context is
+ *  service-dependent. See the appropriate service documentation for information
+ *  about the supported fields and types on the request. Minimally, all services
+ *  support the following fields and types: Request field | Type
+ *  ---------------|----------------- auth.uid | `string` auth.token | `map`
+ *  headers | `map` method | `string` params | `map` path | `string` time |
+ *  `google.protobuf.Timestamp` If the request value is not well-formed for the
+ *  service, the request will be rejected as an invalid argument.
  *
  *  Can be any valid JSON type.
  */
@@ -742,8 +709,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 
 /**
  *  Optional resource value as it appears in persistent storage before the
- *  request is fulfilled.
- *  The resource type depends on the `request.path` value.
+ *  request is fulfilled. The resource type depends on the `request.path` value.
  *
  *  Can be any valid JSON type.
  */
@@ -760,37 +726,34 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 
 /**
  *  Debug messages related to test execution issues encountered during
- *  evaluation.
- *  Debug messages may be related to too many or too few invocations of
- *  function mocks or to runtime errors that occur during evaluation.
- *  For example: ```Unable to read variable [name: "resource"]```
+ *  evaluation. Debug messages may be related to too many or too few invocations
+ *  of function mocks or to runtime errors that occur during evaluation. For
+ *  example: ```Unable to read variable [name: "resource"]```
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *debugMessages;
 
 /**
  *  Position in the `Source` or `Ruleset` where the principle runtime error
- *  occurs.
- *  Evaluation of an expression may result in an error. Rules are deny by
- *  default, so a `DENY` expectation when an error is generated is valid.
- *  When there is a `DENY` with an error, the `SourcePosition` is returned.
- *  E.g. `error_position { line: 19 column: 37 }`
+ *  occurs. Evaluation of an expression may result in an error. Rules are deny
+ *  by default, so a `DENY` expectation when an error is generated is valid.
+ *  When there is a `DENY` with an error, the `SourcePosition` is returned. E.g.
+ *  `error_position { line: 19 column: 37 }`
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_SourcePosition *errorPosition;
 
 /**
  *  The mapping from expression in the ruleset AST to the values they were
- *  evaluated to. Partially-nested to mirror AST structure. Note that this
- *  field is actually tracking expressions and not permission statements in
- *  contrast to the "visited_expressions" field above. Literal expressions
- *  are omitted.
+ *  evaluated to. Partially-nested to mirror AST structure. Note that this field
+ *  is actually tracking expressions and not permission statements in contrast
+ *  to the "visited_expressions" field above. Literal expressions are omitted.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_ExpressionReport *> *expressionReports;
 
 /**
- *  The set of function calls made to service-defined methods.
- *  Function calls are included in the order in which they are encountered
- *  during evaluation, are provided for both mocked and unmocked functions,
- *  and included on the response regardless of the test `state`.
+ *  The set of function calls made to service-defined methods. Function calls
+ *  are included in the order in which they are encountered during evaluation,
+ *  are provided for both mocked and unmocked functions, and included on the
+ *  response regardless of the test `state`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_FunctionCall *> *functionCalls;
 
@@ -808,14 +771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The set of visited permission expressions for a given test. This returns
- *  the positions and evaluation results of all visited permission
- *  expressions which were relevant to the test case, e.g.
- *  ```
- *  match /path {
- *  allow read if: <expr>
- *  }
- *  ```
+ *  The set of visited permission expressions for a given test. This returns the
+ *  positions and evaluation results of all visited permission expressions which
+ *  were relevant to the test case, e.g. ``` match /path { allow read if: } ```
  *  For a detailed report of the intermediate evaluation states, see the
  *  `expression_reports` field
  */
@@ -830,8 +788,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @interface GTLRFirebaseRules_TestRulesetRequest : GTLRObject
 
 /**
- *  Optional `Source` to be checked for correctness.
- *  This field must not be set when the resource name refers to a `Ruleset`.
+ *  Optional `Source` to be checked for correctness. This field must not be set
+ *  when the resource name refers to a `Ruleset`.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseRules_Source *source;
 
@@ -853,9 +811,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_Issue *> *issues;
 
 /**
- *  The set of test results given the test cases in the `TestSuite`.
- *  The results will appear in the same order as the test cases appear in the
- *  `TestSuite`.
+ *  The set of test results given the test cases in the `TestSuite`. The results
+ *  will appear in the same order as the test cases appear in the `TestSuite`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseRules_TestResult *> *testResults;
 
@@ -864,10 +821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRules_TestResult_State_Success;
 
 /**
  *  `TestSuite` is a collection of `TestCase` instances that validate the
- *  logical
- *  correctness of a `Ruleset`. The `TestSuite` may be referenced in-line within
- *  a `TestRuleset` invocation or as part of a `Release` object as a pre-release
- *  check.
+ *  logical correctness of a `Ruleset`. The `TestSuite` may be referenced
+ *  in-line within a `TestRuleset` invocation or as part of a `Release` object
+ *  as a pre-release check.
  */
 @interface GTLRFirebaseRules_TestSuite : GTLRObject
 

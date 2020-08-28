@@ -789,13 +789,14 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROTO3";
 //
 
 @implementation GTLRServiceUsage_GoogleApiServiceusageV1ServiceConfig
-@dynamic apis, authentication, documentation, endpoints, name, quota, title,
-         usage;
+@dynamic apis, authentication, documentation, endpoints, monitoredResources,
+         monitoring, name, quota, title, usage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"apis" : [GTLRServiceUsage_Api class],
-    @"endpoints" : [GTLRServiceUsage_Endpoint class]
+    @"endpoints" : [GTLRServiceUsage_Endpoint class],
+    @"monitoredResources" : [GTLRServiceUsage_MonitoredResourceDescriptor class]
   };
   return map;
 }

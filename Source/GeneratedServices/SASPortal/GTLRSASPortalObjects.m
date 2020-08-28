@@ -189,8 +189,8 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_DeviceGrant
-@dynamic channelType, expireTime, frequencyRange, maxEirp, moveList, state,
-         suspensionReason;
+@dynamic channelType, expireTime, frequencyRange, grantId, maxEirp, moveList,
+         state, suspensionReason;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

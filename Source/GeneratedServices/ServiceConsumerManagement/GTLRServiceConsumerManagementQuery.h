@@ -48,15 +48,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: serviceconsumermanagement.operations.cancel
  *
@@ -74,15 +73,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRServiceConsumerManagement_CancelOperationRequest to
  *    include in the query.
@@ -163,14 +161,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: serviceconsumermanagement.operations.list
  *
@@ -197,14 +195,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -232,41 +230,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of results returned by this request. Currently,
- *  the
- *  default maximum is set to 1000. If `page_size` isn't provided or the size
- *  provided is a number larger than 1000, it's automatically set to 1000.
+ *  the default maximum is set to 1000. If `page_size` isn't provided or the
+ *  size provided is a number larger than 1000, it's automatically set to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. The continuation token, which is used to page through large result
- *  sets.
- *  To get the next page of results, set this parameter to the value of
+ *  sets. To get the next page of results, set this parameter to the value of
  *  `nextPageToken` from the previous response.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Service for which search is performed.
- *  services/{service}
- *  {service} the name of a service, for example 'service.googleapis.com'.
+ *  Service for which search is performed. services/{service} {service} the name
+ *  of a service, for example 'service.googleapis.com'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Optional. Set a query `{expression}` for querying tenancy units. Your
- *  `{expression}`
- *  must be in the format: `field_name=literal_string`. The `field_name` is the
- *  name of the field you want to compare. Supported fields are
- *  `tenant_resources.tag` and `tenant_resources.resource`.
- *  For example, to search tenancy units that contain at least one tenant
- *  resource with a given tag 'xyz', use the query `tenant_resources.tag=xyz`.
- *  To search tenancy units that contain at least one tenant resource with
- *  a given resource name 'projects/123456', use the query
- *  `tenant_resources.resource=projects/123456`.
- *  Multiple expressions can be joined with `AND`s. Tenancy units must match
- *  all expressions to be included in the result set. For example,
- *  `tenant_resources.tag=xyz AND tenant_resources.resource=projects/123456`
+ *  `{expression}` must be in the format: `field_name=literal_string`. The
+ *  `field_name` is the name of the field you want to compare. Supported fields
+ *  are `tenant_resources.tag` and `tenant_resources.resource`. For example, to
+ *  search tenancy units that contain at least one tenant resource with a given
+ *  tag 'xyz', use the query `tenant_resources.tag=xyz`. To search tenancy units
+ *  that contain at least one tenant resource with a given resource name
+ *  'projects/123456', use the query
+ *  `tenant_resources.resource=projects/123456`. Multiple expressions can be
+ *  joined with `AND`s. Tenancy units must match all expressions to be included
+ *  in the result set. For example, `tenant_resources.tag=xyz AND
+ *  tenant_resources.resource=projects/123456`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -275,8 +269,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Search tenancy units for a managed service.
  *
- *  @param parent Service for which search is performed.
- *    services/{service}
+ *  @param parent Service for which search is performed. services/{service}
  *    {service} the name of a service, for example 'service.googleapis.com'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesSearch
@@ -290,12 +283,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Add a new tenant project to the tenancy unit.
- *  There can be a maximum of 512 tenant projects in a tenancy unit.
- *  If there are previously failed `AddTenantProject` calls, you might need to
- *  call `RemoveTenantProject` first to resolve them before you can make
- *  another call to `AddTenantProject` with the same tag.
- *  Operation<response: Empty>.
+ *  Add a new tenant project to the tenancy unit. There can be a maximum of 512
+ *  tenant projects in a tenancy unit. If there are previously failed
+ *  `AddTenantProject` calls, you might need to call `RemoveTenantProject` first
+ *  to resolve them before you can make another call to `AddTenantProject` with
+ *  the same tag. Operation.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.addProject
  *
@@ -307,25 +299,23 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAddProjectWithObject:parent:]
 
 /**
- *  Name of the tenancy unit.
- *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ *  Name of the tenancy unit. Such as
+ *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
- *  Add a new tenant project to the tenancy unit.
- *  There can be a maximum of 512 tenant projects in a tenancy unit.
- *  If there are previously failed `AddTenantProject` calls, you might need to
- *  call `RemoveTenantProject` first to resolve them before you can make
- *  another call to `AddTenantProject` with the same tag.
- *  Operation<response: Empty>.
+ *  Add a new tenant project to the tenancy unit. There can be a maximum of 512
+ *  tenant projects in a tenancy unit. If there are previously failed
+ *  `AddTenantProject` calls, you might need to call `RemoveTenantProject` first
+ *  to resolve them before you can make another call to `AddTenantProject` with
+ *  the same tag. Operation.
  *
  *  @param object The @c GTLRServiceConsumerManagement_AddTenantProjectRequest
  *    to include in the query.
- *  @param parent Name of the tenancy unit.
- *    Such as
+ *  @param parent Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAddProject
@@ -336,23 +326,19 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Apply a configuration to an existing tenant project.
- *  This project must exist in an active state and have the original owner
- *  account. The caller must have permission to add a project to the given
- *  tenancy unit. The configuration is applied, but any existing settings on
- *  the project aren't modified.
- *  Specified policy bindings are applied. Existing bindings aren't modified.
- *  Specified services are activated. No service is deactivated.
- *  If specified, new billing configuration is applied.
- *  Omit a billing configuration to keep the existing one.
- *  A service account in the project is created if previously non existed.
+ *  Apply a configuration to an existing tenant project. This project must exist
+ *  in an active state and have the original owner account. The caller must have
+ *  permission to add a project to the given tenancy unit. The configuration is
+ *  applied, but any existing settings on the project aren't modified. Specified
+ *  policy bindings are applied. Existing bindings aren't modified. Specified
+ *  services are activated. No service is deactivated. If specified, new billing
+ *  configuration is applied. Omit a billing configuration to keep the existing
+ *  one. A service account in the project is created if previously non existed.
  *  Specified labels will be appended to tenant project, note that the value of
- *  existing label key will be updated if the same label key is requested.
- *  The specified folder is ignored, as moving a tenant project to a different
- *  folder isn't supported.
- *  The operation fails if any of the steps fail, but no rollback of already
- *  applied configuration changes is attempted.
- *  Operation<response: Empty>.
+ *  existing label key will be updated if the same label key is requested. The
+ *  specified folder is ignored, as moving a tenant project to a different
+ *  folder isn't supported. The operation fails if any of the steps fail, but no
+ *  rollback of already applied configuration changes is attempted. Operation.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.applyProjectConfig
  *
@@ -364,37 +350,32 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsApplyProjectConfigWithObject:name:]
 
 /**
- *  Name of the tenancy unit.
- *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ *  Name of the tenancy unit. Such as
+ *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
- *  Apply a configuration to an existing tenant project.
- *  This project must exist in an active state and have the original owner
- *  account. The caller must have permission to add a project to the given
- *  tenancy unit. The configuration is applied, but any existing settings on
- *  the project aren't modified.
- *  Specified policy bindings are applied. Existing bindings aren't modified.
- *  Specified services are activated. No service is deactivated.
- *  If specified, new billing configuration is applied.
- *  Omit a billing configuration to keep the existing one.
- *  A service account in the project is created if previously non existed.
+ *  Apply a configuration to an existing tenant project. This project must exist
+ *  in an active state and have the original owner account. The caller must have
+ *  permission to add a project to the given tenancy unit. The configuration is
+ *  applied, but any existing settings on the project aren't modified. Specified
+ *  policy bindings are applied. Existing bindings aren't modified. Specified
+ *  services are activated. No service is deactivated. If specified, new billing
+ *  configuration is applied. Omit a billing configuration to keep the existing
+ *  one. A service account in the project is created if previously non existed.
  *  Specified labels will be appended to tenant project, note that the value of
- *  existing label key will be updated if the same label key is requested.
- *  The specified folder is ignored, as moving a tenant project to a different
- *  folder isn't supported.
- *  The operation fails if any of the steps fail, but no rollback of already
- *  applied configuration changes is attempted.
- *  Operation<response: Empty>.
+ *  existing label key will be updated if the same label key is requested. The
+ *  specified folder is ignored, as moving a tenant project to a different
+ *  folder isn't supported. The operation fails if any of the steps fail, but no
+ *  rollback of already applied configuration changes is attempted. Operation.
  *
  *  @param object The @c
  *    GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest to include
  *    in the query.
- *  @param name Name of the tenancy unit.
- *    Such as
+ *  @param name Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsApplyProjectConfig
@@ -405,17 +386,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Attach an existing project to the tenancy unit as a new tenant
- *  resource. The project could either be the tenant project reserved by
- *  calling `AddTenantProject` under a tenancy unit of a service producer's
- *  project of a managed service, or from a separate project.
- *  The caller is checked against a set of permissions as if calling
- *  `AddTenantProject` on the same service consumer.
- *  To trigger the attachment, the targeted tenant project must be in a
- *  folder. Make sure the ServiceConsumerManagement service account is
- *  the owner of that project. These two requirements are already met
- *  if the project is reserved by calling `AddTenantProject`.
- *  Operation<response: Empty>.
+ *  Attach an existing project to the tenancy unit as a new tenant resource. The
+ *  project could either be the tenant project reserved by calling
+ *  `AddTenantProject` under a tenancy unit of a service producer's project of a
+ *  managed service, or from a separate project. The caller is checked against a
+ *  set of permissions as if calling `AddTenantProject` on the same service
+ *  consumer. To trigger the attachment, the targeted tenant project must be in
+ *  a folder. Make sure the ServiceConsumerManagement service account is the
+ *  owner of that project. These two requirements are already met if the project
+ *  is reserved by calling `AddTenantProject`. Operation.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.attachProject
  *
@@ -427,25 +406,23 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAttachProjectWithObject:name:]
 
 /**
- *  Name of the tenancy unit that the project will be attached to.
- *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ *  Name of the tenancy unit that the project will be attached to. Such as
+ *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
- *  Attach an existing project to the tenancy unit as a new tenant
- *  resource. The project could either be the tenant project reserved by
- *  calling `AddTenantProject` under a tenancy unit of a service producer's
- *  project of a managed service, or from a separate project.
- *  The caller is checked against a set of permissions as if calling
- *  `AddTenantProject` on the same service consumer.
- *  To trigger the attachment, the targeted tenant project must be in a
- *  folder. Make sure the ServiceConsumerManagement service account is
- *  the owner of that project. These two requirements are already met
- *  if the project is reserved by calling `AddTenantProject`.
- *  Operation<response: Empty>.
+ *  Attach an existing project to the tenancy unit as a new tenant resource. The
+ *  project could either be the tenant project reserved by calling
+ *  `AddTenantProject` under a tenancy unit of a service producer's project of a
+ *  managed service, or from a separate project. The caller is checked against a
+ *  set of permissions as if calling `AddTenantProject` on the same service
+ *  consumer. To trigger the attachment, the targeted tenant project must be in
+ *  a folder. Make sure the ServiceConsumerManagement service account is the
+ *  owner of that project. These two requirements are already met if the project
+ *  is reserved by calling `AddTenantProject`. Operation.
  *
  *  @param object The @c
  *    GTLRServiceConsumerManagement_AttachTenantProjectRequest to include in the
@@ -462,11 +439,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a tenancy unit with no tenant resources.
- *  If tenancy unit already exists, it will be returned,
- *  however, in this case, returned TenancyUnit does not have tenant_resources
- *  field set and ListTenancyUnits has to be used to get a complete
- *  TenancyUnit with all fields populated.
+ *  Creates a tenancy unit with no tenant resources. If tenancy unit already
+ *  exists, it will be returned, however, in this case, returned TenancyUnit
+ *  does not have tenant_resources field set and ListTenancyUnits has to be used
+ *  to get a complete TenancyUnit with all fields populated.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.create
  *
@@ -478,33 +454,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsCreateWithObject:parent:]
 
 /**
- *  services/{service}/{collection id}/{resource id}
- *  {collection id} is the cloud resource collection type representing the
- *  service consumer, for example 'projects', or 'organizations'.
- *  {resource id} is the consumer numeric id, such as project number: '123456'.
- *  {service} the name of a managed service, such as 'service.googleapis.com'.
- *  Enables service binding using the new tenancy unit.
+ *  services/{service}/{collection id}/{resource id} {collection id} is the
+ *  cloud resource collection type representing the service consumer, for
+ *  example 'projects', or 'organizations'. {resource id} is the consumer
+ *  numeric id, such as project number: '123456'. {service} the name of a
+ *  managed service, such as 'service.googleapis.com'. Enables service binding
+ *  using the new tenancy unit.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceConsumerManagement_TenancyUnit.
  *
- *  Creates a tenancy unit with no tenant resources.
- *  If tenancy unit already exists, it will be returned,
- *  however, in this case, returned TenancyUnit does not have tenant_resources
- *  field set and ListTenancyUnits has to be used to get a complete
- *  TenancyUnit with all fields populated.
+ *  Creates a tenancy unit with no tenant resources. If tenancy unit already
+ *  exists, it will be returned, however, in this case, returned TenancyUnit
+ *  does not have tenant_resources field set and ListTenancyUnits has to be used
+ *  to get a complete TenancyUnit with all fields populated.
  *
  *  @param object The @c GTLRServiceConsumerManagement_CreateTenancyUnitRequest
  *    to include in the query.
- *  @param parent services/{service}/{collection id}/{resource id}
- *    {collection id} is the cloud resource collection type representing the
- *    service consumer, for example 'projects', or 'organizations'.
- *    {resource id} is the consumer numeric id, such as project number:
- *    '123456'.
- *    {service} the name of a managed service, such as 'service.googleapis.com'.
- *    Enables service binding using the new tenancy unit.
+ *  @param parent services/{service}/{collection id}/{resource id} {collection
+ *    id} is the cloud resource collection type representing the service
+ *    consumer, for example 'projects', or 'organizations'. {resource id} is the
+ *    consumer numeric id, such as project number: '123456'. {service} the name
+ *    of a managed service, such as 'service.googleapis.com'. Enables service
+ *    binding using the new tenancy unit.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsCreate
  */
@@ -515,8 +489,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Delete a tenancy unit. Before you delete the tenancy unit, there should be
- *  no tenant resources in it that aren't in a DELETED state.
- *  Operation<response: Empty>.
+ *  no tenant resources in it that aren't in a DELETED state. Operation.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.delete
  *
@@ -534,8 +507,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
  *  Delete a tenancy unit. Before you delete the tenancy unit, there should be
- *  no tenant resources in it that aren't in a DELETED state.
- *  Operation<response: Empty>.
+ *  no tenant resources in it that aren't in a DELETED state. Operation.
  *
  *  @param name Name of the tenancy unit to be deleted.
  *
@@ -549,13 +521,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified project resource identified by a tenant resource tag.
  *  The mothod removes a project lien with a 'TenantManager' origin if that was
  *  added. It will then attempt to delete the project. If that operation fails,
- *  this method also fails.
- *  After the project has been deleted, the tenant resource state is set to
- *  DELETED. To permanently remove resource metadata, call the
- *  `RemoveTenantProject` method.
- *  New resources with the same tag can't be added if there are existing
- *  resources in a DELETED state.
- *  Operation<response: Empty>.
+ *  this method also fails. After the project has been deleted, the tenant
+ *  resource state is set to DELETED. To permanently remove resource metadata,
+ *  call the `RemoveTenantProject` method. New resources with the same tag can't
+ *  be added if there are existing resources in a DELETED state. Operation.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.deleteProject
  *
@@ -567,8 +536,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsDeleteProjectWithObject:name:]
 
 /**
- *  Name of the tenancy unit.
- *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ *  Name of the tenancy unit. Such as
+ *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -578,19 +547,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the specified project resource identified by a tenant resource tag.
  *  The mothod removes a project lien with a 'TenantManager' origin if that was
  *  added. It will then attempt to delete the project. If that operation fails,
- *  this method also fails.
- *  After the project has been deleted, the tenant resource state is set to
- *  DELETED. To permanently remove resource metadata, call the
- *  `RemoveTenantProject` method.
- *  New resources with the same tag can't be added if there are existing
- *  resources in a DELETED state.
- *  Operation<response: Empty>.
+ *  this method also fails. After the project has been deleted, the tenant
+ *  resource state is set to DELETED. To permanently remove resource metadata,
+ *  call the `RemoveTenantProject` method. New resources with the same tag can't
+ *  be added if there are existing resources in a DELETED state. Operation.
  *
  *  @param object The @c
  *    GTLRServiceConsumerManagement_DeleteTenantProjectRequest to include in the
  *    query.
- *  @param name Name of the tenancy unit.
- *    Such as
+ *  @param name Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDeleteProject
@@ -601,11 +566,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Find the tenancy unit for a managed service and service consumer.
- *  This method shouldn't be used in a service producer's runtime path, for
- *  example to find the tenant project number when creating VMs. Service
- *  producers must persist the tenant project's information after the project
- *  is created.
+ *  Find the tenancy unit for a managed service and service consumer. This
+ *  method shouldn't be used in a service producer's runtime path, for example
+ *  to find the tenant project number when creating VMs. Service producers must
+ *  persist the tenant project's information after the project is created.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.list
  *
@@ -623,38 +587,36 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The continuation token, which is used to page through large result sets.
- *  To get the next page of results, set this parameter to the value of
+ *  The continuation token, which is used to page through large result sets. To
+ *  get the next page of results, set this parameter to the value of
  *  `nextPageToken` from the previous response.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Managed service and service consumer. Required.
- *  services/{service}/{collection id}/{resource id}
- *  {collection id} is the cloud resource collection type representing the
- *  service consumer, for example 'projects', or 'organizations'.
- *  {resource id} is the consumer numeric id, such as project number: '123456'.
- *  {service} the name of a service, such as 'service.googleapis.com'.
+ *  services/{service}/{collection id}/{resource id} {collection id} is the
+ *  cloud resource collection type representing the service consumer, for
+ *  example 'projects', or 'organizations'. {resource id} is the consumer
+ *  numeric id, such as project number: '123456'. {service} the name of a
+ *  service, such as 'service.googleapis.com'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceConsumerManagement_ListTenancyUnitsResponse.
  *
- *  Find the tenancy unit for a managed service and service consumer.
- *  This method shouldn't be used in a service producer's runtime path, for
- *  example to find the tenant project number when creating VMs. Service
- *  producers must persist the tenant project's information after the project
- *  is created.
+ *  Find the tenancy unit for a managed service and service consumer. This
+ *  method shouldn't be used in a service producer's runtime path, for example
+ *  to find the tenant project number when creating VMs. Service producers must
+ *  persist the tenant project's information after the project is created.
  *
  *  @param parent Managed service and service consumer. Required.
- *    services/{service}/{collection id}/{resource id}
- *    {collection id} is the cloud resource collection type representing the
- *    service consumer, for example 'projects', or 'organizations'.
- *    {resource id} is the consumer numeric id, such as project number:
- *    '123456'.
- *    {service} the name of a service, such as 'service.googleapis.com'.
+ *    services/{service}/{collection id}/{resource id} {collection id} is the
+ *    cloud resource collection type representing the service consumer, for
+ *    example 'projects', or 'organizations'. {resource id} is the consumer
+ *    numeric id, such as project number: '123456'. {service} the name of a
+ *    service, such as 'service.googleapis.com'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsList
  *
@@ -668,13 +630,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Removes the specified project resource identified by a tenant resource tag.
- *  The method removes the project lien with 'TenantManager' origin if that
- *  was added. It then attempts to delete the project. If that operation
- *  fails, this method also fails.
- *  Calls to remove already removed or non-existent tenant project succeed.
- *  After the project has been deleted, or if was already in a DELETED state,
- *  resource metadata is permanently removed from the tenancy unit.
- *  Operation<response: Empty>.
+ *  The method removes the project lien with 'TenantManager' origin if that was
+ *  added. It then attempts to delete the project. If that operation fails, this
+ *  method also fails. Calls to remove already removed or non-existent tenant
+ *  project succeed. After the project has been deleted, or if was already in a
+ *  DELETED state, resource metadata is permanently removed from the tenancy
+ *  unit. Operation.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.removeProject
  *
@@ -686,8 +647,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsRemoveProjectWithObject:name:]
 
 /**
- *  Name of the tenancy unit.
- *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ *  Name of the tenancy unit. Such as
+ *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -695,19 +656,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
  *  Removes the specified project resource identified by a tenant resource tag.
- *  The method removes the project lien with 'TenantManager' origin if that
- *  was added. It then attempts to delete the project. If that operation
- *  fails, this method also fails.
- *  Calls to remove already removed or non-existent tenant project succeed.
- *  After the project has been deleted, or if was already in a DELETED state,
- *  resource metadata is permanently removed from the tenancy unit.
- *  Operation<response: Empty>.
+ *  The method removes the project lien with 'TenantManager' origin if that was
+ *  added. It then attempts to delete the project. If that operation fails, this
+ *  method also fails. Calls to remove already removed or non-existent tenant
+ *  project succeed. After the project has been deleted, or if was already in a
+ *  DELETED state, resource metadata is permanently removed from the tenancy
+ *  unit. Operation.
  *
  *  @param object The @c
  *    GTLRServiceConsumerManagement_RemoveTenantProjectRequest to include in the
  *    query.
- *  @param name Name of the tenancy unit.
- *    Such as
+ *  @param name Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsRemoveProject
@@ -719,12 +678,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Attempts to undelete a previously deleted tenant project. The project must
- *  be in a DELETED state.
- *  There are no guarantees that an undeleted project will be in
- *  a fully restored and functional state. Call the `ApplyTenantProjectConfig`
- *  method to update its configuration and then validate all managed service
- *  resources.
- *  Operation<response: Empty>.
+ *  be in a DELETED state. There are no guarantees that an undeleted project
+ *  will be in a fully restored and functional state. Call the
+ *  `ApplyTenantProjectConfig` method to update its configuration and then
+ *  validate all managed service resources. Operation.
  *
  *  Method: serviceconsumermanagement.services.tenancyUnits.undeleteProject
  *
@@ -736,8 +693,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsUndeleteProjectWithObject:name:]
 
 /**
- *  Name of the tenancy unit.
- *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ *  Name of the tenancy unit. Such as
+ *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -745,18 +702,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceConsumerManagement_Operation.
  *
  *  Attempts to undelete a previously deleted tenant project. The project must
- *  be in a DELETED state.
- *  There are no guarantees that an undeleted project will be in
- *  a fully restored and functional state. Call the `ApplyTenantProjectConfig`
- *  method to update its configuration and then validate all managed service
- *  resources.
- *  Operation<response: Empty>.
+ *  be in a DELETED state. There are no guarantees that an undeleted project
+ *  will be in a fully restored and functional state. Call the
+ *  `ApplyTenantProjectConfig` method to update its configuration and then
+ *  validate all managed service resources. Operation.
  *
  *  @param object The @c
  *    GTLRServiceConsumerManagement_UndeleteTenantProjectRequest to include in
  *    the query.
- *  @param name Name of the tenancy unit.
- *    Such as
+ *  @param name Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsUndeleteProject

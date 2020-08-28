@@ -46,7 +46,6 @@
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDevice;
 @class GTLRDirectory_MobileDevice_Applications_Item;
-@class GTLRDirectory_Notification;
 @class GTLRDirectory_OrgUnit;
 @class GTLRDirectory_Privilege;
 @class GTLRDirectory_Role;
@@ -584,6 +583,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  (Read-only) If device was re-enrolled after 07/2020, the E-mail of the user
+ *  who re-enrolled the device. Otherwise, the E-mail of the user who originally
+ *  enrolled the device.
+ */
+@property(nonatomic, copy, nullable) NSString *lastDeviceEnrollerEmail;
 
 /** Date and time the device was last enrolled (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastEnrollmentTime;
@@ -1587,78 +1593,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Token used to access next page of this result. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Template for a notification resource.
- */
-@interface GTLRDirectory_Notification : GTLRObject
-
-/** Body of the notification (Read-only) */
-@property(nonatomic, copy, nullable) NSString *body;
-
-/** ETag of the resource. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Address from which the notification is received (Read-only) */
-@property(nonatomic, copy, nullable) NSString *fromAddress;
-
-/**
- *  Boolean indicating whether the notification is unread or not.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *isUnread;
-
-/** The type of the resource. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@property(nonatomic, copy, nullable) NSString *notificationId;
-
-/** Time at which notification was sent (Read-only) */
-@property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
-
-/** Subject of the notification (Read-only) */
-@property(nonatomic, copy, nullable) NSString *subject;
-
-@end
-
-
-/**
- *  Template for notifications list response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRDirectory_Notifications : GTLRCollectionObject
-
-/** ETag of the resource. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  List of notifications in this page.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Notification *> *items;
-
-/** The type of the resource. */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** Token for fetching the next page of notifications. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Number of unread notification for the domain.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *unreadNotificationsCount;
 
 @end
 

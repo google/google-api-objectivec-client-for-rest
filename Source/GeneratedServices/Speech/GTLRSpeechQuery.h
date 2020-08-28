@@ -74,14 +74,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: speech.operations.list
  *
@@ -108,14 +108,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSpeech_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @return GTLRSpeechQuery_OperationsList
  *
@@ -161,14 +161,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: speech.projects.locations.operations.list
  *
@@ -195,14 +195,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSpeech_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -218,10 +218,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs asynchronous speech recognition: receive results via the
- *  google.longrunning.Operations interface. Returns either an
- *  `Operation.error` or an `Operation.response` which contains
- *  a `LongRunningRecognizeResponse` message.
- *  For more information on asynchronous speech recognition, see the
+ *  google.longrunning.Operations interface. Returns either an `Operation.error`
+ *  or an `Operation.response` which contains a `LongRunningRecognizeResponse`
+ *  message. For more information on asynchronous speech recognition, see the
  *  [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize).
  *
  *  Method: speech.speech.longrunningrecognize
@@ -237,10 +236,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSpeech_Operation.
  *
  *  Performs asynchronous speech recognition: receive results via the
- *  google.longrunning.Operations interface. Returns either an
- *  `Operation.error` or an `Operation.response` which contains
- *  a `LongRunningRecognizeResponse` message.
- *  For more information on asynchronous speech recognition, see the
+ *  google.longrunning.Operations interface. Returns either an `Operation.error`
+ *  or an `Operation.response` which contains a `LongRunningRecognizeResponse`
+ *  message. For more information on asynchronous speech recognition, see the
  *  [how-to](https://cloud.google.com/speech-to-text/docs/async-recognize).
  *
  *  @param object The @c GTLRSpeech_LongRunningRecognizeRequest to include in
@@ -253,8 +251,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Performs synchronous speech recognition: receive results after all audio
- *  has been sent and processed.
+ *  Performs synchronous speech recognition: receive results after all audio has
+ *  been sent and processed.
  *
  *  Method: speech.speech.recognize
  *
@@ -268,8 +266,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSpeech_RecognizeResponse.
  *
- *  Performs synchronous speech recognition: receive results after all audio
- *  has been sent and processed.
+ *  Performs synchronous speech recognition: receive results after all audio has
+ *  been sent and processed.
  *
  *  @param object The @c GTLRSpeech_RecognizeRequest to include in the query.
  *

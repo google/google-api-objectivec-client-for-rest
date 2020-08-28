@@ -4,7 +4,7 @@
 // API:
 //   Gmail Postmaster Tools API (gmailpostmastertools/v1beta1)
 // Description:
-//   The Gmail Postmaster API is a RESTful API that provides programmatic access
+//   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
 //   available through the Gmail Postmaster Tools UI currently.
 // Documentation:

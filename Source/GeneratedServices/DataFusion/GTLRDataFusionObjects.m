@@ -2,16 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Data Fusion API (datafusion/v1beta1)
+//   Cloud Data Fusion API (datafusion/v1)
 // Description:
 //   Cloud Data Fusion is a fully-managed, cloud native, enterprise data
-//   integration service for
-//   quickly building and managing data pipelines. It provides a graphical
-//   interface to increase
-//   time efficiency and reduce complexity, and allows business users,
-//   developers, and data
-//   scientists to easily and reliably build scalable data integration solutions
-//   to cleanse,
+//   integration service for quickly building and managing data pipelines. It
+//   provides a graphical interface to increase time efficiency and reduce
+//   complexity, and allows business users, developers, and data scientists to
+//   easily and reliably build scalable data integration solutions to cleanse,
 //   prepare, blend, transfer and transform data without having to wrestle with
 //   infrastructure.
 // Documentation:
@@ -34,6 +31,7 @@ NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
 // GTLRDataFusion_Instance.state
+NSString * const kGTLRDataFusion_Instance_State_Active         = @"ACTIVE";
 NSString * const kGTLRDataFusion_Instance_State_AutoUpdating   = @"AUTO_UPDATING";
 NSString * const kGTLRDataFusion_Instance_State_AutoUpgrading  = @"AUTO_UPGRADING";
 NSString * const kGTLRDataFusion_Instance_State_Creating       = @"CREATING";
@@ -157,8 +155,9 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 @dynamic accelerators, apiEndpoint, availableVersion, createTime,
          descriptionProperty, displayName, enableStackdriverLogging,
          enableStackdriverMonitoring, gcsBucket, labels, name, networkConfig,
-         options, privateInstance, serviceAccount, serviceEndpoint, state,
-         stateMessage, type, updateTime, version, zoneProperty;
+         options, p4ServiceAccount, privateInstance, serviceAccount,
+         serviceEndpoint, state, stateMessage, tenantProjectId, type,
+         updateTime, version, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -505,18 +504,17 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataFusion_UpgradeInstanceRequest
-//
-
-@implementation GTLRDataFusion_UpgradeInstanceRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDataFusion_Version
 //
 
 @implementation GTLRDataFusion_Version
-@dynamic defaultVersion, versionNumber;
+@dynamic availableFeatures, defaultVersion, versionNumber;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableFeatures" : [NSString class]
+  };
+  return map;
+}
+
 @end

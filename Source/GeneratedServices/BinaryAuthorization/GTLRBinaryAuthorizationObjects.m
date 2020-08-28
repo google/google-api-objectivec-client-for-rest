@@ -29,6 +29,9 @@ NSString * const kGTLRBinaryAuthorization_AdmissionRule_EvaluationMode_RequireAt
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP256Sha256 = @"ECDSA_P256_SHA256";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP384Sha384 = @"ECDSA_P384_SHA384";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcdsaP521Sha512 = @"ECDSA_P521_SHA512";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcSignP384Sha384 = @"EC_SIGN_P384_SHA384";
+NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_EcSignP521Sha512 = @"EC_SIGN_P521_SHA512";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss2048Sha256 = @"RSA_PSS_2048_SHA256";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss3072Sha256 = @"RSA_PSS_3072_SHA256";
 NSString * const kGTLRBinaryAuthorization_PkixPublicKey_SignatureAlgorithm_RsaPss4096Sha256 = @"RSA_PSS_4096_SHA256";

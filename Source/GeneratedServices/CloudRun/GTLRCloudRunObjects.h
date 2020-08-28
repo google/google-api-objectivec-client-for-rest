@@ -902,7 +902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  need to explicitly call out to that shell. Exit status of 0 is treated as
  *  live/healthy and non-zero is unhealthy.
  */
-@property(nonatomic, copy, nullable) NSString *command;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *command;
 
 @end
 
@@ -1609,8 +1609,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  operation on a resource or set of resources. Clients must treat these values
  *  as opaque and passed unmodified back to the server. They may only be valid
  *  for a particular resource or set of resources. Populated by the system.
- *  Read-only. Value must be treated as opaque by clients and . More info:
- *  https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency
+ *  Read-only. Value must be treated as opaque by clients. More info:
+ *  https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency
  */
 @property(nonatomic, copy, nullable) NSString *resourceVersion;
 

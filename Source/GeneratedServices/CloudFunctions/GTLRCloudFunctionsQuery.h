@@ -78,14 +78,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: cloudfunctions.operations.list
  *
@@ -97,10 +97,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFunctions queryForOperationsList]
 
 /**
- *  Required. A filter for matching the requested operations.<br><br> The
- *  supported formats of <b>filter</b> are:<br> To query for a specific
- *  function: <code>project:*,location:*,function:*</code><br> To query for all
- *  of the latest operations for a project: <code>project:*,latest:true</code>
+ *  Required. A filter for matching the requested operations. The supported
+ *  formats of *filter* are: To query for a specific function:
+ *  project:*,location:*,function:* To query for all of the latest operations
+ *  for a project: project:*,latest:true
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -108,15 +108,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The maximum number of records that should be returned.<br> Requested page
- *  size cannot exceed 100. If not set, the default page size is 100.<br><br>
- *  Pagination is only supported when querying for a specific function.
+ *  The maximum number of records that should be returned. Requested page size
+ *  cannot exceed 100. If not set, the default page size is 100. Pagination is
+ *  only supported when querying for a specific function.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Token identifying which result to start with, which is returned by a
- *  previous list call.<br><br> Pagination is only supported when querying for a
+ *  previous list call. Pagination is only supported when querying for a
  *  specific function.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -125,14 +125,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudFunctions_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @return GTLRCloudFunctionsQuery_OperationsList
  *
@@ -146,9 +146,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Synchronously invokes a deployed Cloud Function. To be used for testing
- *  purposes as very limited traffic is allowed. For more information on
- *  the actual limits, refer to
- *  [Rate Limits](https://cloud.google.com/functions/quotas#rate_limits).
+ *  purposes as very limited traffic is allowed. For more information on the
+ *  actual limits, refer to [Rate
+ *  Limits](https://cloud.google.com/functions/quotas#rate_limits).
  *
  *  Method: cloudfunctions.projects.locations.functions.call
  *
@@ -166,9 +166,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudFunctions_CallFunctionResponse.
  *
  *  Synchronously invokes a deployed Cloud Function. To be used for testing
- *  purposes as very limited traffic is allowed. For more information on
- *  the actual limits, refer to
- *  [Rate Limits](https://cloud.google.com/functions/quotas#rate_limits).
+ *  purposes as very limited traffic is allowed. For more information on the
+ *  actual limits, refer to [Rate
+ *  Limits](https://cloud.google.com/functions/quotas#rate_limits).
  *
  *  @param object The @c GTLRCloudFunctions_CallFunctionRequest to include in
  *    the query.
@@ -197,8 +197,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The project and location in which the function should be created,
- *  specified
- *  in the format `projects/ * /locations/ *`
+ *  specified in the format `projects/ * /locations/ *`
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -212,8 +211,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudFunctions_CloudFunction to include in the
  *    query.
  *  @param location Required. The project and location in which the function
- *    should be created, specified
- *    in the format `projects/ * /locations/ *`
+ *    should be created, specified in the format `projects/ * /locations/ *`
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate
  */
@@ -255,10 +253,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a signed URL for downloading deployed function source code.
- *  The URL is only valid for a limited period and should be used within
- *  minutes after generation.
- *  For more information about the signed URL usage see:
+ *  Returns a signed URL for downloading deployed function source code. The URL
+ *  is only valid for a limited period and should be used within minutes after
+ *  generation. For more information about the signed URL usage see:
  *  https://cloud.google.com/storage/docs/access-control/signed-urls
  *
  *  Method: cloudfunctions.projects.locations.functions.generateDownloadUrl
@@ -271,25 +268,23 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGenerateDownloadUrlWithObject:name:]
 
 /**
- *  The name of function for which source code Google Cloud Storage signed
- *  URL should be generated.
+ *  The name of function for which source code Google Cloud Storage signed URL
+ *  should be generated.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudFunctions_GenerateDownloadUrlResponse.
  *
- *  Returns a signed URL for downloading deployed function source code.
- *  The URL is only valid for a limited period and should be used within
- *  minutes after generation.
- *  For more information about the signed URL usage see:
+ *  Returns a signed URL for downloading deployed function source code. The URL
+ *  is only valid for a limited period and should be used within minutes after
+ *  generation. For more information about the signed URL usage see:
  *  https://cloud.google.com/storage/docs/access-control/signed-urls
  *
  *  @param object The @c GTLRCloudFunctions_GenerateDownloadUrlRequest to
  *    include in the query.
  *  @param name The name of function for which source code Google Cloud Storage
- *    signed
- *    URL should be generated.
+ *    signed URL should be generated.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateDownloadUrl
  */
@@ -299,25 +294,21 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a signed URL for uploading a function source code.
- *  For more information about the signed URL usage see:
- *  https://cloud.google.com/storage/docs/access-control/signed-urls.
- *  Once the function source code upload is complete, the used signed
- *  URL should be provided in CreateFunction or UpdateFunction request
- *  as a reference to the function source code.
- *  When uploading source code to the generated signed URL, please follow
- *  these restrictions:
- *  * Source file type should be a zip file.
- *  * Source file size should not exceed 100MB limit.
- *  * No credentials should be attached - the signed URLs provide access to the
- *  target bucket using internal service identity; if credentials were
- *  attached, the identity from the credentials would be used, but that
- *  identity does not have permissions to upload files to the URL.
- *  When making a HTTP PUT request, these two headers need to be specified:
- *  * `content-type: application/zip`
- *  * `x-goog-content-length-range: 0,104857600`
- *  And this header SHOULD NOT be specified:
- *  * `Authorization: Bearer YOUR_TOKEN`
+ *  Returns a signed URL for uploading a function source code. For more
+ *  information about the signed URL usage see:
+ *  https://cloud.google.com/storage/docs/access-control/signed-urls. Once the
+ *  function source code upload is complete, the used signed URL should be
+ *  provided in CreateFunction or UpdateFunction request as a reference to the
+ *  function source code. When uploading source code to the generated signed
+ *  URL, please follow these restrictions: * Source file type should be a zip
+ *  file. * Source file size should not exceed 100MB limit. * No credentials
+ *  should be attached - the signed URLs provide access to the target bucket
+ *  using internal service identity; if credentials were attached, the identity
+ *  from the credentials would be used, but that identity does not have
+ *  permissions to upload files to the URL. When making a HTTP PUT request,
+ *  these two headers need to be specified: * `content-type: application/zip` *
+ *  `x-goog-content-length-range: 0,104857600` And this header SHOULD NOT be
+ *  specified: * `Authorization: Bearer YOUR_TOKEN`
  *
  *  Method: cloudfunctions.projects.locations.functions.generateUploadUrl
  *
@@ -329,39 +320,35 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGenerateUploadUrlWithObject:parent:]
 
 /**
- *  The project and location in which the Google Cloud Storage signed URL
- *  should be generated, specified in the format `projects/ * /locations/ *`.
+ *  The project and location in which the Google Cloud Storage signed URL should
+ *  be generated, specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudFunctions_GenerateUploadUrlResponse.
  *
- *  Returns a signed URL for uploading a function source code.
- *  For more information about the signed URL usage see:
- *  https://cloud.google.com/storage/docs/access-control/signed-urls.
- *  Once the function source code upload is complete, the used signed
- *  URL should be provided in CreateFunction or UpdateFunction request
- *  as a reference to the function source code.
- *  When uploading source code to the generated signed URL, please follow
- *  these restrictions:
- *  * Source file type should be a zip file.
- *  * Source file size should not exceed 100MB limit.
- *  * No credentials should be attached - the signed URLs provide access to the
- *  target bucket using internal service identity; if credentials were
- *  attached, the identity from the credentials would be used, but that
- *  identity does not have permissions to upload files to the URL.
- *  When making a HTTP PUT request, these two headers need to be specified:
- *  * `content-type: application/zip`
- *  * `x-goog-content-length-range: 0,104857600`
- *  And this header SHOULD NOT be specified:
- *  * `Authorization: Bearer YOUR_TOKEN`
+ *  Returns a signed URL for uploading a function source code. For more
+ *  information about the signed URL usage see:
+ *  https://cloud.google.com/storage/docs/access-control/signed-urls. Once the
+ *  function source code upload is complete, the used signed URL should be
+ *  provided in CreateFunction or UpdateFunction request as a reference to the
+ *  function source code. When uploading source code to the generated signed
+ *  URL, please follow these restrictions: * Source file type should be a zip
+ *  file. * Source file size should not exceed 100MB limit. * No credentials
+ *  should be attached - the signed URLs provide access to the target bucket
+ *  using internal service identity; if credentials were attached, the identity
+ *  from the credentials would be used, but that identity does not have
+ *  permissions to upload files to the URL. When making a HTTP PUT request,
+ *  these two headers need to be specified: * `content-type: application/zip` *
+ *  `x-goog-content-length-range: 0,104857600` And this header SHOULD NOT be
+ *  specified: * `Authorization: Bearer YOUR_TOKEN`
  *
  *  @param object The @c GTLRCloudFunctions_GenerateUploadUrlRequest to include
  *    in the query.
  *  @param parent The project and location in which the Google Cloud Storage
- *    signed URL
- *    should be generated, specified in the format `projects/ * /locations/ *`.
+ *    signed URL should be generated, specified in the format `projects/ *
+ *    /locations/ *`.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGenerateUploadUrl
  */
@@ -400,9 +387,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the IAM access control policy for a function.
- *  Returns an empty policy if the function exists and does not have a policy
- *  set.
+ *  Gets the IAM access control policy for a function. Returns an empty policy
+ *  if the function exists and does not have a policy set.
  *
  *  Method: cloudfunctions.projects.locations.functions.getIamPolicy
  *
@@ -414,34 +400,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudFunctions_Policy.
  *
- *  Gets the IAM access control policy for a function.
- *  Returns an empty policy if the function exists and does not have a policy
- *  set.
+ *  Gets the IAM access control policy for a function. Returns an empty policy
+ *  if the function exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsGetIamPolicy
  */
@@ -465,20 +448,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last
- *  `ListFunctionsResponse`; indicates that
- *  this is a continuation of a prior `ListFunctions` call, and that the
- *  system should return the next page of data.
+ *  The value returned by the last `ListFunctionsResponse`; indicates that this
+ *  is a continuation of a prior `ListFunctions` call, and that the system
+ *  should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The project and location from which the function should be listed,
- *  specified in the format `projects/ * /locations/ *`
- *  If you want to list functions in all locations, use "-" in place of a
- *  location. When listing functions in all locations, if one or more
- *  location(s) are unreachable, the response will contain functions from all
- *  reachable locations along with the names of any unreachable locations.
+ *  The project and location from which the function should be listed, specified
+ *  in the format `projects/ * /locations/ *` If you want to list functions in
+ *  all locations, use "-" in place of a location. When listing functions in all
+ *  locations, if one or more location(s) are unreachable, the response will
+ *  contain functions from all reachable locations along with the names of any
+ *  unreachable locations.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -488,12 +470,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns a list of functions that belong to the requested project.
  *
  *  @param parent The project and location from which the function should be
- *    listed,
- *    specified in the format `projects/ * /locations/ *`
- *    If you want to list functions in all locations, use "-" in place of a
- *    location. When listing functions in all locations, if one or more
- *    location(s) are unreachable, the response will contain functions from all
- *    reachable locations along with the names of any unreachable locations.
+ *    listed, specified in the format `projects/ * /locations/ *` If you want to
+ *    list functions in all locations, use "-" in place of a location. When
+ *    listing functions in all locations, if one or more location(s) are
+ *    unreachable, the response will contain functions from all reachable
+ *    locations along with the names of any unreachable locations.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsList
  *
@@ -518,8 +499,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsPatchWithObject:name:]
 
 /**
- *  A user-defined name of the function. Function names must be unique
- *  globally and match pattern `projects/ * /locations/ * /functions/ *`
+ *  A user-defined name of the function. Function names must be unique globally
+ *  and match pattern `projects/ * /locations/ * /functions/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -538,8 +519,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRCloudFunctions_CloudFunction to include in the
  *    query.
  *  @param name A user-defined name of the function. Function names must be
- *    unique
- *    globally and match pattern `projects/ * /locations/ * /functions/ *`
+ *    unique globally and match pattern `projects/ * /locations/ * /functions/
+ *    *`
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsPatch
  */
@@ -549,8 +530,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the IAM access control policy on the specified function.
- *  Replaces any existing policy.
+ *  Sets the IAM access control policy on the specified function. Replaces any
+ *  existing policy.
  *
  *  Method: cloudfunctions.projects.locations.functions.setIamPolicy
  *
@@ -562,22 +543,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudFunctions_Policy.
  *
- *  Sets the IAM access control policy on the specified function.
- *  Replaces any existing policy.
+ *  Sets the IAM access control policy on the specified function. Replaces any
+ *  existing policy.
  *
  *  @param object The @c GTLRCloudFunctions_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsSetIamPolicy
  */
@@ -587,9 +568,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Tests the specified permissions against the IAM access control policy
- *  for a function.
- *  If the function does not exist, this will return an empty set of
+ *  Tests the specified permissions against the IAM access control policy for a
+ *  function. If the function does not exist, this will return an empty set of
  *  permissions, not a NOT_FOUND error.
  *
  *  Method: cloudfunctions.projects.locations.functions.testIamPermissions
@@ -602,24 +582,23 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudFunctions queryForProjectsLocationsFunctionsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudFunctions_TestIamPermissionsResponse.
  *
- *  Tests the specified permissions against the IAM access control policy
- *  for a function.
- *  If the function does not exist, this will return an empty set of
+ *  Tests the specified permissions against the IAM access control policy for a
+ *  function. If the function does not exist, this will return an empty set of
  *  permissions, not a NOT_FOUND error.
  *
  *  @param object The @c GTLRCloudFunctions_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsTestIamPermissions
  */

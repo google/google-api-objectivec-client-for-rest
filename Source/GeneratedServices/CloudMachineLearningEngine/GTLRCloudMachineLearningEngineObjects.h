@@ -30,7 +30,10 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerPort;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1EnvVar;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters;
@@ -51,6 +54,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1RouteMap;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Study;
@@ -147,21 +151,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // ----------------------------------------------------------------------------
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
 
-/** Value: "ACCELERATOR_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified accelerator type. Default to no GPU.
+ *
+ *  Value: "ACCELERATOR_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified;
-/** Value: "NVIDIA_TESLA_K80" */
+/**
+ *  Nvidia Tesla K80 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_K80"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80;
-/** Value: "NVIDIA_TESLA_P100" */
+/**
+ *  Nvidia Tesla P100 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_P100"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100;
-/** Value: "NVIDIA_TESLA_P4" */
+/**
+ *  Nvidia Tesla P4 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_P4"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4;
-/** Value: "NVIDIA_TESLA_T4" */
+/**
+ *  Nvidia Tesla T4 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_T4"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaT4;
-/** Value: "NVIDIA_TESLA_V100" */
+/**
+ *  Nvidia Tesla V100 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_V100"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaV100;
-/** Value: "TPU_V2" */
+/**
+ *  TPU v2.
+ *
+ *  Value: "TPU_V2"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV2;
-/** Value: "TPU_V3" */
+/**
+ *  TPU v3.
+ *
+ *  Value: "TPU_V3"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_TpuV3;
 
 // ----------------------------------------------------------------------------
@@ -180,22 +216,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput.state
 
 /**
- *  The job has been cancelled.
- *  `error_message` should describe the reason for the cancellation.
+ *  The job has been cancelled. `error_message` should describe the reason for
+ *  the cancellation.
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelled;
 /**
- *  The job is being cancelled.
- *  `error_message` should describe the reason for the cancellation.
+ *  The job is being cancelled. `error_message` should describe the reason for
+ *  the cancellation.
  *
  *  Value: "CANCELLING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelling;
 /**
- *  The job failed.
- *  `error_message` should contain the details of the failure.
+ *  The job failed. `error_message` should contain the details of the failure.
  *
  *  Value: "FAILED"
  */
@@ -235,15 +270,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec.algorithm
 
 /**
- *  The default algorithm used by the hyperparameter tuning service. This is
- *  a Bayesian optimization algorithm.
+ *  The default algorithm used by the hyperparameter tuning service. This is a
+ *  Bayesian optimization algorithm.
  *
  *  Value: "ALGORITHM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified;
 /**
- *  Simple grid search within the feasible space. To use grid search,
- *  all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
+ *  Simple grid search within the feasible space. To use grid search, all
+ *  parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
  *
  *  Value: "GRID_SEARCH"
  */
@@ -281,22 +316,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job.state
 
 /**
- *  The job has been cancelled.
- *  `error_message` should describe the reason for the cancellation.
+ *  The job has been cancelled. `error_message` should describe the reason for
+ *  the cancellation.
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelled;
 /**
- *  The job is being cancelled.
- *  `error_message` should describe the reason for the cancellation.
+ *  The job is being cancelled. `error_message` should describe the reason for
+ *  the cancellation.
  *
  *  Value: "CANCELLING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelling;
 /**
- *  The job failed.
- *  `error_message` should contain the details of the failure.
+ *  The job failed. `error_message` should contain the details of the failure.
  *
  *  Value: "FAILED"
  */
@@ -401,10 +435,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLogScale;
 /**
- *  Scales the feasible space "reverse" logarithmically to (0, 1). The result
- *  is that values close to the top of the feasible space are spread out more
- *  than points near the bottom. The entire feasible space must be strictly
- *  positive.
+ *  Scales the feasible space "reverse" logarithmically to (0, 1). The result is
+ *  that values close to the top of the feasible space are spread out more than
+ *  points near the bottom. The entire feasible space must be strictly positive.
  *
  *  Value: "UNIT_REVERSE_LOG_SCALE"
  */
@@ -414,16 +447,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec.type
 
 /**
- *  The parameter is categorical, with a value chosen from the categories
- *  field.
+ *  The parameter is categorical, with a value chosen from the categories field.
  *
  *  Value: "CATEGORICAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Categorical;
 /**
  *  The parameter is real valued, with a fixed set of feasible points. If
- *  `type==DISCRETE`, feasible_points must be provided, and
- *  {`min_value`, `max_value`} will be ignored.
+ *  `type==DISCRETE`, feasible_points must be provided, and {`min_value`,
+ *  `max_value`} will be ignored.
  *
  *  Value: "DISCRETE"
  */
@@ -441,8 +473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Integer;
 /**
- *  You must specify a valid type. Using this unspecified type will result in
- *  an error.
+ *  You must specify a valid type. Using this unspecified type will result in an
+ *  error.
  *
  *  Value: "PARAMETER_TYPE_UNSPECIFIED"
  */
@@ -452,8 +484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.dataFormat
 
 /**
- *  Values are comma-separated rows, with keys in a separate file.
- *  Currently available only for output data.
+ *  Values are comma-separated rows, with keys in a separate file. Currently
+ *  available only for output data.
  *
  *  Value: "CSV"
  */
@@ -477,15 +509,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text;
 /**
- *  The source file is a TFRecord file.
- *  Currently available only for input data.
+ *  The source file is a TFRecord file. Currently available only for input data.
  *
  *  Value: "TF_RECORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord;
 /**
- *  The source file is a GZIP-compressed TFRecord file.
- *  Currently available only for input data.
+ *  The source file is a GZIP-compressed TFRecord file. Currently available only
+ *  for input data.
  *
  *  Value: "TF_RECORD_GZIP"
  */
@@ -495,8 +526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput.outputDataFormat
 
 /**
- *  Values are comma-separated rows, with keys in a separate file.
- *  Currently available only for output data.
+ *  Values are comma-separated rows, with keys in a separate file. Currently
+ *  available only for output data.
  *
  *  Value: "CSV"
  */
@@ -520,15 +551,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text;
 /**
- *  The source file is a TFRecord file.
- *  Currently available only for input data.
+ *  The source file is a TFRecord file. Currently available only for input data.
  *
  *  Value: "TF_RECORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord;
 /**
- *  The source file is a GZIP-compressed TFRecord file.
- *  Currently available only for input data.
+ *  The source file is a GZIP-compressed TFRecord file. Currently available only
+ *  for input data.
  *
  *  Value: "TF_RECORD_GZIP"
  */
@@ -544,8 +574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Study_State_Active;
 /**
- *  The study is done when the service exhausts the parameter search space
- *  or max_trial_count is reached.
+ *  The study is done when the service exhausts the parameter search space or
+ *  max_trial_count is reached.
  *
  *  Value: "COMPLETED"
  */
@@ -579,8 +609,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GaussianProcessBandit;
 /**
- *  Simple grid search within the feasible space. To use grid search,
- *  all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
+ *  Simple grid search within the feasible space. To use grid search, all
+ *  parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
  *
  *  Value: "GRID_SEARCH"
  */
@@ -630,17 +660,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLinearScale;
 /**
- *  Scales the feasible space logarithmically to (0, 1). The entire
- *  feasible space must be strictly positive.
+ *  Scales the feasible space logarithmically to (0, 1). The entire feasible
+ *  space must be strictly positive.
  *
  *  Value: "UNIT_LOG_SCALE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitLogScale;
 /**
- *  Scales the feasible space "reverse" logarithmically to (0, 1). The
- *  result is that values close to the top of the feasible space are spread
- *  out more than points near the bottom. The entire feasible space must be
- *  strictly positive.
+ *  Scales the feasible space "reverse" logarithmically to (0, 1). The result is
+ *  that values close to the top of the feasible space are spread out more than
+ *  points near the bottom. The entire feasible space must be strictly positive.
  *
  *  Value: "UNIT_REVERSE_LOG_SCALE"
  */
@@ -650,16 +679,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec.type
 
 /**
- *  The parameter is categorical, with a value chosen from the categories
- *  field.
+ *  The parameter is categorical, with a value chosen from the categories field.
  *
  *  Value: "CATEGORICAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Categorical;
 /**
  *  The parameter is real valued, with a fixed set of feasible points. If
- *  `type==DISCRETE`, feasible_points must be provided, and
- *  {`min_value`, `max_value`} will be ignored.
+ *  `type==DISCRETE`, feasible_points must be provided, and {`min_value`,
+ *  `max_value`} will be ignored.
  *
  *  Value: "DISCRETE"
  */
@@ -677,8 +705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Integer;
 /**
- *  You must specify a valid type. Using this unspecified type will result
- *  in an error.
+ *  You must specify a valid type. Using this unspecified type will result in an
+ *  error.
  *
  *  Value: "PARAMETER_TYPE_UNSPECIFIED"
  */
@@ -694,8 +722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsResponse_StudyState_Active;
 /**
- *  The study is done when the service exhausts the parameter search space
- *  or max_trial_count is reached.
+ *  The study is done when the service exhausts the parameter search space or
+ *  max_trial_count is reached.
  *
  *  Value: "COMPLETED"
  */
@@ -731,32 +759,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu;
 /**
- *  A single worker instance with a
- *  [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus).
+ *  A single worker instance with a [Cloud
+ *  TPU](/ml-engine/docs/tensorflow/using-tpus).
  *
  *  Value: "BASIC_TPU"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu;
 /**
- *  The CUSTOM tier is not a set tier, but rather enables you to use your
- *  own cluster specification. When you use this tier, set values to
- *  configure your processing cluster according to these guidelines:
- *  * You _must_ set `TrainingInput.masterType` to specify the type
- *  of machine to use for your master node. This is the only required
- *  setting.
- *  * You _may_ set `TrainingInput.workerCount` to specify the number of
- *  workers to use. If you specify one or more workers, you _must_ also
- *  set `TrainingInput.workerType` to specify the type of machine to use
- *  for your worker nodes.
- *  * You _may_ set `TrainingInput.parameterServerCount` to specify the
- *  number of parameter servers to use. If you specify one or more
- *  parameter servers, you _must_ also set
- *  `TrainingInput.parameterServerType` to specify the type of machine to
- *  use for your parameter servers.
- *  Note that all of your workers must use the same machine type, which can
- *  be different from your parameter server type and master type. Your
- *  parameter servers must likewise use the same machine type, which can be
- *  different from your worker type and master type.
+ *  The CUSTOM tier is not a set tier, but rather enables you to use your own
+ *  cluster specification. When you use this tier, set values to configure your
+ *  processing cluster according to these guidelines: * You _must_ set
+ *  `TrainingInput.masterType` to specify the type of machine to use for your
+ *  master node. This is the only required setting. * You _may_ set
+ *  `TrainingInput.workerCount` to specify the number of workers to use. If you
+ *  specify one or more workers, you _must_ also set `TrainingInput.workerType`
+ *  to specify the type of machine to use for your worker nodes. * You _may_ set
+ *  `TrainingInput.parameterServerCount` to specify the number of parameter
+ *  servers to use. If you specify one or more parameter servers, you _must_
+ *  also set `TrainingInput.parameterServerType` to specify the type of machine
+ *  to use for your parameter servers. Note that all of your workers must use
+ *  the same machine type, which can be different from your parameter server
+ *  type and master type. Your parameter servers must likewise use the same
+ *  machine type, which can be different from your worker type and master type.
  *
  *  Value: "CUSTOM"
  */
@@ -784,15 +808,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Active;
 /**
- *  Indicates that the trial is done, and either has a final_measurement
- *  set, or is marked as trial_infeasible.
+ *  Indicates that the trial is done, and either has a final_measurement set, or
+ *  is marked as trial_infeasible.
  *
  *  Value: "COMPLETED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial_State_Completed;
 /**
- *  Indicates that a specific trial has been requested, but it has not yet
- *  been suggested by the service.
+ *  Indicates that a specific trial has been requested, but it has not yet been
+ *  suggested by the service.
  *
  *  Value: "REQUESTED"
  */
@@ -842,22 +866,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version.state
 
 /**
- *  The version is being created. New UpdateVersion and DeleteVersion
- *  requests will fail if a version is in the CREATING state.
+ *  The version is being created. New UpdateVersion and DeleteVersion requests
+ *  will fail if a version is in the CREATING state.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Creating;
 /**
- *  The version is being deleted. New UpdateVersion and DeleteVersion
- *  requests will fail if a version is in the DELETING state.
+ *  The version is being deleted. New UpdateVersion and DeleteVersion requests
+ *  will fail if a version is in the DELETING state.
  *
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Deleting;
 /**
- *  The version failed to be created, possibly cancelled.
- *  `error_message` should contain the details of the failure.
+ *  The version failed to be created, possibly cancelled. `error_message` should
+ *  contain the details of the failure.
  *
  *  Value: "FAILED"
  */
@@ -875,8 +899,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMl
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown;
 /**
- *  The version is being updated. New UpdateVersion and DeleteVersion
- *  requests will fail if a version is in the UPDATING state.
+ *  The version is being updated. New UpdateVersion and DeleteVersion requests
+ *  will fail if a version is in the UPDATING state.
  *
  *  Value: "UPDATING"
  */
@@ -912,34 +936,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Message that represents an arbitrary HTTP body. It should only be used for
- *  payload formats that can't be represented as JSON, such as raw binary or
- *  an HTML page.
- *  This message can be used both in streaming and non-streaming API methods in
- *  the request as well as the response.
- *  It can be used as a top-level request field, which is convenient if one
- *  wants to extract parameters from either the URL or HTTP template into the
- *  request fields and also want access to the raw HTTP body.
- *  Example:
- *  message GetResourceRequest {
- *  // A unique request id.
- *  string request_id = 1;
- *  // The raw HTTP body is bound to this field.
- *  google.api.HttpBody http_body = 2;
- *  }
- *  service ResourceService {
- *  rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);
- *  rpc UpdateResource(google.api.HttpBody) returns
- *  (google.protobuf.Empty);
- *  }
- *  Example with streaming methods:
- *  service CaldavService {
- *  rpc GetCalendar(stream google.api.HttpBody)
- *  returns (stream google.api.HttpBody);
- *  rpc UpdateCalendar(stream google.api.HttpBody)
- *  returns (stream google.api.HttpBody);
- *  }
- *  Use of this type only changes how the request and response bodies are
- *  handled, all other features will continue to work unchanged.
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleApiHttpBody : GTLRObject
 
@@ -978,10 +990,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Represents a hardware accelerator request config.
- *  Note that the AcceleratorConfig can be used in both Jobs and Versions.
- *  Learn more about [accelerators for training](/ml-engine/docs/using-gpus) and
- *  [accelerators for online
+ *  Represents a hardware accelerator request config. Note that the
+ *  AcceleratorConfig can be used in both Jobs and Versions. Learn more about
+ *  [accelerators for training](/ml-engine/docs/using-gpus) and [accelerators
+ *  for online
  *  prediction](/ml-engine/docs/machine-types-online-prediction#gpus).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig : GTLRObject
@@ -1049,9 +1061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigDecayCurveAutomatedStoppingConfig : GTLRObject
 
 /**
- *  If true, measurement.elapsed_time is used as the x-axis of each
- *  Trials Decay Curve. Otherwise, Measurement.steps will be used as the
- *  x-axis.
+ *  If true, measurement.elapsed_time is used as the x-axis of each Trials Decay
+ *  Curve. Otherwise, Measurement.steps will be used as the x-axis.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1061,19 +1072,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  The median automated stopping rule stops a pending trial if the trial's
- *  best objective_value is strictly below the median 'performance' of all
- *  completed trials reported up to the trial's last measurement.
- *  Currently, 'performance' refers to the running average of the objective
- *  values reported by the trial in each measurement.
+ *  The median automated stopping rule stops a pending trial if the trial's best
+ *  objective_value is strictly below the median 'performance' of all completed
+ *  trials reported up to the trial's last measurement. Currently, 'performance'
+ *  refers to the running average of the objective values reported by the trial
+ *  in each measurement.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutomatedStoppingConfigMedianAutomatedStoppingConfig : GTLRObject
 
 /**
  *  If true, the median automated stopping rule applies to
- *  measurement.use_elapsed_time, which means the elapsed_time field of
- *  the current trial's
- *  latest measurement is used to compute the median objective
+ *  measurement.use_elapsed_time, which means the elapsed_time field of the
+ *  current trial's latest measurement is used to compute the median objective
  *  value for each completed trial.
  *
  *  Uses NSNumber of boolValue.
@@ -1091,46 +1101,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Optional. The minimum number of nodes to allocate for this model. These
  *  nodes are always up, starting from the time the model is deployed.
- *  Therefore, the cost of operating this model will be at least
- *  `rate` * `min_nodes` * number of hours since last billing cycle,
- *  where `rate` is the cost per node-hour as documented in the
- *  [pricing guide](/ml-engine/docs/pricing),
- *  even if no predictions are performed. There is additional cost for each
- *  prediction performed.
- *  Unlike manual scaling, if the load gets too heavy for the nodes
- *  that are up, the service will automatically add nodes to handle the
- *  increased load as well as scale back as traffic drops, always maintaining
- *  at least `min_nodes`. You will be charged for the time in which additional
- *  nodes are used.
- *  If `min_nodes` is not specified and AutoScaling is used with a [legacy
- *  (MLS1) machine type](/ml-engine/docs/machine-types-online-prediction),
- *  `min_nodes` defaults to 0, in which case, when traffic to a model stops
- *  (and after a cool-down period), nodes will be shut down and no charges will
- *  be incurred until traffic to the model resumes.
- *  If `min_nodes` is not specified and AutoScaling is used with a [Compute
- *  Engine (N1) machine type](/ml-engine/docs/machine-types-online-prediction),
- *  `min_nodes` defaults to 1. `min_nodes` must be at least 1 for use with a
- *  Compute Engine machine type.
- *  Note that you cannot use AutoScaling if your version uses
+ *  Therefore, the cost of operating this model will be at least `rate` *
+ *  `min_nodes` * number of hours since last billing cycle, where `rate` is the
+ *  cost per node-hour as documented in the [pricing
+ *  guide](/ml-engine/docs/pricing), even if no predictions are performed. There
+ *  is additional cost for each prediction performed. Unlike manual scaling, if
+ *  the load gets too heavy for the nodes that are up, the service will
+ *  automatically add nodes to handle the increased load as well as scale back
+ *  as traffic drops, always maintaining at least `min_nodes`. You will be
+ *  charged for the time in which additional nodes are used. If `min_nodes` is
+ *  not specified and AutoScaling is used with a [legacy (MLS1) machine
+ *  type](/ml-engine/docs/machine-types-online-prediction), `min_nodes` defaults
+ *  to 0, in which case, when traffic to a model stops (and after a cool-down
+ *  period), nodes will be shut down and no charges will be incurred until
+ *  traffic to the model resumes. If `min_nodes` is not specified and
+ *  AutoScaling is used with a [Compute Engine (N1) machine
+ *  type](/ml-engine/docs/machine-types-online-prediction), `min_nodes` defaults
+ *  to 1. `min_nodes` must be at least 1 for use with a Compute Engine machine
+ *  type. Note that you cannot use AutoScaling if your version uses
  *  [GPUs](#Version.FIELDS.accelerator_config). Instead, you must use
- *  ManualScaling.
- *  You can set `min_nodes` when creating the model version, and you can also
- *  update `min_nodes` for an existing version:
- *  <pre>
- *  update_body.json:
- *  {
- *  'autoScaling': {
- *  'minNodes': 5
- *  }
- *  }
- *  </pre>
- *  HTTP request:
- *  <pre style="max-width: 626px;">
- *  PATCH
+ *  ManualScaling. You can set `min_nodes` when creating the model version, and
+ *  you can also update `min_nodes` for an existing version: update_body.json: {
+ *  'autoScaling': { 'minNodes': 5 } } HTTP request: PATCH
  *  https://ml.googleapis.com/v1/{name=projects/ * /models/ * /versions/
- *  *}?update_mask=autoScaling.minNodes
- *  -d \@./update_body.json
- *  </pre>
+ *  *}?update_mask=autoScaling.minNodes -d \@./update_body.json
  *
  *  Uses NSNumber of intValue.
  */
@@ -1158,8 +1152,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
 /**
- *  AI Platform runtime version on which the built-in algorithm was
- *  trained.
+ *  AI Platform runtime version on which the built-in algorithm was trained.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
@@ -1255,8 +1248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Optional. If provided, it will be used as the completed trial's
- *  final_measurement; Otherwise, the service will auto-select a
- *  previously reported measurement as the final-measurement
+ *  final_measurement; Otherwise, the service will auto-select a previously
+ *  reported measurement as the final-measurement
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *finalMeasurement;
 
@@ -1289,8 +1282,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Represents a custom encryption key configuration that can be applied to
- *  a resource.
+ *  ContainerPort represents a network port in a single container.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerPort : GTLRObject
+
+/**
+ *  Number of port to expose on the pod's IP address. This must be a valid port
+ *  number, 0 < x < 65536.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containerPort;
+
+@end
+
+
+/**
+ *  Specify a custom container to deploy. Our ContainerSpec is a subset of the
+ *  Kubernetes Container specification.
+ *  https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.10/#container-v1-core
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerSpec : GTLRObject
+
+/**
+ *  Immutable. Arguments to the entrypoint. The docker image's CMD is used if
+ *  this is not provided. Variable references $(VAR_NAME) are expanded using the
+ *  container's environment. If a variable cannot be resolved, the reference in
+ *  the input string will be unchanged. The $(VAR_NAME) syntax can be escaped
+ *  with a double $$, ie: $$(VAR_NAME). Escaped references will never be
+ *  expanded, regardless of whether the variable exists or not. More info:
+ *  https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Immutable. Entrypoint array. Not executed within a shell. The docker image's
+ *  ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME)
+ *  are expanded using the container's environment. If a variable cannot be
+ *  resolved, the reference in the input string will be unchanged. The
+ *  $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME).
+ *  Escaped references will never be expanded, regardless of whether the
+ *  variable exists or not. More info:
+ *  https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *command;
+
+/** Immutable. List of environment variables to set in the container. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1EnvVar *> *env;
+
+/**
+ *  Docker image name. More info:
+ *  https://kubernetes.io/docs/concepts/containers/images
+ */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/**
+ *  Immutable. List of ports to expose from the container. Exposing a port here
+ *  gives the system additional information about the network connections a
+ *  container uses, but is primarily informational. Not specifying a port here
+ *  DOES NOT prevent that port from being exposed. Any port which is listening
+ *  on the default "0.0.0.0" address inside a container will be accessible from
+ *  the network.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerPort *> *ports;
+
+@end
+
+
+/**
+ *  Represents a custom encryption key configuration that can be applied to a
+ *  resource.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig : GTLRObject
 
@@ -1306,14 +1367,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
+ *  EnvVar represents an environment variable present in a Container.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1EnvVar : GTLRObject
+
+/** Name of the environment variable. Must be a C_IDENTIFIER. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Variable references $(VAR_NAME) are expanded using the previous defined
+ *  environment variables in the container and any service environment
+ *  variables. If a variable cannot be resolved, the reference in the input
+ *  string will be unchanged. The $(VAR_NAME) syntax can be escaped with a
+ *  double $$, ie: $$(VAR_NAME). Escaped references will never be expanded,
+ *  regardless of whether the variable exists or not. Defaults to "".
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Request for explanations to be issued against a trained model.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest : GTLRObject
 
-/**
- *  Required.
- *  The explanation request body.
- */
+/** Required. The explanation request body. */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleApiHttpBody *httpBody;
 
 @end
@@ -1321,17 +1400,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Message holding configuration options for explaining model predictions.
- *  There are two feature attribution methods supported for TensorFlow models:
- *  integrated gradients and sampled Shapley.
- *  [Learn more about feature
+ *  There are three feature attribution methods supported for TensorFlow models:
+ *  integrated gradients, sampled Shapley, and XRAI. [Learn more about feature
  *  attributions.](/ai-platform/prediction/docs/ai-explanations/overview)
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig : GTLRObject
 
 /**
- *  Attributes credit by computing the Aumann-Shapley value taking advantage
- *  of the model's fully differentiable structure. Refer to this paper for
- *  more details: http://proceedings.mlr.press/v70/sundararajan17a.html
+ *  Attributes credit by computing the Aumann-Shapley value taking advantage of
+ *  the model's fully differentiable structure. Refer to this paper for more
+ *  details: https://arxiv.org/abs/1703.01365
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution *integratedGradientsAttribution;
 
@@ -1343,10 +1421,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1SampledShapleyAttribution *sampledShapleyAttribution;
 
 /**
- *  Attributes credit by computing the XRAI taking advantage
- *  of the model's fully differentiable structure. Refer to this paper for
- *  more details: https://arxiv.org/abs/1906.02825
- *  Currently only implemented for models with natural image inputs.
+ *  Attributes credit by computing the XRAI taking advantage of the model's
+ *  fully differentiable structure. Refer to this paper for more details:
+ *  https://arxiv.org/abs/1906.02825 Currently only implemented for models with
+ *  natural image inputs.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1XraiAttribution *xraiAttribution;
 
@@ -1376,8 +1454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Represents the result of a single hyperparameter tuning trial from a
  *  training job. The TrainingOutput object that is returned on successful
- *  completion of a training job with hyperparameter tuning includes a list
- *  of HyperparameterOutput objects, one for each successful trial.
+ *  completion of a training job with hyperparameter tuning includes a list of
+ *  HyperparameterOutput objects, one for each successful trial.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput : GTLRObject
 
@@ -1388,8 +1466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric *> *allMetrics;
 
 /**
- *  Details related to built-in algorithms jobs.
- *  Only set for trials of built-in algorithms jobs that have succeeded.
+ *  Details related to built-in algorithms jobs. Only set for trials of built-in
+ *  algorithms jobs that have succeeded.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput *builtInAlgorithmOutput;
 
@@ -1417,17 +1495,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelled
- *        The job has been cancelled.
- *        `error_message` should describe the reason for the cancellation.
- *        (Value: "CANCELLED")
+ *        The job has been cancelled. `error_message` should describe the reason
+ *        for the cancellation. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Cancelling
- *        The job is being cancelled.
- *        `error_message` should describe the reason for the cancellation.
- *        (Value: "CANCELLING")
+ *        The job is being cancelled. `error_message` should describe the reason
+ *        for the cancellation. (Value: "CANCELLING")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Failed
- *        The job failed.
- *        `error_message` should contain the details of the failure. (Value:
- *        "FAILED")
+ *        The job failed. `error_message` should contain the details of the
+ *        failure. (Value: "FAILED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Preparing
  *        The service is preparing to run the job. (Value: "PREPARING")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_State_Queued
@@ -1488,20 +1563,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec : GTLRObject
 
 /**
- *  Optional. The search algorithm specified for the hyperparameter
- *  tuning job.
- *  Uses the default AI Platform hyperparameter tuning
- *  algorithm if unspecified.
+ *  Optional. The search algorithm specified for the hyperparameter tuning job.
+ *  Uses the default AI Platform hyperparameter tuning algorithm if unspecified.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_AlgorithmUnspecified
  *        The default algorithm used by the hyperparameter tuning service. This
- *        is
- *        a Bayesian optimization algorithm. (Value: "ALGORITHM_UNSPECIFIED")
+ *        is a Bayesian optimization algorithm. (Value: "ALGORITHM_UNSPECIFIED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_GridSearch
- *        Simple grid search within the feasible space. To use grid search,
- *        all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
- *        (Value: "GRID_SEARCH")
+ *        Simple grid search within the feasible space. To use grid search, all
+ *        parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`. (Value:
+ *        "GRID_SEARCH")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Algorithm_RandomSearch
  *        Simple random search within the feasible space. (Value:
  *        "RANDOM_SEARCH")
@@ -1517,9 +1589,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSNumber *enableTrialEarlyStopping;
 
 /**
- *  Required. The type of goal to use for tuning. Available types are
- *  `MAXIMIZE` and `MINIMIZE`.
- *  Defaults to `MAXIMIZE`.
+ *  Required. The type of goal to use for tuning. Available types are `MAXIMIZE`
+ *  and `MINIMIZE`. Defaults to `MAXIMIZE`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec_Goal_GoalTypeUnspecified
@@ -1534,9 +1605,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Optional. The TensorFlow summary tag name to use for optimizing trials. For
  *  current versions of TensorFlow, this tag name should exactly match what is
- *  shown in TensorBoard, including all scopes. For versions of TensorFlow
- *  prior to 0.12, this should be only the tag passed to tf.Summary.
- *  By default, "training/hptuning/metric" will be used.
+ *  shown in TensorBoard, including all scopes. For versions of TensorFlow prior
+ *  to 0.12, this should be only the tag passed to tf.Summary. By default,
+ *  "training/hptuning/metric" will be used.
  */
 @property(nonatomic, copy, nullable) NSString *hyperparameterMetricTag;
 
@@ -1544,31 +1615,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. The number of failed trials that need to be seen before failing
  *  the hyperparameter tuning job. You can specify this field to override the
  *  default failing criteria for AI Platform hyperparameter tuning jobs.
- *  Defaults to zero, which means the service decides when a hyperparameter
- *  job should fail.
+ *  Defaults to zero, which means the service decides when a hyperparameter job
+ *  should fail.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxFailedTrials;
 
 /**
- *  Optional. The number of training trials to run concurrently.
- *  You can reduce the time it takes to perform hyperparameter tuning by adding
- *  trials in parallel. However, each trail only benefits from the information
- *  gained in completed trials. That means that a trial does not get access to
- *  the results of trials running at the same time, which could reduce the
- *  quality of the overall optimization.
- *  Each trial will use the same scale tier and machine types.
- *  Defaults to one.
+ *  Optional. The number of training trials to run concurrently. You can reduce
+ *  the time it takes to perform hyperparameter tuning by adding trials in
+ *  parallel. However, each trail only benefits from the information gained in
+ *  completed trials. That means that a trial does not get access to the results
+ *  of trials running at the same time, which could reduce the quality of the
+ *  overall optimization. Each trial will use the same scale tier and machine
+ *  types. Defaults to one.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxParallelTrials;
 
 /**
- *  Optional. How many training trials should be attempted to optimize
- *  the specified hyperparameters.
- *  Defaults to one.
+ *  Optional. How many training trials should be attempted to optimize the
+ *  specified hyperparameters. Defaults to one.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1578,9 +1647,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec *> *params;
 
 /**
- *  Optional. The prior hyperparameter tuning job id that users hope to
- *  continue with. The job id will be used to find the corresponding vizier
- *  study guid and resume the study.
+ *  Optional. The prior hyperparameter tuning job id that users hope to continue
+ *  with. The job id will be used to find the corresponding vizier study guid
+ *  and resume the study.
  */
 @property(nonatomic, copy, nullable) NSString *resumePreviousJobId;
 
@@ -1588,16 +1657,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Attributes credit by computing the Aumann-Shapley value taking advantage
- *  of the model's fully differentiable structure. Refer to this paper for
- *  more details: https://arxiv.org/abs/1703.01365
+ *  Attributes credit by computing the Aumann-Shapley value taking advantage of
+ *  the model's fully differentiable structure. Refer to this paper for more
+ *  details: https://arxiv.org/abs/1703.01365
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution : GTLRObject
 
 /**
- *  Number of steps for approximating the path integral.
- *  A good value to start is 50 and gradually increase until the
- *  sum to diff property is met within the desired error range.
+ *  Number of steps for approximating the path integral. A good value to start
+ *  is 50 and gradually increase until the sum to diff property is met within
+ *  the desired error range.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1621,13 +1690,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a job from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform job updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `GetJob`, and
- *  systems are expected to put that etag in the request to `UpdateJob` to
- *  ensure that their change will be applied to the same version of the job.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a job from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform job updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `GetJob`, and systems are expected to put that
+ *  etag in the request to `UpdateJob` to ensure that their change will be
+ *  applied to the same version of the job.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1638,11 +1707,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *jobId;
 
 /**
- *  Optional. One or more labels that you can add, to organize your jobs.
- *  Each label is a key-value pair, where both the key and the value are
- *  arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *  Optional. One or more labels that you can add, to organize your jobs. Each
+ *  label is a key-value pair, where both the key and the value are arbitrary
+ *  strings that you supply. For more information, see the documentation on
+ *  using labels.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_Labels *labels;
 
@@ -1660,17 +1728,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelled
- *        The job has been cancelled.
- *        `error_message` should describe the reason for the cancellation.
- *        (Value: "CANCELLED")
+ *        The job has been cancelled. `error_message` should describe the reason
+ *        for the cancellation. (Value: "CANCELLED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Cancelling
- *        The job is being cancelled.
- *        `error_message` should describe the reason for the cancellation.
- *        (Value: "CANCELLING")
+ *        The job is being cancelled. `error_message` should describe the reason
+ *        for the cancellation. (Value: "CANCELLING")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Failed
- *        The job failed.
- *        `error_message` should contain the details of the failure. (Value:
- *        "FAILED")
+ *        The job failed. `error_message` should contain the details of the
+ *        failure. (Value: "FAILED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Preparing
  *        The service is preparing to run the job. (Value: "PREPARING")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Queued
@@ -1695,11 +1760,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Optional. One or more labels that you can add, to organize your jobs.
- *  Each label is a key-value pair, where both the key and the value are
- *  arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *  Optional. One or more labels that you can add, to organize your jobs. Each
+ *  label is a key-value pair, where both the key and the value are arbitrary
+ *  strings that you supply. For more information, see the documentation on
+ *  using labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1860,9 +1924,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  The number of nodes to allocate for this model. These nodes are always up,
- *  starting from the time the model is deployed, so the cost of operating
- *  this model will be proportional to `nodes` * number of hours since
- *  last billing cycle plus the cost for each prediction performed.
+ *  starting from the time the model is deployed, so the cost of operating this
+ *  model will be proportional to `nodes` * number of hours since last billing
+ *  cycle plus the cost for each prediction performed.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1877,20 +1941,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement : GTLRObject
 
 /**
- *  Output only. Time that the trial has been running at the point of
- *  this measurement.
+ *  Output only. Time that the trial has been running at the point of this
+ *  measurement.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *elapsedTime;
 
 /**
- *  Provides a list of metrics that act as inputs into the objective
- *  function.
+ *  Provides a list of metrics that act as inputs into the objective function.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1MeasurementMetric *> *metrics;
 
 /**
- *  The number of steps a machine learning model has been trained for.
- *  Must be non-negative.
+ *  The number of steps a machine learning model has been trained for. Must be
+ *  non-negative.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1918,18 +1981,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Represents a machine learning solution.
- *  A model can have multiple versions, each of which is a deployed, trained
- *  model ready to receive prediction requests. The model itself is just a
- *  container.
+ *  Represents a machine learning solution. A model can have multiple versions,
+ *  each of which is a deployed, trained model ready to receive prediction
+ *  requests. The model itself is just a container.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model : GTLRObject
 
 /**
  *  Output only. The default version of the model. This version will be used to
- *  handle prediction requests that do not specify a version.
- *  You can change the default version by calling
- *  projects.models.versions.setDefault.
+ *  handle prediction requests that do not specify a version. You can change the
+ *  default version by calling projects.models.versions.setDefault.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version *defaultVersion;
 
@@ -1941,13 +2002,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a model from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform model updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `GetModel`, and
- *  systems are expected to put that etag in the request to `UpdateModel` to
- *  ensure that their change will be applied to the model as intended.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a model from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform model updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `GetModel`, and systems are expected to put that
+ *  etag in the request to `UpdateModel` to ensure that their change will be
+ *  applied to the model as intended.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1955,17 +2016,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Optional. One or more labels that you can add, to organize your models.
- *  Each label is a key-value pair, where both the key and the value are
- *  arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *  Optional. One or more labels that you can add, to organize your models. Each
+ *  label is a key-value pair, where both the key and the value are arbitrary
+ *  strings that you supply. For more information, see the documentation on
+ *  using labels.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model_Labels *labels;
 
 /**
- *  Required. The name specified for the model when it was created.
- *  The model name must be unique within the project it is created in.
+ *  Required. The name specified for the model when it was created. The model
+ *  name must be unique within the project it is created in.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1973,11 +2033,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. If true, online prediction nodes send `stderr` and `stdout`
  *  streams to Stackdriver Logging. These can be more verbose than the standard
  *  access logs (see `onlinePredictionLogging`) and can incur higher cost.
- *  However, they are helpful for debugging. Note that
- *  [Stackdriver logs may incur a cost](/stackdriver/pricing), especially if
- *  your project receives prediction requests at a high QPS. Estimate your
- *  costs before enabling this option.
- *  Default is false.
+ *  However, they are helpful for debugging. Note that [Stackdriver logs may
+ *  incur a cost](/stackdriver/pricing), especially if your project receives
+ *  prediction requests at a high QPS. Estimate your costs before enabling this
+ *  option. Default is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1989,25 +2048,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  information like timestamp and latency for each request. Note that
  *  [Stackdriver logs may incur a cost](/stackdriver/pricing), especially if
  *  your project receives prediction requests at a high queries per second rate
- *  (QPS). Estimate your costs before enabling this option.
- *  Default is false.
+ *  (QPS). Estimate your costs before enabling this option. Default is false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *onlinePredictionLogging;
 
 /**
- *  Optional. The list of regions where the model is going to be deployed.
- *  Only one region per model is supported.
- *  Defaults to 'us-central1' if nothing is set.
- *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
- *  for AI Platform services.
- *  Note:
- *  * No matter where a model is deployed, it can always be accessed by
- *  users from anywhere, both for online and batch prediction.
- *  * The region for a batch prediction job is set by the region field when
- *  submitting the batch prediction job and does not take its value from
- *  this field.
+ *  Optional. The list of regions where the model is going to be deployed. Only
+ *  one region per model is supported. Defaults to 'us-central1' if nothing is
+ *  set. See the available regions for AI Platform services. Note: * No matter
+ *  where a model is deployed, it can always be accessed by users from anywhere,
+ *  both for online and batch prediction. * The region for a batch prediction
+ *  job is set by the region field when submitting the batch prediction job and
+ *  does not take its value from this field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
 
@@ -2015,11 +2069,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Optional. One or more labels that you can add, to organize your models.
- *  Each label is a key-value pair, where both the key and the value are
- *  arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *  Optional. One or more labels that you can add, to organize your models. Each
+ *  label is a key-value pair, where both the key and the value are arbitrary
+ *  strings that you supply. For more information, see the documentation on
+ *  using labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2116,29 +2169,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categoricalValues;
 
 /**
- *  Required if type is `DISCRETE`.
- *  A list of feasible points.
- *  The list should be in strictly increasing order. For instance, this
- *  parameter might have possible settings of 1.5, 2.5, and 4.0. This list
- *  should not contain more than 1,000 values.
+ *  Required if type is `DISCRETE`. A list of feasible points. The list should
+ *  be in strictly increasing order. For instance, this parameter might have
+ *  possible settings of 1.5, 2.5, and 4.0. This list should not contain more
+ *  than 1,000 values.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *discreteValues;
 
 /**
- *  Required if type is `DOUBLE` or `INTEGER`. This field
- *  should be unset if type is `CATEGORICAL`. This value should be integers if
- *  type is `INTEGER`.
+ *  Required if type is `DOUBLE` or `INTEGER`. This field should be unset if
+ *  type is `CATEGORICAL`. This value should be integers if type is `INTEGER`.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxValue;
 
 /**
- *  Required if type is `DOUBLE` or `INTEGER`. This field
- *  should be unset if type is `CATEGORICAL`. This value should be integers if
- *  type is INTEGER.
+ *  Required if type is `DOUBLE` or `INTEGER`. This field should be unset if
+ *  type is `CATEGORICAL`. This value should be integers if type is INTEGER.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2151,10 +2201,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *parameterName;
 
 /**
- *  Optional. How the parameter should be scaled to the hypercube.
- *  Leave unset for categorical parameters.
- *  Some kind of scaling is strongly recommended for real or integral
- *  parameters (e.g., `UNIT_LINEAR_SCALE`).
+ *  Optional. How the parameter should be scaled to the hypercube. Leave unset
+ *  for categorical parameters. Some kind of scaling is strongly recommended for
+ *  real or integral parameters (e.g., `UNIT_LINEAR_SCALE`).
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_None
@@ -2164,16 +2213,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        "UNIT_LINEAR_SCALE")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitLogScale
  *        Scales the feasible space logarithmically to (0, 1). The entire
- *        feasible
- *        space must be strictly positive. (Value: "UNIT_LOG_SCALE")
+ *        feasible space must be strictly positive. (Value: "UNIT_LOG_SCALE")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_ScaleType_UnitReverseLogScale
  *        Scales the feasible space "reverse" logarithmically to (0, 1). The
- *        result
- *        is that values close to the top of the feasible space are spread out
- *        more
- *        than points near the bottom. The entire feasible space must be
- *        strictly
- *        positive. (Value: "UNIT_REVERSE_LOG_SCALE")
+ *        result is that values close to the top of the feasible space are
+ *        spread out more than points near the bottom. The entire feasible space
+ *        must be strictly positive. (Value: "UNIT_REVERSE_LOG_SCALE")
  */
 @property(nonatomic, copy, nullable) NSString *scaleType;
 
@@ -2186,16 +2231,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        field. (Value: "CATEGORICAL")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Discrete
  *        The parameter is real valued, with a fixed set of feasible points. If
- *        `type==DISCRETE`, feasible_points must be provided, and
- *        {`min_value`, `max_value`} will be ignored. (Value: "DISCRETE")
+ *        `type==DISCRETE`, feasible_points must be provided, and {`min_value`,
+ *        `max_value`} will be ignored. (Value: "DISCRETE")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Double
  *        Type for real-valued parameters. (Value: "DOUBLE")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_Integer
  *        Type for integral parameters. (Value: "INTEGER")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1ParameterSpec_Type_ParameterTypeUnspecified
  *        You must specify a valid type. Using this unspecified type will result
- *        in
- *        an error. (Value: "PARAMETER_TYPE_UNSPECIFIED")
+ *        in an error. (Value: "PARAMETER_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2208,10 +2252,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput : GTLRObject
 
 /**
- *  Optional. Number of records per batch, defaults to 64.
- *  The service will buffer batch_size number of records in memory before
- *  invoking one Tensorflow prediction call internally. So take the record
- *  size and memory available into consideration when setting this parameter.
+ *  Optional. Number of records per batch, defaults to 64. The service will
+ *  buffer batch_size number of records in memory before invoking one Tensorflow
+ *  prediction call internally. So take the record size and memory available
+ *  into consideration when setting this parameter.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2232,17 +2276,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_Text
  *        Deprecated. Use JSON instead. (Value: "TEXT")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecord
- *        The source file is a TFRecord file.
- *        Currently available only for input data. (Value: "TF_RECORD")
+ *        The source file is a TFRecord file. Currently available only for input
+ *        data. (Value: "TF_RECORD")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_DataFormat_TfRecordGzip
- *        The source file is a GZIP-compressed TFRecord file.
- *        Currently available only for input data. (Value: "TF_RECORD_GZIP")
+ *        The source file is a GZIP-compressed TFRecord file. Currently
+ *        available only for input data. (Value: "TF_RECORD_GZIP")
  */
 @property(nonatomic, copy, nullable) NSString *dataFormat;
 
 /**
  *  Required. The Cloud Storage location of the input data files. May contain
- *  <a href="/storage/docs/gsutil/addlhelp/WildcardNames">wildcards</a>.
+ *  wildcards.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputPaths;
 
@@ -2276,11 +2320,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_Text
  *        Deprecated. Use JSON instead. (Value: "TEXT")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecord
- *        The source file is a TFRecord file.
- *        Currently available only for input data. (Value: "TF_RECORD")
+ *        The source file is a TFRecord file. Currently available only for input
+ *        data. (Value: "TF_RECORD")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictionInput_OutputDataFormat_TfRecordGzip
- *        The source file is a GZIP-compressed TFRecord file.
- *        Currently available only for input data. (Value: "TF_RECORD_GZIP")
+ *        The source file is a GZIP-compressed TFRecord file. Currently
+ *        available only for input data. (Value: "TF_RECORD_GZIP")
  */
 @property(nonatomic, copy, nullable) NSString *outputDataFormat;
 
@@ -2288,42 +2332,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *outputPath;
 
 /**
- *  Required. The Google Compute Engine region to run the prediction job in.
- *  See the <a href="/ml-engine/docs/tensorflow/regions">available regions</a>
- *  for AI Platform services.
+ *  Required. The Google Compute Engine region to run the prediction job in. See
+ *  the available regions for AI Platform services.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. The AI Platform runtime version to use for this batch
- *  prediction. If not set, AI Platform will pick the runtime version used
- *  during the CreateVersion request for this model version, or choose the
- *  latest stable version when model version information is not available
- *  such as when the model is specified by uri.
+ *  Optional. The AI Platform runtime version to use for this batch prediction.
+ *  If not set, AI Platform will pick the runtime version used during the
+ *  CreateVersion request for this model version, or choose the latest stable
+ *  version when model version information is not available such as when the
+ *  model is specified by uri.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
 /**
  *  Optional. The name of the signature defined in the SavedModel to use for
  *  this job. Please refer to
- *  [SavedModel](https://tensorflow.github.io/serving/serving_basic.html)
- *  for information about how to use signatures.
- *  Defaults to
+ *  [SavedModel](https://tensorflow.github.io/serving/serving_basic.html) for
+ *  information about how to use signatures. Defaults to
  *  [DEFAULT_SERVING_SIGNATURE_DEF_KEY](https://www.tensorflow.org/api_docs/python/tf/saved_model/signature_constants)
  *  , which is "serving_default".
  */
 @property(nonatomic, copy, nullable) NSString *signatureName;
 
 /**
- *  Use this field if you want to specify a Google Cloud Storage path for
- *  the model to use.
+ *  Use this field if you want to specify a Google Cloud Storage path for the
+ *  model to use.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 /**
  *  Use this field if you want to specify a version of the model to use. The
- *  string is formatted the same way as `model_version`, with the addition
- *  of the version information:
+ *  string is formatted the same way as `model_version`, with the addition of
+ *  the version information:
  *  `"projects/YOUR_PROJECT/models/YOUR_MODEL/versions/YOUR_VERSION"`
  */
 @property(nonatomic, copy, nullable) NSString *versionName;
@@ -2386,41 +2428,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig : GTLRObject
 
 /**
- *  Represents the type and number of accelerators used by the replica.
- *  [Learn about restrictions on accelerator configurations for
+ *  Represents the type and number of accelerators used by the replica. [Learn
+ *  about restrictions on accelerator configurations for
  *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *acceleratorConfig;
 
 /**
- *  Arguments to the entrypoint command.
- *  The following rules apply for container_command and container_args:
- *  - If you do not supply command or args:
- *  The defaults defined in the Docker image are used.
- *  - If you supply a command but no args:
- *  The default EntryPoint and the default Cmd defined in the Docker image
- *  are ignored. Your command is run without any arguments.
- *  - If you supply only args:
- *  The default Entrypoint defined in the Docker image is run with the args
- *  that you supplied.
- *  - If you supply a command and args:
- *  The default Entrypoint and the default Cmd defined in the Docker image
- *  are ignored. Your command is run with your args.
- *  It cannot be set if custom container image is
- *  not provided.
- *  Note that this field and [TrainingInput.args] are mutually exclusive, i.e.,
- *  both cannot be set at the same time.
+ *  Arguments to the entrypoint command. The following rules apply for
+ *  container_command and container_args: - If you do not supply command or
+ *  args: The defaults defined in the Docker image are used. - If you supply a
+ *  command but no args: The default EntryPoint and the default Cmd defined in
+ *  the Docker image are ignored. Your command is run without any arguments. -
+ *  If you supply only args: The default Entrypoint defined in the Docker image
+ *  is run with the args that you supplied. - If you supply a command and args:
+ *  The default Entrypoint and the default Cmd defined in the Docker image are
+ *  ignored. Your command is run with your args. It cannot be set if custom
+ *  container image is not provided. Note that this field and
+ *  [TrainingInput.args] are mutually exclusive, i.e., both cannot be set at the
+ *  same time.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *containerArgs;
 
 /**
- *  The command with which the replica's custom container is run.
- *  If provided, it will override default ENTRYPOINT of the docker image.
- *  If not provided, the docker image's ENTRYPOINT is used.
- *  It cannot be set if custom container image is
- *  not provided.
- *  Note that this field and [TrainingInput.args] are mutually exclusive, i.e.,
- *  both cannot be set at the same time.
+ *  The command with which the replica's custom container is run. If provided,
+ *  it will override default ENTRYPOINT of the docker image. If not provided,
+ *  the docker image's ENTRYPOINT is used. It cannot be set if custom container
+ *  image is not provided. Note that this field and [TrainingInput.args] are
+ *  mutually exclusive, i.e., both cannot be set at the same time.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *containerCommand;
 
@@ -2434,13 +2469,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  The AI Platform runtime version that includes a TensorFlow version matching
  *  the one used in the custom container. This field is required if the replica
- *  is a TPU worker that uses a custom container. Otherwise, do not specify
- *  this field. This must be a [runtime version that currently supports
- *  training with
- *  TPUs](/ml-engine/docs/tensorflow/runtime-version-list#tpu-support).
- *  Note that the version of TensorFlow included in a runtime version may
- *  differ from the numbering of the runtime version itself, because it may
- *  have a different [patch
+ *  is a TPU worker that uses a custom container. Otherwise, do not specify this
+ *  field. This must be a [runtime version that currently supports training with
+ *  TPUs](/ml-engine/docs/tensorflow/runtime-version-list#tpu-support). Note
+ *  that the version of TensorFlow included in a runtime version may differ from
+ *  the numbering of the runtime version itself, because it may have a different
+ *  [patch
  *  version](https://www.tensorflow.org/guide/version_compat#semantic_versioning_20).
  *  In this field, you must specify the runtime version (TensorFlow minor
  *  version). For example, if your custom container runs TensorFlow `1.x.y`,
@@ -2452,15 +2486,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Configuration for logging request-response pairs to a BigQuery table.
- *  Online prediction requests to a model version and the responses to these
- *  requests are converted to raw strings and saved to the specified BigQuery
- *  table. Logging is constrained by [BigQuery quotas and
- *  limits](/bigquery/quotas). If your project exceeds BigQuery quotas or
- *  limits,
- *  AI Platform Prediction does not log request-response pairs, but it continues
- *  to serve predictions.
- *  If you are using [continuous
+ *  Configuration for logging request-response pairs to a BigQuery table. Online
+ *  prediction requests to a model version and the responses to these requests
+ *  are converted to raw strings and saved to the specified BigQuery table.
+ *  Logging is constrained by [BigQuery quotas and limits](/bigquery/quotas). If
+ *  your project exceeds BigQuery quotas or limits, AI Platform Prediction does
+ *  not log request-response pairs, but it continues to serve predictions. If
+ *  you are using [continuous
  *  evaluation](/ml-engine/docs/continuous-evaluation/), you do not need to
  *  specify this configuration manually. Setting up continuous evaluation
  *  automatically enables logging of request-response pairs.
@@ -2468,21 +2500,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig : GTLRObject
 
 /**
- *  Required. Fully qualified BigQuery table name in the following format:
- *  "<var>project_id</var>.<var>dataset_name</var>.<var>table_name</var>"
- *  The specified table must already exist, and the "Cloud ML Service Agent"
- *  for your project must have permission to write to it. The table must have
- *  the following [schema](/bigquery/docs/schemas):
- *  <table>
- *  <tr><th>Field name</th><th style="display: table-cell">Type</th>
- *  <th style="display: table-cell">Mode</th></tr>
- *  <tr><td>model</td><td>STRING</td><td>REQUIRED</td></tr>
- *  <tr><td>model_version</td><td>STRING</td><td>REQUIRED</td></tr>
- *  <tr><td>time</td><td>TIMESTAMP</td><td>REQUIRED</td></tr>
- *  <tr><td>raw_data</td><td>STRING</td><td>REQUIRED</td></tr>
- *  <tr><td>raw_prediction</td><td>STRING</td><td>NULLABLE</td></tr>
- *  <tr><td>groundtruth</td><td>STRING</td><td>NULLABLE</td></tr>
- *  </table>
+ *  Required. Fully qualified BigQuery table name in the following format: "
+ *  project_id.dataset_name.table_name" The specified table must already exist,
+ *  and the "Cloud ML Service Agent" for your project must have permission to
+ *  write to it. The table must have the following
+ *  [schema](/bigquery/docs/schemas): Field nameType Mode model STRING REQUIRED
+ *  model_version STRING REQUIRED time TIMESTAMP REQUIRED raw_data STRING
+ *  REQUIRED raw_prediction STRING NULLABLE groundtruth STRING NULLABLE
  */
 @property(nonatomic, copy, nullable) NSString *bigqueryTableName;
 
@@ -2494,6 +2518,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *samplingPercentage;
+
+@end
+
+
+/**
+ *  RouteMap is used to override HTTP paths sent to a Custom Container. If
+ *  specified, the HTTP server implemented in the ContainerSpec must support the
+ *  route. If unspecified, standard HTTP paths will be used.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1RouteMap : GTLRObject
+
+/** HTTP path to send health check requests. */
+@property(nonatomic, copy, nullable) NSString *health;
+
+/** HTTP path to send prediction requests. */
+@property(nonatomic, copy, nullable) NSString *predict;
 
 @end
 
@@ -2524,26 +2564,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Optional. The maximum job running time, expressed in seconds. The field can
  *  contain up to nine fractional digits, terminated by `s`. If not specified,
- *  this field defaults to `604800s` (seven days).
- *  If the training job is still running after this duration, AI Platform
- *  Training cancels it.
- *  For example, if you want to ensure your job runs for no more than 2 hours,
- *  set this field to `7200s` (2 hours * 60 minutes / hour * 60 seconds /
- *  minute).
- *  If you submit your training job using the `gcloud` tool, you can [provide
+ *  this field defaults to `604800s` (seven days). If the training job is still
+ *  running after this duration, AI Platform Training cancels it. The duration
+ *  is measured from when the job enters the `RUNNING` state; therefore it does
+ *  not overlap with the duration limited by Scheduling.max_wait_time. For
+ *  example, if you want to ensure your job runs for no more than 2 hours, set
+ *  this field to `7200s` (2 hours * 60 minutes / hour * 60 seconds / minute).
+ *  If you submit your training job using the `gcloud` tool, you can [specify
  *  this field in a `config.yaml`
  *  file](/ai-platform/training/docs/training-jobs#formatting_your_configuration_parameters).
- *  For example:
- *  ```yaml
- *  trainingInput:
- *  ...
- *  scheduling:
- *  maxRunningTime: 7200s
- *  ...
- *  ```
+ *  For example: ```yaml trainingInput: scheduling: maxRunningTime: 7200s ```
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRunningTime;
 
+/**
+ *  Optional. The maximum job wait time, expressed in seconds. The field can
+ *  contain up to nine fractional digits, terminated by `s`. If not specified,
+ *  there is no limit to the wait time. The minimum for this field is `1800s`
+ *  (30 minutes). If the training job has not entered the `RUNNING` state after
+ *  this duration, AI Platform Training cancels it. After the job begins
+ *  running, it can no longer be cancelled due to the maximum wait time.
+ *  Therefore the duration limited by this field does not overlap with the
+ *  duration limited by Scheduling.max_running_time. For example, if the job
+ *  temporarily stops running and retries due to a [VM
+ *  restart](/ai-platform/training/docs/overview#restarts), this cannot lead to
+ *  a maximum wait time cancellation. However, independently of this constraint,
+ *  AI Platform Training might stop a job if there are too many retries due to
+ *  exhausted resources in a region. The following example describes how you
+ *  might use this field: To cancel your job if it doesn't start running within
+ *  1 hour, set this field to `3600s` (1 hour * 60 minutes / hour * 60 seconds /
+ *  minute). If the job is still in the `QUEUED` or `PREPARING` state after an
+ *  hour of waiting, AI Platform Training cancels the job. If you submit your
+ *  training job using the `gcloud` tool, you can [specify this field in a
+ *  `config.yaml`
+ *  file](/ai-platform/training/docs/training-jobs#formatting_your_configuration_parameters).
+ *  For example: ```yaml trainingInput: scheduling: maxWaitTime: 3600s ```
+ */
 @property(nonatomic, strong, nullable) GTLRDuration *maxWaitTime;
 
 @end
@@ -2572,8 +2628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. A human readable reason why the Study is inactive.
- *  This should be empty if a study is ACTIVE or COMPLETED.
+ *  Output only. A human readable reason why the Study is inactive. This should
+ *  be empty if a study is ACTIVE or COMPLETED.
  */
 @property(nonatomic, copy, nullable) NSString *inactiveReason;
 
@@ -2617,9 +2673,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GaussianProcessBandit
  *        Gaussian Process Bandit. (Value: "GAUSSIAN_PROCESS_BANDIT")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_GridSearch
- *        Simple grid search within the feasible space. To use grid search,
- *        all parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`.
- *        (Value: "GRID_SEARCH")
+ *        Simple grid search within the feasible space. To use grid search, all
+ *        parameters must be `INTEGER`, `CATEGORICAL`, or `DISCRETE`. (Value:
+ *        "GRID_SEARCH")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfig_Algorithm_RandomSearch
  *        Simple random search within the feasible space. (Value:
  *        "RANDOM_SEARCH")
@@ -2672,9 +2728,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  A child node is active if the parameter's value matches the child node's
- *  matching_parent_values.
- *  If two items in child_parameter_specs have the same name, they must have
- *  disjoint matching_parent_values.
+ *  matching_parent_values. If two items in child_parameter_specs have the same
+ *  name, they must have disjoint matching_parent_values.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec *> *childParameterSpecs;
 
@@ -2695,8 +2750,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentIntValueSpec *parentIntValues;
 
 /**
- *  How the parameter should be scaled.
- *  Leave unset for categorical parameters.
+ *  How the parameter should be scaled. Leave unset for categorical parameters.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_ScaleTypeUnspecified
@@ -2710,10 +2764,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_ScaleType_UnitReverseLogScale
  *        Scales the feasible space "reverse" logarithmically to (0, 1). The
  *        result is that values close to the top of the feasible space are
- *        spread
- *        out more than points near the bottom. The entire feasible space must
- *        be
- *        strictly positive. (Value: "UNIT_REVERSE_LOG_SCALE")
+ *        spread out more than points near the bottom. The entire feasible space
+ *        must be strictly positive. (Value: "UNIT_REVERSE_LOG_SCALE")
  */
 @property(nonatomic, copy, nullable) NSString *scaleType;
 
@@ -2726,8 +2778,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        field. (Value: "CATEGORICAL")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Discrete
  *        The parameter is real valued, with a fixed set of feasible points. If
- *        `type==DISCRETE`, feasible_points must be provided, and
- *        {`min_value`, `max_value`} will be ignored. (Value: "DISCRETE")
+ *        `type==DISCRETE`, feasible_points must be provided, and {`min_value`,
+ *        `max_value`} will be ignored. (Value: "DISCRETE")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Double
  *        Type for real-valued parameters. (Value: "DOUBLE")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpec_Type_Integer
@@ -2747,8 +2799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecCategoricalValueSpec : GTLRObject
 
 /**
- *  Must be specified if type is `CATEGORICAL`.
- *  The list of possible categories.
+ *  Must be specified if type is `CATEGORICAL`. The list of possible categories.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
@@ -2761,11 +2812,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecDiscreteValueSpec : GTLRObject
 
 /**
- *  Must be specified if type is `DISCRETE`.
- *  A list of feasible points.
- *  The list should be in strictly increasing order. For instance, this
- *  parameter might have possible settings of 1.5, 2.5, and 4.0. This list
- *  should not contain more than 1,000 values.
+ *  Must be specified if type is `DISCRETE`. A list of feasible points. The list
+ *  should be in strictly increasing order. For instance, this parameter might
+ *  have possible settings of 1.5, 2.5, and 4.0. This list should not contain
+ *  more than 1,000 values.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2824,8 +2874,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentCategoricalValueSpec : GTLRObject
 
 /**
- *  Matches values of the parent parameter with type 'CATEGORICAL'.
- *  All values must exist in `categorical_value_spec` of parent parameter.
+ *  Matches values of the parent parameter with type 'CATEGORICAL'. All values
+ *  must exist in `categorical_value_spec` of parent parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
@@ -2838,8 +2888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentDiscreteValueSpec : GTLRObject
 
 /**
- *  Matches values of the parent parameter with type 'DISCRETE'.
- *  All values must exist in `discrete_value_spec` of parent parameter.
+ *  Matches values of the parent parameter with type 'DISCRETE'. All values must
+ *  exist in `discrete_value_spec` of parent parameter.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2854,8 +2904,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentIntValueSpec : GTLRObject
 
 /**
- *  Matches values of the parent parameter with type 'INTEGER'.
- *  All values must lie in `integer_value_spec` of parent parameter.
+ *  Matches values of the parent parameter with type 'INTEGER'. All values must
+ *  lie in `integer_value_spec` of parent parameter.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2865,8 +2915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Metadata field of a google.longrunning.Operation associated
- *  with a SuggestTrialsRequest.
+ *  Metadata field of a google.longrunning.Operation associated with a
+ *  SuggestTrialsRequest.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsMetadata : GTLRObject
 
@@ -2895,10 +2945,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1SuggestTrialsRequest : GTLRObject
 
 /**
- *  Required. The identifier of the client that is requesting the suggestion.
- *  If multiple SuggestTrialsRequests have the same `client_id`,
- *  the service will return the identical suggested trial if the trial is
- *  pending, and provide a new trial if the last suggested trial was completed.
+ *  Required. The identifier of the client that is requesting the suggestion. If
+ *  multiple SuggestTrialsRequests have the same `client_id`, the service will
+ *  return the identical suggested trial if the trial is pending, and provide a
+ *  new trial if the last suggested trial was completed.
  */
 @property(nonatomic, copy, nullable) NSString *clientId;
 
@@ -2948,21 +2998,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Represents input parameters for a training job. When using the gcloud
- *  command
- *  to submit your training job, you can specify the input parameters as
+ *  command to submit your training job, you can specify the input parameters as
  *  command-line arguments and/or in a YAML configuration file referenced from
  *  the --config command-line argument. For details, see the guide to
- *  [submitting
- *  a training job](/ai-platform/training/docs/training-jobs).
+ *  [submitting a training job](/ai-platform/training/docs/training-jobs).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput : GTLRObject
 
 /**
  *  Optional. Command-line arguments passed to the training application when it
  *  starts. If your job uses a custom container, then the arguments are passed
- *  to the container's
- *  <a class="external" target="_blank" href="https://docs.docker.com/engine/reference/builder/#entrypoint">
- *  `ENTRYPOINT`</a> command.
+ *  to the container's `ENTRYPOINT` command.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
@@ -2970,34 +3016,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Optional. Options for using customer-managed encryption keys (CMEK) to
  *  protect resources created by a training job, instead of using Google's
  *  default encryption. If this is set, then all resources created by the
- *  training job will be encrypted with the customer-managed encryption key
- *  that you specify.
- *  [Learn how and when to use CMEK with AI Platform
+ *  training job will be encrypted with the customer-managed encryption key that
+ *  you specify. [Learn how and when to use CMEK with AI Platform
  *  Training](/ai-platform/training/docs/cmek).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig *encryptionConfig;
 
 /**
- *  Optional. The configuration for evaluators.
- *  You should only set `evaluatorConfig.acceleratorConfig` if
- *  `evaluatorType` is set to a Compute Engine machine type. [Learn
- *  about restrictions on accelerator configurations for
+ *  Optional. The configuration for evaluators. You should only set
+ *  `evaluatorConfig.acceleratorConfig` if `evaluatorType` is set to a Compute
+ *  Engine machine type. [Learn about restrictions on accelerator configurations
+ *  for
  *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
- *  Set `evaluatorConfig.imageUri` only if you build a custom image for
- *  your evaluator. If `evaluatorConfig.imageUri` has not been
- *  set, AI Platform uses the value of `masterConfig.imageUri`. Learn more about
- *  [configuring custom
+ *  Set `evaluatorConfig.imageUri` only if you build a custom image for your
+ *  evaluator. If `evaluatorConfig.imageUri` has not been set, AI Platform uses
+ *  the value of `masterConfig.imageUri`. Learn more about [configuring custom
  *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *evaluatorConfig;
 
 /**
- *  Optional. The number of evaluator replicas to use for the training job.
- *  Each replica in the cluster will be of the type specified in
- *  `evaluator_type`.
- *  This value can only be used when `scale_tier` is set to `CUSTOM`. If you
- *  set this value, you must also set `evaluator_type`.
- *  The default value is zero.
+ *  Optional. The number of evaluator replicas to use for the training job. Each
+ *  replica in the cluster will be of the type specified in `evaluator_type`.
+ *  This value can only be used when `scale_tier` is set to `CUSTOM`. If you set
+ *  this value, you must also set `evaluator_type`. The default value is zero.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3005,13 +3047,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Optional. Specifies the type of virtual machine to use for your training
- *  job's evaluator nodes.
- *  The supported values are the same as those described in the entry for
- *  `masterType`.
- *  This value must be consistent with the category of machine type that
- *  `masterType` uses. In other words, both must be Compute Engine machine
- *  types or both must be legacy machine types.
- *  This value must be present when `scaleTier` is set to `CUSTOM` and
+ *  job's evaluator nodes. The supported values are the same as those described
+ *  in the entry for `masterType`. This value must be consistent with the
+ *  category of machine type that `masterType` uses. In other words, both must
+ *  be Compute Engine machine types or both must be legacy machine types. This
+ *  value must be present when `scaleTier` is set to `CUSTOM` and
  *  `evaluatorCount` is greater than zero.
  */
 @property(nonatomic, copy, nullable) NSString *evaluatorType;
@@ -3020,22 +3060,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec *hyperparameters;
 
 /**
- *  Optional. A Google Cloud Storage path in which to store training outputs
- *  and other data needed for training. This path is passed to your TensorFlow
+ *  Optional. A Google Cloud Storage path in which to store training outputs and
+ *  other data needed for training. This path is passed to your TensorFlow
  *  program as the '--job-dir' command-line argument. The benefit of specifying
  *  this field is that Cloud ML validates the path for use in training.
  */
 @property(nonatomic, copy, nullable) NSString *jobDir;
 
 /**
- *  Optional. The configuration for your master worker.
- *  You should only set `masterConfig.acceleratorConfig` if `masterType` is set
- *  to a Compute Engine machine type. Learn about [restrictions on accelerator
- *  configurations for
+ *  Optional. The configuration for your master worker. You should only set
+ *  `masterConfig.acceleratorConfig` if `masterType` is set to a Compute Engine
+ *  machine type. Learn about [restrictions on accelerator configurations for
  *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `masterConfig.imageUri` only if you build a custom image. Only one of
- *  `masterConfig.imageUri` and `runtimeVersion` should be set. Learn more
- *  about [configuring custom
+ *  `masterConfig.imageUri` and `runtimeVersion` should be set. Learn more about
+ *  [configuring custom
  *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *masterConfig;
@@ -3043,81 +3082,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Optional. Specifies the type of virtual machine to use for your training
  *  job's master worker. You must specify this field when `scaleTier` is set to
- *  `CUSTOM`.
- *  You can use certain Compute Engine machine types directly in this field.
- *  The following types are supported:
- *  - `n1-standard-4`
- *  - `n1-standard-8`
- *  - `n1-standard-16`
- *  - `n1-standard-32`
- *  - `n1-standard-64`
- *  - `n1-standard-96`
- *  - `n1-highmem-2`
- *  - `n1-highmem-4`
- *  - `n1-highmem-8`
- *  - `n1-highmem-16`
- *  - `n1-highmem-32`
- *  - `n1-highmem-64`
- *  - `n1-highmem-96`
- *  - `n1-highcpu-16`
- *  - `n1-highcpu-32`
- *  - `n1-highcpu-64`
- *  - `n1-highcpu-96`
- *  Learn more about [using Compute Engine machine
+ *  `CUSTOM`. You can use certain Compute Engine machine types directly in this
+ *  field. The following types are supported: - `n1-standard-4` -
+ *  `n1-standard-8` - `n1-standard-16` - `n1-standard-32` - `n1-standard-64` -
+ *  `n1-standard-96` - `n1-highmem-2` - `n1-highmem-4` - `n1-highmem-8` -
+ *  `n1-highmem-16` - `n1-highmem-32` - `n1-highmem-64` - `n1-highmem-96` -
+ *  `n1-highcpu-16` - `n1-highcpu-32` - `n1-highcpu-64` - `n1-highcpu-96` Learn
+ *  more about [using Compute Engine machine
  *  types](/ml-engine/docs/machine-types#compute-engine-machine-types).
- *  Alternatively, you can use the following legacy machine types:
- *  - `standard`
- *  - `large_model`
- *  - `complex_model_s`
- *  - `complex_model_m`
- *  - `complex_model_l`
- *  - `standard_gpu`
- *  - `complex_model_m_gpu`
- *  - `complex_model_l_gpu`
- *  - `standard_p100`
- *  - `complex_model_m_p100`
- *  - `standard_v100`
- *  - `large_model_v100`
- *  - `complex_model_m_v100`
- *  - `complex_model_l_v100`
- *  Learn more about [using legacy machine
- *  types](/ml-engine/docs/machine-types#legacy-machine-types).
- *  Finally, if you want to use a TPU for training, specify `cloud_tpu` in this
- *  field. Learn more about the [special configuration options for training
- *  with
+ *  Alternatively, you can use the following legacy machine types: - `standard`
+ *  - `large_model` - `complex_model_s` - `complex_model_m` - `complex_model_l`
+ *  - `standard_gpu` - `complex_model_m_gpu` - `complex_model_l_gpu` -
+ *  `standard_p100` - `complex_model_m_p100` - `standard_v100` -
+ *  `large_model_v100` - `complex_model_m_v100` - `complex_model_l_v100` Learn
+ *  more about [using legacy machine
+ *  types](/ml-engine/docs/machine-types#legacy-machine-types). Finally, if you
+ *  want to use a TPU for training, specify `cloud_tpu` in this field. Learn
+ *  more about the [special configuration options for training with
  *  TPUs](/ml-engine/docs/tensorflow/using-tpus#configuring_a_custom_tpu_machine).
  */
 @property(nonatomic, copy, nullable) NSString *masterType;
 
 /**
- *  Optional. The full name of the Google Compute Engine
- *  [network](/compute/docs/networks-and-firewalls#networks) to which the Job
- *  is peered. For example, projects/12345/global/networks/myVPC. Format is of
- *  the form projects/{project}/global/networks/{network}. Where {project} is a
- *  project number, as in '12345', and {network} is network name.".
- *  Private services access must already be configured for the network. If left
- *  unspecified, the Job is not peered with any network. Learn more -
- *  Connecting Job to user network over private
- *  IP.
+ *  Optional. The full name of the [Compute Engine network](/vpc/docs/vpc) to
+ *  which the Job is peered. For example,
+ *  `projects/12345/global/networks/myVPC`. The format of this field is
+ *  `projects/{project}/global/networks/{network}`, where {project} is a project
+ *  number (like `12345`) and {network} is network name. Private services access
+ *  must already be configured for the network. If left unspecified, the Job is
+ *  not peered with any network. [Learn about using VPC Network
+ *  Peering.](/ai-platform/training/docs/vpc-peering).
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Required. The Google Cloud Storage location of the packages with
- *  the training program and any additional dependencies.
- *  The maximum number of package URIs is 100.
+ *  Required. The Google Cloud Storage location of the packages with the
+ *  training program and any additional dependencies. The maximum number of
+ *  package URIs is 100.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageUris;
 
 /**
- *  Optional. The configuration for parameter servers.
- *  You should only set `parameterServerConfig.acceleratorConfig` if
- *  `parameterServerType` is set to a Compute Engine machine type. [Learn
- *  about restrictions on accelerator configurations for
+ *  Optional. The configuration for parameter servers. You should only set
+ *  `parameterServerConfig.acceleratorConfig` if `parameterServerType` is set to
+ *  a Compute Engine machine type. [Learn about restrictions on accelerator
+ *  configurations for
  *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `parameterServerConfig.imageUri` only if you build a custom image for
- *  your parameter server. If `parameterServerConfig.imageUri` has not been
- *  set, AI Platform uses the value of `masterConfig.imageUri`. Learn more about
+ *  your parameter server. If `parameterServerConfig.imageUri` has not been set,
+ *  AI Platform uses the value of `masterConfig.imageUri`. Learn more about
  *  [configuring custom
  *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
@@ -3126,10 +3139,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Optional. The number of parameter server replicas to use for the training
  *  job. Each replica in the cluster will be of the type specified in
- *  `parameter_server_type`.
- *  This value can only be used when `scale_tier` is set to `CUSTOM`. If you
- *  set this value, you must also set `parameter_server_type`.
- *  The default value is zero.
+ *  `parameter_server_type`. This value can only be used when `scale_tier` is
+ *  set to `CUSTOM`. If you set this value, you must also set
+ *  `parameter_server_type`. The default value is zero.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3137,13 +3149,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Optional. Specifies the type of virtual machine to use for your training
- *  job's parameter server.
- *  The supported values are the same as those described in the entry for
- *  `master_type`.
- *  This value must be consistent with the category of machine type that
- *  `masterType` uses. In other words, both must be Compute Engine machine
- *  types or both must be legacy machine types.
- *  This value must be present when `scaleTier` is set to `CUSTOM` and
+ *  job's parameter server. The supported values are the same as those described
+ *  in the entry for `master_type`. This value must be consistent with the
+ *  category of machine type that `masterType` uses. In other words, both must
+ *  be Compute Engine machine types or both must be legacy machine types. This
+ *  value must be present when `scaleTier` is set to `CUSTOM` and
  *  `parameter_server_count` is greater than zero.
  */
 @property(nonatomic, copy, nullable) NSString *parameterServerType;
@@ -3153,15 +3163,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Optional. The version of Python used in training. You must either specify
- *  this field or specify `masterConfig.imageUri`.
- *  The following Python versions are available:
- *  * Python '3.7' is available when `runtime_version` is set to '1.15' or
- *  later.
- *  * Python '3.5' is available when `runtime_version` is set to a version
- *  from '1.4' to '1.14'.
- *  * Python '2.7' is available when `runtime_version` is set to '1.15' or
- *  earlier.
- *  Read more about the Python versions available for [each runtime
+ *  this field or specify `masterConfig.imageUri`. The following Python versions
+ *  are available: * Python '3.7' is available when `runtime_version` is set to
+ *  '1.15' or later. * Python '3.5' is available when `runtime_version` is set
+ *  to a version from '1.4' to '1.14'. * Python '2.7' is available when
+ *  `runtime_version` is set to '1.15' or earlier. Read more about the Python
+ *  versions available for [each runtime
  *  version](/ml-engine/docs/runtime-version-list).
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
@@ -3174,8 +3181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Optional. The AI Platform runtime version to use for training. You must
- *  either specify this field or specify `masterConfig.imageUri`.
- *  For more information, see the [runtime version
+ *  either specify this field or specify `masterConfig.imageUri`. For more
+ *  information, see the [runtime version
  *  list](/ai-platform/training/docs/runtime-version-list) and learn [how to
  *  manage runtime versions](/ai-platform/training/docs/versioning).
  */
@@ -3188,38 +3195,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Basic
  *        A single worker instance. This tier is suitable for learning how to
- *        use
- *        Cloud ML, and for experimenting with new models using small datasets.
- *        (Value: "BASIC")
+ *        use Cloud ML, and for experimenting with new models using small
+ *        datasets. (Value: "BASIC")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicGpu
  *        A single worker instance [with a
  *        GPU](/ai-platform/training/docs/using-gpus). (Value: "BASIC_GPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_BasicTpu
- *        A single worker instance with a
- *        [Cloud TPU](/ml-engine/docs/tensorflow/using-tpus). (Value:
- *        "BASIC_TPU")
+ *        A single worker instance with a [Cloud
+ *        TPU](/ml-engine/docs/tensorflow/using-tpus). (Value: "BASIC_TPU")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Custom
  *        The CUSTOM tier is not a set tier, but rather enables you to use your
  *        own cluster specification. When you use this tier, set values to
- *        configure your processing cluster according to these guidelines:
- *        * You _must_ set `TrainingInput.masterType` to specify the type
- *        of machine to use for your master node. This is the only required
- *        setting.
- *        * You _may_ set `TrainingInput.workerCount` to specify the number of
- *        workers to use. If you specify one or more workers, you _must_ also
- *        set `TrainingInput.workerType` to specify the type of machine to use
- *        for your worker nodes.
- *        * You _may_ set `TrainingInput.parameterServerCount` to specify the
- *        number of parameter servers to use. If you specify one or more
- *        parameter servers, you _must_ also set
- *        `TrainingInput.parameterServerType` to specify the type of machine to
- *        use for your parameter servers.
- *        Note that all of your workers must use the same machine type, which
- *        can
- *        be different from your parameter server type and master type. Your
+ *        configure your processing cluster according to these guidelines: * You
+ *        _must_ set `TrainingInput.masterType` to specify the type of machine
+ *        to use for your master node. This is the only required setting. * You
+ *        _may_ set `TrainingInput.workerCount` to specify the number of workers
+ *        to use. If you specify one or more workers, you _must_ also set
+ *        `TrainingInput.workerType` to specify the type of machine to use for
+ *        your worker nodes. * You _may_ set
+ *        `TrainingInput.parameterServerCount` to specify the number of
+ *        parameter servers to use. If you specify one or more parameter
+ *        servers, you _must_ also set `TrainingInput.parameterServerType` to
+ *        specify the type of machine to use for your parameter servers. Note
+ *        that all of your workers must use the same machine type, which can be
+ *        different from your parameter server type and master type. Your
  *        parameter servers must likewise use the same machine type, which can
- *        be
- *        different from your worker type and master type. (Value: "CUSTOM")
+ *        be different from your worker type and master type. (Value: "CUSTOM")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput_ScaleTier_Premium1
  *        A large number of workers with many parameter servers. (Value:
  *        "PREMIUM_1")
@@ -3232,9 +3233,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling *scheduling;
 
 /**
- *  Optional. Specifies the service account for workload run-as account.
- *  Users submitting jobs must have act-as permission on this run-as account.
- *  If not specified, then CMLE P4SA will be used by default.
+ *  Optional. The email address of a service account to use when running the
+ *  training appplication. You must have the `iam.serviceAccounts.actAs`
+ *  permission for the specified service account. In addition, the AI Platform
+ *  Training Google-managed service account must have the
+ *  `roles/iam.serviceAccountAdmin` role for the specified service account.
+ *  [Learn more about configuring a service
+ *  account.](/ai-platform/training/docs/custom-service-account) If not
+ *  specified, the AI Platform Training Google-managed service account is used
+ *  by default.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -3251,24 +3258,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSNumber *useChiefInTfConfig;
 
 /**
- *  Optional. The configuration for workers.
- *  You should only set `workerConfig.acceleratorConfig` if `workerType` is set
- *  to a Compute Engine machine type. [Learn about restrictions on accelerator
- *  configurations for
+ *  Optional. The configuration for workers. You should only set
+ *  `workerConfig.acceleratorConfig` if `workerType` is set to a Compute Engine
+ *  machine type. [Learn about restrictions on accelerator configurations for
  *  training.](/ai-platform/training/docs/using-gpus#compute-engine-machine-types-with-gpu)
  *  Set `workerConfig.imageUri` only if you build a custom image for your
- *  worker. If `workerConfig.imageUri` has not been set, AI Platform uses
- *  the value of `masterConfig.imageUri`. Learn more about [configuring custom
+ *  worker. If `workerConfig.imageUri` has not been set, AI Platform uses the
+ *  value of `masterConfig.imageUri`. Learn more about [configuring custom
  *  containers](/ai-platform/training/docs/distributed-training-containers).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig *workerConfig;
 
 /**
  *  Optional. The number of worker replicas to use for the training job. Each
- *  replica in the cluster will be of the type specified in `worker_type`.
- *  This value can only be used when `scale_tier` is set to `CUSTOM`. If you
- *  set this value, you must also set `worker_type`.
- *  The default value is zero.
+ *  replica in the cluster will be of the type specified in `worker_type`. This
+ *  value can only be used when `scale_tier` is set to `CUSTOM`. If you set this
+ *  value, you must also set `worker_type`. The default value is zero.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3276,14 +3281,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Optional. Specifies the type of virtual machine to use for your training
- *  job's worker nodes.
- *  The supported values are the same as those described in the entry for
- *  `masterType`.
- *  This value must be consistent with the category of machine type that
- *  `masterType` uses. In other words, both must be Compute Engine machine
- *  types or both must be legacy machine types.
- *  If you use `cloud_tpu` for this value, see special instructions for
- *  [configuring a custom TPU
+ *  job's worker nodes. The supported values are the same as those described in
+ *  the entry for `masterType`. This value must be consistent with the category
+ *  of machine type that `masterType` uses. In other words, both must be Compute
+ *  Engine machine types or both must be legacy machine types. If you use
+ *  `cloud_tpu` for this value, see special instructions for [configuring a
+ *  custom TPU
  *  machine](/ml-engine/docs/tensorflow/using-tpus#configuring_a_custom_tpu_machine).
  *  This value must be present when `scaleTier` is set to `CUSTOM` and
  *  `workerCount` is greater than zero.
@@ -3299,14 +3302,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput : GTLRObject
 
 /**
- *  Details related to built-in algorithms jobs.
- *  Only set for built-in algorithms jobs.
+ *  Details related to built-in algorithms jobs. Only set for built-in
+ *  algorithms jobs.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1BuiltInAlgorithmOutput *builtInAlgorithmOutput;
 
 /**
- *  The number of hyperparameter tuning trials that completed successfully.
- *  Only set for hyperparameter tuning jobs.
+ *  The number of hyperparameter tuning trials that completed successfully. Only
+ *  set for hyperparameter tuning jobs.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3342,8 +3345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSNumber *isHyperparameterTuningJob;
 
 /**
- *  Results for individual Hyperparameter trials.
- *  Only set for hyperparameter tuning jobs.
+ *  Results for individual Hyperparameter trials. Only set for hyperparameter
+ *  tuning jobs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput *> *trials;
 
@@ -3368,15 +3371,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *finalMeasurement;
 
 /**
- *  Output only. A human readable string describing why the trial is
- *  infeasible. This should only be set if trial_infeasible is true.
+ *  Output only. A human readable string describing why the trial is infeasible.
+ *  This should only be set if trial_infeasible is true.
  */
 @property(nonatomic, copy, nullable) NSString *infeasibleReason;
 
 /**
- *  A list of measurements that are strictly lexicographically
- *  ordered by their induced tuples (steps, elapsed_time).
- *  These are used for early stopping computations.
+ *  A list of measurements that are strictly lexicographically ordered by their
+ *  induced tuples (steps, elapsed_time). These are used for early stopping
+ *  computations.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1Measurement *> *measurements;
 
@@ -3420,8 +3423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  A message representing a parameter to be tuned. Contains the name of
- *  the parameter and the suggested value to use for this trial.
+ *  A message representing a parameter to be tuned. Contains the name of the
+ *  parameter and the suggested value to use for this trial.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrialParameter : GTLRObject
 
@@ -3449,11 +3452,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Represents a version of the model.
- *  Each version is a trained model deployed in the cloud, ready to handle
- *  prediction requests. A model can have multiple versions. You can get
- *  information about all of the versions of a given model by calling
- *  projects.models.versions.list.
+ *  Represents a version of the model. Each version is a trained model deployed
+ *  in the cloud, ready to handle prediction requests. A model can have multiple
+ *  versions. You can get information about all of the versions of a given model
+ *  by calling projects.models.versions.list.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version : GTLRObject
 
@@ -3466,31 +3468,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig *acceleratorConfig;
 
 /**
- *  Automatically scale the number of nodes used to serve the model in
- *  response to increases and decreases in traffic. Care should be
- *  taken to ramp up traffic according to the model's ability to scale
- *  or you will start seeing increases in latency and 429 response codes.
- *  Note that you cannot use AutoScaling if your version uses
- *  [GPUs](#Version.FIELDS.accelerator_config). Instead, you must use specify
- *  `manual_scaling`.
+ *  Automatically scale the number of nodes used to serve the model in response
+ *  to increases and decreases in traffic. Care should be taken to ramp up
+ *  traffic according to the model's ability to scale or you will start seeing
+ *  increases in latency and 429 response codes. Note that you cannot use
+ *  AutoScaling if your version uses [GPUs](#Version.FIELDS.accelerator_config).
+ *  Instead, you must use specify `manual_scaling`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling *autoScaling;
+
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerSpec *container;
 
 /** Output only. The time the version was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Required. The Cloud Storage location of the trained model used to
- *  create the version. See the
- *  [guide to model
+ *  Required. The Cloud Storage location of the trained model used to create the
+ *  version. See the [guide to model
  *  deployment](/ml-engine/docs/tensorflow/deploying-models) for more
- *  information.
- *  When passing Version to
- *  projects.models.versions.create
- *  the model service uses the specified location as the source of the model.
- *  Once deployed, the model version is hosted by the prediction service, so
- *  this location is useful only as a historical record.
- *  The total number of model files can't exceed 1000.
+ *  information. When passing Version to projects.models.versions.create the
+ *  model service uses the specified location as the source of the model. Once
+ *  deployed, the model version is hosted by the prediction service, so this
+ *  location is useful only as a historical record. The total number of model
+ *  files can't exceed 1000.
  */
 @property(nonatomic, copy, nullable) NSString *deploymentUri;
 
@@ -3505,13 +3505,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a model from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform model updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `GetVersion`, and
- *  systems are expected to put that etag in the request to `UpdateVersion` to
- *  ensure that their change will be applied to the model as intended.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a model from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform model updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `GetVersion`, and systems are expected to put
+ *  that etag in the request to `UpdateVersion` to ensure that their change will
+ *  be applied to the model as intended.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3519,25 +3519,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Optional. Configures explainability features on the model's version.
- *  Some explanation features require additional metadata to be loaded
- *  as part of the model payload.
+ *  Optional. Configures explainability features on the model's version. Some
+ *  explanation features require additional metadata to be loaded as part of the
+ *  model payload.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig *explanationConfig;
 
 /**
- *  Optional. The machine learning framework AI Platform uses to train
- *  this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`,
- *  `XGBOOST`. If you do not specify a framework, AI Platform
- *  will analyze files in the deployment_uri to determine a framework. If you
- *  choose `SCIKIT_LEARN` or `XGBOOST`, you must also set the runtime version
- *  of the model to 1.4 or greater.
- *  Do **not** specify a framework if you're deploying a [custom
+ *  Optional. The machine learning framework AI Platform uses to train this
+ *  version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`,
+ *  `XGBOOST`. If you do not specify a framework, AI Platform will analyze files
+ *  in the deployment_uri to determine a framework. If you choose `SCIKIT_LEARN`
+ *  or `XGBOOST`, you must also set the runtime version of the model to 1.4 or
+ *  greater. Do **not** specify a framework if you're deploying a [custom
  *  prediction routine](/ml-engine/docs/tensorflow/custom-prediction-routines).
  *  If you specify a [Compute Engine (N1) machine
- *  type](/ml-engine/docs/machine-types-online-prediction) in the
- *  `machineType` field, you must specify `TENSORFLOW`
- *  for the framework.
+ *  type](/ml-engine/docs/machine-types-online-prediction) in the `machineType`
+ *  field, you must specify `TENSORFLOW` for the framework.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Framework_FrameworkUnspecified
@@ -3554,9 +3552,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Output only. If true, this version will be used to handle prediction
- *  requests that do not specify a version.
- *  You can change the default version by calling
- *  projects.methods.versions.setDefault.
+ *  requests that do not specify a version. You can change the default version
+ *  by calling projects.methods.versions.setDefault.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3565,9 +3562,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Optional. One or more labels that you can add, to organize your model
  *  versions. Each label is a key-value pair, where both the key and the value
- *  are arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *  are arbitrary strings that you supply. For more information, see the
+ *  documentation on using labels.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels *labels;
 
@@ -3577,140 +3573,103 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Optional. The type of machine on which to serve the model. Currently only
  *  applies to online prediction service. If this field is not specified, it
- *  defaults to `mls1-c1-m2`.
- *  Online prediction supports the following machine types:
- *  * `mls1-c1-m2`
- *  * `mls1-c4-m2`
- *  * `n1-standard-2`
- *  * `n1-standard-4`
- *  * `n1-standard-8`
- *  * `n1-standard-16`
- *  * `n1-standard-32`
- *  * `n1-highmem-2`
- *  * `n1-highmem-4`
- *  * `n1-highmem-8`
- *  * `n1-highmem-16`
- *  * `n1-highmem-32`
- *  * `n1-highcpu-2`
- *  * `n1-highcpu-4`
- *  * `n1-highcpu-8`
- *  * `n1-highcpu-16`
- *  * `n1-highcpu-32`
- *  `mls1-c1-m2` is generally available. All other machine types are available
- *  in beta. Learn more about the [differences between machine
+ *  defaults to `mls1-c1-m2`. Online prediction supports the following machine
+ *  types: * `mls1-c1-m2` * `mls1-c4-m2` * `n1-standard-2` * `n1-standard-4` *
+ *  `n1-standard-8` * `n1-standard-16` * `n1-standard-32` * `n1-highmem-2` *
+ *  `n1-highmem-4` * `n1-highmem-8` * `n1-highmem-16` * `n1-highmem-32` *
+ *  `n1-highcpu-2` * `n1-highcpu-4` * `n1-highcpu-8` * `n1-highcpu-16` *
+ *  `n1-highcpu-32` `mls1-c1-m2` is generally available. All other machine types
+ *  are available in beta. Learn more about the [differences between machine
  *  types](/ml-engine/docs/machine-types-online-prediction).
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
- *  Manually select the number of nodes to use for serving the
- *  model. You should generally use `auto_scaling` with an appropriate
- *  `min_nodes` instead, but this option is available if you want more
- *  predictable billing. Beware that latency and error rates will increase
- *  if the traffic exceeds that capability of the system to serve it based
- *  on the selected number of nodes.
+ *  Manually select the number of nodes to use for serving the model. You should
+ *  generally use `auto_scaling` with an appropriate `min_nodes` instead, but
+ *  this option is available if you want more predictable billing. Beware that
+ *  latency and error rates will increase if the traffic exceeds that capability
+ *  of the system to serve it based on the selected number of nodes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1ManualScaling *manualScaling;
 
 /**
- *  Required. The name specified for the version when it was created.
- *  The version name must be unique within the model it is created in.
+ *  Required. The name specified for the version when it was created. The
+ *  version name must be unique within the model it is created in.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Cloud Storage paths (`gs://…`) of packages for [custom
- *  prediction routines](/ml-engine/docs/tensorflow/custom-prediction-routines)
- *  or [scikit-learn pipelines with custom
+ *  Optional. Cloud Storage paths (`gs://…`) of packages for [custom prediction
+ *  routines](/ml-engine/docs/tensorflow/custom-prediction-routines) or
+ *  [scikit-learn pipelines with custom
  *  code](/ml-engine/docs/scikit/exporting-for-prediction#custom-pipeline-code).
  *  For a custom prediction routine, one of these packages must contain your
- *  Predictor class (see
- *  [`predictionClass`](#Version.FIELDS.prediction_class)). Additionally,
- *  include any dependencies used by your Predictor or scikit-learn pipeline
- *  uses that are not already included in your selected [runtime
- *  version](/ml-engine/docs/tensorflow/runtime-version-list).
- *  If you specify this field, you must also set
+ *  Predictor class (see [`predictionClass`](#Version.FIELDS.prediction_class)).
+ *  Additionally, include any dependencies used by your Predictor or
+ *  scikit-learn pipeline uses that are not already included in your selected
+ *  [runtime version](/ml-engine/docs/tensorflow/runtime-version-list). If you
+ *  specify this field, you must also set
  *  [`runtimeVersion`](#Version.FIELDS.runtime_version) to 1.4 or greater.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageUris;
 
 /**
- *  Optional. The fully qualified name
- *  (<var>module_name</var>.<var>class_name</var>) of a class that implements
- *  the Predictor interface described in this reference field. The module
- *  containing this class should be included in a package provided to the
- *  [`packageUris` field](#Version.FIELDS.package_uris).
- *  Specify this field if and only if you are deploying a [custom prediction
- *  routine (beta)](/ml-engine/docs/tensorflow/custom-prediction-routines).
- *  If you specify this field, you must set
+ *  Optional. The fully qualified name (module_name.class_name) of a class that
+ *  implements the Predictor interface described in this reference field. The
+ *  module containing this class should be included in a package provided to the
+ *  [`packageUris` field](#Version.FIELDS.package_uris). Specify this field if
+ *  and only if you are deploying a [custom prediction routine
+ *  (beta)](/ml-engine/docs/tensorflow/custom-prediction-routines). If you
+ *  specify this field, you must set
  *  [`runtimeVersion`](#Version.FIELDS.runtime_version) to 1.4 or greater and
- *  you must set `machineType` to a [legacy (MLS1)
- *  machine type](/ml-engine/docs/machine-types-online-prediction).
- *  The following code sample provides the Predictor interface:
- *  <pre style="max-width: 626px;">
- *  class Predictor(object):
- *  """Interface for constructing custom predictors."""
- *  def predict(self, instances, **kwargs):
- *  """Performs custom prediction.
- *  Instances are the decoded values from the request. They have already
- *  been deserialized from JSON.
- *  Args:
- *  instances: A list of prediction input instances.
- *  **kwargs: A dictionary of keyword args provided as additional
- *  fields on the predict request body.
- *  Returns:
- *  A list of outputs containing the prediction results. This list must
- *  be JSON serializable.
- *  """
- *  raise NotImplementedError()
- *  \@classmethod
- *  def from_path(cls, model_dir):
- *  """Creates an instance of Predictor using the given path.
- *  Loading of the predictor should be done in this method.
- *  Args:
- *  model_dir: The local directory that contains the exported model
- *  file along with any additional files uploaded when creating the
- *  version resource.
- *  Returns:
- *  An instance implementing this Predictor class.
- *  """
- *  raise NotImplementedError()
- *  </pre>
- *  Learn more about [the Predictor interface and custom prediction
+ *  you must set `machineType` to a [legacy (MLS1) machine
+ *  type](/ml-engine/docs/machine-types-online-prediction). The following code
+ *  sample provides the Predictor interface: class Predictor(object):
+ *  """Interface for constructing custom predictors.""" def predict(self,
+ *  instances, **kwargs): """Performs custom prediction. Instances are the
+ *  decoded values from the request. They have already been deserialized from
+ *  JSON. Args: instances: A list of prediction input instances. **kwargs: A
+ *  dictionary of keyword args provided as additional fields on the predict
+ *  request body. Returns: A list of outputs containing the prediction results.
+ *  This list must be JSON serializable. """ raise NotImplementedError()
+ *  \@classmethod def from_path(cls, model_dir): """Creates an instance of
+ *  Predictor using the given path. Loading of the predictor should be done in
+ *  this method. Args: model_dir: The local directory that contains the exported
+ *  model file along with any additional files uploaded when creating the
+ *  version resource. Returns: An instance implementing this Predictor class.
+ *  """ raise NotImplementedError() Learn more about [the Predictor interface
+ *  and custom prediction
  *  routines](/ml-engine/docs/tensorflow/custom-prediction-routines).
  */
 @property(nonatomic, copy, nullable) NSString *predictionClass;
 
 /**
- *  Required. The version of Python used in prediction.
- *  The following Python versions are available:
- *  * Python '3.7' is available when `runtime_version` is set to '1.15' or
- *  later.
- *  * Python '3.5' is available when `runtime_version` is set to a version
- *  from '1.4' to '1.14'.
- *  * Python '2.7' is available when `runtime_version` is set to '1.15' or
- *  earlier.
- *  Read more about the Python versions available for [each runtime
+ *  Required. The version of Python used in prediction. The following Python
+ *  versions are available: * Python '3.7' is available when `runtime_version`
+ *  is set to '1.15' or later. * Python '3.5' is available when
+ *  `runtime_version` is set to a version from '1.4' to '1.14'. * Python '2.7'
+ *  is available when `runtime_version` is set to '1.15' or earlier. Read more
+ *  about the Python versions available for [each runtime
  *  version](/ml-engine/docs/runtime-version-list).
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 
 /**
- *  Optional. *Only* specify this field in a
- *  projects.models.versions.patch
- *  request. Specifying it in a
- *  projects.models.versions.create
- *  request has no effect.
- *  Configures the request-response pair logging on predictions from this
- *  Version.
+ *  Optional. *Only* specify this field in a projects.models.versions.patch
+ *  request. Specifying it in a projects.models.versions.create request has no
+ *  effect. Configures the request-response pair logging on predictions from
+ *  this Version.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1RequestLoggingConfig *requestLoggingConfig;
 
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1RouteMap *routes;
+
 /**
- *  Required. The AI Platform runtime version to use for this deployment.
- *  For more information, see the
- *  [runtime version list](/ml-engine/docs/runtime-version-list) and
- *  [how to manage runtime versions](/ml-engine/docs/versioning).
+ *  Required. The AI Platform runtime version to use for this deployment. For
+ *  more information, see the [runtime version
+ *  list](/ml-engine/docs/runtime-version-list) and [how to manage runtime
+ *  versions](/ml-engine/docs/versioning).
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
 
@@ -3730,9 +3689,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        requests will fail if a version is in the DELETING state. (Value:
  *        "DELETING")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Failed
- *        The version failed to be created, possibly cancelled.
- *        `error_message` should contain the details of the failure. (Value:
- *        "FAILED")
+ *        The version failed to be created, possibly cancelled. `error_message`
+ *        should contain the details of the failure. (Value: "FAILED")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Ready
  *        The version is ready for prediction. (Value: "READY")
  *    @arg @c kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_State_Unknown
@@ -3750,9 +3708,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Optional. One or more labels that you can add, to organize your model
  *  versions. Each label is a key-value pair, where both the key and the value
- *  are arbitrary strings that you supply.
- *  For more information, see the documentation on
- *  <a href="/ml-engine/docs/tensorflow/resource-labels">using labels</a>.
+ *  are arbitrary strings that you supply. For more information, see the
+ *  documentation on using labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3764,17 +3721,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Attributes credit by computing the XRAI taking advantage
- *  of the model's fully differentiable structure. Refer to this paper for
- *  more details: https://arxiv.org/abs/1906.02825
- *  Currently only implemented for models with natural image inputs.
+ *  Attributes credit by computing the XRAI taking advantage of the model's
+ *  fully differentiable structure. Refer to this paper for more details:
+ *  https://arxiv.org/abs/1906.02825 Currently only implemented for models with
+ *  natural image inputs.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1XraiAttribution : GTLRObject
 
 /**
- *  Number of steps for approximating the path integral.
- *  A good value to start is 50 and gradually increase until the
- *  sum to diff property is met within the desired error range.
+ *  Number of steps for approximating the path integral. A good value to start
+ *  is 50 and gradually increase until the sum to diff property is met within
+ *  the desired error range.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3784,50 +3741,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  },
- *  {
- *  "log_type": "ADMIN_READ"
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ"
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -3838,9 +3764,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig *> *auditLogConfigs;
 
 /**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -3848,30 +3774,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 
 /**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -3899,56 +3812,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleTypeExpr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -3957,66 +3865,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1Policy : GTLRObject
 
@@ -4025,23 +3901,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleIamV1Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -4049,24 +3925,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -4083,17 +3955,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleIamV1Policy *policy;
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
- *  following default mask is used:
- *  `paths: "bindings, etag"`
+ *  following default mask is used: `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -4109,9 +3979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -4124,8 +3993,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleIamV1TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -4163,8 +4031,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @interface GTLRCloudMachineLearningEngine_GoogleLongrunningOperation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -4176,16 +4044,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleLongrunningOperation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4194,10 +4062,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleLongrunningOperation_Response *response;
 
@@ -4206,8 +4073,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -4224,10 +4091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4241,11 +4107,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleProtobufEmpty : GTLRObject
 @end
@@ -4255,9 +4119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudMachineLearningEngine_GoogleRpcStatus : GTLRObject
 
@@ -4299,27 +4163,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleTypeExpr : GTLRObject
 
@@ -4344,9 +4201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 

@@ -54,17 +54,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Searches Data Catalog for multiple resources like entries, tags that
- *  match a query.
- *  This is a custom method
+ *  Searches Data Catalog for multiple resources like entries, tags that match a
+ *  query. This is a custom method
  *  (https://cloud.google.com/apis/design/custom_methods) and does not return
- *  the complete resource, only the resource identifier and high level
- *  fields. Clients can subsequentally call `Get` methods.
- *  Note that Data Catalog search queries do not guarantee full recall. Query
- *  results that match your query may not be returned, even in subsequent
- *  result pages. Also note that results returned (and not returned) can vary
- *  across repeated search queries.
- *  See [Data Catalog Search
+ *  the complete resource, only the resource identifier and high level fields.
+ *  Clients can subsequentally call `Get` methods. Note that Data Catalog search
+ *  queries do not guarantee full recall. Query results that match your query
+ *  may not be returned, even in subsequent result pages. Also note that results
+ *  returned (and not returned) can vary across repeated search queries. See
+ *  [Data Catalog Search
  *  Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
  *  for more information.
  *
@@ -81,17 +79,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResponse.
  *
- *  Searches Data Catalog for multiple resources like entries, tags that
- *  match a query.
- *  This is a custom method
+ *  Searches Data Catalog for multiple resources like entries, tags that match a
+ *  query. This is a custom method
  *  (https://cloud.google.com/apis/design/custom_methods) and does not return
- *  the complete resource, only the resource identifier and high level
- *  fields. Clients can subsequentally call `Get` methods.
- *  Note that Data Catalog search queries do not guarantee full recall. Query
- *  results that match your query may not be returned, even in subsequent
- *  result pages. Also note that results returned (and not returned) can vary
- *  across repeated search queries.
- *  See [Data Catalog Search
+ *  the complete resource, only the resource identifier and high level fields.
+ *  Clients can subsequentally call `Get` methods. Note that Data Catalog search
+ *  queries do not guarantee full recall. Query results that match your query
+ *  may not be returned, even in subsequent result pages. Also note that results
+ *  returned (and not returned) can vary across repeated search queries. See
+ *  [Data Catalog Search
  *  Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
  *  for more information.
  *
@@ -106,9 +102,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get an entry by target resource name. This method allows clients to use
- *  the resource name from the source Google Cloud Platform service to get the
- *  Data Catalog Entry.
+ *  Get an entry by target resource name. This method allows clients to use the
+ *  resource name from the source Google Cloud Platform service to get the Data
+ *  Catalog Entry.
  *
  *  Method: datacatalog.entries.lookup
  *
@@ -120,26 +116,22 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForEntriesLookup]
 
 /**
- *  The full name of the Google Cloud Platform resource the Data Catalog
- *  entry represents. See:
- *  https://cloud.google.com/apis/design/resource_names#full_resource_name.
- *  Full names are case-sensitive.
- *  Examples:
- *  *
+ *  The full name of the Google Cloud Platform resource the Data Catalog entry
+ *  represents. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name. Full
+ *  names are case-sensitive. Examples: *
  *  //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId
  *  * //pubsub.googleapis.com/projects/projectId/topics/topicId
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
 
 /**
- *  The SQL name of the entry. SQL names are case-sensitive.
- *  Examples:
- *  * `pubsub.project_id.topic_id`
- *  * ``pubsub.project_id.`topic.id.with.dots` ``
- *  * `bigquery.table.project_id.dataset_id.table_id`
- *  * `bigquery.dataset.project_id.dataset_id`
- *  * `datacatalog.entry.project_id.location_id.entry_group_id.entry_id`
- *  `*_id`s shoud satisfy the standard SQL rules for identifiers.
+ *  The SQL name of the entry. SQL names are case-sensitive. Examples: *
+ *  `pubsub.project_id.topic_id` * ``pubsub.project_id.`topic.id.with.dots` `` *
+ *  `bigquery.table.project_id.dataset_id.table_id` *
+ *  `bigquery.dataset.project_id.dataset_id` *
+ *  `datacatalog.entry.project_id.location_id.entry_group_id.entry_id` `*_id`s
+ *  shoud satisfy the standard SQL rules for identifiers.
  *  https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical.
  */
 @property(nonatomic, copy, nullable) NSString *sqlResource;
@@ -147,9 +139,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.
  *
- *  Get an entry by target resource name. This method allows clients to use
- *  the resource name from the source Google Cloud Platform service to get the
- *  Data Catalog Entry.
+ *  Get an entry by target resource name. This method allows clients to use the
+ *  resource name from the source Google Cloud Platform service to get the Data
+ *  Catalog Entry.
  *
  *  @return GTLRDataCatalogQuery_EntriesLookup
  */
@@ -159,9 +151,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A maximum of 10,000 entry groups may be created per organization across all
- *  locations.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `parent` parameter (see [Data Catalog Resource Project]
+ *  locations. Users should enable the Data Catalog API in the project
+ *  identified by the `parent` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -175,17 +166,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsCreateWithObject:parent:]
 
 /**
- *  Required. The id of the entry group to create.
- *  The id must begin with a letter or underscore, contain only English
- *  letters, numbers and underscores, and be at most 64 characters.
+ *  Required. The id of the entry group to create. The id must begin with a
+ *  letter or underscore, contain only English letters, numbers and underscores,
+ *  and be at most 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *entryGroupId;
 
 /**
- *  Required. The name of the project this entry group is in. Example:
- *  * projects/{project_id}/locations/{location}
- *  Note that this EntryGroup and its child resources may not actually be
- *  stored in the location in this name.
+ *  Required. The name of the project this entry group is in. Example: *
+ *  projects/{project_id}/locations/{location} Note that this EntryGroup and its
+ *  child resources may not actually be stored in the location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -193,19 +183,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup.
  *
  *  A maximum of 10,000 entry groups may be created per organization across all
- *  locations.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `parent` parameter (see [Data Catalog Resource Project]
+ *  locations. Users should enable the Data Catalog API in the project
+ *  identified by the `parent` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup
  *    to include in the query.
  *  @param parent Required. The name of the project this entry group is in.
- *    Example:
- *    * projects/{project_id}/locations/{location}
- *    Note that this EntryGroup and its child resources may not actually be
- *    stored in the location in this name.
+ *    Example: * projects/{project_id}/locations/{location} Note that this
+ *    EntryGroup and its child resources may not actually be stored in the
+ *    location in this name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsCreate
  */
@@ -216,8 +204,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes an EntryGroup. Only entry groups that do not contain entries can be
- *  deleted. Users should enable the Data Catalog API in the project
- *  identified by the `name` parameter (see [Data Catalog Resource Project]
+ *  deleted. Users should enable the Data Catalog API in the project identified
+ *  by the `name` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -243,8 +231,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
  *  Deletes an EntryGroup. Only entry groups that do not contain entries can be
- *  deleted. Users should enable the Data Catalog API in the project
- *  identified by the `name` parameter (see [Data Catalog Resource Project]
+ *  deleted. Users should enable the Data Catalog API in the project identified
+ *  by the `name` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -259,12 +247,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates an entry. Only entries of 'FILESET' type or user-specified type can
- *  be created.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `parent` parameter (see [Data Catalog Resource Project]
+ *  be created. Users should enable the Data Catalog API in the project
+ *  identified by the `parent` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
- *  more information).
- *  A maximum of 100,000 entries may be created per entry group.
+ *  more information). A maximum of 100,000 entries may be created per entry
+ *  group.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.create
  *
@@ -279,10 +266,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *entryId;
 
 /**
- *  Required. The name of the entry group this entry is in. Example:
- *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
- *  Note that this Entry and its child resources may not actually be stored in
- *  the location in this name.
+ *  Required. The name of the entry group this entry is in. Example: *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note
+ *  that this Entry and its child resources may not actually be stored in the
+ *  location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -290,18 +277,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.
  *
  *  Creates an entry. Only entries of 'FILESET' type or user-specified type can
- *  be created.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `parent` parameter (see [Data Catalog Resource Project]
+ *  be created. Users should enable the Data Catalog API in the project
+ *  identified by the `parent` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
- *  more information).
- *  A maximum of 100,000 entries may be created per entry group.
+ *  more information). A maximum of 100,000 entries may be created per entry
+ *  group.
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry to
  *    include in the query.
  *  @param parent Required. The name of the entry group this entry is in.
- *    Example:
- *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *    Example: *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
  *    Note that this Entry and its child resources may not actually be stored in
  *    the location in this name.
  *
@@ -313,11 +299,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes an existing entry. Only entries created through
- *  CreateEntry
- *  method can be deleted.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `name` parameter (see [Data Catalog Resource Project]
+ *  Deletes an existing entry. Only entries created through CreateEntry method
+ *  can be deleted. Users should enable the Data Catalog API in the project
+ *  identified by the `name` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -331,8 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesDeleteWithname:]
 
 /**
- *  Required. The name of the entry. Example:
- *  *
+ *  Required. The name of the entry. Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -340,16 +323,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
- *  Deletes an existing entry. Only entries created through
- *  CreateEntry
- *  method can be deleted.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `name` parameter (see [Data Catalog Resource Project]
+ *  Deletes an existing entry. Only entries created through CreateEntry method
+ *  can be deleted. Users should enable the Data Catalog API in the project
+ *  identified by the `name` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
- *  @param name Required. The name of the entry. Example:
- *    *
+ *  @param name Required. The name of the entry. Example: *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesDelete
@@ -371,8 +351,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesGetWithname:]
 
 /**
- *  Required. The name of the entry. Example:
- *  *
+ *  Required. The name of the entry. Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -382,8 +361,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets an entry.
  *
- *  @param name Required. The name of the entry. Example:
- *    *
+ *  @param name Required. The name of the entry. Example: *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGet
@@ -393,20 +371,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. A `NOT_FOUND` error
- *  is returned if the resource does not exist. An empty policy is returned
- *  if the resource exists but does not have a policy set on it.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag
- *  templates.
- *  - `datacatalog.entries.getIamPolicy` to get policies on entries.
- *  - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+ *  Gets the access control policy for a resource. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. An empty policy is returned if the
+ *  resource exists but does not have a policy set on it. Supported resources
+ *  are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
+ *  used to manage policies for BigQuery, Pub/Sub and any external Google Cloud
+ *  Platform resources synced to Data Catalog. Callers must have following
+ *  Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get
+ *  policies on tag templates. - `datacatalog.entries.getIamPolicy` to get
+ *  policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get
+ *  policies on entry groups.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.getIamPolicy
  *
@@ -418,34 +392,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataCatalog_Policy.
  *
- *  Gets the access control policy for a resource. A `NOT_FOUND` error
- *  is returned if the resource does not exist. An empty policy is returned
- *  if the resource exists but does not have a policy set on it.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag
- *  templates.
- *  - `datacatalog.entries.getIamPolicy` to get policies on entries.
- *  - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+ *  Gets the access control policy for a resource. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. An empty policy is returned if the
+ *  resource exists but does not have a policy set on it. Supported resources
+ *  are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
+ *  used to manage policies for BigQuery, Pub/Sub and any external Google Cloud
+ *  Platform resources synced to Data Catalog. Callers must have following
+ *  Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get
+ *  policies on tag templates. - `datacatalog.entries.getIamPolicy` to get
+ *  policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get
+ *  policies on entry groups.
  *
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGetIamPolicy
  */
@@ -480,16 +450,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the entry group that contains the entries, which can
- *  be provided in URL format. Example:
- *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *  be provided in URL format. Example: *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The fields to return for each Entry. If not set or empty, all
- *  fields are returned.
- *  For example, setting read_mask to contain only one path "name" will cause
- *  ListEntries to return a list of Entries with only "name" field.
+ *  The fields to return for each Entry. If not set or empty, all fields are
+ *  returned. For example, setting read_mask to contain only one path "name"
+ *  will cause ListEntries to return a list of Entries with only "name" field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -502,9 +471,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists entries.
  *
  *  @param parent Required. The name of the entry group that contains the
- *    entries, which can
- *    be provided in URL format. Example:
- *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *    entries, which can be provided in URL format. Example: *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList
  *
@@ -517,9 +485,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates an existing entry.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `entry.name` parameter (see [Data Catalog Resource Project]
+ *  Updates an existing entry. Users should enable the Data Catalog API in the
+ *  project identified by the `entry.name` parameter (see [Data Catalog Resource
+ *  Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -533,8 +501,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesPatchWithObject:name:]
 
 /**
- *  The Data Catalog resource name of the entry in URL format. Example:
- *  *
+ *  The Data Catalog resource name of the entry in URL format. Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *  Note that this Entry and its child resources may not actually be stored in
  *  the location in this name.
@@ -542,25 +509,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The fields to update on the entry. If absent or empty, all modifiable
- *  fields are updated.
- *  The following fields are modifiable:
- *  * For entries with type `DATA_STREAM`:
- *  * `schema`
- *  * For entries with type `FILESET`
- *  * `schema`
- *  * `display_name`
- *  * `description`
- *  * `gcs_fileset_spec`
- *  * `gcs_fileset_spec.file_patterns`
- *  * For entries with `user_specified_type`
- *  * `schema`
- *  * `display_name`
- *  * `description`
- *  * user_specified_type
- *  * user_specified_system
- *  * linked_resource
- *  * source_system_timestamps
+ *  The fields to update on the entry. If absent or empty, all modifiable fields
+ *  are updated. The following fields are modifiable: * For entries with type
+ *  `DATA_STREAM`: * `schema` * For entries with type `FILESET` * `schema` *
+ *  `display_name` * `description` * `gcs_fileset_spec` *
+ *  `gcs_fileset_spec.file_patterns` * For entries with `user_specified_type` *
+ *  `schema` * `display_name` * `description` * user_specified_type *
+ *  user_specified_system * linked_resource * source_system_timestamps
  *
  *  String format is a comma-separated list of fields.
  */
@@ -569,17 +524,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.
  *
- *  Updates an existing entry.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `entry.name` parameter (see [Data Catalog Resource Project]
+ *  Updates an existing entry. Users should enable the Data Catalog API in the
+ *  project identified by the `entry.name` parameter (see [Data Catalog Resource
+ *  Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry to
  *    include in the query.
  *  @param name The Data Catalog resource name of the entry in URL format.
- *    Example:
- *    *
+ *    Example: *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *    Note that this Entry and its child resources may not actually be stored in
  *    the location in this name.
@@ -592,11 +546,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a tag on an Entry.
- *  Note: The project identified by the `parent` parameter for the
+ *  Creates a tag on an Entry. Note: The project identified by the `parent`
+ *  parameter for the
  *  [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
- *  and the
- *  [tag
+ *  and the [tag
  *  template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
  *  used to create the tag must be from the same organization.
  *
@@ -611,32 +564,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the resource to attach this tag to. Tags can be
- *  attached to
- *  Entries. Example:
- *  *
+ *  attached to Entries. Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
- *  Note that this Tag and its child resources may not actually be stored in
- *  the location in this name.
+ *  Note that this Tag and its child resources may not actually be stored in the
+ *  location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag.
  *
- *  Creates a tag on an Entry.
- *  Note: The project identified by the `parent` parameter for the
+ *  Creates a tag on an Entry. Note: The project identified by the `parent`
+ *  parameter for the
  *  [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
- *  and the
- *  [tag
+ *  and the [tag
  *  template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
  *  used to create the tag must be from the same organization.
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag to
  *    include in the query.
  *  @param parent Required. The name of the resource to attach this tag to. Tags
- *    can be attached to
- *    Entries. Example:
- *    *
+ *    can be attached to Entries. Example: *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *    Note that this Tag and its child resources may not actually be stored in
  *    the location in this name.
@@ -661,8 +609,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesTagsDeleteWithname:]
 
 /**
- *  Required. The name of the tag to delete. Example:
- *  *
+ *  Required. The name of the tag to delete. Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -672,8 +619,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a tag.
  *
- *  @param name Required. The name of the tag to delete. Example:
- *    *
+ *  @param name Required. The name of the tag to delete. Example: *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsDelete
@@ -705,12 +651,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the Data Catalog resource to list the tags of. The
- *  resource
- *  could be an Entry or an
- *  EntryGroup.
- *  Examples:
- *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
- *  *
+ *  resource could be an Entry or an EntryGroup. Examples: *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -721,12 +663,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the tags on an Entry.
  *
  *  @param parent Required. The name of the Data Catalog resource to list the
- *    tags of. The resource
- *    could be an Entry or an
- *    EntryGroup.
- *    Examples:
- *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
- *    *
+ *    tags of. The resource could be an Entry or an EntryGroup. Examples: *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsList
@@ -752,11 +690,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesTagsPatchWithObject:name:]
 
 /**
- *  The resource name of the tag in URL format. Example:
- *  *
+ *  The resource name of the tag in URL format. Example: *
  *  projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
- *  where `tag_id` is a system-generated identifier.
- *  Note that this Tag may not actually be stored in the location in this name.
+ *  where `tag_id` is a system-generated identifier. Note that this Tag may not
+ *  actually be stored in the location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -775,12 +712,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag to
  *    include in the query.
- *  @param name The resource name of the tag in URL format. Example:
- *    *
+ *  @param name The resource name of the tag in URL format. Example: *
  *    projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
- *    where `tag_id` is a system-generated identifier.
- *    Note that this Tag may not actually be stored in the location in this
- *    name.
+ *    where `tag_id` is a system-generated identifier. Note that this Tag may
+ *    not actually be stored in the location in this name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsPatch
  */
@@ -790,17 +725,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the caller's permissions on a resource.
- *  If the resource does not exist, an empty set of permissions is returned
- *  (We don't return a `NOT_FOUND` error).
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  A caller is not required to have Google IAM permission to make this
- *  request.
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (We don't return a
+ *  `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. -
+ *  Entry groups. Note, this method cannot be used to manage policies for
+ *  BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+ *  Data Catalog. A caller is not required to have Google IAM permission to make
+ *  this request.
  *
  *  Method: datacatalog.projects.locations.entryGroups.entries.testIamPermissions
  *
@@ -812,31 +743,27 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataCatalog_TestIamPermissionsResponse.
  *
- *  Returns the caller's permissions on a resource.
- *  If the resource does not exist, an empty set of permissions is returned
- *  (We don't return a `NOT_FOUND` error).
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  A caller is not required to have Google IAM permission to make this
- *  request.
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (We don't return a
+ *  `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. -
+ *  Entry groups. Note, this method cannot be used to manage policies for
+ *  BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+ *  Data Catalog. A caller is not required to have Google IAM permission to make
+ *  this request.
  *
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTestIamPermissions
  */
@@ -885,20 +812,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. A `NOT_FOUND` error
- *  is returned if the resource does not exist. An empty policy is returned
- *  if the resource exists but does not have a policy set on it.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag
- *  templates.
- *  - `datacatalog.entries.getIamPolicy` to get policies on entries.
- *  - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+ *  Gets the access control policy for a resource. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. An empty policy is returned if the
+ *  resource exists but does not have a policy set on it. Supported resources
+ *  are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
+ *  used to manage policies for BigQuery, Pub/Sub and any external Google Cloud
+ *  Platform resources synced to Data Catalog. Callers must have following
+ *  Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get
+ *  policies on tag templates. - `datacatalog.entries.getIamPolicy` to get
+ *  policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get
+ *  policies on entry groups.
  *
  *  Method: datacatalog.projects.locations.entryGroups.getIamPolicy
  *
@@ -910,34 +833,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataCatalog_Policy.
  *
- *  Gets the access control policy for a resource. A `NOT_FOUND` error
- *  is returned if the resource does not exist. An empty policy is returned
- *  if the resource exists but does not have a policy set on it.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag
- *  templates.
- *  - `datacatalog.entries.getIamPolicy` to get policies on entries.
- *  - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+ *  Gets the access control policy for a resource. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. An empty policy is returned if the
+ *  resource exists but does not have a policy set on it. Supported resources
+ *  are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
+ *  used to manage policies for BigQuery, Pub/Sub and any external Google Cloud
+ *  Platform resources synced to Data Catalog. Callers must have following
+ *  Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get
+ *  policies on tag templates. - `datacatalog.entries.getIamPolicy` to get
+ *  policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get
+ *  policies on entry groups.
  *
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGetIamPolicy
  */
@@ -960,23 +879,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of items to return. Default is 10. Max limit is
- *  1000.
- *  Throws an invalid argument for `page_size > 1000`.
+ *  1000. Throws an invalid argument for `page_size > 1000`.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. Token that specifies which page is requested. If empty, the first
- *  page is
- *  returned.
+ *  page is returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The name of the location that contains the entry groups, which can
- *  be
- *  provided in URL format. Example:
- *  * projects/{project_id}/locations/{location}
+ *  be provided in URL format. Example: *
+ *  projects/{project_id}/locations/{location}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -987,9 +903,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists entry groups.
  *
  *  @param parent Required. The name of the location that contains the entry
- *    groups, which can be
- *    provided in URL format. Example:
- *    * projects/{project_id}/locations/{location}
+ *    groups, which can be provided in URL format. Example: *
+ *    projects/{project_id}/locations/{location}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList
  *
@@ -1018,10 +933,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsPatchWithObject:name:]
 
 /**
- *  The resource name of the entry group in URL format. Example:
- *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
- *  Note that this EntryGroup and its child resources may not actually be
- *  stored in the location in this name.
+ *  The resource name of the entry group in URL format. Example: *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note
+ *  that this EntryGroup and its child resources may not actually be stored in
+ *  the location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1044,8 +959,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup
  *    to include in the query.
- *  @param name The resource name of the entry group in URL format. Example:
- *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
+ *  @param name The resource name of the entry group in URL format. Example: *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
  *    Note that this EntryGroup and its child resources may not actually be
  *    stored in the location in this name.
  *
@@ -1057,19 +972,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the access control policy for a resource. Replaces any existing
- *  policy.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag
- *  templates.
- *  - `datacatalog.entries.setIamPolicy` to set policies on entries.
- *  - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
+ *  Sets the access control policy for a resource. Replaces any existing policy.
+ *  Supported resources are: - Tag templates. - Entries. - Entry groups. Note,
+ *  this method cannot be used to manage policies for BigQuery, Pub/Sub and any
+ *  external Google Cloud Platform resources synced to Data Catalog. Callers
+ *  must have following Google IAM permission -
+ *  `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. -
+ *  `datacatalog.entries.setIamPolicy` to set policies on entries. -
+ *  `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
  *
  *  Method: datacatalog.projects.locations.entryGroups.setIamPolicy
  *
@@ -1081,33 +991,28 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataCatalog_Policy.
  *
- *  Sets the access control policy for a resource. Replaces any existing
- *  policy.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag
- *  templates.
- *  - `datacatalog.entries.setIamPolicy` to set policies on entries.
- *  - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
+ *  Sets the access control policy for a resource. Replaces any existing policy.
+ *  Supported resources are: - Tag templates. - Entries. - Entry groups. Note,
+ *  this method cannot be used to manage policies for BigQuery, Pub/Sub and any
+ *  external Google Cloud Platform resources synced to Data Catalog. Callers
+ *  must have following Google IAM permission -
+ *  `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. -
+ *  `datacatalog.entries.setIamPolicy` to set policies on entries. -
+ *  `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
  *
  *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsSetIamPolicy
  */
@@ -1117,11 +1022,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a tag on an Entry.
- *  Note: The project identified by the `parent` parameter for the
+ *  Creates a tag on an Entry. Note: The project identified by the `parent`
+ *  parameter for the
  *  [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
- *  and the
- *  [tag
+ *  and the [tag
  *  template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
  *  used to create the tag must be from the same organization.
  *
@@ -1136,32 +1040,27 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the resource to attach this tag to. Tags can be
- *  attached to
- *  Entries. Example:
- *  *
+ *  attached to Entries. Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
- *  Note that this Tag and its child resources may not actually be stored in
- *  the location in this name.
+ *  Note that this Tag and its child resources may not actually be stored in the
+ *  location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag.
  *
- *  Creates a tag on an Entry.
- *  Note: The project identified by the `parent` parameter for the
+ *  Creates a tag on an Entry. Note: The project identified by the `parent`
+ *  parameter for the
  *  [tag](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.entryGroups.entries.tags/create#path-parameters)
- *  and the
- *  [tag
+ *  and the [tag
  *  template](https://cloud.google.com/data-catalog/docs/reference/rest/v1beta1/projects.locations.tagTemplates/create#path-parameters)
  *  used to create the tag must be from the same organization.
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag to
  *    include in the query.
  *  @param parent Required. The name of the resource to attach this tag to. Tags
- *    can be attached to
- *    Entries. Example:
- *    *
+ *    can be attached to Entries. Example: *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *    Note that this Tag and its child resources may not actually be stored in
  *    the location in this name.
@@ -1186,8 +1085,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsDeleteWithname:]
 
 /**
- *  Required. The name of the tag to delete. Example:
- *  *
+ *  Required. The name of the tag to delete. Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1197,8 +1095,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a tag.
  *
- *  @param name Required. The name of the tag to delete. Example:
- *    *
+ *  @param name Required. The name of the tag to delete. Example: *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsDelete
@@ -1230,12 +1127,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the Data Catalog resource to list the tags of. The
- *  resource
- *  could be an Entry or an
- *  EntryGroup.
- *  Examples:
- *  * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
- *  *
+ *  resource could be an Entry or an EntryGroup. Examples: *
+ *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1246,12 +1139,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the tags on an Entry.
  *
  *  @param parent Required. The name of the Data Catalog resource to list the
- *    tags of. The resource
- *    could be an Entry or an
- *    EntryGroup.
- *    Examples:
- *    * projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}
- *    *
+ *    tags of. The resource could be an Entry or an EntryGroup. Examples: *
+ *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsList
@@ -1277,11 +1166,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsPatchWithObject:name:]
 
 /**
- *  The resource name of the tag in URL format. Example:
- *  *
+ *  The resource name of the tag in URL format. Example: *
  *  projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
- *  where `tag_id` is a system-generated identifier.
- *  Note that this Tag may not actually be stored in the location in this name.
+ *  where `tag_id` is a system-generated identifier. Note that this Tag may not
+ *  actually be stored in the location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1300,12 +1188,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag to
  *    include in the query.
- *  @param name The resource name of the tag in URL format. Example:
- *    *
+ *  @param name The resource name of the tag in URL format. Example: *
  *    projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
- *    where `tag_id` is a system-generated identifier.
- *    Note that this Tag may not actually be stored in the location in this
- *    name.
+ *    where `tag_id` is a system-generated identifier. Note that this Tag may
+ *    not actually be stored in the location in this name.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch
  */
@@ -1315,17 +1201,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the caller's permissions on a resource.
- *  If the resource does not exist, an empty set of permissions is returned
- *  (We don't return a `NOT_FOUND` error).
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  A caller is not required to have Google IAM permission to make this
- *  request.
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (We don't return a
+ *  `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. -
+ *  Entry groups. Note, this method cannot be used to manage policies for
+ *  BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+ *  Data Catalog. A caller is not required to have Google IAM permission to make
+ *  this request.
  *
  *  Method: datacatalog.projects.locations.entryGroups.testIamPermissions
  *
@@ -1337,31 +1219,27 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataCatalog_TestIamPermissionsResponse.
  *
- *  Returns the caller's permissions on a resource.
- *  If the resource does not exist, an empty set of permissions is returned
- *  (We don't return a `NOT_FOUND` error).
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  A caller is not required to have Google IAM permission to make this
- *  request.
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (We don't return a
+ *  `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. -
+ *  Entry groups. Note, this method cannot be used to manage policies for
+ *  BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+ *  Data Catalog. A caller is not required to have Google IAM permission to make
+ *  this request.
  *
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTestIamPermissions
  */
@@ -1371,9 +1249,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a tag template. The user should enable the Data Catalog API in
- *  the project identified by the `parent` parameter (see [Data Catalog
- *  Resource
+ *  Creates a tag template. The user should enable the Data Catalog API in the
+ *  project identified by the `parent` parameter (see [Data Catalog Resource
  *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
  *  for more information).
  *
@@ -1389,8 +1266,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the project and the template location
  *  [region](https://cloud.google.com/data-catalog/docs/concepts/regions.
- *  Example:
- *  * projects/{project_id}/locations/us-central1
+ *  Example: * projects/{project_id}/locations/us-central1
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1400,9 +1276,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate.
  *
- *  Creates a tag template. The user should enable the Data Catalog API in
- *  the project identified by the `parent` parameter (see [Data Catalog
- *  Resource
+ *  Creates a tag template. The user should enable the Data Catalog API in the
+ *  project identified by the `parent` parameter (see [Data Catalog Resource
  *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
  *  for more information).
  *
@@ -1411,8 +1286,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param parent Required. The name of the project and the template location
  *    [region](https://cloud.google.com/data-catalog/docs/concepts/regions.
- *    Example:
- *    * projects/{project_id}/locations/us-central1
+ *    Example: * projects/{project_id}/locations/us-central1
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesCreate
  */
@@ -1422,9 +1296,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a tag template and all tags using the template.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `name` parameter (see [Data Catalog Resource Project]
+ *  Deletes a tag template and all tags using the template. Users should enable
+ *  the Data Catalog API in the project identified by the `name` parameter (see
+ *  [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -1438,29 +1312,28 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesDeleteWithname:]
 
 /**
- *  Required. Currently, this field must always be set to `true`.
- *  This confirms the deletion of any possible tags using this template.
- *  `force = false` will be supported in the future.
+ *  Required. Currently, this field must always be set to `true`. This confirms
+ *  the deletion of any possible tags using this template. `force = false` will
+ *  be supported in the future.
  */
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The name of the tag template to delete. Example:
- *  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+ *  Required. The name of the tag template to delete. Example: *
+ *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
- *  Deletes a tag template and all tags using the template.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `name` parameter (see [Data Catalog Resource Project]
+ *  Deletes a tag template and all tags using the template. Users should enable
+ *  the Data Catalog API in the project identified by the `name` parameter (see
+ *  [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
- *  @param name Required. The name of the tag template to delete. Example:
- *    *
+ *  @param name Required. The name of the tag template to delete. Example: *
  *    projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesDelete
@@ -1471,8 +1344,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a field in a tag template. The user should enable the Data Catalog
- *  API in the project identified by the `parent` parameter (see
- *  [Data Catalog Resource
+ *  API in the project identified by the `parent` parameter (see [Data Catalog
+ *  Resource
  *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
  *  for more information).
  *
@@ -1488,17 +1361,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The name of the project and the template location
  *  [region](https://cloud.google.com/data-catalog/docs/concepts/regions).
- *  Example:
- *  * projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
+ *  Example: *
+ *  projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. The ID of the tag template field to create.
- *  Field ids can contain letters (both uppercase and lowercase), numbers
- *  (0-9), underscores (_) and dashes (-). Field IDs must be at least 1
- *  character long and at most 128 characters long. Field IDs must also be
- *  unique within their template.
+ *  Required. The ID of the tag template field to create. Field ids can contain
+ *  letters (both uppercase and lowercase), numbers (0-9), underscores (_) and
+ *  dashes (-). Field IDs must be at least 1 character long and at most 128
+ *  characters long. Field IDs must also be unique within their template.
  */
 @property(nonatomic, copy, nullable) NSString *tagTemplateFieldId;
 
@@ -1506,8 +1378,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField.
  *
  *  Creates a field in a tag template. The user should enable the Data Catalog
- *  API in the project identified by the `parent` parameter (see
- *  [Data Catalog Resource
+ *  API in the project identified by the `parent` parameter (see [Data Catalog
+ *  Resource
  *  Project](https://cloud.google.com/data-catalog/docs/concepts/resource-project)
  *  for more information).
  *
@@ -1516,8 +1388,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    in the query.
  *  @param parent Required. The name of the project and the template location
  *    [region](https://cloud.google.com/data-catalog/docs/concepts/regions).
- *    Example:
- *    *
+ *    Example: *
  *    projects/{project_id}/locations/us-central1/tagTemplates/{tag_template_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsCreate
@@ -1528,9 +1399,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a field in a tag template and all uses of that field.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `name` parameter (see [Data Catalog Resource Project]
+ *  Deletes a field in a tag template and all uses of that field. Users should
+ *  enable the Data Catalog API in the project identified by the `name`
+ *  parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -1544,15 +1415,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsDeleteWithname:]
 
 /**
- *  Required. Currently, this field must always be set to `true`.
- *  This confirms the deletion of this field from any tags using this field.
- *  `force = false` will be supported in the future.
+ *  Required. Currently, this field must always be set to `true`. This confirms
+ *  the deletion of this field from any tags using this field. `force = false`
+ *  will be supported in the future.
  */
 @property(nonatomic, assign) BOOL force;
 
 /**
- *  Required. The name of the tag template field to delete. Example:
- *  *
+ *  Required. The name of the tag template field to delete. Example: *
  *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1560,9 +1430,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
- *  Deletes a field in a tag template and all uses of that field.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `name` parameter (see [Data Catalog Resource Project]
+ *  Deletes a field in a tag template and all uses of that field. Users should
+ *  enable the Data Catalog API in the project identified by the `name`
+ *  parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -1591,8 +1461,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsEnumValuesRenameWithObject:name:]
 
 /**
- *  Required. The name of the enum field value. Example:
- *  *
+ *  Required. The name of the enum field value. Example: *
  *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}/enumValues/{enum_value_display_name}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1607,8 +1476,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest
  *    to include in the query.
- *  @param name Required. The name of the enum field value. Example:
- *    *
+ *  @param name Required. The name of the enum field value. Example: *
  *    projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}/enumValues/{enum_value_display_name}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename
@@ -1635,22 +1503,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsPatchWithObject:name:]
 
 /**
- *  Required. The name of the tag template field. Example:
- *  *
+ *  Required. The name of the tag template field. Example: *
  *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The field mask specifies the parts of the template to be updated.
- *  Allowed fields:
- *  * `display_name`
- *  * `type.enum_type`
- *  * `is_required`
- *  If `update_mask` is not set or empty, all of the allowed fields above will
- *  be updated.
- *  When updating an enum type, the provided values will be merged with the
- *  existing values. Therefore, enum values can only be added, existing enum
+ *  Allowed fields: * `display_name` * `type.enum_type` * `is_required` If
+ *  `update_mask` is not set or empty, all of the allowed fields above will be
+ *  updated. When updating an enum type, the provided values will be merged with
+ *  the existing values. Therefore, enum values can only be added, existing enum
  *  values cannot be deleted nor renamed. Updating a template field from
  *  optional to required is NOT allowed.
  *
@@ -1670,8 +1533,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField to include
  *    in the query.
- *  @param name Required. The name of the tag template field. Example:
- *    *
+ *  @param name Required. The name of the tag template field. Example: *
  *    projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsPatch
@@ -1698,8 +1560,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsRenameWithObject:name:]
 
 /**
- *  Required. The name of the tag template. Example:
- *  *
+ *  Required. The name of the tag template. Example: *
  *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1716,8 +1577,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest
  *    to include in the query.
- *  @param name Required. The name of the tag template. Example:
- *    *
+ *  @param name Required. The name of the tag template. Example: *
  *    projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}/fields/{tag_template_field_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsRename
@@ -1740,8 +1600,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesGetWithname:]
 
 /**
- *  Required. The name of the tag template. Example:
- *  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+ *  Required. The name of the tag template. Example: *
+ *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1750,8 +1610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a tag template.
  *
- *  @param name Required. The name of the tag template. Example:
- *    *
+ *  @param name Required. The name of the tag template. Example: *
  *    projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGet
@@ -1761,20 +1620,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource. A `NOT_FOUND` error
- *  is returned if the resource does not exist. An empty policy is returned
- *  if the resource exists but does not have a policy set on it.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag
- *  templates.
- *  - `datacatalog.entries.getIamPolicy` to get policies on entries.
- *  - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+ *  Gets the access control policy for a resource. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. An empty policy is returned if the
+ *  resource exists but does not have a policy set on it. Supported resources
+ *  are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
+ *  used to manage policies for BigQuery, Pub/Sub and any external Google Cloud
+ *  Platform resources synced to Data Catalog. Callers must have following
+ *  Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get
+ *  policies on tag templates. - `datacatalog.entries.getIamPolicy` to get
+ *  policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get
+ *  policies on entry groups.
  *
  *  Method: datacatalog.projects.locations.tagTemplates.getIamPolicy
  *
@@ -1786,34 +1641,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataCatalog_Policy.
  *
- *  Gets the access control policy for a resource. A `NOT_FOUND` error
- *  is returned if the resource does not exist. An empty policy is returned
- *  if the resource exists but does not have a policy set on it.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.getIamPolicy` to get policies on tag
- *  templates.
- *  - `datacatalog.entries.getIamPolicy` to get policies on entries.
- *  - `datacatalog.entryGroups.getIamPolicy` to get policies on entry groups.
+ *  Gets the access control policy for a resource. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. An empty policy is returned if the
+ *  resource exists but does not have a policy set on it. Supported resources
+ *  are: - Tag templates. - Entries. - Entry groups. Note, this method cannot be
+ *  used to manage policies for BigQuery, Pub/Sub and any external Google Cloud
+ *  Platform resources synced to Data Catalog. Callers must have following
+ *  Google IAM permission - `datacatalog.tagTemplates.getIamPolicy` to get
+ *  policies on tag templates. - `datacatalog.entries.getIamPolicy` to get
+ *  policies on entries. - `datacatalog.entryGroups.getIamPolicy` to get
+ *  policies on entry groups.
  *
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGetIamPolicy
  */
@@ -1823,11 +1674,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a tag template. This method cannot be used to update the fields of
- *  a template. The tag template fields are represented as separate resources
- *  and should be updated using their own create/update/delete methods.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `tag_template.name` parameter (see [Data Catalog Resource Project]
+ *  Updates a tag template. This method cannot be used to update the fields of a
+ *  template. The tag template fields are represented as separate resources and
+ *  should be updated using their own create/update/delete methods. Users should
+ *  enable the Data Catalog API in the project identified by the
+ *  `tag_template.name` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
@@ -1841,18 +1692,17 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesPatchWithObject:name:]
 
 /**
- *  The resource name of the tag template in URL format. Example:
- *  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+ *  The resource name of the tag template in URL format. Example: *
+ *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
  *  Note that this TagTemplate and its child resources may not actually be
  *  stored in the location in this name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask specifies the parts of the template to overwrite.
- *  Allowed fields:
- *  * `display_name`
- *  If absent or empty, all of the allowed fields above will be updated.
+ *  The field mask specifies the parts of the template to overwrite. Allowed
+ *  fields: * `display_name` If absent or empty, all of the allowed fields above
+ *  will be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1861,19 +1711,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate.
  *
- *  Updates a tag template. This method cannot be used to update the fields of
- *  a template. The tag template fields are represented as separate resources
- *  and should be updated using their own create/update/delete methods.
- *  Users should enable the Data Catalog API in the project identified by
- *  the `tag_template.name` parameter (see [Data Catalog Resource Project]
+ *  Updates a tag template. This method cannot be used to update the fields of a
+ *  template. The tag template fields are represented as separate resources and
+ *  should be updated using their own create/update/delete methods. Users should
+ *  enable the Data Catalog API in the project identified by the
+ *  `tag_template.name` parameter (see [Data Catalog Resource Project]
  *  (https://cloud.google.com/data-catalog/docs/concepts/resource-project) for
  *  more information).
  *
  *  @param object The @c
  *    GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate to include in the
  *    query.
- *  @param name The resource name of the tag template in URL format. Example:
- *    *
+ *  @param name The resource name of the tag template in URL format. Example: *
  *    projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
  *    Note that this TagTemplate and its child resources may not actually be
  *    stored in the location in this name.
@@ -1886,19 +1735,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the access control policy for a resource. Replaces any existing
- *  policy.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag
- *  templates.
- *  - `datacatalog.entries.setIamPolicy` to set policies on entries.
- *  - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
+ *  Sets the access control policy for a resource. Replaces any existing policy.
+ *  Supported resources are: - Tag templates. - Entries. - Entry groups. Note,
+ *  this method cannot be used to manage policies for BigQuery, Pub/Sub and any
+ *  external Google Cloud Platform resources synced to Data Catalog. Callers
+ *  must have following Google IAM permission -
+ *  `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. -
+ *  `datacatalog.entries.setIamPolicy` to set policies on entries. -
+ *  `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
  *
  *  Method: datacatalog.projects.locations.tagTemplates.setIamPolicy
  *
@@ -1910,33 +1754,28 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataCatalog_Policy.
  *
- *  Sets the access control policy for a resource. Replaces any existing
- *  policy.
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  Callers must have following Google IAM permission
- *  - `datacatalog.tagTemplates.setIamPolicy` to set policies on tag
- *  templates.
- *  - `datacatalog.entries.setIamPolicy` to set policies on entries.
- *  - `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
+ *  Sets the access control policy for a resource. Replaces any existing policy.
+ *  Supported resources are: - Tag templates. - Entries. - Entry groups. Note,
+ *  this method cannot be used to manage policies for BigQuery, Pub/Sub and any
+ *  external Google Cloud Platform resources synced to Data Catalog. Callers
+ *  must have following Google IAM permission -
+ *  `datacatalog.tagTemplates.setIamPolicy` to set policies on tag templates. -
+ *  `datacatalog.entries.setIamPolicy` to set policies on entries. -
+ *  `datacatalog.entryGroups.setIamPolicy` to set policies on entry groups.
  *
  *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesSetIamPolicy
  */
@@ -1946,17 +1785,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the caller's permissions on a resource.
- *  If the resource does not exist, an empty set of permissions is returned
- *  (We don't return a `NOT_FOUND` error).
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  A caller is not required to have Google IAM permission to make this
- *  request.
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (We don't return a
+ *  `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. -
+ *  Entry groups. Note, this method cannot be used to manage policies for
+ *  BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+ *  Data Catalog. A caller is not required to have Google IAM permission to make
+ *  this request.
  *
  *  Method: datacatalog.projects.locations.tagTemplates.testIamPermissions
  *
@@ -1968,31 +1803,27 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataCatalog_TestIamPermissionsResponse.
  *
- *  Returns the caller's permissions on a resource.
- *  If the resource does not exist, an empty set of permissions is returned
- *  (We don't return a `NOT_FOUND` error).
- *  Supported resources are:
- *  - Tag templates.
- *  - Entries.
- *  - Entry groups.
- *  Note, this method cannot be used to manage policies for BigQuery, Pub/Sub
- *  and any external Google Cloud Platform resources synced to Data Catalog.
- *  A caller is not required to have Google IAM permission to make this
- *  request.
+ *  Returns the caller's permissions on a resource. If the resource does not
+ *  exist, an empty set of permissions is returned (We don't return a
+ *  `NOT_FOUND` error). Supported resources are: - Tag templates. - Entries. -
+ *  Entry groups. Note, this method cannot be used to manage policies for
+ *  BigQuery, Pub/Sub and any external Google Cloud Platform resources synced to
+ *  Data Catalog. A caller is not required to have Google IAM permission to make
+ *  this request.
  *
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesTestIamPermissions
  */
@@ -2036,8 +1867,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a taxonomy. This operation will also delete all
- *  policy tags in this taxonomy along with their associated policies.
+ *  Deletes a taxonomy. This operation will also delete all policy tags in this
+ *  taxonomy along with their associated policies.
  *
  *  Method: datacatalog.projects.locations.taxonomies.delete
  *
@@ -2057,12 +1888,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataCatalog_Empty.
  *
- *  Deletes a taxonomy. This operation will also delete all
- *  policy tags in this taxonomy along with their associated policies.
+ *  Deletes a taxonomy. This operation will also delete all policy tags in this
+ *  taxonomy along with their associated policies.
  *
  *  @param name Required. Resource name of the taxonomy to be deleted. All
- *    policy tags in
- *    this taxonomy will also be deleted.
+ *    policy tags in this taxonomy will also be deleted.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesDelete
  */
@@ -2071,9 +1901,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Exports all taxonomies and their policy tags in a project.
- *  This method generates SerializedTaxonomy protos with nested policy tags
- *  that can be used as an input for future ImportTaxonomies calls.
+ *  Exports all taxonomies and their policy tags in a project. This method
+ *  generates SerializedTaxonomy protos with nested policy tags that can be used
+ *  as an input for future ImportTaxonomies calls.
  *
  *  Method: datacatalog.projects.locations.taxonomies.export
  *
@@ -2085,8 +1915,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesExportWithparent:]
 
 /**
- *  Required. Resource name of the project that taxonomies to be exported
- *  will share.
+ *  Required. Resource name of the project that taxonomies to be exported will
+ *  share.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2100,13 +1930,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ExportTaxonomiesResponse.
  *
- *  Exports all taxonomies and their policy tags in a project.
- *  This method generates SerializedTaxonomy protos with nested policy tags
- *  that can be used as an input for future ImportTaxonomies calls.
+ *  Exports all taxonomies and their policy tags in a project. This method
+ *  generates SerializedTaxonomy protos with nested policy tags that can be used
+ *  as an input for future ImportTaxonomies calls.
  *
  *  @param parent Required. Resource name of the project that taxonomies to be
- *    exported
- *    will share.
+ *    exported will share.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesExport
  */
@@ -2155,8 +1984,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2168,8 +1997,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesGetIamPolicy
  */
@@ -2179,8 +2008,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Imports all taxonomies and their policy tags to a project as new
- *  taxonomies.
+ *  Imports all taxonomies and their policy tags to a project as new taxonomies.
  *  This method provides a bulk taxonomy / policy tag creation using nested
  *  proto structure.
  *
@@ -2203,8 +2031,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse.
  *
- *  Imports all taxonomies and their policy tags to a project as new
- *  taxonomies.
+ *  Imports all taxonomies and their policy tags to a project as new taxonomies.
  *  This method provides a bulk taxonomy / policy tag creation using nested
  *  proto structure.
  *
@@ -2288,8 +2115,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition,
- *  see
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If not set, defaults to all of the fields that are allowed to update.
  *
@@ -2362,8 +2188,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the policy tag to be deleted. All of its
- *  descendant
- *  policy tags will also be deleted.
+ *  descendant policy tags will also be deleted.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2373,8 +2198,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a policy tag. Also deletes all of its descendant policy tags.
  *
  *  @param name Required. Resource name of the policy tag to be deleted. All of
- *    its descendant
- *    policy tags will also be deleted.
+ *    its descendant policy tags will also be deleted.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsDelete
  */
@@ -2423,8 +2247,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2436,8 +2260,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsGetIamPolicy
  */
@@ -2553,8 +2377,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2566,8 +2390,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsSetIamPolicy
  */
@@ -2590,8 +2414,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2604,8 +2428,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsTestIamPermissions
  */
@@ -2627,8 +2451,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2640,8 +2464,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesSetIamPolicy
  */
@@ -2664,8 +2488,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2678,8 +2502,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDataCatalog_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesTestIamPermissions
  */

@@ -44,13 +44,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns the Google service account that is used by Storage Transfer
- *  Service to access buckets in the project where transfers
- *  run or in other projects. Each Google service account is associated
- *  with one Google Cloud Platform Console project. Users
- *  should add this service account to the Google Cloud Storage bucket
- *  ACLs to grant access to Storage Transfer Service. This service
- *  account is created and owned by Storage Transfer Service and can
+ *  Returns the Google service account that is used by Storage Transfer Service
+ *  to access buckets in the project where transfers run or in other projects.
+ *  Each Google service account is associated with one Google Cloud Platform
+ *  Console project. Users should add this service account to the Google Cloud
+ *  Storage bucket ACLs to grant access to Storage Transfer Service. This
+ *  service account is created and owned by Storage Transfer Service and can
  *  only be used by Storage Transfer Service.
  *
  *  Method: storagetransfer.googleServiceAccounts.get
@@ -71,18 +70,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRStorageTransfer_GoogleServiceAccount.
  *
- *  Returns the Google service account that is used by Storage Transfer
- *  Service to access buckets in the project where transfers
- *  run or in other projects. Each Google service account is associated
- *  with one Google Cloud Platform Console project. Users
- *  should add this service account to the Google Cloud Storage bucket
- *  ACLs to grant access to Storage Transfer Service. This service
- *  account is created and owned by Storage Transfer Service and can
+ *  Returns the Google service account that is used by Storage Transfer Service
+ *  to access buckets in the project where transfers run or in other projects.
+ *  Each Google service account is associated with one Google Cloud Platform
+ *  Console project. Users should add this service account to the Google Cloud
+ *  Storage bucket ACLs to grant access to Storage Transfer Service. This
+ *  service account is created and owned by Storage Transfer Service and can
  *  only be used by Storage Transfer Service.
  *
  *  @param projectId Required. The ID of the Google Cloud Platform Console
- *    project that the
- *    Google service account is associated with.
+ *    project that the Google service account is associated with.
  *
  *  @return GTLRStorageTransferQuery_GoogleServiceAccountsGet
  */
@@ -164,16 +161,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A list of query parameters specified as JSON text in the form of:
- *  {"project<span>_</span>id":"my_project_id",
- *  "job_names":["jobid1","jobid2",...],
- *  "job_statuses":["status1","status2",...]}.
- *  Since `job_names` and `job_statuses` support multiple values, their values
- *  must be specified with array notation. `project`<span>`_`</span>`id` is
- *  required. `job_names` and `job_statuses` are optional. The valid values
- *  for `job_statuses` are case-insensitive:
- *  ENABLED,
- *  DISABLED, and
- *  DELETED.
+ *  {"project_id":"my_project_id", "job_names":["jobid1","jobid2",...],
+ *  "job_statuses":["status1","status2",...]}. Since `job_names` and
+ *  `job_statuses` support multiple values, their values must be specified with
+ *  array notation. `project``_``id` is required. `job_names` and `job_statuses`
+ *  are optional. The valid values for `job_statuses` are case-insensitive:
+ *  ENABLED, DISABLED, and DELETED.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -200,13 +193,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Updates a transfer job. Updating a job's transfer spec does not affect
- *  transfer operations that are running already. Updating a job's schedule
- *  is not allowed.
- *  **Note:** The job's status field can be modified
- *  using this RPC (for example, to set a job's status to
- *  DELETED,
- *  DISABLED, or
- *  ENABLED).
+ *  transfer operations that are running already. Updating a job's schedule is
+ *  not allowed. **Note:** The job's status field can be modified using this RPC
+ *  (for example, to set a job's status to DELETED, DISABLED, or ENABLED).
  *
  *  Method: storagetransfer.transferJobs.patch
  *
@@ -224,13 +213,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRStorageTransfer_TransferJob.
  *
  *  Updates a transfer job. Updating a job's transfer spec does not affect
- *  transfer operations that are running already. Updating a job's schedule
- *  is not allowed.
- *  **Note:** The job's status field can be modified
- *  using this RPC (for example, to set a job's status to
- *  DELETED,
- *  DISABLED, or
- *  ENABLED).
+ *  transfer operations that are running already. Updating a job's schedule is
+ *  not allowed. **Note:** The job's status field can be modified using this RPC
+ *  (for example, to set a job's status to DELETED, DISABLED, or ENABLED).
  *
  *  @param object The @c GTLRStorageTransfer_UpdateTransferJobRequest to include
  *    in the query.
@@ -244,34 +229,23 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Cancels a transfer. Use the
- *  transferOperations.get method to
- *  check if the cancellation succeeded or if the operation completed despite
- *  the `cancel` request.
- *  When you cancel an operation, the currently running transfer is
+ *  Cancels a transfer. Use the transferOperations.get method to check if the
+ *  cancellation succeeded or if the operation completed despite the `cancel`
+ *  request. When you cancel an operation, the currently running transfer is
  *  interrupted. For recurring transfer jobs, the next instance of the transfer
- *  job
- *  will still run. For example, if your job is configured to run every day
- *  at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer
- *  will stop. However, a transfer job will still be attempted on Tuesday.
- *  This applies only to currently running operations. If an operation is
- *  not currently running, `cancel` does nothing.
- *  <aside class="caution">
- *  <b>Caution:</b> Canceling a transfer job can leave your data in an unknown
- *  state. We recommend that you restore the state at both the destination and
- *  the
- *  source after the `cancel` request completes so that your data is in a
- *  consistent
- *  state.
- *  </aside>
- *  When you cancel a job, the next job computes a delta of files and may repair
- *  any
- *  inconsistent state. For instance, if you run a job every day, and today's
- *  job
- *  found 10 new files and transferred five files before you canceled the job,
- *  tomorrow's transfer operation will compute a new delta with the five files
- *  that
- *  were not copied today plus any new files discovered tomorrow.
+ *  job will still run. For example, if your job is configured to run every day
+ *  at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer will
+ *  stop. However, a transfer job will still be attempted on Tuesday. This
+ *  applies only to currently running operations. If an operation is not
+ *  currently running, `cancel` does nothing. *Caution:* Canceling a transfer
+ *  job can leave your data in an unknown state. We recommend that you restore
+ *  the state at both the destination and the source after the `cancel` request
+ *  completes so that your data is in a consistent state. When you cancel a job,
+ *  the next job computes a delta of files and may repair any inconsistent
+ *  state. For instance, if you run a job every day, and today's job found 10
+ *  new files and transferred five files before you canceled the job, tomorrow's
+ *  transfer operation will compute a new delta with the five files that were
+ *  not copied today plus any new files discovered tomorrow.
  *
  *  Method: storagetransfer.transferOperations.cancel
  *
@@ -288,34 +262,23 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRStorageTransfer_Empty.
  *
- *  Cancels a transfer. Use the
- *  transferOperations.get method to
- *  check if the cancellation succeeded or if the operation completed despite
- *  the `cancel` request.
- *  When you cancel an operation, the currently running transfer is
+ *  Cancels a transfer. Use the transferOperations.get method to check if the
+ *  cancellation succeeded or if the operation completed despite the `cancel`
+ *  request. When you cancel an operation, the currently running transfer is
  *  interrupted. For recurring transfer jobs, the next instance of the transfer
- *  job
- *  will still run. For example, if your job is configured to run every day
- *  at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer
- *  will stop. However, a transfer job will still be attempted on Tuesday.
- *  This applies only to currently running operations. If an operation is
- *  not currently running, `cancel` does nothing.
- *  <aside class="caution">
- *  <b>Caution:</b> Canceling a transfer job can leave your data in an unknown
- *  state. We recommend that you restore the state at both the destination and
- *  the
- *  source after the `cancel` request completes so that your data is in a
- *  consistent
- *  state.
- *  </aside>
- *  When you cancel a job, the next job computes a delta of files and may repair
- *  any
- *  inconsistent state. For instance, if you run a job every day, and today's
- *  job
- *  found 10 new files and transferred five files before you canceled the job,
- *  tomorrow's transfer operation will compute a new delta with the five files
- *  that
- *  were not copied today plus any new files discovered tomorrow.
+ *  job will still run. For example, if your job is configured to run every day
+ *  at 1pm and you cancel Monday's operation at 1:05pm, Monday's transfer will
+ *  stop. However, a transfer job will still be attempted on Tuesday. This
+ *  applies only to currently running operations. If an operation is not
+ *  currently running, `cancel` does nothing. *Caution:* Canceling a transfer
+ *  job can leave your data in an unknown state. We recommend that you restore
+ *  the state at both the destination and the source after the `cancel` request
+ *  completes so that your data is in a consistent state. When you cancel a job,
+ *  the next job computes a delta of files and may repair any inconsistent
+ *  state. For instance, if you run a job every day, and today's job found 10
+ *  new files and transferred five files before you canceled the job, tomorrow's
+ *  transfer operation will compute a new delta with the five files that were
+ *  not copied today plus any new files discovered tomorrow.
  *
  *  @param name The name of the operation resource to be cancelled.
  *
@@ -371,16 +334,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A list of query parameters specified as JSON text in the form of:
- *  {"project<span>_</span>id":"my_project_id",
- *  "job_names":["jobid1","jobid2",...],
+ *  {"project_id":"my_project_id", "job_names":["jobid1","jobid2",...],
  *  "operation_names":["opid1","opid2",...],
- *  "transfer_statuses":["status1","status2",...]}.
- *  Since `job_names`, `operation_names`, and `transfer_statuses` support
- *  multiple values, they must be specified with array notation.
- *  `project`<span>`_`</span>`id` is required. `job_names`, `operation_names`,
- *  and `transfer_statuses` are optional. The valid values for
- *  `transfer_statuses` are case-insensitive: IN_PROGRESS, PAUSED, SUCCESS,
- *  FAILED, and ABORTED.
+ *  "transfer_statuses":["status1","status2",...]}. Since `job_names`,
+ *  `operation_names`, and `transfer_statuses` support multiple values, they
+ *  must be specified with array notation. `project``_``id` is required.
+ *  `job_names`, `operation_names`, and `transfer_statuses` are optional. The
+ *  valid values for `transfer_statuses` are case-insensitive: IN_PROGRESS,
+ *  PAUSED, SUCCESS, FAILED, and ABORTED.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

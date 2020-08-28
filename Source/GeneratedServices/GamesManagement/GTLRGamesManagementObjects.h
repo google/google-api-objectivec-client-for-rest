@@ -5,8 +5,7 @@
 //   Google Play Game Management (gamesManagement/v1management)
 // Description:
 //   The Google Play Game Management API allows developers to manage resources
-//   from the Google
-//   Play Game service.
+//   from the Google Play Game service.
 // Documentation:
 //   https://developers.google.com/games/
 
@@ -78,11 +77,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGamesManagement_AchievementResetResponse : GTLRObject
 
 /**
- *  The current state of the achievement. This is the same as the initial
- *  state of the achievement. <br/>Possible values are: <ul>
- *  <li>"`HIDDEN`"- Achievement is hidden.</li>
- *  <li>"`REVEALED`" - Achievement is revealed.</li>
- *  <li>"`UNLOCKED`" - Achievement is unlocked.</li> </ul>
+ *  The current state of the achievement. This is the same as the initial state
+ *  of the achievement. Possible values are: - "`HIDDEN`"- Achievement is
+ *  hidden. - "`REVEALED`" - Achievement is revealed. - "`UNLOCKED`" -
+ *  Achievement is unlocked.
  */
 @property(nonatomic, copy, nullable) NSString *currentState;
 
@@ -197,8 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. Uniquely identifies the type of this resource. Value is always
- *  the fixed
- *  string `gamesManagement#hiddenPlayer`.
+ *  the fixed string `gamesManagement#hiddenPlayer`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -272,9 +269,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The player ID that was used for this player the first time they signed into
- *  the game in question. This is only populated for calls to player.get for
- *  the requesting player, only if the player ID has subsequently changed, and
- *  only to clients that support remapping player IDs.
+ *  the game in question. This is only populated for calls to player.get for the
+ *  requesting player, only if the player ID has subsequently changed, and only
+ *  to clients that support remapping player IDs.
  */
 @property(nonatomic, copy, nullable) NSString *originalPlayerId;
 
@@ -346,10 +343,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The time spans of the updated score. <br/>Possible values are: <ul>
- *  <li>"`ALL_TIME`" - The score is an all-time score.</li>
- *  <li>"`WEEKLY`" - The score is a weekly score.</li>
- *  <li>"`DAILY`" - The score is a daily score.</li> </ul>
+ *  The time spans of the updated score. Possible values are: - "`ALL_TIME`" -
+ *  The score is an all-time score. - "`WEEKLY`" - The score is a weekly score.
+ *  - "`DAILY`" - The score is a daily score.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resetScoreTimeSpans;
 

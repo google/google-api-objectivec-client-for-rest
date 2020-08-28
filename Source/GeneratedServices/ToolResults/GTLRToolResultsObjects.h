@@ -193,9 +193,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_Execution_State_Complete;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_Execution_State_InProgress;
 /**
- *  The Execution/Step is created, ready to run, but not running yet.
- *  If an Execution/Step is created without initial state, it is assumed
- *  that the Execution/Step is in PENDING state.
+ *  The Execution/Step is created, ready to run, but not running yet. If an
+ *  Execution/Step is created without initial state, it is assumed that the
+ *  Execution/Step is in PENDING state.
  *
  *  Value: "pending"
  */
@@ -222,40 +222,37 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_History_TestPlatform_Unknown
 // GTLRToolResults_IndividualOutcome.outcomeSummary
 
 /**
- *  A run failed, for instance:
- *  - One or more test case failed.
- *  - A test timed out.
- *  - The application under test crashed.
+ *  A run failed, for instance: - One or more test case failed. - A test timed
+ *  out. - The application under test crashed.
  *
  *  Value: "failure"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure;
 /**
- *  A group of steps that were run with the same configuration had both
- *  failure and success outcomes.
+ *  A group of steps that were run with the same configuration had both failure
+ *  and success outcomes.
  *
  *  Value: "flaky"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky;
 /**
  *  Something unexpected happened. The run should still be considered
- *  unsuccessful but this is likely a transient problem and re-running the
- *  test might be successful.
+ *  unsuccessful but this is likely a transient problem and re-running the test
+ *  might be successful.
  *
  *  Value: "inconclusive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive;
 /**
- *  All tests were skipped, for instance:
- *  - All device configurations were incompatible.
+ *  All tests were skipped, for instance: - All device configurations were
+ *  incompatible.
  *
  *  Value: "skipped"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped;
 /**
- *  The test matrix run was successful, for instance:
- *  - All the test cases passed.
- *  - Robo did not detect a crash of the application under test.
+ *  The test matrix run was successful, for instance: - All the test cases
+ *  passed. - Robo did not detect a crash of the application under test.
  *
  *  Value: "success"
  */
@@ -284,9 +281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_MergedResult_State_Complete;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_MergedResult_State_InProgress;
 /**
- *  The Execution/Step is created, ready to run, but not running yet.
- *  If an Execution/Step is created without initial state, it is assumed
- *  that the Execution/Step is in PENDING state.
+ *  The Execution/Step is created, ready to run, but not running yet. If an
+ *  Execution/Step is created without initial state, it is assumed that the
+ *  Execution/Step is in PENDING state.
  *
  *  Value: "pending"
  */
@@ -321,40 +318,37 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_White;
 // GTLRToolResults_Outcome.summary
 
 /**
- *  A run failed, for instance:
- *  - One or more test case failed.
- *  - A test timed out.
- *  - The application under test crashed.
+ *  A run failed, for instance: - One or more test case failed. - A test timed
+ *  out. - The application under test crashed.
  *
  *  Value: "failure"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Failure;
 /**
- *  A group of steps that were run with the same configuration had both
- *  failure and success outcomes.
+ *  A group of steps that were run with the same configuration had both failure
+ *  and success outcomes.
  *
  *  Value: "flaky"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Flaky;
 /**
  *  Something unexpected happened. The run should still be considered
- *  unsuccessful but this is likely a transient problem and re-running the
- *  test might be successful.
+ *  unsuccessful but this is likely a transient problem and re-running the test
+ *  might be successful.
  *
  *  Value: "inconclusive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Inconclusive;
 /**
- *  All tests were skipped, for instance:
- *  - All device configurations were incompatible.
+ *  All tests were skipped, for instance: - All device configurations were
+ *  incompatible.
  *
  *  Value: "skipped"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_Outcome_Summary_Skipped;
 /**
- *  The test matrix run was successful, for instance:
- *  - All the test cases passed.
- *  - Robo did not detect a crash of the application under test.
+ *  The test matrix run was successful, for instance: - All the test cases
+ *  passed. - Robo did not detect a crash of the application under test.
  *
  *  Value: "success"
  */
@@ -384,40 +378,37 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_PerfMetricsSummary_PerfMetri
 // GTLRToolResults_PrimaryStep.rollUp
 
 /**
- *  A run failed, for instance:
- *  - One or more test case failed.
- *  - A test timed out.
- *  - The application under test crashed.
+ *  A run failed, for instance: - One or more test case failed. - A test timed
+ *  out. - The application under test crashed.
  *
  *  Value: "failure"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Failure;
 /**
- *  A group of steps that were run with the same configuration had both
- *  failure and success outcomes.
+ *  A group of steps that were run with the same configuration had both failure
+ *  and success outcomes.
  *
  *  Value: "flaky"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Flaky;
 /**
  *  Something unexpected happened. The run should still be considered
- *  unsuccessful but this is likely a transient problem and re-running the
- *  test might be successful.
+ *  unsuccessful but this is likely a transient problem and re-running the test
+ *  might be successful.
  *
  *  Value: "inconclusive"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Inconclusive;
 /**
- *  All tests were skipped, for instance:
- *  - All device configurations were incompatible.
+ *  All tests were skipped, for instance: - All device configurations were
+ *  incompatible.
  *
  *  Value: "skipped"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_PrimaryStep_RollUp_Skipped;
 /**
- *  The test matrix run was successful, for instance:
- *  - All the test cases passed.
- *  - Robo did not detect a crash of the application under test.
+ *  The test matrix run was successful, for instance: - All the test cases
+ *  passed. - Robo did not detect a crash of the application under test.
  *
  *  Value: "success"
  */
@@ -446,9 +437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_Step_State_Complete;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_Step_State_InProgress;
 /**
- *  The Execution/Step is created, ready to run, but not running yet.
- *  If an Execution/Step is created without initial state, it is assumed
- *  that the Execution/Step is in PENDING state.
+ *  The Execution/Step is created, ready to run, but not running yet. If an
+ *  Execution/Step is created without initial state, it is assumed that the
+ *  Execution/Step is in PENDING state.
  *
  *  Value: "pending"
  */
@@ -503,9 +494,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Error;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestCase_Status_Failed;
 /**
- *  Test flaked.
- *  Present only for rollup test cases; test cases from steps that were run
- *  with the same configuration had both failure and success outcomes.
+ *  Test flaked. Present only for rollup test cases; test cases from steps that
+ *  were run with the same configuration had both failure and success outcomes.
  *
  *  Value: "flaky"
  */
@@ -539,8 +529,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_Common;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Category_Robo;
 /**
- *  Default unspecified category.
- *  Do not use. For versioning only.
+ *  Default unspecified category. Do not use. For versioning only.
  *
  *  Value: "unspecifiedCategory"
  */
@@ -569,8 +558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Severe;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Severity_Suggestion;
 /**
- *  Default unspecified severity.
- *  Do not use. For versioning only.
+ *  Default unspecified severity. Do not use. For versioning only.
  *
  *  Value: "unspecifiedSeverity"
  */
@@ -737,8 +725,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UiElementsToo
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UnityException;
 /**
- *  Default unspecified type.
- *  Do not use. For versioning only.
+ *  Default unspecified type. Do not use. For versioning only.
  *
  *  Value: "unspecifiedType"
  */
@@ -767,28 +754,16 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_AndroidAppInfo : GTLRObject
 
-/**
- *  The name of the app.
- *  Optional
- */
+/** The name of the app. Optional */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  The package name of the app.
- *  Required.
- */
+/** The package name of the app. Required. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/**
- *  The internal version code of the app.
- *  Optional.
- */
+/** The internal version code of the app. Optional. */
 @property(nonatomic, copy, nullable) NSString *versionCode;
 
-/**
- *  The version name of the app.
- *  Optional.
- */
+/** The version name of the app. Optional. */
 @property(nonatomic, copy, nullable) NSString *versionName;
 
 @end
@@ -796,31 +771,22 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  A test of an Android application that can control an Android component
- *  independently of its normal lifecycle.
- *  See <http://developer.android.com/tools/testing/testing_android.html> for
- *  more information on types of Android tests.
+ *  independently of its normal lifecycle. See for more information on types of
+ *  Android tests.
  */
 @interface GTLRToolResults_AndroidInstrumentationTest : GTLRObject
 
-/**
- *  The java package for the test to be executed.
- *  Required
- */
+/** The java package for the test to be executed. Required */
 @property(nonatomic, copy, nullable) NSString *testPackageId;
 
-/**
- *  The InstrumentationTestRunner class.
- *  Required
- */
+/** The InstrumentationTestRunner class. Required */
 @property(nonatomic, copy, nullable) NSString *testRunnerClass;
 
 /**
- *  Each target must be fully qualified with the package name or class name,
- *  in one of these formats:
- *  - "package package_name"
- *  - "class package_name.class_name"
- *  - "class package_name.class_name#method_name"
- *  If empty, all targets in the module will be run.
+ *  Each target must be fully qualified with the package name or class name, in
+ *  one of these formats: - "package package_name" - "class
+ *  package_name.class_name" - "class package_name.class_name#method_name" If
+ *  empty, all targets in the module will be run.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *testTargets;
 
@@ -841,35 +807,24 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_AndroidRoboTest : GTLRObject
 
-/**
- *  The initial activity that should be used to start the app.
- *  Optional
- */
+/** The initial activity that should be used to start the app. Optional */
 @property(nonatomic, copy, nullable) NSString *appInitialActivity;
 
-/**
- *  The java package for the bootstrap.
- *  Optional
- */
+/** The java package for the bootstrap. Optional */
 @property(nonatomic, copy, nullable) NSString *bootstrapPackageId;
 
-/**
- *  The runner class for the bootstrap.
- *  Optional
- */
+/** The runner class for the bootstrap. Optional */
 @property(nonatomic, copy, nullable) NSString *bootstrapRunnerClass;
 
 /**
- *  The max depth of the traversal stack Robo can explore.
- *  Optional
+ *  The max depth of the traversal stack Robo can explore. Optional
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxDepth;
 
 /**
- *  The max number of steps/actions Robo can execute.
- *  Default is no limit (0).
+ *  The max number of steps/actions Robo can execute. Default is no limit (0).
  *  Optional
  *
  *  Uses NSNumber of intValue.
@@ -896,10 +851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /** An Android test loop. */
 @property(nonatomic, strong, nullable) GTLRToolResults_AndroidTestLoop *androidTestLoop;
 
-/**
- *  Max time a test is allowed to run before it is
- *  automatically cancelled.
- */
+/** Max time a test is allowed to run before it is automatically cancelled. */
 @property(nonatomic, strong, nullable) GTLRToolResults_Duration *testTimeout;
 
 @end
@@ -918,10 +870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_ANR : GTLRObject
 
-/**
- *  The stack trace of the ANR crash.
- *  Optional.
- */
+/** The stack trace of the ANR crash. Optional. */
 @property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
 
 @end
@@ -929,94 +878,53 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  `Any` contains an arbitrary serialized protocol buffer message along with a
- *  URL that describes the type of the serialized message.
- *  Protobuf library provides support to pack/unpack Any values in the form
- *  of utility functions or additional generated methods of the Any type.
- *  Example 1: Pack and unpack a message in C++.
- *  Foo foo = ...;
- *  Any any;
- *  any.PackFrom(foo);
- *  ...
- *  if (any.UnpackTo(&foo)) {
- *  ...
- *  }
- *  Example 2: Pack and unpack a message in Java.
- *  Foo foo = ...;
- *  Any any = Any.pack(foo);
- *  ...
- *  if (any.is(Foo.class)) {
- *  foo = any.unpack(Foo.class);
- *  }
- *  Example 3: Pack and unpack a message in Python.
- *  foo = Foo(...)
- *  any = Any()
- *  any.Pack(foo)
- *  ...
- *  if any.Is(Foo.DESCRIPTOR):
- *  any.Unpack(foo)
- *  ...
- *  Example 4: Pack and unpack a message in Go
- *  foo := &pb.Foo{...}
- *  any, err := ptypes.MarshalAny(foo)
- *  ...
- *  foo := &pb.Foo{}
- *  if err := ptypes.UnmarshalAny(any, foo); err != nil {
- *  ...
- *  }
- *  The pack methods provided by protobuf library will by default use
- *  'type.googleapis.com/full.type.name' as the type URL and the unpack
- *  methods only use the fully qualified type name after the last '/'
- *  in the type URL, for example "foo.bar.com/x/y.z" will yield type
- *  name "y.z".
- *  # JSON
- *  The JSON representation of an `Any` value uses the regular
- *  representation of the deserialized, embedded message, with an
- *  additional field `\@type` which contains the type URL. Example:
- *  package google.profile;
- *  message Person {
- *  string first_name = 1;
- *  string last_name = 2;
- *  }
- *  {
- *  "\@type": "type.googleapis.com/google.profile.Person",
- *  "firstName": <string>,
- *  "lastName": <string>
- *  }
- *  If the embedded message type is well-known and has a custom JSON
- *  representation, that representation will be embedded adding a field
- *  `value` which holds the custom JSON in addition to the `\@type`
- *  field. Example (for message google.protobuf.Duration):
- *  {
- *  "\@type": "type.googleapis.com/google.protobuf.Duration",
- *  "value": "1.212s"
- *  }
+ *  URL that describes the type of the serialized message. Protobuf library
+ *  provides support to pack/unpack Any values in the form of utility functions
+ *  or additional generated methods of the Any type. Example 1: Pack and unpack
+ *  a message in C++. Foo foo = ...; Any any; any.PackFrom(foo); ... if
+ *  (any.UnpackTo(&foo)) { ... } Example 2: Pack and unpack a message in Java.
+ *  Foo foo = ...; Any any = Any.pack(foo); ... if (any.is(Foo.class)) { foo =
+ *  any.unpack(Foo.class); } Example 3: Pack and unpack a message in Python. foo
+ *  = Foo(...) any = Any() any.Pack(foo) ... if any.Is(Foo.DESCRIPTOR):
+ *  any.Unpack(foo) ... Example 4: Pack and unpack a message in Go foo :=
+ *  &pb.Foo{...} any, err := ptypes.MarshalAny(foo) ... foo := &pb.Foo{} if err
+ *  := ptypes.UnmarshalAny(any, foo); err != nil { ... } The pack methods
+ *  provided by protobuf library will by default use
+ *  'type.googleapis.com/full.type.name' as the type URL and the unpack methods
+ *  only use the fully qualified type name after the last '/' in the type URL,
+ *  for example "foo.bar.com/x/y.z" will yield type name "y.z". # JSON The JSON
+ *  representation of an `Any` value uses the regular representation of the
+ *  deserialized, embedded message, with an additional field `\@type` which
+ *  contains the type URL. Example: package google.profile; message Person {
+ *  string first_name = 1; string last_name = 2; } { "\@type":
+ *  "type.googleapis.com/google.profile.Person", "firstName": , "lastName": } If
+ *  the embedded message type is well-known and has a custom JSON
+ *  representation, that representation will be embedded adding a field `value`
+ *  which holds the custom JSON in addition to the `\@type` field. Example (for
+ *  message google.protobuf.Duration): { "\@type":
+ *  "type.googleapis.com/google.protobuf.Duration", "value": "1.212s" }
  */
 @interface GTLRToolResults_Any : GTLRObject
 
 /**
  *  A URL/resource name that uniquely identifies the type of the serialized
- *  protocol buffer message. This string must contain at least
- *  one "/" character. The last segment of the URL's path must represent
- *  the fully qualified name of the type (as in
- *  `path/google.protobuf.Duration`). The name should be in a canonical form
- *  (e.g., leading "." is not accepted).
- *  In practice, teams usually precompile into the binary all types that they
+ *  protocol buffer message. This string must contain at least one "/"
+ *  character. The last segment of the URL's path must represent the fully
+ *  qualified name of the type (as in `path/google.protobuf.Duration`). The name
+ *  should be in a canonical form (e.g., leading "." is not accepted). In
+ *  practice, teams usually precompile into the binary all types that they
  *  expect it to use in the context of Any. However, for URLs which use the
  *  scheme `http`, `https`, or no scheme, one can optionally set up a type
- *  server that maps type URLs to message definitions as follows:
- *  * If no scheme is provided, `https` is assumed.
- *  * An HTTP GET on the URL must yield a google.protobuf.Type
- *  value in binary format, or produce an error.
- *  * Applications are allowed to cache lookup results based on the
- *  URL, or have them precompiled into a binary to avoid any
- *  lookup. Therefore, binary compatibility needs to be preserved
- *  on changes to types. (Use versioned type names to manage
- *  breaking changes.)
- *  Note: this functionality is not currently available in the official
- *  protobuf release, and it is not used for type URLs beginning with
- *  type.googleapis.com.
- *  Schemes other than `http`, `https` (or the empty scheme) might be
- *  used with implementation specific semantics.
+ *  server that maps type URLs to message definitions as follows: * If no scheme
+ *  is provided, `https` is assumed. * An HTTP GET on the URL must yield a
+ *  google.protobuf.Type value in binary format, or produce an error. *
+ *  Applications are allowed to cache lookup results based on the URL, or have
+ *  them precompiled into a binary to avoid any lookup. Therefore, binary
+ *  compatibility needs to be preserved on changes to types. (Use versioned type
+ *  names to manage breaking changes.) Note: this functionality is not currently
+ *  available in the official protobuf release, and it is not used for type URLs
+ *  beginning with type.googleapis.com. Schemes other than `http`, `https` (or
+ *  the empty scheme) might be used with implementation specific semantics.
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
 
@@ -1037,16 +945,16 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_AppStartTime : GTLRObject
 
 /**
- *  Optional. The time from app start to reaching the developer-reported
- *  "fully drawn" time. This is only stored if the app includes a call to
+ *  Optional. The time from app start to reaching the developer-reported "fully
+ *  drawn" time. This is only stored if the app includes a call to
  *  Activity.reportFullyDrawn(). See
  *  https://developer.android.com/topic/performance/launch-time.html#time-full
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Duration *fullyDrawnTime;
 
 /**
- *  The time from app start to the first displayed activity being drawn,
- *  as reported in Logcat. See
+ *  The time from app start to the first displayed activity being drawn, as
+ *  reported in Logcat. See
  *  https://developer.android.com/topic/performance/launch-time.html#time-initial
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Duration *initialDisplayTime;
@@ -1139,8 +1047,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  The request must provide up to a maximum of 5000 samples to be
- *  created; a larger sample size will cause an INVALID_ARGUMENT error
+ *  The request must provide up to a maximum of 5000 samples to be created; a
+ *  larger sample size will cause an INVALID_ARGUMENT error
  */
 @interface GTLRToolResults_BatchCreatePerfSamplesRequest : GTLRObject
 
@@ -1211,31 +1119,30 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  A Duration represents a signed, fixed-length span of time represented
- *  as a count of seconds and fractions of seconds at nanosecond
- *  resolution. It is independent of any calendar and concepts like "day"
- *  or "month". It is related to Timestamp in that the difference between
- *  two Timestamp values is a Duration and it can be added or subtracted
- *  from a Timestamp. Range is approximately +-10,000 years.
+ *  A Duration represents a signed, fixed-length span of time represented as a
+ *  count of seconds and fractions of seconds at nanosecond resolution. It is
+ *  independent of any calendar and concepts like "day" or "month". It is
+ *  related to Timestamp in that the difference between two Timestamp values is
+ *  a Duration and it can be added or subtracted from a Timestamp. Range is
+ *  approximately +-10,000 years.
  */
 @interface GTLRToolResults_Duration : GTLRObject
 
 /**
- *  Signed fractions of a second at nanosecond resolution of the span
- *  of time. Durations less than one second are represented with a 0
- *  `seconds` field and a positive or negative `nanos` field. For durations
- *  of one second or more, a non-zero value for the `nanos` field must be
- *  of the same sign as the `seconds` field. Must be from -999,999,999
- *  to +999,999,999 inclusive.
+ *  Signed fractions of a second at nanosecond resolution of the span of time.
+ *  Durations less than one second are represented with a 0 `seconds` field and
+ *  a positive or negative `nanos` field. For durations of one second or more, a
+ *  non-zero value for the `nanos` field must be of the same sign as the
+ *  `seconds` field. Must be from -999,999,999 to +999,999,999 inclusive.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Signed seconds of the span of time. Must be from -315,576,000,000
- *  to +315,576,000,000 inclusive. Note: these bounds are computed from:
- *  60 sec/min * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
+ *  Signed seconds of the span of time. Must be from -315,576,000,000 to
+ *  +315,576,000,000 inclusive. Note: these bounds are computed from: 60 sec/min
+ *  * 60 min/hr * 24 hr/day * 365.25 days/year * 10000 years
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1292,9 +1199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_Environment : GTLRObject
 
 /**
- *  Output only. The time when the Environment status was set to complete.
- *  This value will be set automatically when state transitions to
- *  COMPLETE.
+ *  Output only. The time when the Environment status was set to complete. This
+ *  value will be set automatically when state transitions to COMPLETE.
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *completionTime;
 
@@ -1302,17 +1208,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *creationTime;
 
 /**
- *  Dimension values describing the environment. Dimension values always
- *  consist of "Model", "Version", "Locale", and "Orientation".
- *  - In response: always set
- *  - In create request: always set
- *  - In update request: never set
+ *  Dimension values describing the environment. Dimension values always consist
+ *  of "Model", "Version", "Locale", and "Orientation". - In response: always
+ *  set - In create request: always set - In update request: never set
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_EnvironmentDimensionValueEntry *> *dimensionValue;
 
 /**
- *  A short human-readable name to display in the UI.
- *  Maximum of 100 characters.
+ *  A short human-readable name to display in the UI. Maximum of 100 characters.
  *  For example: Nexus 5, API 27.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -1336,9 +1239,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) GTLRToolResults_ResultsStorage *resultsStorage;
 
 /**
- *  Output only. Summaries of shards.
- *  Only one shard will present unless sharding feature is enabled in
- *  TestExecutionService.
+ *  Output only. Summaries of shards. Only one shard will present unless
+ *  sharding feature is enabled in TestExecutionService.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_ShardSummary *> *shardSummaries;
 
@@ -1358,102 +1260,86 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  An Execution represents a collection of Steps. For instance, it could
- *  represent:
- *  - a mobile test executed across a range of device configurations
- *  - a jenkins job with a build step followed by a test step
- *  The maximum size of an execution message is 1 MiB.
- *  An Execution can be updated until its state is set to COMPLETE at which
- *  point it becomes immutable.
+ *  represent: - a mobile test executed across a range of device configurations
+ *  - a jenkins job with a build step followed by a test step The maximum size
+ *  of an execution message is 1 MiB. An Execution can be updated until its
+ *  state is set to COMPLETE at which point it becomes immutable.
  */
 @interface GTLRToolResults_Execution : GTLRObject
 
 /**
- *  The time when the Execution status transitioned to COMPLETE.
- *  This value will be set automatically when state transitions to
- *  COMPLETE.
- *  - In response: set if the execution state is COMPLETE.
- *  - In create/update request: never set
+ *  The time when the Execution status transitioned to COMPLETE. This value will
+ *  be set automatically when state transitions to COMPLETE. - In response: set
+ *  if the execution state is COMPLETE. - In create/update request: never set
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *completionTime;
 
 /**
- *  The time when the Execution was created.
- *  This value will be set automatically when CreateExecution is called.
- *  - In response: always set
- *  - In create/update request: never set
+ *  The time when the Execution was created. This value will be set
+ *  automatically when CreateExecution is called. - In response: always set - In
+ *  create/update request: never set
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *creationTime;
 
 /**
- *  The dimensions along which different steps in this execution may vary.
- *  This must remain fixed over the life of the execution.
- *  Returns INVALID_ARGUMENT if this field is set in an update request.
- *  Returns INVALID_ARGUMENT if the same name occurs in more than one
- *  dimension_definition.
- *  Returns INVALID_ARGUMENT if the size of the list is over 100.
- *  - In response: present if set by create
- *  - In create request: optional
- *  - In update request: never set
+ *  The dimensions along which different steps in this execution may vary. This
+ *  must remain fixed over the life of the execution. Returns INVALID_ARGUMENT
+ *  if this field is set in an update request. Returns INVALID_ARGUMENT if the
+ *  same name occurs in more than one dimension_definition. Returns
+ *  INVALID_ARGUMENT if the size of the list is over 100. - In response: present
+ *  if set by create - In create request: optional - In update request: never
+ *  set
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_MatrixDimensionDefinition *> *dimensionDefinitions;
 
 /**
- *  A unique identifier within a History for this Execution.
- *  Returns INVALID_ARGUMENT if this field is set or overwritten by the caller.
- *  - In response always set
- *  - In create/update request: never set
+ *  A unique identifier within a History for this Execution. Returns
+ *  INVALID_ARGUMENT if this field is set or overwritten by the caller. - In
+ *  response always set - In create/update request: never set
  */
 @property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
- *  Classify the result, for example into SUCCESS or FAILURE
- *  - In response: present if set by create/update request
- *  - In create/update request: optional
+ *  Classify the result, for example into SUCCESS or FAILURE - In response:
+ *  present if set by create/update request - In create/update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Outcome *outcome;
 
 /**
- *  Lightweight information about execution request.
- *  - In response: present if set by create
- *  - In create: optional
- *  - In update: optional
+ *  Lightweight information about execution request. - In response: present if
+ *  set by create - In create: optional - In update: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Specification *specification;
 
 /**
- *  The initial state is IN_PROGRESS.
- *  The only legal state transitions is from IN_PROGRESS to COMPLETE.
- *  A PRECONDITION_FAILED will be returned if an invalid transition is
- *  requested.
- *  The state can only be set to COMPLETE once. A FAILED_PRECONDITION will be
- *  returned if the state is set to COMPLETE multiple times.
- *  If the state is set to COMPLETE, all the in-progress steps within the
- *  execution will be set as COMPLETE. If the outcome of the step is not set,
- *  the outcome will be set to INCONCLUSIVE.
- *  - In response always set
- *  - In create/update request: optional
+ *  The initial state is IN_PROGRESS. The only legal state transitions is from
+ *  IN_PROGRESS to COMPLETE. A PRECONDITION_FAILED will be returned if an
+ *  invalid transition is requested. The state can only be set to COMPLETE once.
+ *  A FAILED_PRECONDITION will be returned if the state is set to COMPLETE
+ *  multiple times. If the state is set to COMPLETE, all the in-progress steps
+ *  within the execution will be set as COMPLETE. If the outcome of the step is
+ *  not set, the outcome will be set to INCONCLUSIVE. - In response always set -
+ *  In create/update request: optional
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_Execution_State_Complete The finalized, immutable
- *        state. Steps/Executions in this state cannot be
- *        modified. (Value: "complete")
+ *        state. Steps/Executions in this state cannot be modified. (Value:
+ *        "complete")
  *    @arg @c kGTLRToolResults_Execution_State_InProgress The Execution/Step is
  *        in progress. (Value: "inProgress")
  *    @arg @c kGTLRToolResults_Execution_State_Pending The Execution/Step is
- *        created, ready to run, but not running yet.
- *        If an Execution/Step is created without initial state, it is assumed
- *        that the Execution/Step is in PENDING state. (Value: "pending")
+ *        created, ready to run, but not running yet. If an Execution/Step is
+ *        created without initial state, it is assumed that the Execution/Step
+ *        is in PENDING state. (Value: "pending")
  *    @arg @c kGTLRToolResults_Execution_State_UnknownState Should never be in
- *        this state. Exists for proto deserialization backward
- *        compatibility. (Value: "unknownState")
+ *        this state. Exists for proto deserialization backward compatibility.
+ *        (Value: "unknownState")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  TestExecution Matrix ID that the TestExecutionService uses.
- *  - In response: present if set by create
- *  - In create: optional
- *  - In update: never set
+ *  TestExecution Matrix ID that the TestExecutionService uses. - In response:
+ *  present if set by create - In create: optional - In update: never set
  */
 @property(nonatomic, copy, nullable) NSString *testExecutionMatrixId;
 
@@ -1480,6 +1366,13 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) NSNumber *crashed;
 
 /**
+ *  If the device ran out of memory during a test, causing the test to crash.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deviceOutOfMemory;
+
+/**
  *  If the Roboscript failed to complete successfully, e.g., because a
  *  Roboscript action or assertion failed or a Roboscript action could not be
  *  matched during the entire crawl.
@@ -1489,8 +1382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) NSNumber *failedRoboscript;
 
 /**
- *  If an app is not installed and thus no test can be run with the app.
- *  This might be caused by trying to run a test on an unsupported platform.
+ *  If an app is not installed and thus no test can be run with the app. This
+ *  might be caused by trying to run a test on an unsupported platform.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1526,10 +1419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_FatalException : GTLRObject
 
-/**
- *  The stack trace of the fatal exception.
- *  Optional.
- */
+/** The stack trace of the fatal exception. Optional. */
 @property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
 
 @end
@@ -1541,15 +1431,12 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_FileReference : GTLRObject
 
 /**
- *  The URI of a file stored in Google Cloud Storage.
- *  For example: http://storage.googleapis.com/mybucket/path/to/test.xml
- *  or in gsutil format: gs://mybucket/path/to/test.xml
- *  with version-specific info,
- *  gs://mybucket/path/to/test.xml#1360383693690000
- *  An INVALID_ARGUMENT error will be returned if the URI format is not
- *  supported.
- *  - In response: always set
- *  - In create/update request: always set
+ *  The URI of a file stored in Google Cloud Storage. For example:
+ *  http://storage.googleapis.com/mybucket/path/to/test.xml or in gsutil format:
+ *  gs://mybucket/path/to/test.xml with version-specific info,
+ *  gs://mybucket/path/to/test.xml#1360383693690000 An INVALID_ARGUMENT error
+ *  will be returned if the URI format is not supported. - In response: always
+ *  set - In create/update request: always set
  */
 @property(nonatomic, copy, nullable) NSString *fileUri;
 
@@ -1557,11 +1444,10 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  Graphics statistics for the App.
- *  The information is collected from 'adb shell dumpsys graphicsstats'.
- *  For more info see:
- *  https://developer.android.com/training/testing/performance.html
- *  Statistics will only be present for API 23+.
+ *  Graphics statistics for the App. The information is collected from 'adb
+ *  shell dumpsys graphicsstats'. For more info see:
+ *  https://developer.android.com/training/testing/performance.html Statistics
+ *  will only be present for API 23+.
  */
 @interface GTLRToolResults_GraphicsStats : GTLRObject
 
@@ -1676,41 +1562,35 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /**
  *  A History represents a sorted list of Executions ordered by the
  *  start_timestamp_millis field (descending). It can be used to group all the
- *  Executions of a continuous build.
- *  Note that the ordering only operates on one-dimension. If a repository has
- *  multiple branches, it means that multiple histories will need to be
- *  used in order to order Executions per branch.
+ *  Executions of a continuous build. Note that the ordering only operates on
+ *  one-dimension. If a repository has multiple branches, it means that multiple
+ *  histories will need to be used in order to order Executions per branch.
  */
 @interface GTLRToolResults_History : GTLRObject
 
 /**
- *  A short human-readable (plain text) name to display in the UI.
- *  Maximum of 100 characters.
- *  - In response: present if set during create.
- *  - In create request: optional
+ *  A short human-readable (plain text) name to display in the UI. Maximum of
+ *  100 characters. - In response: present if set during create. - In create
+ *  request: optional
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  A unique identifier within a project for this History.
- *  Returns INVALID_ARGUMENT if this field is set or overwritten by the caller.
- *  - In response always set
- *  - In create request: never set
+ *  A unique identifier within a project for this History. Returns
+ *  INVALID_ARGUMENT if this field is set or overwritten by the caller. - In
+ *  response always set - In create request: never set
  */
 @property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
- *  A name to uniquely identify a history within a project.
- *  Maximum of 200 characters.
- *  - In response always set
- *  - In create request: always set
+ *  A name to uniquely identify a history within a project. Maximum of 200
+ *  characters. - In response always set - In create request: always set
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The platform of the test history.
- *  - In response: always set. Returns the platform of the last execution if
- *  unknown.
+ *  The platform of the test history. - In response: always set. Returns the
+ *  platform of the last execution if unknown.
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_History_TestPlatform_Android Value "android"
@@ -1732,16 +1612,12 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) GTLRToolResults_Status *error;
 
 /**
- *  A reference to the full-size, original image.
- *  This is the same as the tool_outputs entry for the image under its Step.
- *  Always set.
+ *  A reference to the full-size, original image. This is the same as the
+ *  tool_outputs entry for the image under its Step. Always set.
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_ToolOutputReference *sourceImage;
 
-/**
- *  The step to which the image is attached.
- *  Always set.
- */
+/** The step to which the image is attached. Always set. */
 @property(nonatomic, copy, nullable) NSString *stepId;
 
 /** The thumbnail. */
@@ -1756,8 +1632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_InAppPurchasesFound : GTLRObject
 
 /**
- *  The total number of in-app purchases flows explored: how many times the
- *  robo tries to buy a SKU.
+ *  The total number of in-app purchases flows explored: how many times the robo
+ *  tries to buy a SKU.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1780,17 +1656,16 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  If the end user aborted the test execution before a pass or fail could be
- *  determined.
- *  For example, the user pressed ctrl-c which sent a kill signal to the test
- *  runner while the test was running.
+ *  determined. For example, the user pressed ctrl-c which sent a kill signal to
+ *  the test runner while the test was running.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *abortedByUser;
 
 /**
- *  If results are being provided to the user in certain cases of
- *  infrastructure failures
+ *  If results are being provided to the user in certain cases of infrastructure
+ *  failures
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1798,8 +1673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  If the test runner could not determine success or failure because the test
- *  depends on a component other than the system under test which failed.
- *  For example, a mobile test requires provisioning a device where the test
+ *  depends on a component other than the system under test which failed. For
+ *  example, a mobile test requires provisioning a device where the test
  *  executes, and that provisioning can fail.
  *
  *  Uses NSNumber of boolValue.
@@ -1816,9 +1691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_IndividualOutcome : GTLRObject
 
 /**
- *  Unique int given to each step.
- *  Ranges from 0(inclusive) to total number of steps(exclusive).
- *  The primary step is 0.
+ *  Unique int given to each step. Ranges from 0(inclusive) to total number of
+ *  steps(exclusive). The primary step is 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1829,23 +1703,20 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Failure A run
- *        failed, for instance:
- *        - One or more test case failed.
- *        - A test timed out.
- *        - The application under test crashed. (Value: "failure")
+ *        failed, for instance: - One or more test case failed. - A test timed
+ *        out. - The application under test crashed. (Value: "failure")
  *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Flaky A group of
- *        steps that were run with the same configuration had both
- *        failure and success outcomes. (Value: "flaky")
+ *        steps that were run with the same configuration had both failure and
+ *        success outcomes. (Value: "flaky")
  *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Inconclusive
  *        Something unexpected happened. The run should still be considered
  *        unsuccessful but this is likely a transient problem and re-running the
  *        test might be successful. (Value: "inconclusive")
  *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Skipped All
- *        tests were skipped, for instance:
- *        - All device configurations were incompatible. (Value: "skipped")
+ *        tests were skipped, for instance: - All device configurations were
+ *        incompatible. (Value: "skipped")
  *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Success The test
- *        matrix run was successful, for instance:
- *        - All the test cases passed.
+ *        matrix run was successful, for instance: - All the test cases passed.
  *        - Robo did not detect a crash of the application under test. (Value:
  *        "success")
  *    @arg @c kGTLRToolResults_IndividualOutcome_OutcomeSummary_Unset Do not
@@ -1873,10 +1744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_IosAppCrashed : GTLRObject
 
-/**
- *  The stack trace, if one is available.
- *  Optional.
- */
+/** The stack trace, if one is available. Optional. */
 @property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
 
 @end
@@ -1887,10 +1755,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_IosAppInfo : GTLRObject
 
-/**
- *  The name of the app.
- *  Required
- */
+/** The name of the app. Required */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -1920,10 +1785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /** An iOS XCTest. */
 @property(nonatomic, strong, nullable) GTLRToolResults_IosXcTest *iosXcTest;
 
-/**
- *  Max time a test is allowed to run before it is
- *  automatically cancelled.
- */
+/** Max time a test is allowed to run before it is automatically cancelled. */
 @property(nonatomic, strong, nullable) GTLRToolResults_Duration *testTimeout;
 
 @end
@@ -1972,36 +1834,26 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_ListEnvironmentsResponse : GTLRCollectionObject
 
 /**
- *  Environments.
- *  Always set.
+ *  Environments. Always set.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_Environment *> *environments;
 
-/**
- *  A Execution id
- *  Always set.
- */
+/** A Execution id Always set. */
 @property(nonatomic, copy, nullable) NSString *executionId;
 
-/**
- *  A History id.
- *  Always set.
- */
+/** A History id. Always set. */
 @property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
- *  A continuation token to resume the query at the next item.
- *  Will only be set if there are more Environments to fetch.
+ *  A continuation token to resume the query at the next item. Will only be set
+ *  if there are more Environments to fetch.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  A Project id.
- *  Always set.
- */
+/** A Project id. Always set. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 @end
@@ -2018,8 +1870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_ListExecutionsResponse : GTLRCollectionObject
 
 /**
- *  Executions.
- *  Always set.
+ *  Executions. Always set.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2027,8 +1878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_Execution *> *executions;
 
 /**
- *  A continuation token to resume the query at the next item.
- *  Will only be set if there are more Executions to fetch.
+ *  A continuation token to resume the query at the next item. Will only be set
+ *  if there are more Executions to fetch.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2054,12 +1905,11 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_History *> *histories;
 
 /**
- *  A continuation token to resume the query at the next item.
- *  Will only be set if there are more histories to fetch.
- *  Tokens are valid for up to one hour from the time of the first list
- *  request. For instance, if you make a list request at 1PM and use the token
- *  from this first request 10 minutes later, the token from this second
- *  response will only be valid for 50 minutes.
+ *  A continuation token to resume the query at the next item. Will only be set
+ *  if there are more histories to fetch. Tokens are valid for up to one hour
+ *  from the time of the first list request. For instance, if you make a list
+ *  request at 1PM and use the token from this first request 10 minutes later,
+ *  the token from this second response will only be valid for 50 minutes.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2110,10 +1960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_ListScreenshotClustersResponse : GTLRObject
 
-/**
- *  The set of clusters associated with an execution
- *  Always set
- */
+/** The set of clusters associated with an execution Always set */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_ScreenshotCluster *> *clusters;
 
 @end
@@ -2125,20 +1972,18 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_ListStepAccessibilityClustersResponse : GTLRObject
 
 /**
- *  A sequence of accessibility suggestions, grouped into clusters.
- *  Within the sequence, clusters that belong to the same SuggestionCategory
- *  should be adjacent.
- *  Within each category, clusters should be ordered by their
- *  SuggestionPriority (ERRORs first).
- *  The categories should be ordered by their highest priority cluster.
+ *  A sequence of accessibility suggestions, grouped into clusters. Within the
+ *  sequence, clusters that belong to the same SuggestionCategory should be
+ *  adjacent. Within each category, clusters should be ordered by their
+ *  SuggestionPriority (ERRORs first). The categories should be ordered by their
+ *  highest priority cluster.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_SuggestionClusterProto *> *clusters;
 
 /**
- *  A full resource name of the step.
- *  For example, projects/my-project/histories/bh.1234567890abcdef/executions/
- *  1234567890123456789/steps/bs.1234567890abcdef
- *  Always presents.
+ *  A full resource name of the step. For example,
+ *  projects/my-project/histories/bh.1234567890abcdef/executions/
+ *  1234567890123456789/steps/bs.1234567890abcdef Always presents.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2156,9 +2001,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_ListStepsResponse : GTLRCollectionObject
 
 /**
- *  A continuation token to resume the query at the next item.
- *  If set, indicates that there are more steps to read, by calling list again
- *  with this value in the page_token field.
+ *  A continuation token to resume the query at the next item. If set, indicates
+ *  that there are more steps to read, by calling list again with this value in
+ *  the page_token field.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2184,23 +2029,19 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_ListStepThumbnailsResponse : GTLRCollectionObject
 
 /**
- *  A continuation token to resume the query at the next item.
- *  If set, indicates that there are more thumbnails to read, by calling list
- *  again with this value in the page_token field.
+ *  A continuation token to resume the query at the next item. If set, indicates
+ *  that there are more thumbnails to read, by calling list again with this
+ *  value in the page_token field.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  A list of image data.
- *  Images are returned in a deterministic order; they are ordered by these
- *  factors, in order of
- *  importance:
- *  * First, by their associated test case. Images without a test case are
- *  considered greater than images with one.
- *  * Second, by their creation time. Images without a creation time are
- *  greater than images with one.
- *  * Third, by the order in which they were added to the step (by calls to
- *  CreateStep or UpdateStep).
+ *  A list of image data. Images are returned in a deterministic order; they are
+ *  ordered by these factors, in order of importance: * First, by their
+ *  associated test case. Images without a test case are considered greater than
+ *  images with one. * Second, by their creation time. Images without a creation
+ *  time are greater than images with one. * Third, by the order in which they
+ *  were added to the step (by calls to CreateStep or UpdateStep).
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2263,12 +2104,11 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  Merged test result for environment.
- *  If the environment has only one step (no reruns or shards), then the merged
- *  result is the same as the step result. If the environment has multiple
- *  shards
- *  and/or reruns, then the results of shards and reruns that belong to the same
- *  environment are merged into one environment result.
+ *  Merged test result for environment. If the environment has only one step (no
+ *  reruns or shards), then the merged result is the same as the step result. If
+ *  the environment has multiple shards and/or reruns, then the results of
+ *  shards and reruns that belong to the same environment are merged into one
+ *  environment result.
  */
 @interface GTLRToolResults_MergedResult : GTLRObject
 
@@ -2280,14 +2120,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_MergedResult_State_Complete The finalized,
- *        immutable state. Steps/Executions in this state cannot be
- *        modified. (Value: "complete")
+ *        immutable state. Steps/Executions in this state cannot be modified.
+ *        (Value: "complete")
  *    @arg @c kGTLRToolResults_MergedResult_State_InProgress The Execution/Step
  *        is in progress. (Value: "inProgress")
  *    @arg @c kGTLRToolResults_MergedResult_State_Pending The Execution/Step is
- *        created, ready to run, but not running yet.
- *        If an Execution/Step is created without initial state, it is assumed
- *        that the Execution/Step is in PENDING state. (Value: "pending")
+ *        created, ready to run, but not running yet. If an Execution/Step is
+ *        created without initial state, it is assumed that the Execution/Step
+ *        is in PENDING state. (Value: "pending")
  *    @arg @c kGTLRToolResults_MergedResult_State_UnknownState Should never be
  *        in this state. Exists for proto deserialization backward
  *        compatibility. (Value: "unknownState")
@@ -2295,17 +2135,15 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  The combined and rolled-up result of each test suite that was run as part
- *  of this environment.
- *  Combining:
- *  When the test cases from a suite are run in different steps (sharding),
- *  the results are added back together in one overview. (e.g., if shard1 has
- *  2 failures and shard2 has 1 failure than the overview failure_count = 3).
- *  Rollup:
- *  When test cases from the same suite are run multiple times (flaky), the
- *  results are combined (e.g., if testcase1.run1 fails, testcase1.run2
- *  passes, and both testcase2.run1 and testcase2.run2 fail then the overview
- *  flaky_count = 1 and failure_count = 1).
+ *  The combined and rolled-up result of each test suite that was run as part of
+ *  this environment. Combining: When the test cases from a suite are run in
+ *  different steps (sharding), the results are added back together in one
+ *  overview. (e.g., if shard1 has 2 failures and shard2 has 1 failure than the
+ *  overview failure_count = 3). Rollup: When test cases from the same suite are
+ *  run multiple times (flaky), the results are combined (e.g., if
+ *  testcase1.run1 fails, testcase1.run2 passes, and both testcase2.run1 and
+ *  testcase2.run2 fail then the overview flaky_count = 1 and failure_count =
+ *  1).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_TestSuiteOverview *> *testSuiteOverviews;
 
@@ -2318,9 +2156,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_MultiStep : GTLRObject
 
 /**
- *  Unique int given to each step.
- *  Ranges from 0(inclusive) to total number of steps(exclusive).
- *  The primary step is 0.
+ *  Unique int given to each step. Ranges from 0(inclusive) to total number of
+ *  steps(exclusive). The primary step is 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2340,18 +2177,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_NativeCrash : GTLRObject
 
-/**
- *  The stack trace of the native crash.
- *  Optional.
- */
+/** The stack trace of the native crash. Optional. */
 @property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
 
 @end
 
 
 /**
- *  A non-sdk API and examples of it being called along with other metadata
- *  See
+ *  A non-sdk API and examples of it being called along with other metadata See
  *  https://developer.android.com/distribute/best-practices/develop/restrictions-non-sdk-interfaces
  */
 @interface GTLRToolResults_NonSdkApi : GTLRObject
@@ -2395,14 +2228,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_NonSdkApiInsight : GTLRObject
 
 /**
- *  Optional sample stack traces, for which this insight applies (there
- *  should be at least one).
+ *  Optional sample stack traces, for which this insight applies (there should
+ *  be at least one).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exampleTraceMessages;
 
 /**
- *  A unique ID, to be used for determining the effectiveness of this
- *  particular insight in the context of a matcher. (required)
+ *  A unique ID, to be used for determining the effectiveness of this particular
+ *  insight in the context of a matcher. (required)
  */
 @property(nonatomic, copy, nullable) NSString *matcherId;
 
@@ -2413,8 +2246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) GTLRToolResults_PendingGoogleUpdateInsight *pendingGoogleUpdateInsight;
 
 /**
- *  An insight indicating that the hidden API usage originates from the
- *  use of a library that needs to be upgraded.
+ *  An insight indicating that the hidden API usage originates from the use of a
+ *  library that needs to be upgraded.
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_UpgradeInsight *upgradeInsight;
 
@@ -2477,62 +2310,49 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_Outcome : GTLRObject
 
 /**
- *  More information about a FAILURE outcome.
- *  Returns INVALID_ARGUMENT if this field is set
- *  but the summary is not FAILURE.
- *  Optional
+ *  More information about a FAILURE outcome. Returns INVALID_ARGUMENT if this
+ *  field is set but the summary is not FAILURE. Optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_FailureDetail *failureDetail;
 
 /**
- *  More information about an INCONCLUSIVE outcome.
- *  Returns INVALID_ARGUMENT if this field is set
- *  but the summary is not INCONCLUSIVE.
- *  Optional
+ *  More information about an INCONCLUSIVE outcome. Returns INVALID_ARGUMENT if
+ *  this field is set but the summary is not INCONCLUSIVE. Optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_InconclusiveDetail *inconclusiveDetail;
 
 /**
- *  More information about a SKIPPED outcome.
- *  Returns INVALID_ARGUMENT if this field is set
- *  but the summary is not SKIPPED.
- *  Optional
+ *  More information about a SKIPPED outcome. Returns INVALID_ARGUMENT if this
+ *  field is set but the summary is not SKIPPED. Optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_SkippedDetail *skippedDetail;
 
 /**
- *  More information about a SUCCESS outcome.
- *  Returns INVALID_ARGUMENT if this field is set
- *  but the summary is not SUCCESS.
- *  Optional
+ *  More information about a SUCCESS outcome. Returns INVALID_ARGUMENT if this
+ *  field is set but the summary is not SUCCESS. Optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_SuccessDetail *successDetail;
 
 /**
- *  The simplest way to interpret a result.
- *  Required
+ *  The simplest way to interpret a result. Required
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_Outcome_Summary_Failure A run failed, for
- *        instance:
- *        - One or more test case failed.
- *        - A test timed out.
- *        - The application under test crashed. (Value: "failure")
+ *        instance: - One or more test case failed. - A test timed out. - The
+ *        application under test crashed. (Value: "failure")
  *    @arg @c kGTLRToolResults_Outcome_Summary_Flaky A group of steps that were
- *        run with the same configuration had both
- *        failure and success outcomes. (Value: "flaky")
+ *        run with the same configuration had both failure and success outcomes.
+ *        (Value: "flaky")
  *    @arg @c kGTLRToolResults_Outcome_Summary_Inconclusive Something unexpected
- *        happened. The run should still be considered
- *        unsuccessful but this is likely a transient problem and re-running the
- *        test might be successful. (Value: "inconclusive")
+ *        happened. The run should still be considered unsuccessful but this is
+ *        likely a transient problem and re-running the test might be
+ *        successful. (Value: "inconclusive")
  *    @arg @c kGTLRToolResults_Outcome_Summary_Skipped All tests were skipped,
- *        for instance:
- *        - All device configurations were incompatible. (Value: "skipped")
+ *        for instance: - All device configurations were incompatible. (Value:
+ *        "skipped")
  *    @arg @c kGTLRToolResults_Outcome_Summary_Success The test matrix run was
- *        successful, for instance:
- *        - All the test cases passed.
- *        - Robo did not detect a crash of the application under test. (Value:
- *        "success")
+ *        successful, for instance: - All the test cases passed. - Robo did not
+ *        detect a crash of the application under test. (Value: "success")
  *    @arg @c kGTLRToolResults_Outcome_Summary_Unset Do not use. For proto
  *        versioning only. (Value: "unset")
  */
@@ -2591,10 +2411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 @property(nonatomic, strong, nullable) GTLRToolResults_AppStartTime *appStartTime;
 
-/**
- *  A tool results execution ID.
- *  \@OutputOnly
- */
+/** A tool results execution ID. \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
@@ -2603,10 +2420,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_GraphicsStats *graphicsStats;
 
-/**
- *  A tool results history ID.
- *  \@OutputOnly
- */
+/** A tool results history ID. \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *historyId;
 
 /**
@@ -2617,16 +2431,10 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /** Set of resource collected */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *perfMetrics;
 
-/**
- *  The cloud project
- *  \@OutputOnly
- */
+/** The cloud project \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/**
- *  A tool results step ID.
- *  \@OutputOnly
- */
+/** A tool results step ID. \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *stepId;
 
 @end
@@ -2680,34 +2488,19 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /** Basic series represented by a line chart */
 @property(nonatomic, strong, nullable) GTLRToolResults_BasicPerfSampleSeries *basicPerfSampleSeries;
 
-/**
- *  A tool results execution ID.
- *  \@OutputOnly
- */
+/** A tool results execution ID. \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *executionId;
 
-/**
- *  A tool results history ID.
- *  \@OutputOnly
- */
+/** A tool results history ID. \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *historyId;
 
-/**
- *  The cloud project
- *  \@OutputOnly
- */
+/** The cloud project \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/**
- *  A sample series id
- *  \@OutputOnly
- */
+/** A sample series id \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *sampleSeriesId;
 
-/**
- *  A tool results step ID.
- *  \@OutputOnly
- */
+/** A tool results step ID. \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *stepId;
 
 @end
@@ -2728,25 +2521,21 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Failure A run failed, for
- *        instance:
- *        - One or more test case failed.
- *        - A test timed out.
- *        - The application under test crashed. (Value: "failure")
+ *        instance: - One or more test case failed. - A test timed out. - The
+ *        application under test crashed. (Value: "failure")
  *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Flaky A group of steps that
- *        were run with the same configuration had both
- *        failure and success outcomes. (Value: "flaky")
+ *        were run with the same configuration had both failure and success
+ *        outcomes. (Value: "flaky")
  *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Inconclusive Something
- *        unexpected happened. The run should still be considered
- *        unsuccessful but this is likely a transient problem and re-running the
- *        test might be successful. (Value: "inconclusive")
+ *        unexpected happened. The run should still be considered unsuccessful
+ *        but this is likely a transient problem and re-running the test might
+ *        be successful. (Value: "inconclusive")
  *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Skipped All tests were
- *        skipped, for instance:
- *        - All device configurations were incompatible. (Value: "skipped")
+ *        skipped, for instance: - All device configurations were incompatible.
+ *        (Value: "skipped")
  *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Success The test matrix run
- *        was successful, for instance:
- *        - All the test cases passed.
- *        - Robo did not detect a crash of the application under test. (Value:
- *        "success")
+ *        was successful, for instance: - All the test cases passed. - Robo did
+ *        not detect a crash of the application under test. (Value: "success")
  *    @arg @c kGTLRToolResults_PrimaryStep_RollUp_Unset Do not use. For proto
  *        versioning only. (Value: "unset")
  */
@@ -2761,19 +2550,15 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_ProjectSettings : GTLRObject
 
 /**
- *  The name of the Google Cloud Storage bucket to which results are written.
- *  By default, this is unset.
- *  In update request: optional
- *  In response: optional
+ *  The name of the Google Cloud Storage bucket to which results are written. By
+ *  default, this is unset. In update request: optional In response: optional
  */
 @property(nonatomic, copy, nullable) NSString *defaultBucket;
 
 /**
- *  The name of the project's settings.
- *  Always of the form:
- *  projects/{project-id}/settings
- *  In update request: never set
- *  In response: always set
+ *  The name of the project's settings. Always of the form:
+ *  projects/{project-id}/settings In update request: never set In response:
+ *  always set
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2786,9 +2571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_PublishXunitXmlFilesRequest : GTLRObject
 
 /**
- *  URI of the Xunit XML files to publish.
- *  The maximum size of the file this reference is pointing to is 50MB.
- *  Required.
+ *  URI of the Xunit XML files to publish. The maximum size of the file this
+ *  reference is pointing to is 50MB. Required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_FileReference *> *xunitXmlFiles;
 
@@ -2801,32 +2585,28 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_RegionProto : GTLRObject
 
 /**
- *  The height, in pixels.
- *  Always set.
+ *  The height, in pixels. Always set.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *heightPx;
 
 /**
- *  The left side of the rectangle, in pixels.
- *  Always set.
+ *  The left side of the rectangle, in pixels. Always set.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *leftPx;
 
 /**
- *  The top of the rectangle, in pixels.
- *  Always set.
+ *  The top of the rectangle, in pixels. Always set.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *topPx;
 
 /**
- *  The width, in pixels.
- *  Always set.
+ *  The width, in pixels. Always set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2873,19 +2653,18 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  IMPORTANT: It is unsafe to accept this message from an untrusted source,
- *  since it's trivial for an attacker to forge serialized messages that
- *  don't fulfill the type's safety contract -- for example, it could contain
- *  attacker controlled script. A system which receives a SafeHtmlProto
- *  implicitly trusts the producer of the SafeHtmlProto. So, it's generally safe
- *  to return this message in RPC responses, but generally unsafe to accept it
- *  in RPC requests.
+ *  since it's trivial for an attacker to forge serialized messages that don't
+ *  fulfill the type's safety contract -- for example, it could contain attacker
+ *  controlled script. A system which receives a SafeHtmlProto implicitly trusts
+ *  the producer of the SafeHtmlProto. So, it's generally safe to return this
+ *  message in RPC responses, but generally unsafe to accept it in RPC requests.
  */
 @interface GTLRToolResults_SafeHtmlProto : GTLRObject
 
 /**
- *  IMPORTANT: Never set or read this field, even from tests, it is private.
- *  See documentation at the top of .proto file for programming language
- *  packages with which to create or read this message.
+ *  IMPORTANT: Never set or read this field, even from tests, it is private. See
+ *  documentation at the top of .proto file for programming language packages
+ *  with which to create or read this message.
  */
 @property(nonatomic, copy, nullable) NSString *privateDoNotAccessOrElseSafeHtmlWrappedValue;
 
@@ -2897,28 +2676,16 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_Screen : GTLRObject
 
-/**
- *  File reference of the png file.
- *  Required.
- */
+/** File reference of the png file. Required. */
 @property(nonatomic, copy, nullable) NSString *fileReference;
 
-/**
- *  Locale of the device that the screenshot was taken on.
- *  Required.
- */
+/** Locale of the device that the screenshot was taken on. Required. */
 @property(nonatomic, copy, nullable) NSString *locale;
 
-/**
- *  Model of the device that the screenshot was taken on.
- *  Required.
- */
+/** Model of the device that the screenshot was taken on. Required. */
 @property(nonatomic, copy, nullable) NSString *model;
 
-/**
- *  OS version of the device that the screenshot was taken on.
- *  Required.
- */
+/** OS version of the device that the screenshot was taken on. Required. */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -2932,17 +2699,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /** A string that describes the activity of every screen in the cluster. */
 @property(nonatomic, copy, nullable) NSString *activity;
 
-/**
- *  A unique identifier for the cluster.
- *  \@OutputOnly
- */
+/** A unique identifier for the cluster. \@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  A singular screen that represents the cluster as a whole. This screen will
  *  act as the "cover" of the entire cluster. When users look at the clusters,
- *  only the key screen from each cluster will be shown. Which screen is the
- *  key screen is determined by the ClusteringAlgorithm
+ *  only the key screen from each cluster will be shown. Which screen is the key
+ *  screen is determined by the ClusteringAlgorithm
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Screen *keyScreen;
 
@@ -2958,9 +2722,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_ShardSummary : GTLRObject
 
 /**
- *  Summaries of the steps belonging to the shard.
- *  With flaky_test_attempts enabled from TestExecutionService, more than one
- *  run (Step) can present. And the runs will be sorted by multistep_number.
+ *  Summaries of the steps belonging to the shard. With flaky_test_attempts
+ *  enabled from TestExecutionService, more than one run (Step) can present. And
+ *  the runs will be sorted by multistep_number.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_StepSummary *> *runs;
 
@@ -3018,10 +2782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_StackTrace : GTLRObject
 
-/**
- *  The stack trace message.
- *  Required
- */
+/** The stack trace message. Required */
 @property(nonatomic, copy, nullable) NSString *exception;
 
 @end
@@ -3042,9 +2803,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRToolResults_Status : GTLRObject
 
@@ -3084,200 +2845,167 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  A Step represents a single operation performed as part of
- *  Execution. A step can be used to represent the execution of a tool (
- *  for example a test runner execution or an execution of a compiler).
- *  Steps can overlap (for instance two steps might have the same
- *  start time if some operations are done in parallel).
- *  Here is an example, let's consider that we have a continuous build is
- *  executing a test runner for each iteration. The workflow would look like:
- *  - user creates a Execution with id 1
- *  - user creates an TestExecutionStep with id 100 for Execution 1
- *  - user update TestExecutionStep with id 100 to add a raw xml log
- *  + the service parses the xml logs and returns a TestExecutionStep with
- *  updated TestResult(s).
- *  - user update the status of TestExecutionStep with id 100 to COMPLETE
- *  A Step can be updated until its state is set to COMPLETE at which
- *  points it becomes immutable.
- *  Next tag: 27
+ *  A Step represents a single operation performed as part of Execution. A step
+ *  can be used to represent the execution of a tool ( for example a test runner
+ *  execution or an execution of a compiler). Steps can overlap (for instance
+ *  two steps might have the same start time if some operations are done in
+ *  parallel). Here is an example, let's consider that we have a continuous
+ *  build is executing a test runner for each iteration. The workflow would look
+ *  like: - user creates a Execution with id 1 - user creates an
+ *  TestExecutionStep with id 100 for Execution 1 - user update
+ *  TestExecutionStep with id 100 to add a raw xml log + the service parses the
+ *  xml logs and returns a TestExecutionStep with updated TestResult(s). - user
+ *  update the status of TestExecutionStep with id 100 to COMPLETE A Step can be
+ *  updated until its state is set to COMPLETE at which points it becomes
+ *  immutable. Next tag: 27
  */
 @interface GTLRToolResults_Step : GTLRObject
 
 /**
- *  The time when the step status was set to complete.
- *  This value will be set automatically when state transitions to
- *  COMPLETE.
- *  - In response: set if the execution state is COMPLETE.
- *  - In create/update request: never set
+ *  The time when the step status was set to complete. This value will be set
+ *  automatically when state transitions to COMPLETE. - In response: set if the
+ *  execution state is COMPLETE. - In create/update request: never set
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *completionTime;
 
 /**
- *  The time when the step was created.
- *  - In response: always set
- *  - In create/update request: never set
+ *  The time when the step was created. - In response: always set - In
+ *  create/update request: never set
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *creationTime;
 
 /**
- *  A description of this tool
- *  For example: mvn clean package -D skipTests=true
- *  - In response: present if set by create/update request
- *  - In create/update request: optional
+ *  A description of this tool For example: mvn clean package -D skipTests=true
+ *  - In response: present if set by create/update request - In create/update
+ *  request: optional
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  How much the device resource is used to perform the test.
- *  This is the device usage used for billing purpose, which is different from
- *  the run_duration, for example, infrastructure failure won't be charged for
- *  device usage.
- *  PRECONDITION_FAILED will be returned if one attempts to set a
- *  device_usage on a step which already has this field set.
- *  - In response: present if previously set.
- *  - In create request: optional
- *  - In update request: optional
+ *  How much the device resource is used to perform the test. This is the device
+ *  usage used for billing purpose, which is different from the run_duration,
+ *  for example, infrastructure failure won't be charged for device usage.
+ *  PRECONDITION_FAILED will be returned if one attempts to set a device_usage
+ *  on a step which already has this field set. - In response: present if
+ *  previously set. - In create request: optional - In update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Duration *deviceUsageDuration;
 
 /**
- *  If the execution containing this step has any dimension_definition set,
- *  then this field allows the child to specify the values of the dimensions.
- *  The keys must exactly match the dimension_definition of the execution.
- *  For example, if the execution has
- *  `dimension_definition = ['attempt', 'device']`
- *  then a step must define values for those dimensions, eg.
- *  `dimension_value = ['attempt': '1', 'device': 'Nexus 6']`
- *  If a step does not participate in one dimension of the matrix,
- *  the value for that dimension should be empty string.
- *  For example, if one of the tests is executed by a runner which
- *  does not support retries, the step could have
- *  `dimension_value = ['attempt': '', 'device': 'Nexus 6']`
- *  If the step does not participate in any dimensions of the matrix,
- *  it may leave dimension_value unset.
- *  A PRECONDITION_FAILED will be returned if any of the keys do not exist
- *  in the dimension_definition of the execution.
- *  A PRECONDITION_FAILED will be returned if another step in this execution
- *  already has the same name and dimension_value, but differs on other data
- *  fields, for example, step field is different.
- *  A PRECONDITION_FAILED will be returned if dimension_value is set, and
- *  there is a dimension_definition in the execution which is not specified
- *  as one of the keys.
- *  - In response: present if set by create
- *  - In create request: optional
+ *  If the execution containing this step has any dimension_definition set, then
+ *  this field allows the child to specify the values of the dimensions. The
+ *  keys must exactly match the dimension_definition of the execution. For
+ *  example, if the execution has `dimension_definition = ['attempt', 'device']`
+ *  then a step must define values for those dimensions, eg. `dimension_value =
+ *  ['attempt': '1', 'device': 'Nexus 6']` If a step does not participate in one
+ *  dimension of the matrix, the value for that dimension should be empty
+ *  string. For example, if one of the tests is executed by a runner which does
+ *  not support retries, the step could have `dimension_value = ['attempt': '',
+ *  'device': 'Nexus 6']` If the step does not participate in any dimensions of
+ *  the matrix, it may leave dimension_value unset. A PRECONDITION_FAILED will
+ *  be returned if any of the keys do not exist in the dimension_definition of
+ *  the execution. A PRECONDITION_FAILED will be returned if another step in
+ *  this execution already has the same name and dimension_value, but differs on
+ *  other data fields, for example, step field is different. A
+ *  PRECONDITION_FAILED will be returned if dimension_value is set, and there is
+ *  a dimension_definition in the execution which is not specified as one of the
+ *  keys. - In response: present if set by create - In create request: optional
  *  - In update request: never set
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_StepDimensionValueEntry *> *dimensionValue;
 
 /**
- *  Whether any of the outputs of this step are images whose
- *  thumbnails can be fetched with ListThumbnails.
- *  - In response: always set
- *  - In create/update request: never set
+ *  Whether any of the outputs of this step are images whose thumbnails can be
+ *  fetched with ListThumbnails. - In response: always set - In create/update
+ *  request: never set
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hasImages;
 
 /**
- *  Arbitrary user-supplied key/value pairs that are associated with the
- *  step.
- *  Users are responsible for managing the key namespace such that keys
- *  don't accidentally collide.
- *  An INVALID_ARGUMENT will be returned if the number of labels exceeds 100 or
- *  if the length of any of the keys or values exceeds 100 characters.
- *  - In response: always set
- *  - In create request: optional
- *  - In update request: optional; any new key/value pair will be added to the
- *  map, and any new value for an existing key will update that key's value
+ *  Arbitrary user-supplied key/value pairs that are associated with the step.
+ *  Users are responsible for managing the key namespace such that keys don't
+ *  accidentally collide. An INVALID_ARGUMENT will be returned if the number of
+ *  labels exceeds 100 or if the length of any of the keys or values exceeds 100
+ *  characters. - In response: always set - In create request: optional - In
+ *  update request: optional; any new key/value pair will be added to the map,
+ *  and any new value for an existing key will update that key's value
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_StepLabelsEntry *> *labels;
 
 /**
  *  Details when multiple steps are run with the same configuration as a group.
- *  These details can be used identify which group this step is part of.
- *  It also identifies the groups 'primary step' which indexes all the group
- *  members.
- *  - In response: present if previously set.
- *  - In create request: optional, set iff this step was performed more than
- *  once.
- *  - In update request: optional
+ *  These details can be used identify which group this step is part of. It also
+ *  identifies the groups 'primary step' which indexes all the group members. -
+ *  In response: present if previously set. - In create request: optional, set
+ *  iff this step was performed more than once. - In update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_MultiStep *multiStep;
 
 /**
- *  A short human-readable name to display in the UI.
- *  Maximum of 100 characters.
- *  For example: Clean build
- *  A PRECONDITION_FAILED will be returned upon creating a new step if it
- *  shares its name and dimension_value with an existing step. If two steps
- *  represent a similar action, but have different dimension values, they
- *  should share the same name. For instance, if the same set of tests is
- *  run on two different platforms, the two steps should have the same name.
- *  - In response: always set
- *  - In create request: always set
- *  - In update request: never set
+ *  A short human-readable name to display in the UI. Maximum of 100 characters.
+ *  For example: Clean build A PRECONDITION_FAILED will be returned upon
+ *  creating a new step if it shares its name and dimension_value with an
+ *  existing step. If two steps represent a similar action, but have different
+ *  dimension values, they should share the same name. For instance, if the same
+ *  set of tests is run on two different platforms, the two steps should have
+ *  the same name. - In response: always set - In create request: always set -
+ *  In update request: never set
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Classification of the result, for example into SUCCESS or FAILURE
- *  - In response: present if set by create/update request
- *  - In create/update request: optional
+ *  Classification of the result, for example into SUCCESS or FAILURE - In
+ *  response: present if set by create/update request - In create/update
+ *  request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Outcome *outcome;
 
 /**
- *  How long it took for this step to run.
- *  If unset, this is set to the difference between creation_time and
- *  completion_time when the step is set to the COMPLETE state. In some cases,
- *  it is appropriate to set this value separately: For instance, if a step is
- *  created, but the operation it represents is queued for a few minutes before
- *  it executes, it would be appropriate not to include the time spent queued
- *  in its run_duration.
- *  PRECONDITION_FAILED will be returned if one attempts to set a
- *  run_duration on a step which already has this field set.
- *  - In response: present if previously set; always present on COMPLETE step
- *  - In create request: optional
- *  - In update request: optional
+ *  How long it took for this step to run. If unset, this is set to the
+ *  difference between creation_time and completion_time when the step is set to
+ *  the COMPLETE state. In some cases, it is appropriate to set this value
+ *  separately: For instance, if a step is created, but the operation it
+ *  represents is queued for a few minutes before it executes, it would be
+ *  appropriate not to include the time spent queued in its run_duration.
+ *  PRECONDITION_FAILED will be returned if one attempts to set a run_duration
+ *  on a step which already has this field set. - In response: present if
+ *  previously set; always present on COMPLETE step - In create request:
+ *  optional - In update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Duration *runDuration;
 
 /**
- *  The initial state is IN_PROGRESS.
- *  The only legal state transitions are
- *  * IN_PROGRESS -> COMPLETE
- *  A PRECONDITION_FAILED will be returned if an invalid transition is
- *  requested.
- *  It is valid to create Step with a state set to COMPLETE.
- *  The state can only be set to COMPLETE once. A PRECONDITION_FAILED will be
- *  returned if the state is set to COMPLETE multiple times.
- *  - In response: always set
- *  - In create/update request: optional
+ *  The initial state is IN_PROGRESS. The only legal state transitions are *
+ *  IN_PROGRESS -> COMPLETE A PRECONDITION_FAILED will be returned if an invalid
+ *  transition is requested. It is valid to create Step with a state set to
+ *  COMPLETE. The state can only be set to COMPLETE once. A PRECONDITION_FAILED
+ *  will be returned if the state is set to COMPLETE multiple times. - In
+ *  response: always set - In create/update request: optional
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_Step_State_Complete The finalized, immutable
- *        state. Steps/Executions in this state cannot be
- *        modified. (Value: "complete")
+ *        state. Steps/Executions in this state cannot be modified. (Value:
+ *        "complete")
  *    @arg @c kGTLRToolResults_Step_State_InProgress The Execution/Step is in
  *        progress. (Value: "inProgress")
  *    @arg @c kGTLRToolResults_Step_State_Pending The Execution/Step is created,
- *        ready to run, but not running yet.
- *        If an Execution/Step is created without initial state, it is assumed
- *        that the Execution/Step is in PENDING state. (Value: "pending")
+ *        ready to run, but not running yet. If an Execution/Step is created
+ *        without initial state, it is assumed that the Execution/Step is in
+ *        PENDING state. (Value: "pending")
  *    @arg @c kGTLRToolResults_Step_State_UnknownState Should never be in this
- *        state. Exists for proto deserialization backward
- *        compatibility. (Value: "unknownState")
+ *        state. Exists for proto deserialization backward compatibility.
+ *        (Value: "unknownState")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  A unique identifier within a Execution for this Step.
- *  Returns INVALID_ARGUMENT if this field is set or overwritten by the caller.
- *  - In response: always set
- *  - In create/update request: never set
+ *  A unique identifier within a Execution for this Step. Returns
+ *  INVALID_ARGUMENT if this field is set or overwritten by the caller. - In
+ *  response: always set - In create/update request: never set
  */
 @property(nonatomic, copy, nullable) NSString *stepId;
 
@@ -3320,8 +3048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  Details for an outcome with a SUCCESS outcome summary.
- *  LINT.IfChange
+ *  Details for an outcome with a SUCCESS outcome summary. LINT.IfChange
  */
 @interface GTLRToolResults_SuccessDetail : GTLRObject
 
@@ -3336,16 +3063,15 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  A set of similar suggestions that we suspect are closely related.
- *  This proto and most of the nested protos are branched from
+ *  A set of similar suggestions that we suspect are closely related. This proto
+ *  and most of the nested protos are branched from
  *  foxandcrown.prelaunchreport.service.SuggestionClusterProto, replacing PLR's
  *  dependencies with FTL's.
  */
 @interface GTLRToolResults_SuggestionClusterProto : GTLRObject
 
 /**
- *  Category in which these types of suggestions should appear.
- *  Always set.
+ *  Category in which these types of suggestions should appear. Always set.
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_SuggestionClusterProto_Category_ContentLabeling
@@ -3362,8 +3088,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, copy, nullable) NSString *category;
 
 /**
- *  A sequence of suggestions. All of the suggestions within a cluster must
- *  have the same SuggestionPriority and belong to the same SuggestionCategory.
+ *  A sequence of suggestions. All of the suggestions within a cluster must have
+ *  the same SuggestionPriority and belong to the same SuggestionCategory.
  *  Suggestions with the same screenshot URL should be adjacent.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_SuggestionProto *> *suggestions;
@@ -3384,14 +3110,12 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  Message, in the user's language, explaining the suggestion, which may
- *  contain markup.
- *  Always set.
+ *  contain markup. Always set.
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_SafeHtmlProto *longMessage;
 
 /**
- *  Relative importance of a suggestion.
- *  Always set.
+ *  Relative importance of a suggestion. Always set.
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_SuggestionProto_Priority_Error Value "error"
@@ -3403,38 +3127,34 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, copy, nullable) NSString *priority;
 
 /**
- *  A somewhat human readable identifier of the source view, if it does not
- *  have a resource_name. This is a path within the accessibility hierarchy,
- *  an element with resource name; similar to an XPath.
+ *  A somewhat human readable identifier of the source view, if it does not have
+ *  a resource_name. This is a path within the accessibility hierarchy, an
+ *  element with resource name; similar to an XPath.
  */
 @property(nonatomic, copy, nullable) NSString *pseudoResourceId;
 
 /**
- *  Region within the screenshot that is relevant to this suggestion.
- *  Optional.
+ *  Region within the screenshot that is relevant to this suggestion. Optional.
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_RegionProto *region;
 
 /**
- *  Reference to a view element, identified by its resource name, if it has
- *  one.
+ *  Reference to a view element, identified by its resource name, if it has one.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
 /**
- *  ID of the screen for the suggestion.
- *  It is used for getting the corresponding screenshot path. For example,
- *  screen_id "1" corresponds to "1.png" file in GCS.
- *  Always set.
+ *  ID of the screen for the suggestion. It is used for getting the
+ *  corresponding screenshot path. For example, screen_id "1" corresponds to
+ *  "1.png" file in GCS. Always set.
  */
 @property(nonatomic, copy, nullable) NSString *screenId;
 
 /**
- *  Relative importance of a suggestion as compared with other suggestions
- *  that have the same priority and category.
- *  This is a meaningless value that can be used to order suggestions that are
- *  in the same category and have the same priority.
- *  The larger values have higher priority (i.e., are more important).
+ *  Relative importance of a suggestion as compared with other suggestions that
+ *  have the same priority and category. This is a meaningless value that can be
+ *  used to order suggestions that are in the same category and have the same
+ *  priority. The larger values have higher priority (i.e., are more important).
  *  Optional.
  *
  *  Uses NSNumber of doubleValue.
@@ -3442,9 +3162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) NSNumber *secondaryPriority;
 
 /**
- *  Concise message, in the user's language, representing the suggestion,
- *  which may contain markup.
- *  Always set.
+ *  Concise message, in the user's language, representing the suggestion, which
+ *  may contain markup. Always set.
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_SafeHtmlProto *shortMessage;
 
@@ -3462,26 +3181,19 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_TestCase : GTLRObject
 
-/**
- *  The elapsed run time of the test case.
- *  Required.
- */
+/** The elapsed run time of the test case. Required. */
 @property(nonatomic, strong, nullable) GTLRToolResults_Duration *elapsedTime;
 
 /** The end time of the test case. */
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *endTime;
 
-/**
- *  Why the test case was skipped.
- *  Present only for skipped test case
- */
+/** Why the test case was skipped. Present only for skipped test case */
 @property(nonatomic, copy, nullable) NSString *skippedMessage;
 
 /**
- *  The stack trace details if the test case failed or encountered an error.
- *  The maximum size of the stack traces is 100KiB, beyond which the stack
- *  track will be truncated.
- *  Zero if the test case passed.
+ *  The stack trace details if the test case failed or encountered an error. The
+ *  maximum size of the stack traces is 100KiB, beyond which the stack track
+ *  will be truncated. Zero if the test case passed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_StackTrace *> *stackTraces;
 
@@ -3489,19 +3201,17 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *startTime;
 
 /**
- *  The status of the test case.
- *  Required.
+ *  The status of the test case. Required.
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestCase_Status_Error Test encountered an error
  *        (Value: "error")
  *    @arg @c kGTLRToolResults_TestCase_Status_Failed Test failed. (Value:
  *        "failed")
- *    @arg @c kGTLRToolResults_TestCase_Status_Flaky Test flaked.
- *        Present only for rollup test cases; test cases from steps that were
- *        run
- *        with the same configuration had both failure and success outcomes.
- *        (Value: "flaky")
+ *    @arg @c kGTLRToolResults_TestCase_Status_Flaky Test flaked. Present only
+ *        for rollup test cases; test cases from steps that were run with the
+ *        same configuration had both failure and success outcomes. (Value:
+ *        "flaky")
  *    @arg @c kGTLRToolResults_TestCase_Status_Passed Test passed. (Value:
  *        "passed")
  *    @arg @c kGTLRToolResults_TestCase_Status_Skipped Test skipped (Value:
@@ -3513,8 +3223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, copy, nullable) NSString *testCaseId;
 
 /**
- *  Test case reference, e.g. name, class name and test suite name.
- *  Required.
+ *  Test case reference, e.g. name, class name and test suite name. Required.
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_TestCaseReference *testCaseReference;
 
@@ -3528,13 +3237,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  A reference to a test case.
- *  Test case references are canonically ordered lexicographically by these
- *  three
- *  factors:
- *  * First, by test_suite_name.
- *  * Second, by class_name.
- *  * Third, by name.
+ *  A reference to a test case. Test case references are canonically ordered
+ *  lexicographically by these three factors: * First, by test_suite_name. *
+ *  Second, by class_name. * Third, by name.
  */
 @interface GTLRToolResults_TestCaseReference : GTLRObject
 
@@ -3545,10 +3250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @property(nonatomic, copy, nullable) NSString *classNameProperty;
 
-/**
- *  The name of the test case.
- *  Required.
- */
+/** The name of the test case. Required. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The name of the test suite to which this test case belongs. */
@@ -3558,47 +3260,41 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  A step that represents running tests.
- *  It accepts ant-junit xml files which will be parsed into structured test
- *  results by the service. Xml file paths are updated in order to append more
- *  files, however they can't be deleted.
+ *  A step that represents running tests. It accepts ant-junit xml files which
+ *  will be parsed into structured test results by the service. Xml file paths
+ *  are updated in order to append more files, however they can't be deleted.
  *  Users can also add test results manually by using the test_result field.
  */
 @interface GTLRToolResults_TestExecutionStep : GTLRObject
 
 /**
- *  Issues observed during the test execution.
- *  For example, if the mobile app under test crashed during the test,
- *  the error message and the stack trace content can be recorded here
- *  to assist debugging.
- *  - In response: present if set by create or update
- *  - In create/update request: optional
+ *  Issues observed during the test execution. For example, if the mobile app
+ *  under test crashed during the test, the error message and the stack trace
+ *  content can be recorded here to assist debugging. - In response: present if
+ *  set by create or update - In create/update request: optional
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_TestIssue *> *testIssues;
 
 /**
  *  List of test suite overview contents. This could be parsed from xUnit XML
  *  log by server, or uploaded directly by user. This references should only be
- *  called when test suites are fully parsed or uploaded.
- *  The maximum allowed number of test suite overviews per step is 1000.
- *  - In response: always set
- *  - In create request: optional
- *  - In update request: never (use publishXunitXmlFiles custom method instead)
+ *  called when test suites are fully parsed or uploaded. The maximum allowed
+ *  number of test suite overviews per step is 1000. - In response: always set -
+ *  In create request: optional - In update request: never (use
+ *  publishXunitXmlFiles custom method instead)
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_TestSuiteOverview *> *testSuiteOverviews;
 
 /**
- *  The timing break down of the test execution.
- *  - In response: present if set by create or update
- *  - In create/update request: optional
+ *  The timing break down of the test execution. - In response: present if set
+ *  by create or update - In create/update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_TestTiming *testTiming;
 
 /**
- *  Represents the execution of the test runner.
- *  The exit code of this tool will be used to determine if the test passed.
- *  - In response: always set
- *  - In create/update request: optional
+ *  Represents the execution of the test runner. The exit code of this tool will
+ *  be used to determine if the test passed. - In response: always set - In
+ *  create/update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_ToolExecution *toolExecution;
 
@@ -3611,8 +3307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_TestIssue : GTLRObject
 
 /**
- *  Category of issue.
- *  Required.
+ *  Category of issue. Required.
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestIssue_Category_Common Issue is not specific
@@ -3620,20 +3315,16 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *    @arg @c kGTLRToolResults_TestIssue_Category_Robo Issue is specific to Robo
  *        run. (Value: "robo")
  *    @arg @c kGTLRToolResults_TestIssue_Category_UnspecifiedCategory Default
- *        unspecified category.
- *        Do not use. For versioning only. (Value: "unspecifiedCategory")
+ *        unspecified category. Do not use. For versioning only. (Value:
+ *        "unspecifiedCategory")
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
-/**
- *  A brief human-readable message describing the issue.
- *  Required.
- */
+/** A brief human-readable message describing the issue. Required. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  Severity of issue.
- *  Required.
+ *  Severity of issue. Required.
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestIssue_Severity_Info Non critical issue,
@@ -3641,12 +3332,11 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *    @arg @c kGTLRToolResults_TestIssue_Severity_Severe Critical issue. (Value:
  *        "severe")
  *    @arg @c kGTLRToolResults_TestIssue_Severity_Suggestion Non critical issue,
- *        providing users with some hints on improving their
- *        testing experience, e.g., suggesting to use Game Loops. (Value:
- *        "suggestion")
+ *        providing users with some hints on improving their testing experience,
+ *        e.g., suggesting to use Game Loops. (Value: "suggestion")
  *    @arg @c kGTLRToolResults_TestIssue_Severity_UnspecifiedSeverity Default
- *        unspecified severity.
- *        Do not use. For versioning only. (Value: "unspecifiedSeverity")
+ *        unspecified severity. Do not use. For versioning only. (Value:
+ *        "unspecifiedSeverity")
  *    @arg @c kGTLRToolResults_TestIssue_Severity_Warning Potentially critical
  *        issue. (Value: "warning")
  */
@@ -3656,8 +3346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, strong, nullable) GTLRToolResults_StackTrace *stackTrace;
 
 /**
- *  Type of issue.
- *  Required.
+ *  Type of issue. Required.
  *
  *  Likely values:
  *    @arg @c kGTLRToolResults_TestIssue_Type_Anr Issue is an ANR crash. (Value:
@@ -3722,8 +3411,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *        exception was detected (these don't crash apps). (Value:
  *        "unityException")
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnspecifiedType Default
- *        unspecified type.
- *        Do not use. For versioning only. (Value: "unspecifiedType")
+ *        unspecified type. Do not use. For versioning only. (Value:
+ *        "unspecifiedType")
  *    @arg @c kGTLRToolResults_TestIssue_Type_UnusedRoboDirective Issue is an
  *        unused robo directive. (Value: "unusedRoboDirective")
  *    @arg @c kGTLRToolResults_TestIssue_Type_UsedRoboDirective Robo crawl used
@@ -3735,8 +3424,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Warning message with additional details of the issue.
- *  Should always be a message from com.google.devtools.toolresults.v1.warnings
+ *  Warning message with additional details of the issue. Should always be a
+ *  message from com.google.devtools.toolresults.v1.warnings
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Any *warning;
 
@@ -3744,12 +3433,10 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  A summary of a test suite result either parsed from XML or uploaded
- *  directly by a user.
- *  Note: the API related comments are for StepService only. This message is
- *  also being used in ExecutionService in a read only mode for the
- *  corresponding
- *  step.
+ *  A summary of a test suite result either parsed from XML or uploaded directly
+ *  by a user. Note: the API related comments are for StepService only. This
+ *  message is also being used in ExecutionService in a read only mode for the
+ *  corresponding step.
  */
 @interface GTLRToolResults_TestSuiteOverview : GTLRObject
 
@@ -3758,9 +3445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  Number of test cases in error, typically set by the service by parsing the
- *  xml_source.
- *  - In create/response: always set
- *  - In update request: never
+ *  xml_source. - In create/response: always set - In update request: never
  *
  *  Uses NSNumber of intValue.
  */
@@ -3768,9 +3453,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  Number of failed test cases, typically set by the service by parsing the
- *  xml_source. May also be set by the user.
- *  - In create/response: always set
- *  - In update request: never
+ *  xml_source. May also be set by the user. - In create/response: always set -
+ *  In update request: never
  *
  *  Uses NSNumber of intValue.
  */
@@ -3778,26 +3462,22 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  Number of flaky test cases, set by the service by rolling up flaky test
- *  attempts.
- *  Present only for rollup test suite overview at environment level. A step
- *  cannot have flaky test cases.
+ *  attempts. Present only for rollup test suite overview at environment level.
+ *  A step cannot have flaky test cases.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *flakyCount;
 
 /**
- *  The name of the test suite.
- *  - In create/response: always set
- *  - In update request: never
+ *  The name of the test suite. - In create/response: always set - In update
+ *  request: never
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Number of test cases not run, typically set by the service by parsing the
- *  xml_source.
- *  - In create/response: always set
- *  - In update request: never
+ *  xml_source. - In create/response: always set - In update request: never
  *
  *  Uses NSNumber of intValue.
  */
@@ -3805,9 +3485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  Number of test cases, typically set by the service by parsing the
- *  xml_source.
- *  - In create/response: always set
- *  - In update request: never
+ *  xml_source. - In create/response: always set - In update request: never
  *
  *  Uses NSNumber of intValue.
  */
@@ -3815,11 +3493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  If this test suite was parsed from XML, this is the URI where the original
- *  XML file is stored.
- *  Note: Multiple test suites can share the same xml_source
- *  Returns INVALID_ARGUMENT if the uri format is not supported.
- *  - In create/response: optional
- *  - In update request: never
+ *  XML file is stored. Note: Multiple test suites can share the same xml_source
+ *  Returns INVALID_ARGUMENT if the uri format is not supported. - In
+ *  create/response: optional - In update request: never
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_FileReference *xmlSource;
 
@@ -3832,9 +3508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_TestTiming : GTLRObject
 
 /**
- *  How long it took to run the test process.
- *  - In response: present if previously set.
- *  - In create/update request: optional
+ *  How long it took to run the test process. - In response: present if
+ *  previously set. - In create/update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Duration *testProcessDuration;
 
@@ -3846,18 +3521,13 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  */
 @interface GTLRToolResults_Thumbnail : GTLRObject
 
-/**
- *  The thumbnail's content type, i.e. "image/png".
- *  Always set.
- */
+/** The thumbnail's content type, i.e. "image/png". Always set. */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
 /**
- *  The thumbnail file itself.
- *  That is, the bytes here are precisely the bytes that make up the thumbnail
- *  file; they can be served as an image as-is (with the appropriate content
- *  type.)
- *  Always set.
+ *  The thumbnail file itself. That is, the bytes here are precisely the bytes
+ *  that make up the thumbnail file; they can be served as an image as-is (with
+ *  the appropriate content type.) Always set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3865,16 +3535,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  The height of the thumbnail, in pixels.
- *  Always set.
+ *  The height of the thumbnail, in pixels. Always set.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *heightPx;
 
 /**
- *  The width of the thumbnail, in pixels.
- *  Always set.
+ *  The width of the thumbnail, in pixels. Always set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3888,30 +3556,28 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  calendar, encoded as a count of seconds and fractions of seconds at
  *  nanosecond resolution. The count is relative to an epoch at UTC midnight on
  *  January 1, 1970, in the proleptic Gregorian calendar which extends the
- *  Gregorian calendar backwards to year one.
- *  All minutes are 60 seconds long. Leap seconds are "smeared" so that no leap
- *  second table is needed for interpretation, using a [24-hour linear
- *  smear](https://developers.google.com/time/smear).
- *  The range is from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By
- *  restricting to that range, we ensure that we can convert to and from [RFC
+ *  Gregorian calendar backwards to year one. All minutes are 60 seconds long.
+ *  Leap seconds are "smeared" so that no leap second table is needed for
+ *  interpretation, using a [24-hour linear
+ *  smear](https://developers.google.com/time/smear). The range is from
+ *  0001-01-01T00:00:00Z to 9999-12-31T23:59:59.999999999Z. By restricting to
+ *  that range, we ensure that we can convert to and from [RFC
  *  3339](https://www.ietf.org/rfc/rfc3339.txt) date strings.
  */
 @interface GTLRToolResults_Timestamp : GTLRObject
 
 /**
- *  Non-negative fractions of a second at nanosecond resolution. Negative
- *  second values with fractions must still have non-negative nanos values
- *  that count forward in time. Must be from 0 to 999,999,999
- *  inclusive.
+ *  Non-negative fractions of a second at nanosecond resolution. Negative second
+ *  values with fractions must still have non-negative nanos values that count
+ *  forward in time. Must be from 0 to 999,999,999 inclusive.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  Represents seconds of UTC time since Unix epoch
- *  1970-01-01T00:00:00Z. Must be from 0001-01-01T00:00:00Z to
- *  9999-12-31T23:59:59Z inclusive.
+ *  Represents seconds of UTC time since Unix epoch 1970-01-01T00:00:00Z. Must
+ *  be from 0001-01-01T00:00:00Z to 9999-12-31T23:59:59Z inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3928,41 +3594,34 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  The full tokenized command line including the program name (equivalent to
- *  argv in a C program).
- *  - In response: present if set by create request
- *  - In create request: optional
- *  - In update request: never set
+ *  argv in a C program). - In response: present if set by create request - In
+ *  create request: optional - In update request: never set
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *commandLineArguments;
 
 /**
- *  Tool execution exit code. This field will be set once the tool has
- *  exited.
- *  - In response: present if set by create/update request
- *  - In create request: optional
- *  - In update request: optional, a FAILED_PRECONDITION error will be
+ *  Tool execution exit code. This field will be set once the tool has exited. -
+ *  In response: present if set by create/update request - In create request:
+ *  optional - In update request: optional, a FAILED_PRECONDITION error will be
  *  returned if an exit_code is already set.
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_ToolExitCode *exitCode;
 
 /**
- *  References to any plain text logs output the tool execution.
- *  This field can be set before the tool has exited in order to be able to
- *  have access to a live view of the logs while the tool is running.
- *  The maximum allowed number of tool logs per step is 1000.
- *  - In response: present if set by create/update request
- *  - In create request: optional
- *  - In update request: optional, any value provided will be appended to the
- *  existing list
+ *  References to any plain text logs output the tool execution. This field can
+ *  be set before the tool has exited in order to be able to have access to a
+ *  live view of the logs while the tool is running. The maximum allowed number
+ *  of tool logs per step is 1000. - In response: present if set by
+ *  create/update request - In create request: optional - In update request:
+ *  optional, any value provided will be appended to the existing list
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_FileReference *> *toolLogs;
 
 /**
- *  References to opaque files of any format output by the tool execution.
- *  The maximum allowed number of tool outputs per step is 1000.
- *  - In response: present if set by create/update request
- *  - In create request: optional
- *  - In update request: optional, any value provided will be appended to the
+ *  References to opaque files of any format output by the tool execution. The
+ *  maximum allowed number of tool outputs per step is 1000. - In response:
+ *  present if set by create/update request - In create request: optional - In
+ *  update request: optional, any value provided will be appended to the
  *  existing list
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRToolResults_ToolOutputReference *> *toolOutputs;
@@ -3971,15 +3630,14 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  Generic tool step to be used for binaries we do not explicitly support.
- *  For example: running cp to copy artifacts from one location to another.
+ *  Generic tool step to be used for binaries we do not explicitly support. For
+ *  example: running cp to copy artifacts from one location to another.
  */
 @interface GTLRToolResults_ToolExecutionStep : GTLRObject
 
 /**
- *  A Tool execution.
- *  - In response: present if set by create/update request
- *  - In create/update request: optional
+ *  A Tool execution. - In response: present if set by create/update request -
+ *  In create/update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_ToolExecution *toolExecution;
 
@@ -3993,9 +3651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 /**
  *  Tool execution exit code. A value of 0 means that the execution was
- *  successful.
- *  - In response: always set
- *  - In create/update request: always set
+ *  successful. - In response: always set - In create/update request: always set
  *
  *  Uses NSNumber of intValue.
  */
@@ -4010,23 +3666,20 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @interface GTLRToolResults_ToolOutputReference : GTLRObject
 
 /**
- *  The creation time of the file.
- *  - In response: present if set by create/update request
- *  - In create/update request: optional
+ *  The creation time of the file. - In response: present if set by
+ *  create/update request - In create/update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_Timestamp *creationTime;
 
 /**
- *  A FileReference to an output file.
- *  - In response: always set
- *  - In create/update request: always set
+ *  A FileReference to an output file. - In response: always set - In
+ *  create/update request: always set
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_FileReference *output;
 
 /**
- *  The test case to which this output file belongs.
- *  - In response: present if set by create/update request
- *  - In create/update request: optional
+ *  The test case to which this output file belongs. - In response: present if
+ *  set by create/update request - In create/update request: optional
  */
 @property(nonatomic, strong, nullable) GTLRToolResults_TestCaseReference *testCase;
 
@@ -4083,8 +3736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
- *  The suggested version to upgrade to.
- *  Optional: In case we are not sure which version solves this problem
+ *  The suggested version to upgrade to. Optional: In case we are not sure which
+ *  version solves this problem
  */
 @property(nonatomic, copy, nullable) NSString *upgradeToVersion;
 
@@ -4103,8 +3756,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
- *  Additional details of a used Robo directive with an ignore action.
- *  Note: This is a different scenario than unused directive.
+ *  Additional details of a used Robo directive with an ignore action. Note:
+ *  This is a different scenario than unused directive.
  */
 @interface GTLRToolResults_UsedRoboIgnoreDirective : GTLRObject
 

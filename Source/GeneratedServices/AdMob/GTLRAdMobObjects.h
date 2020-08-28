@@ -53,51 +53,160 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpec.dimensions
 
-/** Value: "AD_SOURCE" */
+/**
+ *  The unique ID of the ad source (for example, "5450213213286189855" and
+ *  "AdMob Network" as label value).
+ *
+ *  Value: "AD_SOURCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSource;
-/** Value: "AD_SOURCE_INSTANCE" */
+/**
+ *  The unique ID of the ad source instance (for example, "ca-app-pub-1234#5678"
+ *  and "AdMob (default)" as label value).
+ *
+ *  Value: "AD_SOURCE_INSTANCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSourceInstance;
-/** Value: "AD_UNIT" */
+/**
+ *  The unique ID of the ad unit (for example, "ca-app-pub-1234/8790"). If
+ *  AD_UNIT dimension is specified, then APP is included automatically.
+ *
+ *  Value: "AD_UNIT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdUnit;
-/** Value: "APP" */
+/**
+ *  The unique ID of the mobile application (for example,
+ *  "ca-app-pub-1234~1234").
+ *
+ *  Value: "APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_App;
-/** Value: "COUNTRY" */
+/**
+ *  CLDR country code of the place where the ad views/clicks occur (for example,
+ *  "US" or "FR"). This is a geography dimension.
+ *
+ *  Value: "COUNTRY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Country;
-/** Value: "DATE" */
+/**
+ *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
+ *  specify at most one time dimension.
+ *
+ *  Value: "DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Date;
-/** Value: "DIMENSION_UNSPECIFIED" */
+/**
+ *  Default value for an unset field. Do not use.
+ *
+ *  Value: "DIMENSION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_DimensionUnspecified;
-/** Value: "FORMAT" */
+/**
+ *  Format of the ad unit (for example, "banner", "native"), an ad delivery
+ *  dimension.
+ *
+ *  Value: "FORMAT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Format;
-/** Value: "MEDIATION_GROUP" */
+/**
+ *  The unique ID of the mediation group (for example, "ca-app-pub-1234:mg:1234"
+ *  and "AdMob (default)" as label value).
+ *
+ *  Value: "MEDIATION_GROUP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MediationGroup;
-/** Value: "MONTH" */
+/**
+ *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  at most one time dimension.
+ *
+ *  Value: "MONTH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Month;
-/** Value: "PLATFORM" */
+/**
+ *  Mobile OS platform of the app (for example, "Android" or "iOS").
+ *
+ *  Value: "PLATFORM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Platform;
-/** Value: "WEEK" */
+/**
+ *  The date of the first day of a week in the YYYY-MM-DD format (for example,
+ *  "2018-12-21"). Requests can specify at most one time dimension.
+ *
+ *  Value: "WEEK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_MediationReportSpec.metrics
 
-/** Value: "AD_REQUESTS" */
+/**
+ *  The number of requests. The value is an integer.
+ *
+ *  Value: "AD_REQUESTS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_AdRequests;
-/** Value: "CLICKS" */
+/**
+ *  The number of times a user clicks an ad. The value is an integer.
+ *
+ *  Value: "CLICKS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Clicks;
-/** Value: "ESTIMATED_EARNINGS" */
+/**
+ *  The estimated earnings of the AdMob publisher. The currency unit (USD, EUR,
+ *  or other) of the earning metrics are determined by the localization setting
+ *  for currency. The amount is in micros. For example, $6.50 would be
+ *  represented as 6500000. Estimated earnings per mediation group and per ad
+ *  source instance level is supported dating back to October 20, 2019.
+ *  Third-party estimated earnings will show 0 for dates prior to October 20,
+ *  2019.
+ *
+ *  Value: "ESTIMATED_EARNINGS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_EstimatedEarnings;
-/** Value: "IMPRESSION_CTR" */
+/**
+ *  The ratio of clicks over impressions. The value is a double precision
+ *  (approximate) decimal value.
+ *
+ *  Value: "IMPRESSION_CTR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_ImpressionCtr;
-/** Value: "IMPRESSIONS" */
+/**
+ *  The total number of ads shown to users. The value is an integer.
+ *
+ *  Value: "IMPRESSIONS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Impressions;
-/** Value: "MATCHED_REQUESTS" */
+/**
+ *  The number of times ads are returned in response to a request. The value is
+ *  an integer.
+ *
+ *  Value: "MATCHED_REQUESTS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MatchedRequests;
-/** Value: "MATCH_RATE" */
+/**
+ *  The ratio of matched ad requests over the total ad requests. The value is a
+ *  double precision (approximate) decimal value.
+ *
+ *  Value: "MATCH_RATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MatchRate;
-/** Value: "METRIC_UNSPECIFIED" */
+/**
+ *  Default value for an unset field. Do not use.
+ *
+ *  Value: "METRIC_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_MetricUnspecified;
-/** Value: "OBSERVED_ECPM" */
+/**
+ *  The third-party ad network's estimated average eCPM. The currency unit (USD,
+ *  EUR, or other) of the earning metrics are determined by the localization
+ *  setting for currency. The amount is in micros. For example, $2.30 would be
+ *  represented as 2300000. The estimated average eCPM per mediation group and
+ *  per ad source instance level is supported dating back to October 20, 2019.
+ *  Third-party estimated average eCPM will show 0 for dates prior to October
+ *  20, 2019.
+ *
+ *  Value: "OBSERVED_ECPM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_ObservedEcpm;
 
 // ----------------------------------------------------------------------------
@@ -111,18 +220,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Observ
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSource;
 /**
- *  The unique ID of the ad source instance (for example,
- *  "ca-app-pub-1234#5678" and "AdMob (default)" as label value).
- *  **Warning:** The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) and
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  The unique ID of the ad source instance (for example, "ca-app-pub-1234#5678"
+ *  and "AdMob (default)" as label value).
  *
  *  Value: "AD_SOURCE_INSTANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSourceInstance;
 /**
- *  The unique ID of the ad unit (for example, "ca-app-pub-1234/8790").
- *  If AD_UNIT dimension is specified, then APP is included automatically.
+ *  The unique ID of the ad unit (for example, "ca-app-pub-1234/8790"). If
+ *  AD_UNIT dimension is specified, then APP is included automatically.
  *
  *  Value: "AD_UNIT"
  */
@@ -135,8 +241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_App;
 /**
- *  CLDR country code of the place where the ad views/clicks occur (for
- *  example, "US" or "FR"). This is a geography dimension.
+ *  CLDR country code of the place where the ad views/clicks occur (for example,
+ *  "US" or "FR"). This is a geography dimension.
  *
  *  Value: "COUNTRY"
  */
@@ -162,18 +268,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Format;
 /**
- *  The unique ID of the mediation group (for example,
- *  "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
- *  **Warning:** The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) and
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  The unique ID of the mediation group (for example, "ca-app-pub-1234:mg:1234"
+ *  and "AdMob (default)" as label value).
  *
  *  Value: "MEDIATION_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can
- *  specify at most one time dimension.
+ *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  at most one time dimension.
  *
  *  Value: "MONTH"
  */
@@ -185,9 +288,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format
- *  (for example, "2018-12-21"). Requests can specify at most one time
- *  dimension.
+ *  The date of the first day of a week in the YYYY-MM-DD format (for example,
+ *  "2018-12-21"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -204,18 +306,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSource;
 /**
- *  The unique ID of the ad source instance (for example,
- *  "ca-app-pub-1234#5678" and "AdMob (default)" as label value).
- *  **Warning:** The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) and
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  The unique ID of the ad source instance (for example, "ca-app-pub-1234#5678"
+ *  and "AdMob (default)" as label value).
  *
  *  Value: "AD_SOURCE_INSTANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSourceInstance;
 /**
- *  The unique ID of the ad unit (for example, "ca-app-pub-1234/8790").
- *  If AD_UNIT dimension is specified, then APP is included automatically.
+ *  The unique ID of the ad unit (for example, "ca-app-pub-1234/8790"). If
+ *  AD_UNIT dimension is specified, then APP is included automatically.
  *
  *  Value: "AD_UNIT"
  */
@@ -228,8 +327,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_App;
 /**
- *  CLDR country code of the place where the ad views/clicks occur (for
- *  example, "US" or "FR"). This is a geography dimension.
+ *  CLDR country code of the place where the ad views/clicks occur (for example,
+ *  "US" or "FR"). This is a geography dimension.
  *
  *  Value: "COUNTRY"
  */
@@ -255,18 +354,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Format;
 /**
- *  The unique ID of the mediation group (for example,
- *  "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
- *  **Warning:** The dimension is incompatible with
- *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) and
- *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *  The unique ID of the mediation group (for example, "ca-app-pub-1234:mg:1234"
+ *  and "AdMob (default)" as label value).
  *
  *  Value: "MEDIATION_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can
- *  specify at most one time dimension.
+ *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  at most one time dimension.
  *
  *  Value: "MONTH"
  */
@@ -278,9 +374,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format
- *  (for example, "2018-12-21"). Requests can specify at most one time
- *  dimension.
+ *  The date of the first day of a week in the YYYY-MM-DD format (for example,
+ *  "2018-12-21"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -302,13 +397,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_M
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_Clicks;
 /**
- *  The estimated earnings of the AdMob publisher. The currency unit (USD,
- *  EUR, or other) of the earning metrics are determined by the localization
- *  setting for currency. The amount is in micros. For example, $6.50 would
- *  be represented as 6500000.
- *  **Warning:** The metric is incompatible with
- *  [AD_SOURCE_INSTANCE](#Dimension.ENUM_VALUES.AD_SOURCE_INSTANCE) and
- *  [MEDIATION_GROUP](#Dimension.ENUM_VALUES.MEDIATION_GROUP) dimensions.
+ *  The estimated earnings of the AdMob publisher. The currency unit (USD, EUR,
+ *  or other) of the earning metrics are determined by the localization setting
+ *  for currency. The amount is in micros. For example, $6.50 would be
+ *  represented as 6500000. Estimated earnings per mediation group and per ad
+ *  source instance level is supported dating back to October 20, 2019.
+ *  Third-party estimated earnings will show 0 for dates prior to October 20,
+ *  2019.
  *
  *  Value: "ESTIMATED_EARNINGS"
  */
@@ -327,15 +422,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_M
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_Impressions;
 /**
- *  The number of times ads are returned in response to a request. The value
- *  is an integer.
+ *  The number of times ads are returned in response to a request. The value is
+ *  an integer.
  *
  *  Value: "MATCHED_REQUESTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_MatchedRequests;
 /**
- *  The ratio of matched ad requests over the total ad requests. The value is
- *  a double precision (approximate) decimal value.
+ *  The ratio of matched ad requests over the total ad requests. The value is a
+ *  double precision (approximate) decimal value.
  *
  *  Value: "MATCH_RATE"
  */
@@ -347,13 +442,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_M
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Metric_MetricUnspecified;
 /**
- *  The third-party ad network's estimated average eCPM. The currency unit
- *  (USD, EUR, or other) of the earning metrics are determined by the
- *  localization setting for currency. The amount is in micros. For example,
- *  $2.30 would be represented as 2300000.
- *  **Warning:** The metric is incompatible with
- *  [AD_SOURCE_INSTANCE](#Dimension.ENUM_VALUES.AD_SOURCE_INSTANCE) and
- *  [MEDIATION_GROUP](#Dimension.ENUM_VALUES.MEDIATION_GROUP) dimensions.
+ *  The third-party ad network's estimated average eCPM. The currency unit (USD,
+ *  EUR, or other) of the earning metrics are determined by the localization
+ *  setting for currency. The amount is in micros. For example, $2.30 would be
+ *  represented as 2300000. The estimated average eCPM per mediation group and
+ *  per ad source instance level is supported dating back to October 20, 2019.
+ *  Third-party estimated average eCPM will show 0 for dates prior to October
+ *  20, 2019.
  *
  *  Value: "OBSERVED_ECPM"
  */
@@ -384,57 +479,159 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_O
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpec.dimensions
 
-/** Value: "AD_TYPE" */
+/**
+ *  Type of the ad (for example, "text" or "image"), an ad delivery dimension.
+ *  **Warning:** The dimension is incompatible with
+ *  [AD_REQUESTS](#Metric.ENUM_VALUES.AD_REQUESTS),
+ *  [MATCH_RATE](#Metric.ENUM_VALUES.MATCH_RATE) and
+ *  [IMPRESSION_RPM](#Metric.ENUM_VALUES.IMPRESSION_RPM) metrics.
+ *
+ *  Value: "AD_TYPE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdType;
-/** Value: "AD_UNIT" */
+/**
+ *  The unique ID of the ad unit (for example, "ca-app-pub-1234/1234"). If
+ *  AD_UNIT dimension is specified, then APP is included automatically.
+ *
+ *  Value: "AD_UNIT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdUnit;
-/** Value: "APP" */
+/**
+ *  The unique ID of the mobile application (for example,
+ *  "ca-app-pub-1234~1234").
+ *
+ *  Value: "APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_App;
-/** Value: "COUNTRY" */
+/**
+ *  CLDR country code of the place where the ad views/clicks occur (for example,
+ *  "US" or "FR"). This is a geography dimension.
+ *
+ *  Value: "COUNTRY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Country;
-/** Value: "DATE" */
+/**
+ *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
+ *  specify at most one time dimension.
+ *
+ *  Value: "DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Date;
-/** Value: "DIMENSION_UNSPECIFIED" */
+/**
+ *  Default value for an unset field. Do not use.
+ *
+ *  Value: "DIMENSION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_DimensionUnspecified;
-/** Value: "FORMAT" */
+/**
+ *  Format of the ad unit (for example, "banner", "native"), an ad delivery
+ *  dimension.
+ *
+ *  Value: "FORMAT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Format;
-/** Value: "MONTH" */
+/**
+ *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  at most one time dimension.
+ *
+ *  Value: "MONTH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Month;
-/** Value: "PLATFORM" */
+/**
+ *  Mobile OS platform of the app (for example, "Android" or "iOS").
+ *
+ *  Value: "PLATFORM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Platform;
-/** Value: "WEEK" */
+/**
+ *  The date of the first day of a week in the YYYY-MM-DD format (for example,
+ *  "2018-12-21"). Requests can specify at most one time dimension.
+ *
+ *  Value: "WEEK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Week;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpec.metrics
 
-/** Value: "AD_REQUESTS" */
+/**
+ *  The number of ad requests. The value is an integer. **Warning:** The metric
+ *  is incompatible with [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
+ *
+ *  Value: "AD_REQUESTS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_AdRequests;
-/** Value: "CLICKS" */
+/**
+ *  The number of times a user clicks an ad. The value is an integer.
+ *
+ *  Value: "CLICKS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_Clicks;
-/** Value: "ESTIMATED_EARNINGS" */
+/**
+ *  The estimated earnings of the AdMob publisher. The currency unit (USD, EUR,
+ *  or other) of the earning metrics are determined by the localization setting
+ *  for currency. The amount is in micros. For example, $6.50 would be
+ *  represented as 6500000.
+ *
+ *  Value: "ESTIMATED_EARNINGS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_EstimatedEarnings;
-/** Value: "IMPRESSION_CTR" */
+/**
+ *  The ratio of clicks over impressions. The value is a double precision
+ *  (approximate) decimal value.
+ *
+ *  Value: "IMPRESSION_CTR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ImpressionCtr;
-/** Value: "IMPRESSION_RPM" */
+/**
+ *  The estimated earnings per thousand ad impressions. The value is in micros.
+ *  For example, $1.03 would be represented as 1030000. **Warning:** The metric
+ *  is incompatible with [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
+ *
+ *  Value: "IMPRESSION_RPM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ImpressionRpm;
-/** Value: "IMPRESSIONS" */
+/**
+ *  The total number of ads shown to users. The value is an integer.
+ *
+ *  Value: "IMPRESSIONS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_Impressions;
-/** Value: "MATCHED_REQUESTS" */
+/**
+ *  The number of times ads are returned in response to a request. The value is
+ *  an integer.
+ *
+ *  Value: "MATCHED_REQUESTS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MatchedRequests;
-/** Value: "MATCH_RATE" */
+/**
+ *  The ratio of matched ad requests over the total ad requests. The value is a
+ *  double precision (approximate) decimal value. **Warning:** The metric is
+ *  incompatible with [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
+ *
+ *  Value: "MATCH_RATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MatchRate;
-/** Value: "METRIC_UNSPECIFIED" */
+/**
+ *  Default value for an unset field. Do not use.
+ *
+ *  Value: "METRIC_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_MetricUnspecified;
-/** Value: "SHOW_RATE" */
+/**
+ *  The ratio of ads that are displayed over ads that are returned, defined as
+ *  impressions / matched requests. The value is a double precision
+ *  (approximate) decimal value.
+ *
+ *  Value: "SHOW_RATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ShowRate;
 
 // ----------------------------------------------------------------------------
 // GTLRAdMob_NetworkReportSpecDimensionFilter.dimension
 
 /**
- *  Type of the ad (for example, "text" or "image"), an ad delivery
- *  dimension.
+ *  Type of the ad (for example, "text" or "image"), an ad delivery dimension.
  *  **Warning:** The dimension is incompatible with
  *  [AD_REQUESTS](#Metric.ENUM_VALUES.AD_REQUESTS),
  *  [MATCH_RATE](#Metric.ENUM_VALUES.MATCH_RATE) and
@@ -444,8 +641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Metrics_ShowRate
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdType;
 /**
- *  The unique ID of the ad unit (for example, "ca-app-pub-1234/1234").
- *  If AD_UNIT dimension is specified, then APP is included automatically.
+ *  The unique ID of the ad unit (for example, "ca-app-pub-1234/1234"). If
+ *  AD_UNIT dimension is specified, then APP is included automatically.
  *
  *  Value: "AD_UNIT"
  */
@@ -458,8 +655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_App;
 /**
- *  CLDR country code of the place where the ad views/clicks occur (for
- *  example, "US" or "FR"). This is a geography dimension.
+ *  CLDR country code of the place where the ad views/clicks occur (for example,
+ *  "US" or "FR"). This is a geography dimension.
  *
  *  Value: "COUNTRY"
  */
@@ -485,8 +682,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Format;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can
- *  specify at most one time dimension.
+ *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  at most one time dimension.
  *
  *  Value: "MONTH"
  */
@@ -498,9 +695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Platform;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format
- *  (for example, "2018-12-21"). Requests can specify at most one time
- *  dimension.
+ *  The date of the first day of a week in the YYYY-MM-DD format (for example,
+ *  "2018-12-21"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -510,8 +706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
 // GTLRAdMob_NetworkReportSpecSortCondition.dimension
 
 /**
- *  Type of the ad (for example, "text" or "image"), an ad delivery
- *  dimension.
+ *  Type of the ad (for example, "text" or "image"), an ad delivery dimension.
  *  **Warning:** The dimension is incompatible with
  *  [AD_REQUESTS](#Metric.ENUM_VALUES.AD_REQUESTS),
  *  [MATCH_RATE](#Metric.ENUM_VALUES.MATCH_RATE) and
@@ -521,8 +716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdType;
 /**
- *  The unique ID of the ad unit (for example, "ca-app-pub-1234/1234").
- *  If AD_UNIT dimension is specified, then APP is included automatically.
+ *  The unique ID of the ad unit (for example, "ca-app-pub-1234/1234"). If
+ *  AD_UNIT dimension is specified, then APP is included automatically.
  *
  *  Value: "AD_UNIT"
  */
@@ -535,8 +730,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_App;
 /**
- *  CLDR country code of the place where the ad views/clicks occur (for
- *  example, "US" or "FR"). This is a geography dimension.
+ *  CLDR country code of the place where the ad views/clicks occur (for example,
+ *  "US" or "FR"). This is a geography dimension.
  *
  *  Value: "COUNTRY"
  */
@@ -562,8 +757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Format;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can
- *  specify at most one time dimension.
+ *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  at most one time dimension.
  *
  *  Value: "MONTH"
  */
@@ -575,9 +770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Platform;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format
- *  (for example, "2018-12-21"). Requests can specify at most one time
- *  dimension.
+ *  The date of the first day of a week in the YYYY-MM-DD format (for example,
+ *  "2018-12-21"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -587,9 +781,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
 // GTLRAdMob_NetworkReportSpecSortCondition.metric
 
 /**
- *  The number of ad requests. The value is an integer.
- *  **Warning:** The metric is incompatible with
- *  [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
+ *  The number of ad requests. The value is an integer. **Warning:** The metric
+ *  is incompatible with [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
  *
  *  Value: "AD_REQUESTS"
  */
@@ -601,10 +794,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Met
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Clicks;
 /**
- *  The estimated earnings of the AdMob publisher. The currency unit (USD,
- *  EUR, or other) of the earning metrics are determined by the localization
- *  setting for currency. The amount is in micros. For example, $6.50 would
- *  be represented as 6500000.
+ *  The estimated earnings of the AdMob publisher. The currency unit (USD, EUR,
+ *  or other) of the earning metrics are determined by the localization setting
+ *  for currency. The amount is in micros. For example, $6.50 would be
+ *  represented as 6500000.
  *
  *  Value: "ESTIMATED_EARNINGS"
  */
@@ -617,10 +810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Met
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ImpressionCtr;
 /**
- *  The estimated earnings per thousand ad impressions. The value is in
- *  micros. For example, $1.03 would be represented as 1030000.
- *  **Warning:** The metric is incompatible with
- *  [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
+ *  The estimated earnings per thousand ad impressions. The value is in micros.
+ *  For example, $1.03 would be represented as 1030000. **Warning:** The metric
+ *  is incompatible with [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
  *
  *  Value: "IMPRESSION_RPM"
  */
@@ -632,17 +824,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Met
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Impressions;
 /**
- *  The number of times ads are returned in response to a request. The value
- *  is an integer.
+ *  The number of times ads are returned in response to a request. The value is
+ *  an integer.
  *
  *  Value: "MATCHED_REQUESTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MatchedRequests;
 /**
- *  The ratio of matched ad requests over the total ad requests. The value is
- *  a double precision (approximate) decimal value.
- *  **Warning:** The metric is incompatible with
- *  [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
+ *  The ratio of matched ad requests over the total ad requests. The value is a
+ *  double precision (approximate) decimal value. **Warning:** The metric is
+ *  incompatible with [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension.
  *
  *  Value: "MATCH_RATE"
  */
@@ -654,8 +845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Met
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MetricUnspecified;
 /**
- *  The ratio of ads that are displayed over ads that are returned, defined
- *  as impressions / matched requests. The value is a double precision
+ *  The ratio of ads that are displayed over ads that are returned, defined as
+ *  impressions / matched requests. The value is a double precision
  *  (approximate) decimal value.
  *
  *  Value: "SHOW_RATE"
@@ -688,27 +879,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Ord
 // GTLRAdMob_ReportWarning.type
 
 /**
- *  Some data in this report is aggregated based on a time zone different
- *  from the requested time zone. This could happen if a local time-zone
- *  report has the start time before the last time this time zone changed.
- *  The description field will contain the date of the last time zone
- *  change.
+ *  Some data in this report is aggregated based on a time zone different from
+ *  the requested time zone. This could happen if a local time-zone report has
+ *  the start time before the last time this time zone changed. The description
+ *  field will contain the date of the last time zone change.
  *
  *  Value: "DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_DataBeforeAccountTimezoneChange;
 /**
- *  There is an unusual delay in processing the source data for the
- *  requested date range. The report results might be less up to date than
- *  usual. AdMob is aware of the issue and is actively working to resolve
- *  it.
+ *  There is an unusual delay in processing the source data for the requested
+ *  date range. The report results might be less up to date than usual. AdMob is
+ *  aware of the issue and is actively working to resolve it.
  *
  *  Value: "DATA_DELAYED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_DataDelayed;
 /**
- *  Warnings that are exposed without a specific type. Useful when new
- *  warning types are added but the API is not changed yet.
+ *  Warnings that are exposed without a specific type. Useful when new warning
+ *  types are added but the API is not changed yet.
  *
  *  Value: "OTHER"
  */
@@ -731,22 +920,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 /**
  *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day
- *  and time zone are either specified elsewhere or are not significant. The
- *  date
- *  is relative to the Proleptic Gregorian Calendar. This can represent:
- *  * A full date, with non-zero year, month and day values
- *  * A month and day value, with a zero year, e.g. an anniversary
- *  * A year on its own, with zero month and day values
- *  * A year and month value, with a zero day, e.g. a credit card expiration
- *  date
- *  Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  day and time zone are either specified elsewhere or are not significant. The
+ *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
+ *  A full date, with non-zero year, month and day values * A month and day
+ *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
+ *  month and day values * A year and month value, with a zero day, e.g. a
+ *  credit card expiration date Related types are google.type.TimeOfDay and
+ *  `google.protobuf.Timestamp`.
  */
 @interface GTLRAdMob_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year by itself or a year and month where the day is not
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
+ *  specifying a year by itself or a year and month where the day is not
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -762,8 +948,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
- *  a year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  year.
  *
  *  Uses NSNumber of intValue.
  */
@@ -806,37 +992,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 /**
  *  The streaming response for the AdMob Mediation report where the first
  *  response contains the report header, then a stream of row responses, and
- *  finally a footer as the last response message.
- *  For example:
- *  [{
- *  "header": {
- *  "date_range": {
- *  "start_date": {"year": 2018, "month": 9, "day": 1},
- *  "end_date": {"year": 2018, "month": 9, "day": 1}
- *  },
- *  "localization_settings": {
- *  "currency_code": "USD",
- *  "language_code": "en-US"
- *  }
- *  }
- *  },
- *  {
- *  "row": {
- *  "dimension_values": {
- *  "DATE": {"value": "20180918"},
- *  "APP": {
- *  "value": "ca-app-pub-8123415297019784~1001342552",
- *  "display_label": "My app name!"
- *  }
- *  },
- *  "metric_values": {
- *  "ESTIMATED_EARNINGS": {"decimal_value": "1324746"}
- *  }
- *  }
- *  },
- *  {
- *  "footer": {"matching_row_count": 1}
- *  }]
+ *  finally a footer as the last response message. For example: [{ "header": {
+ *  "date_range": { "start_date": {"year": 2018, "month": 9, "day": 1},
+ *  "end_date": {"year": 2018, "month": 9, "day": 1} }, "localization_settings":
+ *  { "currency_code": "USD", "language_code": "en-US" } } }, { "row": {
+ *  "dimension_values": { "DATE": {"value": "20180918"}, "APP": { "value":
+ *  "ca-app-pub-8123415297019784~1001342552", "display_label": "My app name!" }
+ *  }, "metric_values": { "ESTIMATED_EARNINGS": {"decimal_value": "1324746"} } }
+ *  }, { "footer": {"matching_row_count": 1} }]
  */
 @interface GTLRAdMob_GenerateMediationReportResponse : GTLRObject
 
@@ -847,8 +1010,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRAdMob_ReportFooter *footer;
 
 /**
- *  Report generation settings that describes the report contents, such as
- *  the report date range and localization settings.
+ *  Report generation settings that describes the report contents, such as the
+ *  report date range and localization settings.
  */
 @property(nonatomic, strong, nullable) GTLRAdMob_ReportHeader *header;
 
@@ -872,37 +1035,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 /**
  *  The streaming response for the AdMob Network report where the first response
  *  contains the report header, then a stream of row responses, and finally a
- *  footer as the last response message.
- *  For example:
- *  [{
- *  "header": {
- *  "dateRange": {
- *  "startDate": {"year": 2018, "month": 9, "day": 1},
- *  "endDate": {"year": 2018, "month": 9, "day": 1}
- *  },
- *  "localizationSettings": {
- *  "currencyCode": "USD",
- *  "languageCode": "en-US"
- *  }
- *  }
- *  },
- *  {
- *  "row": {
- *  "dimensionValues": {
- *  "DATE": {"value": "20180918"},
- *  "APP": {
- *  "value": "ca-app-pub-8123415297019784~1001342552",
- *  displayLabel: "My app name!"
- *  }
- *  },
- *  "metricValues": {
- *  "ESTIMATED_EARNINGS": {"microsValue": 6500000}
- *  }
- *  }
- *  },
- *  {
- *  "footer": {"matchingRowCount": 1}
- *  }]
+ *  footer as the last response message. For example: [{ "header": {
+ *  "dateRange": { "startDate": {"year": 2018, "month": 9, "day": 1}, "endDate":
+ *  {"year": 2018, "month": 9, "day": 1} }, "localizationSettings": {
+ *  "currencyCode": "USD", "languageCode": "en-US" } } }, { "row": {
+ *  "dimensionValues": { "DATE": {"value": "20180918"}, "APP": { "value":
+ *  "ca-app-pub-8123415297019784~1001342552", displayLabel: "My app name!" } },
+ *  "metricValues": { "ESTIMATED_EARNINGS": {"microsValue": 6500000} } } }, {
+ *  "footer": {"matchingRowCount": 1} }]
  */
 @interface GTLRAdMob_GenerateNetworkReportResponse : GTLRObject
 
@@ -913,8 +1053,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRAdMob_ReportFooter *footer;
 
 /**
- *  Report generation settings that describes the report contents, such as
- *  the report date range and localization settings.
+ *  Report generation settings that describes the report contents, such as the
+ *  report date range and localization settings.
  */
 @property(nonatomic, strong, nullable) GTLRAdMob_ReportHeader *header;
 
@@ -975,38 +1115,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 
 /**
- *  The specification for generating an AdMob Mediation report.
- *  For example, the specification to get observed ECPM sliced by ad source and
- *  app for the 'US' and 'CN' countries can look like the following example:
- *  {
- *  "date_range": {
- *  "start_date": {"year": 2018, "month": 9, "day": 1},
- *  "end_date": {"year": 2018, "month": 9, "day": 30}
- *  },
- *  "dimensions": ["AD_SOURCE", "APP", "COUNTRY"],
- *  "metrics": ["OBSERVED_ECPM"],
- *  "dimension_filters": [
- *  {
- *  "dimension": "COUNTRY",
- *  "matches_any": {"values": [{"value": "US", "value": "CN"}]}
- *  }
- *  ],
- *  "sort_conditions": [
- *  {"dimension":"APP", order: "ASCENDING"}
- *  ],
- *  "localization_settings": {
- *  "currency_code": "USD",
- *  "language_code": "en-US"
- *  }
- *  }
- *  For a better understanding, you can treat the preceding specification like
- *  the following pseudo SQL:
- *  SELECT AD_SOURCE, APP, COUNTRY, OBSERVED_ECPM
- *  FROM MEDIATION_REPORT
- *  WHERE DATE >= '2018-09-01' AND DATE <= '2018-09-30'
- *  AND COUNTRY IN ('US', 'CN')
- *  GROUP BY AD_SOURCE, APP, COUNTRY
- *  ORDER BY APP ASC;
+ *  The specification for generating an AdMob Mediation report. For example, the
+ *  specification to get observed ECPM sliced by ad source and app for the 'US'
+ *  and 'CN' countries can look like the following example: { "date_range": {
+ *  "start_date": {"year": 2018, "month": 9, "day": 1}, "end_date": {"year":
+ *  2018, "month": 9, "day": 30} }, "dimensions": ["AD_SOURCE", "APP",
+ *  "COUNTRY"], "metrics": ["OBSERVED_ECPM"], "dimension_filters": [ {
+ *  "dimension": "COUNTRY", "matches_any": {"values": [{"value": "US", "value":
+ *  "CN"}]} } ], "sort_conditions": [ {"dimension":"APP", order: "ASCENDING"} ],
+ *  "localization_settings": { "currency_code": "USD", "language_code": "en-US"
+ *  } } For a better understanding, you can treat the preceding specification
+ *  like the following pseudo SQL: SELECT AD_SOURCE, APP, COUNTRY, OBSERVED_ECPM
+ *  FROM MEDIATION_REPORT WHERE DATE >= '2018-09-01' AND DATE <= '2018-09-30'
+ *  AND COUNTRY IN ('US', 'CN') GROUP BY AD_SOURCE, APP, COUNTRY ORDER BY APP
+ *  ASC;
  */
 @interface GTLRAdMob_MediationReportSpec : GTLRObject
 
@@ -1018,8 +1140,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 /**
  *  List of dimensions of the report. The value combination of these dimensions
- *  determines the row of the report. If no dimensions are specified, the
- *  report returns a single row of requested metrics for the entire account.
+ *  determines the row of the report. If no dimensions are specified, the report
+ *  returns a single row of requested metrics for the entire account.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
@@ -1041,8 +1163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Describes the sorting of report rows. The order of the condition in the
- *  list defines its precedence; the earlier the condition, the higher its
+ *  Describes the sorting of report rows. The order of the condition in the list
+ *  defines its precedence; the earlier the condition, the higher its
  *  precedence. If no sort conditions are specified, the row ordering is
  *  undefined.
  */
@@ -1050,10 +1172,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 /**
  *  A report time zone. Accepts an IANA TZ name values, such as
- *  "America/Los_Angeles." If no time zone is defined, the account default
- *  takes effect. Check default value by the get account action.
- *  **Warning:** The "America/Los_Angeles" is the only supported value at
- *  the moment.
+ *  "America/Los_Angeles." If no time zone is defined, the account default takes
+ *  effect. Check default value by the get account action. **Warning:** The
+ *  "America/Los_Angeles" is the only supported value at the moment.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -1074,14 +1195,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        "AdMob Network" as label value). (Value: "AD_SOURCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSourceInstance
  *        The unique ID of the ad source instance (for example,
- *        "ca-app-pub-1234#5678" and "AdMob (default)" as label value).
- *        **Warning:** The dimension is incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) and
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        "ca-app-pub-1234#5678" and "AdMob (default)" as label value). (Value:
  *        "AD_SOURCE_INSTANCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdUnit The
- *        unique ID of the ad unit (for example, "ca-app-pub-1234/8790").
- *        If AD_UNIT dimension is specified, then APP is included automatically.
+ *        unique ID of the ad unit (for example, "ca-app-pub-1234/8790"). If
+ *        AD_UNIT dimension is specified, then APP is included automatically.
  *        (Value: "AD_UNIT")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_App The
  *        unique ID of the mobile application (for example,
@@ -1092,22 +1210,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        "COUNTRY")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Date A
  *        date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests
- *        can
- *        specify at most one time dimension. (Value: "DATE")
+ *        can specify at most one time dimension. (Value: "DATE")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_DimensionUnspecified
  *        Default value for an unset field. Do not use. (Value:
  *        "DIMENSION_UNSPECIFIED")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Format
  *        Format of the ad unit (for example, "banner", "native"), an ad
- *        delivery
- *        dimension. (Value: "FORMAT")
+ *        delivery dimension. (Value: "FORMAT")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup
  *        The unique ID of the mediation group (for example,
  *        "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
- *        **Warning:** The dimension is incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) and
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
- *        "MEDIATION_GROUP")
+ *        (Value: "MEDIATION_GROUP")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Month A
  *        month in the YYYY-MM format (for example, "2018-12"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
@@ -1115,9 +1228,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Week The
- *        date of the first day of a week in the YYYY-MM-DD format
- *        (for example, "2018-12-21"). Requests can specify at most one time
- *        dimension. (Value: "WEEK")
+ *        date of the first day of a week in the YYYY-MM-DD format (for example,
+ *        "2018-12-21"). Requests can specify at most one time dimension.
+ *        (Value: "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -1144,14 +1257,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        "AdMob Network" as label value). (Value: "AD_SOURCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSourceInstance
  *        The unique ID of the ad source instance (for example,
- *        "ca-app-pub-1234#5678" and "AdMob (default)" as label value).
- *        **Warning:** The dimension is incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) and
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        "ca-app-pub-1234#5678" and "AdMob (default)" as label value). (Value:
  *        "AD_SOURCE_INSTANCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdUnit The
- *        unique ID of the ad unit (for example, "ca-app-pub-1234/8790").
- *        If AD_UNIT dimension is specified, then APP is included automatically.
+ *        unique ID of the ad unit (for example, "ca-app-pub-1234/8790"). If
+ *        AD_UNIT dimension is specified, then APP is included automatically.
  *        (Value: "AD_UNIT")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_App The
  *        unique ID of the mobile application (for example,
@@ -1168,15 +1278,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        "DIMENSION_UNSPECIFIED")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Format
  *        Format of the ad unit (for example, "banner", "native"), an ad
- *        delivery
- *        dimension. (Value: "FORMAT")
+ *        delivery dimension. (Value: "FORMAT")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup
  *        The unique ID of the mediation group (for example,
  *        "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
- *        **Warning:** The dimension is incompatible with
- *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) and
- *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
- *        "MEDIATION_GROUP")
+ *        (Value: "MEDIATION_GROUP")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Month A
  *        month in the YYYY-MM format (for example, "2018-12"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
@@ -1184,9 +1290,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week The
- *        date of the first day of a week in the YYYY-MM-DD format
- *        (for example, "2018-12-21"). Requests can specify at most one time
- *        dimension. (Value: "WEEK")
+ *        date of the first day of a week in the YYYY-MM-DD format (for example,
+ *        "2018-12-21"). Requests can specify at most one time dimension.
+ *        (Value: "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -1202,14 +1308,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Metric_EstimatedEarnings
  *        The estimated earnings of the AdMob publisher. The currency unit (USD,
  *        EUR, or other) of the earning metrics are determined by the
- *        localization
- *        setting for currency. The amount is in micros. For example, $6.50
- *        would
- *        be represented as 6500000.
- *        **Warning:** The metric is incompatible with
- *        [AD_SOURCE_INSTANCE](#Dimension.ENUM_VALUES.AD_SOURCE_INSTANCE) and
- *        [MEDIATION_GROUP](#Dimension.ENUM_VALUES.MEDIATION_GROUP) dimensions.
- *        (Value: "ESTIMATED_EARNINGS")
+ *        localization setting for currency. The amount is in micros. For
+ *        example, $6.50 would be represented as 6500000. Estimated earnings per
+ *        mediation group and per ad source instance level is supported dating
+ *        back to October 20, 2019. Third-party estimated earnings will show 0
+ *        for dates prior to October 20, 2019. (Value: "ESTIMATED_EARNINGS")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Metric_ImpressionCtr
  *        The ratio of clicks over impressions. The value is a double precision
  *        (approximate) decimal value. (Value: "IMPRESSION_CTR")
@@ -1218,8 +1321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        "IMPRESSIONS")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Metric_MatchedRequests
  *        The number of times ads are returned in response to a request. The
- *        value
- *        is an integer. (Value: "MATCHED_REQUESTS")
+ *        value is an integer. (Value: "MATCHED_REQUESTS")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Metric_MatchRate The
  *        ratio of matched ad requests over the total ad requests. The value is
  *        a double precision (approximate) decimal value. (Value: "MATCH_RATE")
@@ -1230,12 +1332,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        The third-party ad network's estimated average eCPM. The currency unit
  *        (USD, EUR, or other) of the earning metrics are determined by the
  *        localization setting for currency. The amount is in micros. For
- *        example,
- *        $2.30 would be represented as 2300000.
- *        **Warning:** The metric is incompatible with
- *        [AD_SOURCE_INSTANCE](#Dimension.ENUM_VALUES.AD_SOURCE_INSTANCE) and
- *        [MEDIATION_GROUP](#Dimension.ENUM_VALUES.MEDIATION_GROUP) dimensions.
- *        (Value: "OBSERVED_ECPM")
+ *        example, $2.30 would be represented as 2300000. The estimated average
+ *        eCPM per mediation group and per ad source instance level is supported
+ *        dating back to October 20, 2019. Third-party estimated average eCPM
+ *        will show 0 for dates prior to October 20, 2019. (Value:
+ *        "OBSERVED_ECPM")
  */
 @property(nonatomic, copy, nullable) NSString *metric;
 
@@ -1259,39 +1360,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 
 /**
- *  The specification for generating an AdMob Network report.
- *  For example, the specification to get clicks and estimated earnings for only
- *  the 'US' and 'CN' countries can look like the following example:
- *  {
- *  'date_range': {
- *  'start_date': {'year': 2018, 'month': 9, 'day': 1},
- *  'end_date': {'year': 2018, 'month': 9, 'day': 30}
- *  },
- *  'dimensions': ['DATE', 'APP', 'COUNTRY'],
- *  'metrics': ['CLICKS', 'ESTIMATED_EARNINGS'],
- *  'dimension_filters': [
- *  {
- *  'dimension': 'COUNTRY',
- *  'matches_any': {'values': [{'value': 'US', 'value': 'CN'}]}
- *  }
- *  ],
- *  'sort_conditions': [
- *  {'dimension':'APP', order: 'ASCENDING'},
- *  {'metric':'CLICKS', order: 'DESCENDING'}
- *  ],
- *  'localization_settings': {
- *  'currency_code': 'USD',
- *  'language_code': 'en-US'
- *  }
- *  }
- *  For a better understanding, you can treat the preceding specification like
- *  the following pseudo SQL:
- *  SELECT DATE, APP, COUNTRY, CLICKS, ESTIMATED_EARNINGS
- *  FROM NETWORK_REPORT
- *  WHERE DATE >= '2018-09-01' AND DATE <= '2018-09-30'
- *  AND COUNTRY IN ('US', 'CN')
- *  GROUP BY DATE, APP, COUNTRY
- *  ORDER BY APP ASC, CLICKS DESC;
+ *  The specification for generating an AdMob Network report. For example, the
+ *  specification to get clicks and estimated earnings for only the 'US' and
+ *  'CN' countries can look like the following example: { 'date_range': {
+ *  'start_date': {'year': 2018, 'month': 9, 'day': 1}, 'end_date': {'year':
+ *  2018, 'month': 9, 'day': 30} }, 'dimensions': ['DATE', 'APP', 'COUNTRY'],
+ *  'metrics': ['CLICKS', 'ESTIMATED_EARNINGS'], 'dimension_filters': [ {
+ *  'dimension': 'COUNTRY', 'matches_any': {'values': [{'value': 'US', 'value':
+ *  'CN'}]} } ], 'sort_conditions': [ {'dimension':'APP', order: 'ASCENDING'},
+ *  {'metric':'CLICKS', order: 'DESCENDING'} ], 'localization_settings': {
+ *  'currency_code': 'USD', 'language_code': 'en-US' } } For a better
+ *  understanding, you can treat the preceding specification like the following
+ *  pseudo SQL: SELECT DATE, APP, COUNTRY, CLICKS, ESTIMATED_EARNINGS FROM
+ *  NETWORK_REPORT WHERE DATE >= '2018-09-01' AND DATE <= '2018-09-30' AND
+ *  COUNTRY IN ('US', 'CN') GROUP BY DATE, APP, COUNTRY ORDER BY APP ASC, CLICKS
+ *  DESC;
  */
 @interface GTLRAdMob_NetworkReportSpec : GTLRObject
 
@@ -1303,8 +1386,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 /**
  *  List of dimensions of the report. The value combination of these dimensions
- *  determines the row of the report. If no dimensions are specified, the
- *  report returns a single row of requested metrics for the entire account.
+ *  determines the row of the report. If no dimensions are specified, the report
+ *  returns a single row of requested metrics for the entire account.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
@@ -1326,8 +1409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Describes the sorting of report rows. The order of the condition in the
- *  list defines its precedence; the earlier the condition, the higher its
+ *  Describes the sorting of report rows. The order of the condition in the list
+ *  defines its precedence; the earlier the condition, the higher its
  *  precedence. If no sort conditions are specified, the row ordering is
  *  undefined.
  */
@@ -1335,10 +1418,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 /**
  *  A report time zone. Accepts an IANA TZ name values, such as
- *  "America/Los_Angeles." If no time zone is defined, the account default
- *  takes effect. Check default value by the get account action.
- *  **Warning:** The "America/Los_Angeles" is the only supported value at
- *  the moment.
+ *  "America/Los_Angeles." If no time zone is defined, the account default takes
+ *  effect. Check default value by the get account action. **Warning:** The
+ *  "America/Los_Angeles" is the only supported value at the moment.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -1355,16 +1437,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdType Type
- *        of the ad (for example, "text" or "image"), an ad delivery
- *        dimension.
+ *        of the ad (for example, "text" or "image"), an ad delivery dimension.
  *        **Warning:** The dimension is incompatible with
  *        [AD_REQUESTS](#Metric.ENUM_VALUES.AD_REQUESTS),
  *        [MATCH_RATE](#Metric.ENUM_VALUES.MATCH_RATE) and
  *        [IMPRESSION_RPM](#Metric.ENUM_VALUES.IMPRESSION_RPM) metrics. (Value:
  *        "AD_TYPE")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AdUnit The
- *        unique ID of the ad unit (for example, "ca-app-pub-1234/1234").
- *        If AD_UNIT dimension is specified, then APP is included automatically.
+ *        unique ID of the ad unit (for example, "ca-app-pub-1234/1234"). If
+ *        AD_UNIT dimension is specified, then APP is included automatically.
  *        (Value: "AD_UNIT")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_App The
  *        unique ID of the mobile application (for example,
@@ -1381,8 +1462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        "DIMENSION_UNSPECIFIED")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Format
  *        Format of the ad unit (for example, "banner", "native"), an ad
- *        delivery
- *        dimension. (Value: "FORMAT")
+ *        delivery dimension. (Value: "FORMAT")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Month A
  *        month in the YYYY-MM format (for example, "2018-12"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
@@ -1390,9 +1470,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Week The
- *        date of the first day of a week in the YYYY-MM-DD format
- *        (for example, "2018-12-21"). Requests can specify at most one time
- *        dimension. (Value: "WEEK")
+ *        date of the first day of a week in the YYYY-MM-DD format (for example,
+ *        "2018-12-21"). Requests can specify at most one time dimension.
+ *        (Value: "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -1415,20 +1495,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdType Type of
- *        the ad (for example, "text" or "image"), an ad delivery
- *        dimension.
+ *        the ad (for example, "text" or "image"), an ad delivery dimension.
  *        **Warning:** The dimension is incompatible with
  *        [AD_REQUESTS](#Metric.ENUM_VALUES.AD_REQUESTS),
  *        [MATCH_RATE](#Metric.ENUM_VALUES.MATCH_RATE) and
  *        [IMPRESSION_RPM](#Metric.ENUM_VALUES.IMPRESSION_RPM) metrics. (Value:
  *        "AD_TYPE")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AdUnit The
- *        unique ID of the ad unit (for example, "ca-app-pub-1234/1234").
- *        If AD_UNIT dimension is specified, then APP is included automatically.
+ *        unique ID of the ad unit (for example, "ca-app-pub-1234/1234"). If
+ *        AD_UNIT dimension is specified, then APP is included automatically.
  *        (Value: "AD_UNIT")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_App The unique
- *        ID of the mobile application (for example,
- *        "ca-app-pub-1234~1234"). (Value: "APP")
+ *        ID of the mobile application (for example, "ca-app-pub-1234~1234").
+ *        (Value: "APP")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Country CLDR
  *        country code of the place where the ad views/clicks occur (for
  *        example, "US" or "FR"). This is a geography dimension. (Value:
@@ -1443,15 +1522,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        of the ad unit (for example, "banner", "native"), an ad delivery
  *        dimension. (Value: "FORMAT")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Month A month
- *        in the YYYY-MM format (for example, "2018-12"). Requests can
- *        specify at most one time dimension. (Value: "MONTH")
+ *        in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *        at most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Week The date
- *        of the first day of a week in the YYYY-MM-DD format
- *        (for example, "2018-12-21"). Requests can specify at most one time
- *        dimension. (Value: "WEEK")
+ *        of the first day of a week in the YYYY-MM-DD format (for example,
+ *        "2018-12-21"). Requests can specify at most one time dimension.
+ *        (Value: "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -1460,20 +1539,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Metric_AdRequests The
- *        number of ad requests. The value is an integer.
- *        **Warning:** The metric is incompatible with
- *        [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension. (Value:
- *        "AD_REQUESTS")
+ *        number of ad requests. The value is an integer. **Warning:** The
+ *        metric is incompatible with [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE)
+ *        dimension. (Value: "AD_REQUESTS")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Metric_Clicks The number
  *        of times a user clicks an ad. The value is an integer. (Value:
  *        "CLICKS")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Metric_EstimatedEarnings
  *        The estimated earnings of the AdMob publisher. The currency unit (USD,
  *        EUR, or other) of the earning metrics are determined by the
- *        localization
- *        setting for currency. The amount is in micros. For example, $6.50
- *        would
- *        be represented as 6500000. (Value: "ESTIMATED_EARNINGS")
+ *        localization setting for currency. The amount is in micros. For
+ *        example, $6.50 would be represented as 6500000. (Value:
+ *        "ESTIMATED_EARNINGS")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ImpressionCtr The
  *        ratio of clicks over impressions. The value is a double precision
  *        (approximate) decimal value. (Value: "IMPRESSION_CTR")
@@ -1488,20 +1565,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        "IMPRESSIONS")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MatchedRequests
  *        The number of times ads are returned in response to a request. The
- *        value
- *        is an integer. (Value: "MATCHED_REQUESTS")
+ *        value is an integer. (Value: "MATCHED_REQUESTS")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MatchRate The
  *        ratio of matched ad requests over the total ad requests. The value is
- *        a double precision (approximate) decimal value.
- *        **Warning:** The metric is incompatible with
- *        [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE) dimension. (Value:
- *        "MATCH_RATE")
+ *        a double precision (approximate) decimal value. **Warning:** The
+ *        metric is incompatible with [AD_TYPE](#Dimension.ENUM_VALUES.AD_TYPE)
+ *        dimension. (Value: "MATCH_RATE")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Metric_MetricUnspecified
  *        Default value for an unset field. Do not use. (Value:
  *        "METRIC_UNSPECIFIED")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Metric_ShowRate The
- *        ratio of ads that are displayed over ads that are returned, defined
- *        as impressions / matched requests. The value is a double precision
+ *        ratio of ads that are displayed over ads that are returned, defined as
+ *        impressions / matched requests. The value is a double precision
  *        (approximate) decimal value. (Value: "SHOW_RATE")
  */
 @property(nonatomic, copy, nullable) NSString *metric;
@@ -1538,22 +1613,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
-/**
- *  Resource name of this account.
- *  Format is accounts/{publisher_id}.
- */
+/** Resource name of this account. Format is accounts/{publisher_id}. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The unique ID by which this publisher account can be identified
- *  in the API requests (for example, pub-1234567890).
+ *  The unique ID by which this publisher account can be identified in the API
+ *  requests (for example, pub-1234567890).
  */
 @property(nonatomic, copy, nullable) NSString *publisherId;
 
 /**
  *  The time zone that is used in reports that are generated for this account.
- *  The value is a time-zone ID as specified by the CLDR project,
- *  for example, "America/Los_Angeles".
+ *  The value is a time-zone ID as specified by the CLDR project, for example,
+ *  "America/Los_Angeles".
  */
 @property(nonatomic, copy, nullable) NSString *reportingTimeZone;
 
@@ -1567,9 +1639,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @interface GTLRAdMob_ReportFooter : GTLRObject
 
 /**
- *  Total number of rows that matched the request.
- *  Warning: This count does NOT always match the number of rows in the
- *  response. Do not make that assumption when processing the response.
+ *  Total number of rows that matched the request. Warning: This count does NOT
+ *  always match the number of rows in the response. Do not make that assumption
+ *  when processing the response.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1594,8 +1666,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRAdMob_DateRange *dateRange;
 
 /**
- *  Localization settings of the report. This is identical to the settings
- *  in the report request.
+ *  Localization settings of the report. This is identical to the settings in
+ *  the report request.
  */
 @property(nonatomic, strong, nullable) GTLRAdMob_LocalizationSettings *localizationSettings;
 
@@ -1619,9 +1691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) GTLRAdMob_ReportRow_DimensionValues *dimensionValues;
 
 /**
- *  Map of metric values in a row, with keys as enum name of the metrics. If
- *  a metric being requested has no value returned, the map will not include
- *  it.
+ *  Map of metric values in a row, with keys as enum name of the metrics. If a
+ *  metric being requested has no value returned, the map will not include it.
  */
 @property(nonatomic, strong, nullable) GTLRAdMob_ReportRow_MetricValues *metricValues;
 
@@ -1641,9 +1712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 
 
 /**
- *  Map of metric values in a row, with keys as enum name of the metrics. If
- *  a metric being requested has no value returned, the map will not include
- *  it.
+ *  Map of metric values in a row, with keys as enum name of the metrics. If a
+ *  metric being requested has no value returned, the map will not include it.
  *
  *  @note This class is documented as having more properties of
  *        GTLRAdMob_ReportRowMetricValue. Use @c -additionalJSONKeys and @c
@@ -1666,8 +1736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, copy, nullable) NSString *displayLabel;
 
 /**
- *  Dimension value in the format specified in the report's spec Dimension
- *  enum.
+ *  Dimension value in the format specified in the report's spec Dimension enum.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -1694,9 +1763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 @property(nonatomic, strong, nullable) NSNumber *integerValue;
 
 /**
- *  Amount in micros. One million is equivalent to one unit. Currency value
- *  is in the unit (USD, EUR or other) specified by the request.
- *  For example, $6.50 whould be represented as 6500000 micros.
+ *  Amount in micros. One million is equivalent to one unit. Currency value is
+ *  in the unit (USD, EUR or other) specified by the request. For example, $6.50
+ *  whould be represented as 6500000 micros.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1722,20 +1791,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRAdMob_ReportWarning_Type_DataBeforeAccountTimezoneChange Some
- *        data in this report is aggregated based on a time zone different
- *        from the requested time zone. This could happen if a local time-zone
- *        report has the start time before the last time this time zone changed.
- *        The description field will contain the date of the last time zone
- *        change. (Value: "DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE")
+ *        data in this report is aggregated based on a time zone different from
+ *        the requested time zone. This could happen if a local time-zone report
+ *        has the start time before the last time this time zone changed. The
+ *        description field will contain the date of the last time zone change.
+ *        (Value: "DATA_BEFORE_ACCOUNT_TIMEZONE_CHANGE")
  *    @arg @c kGTLRAdMob_ReportWarning_Type_DataDelayed There is an unusual
- *        delay in processing the source data for the
- *        requested date range. The report results might be less up to date than
- *        usual. AdMob is aware of the issue and is actively working to resolve
- *        it. (Value: "DATA_DELAYED")
+ *        delay in processing the source data for the requested date range. The
+ *        report results might be less up to date than usual. AdMob is aware of
+ *        the issue and is actively working to resolve it. (Value:
+ *        "DATA_DELAYED")
  *    @arg @c kGTLRAdMob_ReportWarning_Type_Other Warnings that are exposed
- *        without a specific type. Useful when new
- *        warning types are added but the API is not changed yet. (Value:
- *        "OTHER")
+ *        without a specific type. Useful when new warning types are added but
+ *        the API is not changed yet. (Value: "OTHER")
  *    @arg @c kGTLRAdMob_ReportWarning_Type_ReportCurrencyNotAccountCurrency The
  *        currency being requested is not the account currency. The earning
  *        metrics will be based on the requested currency, and thus not a good

@@ -43,8 +43,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  LRO endpoint to batch process many documents. The output is written
- *  to Cloud Storage as JSON in the [Document] format.
+ *  LRO endpoint to batch process many documents. The output is written to Cloud
+ *  Storage as JSON in the [Document] format.
  *
  *  Method: documentai.projects.documents.batchProcess
  *
@@ -56,24 +56,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDocument queryForProjectsDocumentsBatchProcessWithObject:parent:]
 
 /**
- *  Target project and location to make a call.
- *  Format: `projects/{project-id}/locations/{location-id}`.
- *  If no location is specified, a region will be chosen automatically.
+ *  Target project and location to make a call. Format:
+ *  `projects/{project-id}/locations/{location-id}`. If no location is
+ *  specified, a region will be chosen automatically.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
  *
- *  LRO endpoint to batch process many documents. The output is written
- *  to Cloud Storage as JSON in the [Document] format.
+ *  LRO endpoint to batch process many documents. The output is written to Cloud
+ *  Storage as JSON in the [Document] format.
  *
  *  @param object The @c
  *    GTLRDocument_GoogleCloudDocumentaiV1beta2BatchProcessDocumentsRequest to
  *    include in the query.
- *  @param parent Target project and location to make a call.
- *    Format: `projects/{project-id}/locations/{location-id}`.
- *    If no location is specified, a region will be chosen automatically.
+ *  @param parent Target project and location to make a call. Format:
+ *    `projects/{project-id}/locations/{location-id}`. If no location is
+ *    specified, a region will be chosen automatically.
  *
  *  @return GTLRDocumentQuery_ProjectsDocumentsBatchProcess
  */
@@ -95,10 +95,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDocument queryForProjectsDocumentsProcessWithObject:parent:]
 
 /**
- *  Target project and location to make a call.
- *  Format: `projects/{project-id}/locations/{location-id}`.
- *  If no location is specified, a region will be chosen automatically.
- *  This field is only populated when used in ProcessDocument method.
+ *  Target project and location to make a call. Format:
+ *  `projects/{project-id}/locations/{location-id}`. If no location is
+ *  specified, a region will be chosen automatically. This field is only
+ *  populated when used in ProcessDocument method.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -110,10 +110,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDocument_GoogleCloudDocumentaiV1beta2ProcessDocumentRequest to include
  *    in the query.
- *  @param parent Target project and location to make a call.
- *    Format: `projects/{project-id}/locations/{location-id}`.
- *    If no location is specified, a region will be chosen automatically.
- *    This field is only populated when used in ProcessDocument method.
+ *  @param parent Target project and location to make a call. Format:
+ *    `projects/{project-id}/locations/{location-id}`. If no location is
+ *    specified, a region will be chosen automatically. This field is only
+ *    populated when used in ProcessDocument method.
  *
  *  @return GTLRDocumentQuery_ProjectsDocumentsProcess
  */
@@ -123,8 +123,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  LRO endpoint to batch process many documents. The output is written
- *  to Cloud Storage as JSON in the [Document] format.
+ *  LRO endpoint to batch process many documents. The output is written to Cloud
+ *  Storage as JSON in the [Document] format.
  *
  *  Method: documentai.projects.locations.documents.batchProcess
  *
@@ -136,24 +136,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDocument queryForProjectsLocationsDocumentsBatchProcessWithObject:parent:]
 
 /**
- *  Target project and location to make a call.
- *  Format: `projects/{project-id}/locations/{location-id}`.
- *  If no location is specified, a region will be chosen automatically.
+ *  Target project and location to make a call. Format:
+ *  `projects/{project-id}/locations/{location-id}`. If no location is
+ *  specified, a region will be chosen automatically.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
  *
- *  LRO endpoint to batch process many documents. The output is written
- *  to Cloud Storage as JSON in the [Document] format.
+ *  LRO endpoint to batch process many documents. The output is written to Cloud
+ *  Storage as JSON in the [Document] format.
  *
  *  @param object The @c
  *    GTLRDocument_GoogleCloudDocumentaiV1beta2BatchProcessDocumentsRequest to
  *    include in the query.
- *  @param parent Target project and location to make a call.
- *    Format: `projects/{project-id}/locations/{location-id}`.
- *    If no location is specified, a region will be chosen automatically.
+ *  @param parent Target project and location to make a call. Format:
+ *    `projects/{project-id}/locations/{location-id}`. If no location is
+ *    specified, a region will be chosen automatically.
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsDocumentsBatchProcess
  */
@@ -175,10 +175,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDocument queryForProjectsLocationsDocumentsProcessWithObject:parent:]
 
 /**
- *  Target project and location to make a call.
- *  Format: `projects/{project-id}/locations/{location-id}`.
- *  If no location is specified, a region will be chosen automatically.
- *  This field is only populated when used in ProcessDocument method.
+ *  Target project and location to make a call. Format:
+ *  `projects/{project-id}/locations/{location-id}`. If no location is
+ *  specified, a region will be chosen automatically. This field is only
+ *  populated when used in ProcessDocument method.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -190,10 +190,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRDocument_GoogleCloudDocumentaiV1beta2ProcessDocumentRequest to include
  *    in the query.
- *  @param parent Target project and location to make a call.
- *    Format: `projects/{project-id}/locations/{location-id}`.
- *    If no location is specified, a region will be chosen automatically.
- *    This field is only populated when used in ProcessDocument method.
+ *  @param parent Target project and location to make a call. Format:
+ *    `projects/{project-id}/locations/{location-id}`. If no location is
+ *    specified, a region will be chosen automatically. This field is only
+ *    populated when used in ProcessDocument method.
  *
  *  @return GTLRDocumentQuery_ProjectsLocationsDocumentsProcess
  */

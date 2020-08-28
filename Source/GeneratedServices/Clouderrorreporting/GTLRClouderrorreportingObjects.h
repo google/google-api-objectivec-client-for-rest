@@ -59,8 +59,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
  */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Muted;
 /**
- *  The error group is not being addressed. This is the default for
- *  new groups. It is also used for errors re-occuring after marked RESOLVED.
+ *  The error group is not being addressed. This is the default for new groups.
+ *  It is also used for errors re-occuring after marked RESOLVED.
  *
  *  Value: "OPEN"
  */
@@ -87,43 +87,36 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 
 
 /**
- *  A description of the context in which an error occurred.
- *  This data should be provided by the application when reporting an error,
- *  unless the
- *  error report has been generated automatically from Google App Engine logs.
+ *  A description of the context in which an error occurred. This data should be
+ *  provided by the application when reporting an error, unless the error report
+ *  has been generated automatically from Google App Engine logs.
  */
 @interface GTLRClouderrorreporting_ErrorContext : GTLRObject
 
-/**
- *  The HTTP request which was processed when the error was
- *  triggered.
- */
+/** The HTTP request which was processed when the error was triggered. */
 @property(nonatomic, strong, nullable) GTLRClouderrorreporting_HttpRequestContext *httpRequest;
 
 /**
- *  The location in the source code where the decision was made to
- *  report the error, usually the place where it was logged.
- *  For a logged exception this would be the source line where the
- *  exception is logged, usually close to the place where it was
- *  caught.
+ *  The location in the source code where the decision was made to report the
+ *  error, usually the place where it was logged. For a logged exception this
+ *  would be the source line where the exception is logged, usually close to the
+ *  place where it was caught.
  */
 @property(nonatomic, strong, nullable) GTLRClouderrorreporting_SourceLocation *reportLocation;
 
 /**
- *  Source code that was used to build the executable which has
- *  caused the given error message.
+ *  Source code that was used to build the executable which has caused the given
+ *  error message.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClouderrorreporting_SourceReference *> *sourceReferences;
 
 /**
- *  The user who caused or was affected by the crash.
- *  This can be a user ID, an email address, or an arbitrary token that
- *  uniquely identifies the user.
- *  When sending an error report, leave this field empty if the user was not
- *  logged in. In this case the
- *  Error Reporting system will use other data, such as remote IP address, to
- *  distinguish affected users. See `affected_users_count` in
- *  `ErrorGroupStats`.
+ *  The user who caused or was affected by the crash. This can be a user ID, an
+ *  email address, or an arbitrary token that uniquely identifies the user. When
+ *  sending an error report, leave this field empty if the user was not logged
+ *  in. In this case the Error Reporting system will use other data, such as
+ *  remote IP address, to distinguish affected users. See `affected_users_count`
+ *  in `ErrorGroupStats`.
  */
 @property(nonatomic, copy, nullable) NSString *user;
 
@@ -139,9 +132,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @property(nonatomic, strong, nullable) GTLRClouderrorreporting_ErrorContext *context;
 
 /**
- *  Time when the event occurred as provided in the error report.
- *  If the report did not contain a timestamp, the time the error was received
- *  by the Error Reporting system is used.
+ *  Time when the event occurred as provided in the error report. If the report
+ *  did not contain a timestamp, the time the error was received by the Error
+ *  Reporting system is used.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
@@ -160,20 +153,20 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @interface GTLRClouderrorreporting_ErrorGroup : GTLRObject
 
 /**
- *  Group IDs are unique for a given project. If the same kind of error
- *  occurs in different service contexts, it will receive the same group ID.
+ *  Group IDs are unique for a given project. If the same kind of error occurs
+ *  in different service contexts, it will receive the same group ID.
  */
 @property(nonatomic, copy, nullable) NSString *groupId;
 
 /**
- *  The group resource name.
- *  Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
+ *  The group resource name. Example:
+ *  projects/my-project-123/groups/CNSgkpnppqKCUw
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Error group's resolution status.
- *  An unspecified resolution status will be interpreted as OPEN
+ *  Error group's resolution status. An unspecified resolution status will be
+ *  interpreted as OPEN
  *
  *  Likely values:
  *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Acknowledged
@@ -183,15 +176,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
  *        error group is muted and excluded by default on group stats requests.
  *        (Value: "MUTED")
  *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Open The
- *        error group is not being addressed. This is the default for
- *        new groups. It is also used for errors re-occuring after marked
- *        RESOLVED. (Value: "OPEN")
+ *        error group is not being addressed. This is the default for new
+ *        groups. It is also used for errors re-occuring after marked RESOLVED.
+ *        (Value: "OPEN")
  *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_ResolutionStatusUnspecified
  *        Status is unknown. (Value: "RESOLUTION_STATUS_UNSPECIFIED")
  *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Resolved
  *        Error Group manually resolved, more events for this group are not
- *        expected
- *        to occur. (Value: "RESOLVED")
+ *        expected to occur. (Value: "RESOLVED")
  */
 @property(nonatomic, copy, nullable) NSString *resolutionStatus;
 
@@ -202,48 +194,45 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 
 
 /**
- *  Data extracted for a specific group based on certain filter criteria,
- *  such as a given time period and/or service filter.
+ *  Data extracted for a specific group based on certain filter criteria, such
+ *  as a given time period and/or service filter.
  */
 @interface GTLRClouderrorreporting_ErrorGroupStats : GTLRObject
 
 /**
- *  Service contexts with a non-zero error count for the given filter
- *  criteria. This list can be truncated if multiple services are affected.
- *  Refer to `num_affected_services` for the total count.
+ *  Service contexts with a non-zero error count for the given filter criteria.
+ *  This list can be truncated if multiple services are affected. Refer to
+ *  `num_affected_services` for the total count.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClouderrorreporting_ServiceContext *> *affectedServices;
 
 /**
- *  Approximate number of affected users in the given group that
- *  match the filter criteria.
- *  Users are distinguished by data in the `ErrorContext` of the
- *  individual error events, such as their login name or their remote
- *  IP address in case of HTTP requests.
- *  The number of affected users can be zero even if the number of
- *  errors is non-zero if no data was provided from which the
- *  affected user could be deduced.
- *  Users are counted based on data in the request
- *  context that was provided in the error report. If more users are
- *  implicitly affected, such as due to a crash of the whole service,
- *  this is not reflected here.
+ *  Approximate number of affected users in the given group that match the
+ *  filter criteria. Users are distinguished by data in the `ErrorContext` of
+ *  the individual error events, such as their login name or their remote IP
+ *  address in case of HTTP requests. The number of affected users can be zero
+ *  even if the number of errors is non-zero if no data was provided from which
+ *  the affected user could be deduced. Users are counted based on data in the
+ *  request context that was provided in the error report. If more users are
+ *  implicitly affected, such as due to a crash of the whole service, this is
+ *  not reflected here.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *affectedUsersCount;
 
 /**
- *  Approximate total number of events in the given group that match
- *  the filter criteria.
+ *  Approximate total number of events in the given group that match the filter
+ *  criteria.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  Approximate first occurrence that was ever seen for this group
- *  and which matches the given filter criteria, ignoring the
- *  time_range that was specified in the request.
+ *  Approximate first occurrence that was ever seen for this group and which
+ *  matches the given filter criteria, ignoring the time_range that was
+ *  specified in the request.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *firstSeenTime;
 
@@ -251,9 +240,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @property(nonatomic, strong, nullable) GTLRClouderrorreporting_ErrorGroup *group;
 
 /**
- *  Approximate last occurrence that was ever seen for this group and
- *  which matches the given filter criteria, ignoring the time_range
- *  that was specified in the request.
+ *  Approximate last occurrence that was ever seen for this group and which
+ *  matches the given filter criteria, ignoring the time_range that was
+ *  specified in the request.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSeenTime;
 
@@ -266,20 +255,18 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @property(nonatomic, strong, nullable) NSNumber *numAffectedServices;
 
 /**
- *  An arbitrary event that is chosen as representative for the whole group.
- *  The representative event is intended to be used as a quick preview for
- *  the whole group. Events in the group are usually sufficiently similar
- *  to each other such that showing an arbitrary representative provides
- *  insight into the characteristics of the group as a whole.
+ *  An arbitrary event that is chosen as representative for the whole group. The
+ *  representative event is intended to be used as a quick preview for the whole
+ *  group. Events in the group are usually sufficiently similar to each other
+ *  such that showing an arbitrary representative provides insight into the
+ *  characteristics of the group as a whole.
  */
 @property(nonatomic, strong, nullable) GTLRClouderrorreporting_ErrorEvent *representative;
 
 /**
- *  Approximate number of occurrences over time.
- *  Timed counts returned by ListGroups are guaranteed to be:
- *  - Inside the requested time interval
- *  - Non-overlapping, and
- *  - Ordered by ascending time.
+ *  Approximate number of occurrences over time. Timed counts returned by
+ *  ListGroups are guaranteed to be: - Inside the requested time interval -
+ *  Non-overlapping, and - Ordered by ascending time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClouderrorreporting_TimedCount *> *timedCounts;
 
@@ -287,10 +274,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 
 
 /**
- *  HTTP request data that is related to a reported error.
- *  This data should be provided by the application when reporting an error,
- *  unless the
- *  error report has been generated automatically from Google App Engine logs.
+ *  HTTP request data that is related to a reported error. This data should be
+ *  provided by the application when reporting an error, unless the error report
+ *  has been generated automatically from Google App Engine logs.
  */
 @interface GTLRClouderrorreporting_HttpRequestContext : GTLRObject
 
@@ -301,10 +287,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @property(nonatomic, copy, nullable) NSString *referrer;
 
 /**
- *  The IP address from which the request originated.
- *  This can be IPv4, IPv6, or a token which is derived from the
- *  IP address, depending on the data that has been provided
- *  in the error report.
+ *  The IP address from which the request originated. This can be IPv4, IPv6, or
+ *  a token which is derived from the IP address, depending on the data that has
+ *  been provided in the error report.
  */
 @property(nonatomic, copy, nullable) NSString *remoteIp;
 
@@ -343,9 +328,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @property(nonatomic, strong, nullable) NSArray<GTLRClouderrorreporting_ErrorEvent *> *errorEvents;
 
 /**
- *  If non-empty, more results are available.
- *  Pass this token, along with the same query parameters as the first
- *  request, to view the next page of results.
+ *  If non-empty, more results are available. Pass this token, along with the
+ *  same query parameters as the first request, to view the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -376,9 +361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @property(nonatomic, strong, nullable) NSArray<GTLRClouderrorreporting_ErrorGroupStats *> *errorGroupStats;
 
 /**
- *  If non-empty, more results are available.
- *  Pass this token, along with the same query parameters as the first
- *  request, to view the next page of results.
+ *  If non-empty, more results are available. Pass this token, along with the
+ *  same query parameters as the first request, to view the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -402,35 +387,31 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @property(nonatomic, strong, nullable) GTLRClouderrorreporting_ErrorContext *context;
 
 /**
- *  Optional. Time when the event occurred.
- *  If not provided, the time when the event was received by the
- *  Error Reporting system will be used.
+ *  Optional. Time when the event occurred. If not provided, the time when the
+ *  event was received by the Error Reporting system will be used.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
 /**
- *  Required. The error message.
- *  If no `context.reportLocation` is provided, the message must contain a
- *  header (typically consisting of the exception type name and an error
- *  message) and an exception stack trace in one of the supported programming
- *  languages and formats.
- *  Supported languages are Java, Python, JavaScript, Ruby, C#, PHP, and Go.
- *  Supported stack trace formats are:
- *  * **Java**: Must be the return value of
+ *  Required. The error message. If no `context.reportLocation` is provided, the
+ *  message must contain a header (typically consisting of the exception type
+ *  name and an error message) and an exception stack trace in one of the
+ *  supported programming languages and formats. Supported languages are Java,
+ *  Python, JavaScript, Ruby, C#, PHP, and Go. Supported stack trace formats
+ *  are: * **Java**: Must be the return value of
  *  [`Throwable.printStackTrace()`](https://docs.oracle.com/javase/7/docs/api/java/lang/Throwable.html#printStackTrace%28%29).
  *  * **Python**: Must be the return value of
  *  [`traceback.format_exc()`](https://docs.python.org/2/library/traceback.html#traceback.format_exc).
  *  * **JavaScript**: Must be the value of
  *  [`error.stack`](https://github.com/v8/v8/wiki/Stack-Trace-API) as returned
- *  by V8.
- *  * **Ruby**: Must contain frames returned by
+ *  by V8. * **Ruby**: Must contain frames returned by
  *  [`Exception.backtrace`](https://ruby-doc.org/core-2.2.0/Exception.html#method-i-backtrace).
  *  * **C#**: Must be the return value of
  *  [`Exception.ToString()`](https://msdn.microsoft.com/en-us/library/system.exception.tostring.aspx).
  *  * **PHP**: Must start with `PHP (Notice|Parse error|Fatal error|Warning)`
  *  and contain the result of
- *  [`(string)$exception`](http://php.net/manual/en/exception.tostring.php).
- *  * **Go**: Must be the return value of
+ *  [`(string)$exception`](http://php.net/manual/en/exception.tostring.php). *
+ *  **Go**: Must be the return value of
  *  [`runtime.Stack()`](https://golang.org/pkg/runtime/debug/#Stack).
  */
 @property(nonatomic, copy, nullable) NSString *message;
@@ -442,42 +423,40 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 
 
 /**
- *  Response for reporting an individual error event.
- *  Data may be added to this message in the future.
+ *  Response for reporting an individual error event. Data may be added to this
+ *  message in the future.
  */
 @interface GTLRClouderrorreporting_ReportErrorEventResponse : GTLRObject
 @end
 
 
 /**
- *  Describes a running service that sends errors.
- *  Its version changes over time and multiple versions can run in parallel.
+ *  Describes a running service that sends errors. Its version changes over time
+ *  and multiple versions can run in parallel.
  */
 @interface GTLRClouderrorreporting_ServiceContext : GTLRObject
 
 /**
  *  Type of the MonitoredResource. List of possible values:
- *  https://cloud.google.com/monitoring/api/resources
- *  Value is set automatically for incoming errors and must not be set when
- *  reporting errors.
+ *  https://cloud.google.com/monitoring/api/resources Value is set automatically
+ *  for incoming errors and must not be set when reporting errors.
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 /**
- *  An identifier of the service, such as the name of the
- *  executable, job, or Google App Engine service name. This field is expected
- *  to have a low number of values that are relatively stable over time, as
- *  opposed to `version`, which can be changed whenever new code is deployed.
- *  Contains the service name for error reports extracted from Google
- *  App Engine logs or `default` if the App Engine default service is used.
+ *  An identifier of the service, such as the name of the executable, job, or
+ *  Google App Engine service name. This field is expected to have a low number
+ *  of values that are relatively stable over time, as opposed to `version`,
+ *  which can be changed whenever new code is deployed. Contains the service
+ *  name for error reports extracted from Google App Engine logs or `default` if
+ *  the App Engine default service is used.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  Represents the source code version that the developer provided,
- *  which could represent a version label or a Git SHA-1 hash, for example.
- *  For App Engine standard environment, the version is set to the version of
- *  the app.
+ *  Represents the source code version that the developer provided, which could
+ *  represent a version label or a Git SHA-1 hash, for example. For App Engine
+ *  standard environment, the version is set to the version of the app.
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -493,15 +472,15 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @interface GTLRClouderrorreporting_SourceLocation : GTLRObject
 
 /**
- *  The source code filename, which can include a truncated relative
- *  path, or a full path from a production machine.
+ *  The source code filename, which can include a truncated relative path, or a
+ *  full path from a production machine.
  */
 @property(nonatomic, copy, nullable) NSString *filePath;
 
 /**
- *  Human-readable name of a function or method.
- *  The value can include optional context like the class or package name.
- *  For example, `my.package.MyClass.method` in case of Java.
+ *  Human-readable name of a function or method. The value can include optional
+ *  context like the class or package name. For example,
+ *  `my.package.MyClass.method` in case of Java.
  */
 @property(nonatomic, copy, nullable) NSString *functionName;
 
@@ -522,14 +501,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @interface GTLRClouderrorreporting_SourceReference : GTLRObject
 
 /**
- *  Optional. A URI string identifying the repository.
- *  Example: "https://github.com/GoogleCloudPlatform/kubernetes.git"
+ *  Optional. A URI string identifying the repository. Example:
+ *  "https://github.com/GoogleCloudPlatform/kubernetes.git"
  */
 @property(nonatomic, copy, nullable) NSString *repository;
 
 /**
- *  The canonical and persistent identifier of the deployed revision.
- *  Example (git): "0035781c50ec7aa23385dc841529ce8a4b70db1b"
+ *  The canonical and persistent identifier of the deployed revision. Example
+ *  (git): "0035781c50ec7aa23385dc841529ce8a4b70db1b"
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
@@ -537,9 +516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 
 
 /**
- *  The number of errors in a given time period.
- *  All numbers are approximate since the error events are sampled
- *  before counting them.
+ *  The number of errors in a given time period. All numbers are approximate
+ *  since the error events are sampled before counting them.
  */
 @interface GTLRClouderrorreporting_TimedCount : GTLRObject
 
@@ -565,8 +543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 @interface GTLRClouderrorreporting_TrackingIssue : GTLRObject
 
 /**
- *  A URL pointing to a related entry in an issue tracking system.
- *  Example: `https://github.com/user/project/issues/4`
+ *  A URL pointing to a related entry in an issue tracking system. Example:
+ *  `https://github.com/user/project/issues/4`
  */
 @property(nonatomic, copy, nullable) NSString *url;
 

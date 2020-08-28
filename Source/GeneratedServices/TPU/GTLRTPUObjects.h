@@ -554,6 +554,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
 /** The version of Tensorflow running in the Node. Required. */
 @property(nonatomic, copy, nullable) NSString *tensorflowVersion;
 
+/**
+ *  Whether the VPC peering for the node is set up through Service Networking
+ *  API. The VPC Peering should be set up before provisioning the node. If this
+ *  field is set, cidr_block field should not be specified. If the network, that
+ *  you want to peer the TPU Node to, is Shared VPC networks, the node must be
+ *  created with this this field enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useServiceNetworking;
+
 @end
 
 

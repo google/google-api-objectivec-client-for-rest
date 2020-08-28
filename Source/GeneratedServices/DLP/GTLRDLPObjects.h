@@ -337,31 +337,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CharsToIgnore_Comm
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.fileTypes
 
-/** Value: "AVRO" */
+/**
+ *  Included file extensions: avro
+ *
+ *  Value: "AVRO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Avro;
-/** Value: "BINARY_FILE" */
+/**
+ *  Includes all file extensions not covered by another entry. Binary scanning
+ *  attempts to convert the content of the file to utf_8 to scan the file. If
+ *  you wish to avoid this fall back, specify one or more of the other
+ *  FileType's in your storage scan.
+ *
+ *  Value: "BINARY_FILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_BinaryFile;
-/** Value: "CSV" */
+/**
+ *  Included file extensions: csv
+ *
+ *  Value: "CSV"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Csv;
-/** Value: "FILE_TYPE_UNSPECIFIED" */
+/**
+ *  Includes all files.
+ *
+ *  Value: "FILE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_FileTypeUnspecified;
-/** Value: "IMAGE" */
+/**
+ *  Included file extensions: bmp, gif, jpg, jpeg, jpe, png.
+ *  bytes_limit_per_file has no effect on image files. Image inspection is
+ *  restricted to 'global', 'us', 'asia', and 'europe'.
+ *
+ *  Value: "IMAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Image;
-/** Value: "PDF" */
+/**
+ *  PDF files >30 MB will be scanned as binary files. Included file extensions:
+ *  pdf
+ *
+ *  Value: "PDF"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf;
-/** Value: "TEXT_FILE" */
+/**
+ *  Included file extensions: asc, brf, c, cc, cpp, csv, cxx, c++, cs, css,
+ *  dart, eml, go, h, hh, hpp, hxx, h++, hs, html, htm, shtml, shtm, xhtml, lhs,
+ *  ini, java, js, json, ocaml, md, mkd, markdown, m, ml, mli, pl, pm, php,
+ *  phtml, pht, py, pyw, rb, rbw, rs, rc, scala, sh, sql, tex, txt, text, tsv,
+ *  vcard, vcs, wml, xml, xsl, xsd, yml, yaml.
+ *
+ *  Value: "TEXT_FILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_TextFile;
-/** Value: "TSV" */
+/**
+ *  Included file extensions: tsv
+ *
+ *  Value: "TSV"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Tsv;
-/** Value: "WORD" */
+/**
+ *  Word files >30 MB will be scanned as binary files. Included file extensions:
+ *  docx, dotx, docm, dotm
+ *
+ *  Value: "WORD"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Word;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2CloudStorageOptions.sampleMethod
 
 /**
- *  For each file larger than bytes_limit_per_file, randomly pick the offset
- *  to start scanning. The scanned bytes are contiguous.
+ *  For each file larger than bytes_limit_per_file, randomly pick the offset to
+ *  start scanning. The scanned bytes are contiguous.
  *
  *  Value: "RANDOM_START"
  */
@@ -465,8 +512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFp
 // GTLRDLP_GooglePrivacyDlpV2CustomInfoType.exclusionType
 
 /**
- *  A finding of this custom info type will be excluded from final results,
- *  but can still affect rule execution.
+ *  A finding of this custom info type will be excluded from final results, but
+ *  can still affect rule execution.
  *
  *  Value: "EXCLUSION_TYPE_EXCLUDE"
  */
@@ -566,10 +613,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DateTime_DayOfWeek
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.state
 
 /**
- *  The job is currently accepting findings via hybridInspect.
- *  A hybrid job in ACTIVE state may continue to have findings added to it
- *  through calling of hybridInspect. After the job has finished no more
- *  calls to hybridInspect may be made. ACTIVE jobs can transition to DONE.
+ *  The job is currently accepting findings via hybridInspect. A hybrid job in
+ *  ACTIVE state may continue to have findings added to it through calling of
+ *  hybridInspect. After the job has finished no more calls to hybridInspect may
+ *  be made. ACTIVE jobs can transition to DONE.
  *
  *  Value: "ACTIVE"
  */
@@ -605,8 +652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_JobSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending;
 /**
- *  The job is currently running. Once a job has finished it will transition
- *  to FAILED or DONE.
+ *  The job is currently running. Once a job has finished it will transition to
+ *  FAILED or DONE.
  *
  *  Value: "RUNNING"
  */
@@ -638,28 +685,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAn
 // GTLRDLP_GooglePrivacyDlpV2ExclusionRule.matchingType
 
 /**
- *  Full match.
- *  - Dictionary: join of Dictionary results matched complete finding quote
- *  - Regex: all regex matches fill a finding quote start to end
- *  - Exclude info type: completely inside affecting info types findings
+ *  Full match. - Dictionary: join of Dictionary results matched complete
+ *  finding quote - Regex: all regex matches fill a finding quote start to end -
+ *  Exclude info type: completely inside affecting info types findings
  *
  *  Value: "MATCHING_TYPE_FULL_MATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch;
 /**
- *  Inverse match.
- *  - Dictionary: no tokens in the finding match the dictionary
- *  - Regex: finding doesn't match the regex
- *  - Exclude info type: no intersection with affecting info types findings
+ *  Inverse match. - Dictionary: no tokens in the finding match the dictionary -
+ *  Regex: finding doesn't match the regex - Exclude info type: no intersection
+ *  with affecting info types findings
  *
  *  Value: "MATCHING_TYPE_INVERSE_MATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch;
 /**
- *  Partial match.
- *  - Dictionary: at least one of the tokens in the finding matches
- *  - Regex: substring of the finding matches
- *  - Exclude info type: intersects with affecting info types findings
+ *  Partial match. - Dictionary: at least one of the tokens in the finding
+ *  matches - Regex: substring of the finding matches - Exclude info type:
+ *  intersects with affecting info types findings
  *
  *  Value: "MATCHING_TYPE_PARTIAL_MATCH"
  */
@@ -722,21 +766,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Finding_Likelihood
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.supportedBy
 
-/** Value: "ENUM_TYPE_UNSPECIFIED" */
+/**
+ *  Unused.
+ *
+ *  Value: "ENUM_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_EnumTypeUnspecified;
-/** Value: "INSPECT" */
+/**
+ *  Supported by the inspect operations.
+ *
+ *  Value: "INSPECT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_Inspect;
-/** Value: "RISK_ANALYSIS" */
+/**
+ *  Supported by the risk analysis operations.
+ *
+ *  Value: "RISK_ANALYSIS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_RiskAnalysis;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2InspectConfig.contentOptions
 
-/** Value: "CONTENT_IMAGE" */
+/**
+ *  Images found in the data.
+ *
+ *  Value: "CONTENT_IMAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentImage;
-/** Value: "CONTENT_TEXT" */
+/**
+ *  Text content within the data, excluding any metadata.
+ *
+ *  Value: "CONTENT_TEXT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentText;
-/** Value: "CONTENT_UNSPECIFIED" */
+/**
+ *  Includes entire content of a file or a data stream.
+ *
+ *  Value: "CONTENT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InspectConfig_ContentOptions_ContentUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -900,8 +968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfi
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Failed;
 /**
  *  StoredInfoType is no longer valid because artifacts stored in
- *  user-controlled storage were modified. To fix an invalid StoredInfoType,
- *  use the `UpdateStoredInfoType` method to create a new version.
+ *  user-controlled storage were modified. To fix an invalid StoredInfoType, use
+ *  the `UpdateStoredInfoType` method to create a new version.
  *
  *  Value: "INVALID"
  */
@@ -1046,8 +1114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday;
 
 /**
- *  A task to execute on the completion of a job.
- *  See https://cloud.google.com/dlp/docs/concepts-actions to learn more.
+ *  A task to execute on the completion of a job. See
+ *  https://cloud.google.com/dlp/docs/concepts-actions to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Action : GTLRObject
 
@@ -1118,10 +1186,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  An auxiliary table contains statistical information on the relative
  *  frequency of different quasi-identifiers values. It has one or several
  *  quasi-identifiers columns, and one column that indicates the relative
- *  frequency of each quasi-identifier tuple.
- *  If a tuple is present in the data but not in the auxiliary table, the
- *  corresponding relative frequency is assumed to be zero (and thus, the
- *  tuple is highly reidentifiable).
+ *  frequency of each quasi-identifier tuple. If a tuple is present in the data
+ *  but not in the auxiliary table, the corresponding relative frequency is
+ *  assumed to be zero (and thus, the tuple is highly reidentifiable).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable : GTLRObject
 
@@ -1161,8 +1228,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Row number inferred at the time the table was scanned. This value is
- *  nondeterministic, cannot be queried, and may be null for inspection
- *  jobs. To locate findings within a table, specify
+ *  nondeterministic, cannot be queried, and may be null for inspection jobs. To
+ *  locate findings within a table, specify
  *  `inspect_job.storage_config.big_query_options.identifying_fields` in
  *  `CreateDlpJobRequest`.
  *
@@ -1239,10 +1306,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Message defining the location of a BigQuery table. A table is uniquely
- *  identified by its project_id, dataset_id, and table_name. Within a query
- *  a table is often referenced with a string in the format of:
- *  `<project_id>:<dataset_id>.<table_id>` or
- *  `<project_id>.<dataset_id>.<table_id>`.
+ *  identified by its project_id, dataset_id, and table_name. Within a query a
+ *  table is often referenced with a string in the format of: `:.` or `..`.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2BigQueryTable : GTLRObject
 
@@ -1250,8 +1315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /**
- *  The Google Cloud Platform project ID of the project containing the table.
- *  If omitted, project ID is inferred from the API call.
+ *  The Google Cloud Platform project ID of the project containing the table. If
+ *  omitted, project ID is inferred from the API call.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1306,8 +1371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *max;
 
 /**
- *  Lower bound of the range, inclusive. Type should be the same as max if
- *  used.
+ *  Lower bound of the range, inclusive. Type should be the same as max if used.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *min;
 
@@ -1320,15 +1384,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Generalization function that buckets values based on ranges. The ranges and
  *  replacement values are dynamically provided by the user for custom behavior,
- *  such as 1-30 -> LOW 31-65 -> MEDIUM 66-100 -> HIGH
- *  This can be used on
- *  data of type: number, long, string, timestamp.
- *  If the bound `Value` type differs from the type of data being transformed,
- *  we
- *  will first attempt converting the type of the data to be transformed to
- *  match
- *  the type of the bound before comparing.
- *  See https://cloud.google.com/dlp/docs/concepts-bucketing to learn more.
+ *  such as 1-30 -> LOW 31-65 -> MEDIUM 66-100 -> HIGH This can be used on data
+ *  of type: number, long, string, timestamp. If the bound `Value` type differs
+ *  from the type of data being transformed, we will first attempt converting
+ *  the type of the data to be transformed to match the type of the bound before
+ *  comparing. See https://cloud.google.com/dlp/docs/concepts-bucketing to learn
+ *  more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2BucketingConfig : GTLRObject
 
@@ -1393,16 +1454,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Compute numerical stats over an individual column, including
- *  number of distinct values and value count distribution.
+ *  Compute numerical stats over an individual column, including number of
+ *  distinct values and value count distribution.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CategoricalStatsConfig : GTLRObject
 
 /**
- *  Field to compute categorical stats on. All column types are
- *  supported except for arrays and structs. However, it may be more
- *  informative to use NumericalStats when the field type is supported,
- *  depending on the data.
+ *  Field to compute categorical stats on. All column types are supported except
+ *  for arrays and structs. However, it may be more informative to use
+ *  NumericalStats when the field type is supported, depending on the data.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
@@ -1429,8 +1489,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
 
 /**
- *  Sample of value frequencies in this bucket. The total number of
- *  values returned per bucket is capped at 20.
+ *  Sample of value frequencies in this bucket. The total number of values
+ *  returned per bucket is capped at 20.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ValueFrequency *> *bucketValues;
 
@@ -1468,8 +1528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  This can be used on data of any type (numbers, longs, and so on) and when
  *  de-identifying structured data we'll attempt to preserve the original data's
  *  type. (This allows you to take a long like 123 and modify it to a string
- *  like
- *  **3.
+ *  like **3.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CharacterMaskConfig : GTLRObject
 
@@ -1482,7 +1541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2CharsToIgnore *> *charactersToIgnore;
 
 /**
- *  Character to use to mask the sensitive values&mdash;for example, `*` for an
+ *  Character to use to mask the sensitive values—for example, `*` for an
  *  alphabetic string such as a name, or `0` for a numeric string such as ZIP
  *  code or credit card number. This string must have a length of 1. If not
  *  supplied, this value defaults to `*` for strings, and `0` for digits.
@@ -1490,8 +1549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *maskingCharacter;
 
 /**
- *  Number of characters to mask. If not set, all matching chars will be
- *  masked. Skipped characters do not count towards this tally.
+ *  Number of characters to mask. If not set, all matching chars will be masked.
+ *  Skipped characters do not count towards this tally.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1500,9 +1559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Mask characters in reverse order. For example, if `masking_character` is
  *  `0`, `number_to_mask` is `14`, and `reverse_order` is `false`, then the
- *  input string `1234-5678-9012-3456` is masked as `00000000000000-3456`.
- *  If `masking_character` is `*`, `number_to_mask` is `3`, and `reverse_order`
- *  is `true`, then the string `12345` is masked as `12***`.
+ *  input string `1234-5678-9012-3456` is masked as `00000000000000-3456`. If
+ *  `masking_character` is `*`, `number_to_mask` is `3`, and `reverse_order` is
+ *  `true`, then the string `12345` is masked as `12***`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1513,8 +1572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Characters to skip when doing deidentification of a value. These will be
- *  left
- *  alone and skipped.
+ *  left alone and skipped.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CharsToIgnore : GTLRObject
 
@@ -1552,8 +1610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2CloudStorageFileSet : GTLRObject
 
 /**
- *  The url, in the format `gs://<bucket>/<path>`. Trailing wildcard in the
- *  path is allowed.
+ *  The url, in the format `gs:///`. Trailing wildcard in the path is allowed.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -1568,8 +1625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Max number of bytes to scan from a file. If a scanned file's size is bigger
- *  than this value then the rest of the bytes are omitted. Only one
- *  of bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
+ *  than this value then the rest of the bytes are omitted. Only one of
+ *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1578,8 +1635,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Max percentage of bytes to scan from a file. The rest are omitted. The
  *  number of bytes scanned is rounded down. Must be between 0 and 100,
- *  inclusively. Both 0 and 100 means no limit. Defaults to 0. Only one
- *  of bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
+ *  inclusively. Both 0 and 100 means no limit. Defaults to 0. Only one of
+ *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1598,13 +1655,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *filesLimitPercent;
 
 /**
- *  List of file type groups to include in the scan.
- *  If empty, all files are scanned and available data format processors
- *  are applied. In addition, the binary content of the selected files
- *  is always scanned as well.
- *  Images are scanned only as binary if the specified region
- *  does not support image inspection and no file_types were specified.
- *  Image inspection is restricted to 'global', 'us', 'asia', and 'europe'.
+ *  List of file type groups to include in the scan. If empty, all files are
+ *  scanned and available data format processors are applied. In addition, the
+ *  binary content of the selected files is always scanned as well. Images are
+ *  scanned only as binary if the specified region does not support image
+ *  inspection and no file_types were specified. Image inspection is restricted
+ *  to 'global', 'us', 'asia', and 'europe'.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileTypes;
 
@@ -1614,8 +1670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_RandomStart
  *        For each file larger than bytes_limit_per_file, randomly pick the
- *        offset
- *        to start scanning. The scanned bytes are contiguous. (Value:
+ *        offset to start scanning. The scanned bytes are contiguous. (Value:
  *        "RANDOM_START")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_SampleMethod_SampleMethodUnspecified
  *        Value "SAMPLE_METHOD_UNSPECIFIED"
@@ -1633,8 +1688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2CloudStoragePath : GTLRObject
 
 /**
- *  A url representing a file or path (no wildcards) in Cloud Storage.
- *  Example: gs://[BUCKET_NAME]/dictionary.txt
+ *  A url representing a file or path (no wildcards) in Cloud Storage. Example:
+ *  gs://[BUCKET_NAME]/dictionary.txt
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -1644,32 +1699,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Message representing a set of files in a Cloud Storage bucket. Regular
  *  expressions are used to allow fine-grained control over which files in the
- *  bucket to include.
- *  Included files are those that match at least one item in `include_regex` and
- *  do not match any items in `exclude_regex`. Note that a file that matches
- *  items from both lists will _not_ be included. For a match to occur, the
- *  entire file path (i.e., everything in the url after the bucket name) must
- *  match the regular expression.
- *  For example, given the input `{bucket_name: "mybucket", include_regex:
- *  ["directory1/.*"], exclude_regex:
- *  ["directory1/excluded.*"]}`:
- *  * `gs://mybucket/directory1/myfile` will be included
- *  * `gs://mybucket/directory1/directory2/myfile` will be included (`.*`
- *  matches
- *  across `/`)
- *  * `gs://mybucket/directory0/directory1/myfile` will _not_ be included (the
- *  full path doesn't match any items in `include_regex`)
- *  * `gs://mybucket/directory1/excludedfile` will _not_ be included (the path
- *  matches an item in `exclude_regex`)
- *  If `include_regex` is left empty, it will match all files by default
- *  (this is equivalent to setting `include_regex: [".*"]`).
- *  Some other common use cases:
- *  * `{bucket_name: "mybucket", exclude_regex: [".*\\.pdf"]}` will include all
- *  files in `mybucket` except for .pdf files
- *  * `{bucket_name: "mybucket", include_regex: ["directory/[^/]+"]}` will
- *  include all files directly under `gs://mybucket/directory/`, without
- *  matching
- *  across `/`
+ *  bucket to include. Included files are those that match at least one item in
+ *  `include_regex` and do not match any items in `exclude_regex`. Note that a
+ *  file that matches items from both lists will _not_ be included. For a match
+ *  to occur, the entire file path (i.e., everything in the url after the bucket
+ *  name) must match the regular expression. For example, given the input
+ *  `{bucket_name: "mybucket", include_regex: ["directory1/.*"], exclude_regex:
+ *  ["directory1/excluded.*"]}`: * `gs://mybucket/directory1/myfile` will be
+ *  included * `gs://mybucket/directory1/directory2/myfile` will be included
+ *  (`.*` matches across `/`) * `gs://mybucket/directory0/directory1/myfile`
+ *  will _not_ be included (the full path doesn't match any items in
+ *  `include_regex`) * `gs://mybucket/directory1/excludedfile` will _not_ be
+ *  included (the path matches an item in `exclude_regex`) If `include_regex` is
+ *  left empty, it will match all files by default (this is equivalent to
+ *  setting `include_regex: [".*"]`). Some other common use cases: *
+ *  `{bucket_name: "mybucket", exclude_regex: [".*\\.pdf"]}` will include all
+ *  files in `mybucket` except for .pdf files * `{bucket_name: "mybucket",
+ *  include_regex: ["directory/[^/]+"]}` will include all files directly under
+ *  `gs://mybucket/directory/`, without matching across `/`
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet : GTLRObject
 
@@ -1679,8 +1726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  A list of regular expressions matching file paths to exclude. All files in
  *  the bucket that match at least one of these regular expressions will be
- *  excluded from the scan.
- *  Regular expressions use RE2
+ *  excluded from the scan. Regular expressions use RE2
  *  [syntax](https://github.com/google/re2/wiki/Syntax); a guide can be found
  *  under the google/re2 repository on GitHub.
  */
@@ -1691,10 +1737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  the bucket that match at least one of these regular expressions will be
  *  included in the set of files, except for those that also match an item in
  *  `exclude_regex`. Leaving this field empty will match all files by default
- *  (this is equivalent to including `.*` in the list).
- *  Regular expressions use RE2
- *  [syntax](https://github.com/google/re2/wiki/Syntax); a guide can be found
- *  under the google/re2 repository on GitHub.
+ *  (this is equivalent to including `.*` in the list). Regular expressions use
+ *  RE2 [syntax](https://github.com/google/re2/wiki/Syntax); a guide can be
+ *  found under the google/re2 repository on GitHub.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeRegex;
 
@@ -1731,23 +1776,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The field type of `value` and `field` do not need to match to be
- *  considered equal, but not all comparisons are possible.
- *  EQUAL_TO and NOT_EQUAL_TO attempt to compare even with incompatible types,
- *  but all other comparisons are invalid with incompatible types.
- *  A `value` of type:
- *  - `string` can be compared against all other types
- *  - `boolean` can only be compared against other booleans
- *  - `integer` can be compared against doubles or a string if the string value
- *  can be parsed as an integer.
- *  - `double` can be compared against integers or a string if the string can
- *  be parsed as a double.
- *  - `Timestamp` can be compared against strings in RFC 3339 date string
- *  format.
+ *  The field type of `value` and `field` do not need to match to be considered
+ *  equal, but not all comparisons are possible. EQUAL_TO and NOT_EQUAL_TO
+ *  attempt to compare even with incompatible types, but all other comparisons
+ *  are invalid with incompatible types. A `value` of type: - `string` can be
+ *  compared against all other types - `boolean` can only be compared against
+ *  other booleans - `integer` can be compared against doubles or a string if
+ *  the string value can be parsed as an integer. - `double` can be compared
+ *  against integers or a string if the string can be parsed as a double. -
+ *  `Timestamp` can be compared against strings in RFC 3339 date string format.
  *  - `TimeOfDay` can be compared against timestamps and strings in the format
- *  of 'HH:mm:ss'.
- *  If we fail to compare do to type mismatch, a warning will be given and
- *  the condition will evaluate to false.
+ *  of 'HH:mm:ss'. If we fail to compare do to type mismatch, a warning will be
+ *  given and the condition will evaluate to false.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Condition : GTLRObject
 
@@ -1799,42 +1839,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Represents a container that may contain DLP findings.
- *  Examples of a container include a file, table, or database record.
+ *  Represents a container that may contain DLP findings. Examples of a
+ *  container include a file, table, or database record.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Container : GTLRObject
 
 /**
- *  A string representation of the full container name.
- *  Examples:
- *  - BigQuery: 'Project:DataSetId.TableId'
- *  - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+ *  A string representation of the full container name. Examples: - BigQuery:
+ *  'Project:DataSetId.TableId' - Google Cloud Storage:
+ *  'gs://Bucket/folders/filename.txt'
  */
 @property(nonatomic, copy, nullable) NSString *fullPath;
 
 /**
- *  Project where the finding was found.
- *  Can be different from the project that owns the finding.
+ *  Project where the finding was found. Can be different from the project that
+ *  owns the finding.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  The rest of the path after the root.
- *  Examples:
- *  - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
- *  `table_id`
- *  - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
- *  path is `folder/filename.txt`
+ *  The rest of the path after the root. Examples: - For BigQuery table
+ *  `project_id:dataset_id.table_id`, the relative path is `table_id` - Google
+ *  Cloud Storage file `gs://bucket/folder/filename.txt`, the relative path is
+ *  `folder/filename.txt`
  */
 @property(nonatomic, copy, nullable) NSString *relativePath;
 
 /**
- *  The root of the container.
- *  Examples:
- *  - For BigQuery table `project_id:dataset_id.table_id`, the root is
- *  `dataset_id`
- *  - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
- *  is `gs://bucket`
+ *  The root of the container. Examples: - For BigQuery table
+ *  `project_id:dataset_id.table_id`, the root is `dataset_id` - For Google
+ *  Cloud Storage file `gs://bucket/folder/filename.txt`, the root is
+ *  `gs://bucket`
  */
 @property(nonatomic, copy, nullable) NSString *rootPath;
 
@@ -1842,16 +1877,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Findings container modification timestamp, if applicable.
- *  For Google Cloud Storage contains last file modification timestamp.
- *  For BigQuery table contains last_modified_time property.
- *  For Datastore - not populated.
+ *  Findings container modification timestamp, if applicable. For Google Cloud
+ *  Storage contains last file modification timestamp. For BigQuery table
+ *  contains last_modified_time property. For Datastore - not populated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Findings container version, if available
- *  ("generation" for Google Cloud Storage).
+ *  Findings container version, if available ("generation" for Google Cloud
+ *  Storage).
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -1881,34 +1915,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Precise location of the finding within a document, record, image, or
- *  metadata
- *  container.
+ *  metadata container.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ContentLocation : GTLRObject
 
 /**
- *  Name of the container where the finding is located.
- *  The top level name is the source file name or table name. Names of some
- *  common storage containers are formatted as follows:
- *  * BigQuery tables: `{project_id}:{dataset_id}.{table_id}`
- *  * Cloud Storage files: `gs://{bucket}/{path}`
- *  * Datastore namespace: {namespace}
- *  Nested names could be absent if the embedded object has no string
- *  identifier (for an example an image contained within a document).
+ *  Name of the container where the finding is located. The top level name is
+ *  the source file name or table name. Names of some common storage containers
+ *  are formatted as follows: * BigQuery tables:
+ *  `{project_id}:{dataset_id}.{table_id}` * Cloud Storage files:
+ *  `gs://{bucket}/{path}` * Datastore namespace: {namespace} Nested names could
+ *  be absent if the embedded object has no string identifier (for an example an
+ *  image contained within a document).
  */
 @property(nonatomic, copy, nullable) NSString *containerName;
 
 /**
- *  Findings container modification timestamp, if applicable.
- *  For Google Cloud Storage contains last file modification timestamp.
- *  For BigQuery table contains last_modified_time property.
- *  For Datastore - not populated.
+ *  Findings container modification timestamp, if applicable. For Google Cloud
+ *  Storage contains last file modification timestamp. For BigQuery table
+ *  contains last_modified_time property. For Datastore - not populated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *containerTimestamp;
 
 /**
- *  Findings container version, if available
- *  ("generation" for Google Cloud Storage).
+ *  Findings container version, if available ("generation" for Google Cloud
+ *  Storage).
  */
 @property(nonatomic, copy, nullable) NSString *containerVersion;
 
@@ -1939,10 +1970,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The template id can contain uppercase and lowercase letters,
- *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
- *  characters. Can be empty to allow the system to generate one.
+ *  The template id can contain uppercase and lowercase letters, numbers, and
+ *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\\\d-_]+`.
+ *  The maximum length is 100 characters. Can be empty to allow the system to
+ *  generate one.
  */
 @property(nonatomic, copy, nullable) NSString *templateId;
 
@@ -1950,9 +1981,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Request message for CreateDlpJobRequest. Used to initiate long running
- *  jobs such as calculating risk metrics or inspecting Google Cloud
- *  Storage.
+ *  Request message for CreateDlpJobRequest. Used to initiate long running jobs
+ *  such as calculating risk metrics or inspecting Google Cloud Storage.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest : GTLRObject
 
@@ -1960,10 +1990,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectJobConfig *inspectJob;
 
 /**
- *  The job id can contain uppercase and lowercase letters,
- *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
- *  characters. Can be empty to allow the system to generate one.
+ *  The job id can contain uppercase and lowercase letters, numbers, and
+ *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\\\d-_]+`.
+ *  The maximum length is 100 characters. Can be empty to allow the system to
+ *  generate one.
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
@@ -1988,10 +2018,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The template id can contain uppercase and lowercase letters,
- *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
- *  characters. Can be empty to allow the system to generate one.
+ *  The template id can contain uppercase and lowercase letters, numbers, and
+ *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\\\d-_]+`.
+ *  The maximum length is 100 characters. Can be empty to allow the system to
+ *  generate one.
  */
 @property(nonatomic, copy, nullable) NSString *templateId;
 
@@ -2010,10 +2040,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The trigger id can contain uppercase and lowercase letters,
- *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
- *  characters. Can be empty to allow the system to generate one.
+ *  The trigger id can contain uppercase and lowercase letters, numbers, and
+ *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\\\d-_]+`.
+ *  The maximum length is 100 characters. Can be empty to allow the system to
+ *  generate one.
  */
 @property(nonatomic, copy, nullable) NSString *triggerId;
 
@@ -2032,10 +2062,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  The storedInfoType ID can contain uppercase and lowercase letters,
- *  numbers, and hyphens; that is, it must match the regular
- *  expression: `[a-zA-Z\\\\d-_]+`. The maximum length is 100
- *  characters. Can be empty to allow the system to generate one.
+ *  The storedInfoType ID can contain uppercase and lowercase letters, numbers,
+ *  and hyphens; that is, it must match the regular expression:
+ *  `[a-zA-Z\\\\d-_]+`. The maximum length is 100 characters. Can be empty to
+ *  allow the system to generate one.
  */
 @property(nonatomic, copy, nullable) NSString *storedInfoTypeId;
 
@@ -2044,27 +2074,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Pseudonymization method that generates deterministic encryption for the
- *  given
- *  input. Outputs a base64 encoded representation of the encrypted output.
- *  Uses AES-SIV based on the RFC https://tools.ietf.org/html/rfc5297.
+ *  given input. Outputs a base64 encoded representation of the encrypted
+ *  output. Uses AES-SIV based on the RFC https://tools.ietf.org/html/rfc5297.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoDeterministicConfig : GTLRObject
 
 /**
- *  A context may be used for higher security and maintaining
- *  referential integrity such that the same identifier in two different
- *  contexts will be given a distinct surrogate. The context is appended to
- *  plaintext value being encrypted. On decryption the provided context is
- *  validated against the value used during encryption. If a context was
- *  provided during encryption, same context must be provided during decryption
- *  as well.
- *  If the context is not set, plaintext would be used as is for encryption.
- *  If the context is set but:
- *  1. there is no record present when transforming a given value or
- *  2. the field is not present when transforming a given value,
- *  plaintext would be used as is for encryption.
- *  Note that case (1) is expected when an `InfoTypeTransformation` is
- *  applied to both structured and non-structured `ContentItem`s.
+ *  A context may be used for higher security and maintaining referential
+ *  integrity such that the same identifier in two different contexts will be
+ *  given a distinct surrogate. The context is appended to plaintext value being
+ *  encrypted. On decryption the provided context is validated against the value
+ *  used during encryption. If a context was provided during encryption, same
+ *  context must be provided during decryption as well. If the context is not
+ *  set, plaintext would be used as is for encryption. If the context is set
+ *  but: 1. there is no record present when transforming a given value or 2. the
+ *  field is not present when transforming a given value, plaintext would be
+ *  used as is for encryption. Note that case (1) is expected when an
+ *  `InfoTypeTransformation` is applied to both structured and non-structured
+ *  `ContentItem`s.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
 
@@ -2072,32 +2099,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoKey *cryptoKey;
 
 /**
- *  The custom info type to annotate the surrogate with.
- *  This annotation will be applied to the surrogate by prefixing it with
- *  the name of the custom info type followed by the number of
- *  characters comprising the surrogate. The following scheme defines the
- *  format: {info type name}({surrogate character count}):{surrogate}
- *  For example, if the name of custom info type is 'MY_TOKEN_INFO_TYPE' and
- *  the surrogate is 'abc', the full replacement value
- *  will be: 'MY_TOKEN_INFO_TYPE(3):abc'
- *  This annotation identifies the surrogate when inspecting content using the
- *  custom info type 'Surrogate'. This facilitates reversal of the
- *  surrogate when it occurs in free text.
+ *  The custom info type to annotate the surrogate with. This annotation will be
+ *  applied to the surrogate by prefixing it with the name of the custom info
+ *  type followed by the number of characters comprising the surrogate. The
+ *  following scheme defines the format: {info type name}({surrogate character
+ *  count}):{surrogate} For example, if the name of custom info type is
+ *  'MY_TOKEN_INFO_TYPE' and the surrogate is 'abc', the full replacement value
+ *  will be: 'MY_TOKEN_INFO_TYPE(3):abc' This annotation identifies the
+ *  surrogate when inspecting content using the custom info type 'Surrogate'.
+ *  This facilitates reversal of the surrogate when it occurs in free text.
  *  Note: For record transformations where the entire cell in a table is being
- *  transformed, surrogates are not mandatory. Surrogates are used to denote
- *  the location of the token and are necessary for re-identification in free
- *  form text.
- *  In order for inspection to work properly, the name of this info type must
- *  not occur naturally anywhere in your data; otherwise, inspection may either
- *  - reverse a surrogate that does not correspond to an actual identifier
- *  - be unable to parse the surrogate and result in an error
+ *  transformed, surrogates are not mandatory. Surrogates are used to denote the
+ *  location of the token and are necessary for re-identification in free form
+ *  text. In order for inspection to work properly, the name of this info type
+ *  must not occur naturally anywhere in your data; otherwise, inspection may
+ *  either - reverse a surrogate that does not correspond to an actual
+ *  identifier - be unable to parse the surrogate and result in an error
  *  Therefore, choose your custom info type name carefully after considering
  *  what your data looks like. One way to select a name that has a high chance
  *  of yielding reliable detection is to include one or more unicode characters
- *  that are highly improbable to exist in your data.
- *  For example, assuming your data is entered from a regular ASCII keyboard,
- *  the symbol with the hex code point 29DD might be used like so:
- *  ⧝MY_TOKEN_TYPE.
+ *  that are highly improbable to exist in your data. For example, assuming your
+ *  data is entered from a regular ASCII keyboard, the symbol with the hex code
+ *  point 29DD might be used like so: ⧝MY_TOKEN_TYPE.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *surrogateInfoType;
 
@@ -2106,12 +2129,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Pseudonymization method that generates surrogates via cryptographic hashing.
- *  Uses SHA-256.
- *  The key size must be either 32 or 64 bytes.
- *  Outputs a base64 encoded representation of the hashed output
- *  (for example, L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=).
- *  Currently, only string and integer values can be hashed.
- *  See https://cloud.google.com/dlp/docs/pseudonymization to learn more.
+ *  Uses SHA-256. The key size must be either 32 or 64 bytes. Outputs a base64
+ *  encoded representation of the hashed output (for example,
+ *  L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=). Currently, only string and
+ *  integer values can be hashed. See
+ *  https://cloud.google.com/dlp/docs/pseudonymization to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig : GTLRObject
 
@@ -2122,11 +2144,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  This is a data encryption key (DEK) (as opposed to
- *  a key encryption key (KEK) stored by KMS).
- *  When using KMS to wrap/unwrap DEKs, be sure to set an appropriate
- *  IAM policy on the KMS CryptoKey (KEK) to ensure an attacker cannot
- *  unwrap the data crypto key.
+ *  This is a data encryption key (DEK) (as opposed to a key encryption key
+ *  (KEK) stored by KMS). When using KMS to wrap/unwrap DEKs, be sure to set an
+ *  appropriate IAM policy on the KMS CryptoKey (KEK) to ensure an attacker
+ *  cannot unwrap the data crypto key.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoKey : GTLRObject
 
@@ -2150,12 +2171,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  encoded as ASCII. For a given crypto key and context, the same identifier
  *  will be replaced with the same surrogate. Identifiers must be at least two
  *  characters long. In the case that the identifier is the empty string, it
- *  will
- *  be skipped. See https://cloud.google.com/dlp/docs/pseudonymization to learn
- *  more.
- *  Note: We recommend using CryptoDeterministicConfig for all use cases which
- *  do not require preserving the input alphabet space and size, plus warrant
- *  referential integrity.
+ *  will be skipped. See https://cloud.google.com/dlp/docs/pseudonymization to
+ *  learn more. Note: We recommend using CryptoDeterministicConfig for all use
+ *  cases which do not require preserving the input alphabet space and size,
+ *  plus warrant referential integrity.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CryptoReplaceFfxFpeConfig : GTLRObject
 
@@ -2179,18 +2198,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  The 'tweak', a context may be used for higher security since the same
  *  identifier in two different contexts won't be given the same surrogate. If
- *  the context is not set, a default tweak will be used.
- *  If the context is set but:
- *  1. there is no record present when transforming a given value or
- *  1. the field is not present when transforming a given value,
- *  a default tweak will be used.
- *  Note that case (1) is expected when an `InfoTypeTransformation` is
- *  applied to both structured and non-structured `ContentItem`s.
- *  Currently, the referenced field may be of value type integer or string.
- *  The tweak is constructed as a sequence of bytes in big endian byte order
- *  such that:
- *  - a 64 bit integer is encoded followed by a single byte of value 1
- *  - a string is encoded in UTF-8 format followed by a single byte of value 2
+ *  the context is not set, a default tweak will be used. If the context is set
+ *  but: 1. there is no record present when transforming a given value or 1. the
+ *  field is not present when transforming a given value, a default tweak will
+ *  be used. Note that case (1) is expected when an `InfoTypeTransformation` is
+ *  applied to both structured and non-structured `ContentItem`s. Currently, the
+ *  referenced field may be of value type integer or string. The tweak is
+ *  constructed as a sequence of bytes in big endian byte order such that: - a
+ *  64 bit integer is encoded followed by a single byte of value 1 - a string is
+ *  encoded in UTF-8 format followed by a single byte of value 2
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
 
@@ -2198,16 +2214,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoKey *cryptoKey;
 
 /**
- *  This is supported by mapping these to the alphanumeric characters
- *  that the FFX mode natively supports. This happens before/after
- *  encryption/decryption.
- *  Each character listed must appear only once.
- *  Number of characters must be in the range [2, 95].
- *  This must be encoded as ASCII.
- *  The order of characters does not matter.
- *  The full list of allowed characters is:
- *  <code>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
- *  ~`!\@#$%^&*()_-+={[}]|\\:;"'<,>.?/</code>
+ *  This is supported by mapping these to the alphanumeric characters that the
+ *  FFX mode natively supports. This happens before/after encryption/decryption.
+ *  Each character listed must appear only once. Number of characters must be in
+ *  the range [2, 95]. This must be encoded as ASCII. The order of characters
+ *  does not matter. The full list of allowed characters is:
+ *  0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+ *  ~`!\@#$%^&*()_-+={[}]|\\:;"'<,>.?/
  */
 @property(nonatomic, copy, nullable) NSString *customAlphabet;
 
@@ -2219,28 +2232,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *radix;
 
 /**
- *  The custom infoType to annotate the surrogate with.
- *  This annotation will be applied to the surrogate by prefixing it with
- *  the name of the custom infoType followed by the number of
- *  characters comprising the surrogate. The following scheme defines the
- *  format: info_type_name(surrogate_character_count):surrogate
- *  For example, if the name of custom infoType is 'MY_TOKEN_INFO_TYPE' and
- *  the surrogate is 'abc', the full replacement value
- *  will be: 'MY_TOKEN_INFO_TYPE(3):abc'
- *  This annotation identifies the surrogate when inspecting content using the
- *  custom infoType
+ *  The custom infoType to annotate the surrogate with. This annotation will be
+ *  applied to the surrogate by prefixing it with the name of the custom
+ *  infoType followed by the number of characters comprising the surrogate. The
+ *  following scheme defines the format:
+ *  info_type_name(surrogate_character_count):surrogate For example, if the name
+ *  of custom infoType is 'MY_TOKEN_INFO_TYPE' and the surrogate is 'abc', the
+ *  full replacement value will be: 'MY_TOKEN_INFO_TYPE(3):abc' This annotation
+ *  identifies the surrogate when inspecting content using the custom infoType
  *  [`SurrogateType`](https://cloud.google.com/dlp/docs/reference/rest/v2/InspectConfig#surrogatetype).
- *  This facilitates reversal of the surrogate when it occurs in free text.
- *  In order for inspection to work properly, the name of this infoType must
- *  not occur naturally anywhere in your data; otherwise, inspection may
- *  find a surrogate that does not correspond to an actual identifier.
- *  Therefore, choose your custom infoType name carefully after considering
- *  what your data looks like. One way to select a name that has a high chance
- *  of yielding reliable detection is to include one or more unicode characters
- *  that are highly improbable to exist in your data.
- *  For example, assuming your data is entered from a regular ASCII keyboard,
- *  the symbol with the hex code point 29DD might be used like so:
- *  ⧝MY_TOKEN_TYPE
+ *  This facilitates reversal of the surrogate when it occurs in free text. In
+ *  order for inspection to work properly, the name of this infoType must not
+ *  occur naturally anywhere in your data; otherwise, inspection may find a
+ *  surrogate that does not correspond to an actual identifier. Therefore,
+ *  choose your custom infoType name carefully after considering what your data
+ *  looks like. One way to select a name that has a high chance of yielding
+ *  reliable detection is to include one or more unicode characters that are
+ *  highly improbable to exist in your data. For example, assuming your data is
+ *  entered from a regular ASCII keyboard, the symbol with the hex code point
+ *  29DD might be used like so: ⧝MY_TOKEN_TYPE
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *surrogateInfoType;
 
@@ -2264,14 +2274,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Dictionary *dictionary;
 
 /**
- *  If set to EXCLUSION_TYPE_EXCLUDE this infoType will not cause a finding
- *  to be returned. It still can be used for rules matching.
+ *  If set to EXCLUSION_TYPE_EXCLUDE this infoType will not cause a finding to
+ *  be returned. It still can be used for rules matching.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeExclude
  *        A finding of this custom info type will be excluded from final
- *        results,
- *        but can still affect rule execution. (Value: "EXCLUSION_TYPE_EXCLUDE")
+ *        results, but can still affect rule execution. (Value:
+ *        "EXCLUSION_TYPE_EXCLUDE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeUnspecified
  *        A finding of this custom info type will not be excluded from results.
  *        (Value: "EXCLUSION_TYPE_UNSPECIFIED")
@@ -2289,9 +2299,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
 /**
- *  Likelihood to return for this CustomInfoType. This base value can be
- *  altered by a detection rule if the finding meets the criteria specified by
- *  the rule. Defaults to `VERY_LIKELY` if not specified.
+ *  Likelihood to return for this CustomInfoType. This base value can be altered
+ *  by a detection rule if the finding meets the criteria specified by the rule.
+ *  Defaults to `VERY_LIKELY` if not specified.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_Likelihood_LikelihoodUnspecified
@@ -2313,8 +2323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *regex;
 
 /**
- *  Load an existing `StoredInfoType` resource for use in
- *  `InspectDataSource`. Not currently supported in `InspectContent`.
+ *  Load an existing `StoredInfoType` resource for use in `InspectDataSource`.
+ *  Not currently supported in `InspectContent`.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredType *storedType;
 
@@ -2347,8 +2357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KindExpression *kind;
 
 /**
- *  A partition ID identifies a grouping of entities. The grouping is always
- *  by project and namespace, however the namespace ID may be empty.
+ *  A partition ID identifies a grouping of entities. The grouping is always by
+ *  project and namespace, however the namespace ID may be empty.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PartitionId *partitionId;
 
@@ -2363,16 +2373,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DateShiftConfig : GTLRObject
 
 /**
- *  Points to the field that contains the context, for example, an entity id.
- *  If set, must also set cryptoKey. If set, shift will be consistent for the
- *  given context.
+ *  Points to the field that contains the context, for example, an entity id. If
+ *  set, must also set cryptoKey. If set, shift will be consistent for the given
+ *  context.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
 
 /**
  *  Causes the shift to be computed based on this key and the context. This
- *  results in the same shift for the same context and crypto_key. If
- *  set, must also set context. Can only be applied to table items.
+ *  results in the same shift for the same context and crypto_key. If set, must
+ *  also set context. Can only be applied to table items.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoKey *cryptoKey;
 
@@ -2386,10 +2396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Required. Range of shift in days. Actual shift will be selected at random
- *  within this
- *  range (inclusive ends). Negative means shift to earlier in time. Must not
- *  be more than 365250 days (1000 years) each direction.
- *  For example, 3 means shift date to at most 3 days into the future.
+ *  within this range (inclusive ends). Negative means shift to earlier in time.
+ *  Must not be more than 365250 days (1000 years) each direction. For example,
+ *  3 means shift date to at most 3 days into the future.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2399,14 +2408,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Message for a date time object.
- *  e.g. 2018-01-01, 5th August.
+ *  Message for a date time object. e.g. 2018-01-01, 5th August.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DateTime : GTLRObject
 
 /**
- *  One or more of the following must be set.
- *  Must be a valid date or time value.
+ *  One or more of the following must be set. Must be a valid date or time
+ *  value.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleTypeDate *date;
 
@@ -2454,9 +2462,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformations *infoTypeTransformations;
 
 /**
- *  Treat the dataset as structured. Transformations can be applied to
- *  specific locations within structured datasets, such as transforming
- *  a column within a table.
+ *  Treat the dataset as structured. Transformations can be applied to specific
+ *  locations within structured datasets, such as transforming a column within a
+ *  table.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordTransformations *recordTransformations;
 
@@ -2475,34 +2483,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyContentRequest : GTLRObject
 
 /**
- *  Configuration for the de-identification of the content item.
- *  Items specified here will override the template referenced by the
- *  deidentify_template_name argument.
+ *  Configuration for the de-identification of the content item. Items specified
+ *  here will override the template referenced by the deidentify_template_name
+ *  argument.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig *deidentifyConfig;
 
 /**
- *  Template to use. Any configuration directly specified in
- *  deidentify_config will override those set in the template. Singular fields
- *  that are set in this request will replace their corresponding fields in the
- *  template. Repeated fields are appended. Singular sub-messages and groups
- *  are recursively merged.
+ *  Template to use. Any configuration directly specified in deidentify_config
+ *  will override those set in the template. Singular fields that are set in
+ *  this request will replace their corresponding fields in the template.
+ *  Repeated fields are appended. Singular sub-messages and groups are
+ *  recursively merged.
  */
 @property(nonatomic, copy, nullable) NSString *deidentifyTemplateName;
 
 /**
- *  Configuration for the inspector.
- *  Items specified here will override the template referenced by the
- *  inspect_template_name argument.
+ *  Configuration for the inspector. Items specified here will override the
+ *  template referenced by the inspect_template_name argument.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  Template to use. Any configuration directly specified in
- *  inspect_config will override those set in the template. Singular fields
- *  that are set in this request will replace their corresponding fields in the
- *  template. Repeated fields are appended. Singular sub-messages and groups
- *  are recursively merged.
+ *  Template to use. Any configuration directly specified in inspect_config will
+ *  override those set in the template. Singular fields that are set in this
+ *  request will replace their corresponding fields in the template. Repeated
+ *  fields are appended. Singular sub-messages and groups are recursively
+ *  merged.
  */
 @property(nonatomic, copy, nullable) NSString *inspectTemplateName;
 
@@ -2530,8 +2537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  DeidentifyTemplates contains instructions on how to de-identify content.
- *  See https://cloud.google.com/dlp/docs/concepts-templates to learn more.
+ *  DeidentifyTemplates contains instructions on how to de-identify content. See
+ *  https://cloud.google.com/dlp/docs/concepts-templates to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate : GTLRObject
 
@@ -2552,9 +2559,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. The template name.
- *  The template will have one of the following formats:
- *  `projects/PROJECT_ID/deidentifyTemplates/TEMPLATE_ID` OR
+ *  Output only. The template name. The template will have one of the following
+ *  formats: `projects/PROJECT_ID/deidentifyTemplates/TEMPLATE_ID` OR
  *  `organizations/ORGANIZATION_ID/deidentifyTemplates/TEMPLATE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2574,23 +2580,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationConfig : GTLRObject
 
 /**
- *  Several auxiliary tables can be used in the analysis. Each custom_tag
- *  used to tag a quasi-identifiers field must appear in exactly one
- *  field of one auxiliary table.
+ *  Several auxiliary tables can be used in the analysis. Each custom_tag used
+ *  to tag a quasi-identifiers field must appear in exactly one field of one
+ *  auxiliary table.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2StatisticalTable *> *auxiliaryTables;
 
 /**
  *  Required. Fields considered to be quasi-identifiers. No two fields can have
- *  the
- *  same tag.
+ *  the same tag.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2QuasiId *> *quasiIds;
 
 /**
- *  ISO 3166-1 alpha-2 region code to use in the statistical modeling.
- *  Set if no column is tagged with a region-specific InfoType (like
- *  US_ZIP_5) or a region code.
+ *  ISO 3166-1 alpha-2 region code to use in the statistical modeling. Set if no
+ *  column is tagged with a region-specific InfoType (like US_ZIP_5) or a region
+ *  code.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
@@ -2598,15 +2603,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A DeltaPresenceEstimationHistogramBucket message with the following
- *  values:
- *  min_probability: 0.1
- *  max_probability: 0.2
- *  frequency: 42
- *  means that there are 42 records for which δ is in [0.1, 0.2). An
- *  important particular case is when min_probability = max_probability = 1:
- *  then, every individual who shares this quasi-identifier combination is in
- *  the dataset.
+ *  A DeltaPresenceEstimationHistogramBucket message with the following values:
+ *  min_probability: 0.1 max_probability: 0.2 frequency: 42 means that there are
+ *  42 records for which δ is in [0.1, 0.2). An important particular case is
+ *  when min_probability = max_probability = 1: then, every individual who
+ *  shares this quasi-identifier combination is in the dataset.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationHistogramBucket : GTLRObject
 
@@ -2625,8 +2626,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
 
 /**
- *  Sample of quasi-identifier tuple values in this bucket. The total
- *  number of classes returned per bucket is capped at 20.
+ *  Sample of quasi-identifier tuple values in this bucket. The total number of
+ *  classes returned per bucket is capped at 20.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationQuasiIdValues *> *bucketValues;
 
@@ -2654,13 +2655,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The estimated probability that a given individual sharing these
- *  quasi-identifier values is in the dataset. This value, typically called
- *  δ, is the ratio between the number of records in the dataset with these
- *  quasi-identifier values, and the total number of individuals (inside
- *  *and* outside the dataset) with these quasi-identifier values.
- *  For example, if there are 15 individuals in the dataset who share the
- *  same quasi-identifier values, and an estimated 100 people in the entire
- *  population with these values, then δ is 0.15.
+ *  quasi-identifier values is in the dataset. This value, typically called δ,
+ *  is the ratio between the number of records in the dataset with these
+ *  quasi-identifier values, and the total number of individuals (inside *and*
+ *  outside the dataset) with these quasi-identifier values. For example, if
+ *  there are 15 individuals in the dataset who share the same quasi-identifier
+ *  values, and an estimated 100 people in the entire population with these
+ *  values, then δ is 0.15.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2679,14 +2680,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationResult : GTLRObject
 
 /**
- *  The intervals [min_probability, max_probability) do not overlap. If a
- *  value doesn't correspond to any such interval, the associated frequency
- *  is zero. For example, the following records:
- *  {min_probability: 0, max_probability: 0.1, frequency: 17}
- *  {min_probability: 0.2, max_probability: 0.3, frequency: 42}
- *  {min_probability: 0.3, max_probability: 0.4, frequency: 99}
- *  mean that there are no record with an estimated probability in [0.1, 0.2)
- *  nor larger or equal to 0.4.
+ *  The intervals [min_probability, max_probability) do not overlap. If a value
+ *  doesn't correspond to any such interval, the associated frequency is zero.
+ *  For example, the following records: {min_probability: 0, max_probability:
+ *  0.1, frequency: 17} {min_probability: 0.2, max_probability: 0.3, frequency:
+ *  42} {min_probability: 0.3, max_probability: 0.4, frequency: 99} mean that
+ *  there are no record with an estimated probability in [0.1, 0.2) nor larger
+ *  or equal to 0.4.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DeltaPresenceEstimationHistogramBucket *> *deltaPresenceEstimationHistogram;
 
@@ -2695,8 +2695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Deprecated; use `InspectionRuleSet` instead. Rule for modifying a
- *  `CustomInfoType` to alter behavior under certain circumstances, depending
- *  on the specific details of the rule. Not supported for the `surrogate_type`
+ *  `CustomInfoType` to alter behavior under certain circumstances, depending on
+ *  the specific details of the rule. Not supported for the `surrogate_type`
  *  custom infoType.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2DetectionRule : GTLRObject
@@ -2710,21 +2710,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Custom information type based on a dictionary of words or phrases. This can
  *  be used to match sensitive information specific to the data, such as a list
- *  of employee IDs or job titles.
- *  Dictionary words are case-insensitive and all characters other than letters
- *  and digits in the unicode [Basic Multilingual
+ *  of employee IDs or job titles. Dictionary words are case-insensitive and all
+ *  characters other than letters and digits in the unicode [Basic Multilingual
  *  Plane](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane)
  *  will be replaced with whitespace when scanning for matches, so the
  *  dictionary phrase "Sam Johnson" will match all three phrases "sam johnson",
  *  "Sam, Johnson", and "Sam (Johnson)". Additionally, the characters
  *  surrounding any match must be of a different type than the adjacent
  *  characters within the word, so letters must be next to non-letters and
- *  digits next to non-digits. For example, the dictionary word "jen" will
- *  match the first three letters of the text "jen123" but will return no
- *  matches for "jennifer".
- *  Dictionary words containing a large number of characters that are not
- *  letters or digits may result in unexpected findings because such characters
- *  are treated as whitespace. The
+ *  digits next to non-digits. For example, the dictionary word "jen" will match
+ *  the first three letters of the text "jen123" but will return no matches for
+ *  "jennifer". Dictionary words containing a large number of characters that
+ *  are not letters or digits may result in unexpected findings because such
+ *  characters are treated as whitespace. The
  *  [limits](https://cloud.google.com/dlp/limits) page contains details about
  *  the size limits of dictionaries. For dictionaries that do not fit within
  *  these constraints, consider using `LargeCustomDictionaryConfig` in the
@@ -2733,8 +2731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2Dictionary : GTLRObject
 
 /**
- *  Newline-delimited file of words in Cloud Storage. Only a single file
- *  is accepted.
+ *  Newline-delimited file of words in Cloud Storage. Only a single file is
+ *  accepted.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStoragePath *cloudStoragePath;
 
@@ -2781,11 +2779,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Active The job is
- *        currently accepting findings via hybridInspect.
- *        A hybrid job in ACTIVE state may continue to have findings added to it
- *        through calling of hybridInspect. After the job has finished no more
- *        calls to hybridInspect may be made. ACTIVE jobs can transition to
- *        DONE. (Value: "ACTIVE")
+ *        currently accepting findings via hybridInspect. A hybrid job in ACTIVE
+ *        state may continue to have findings added to it through calling of
+ *        hybridInspect. After the job has finished no more calls to
+ *        hybridInspect may be made. ACTIVE jobs can transition to DONE. (Value:
+ *        "ACTIVE")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Canceled The job was
  *        canceled before it could complete. (Value: "CANCELED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Done The job is no longer
@@ -2797,8 +2795,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Pending The job has not
  *        yet started. (Value: "PENDING")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Running The job is
- *        currently running. Once a job has finished it will transition
- *        to FAILED or DONE. (Value: "RUNNING")
+ *        currently running. Once a job has finished it will transition to
+ *        FAILED or DONE. (Value: "RUNNING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2824,8 +2822,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DocumentLocation : GTLRObject
 
 /**
- *  Offset of the line, from the beginning of the file, where the finding
- *  is located.
+ *  Offset of the line, from the beginning of the file, where the finding is
+ *  located.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2850,8 +2848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Details information about an error encountered during job execution or
- *  the results of an unsuccessful activation of the JobTrigger.
+ *  Details information about an error encountered during job execution or the
+ *  results of an unsuccessful activation of the JobTrigger.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Error : GTLRObject
 
@@ -2871,13 +2869,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  InfoType list in ExclusionRule rule drops a finding when it overlaps or
- *  contained within with a finding of an infoType from this list. For
- *  example, for `InspectionRuleSet.info_types` containing "PHONE_NUMBER"` and
+ *  contained within with a finding of an infoType from this list. For example,
+ *  for `InspectionRuleSet.info_types` containing "PHONE_NUMBER"` and
  *  `exclusion_rule` containing `exclude_info_types.info_types` with
- *  "EMAIL_ADDRESS" the phone number findings are dropped if they overlap
- *  with EMAIL_ADDRESS finding.
- *  That leads to "555-222-2222\@example.org" to generate only a single
- *  finding, namely email address.
+ *  "EMAIL_ADDRESS" the phone number findings are dropped if they overlap with
+ *  EMAIL_ADDRESS finding. That leads to "555-222-2222\@example.org" to generate
+ *  only a single finding, namely email address.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
@@ -2901,24 +2898,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch
- *        Full match.
- *        - Dictionary: join of Dictionary results matched complete finding
- *        quote
- *        - Regex: all regex matches fill a finding quote start to end
- *        - Exclude info type: completely inside affecting info types findings
- *        (Value: "MATCHING_TYPE_FULL_MATCH")
+ *        Full match. - Dictionary: join of Dictionary results matched complete
+ *        finding quote - Regex: all regex matches fill a finding quote start to
+ *        end - Exclude info type: completely inside affecting info types
+ *        findings (Value: "MATCHING_TYPE_FULL_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch
- *        Inverse match.
- *        - Dictionary: no tokens in the finding match the dictionary
- *        - Regex: finding doesn't match the regex
- *        - Exclude info type: no intersection with affecting info types
- *        findings (Value: "MATCHING_TYPE_INVERSE_MATCH")
+ *        Inverse match. - Dictionary: no tokens in the finding match the
+ *        dictionary - Regex: finding doesn't match the regex - Exclude info
+ *        type: no intersection with affecting info types findings (Value:
+ *        "MATCHING_TYPE_INVERSE_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch
- *        Partial match.
- *        - Dictionary: at least one of the tokens in the finding matches
- *        - Regex: substring of the finding matches
- *        - Exclude info type: intersects with affecting info types findings
- *        (Value: "MATCHING_TYPE_PARTIAL_MATCH")
+ *        Partial match. - Dictionary: at least one of the tokens in the finding
+ *        matches - Regex: substring of the finding matches - Exclude info type:
+ *        intersects with affecting info types findings (Value:
+ *        "MATCHING_TYPE_PARTIAL_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified
  *        Invalid. (Value: "MATCHING_TYPE_UNSPECIFIED")
  */
@@ -2971,12 +2964,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Only apply the transformation if the condition evaluates to true for the
- *  given `RecordCondition`. The conditions are allowed to reference fields
- *  that are not used in the actual transformation.
- *  Example Use Cases:
- *  - Apply a different bucket transformation to an age column if the zip code
- *  column for the same record is within a specific range.
- *  - Redact a field if the date of birth field is greater than 85.
+ *  given `RecordCondition`. The conditions are allowed to reference fields that
+ *  are not used in the actual transformation. Example Use Cases: - Apply a
+ *  different bucket transformation to an age column if the zip code column for
+ *  the same record is within a specific range. - Redact a field if the date of
+ *  birth field is greater than 85.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordCondition *condition;
 
@@ -2984,8 +2976,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *fields;
 
 /**
- *  Treat the contents of the field as free text, and selectively
- *  transform content that matches an `InfoType`.
+ *  Treat the contents of the field as free text, and selectively transform
+ *  content that matches an `InfoType`.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformations *infoTypeTransformations;
 
@@ -3007,13 +2999,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStorageRegexFileSet *regexFileSet;
 
 /**
- *  The Cloud Storage url of the file(s) to scan, in the format
- *  `gs://<bucket>/<path>`. Trailing wildcard in the path is allowed.
- *  If the url ends in a trailing slash, the bucket or directory represented
- *  by the url will be scanned non-recursively (content in sub-directories
- *  will not be scanned). This means that `gs://mybucket/` is equivalent to
- *  `gs://mybucket/ *`, and `gs://mybucket/directory/` is equivalent to
- *  `gs://mybucket/directory/ *`.
+ *  The Cloud Storage url of the file(s) to scan, in the format `gs:///`.
+ *  Trailing wildcard in the path is allowed. If the url ends in a trailing
+ *  slash, the bucket or directory represented by the url will be scanned
+ *  non-recursively (content in sub-directories will not be scanned). This means
+ *  that `gs://mybucket/` is equivalent to `gs://mybucket/ *`, and
+ *  `gs://mybucket/directory/` is equivalent to `gs://mybucket/directory/ *`.
  *  Exactly one of `url` or `regex_file_set` must be set.
  */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -3030,8 +3021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The type of content that might have been found.
- *  Provided if `excluded_types` is false.
+ *  The type of content that might have been found. Provided if `excluded_types`
+ *  is false.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
@@ -3042,15 +3033,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
- *  The labels associated with this `Finding`.
- *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
- *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
- *  No more than 10 labels can be associated with a given finding.
- *  Examples:
- *  * `"environment" : "production"`
- *  * `"pipeline" : "etl"`
+ *  The labels associated with this `Finding`. Label keys must be between 1 and
+ *  63 characters long and must conform to the following regular expression:
+ *  `[a-z]([-a-z0-9]*[a-z0-9])?`. Label values must be between 0 and 63
+ *  characters long and must conform to the regular expression
+ *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. No more than 10 labels can be associated
+ *  with a given finding. Examples: * `"environment" : "production"` *
+ *  `"pipeline" : "etl"`
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Finding_Labels *labels;
 
@@ -3084,18 +3073,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The content that was found. Even if the content is not textual, it
- *  may be converted to a textual representation here.
- *  Provided if `include_quote` is true and the finding is
- *  less than or equal to 4096 bytes long. If the finding exceeds 4096 bytes
- *  in length, the quote may be omitted.
+ *  The content that was found. Even if the content is not textual, it may be
+ *  converted to a textual representation here. Provided if `include_quote` is
+ *  true and the finding is less than or equal to 4096 bytes long. If the
+ *  finding exceeds 4096 bytes in length, the quote may be omitted.
  */
 @property(nonatomic, copy, nullable) NSString *quote;
 
 /**
- *  Contains data parsed from quotes. Only populated if include_quote was set
- *  to true and a supported infoType was requested. Currently supported
- *  infoTypes: DATE, DATE_OF_BIRTH and TIME.
+ *  Contains data parsed from quotes. Only populated if include_quote was set to
+ *  true and a supported infoType was requested. Currently supported infoTypes:
+ *  DATE, DATE_OF_BIRTH and TIME.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2QuoteInfo *quoteInfo;
 
@@ -3109,15 +3097,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The labels associated with this `Finding`.
- *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
- *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
- *  No more than 10 labels can be associated with a given finding.
- *  Examples:
- *  * `"environment" : "production"`
- *  * `"pipeline" : "etl"`
+ *  The labels associated with this `Finding`. Label keys must be between 1 and
+ *  63 characters long and must conform to the following regular expression:
+ *  `[a-z]([-a-z0-9]*[a-z0-9])?`. Label values must be between 0 and 63
+ *  characters long and must conform to the regular expression
+ *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. No more than 10 labels can be associated
+ *  with a given finding. Examples: * `"environment" : "production"` *
+ *  `"pipeline" : "etl"`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3137,19 +3123,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit *> *maxFindingsPerInfoType;
 
 /**
- *  Max number of findings that will be returned for each item scanned.
- *  When set within `InspectJobConfig`,
- *  the maximum returned is 2000 regardless if this is set higher.
- *  When set within `InspectContentRequest`, this field is ignored.
+ *  Max number of findings that will be returned for each item scanned. When set
+ *  within `InspectJobConfig`, the maximum returned is 2000 regardless if this
+ *  is set higher. When set within `InspectContentRequest`, this field is
+ *  ignored.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxFindingsPerItem;
 
 /**
- *  Max number of findings that will be returned per request/job.
- *  When set within `InspectContentRequest`, the maximum returned is 2000
- *  regardless if this is set higher.
+ *  Max number of findings that will be returned per request/job. When set
+ *  within `InspectContentRequest`, the maximum returned is 2000 regardless if
+ *  this is set higher.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3166,26 +3152,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Buckets values based on fixed size ranges. The
- *  Bucketing transformation can provide all of this functionality,
- *  but requires more configuration. This message is provided as a convenience
- *  to
- *  the user for simple bucketing strategies.
- *  The transformed value will be a hyphenated string of
+ *  Buckets values based on fixed size ranges. The Bucketing transformation can
+ *  provide all of this functionality, but requires more configuration. This
+ *  message is provided as a convenience to the user for simple bucketing
+ *  strategies. The transformed value will be a hyphenated string of
  *  {lower_bound}-{upper_bound}, i.e if lower_bound = 10 and upper_bound = 20
- *  all values that are within this bucket will be replaced with "10-20".
- *  This can be used on data of type: double, long.
- *  If the bound Value type differs from the type of data
- *  being transformed, we will first attempt converting the type of the data to
- *  be transformed to match the type of the bound before comparing.
- *  See https://cloud.google.com/dlp/docs/concepts-bucketing to learn more.
+ *  all values that are within this bucket will be replaced with "10-20". This
+ *  can be used on data of type: double, long. If the bound Value type differs
+ *  from the type of data being transformed, we will first attempt converting
+ *  the type of the data to be transformed to match the type of the bound before
+ *  comparing. See https://cloud.google.com/dlp/docs/concepts-bucketing to learn
+ *  more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig : GTLRObject
 
 /**
  *  Required. Size of each bucket (except for minimum and maximum buckets). So
- *  if
- *  `lower_bound` = 10, `upper_bound` = 89, and `bucket_size` = 10, then the
+ *  if `lower_bound` = 10, `upper_bound` = 89, and `bucket_size` = 10, then the
  *  following buckets would be used: -10, 10-20, 20-30, 30-40, 40-50, 50-60,
  *  60-70, 70-80, 80-89, 89+. Precision up to 2 decimals works.
  *
@@ -3195,17 +3178,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Required. Lower bound value of buckets. All values less than `lower_bound`
- *  are
- *  grouped together into a single bucket; for example if `lower_bound` = 10,
- *  then all values less than 10 are replaced with the value "-10".
+ *  are grouped together into a single bucket; for example if `lower_bound` =
+ *  10, then all values less than 10 are replaced with the value "-10".
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *lowerBound;
 
 /**
  *  Required. Upper bound value of buckets. All values greater than upper_bound
- *  are
- *  grouped together into a single bucket; for example if `upper_bound` = 89,
- *  then all values greater than 89 are replaced with the value "89+".
+ *  are grouped together into a single bucket; for example if `upper_bound` =
+ *  89, then all values greater than 89 are replaced with the value "89+".
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Value *upperBound;
 
@@ -3213,8 +3194,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  The rule that adjusts the likelihood of findings within a certain
- *  proximity of hotwords.
+ *  The rule that adjusts the likelihood of findings within a certain proximity
+ *  of hotwords.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HotwordRule : GTLRObject
 
@@ -3225,14 +3206,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment *likelihoodAdjustment;
 
 /**
- *  Proximity of the finding within which the entire hotword must reside.
- *  The total length of the window cannot exceed 1000 characters. Note that
- *  the finding itself will be included in the window, so that hotwords may
- *  be used to match substrings of the finding itself. For example, the
- *  certainty of a phone number regex "\\(\\d{3}\\) \\d{3}-\\d{4}" could be
- *  adjusted upwards if the area code is known to be the local area code of
- *  a company office using the hotword regex "\\(xxx\\)", where "xxx"
- *  is the area code in question.
+ *  Proximity of the finding within which the entire hotword must reside. The
+ *  total length of the window cannot exceed 1000 characters. Note that the
+ *  finding itself will be included in the window, so that hotwords may be used
+ *  to match substrings of the finding itself. For example, the certainty of a
+ *  phone number regex "\\(\\d{3}\\) \\d{3}-\\d{4}" could be adjusted upwards if
+ *  the area code is known to be the local area code of a company office using
+ *  the hotword regex "\\(xxx\\)", where "xxx" is the area code in question.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Proximity *proximity;
 
@@ -3274,24 +3254,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Labels to represent user provided metadata about the data being inspected.
- *  If configured by the job, some key values may be required.
- *  The labels associated with `Finding`'s produced by hybrid
- *  inspection.
- *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
- *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
- *  No more than 10 labels can be associated with a given finding.
- *  Examples:
- *  * `"environment" : "production"`
- *  * `"pipeline" : "etl"`
+ *  If configured by the job, some key values may be required. The labels
+ *  associated with `Finding`'s produced by hybrid inspection. Label keys must
+ *  be between 1 and 63 characters long and must conform to the following
+ *  regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`. Label values must be
+ *  between 0 and 63 characters long and must conform to the regular expression
+ *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. No more than 10 labels can be associated
+ *  with a given finding. Examples: * `"environment" : "production"` *
+ *  `"pipeline" : "etl"`
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridFindingDetails_Labels *labels;
 
 /**
- *  Offset of the row for tables. Populate if the row(s) being scanned are
- *  part of a bigger dataset and you want to keep track of their absolute
- *  position.
+ *  Offset of the row for tables. Populate if the row(s) being scanned are part
+ *  of a bigger dataset and you want to keep track of their absolute position.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3299,10 +3275,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  If the container is a table, additional information to make findings
- *  meaningful such as the columns that are primary keys. If not known ahead
- *  of time, can also be set within each inspect hybrid call and the two
- *  will be merged. Note that identifying_fields will only be stored to
- *  BigQuery, and only if the BigQuery action has been included.
+ *  meaningful such as the columns that are primary keys. If not known ahead of
+ *  time, can also be set within each inspect hybrid call and the two will be
+ *  merged. Note that identifying_fields will only be stored to BigQuery, and
+ *  only if the BigQuery action has been included.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TableOptions *tableOptions;
 
@@ -3311,17 +3287,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Labels to represent user provided metadata about the data being inspected.
- *  If configured by the job, some key values may be required.
- *  The labels associated with `Finding`'s produced by hybrid
- *  inspection.
- *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
- *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
- *  No more than 10 labels can be associated with a given finding.
- *  Examples:
- *  * `"environment" : "production"`
- *  * `"pipeline" : "etl"`
+ *  If configured by the job, some key values may be required. The labels
+ *  associated with `Finding`'s produced by hybrid inspection. Label keys must
+ *  be between 1 and 63 characters long and must conform to the following
+ *  regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`. Label values must be
+ *  between 0 and 63 characters long and must conform to the regular expression
+ *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. No more than 10 labels can be associated
+ *  with a given finding. Examples: * `"environment" : "production"` *
+ *  `"pipeline" : "etl"`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3367,19 +3340,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics : GTLRObject
 
 /**
- *  The number of hybrid inspection requests aborted because the job ran
- *  out of quota or was ended before they could be processed.
+ *  The number of hybrid inspection requests aborted because the job ran out of
+ *  quota or was ended before they could be processed.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *abortedCount;
 
 /**
- *  The number of hybrid requests currently being processed. Only populated
- *  when called via method `getDlpJob`.
- *  A burst of traffic may cause hybrid inspect requests to be enqueued.
- *  Processing will take place as quickly as possible, but resource limitations
- *  may impact how long a request is enqueued for.
+ *  The number of hybrid requests currently being processed. Only populated when
+ *  called via method `getDlpJob`. A burst of traffic may cause hybrid inspect
+ *  requests to be enqueued. Processing will take place as quickly as possible,
+ *  but resource limitations may impact how long a request is enqueued for.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3402,33 +3374,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2HybridOptions : GTLRObject
 
 /**
- *  A short description of where the data is coming from. Will be stored once
- *  in the job. 256 max length.
+ *  A short description of where the data is coming from. Will be stored once in
+ *  the job. 256 max length.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  To organize findings, these labels will be added to each finding.
- *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
- *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
- *  No more than 10 labels can be associated with a given finding.
- *  Examples:
- *  * `"environment" : "production"`
- *  * `"pipeline" : "etl"`
+ *  To organize findings, these labels will be added to each finding. Label keys
+ *  must be between 1 and 63 characters long and must conform to the following
+ *  regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`. Label values must be
+ *  between 0 and 63 characters long and must conform to the regular expression
+ *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. No more than 10 labels can be associated
+ *  with a given finding. Examples: * `"environment" : "production"` *
+ *  `"pipeline" : "etl"`
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels *labels;
 
 /**
  *  These are labels that each inspection request must include within their
  *  'finding_labels' map. Request may contain others, but any missing one of
- *  these will be rejected.
- *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
- *  No more than 10 keys can be required.
+ *  these will be rejected. Label keys must be between 1 and 63 characters long
+ *  and must conform to the following regular expression:
+ *  `[a-z]([-a-z0-9]*[a-z0-9])?`. No more than 10 keys can be required.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requiredFindingLabelKeys;
 
@@ -3442,15 +3411,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  To organize findings, these labels will be added to each finding.
- *  Label keys must be between 1 and 63 characters long and must conform
- *  to the following regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`.
- *  Label values must be between 0 and 63 characters long and must conform
- *  to the regular expression `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
- *  No more than 10 labels can be associated with a given finding.
- *  Examples:
- *  * `"environment" : "production"`
- *  * `"pipeline" : "etl"`
+ *  To organize findings, these labels will be added to each finding. Label keys
+ *  must be between 1 and 63 characters long and must conform to the following
+ *  regular expression: `[a-z]([-a-z0-9]*[a-z0-9])?`. Label values must be
+ *  between 0 and 63 characters long and must conform to the regular expression
+ *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`. No more than 10 labels can be associated
+ *  with a given finding. Examples: * `"environment" : "production"` *
+ *  `"pipeline" : "etl"`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3480,10 +3447,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig : GTLRObject
 
 /**
- *  Only one per info_type should be provided per request. If not
- *  specified, and redact_all_text is false, the DLP API will redact all
- *  text that it matches against all info_types that are found, but not
- *  specified in another ImageRedactionConfig.
+ *  Only one per info_type should be provided per request. If not specified, and
+ *  redact_all_text is false, the DLP API will redact all text that it matches
+ *  against all info_types that are found, but not specified in another
+ *  ImageRedactionConfig.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
@@ -3496,8 +3463,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *redactAllText;
 
 /**
- *  The color to use when redacting content from an image. If not specified,
- *  the default is black.
+ *  The color to use when redacting content from an image. If not specified, the
+ *  default is black.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Color *redactionColor;
 
@@ -3510,10 +3477,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2InfoType : GTLRObject
 
 /**
- *  Name of the information type. Either a name of your choosing when
- *  creating a CustomInfoType, or one of the names listed
- *  at https://cloud.google.com/dlp/docs/infotypes-reference when specifying
- *  a built-in type. When sending Cloud DLP results to Data Catalog, infoType
+ *  Name of the information type. Either a name of your choosing when creating a
+ *  CustomInfoType, or one of the names listed at
+ *  https://cloud.google.com/dlp/docs/infotypes-reference when specifying a
+ *  built-in type. When sending Cloud DLP results to Data Catalog, infoType
  *  names should conform to the pattern `[A-Za-z0-9$-_]{1,64}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3547,16 +3514,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Max findings configuration per infoType, per content item or long
- *  running DlpJob.
+ *  Max findings configuration per infoType, per content item or long running
+ *  DlpJob.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeLimit : GTLRObject
 
 /**
  *  Type of information the findings limit applies to. Only one limit per
- *  info_type should be provided. If InfoTypeLimit does not have an
- *  info_type, the DLP API applies the limit against all info_types that
- *  are found but not specified in another InfoTypeLimit.
+ *  info_type should be provided. If InfoTypeLimit does not have an info_type,
+ *  the DLP API applies the limit against all info_types that are found but not
+ *  specified in another InfoTypeLimit.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
@@ -3595,9 +3562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation : GTLRObject
 
 /**
- *  InfoTypes to apply the transformation to. An empty list will cause
- *  this transformation to apply to all findings that correspond to
- *  infoTypes that were requested in `InspectConfig`.
+ *  InfoTypes to apply the transformation to. An empty list will cause this
+ *  transformation to apply to all findings that correspond to infoTypes that
+ *  were requested in `InspectConfig`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
@@ -3608,16 +3575,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A type of transformation that will scan unstructured text and
- *  apply various `PrimitiveTransformation`s to each finding, where the
- *  transformation is applied to only values that were identified as a specific
- *  info_type.
+ *  A type of transformation that will scan unstructured text and apply various
+ *  `PrimitiveTransformation`s to each finding, where the transformation is
+ *  applied to only values that were identified as a specific info_type.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformations : GTLRObject
 
 /**
- *  Required. Transformation for each infoType. Cannot specify more than one
- *  for a given infoType.
+ *  Required. Transformation for each infoType. Cannot specify more than one for
+ *  a given infoType.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeTransformation *> *transformations;
 
@@ -3625,16 +3591,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Configuration description of the scanning process.
- *  When used with redactContent only info_types and min_likelihood are
- *  currently
- *  used.
+ *  Configuration description of the scanning process. When used with
+ *  redactContent only info_types and min_likelihood are currently used.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectConfig : GTLRObject
 
 /**
- *  List of options defining data content to scan.
- *  If empty, text, images, and other content will be included.
+ *  List of options defining data content to scan. If empty, text, images, and
+ *  other content will be included.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contentOptions;
 
@@ -3662,13 +3626,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Restricts what info_types to look for. The values must correspond to
  *  InfoType values returned by ListInfoTypes or listed at
- *  https://cloud.google.com/dlp/docs/infotypes-reference.
- *  When no InfoTypes or CustomInfoTypes are specified in a request, the
- *  system may automatically choose what detectors to run. By default this may
- *  be all types, but may change over time as detectors are updated.
- *  If you need precise control and predictability as to what detectors are
- *  run you should specify specific InfoTypes listed in the reference,
- *  otherwise a default list will be used, which may change over time.
+ *  https://cloud.google.com/dlp/docs/infotypes-reference. When no InfoTypes or
+ *  CustomInfoTypes are specified in a request, the system may automatically
+ *  choose what detectors to run. By default this may be all types, but may
+ *  change over time as detectors are updated. If you need precise control and
+ *  predictability as to what detectors are run you should specify specific
+ *  InfoTypes listed in the reference, otherwise a default list will be used,
+ *  which may change over time.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
@@ -3677,8 +3641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Only returns findings equal or above this threshold. The default is
- *  POSSIBLE.
- *  See https://cloud.google.com/dlp/docs/likelihood to learn more.
+ *  POSSIBLE. See https://cloud.google.com/dlp/docs/likelihood to learn more.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InspectConfig_MinLikelihood_LikelihoodUnspecified
@@ -3697,9 +3660,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *minLikelihood;
 
 /**
- *  Set of rules to apply to the findings for this InspectConfig.
- *  Exclusion rules, contained in the set are executed in the end, other
- *  rules are executed in the order they are specified for each info type.
+ *  Set of rules to apply to the findings for this InspectConfig. Exclusion
+ *  rules, contained in the set are executed in the end, other rules are
+ *  executed in the order they are specified for each info type.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InspectionRuleSet *> *ruleSet;
 
@@ -3712,17 +3675,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2InspectContentRequest : GTLRObject
 
 /**
- *  Configuration for the inspector. What specified here will override
- *  the template referenced by the inspect_template_name argument.
+ *  Configuration for the inspector. What specified here will override the
+ *  template referenced by the inspect_template_name argument.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  Template to use. Any configuration directly specified in
- *  inspect_config will override those set in the template. Singular fields
- *  that are set in this request will replace their corresponding fields in the
- *  template. Repeated fields are appended. Singular sub-messages and groups
- *  are recursively merged.
+ *  Template to use. Any configuration directly specified in inspect_config will
+ *  override those set in the template. Singular fields that are set in this
+ *  request will replace their corresponding fields in the template. Repeated
+ *  fields are appended. Singular sub-messages and groups are recursively
+ *  merged.
  */
 @property(nonatomic, copy, nullable) NSString *inspectTemplateName;
 
@@ -3826,12 +3789,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Finding *> *findings;
 
 /**
- *  If true, then this item might have more findings than were returned,
- *  and the findings returned are an arbitrary subset of all findings.
- *  The findings list might be truncated because the input items were too
- *  large, or because the server reached the maximum amount of resources
- *  allowed for a single API call. For best results, divide the input into
- *  smaller batches.
+ *  If true, then this item might have more findings than were returned, and the
+ *  findings returned are an arbitrary subset of all findings. The findings list
+ *  might be truncated because the input items were too large, or because the
+ *  server reached the maximum amount of resources allowed for a single API
+ *  call. For best results, divide the input into smaller batches.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3843,8 +3805,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  The inspectTemplate contains a configuration (set of types of sensitive data
  *  to be detected) to be used anywhere you otherwise would normally specify
- *  InspectConfig. See https://cloud.google.com/dlp/docs/concepts-templates
- *  to learn more.
+ *  InspectConfig. See https://cloud.google.com/dlp/docs/concepts-templates to
+ *  learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectTemplate : GTLRObject
 
@@ -3867,9 +3829,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  Output only. The template name.
- *  The template will have one of the following formats:
- *  `projects/PROJECT_ID/inspectTemplates/TEMPLATE_ID` OR
+ *  Output only. The template name. The template will have one of the following
+ *  formats: `projects/PROJECT_ID/inspectTemplates/TEMPLATE_ID` OR
  *  `organizations/ORGANIZATION_ID/inspectTemplates/TEMPLATE_ID`;
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3889,8 +3850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Contains a configuration to make dlp api calls on a repeating basis.
- *  See https://cloud.google.com/dlp/docs/concepts-job-triggers to learn more.
+ *  Contains a configuration to make dlp api calls on a repeating basis. See
+ *  https://cloud.google.com/dlp/docs/concepts-job-triggers to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2JobTrigger : GTLRObject
 
@@ -3909,10 +3870,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Output only. A stream of errors encountered when the trigger was activated.
- *  Repeated
- *  errors may result in the JobTrigger automatically being paused.
- *  Will return the last 100 errors. Whenever the JobTrigger is modified
- *  this list will be cleared.
+ *  Repeated errors may result in the JobTrigger automatically being paused.
+ *  Will return the last 100 errors. Whenever the JobTrigger is modified this
+ *  list will be cleared.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Error *> *errors;
 
@@ -3945,9 +3905,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  A list of triggers which will be OR'ed together. Only one in the list
- *  needs to trigger for a job to be started. The list may contain only
- *  a single Schedule trigger and must have at least one object.
+ *  A list of triggers which will be OR'ed together. Only one in the list needs
+ *  to trigger for a job to be started. The list may contain only a single
+ *  Schedule trigger and must have at least one object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Trigger *> *triggers;
 
@@ -3963,24 +3923,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2KAnonymityConfig : GTLRObject
 
 /**
- *  Message indicating that multiple rows might be associated to a
- *  single individual. If the same entity_id is associated to multiple
- *  quasi-identifier tuples over distinct rows, we consider the entire
- *  collection of tuples as the composite quasi-identifier. This collection
- *  is a multiset: the order in which the different tuples appear in the
- *  dataset is ignored, but their frequency is taken into account.
- *  Important note: a maximum of 1000 rows can be associated to a single
- *  entity ID. If more rows are associated with the same entity ID, some
- *  might be ignored.
+ *  Message indicating that multiple rows might be associated to a single
+ *  individual. If the same entity_id is associated to multiple quasi-identifier
+ *  tuples over distinct rows, we consider the entire collection of tuples as
+ *  the composite quasi-identifier. This collection is a multiset: the order in
+ *  which the different tuples appear in the dataset is ignored, but their
+ *  frequency is taken into account. Important note: a maximum of 1000 rows can
+ *  be associated to a single entity ID. If more rows are associated with the
+ *  same entity ID, some might be ignored.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2EntityId *entityId;
 
 /**
  *  Set of fields to compute k-anonymity over. When multiple fields are
- *  specified, they are considered a single composite key. Structs and
- *  repeated data types are not supported; however, nested fields are
- *  supported so long as they are not structs themselves or nested within
- *  a repeated field.
+ *  specified, they are considered a single composite key. Structs and repeated
+ *  data types are not supported; however, nested fields are supported so long
+ *  as they are not structs themselves or nested within a repeated field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *quasiIds;
 
@@ -3993,17 +3951,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2KAnonymityEquivalenceClass : GTLRObject
 
 /**
- *  Size of the equivalence class, for example number of rows with the
- *  above set of values.
+ *  Size of the equivalence class, for example number of rows with the above set
+ *  of values.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *equivalenceClassSize;
 
 /**
- *  Set of values defining the equivalence class. One value per
- *  quasi-identifier column in the original KAnonymity metric message.
- *  The order is always the same as the original request.
+ *  Set of values defining the equivalence class. One value per quasi-identifier
+ *  column in the original KAnonymity metric message. The order is always the
+ *  same as the original request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Value *> *quasiIdsValues;
 
@@ -4030,8 +3988,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
 
 /**
- *  Sample of equivalence classes in this bucket. The total number of
- *  classes returned per bucket is capped at 20.
+ *  Sample of equivalence classes in this bucket. The total number of classes
+ *  returned per bucket is capped at 20.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2KAnonymityEquivalenceClass *> *bucketValues;
 
@@ -4064,29 +4022,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A unique identifier for a Datastore entity.
- *  If a key's partition ID or any of its path kinds or names are
- *  reserved/read-only, the key is reserved/read-only.
- *  A reserved/read-only key is forbidden in certain documented contexts.
+ *  A unique identifier for a Datastore entity. If a key's partition ID or any
+ *  of its path kinds or names are reserved/read-only, the key is
+ *  reserved/read-only. A reserved/read-only key is forbidden in certain
+ *  documented contexts.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Key : GTLRObject
 
 /**
- *  Entities are partitioned into subsets, currently identified by a project
- *  ID and namespace ID.
- *  Queries are scoped to a single partition.
+ *  Entities are partitioned into subsets, currently identified by a project ID
+ *  and namespace ID. Queries are scoped to a single partition.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PartitionId *partitionId;
 
 /**
- *  The entity path.
- *  An entity path consists of one or more elements composed of a kind and a
- *  string or numerical identifier, which identify entities. The first
- *  element identifies a _root entity_, the second element identifies
- *  a _child_ of the root entity, the third element identifies a child of the
- *  second entity, and so forth. The entities identified by all prefixes of
- *  the path are called the element's _ancestors_.
- *  A path can never be empty, and a path can have at most 100 elements.
+ *  The entity path. An entity path consists of one or more elements composed of
+ *  a kind and a string or numerical identifier, which identify entities. The
+ *  first element identifies a _root entity_, the second element identifies a
+ *  _child_ of the root entity, the third element identifies a child of the
+ *  second entity, and so forth. The entities identified by all prefixes of the
+ *  path are called the element's _ancestors_. A path can never be empty, and a
+ *  path can have at most 100 elements.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2PathElement *> *path;
 
@@ -4115,23 +4071,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig : GTLRObject
 
 /**
- *  Several auxiliary tables can be used in the analysis. Each custom_tag
- *  used to tag a quasi-identifiers column must appear in exactly one column
- *  of one auxiliary table.
+ *  Several auxiliary tables can be used in the analysis. Each custom_tag used
+ *  to tag a quasi-identifiers column must appear in exactly one column of one
+ *  auxiliary table.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2AuxiliaryTable *> *auxiliaryTables;
 
 /**
  *  Required. Fields considered to be quasi-identifiers. No two columns can have
- *  the
- *  same tag.
+ *  the same tag.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2TaggedField *> *quasiIds;
 
 /**
- *  ISO 3166-1 alpha-2 region code to use in the statistical modeling.
- *  Set if no column is tagged with a region-specific InfoType (like
- *  US_ZIP_5) or a region code.
+ *  ISO 3166-1 alpha-2 region code to use in the statistical modeling. Set if no
+ *  column is tagged with a region-specific InfoType (like US_ZIP_5) or a region
+ *  code.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
@@ -4140,13 +4095,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A KMapEstimationHistogramBucket message with the following values:
- *  min_anonymity: 3
- *  max_anonymity: 5
- *  frequency: 42
- *  means that there are 42 records whose quasi-identifier values correspond
- *  to 3, 4 or 5 people in the overlying population. An important particular
- *  case is when min_anonymity = max_anonymity = 1: the frequency field then
- *  corresponds to the number of uniquely identifiable records.
+ *  min_anonymity: 3 max_anonymity: 5 frequency: 42 means that there are 42
+ *  records whose quasi-identifier values correspond to 3, 4 or 5 people in the
+ *  overlying population. An important particular case is when min_anonymity =
+ *  max_anonymity = 1: the frequency field then corresponds to the number of
+ *  uniquely identifiable records.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KMapEstimationHistogramBucket : GTLRObject
 
@@ -4165,8 +4118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
 
 /**
- *  Sample of quasi-identifier tuple values in this bucket. The total
- *  number of classes returned per bucket is capped at 20.
+ *  Sample of quasi-identifier tuple values in this bucket. The total number of
+ *  classes returned per bucket is capped at 20.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2KMapEstimationQuasiIdValues *> *bucketValues;
 
@@ -4213,13 +4166,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The intervals [min_anonymity, max_anonymity] do not overlap. If a value
- *  doesn't correspond to any such interval, the associated frequency is
- *  zero. For example, the following records:
- *  {min_anonymity: 1, max_anonymity: 1, frequency: 17}
- *  {min_anonymity: 2, max_anonymity: 3, frequency: 42}
- *  {min_anonymity: 5, max_anonymity: 10, frequency: 99}
- *  mean that there are no record with an estimated anonymity of 4, 5, or
- *  larger than 10.
+ *  doesn't correspond to any such interval, the associated frequency is zero.
+ *  For example, the following records: {min_anonymity: 1, max_anonymity: 1,
+ *  frequency: 17} {min_anonymity: 2, max_anonymity: 3, frequency: 42}
+ *  {min_anonymity: 5, max_anonymity: 10, frequency: 99} mean that there are no
+ *  record with an estimated anonymity of 4, 5, or larger than 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2KMapEstimationHistogramBucket *> *kMapEstimationHistogram;
 
@@ -4227,11 +4178,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Include to use an existing data crypto key wrapped by KMS.
- *  The wrapped key must be a 128/192/256 bit key.
- *  Authorization requires the following IAM permissions when sending a request
- *  to perform a crypto transformation using a kms-wrapped crypto key:
- *  dlp.kms.encrypt
+ *  Include to use an existing data crypto key wrapped by KMS. The wrapped key
+ *  must be a 128/192/256 bit key. Authorization requires the following IAM
+ *  permissions when sending a request to perform a crypto transformation using
+ *  a kms-wrapped crypto key: dlp.kms.encrypt
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey : GTLRObject
 
@@ -4255,8 +4205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  [limits](https://cloud.google.com/dlp/limits) page. The artifacts of
  *  dictionary creation are stored in the specified Google Cloud Storage
  *  location. Consider using `CustomInfoType.Dictionary` for smaller
- *  dictionaries
- *  that satisfy the size requirements.
+ *  dictionaries that satisfy the size requirements.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2LargeCustomDictionaryConfig : GTLRObject
 
@@ -4300,9 +4249,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2LDiversityConfig : GTLRObject
 
 /**
- *  Set of quasi-identifiers indicating how equivalence classes are
- *  defined for the l-diversity computation. When multiple fields are
- *  specified, they are considered a single composite key.
+ *  Set of quasi-identifiers indicating how equivalence classes are defined for
+ *  the l-diversity computation. When multiple fields are specified, they are
+ *  considered a single composite key.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *quasiIds;
 
@@ -4332,8 +4281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *numDistinctSensitiveValues;
 
 /**
- *  Quasi-identifier values defining the k-anonymity equivalence
- *  class. The order is always the same as the original request.
+ *  Quasi-identifier values defining the k-anonymity equivalence class. The
+ *  order is always the same as the original request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Value *> *quasiIdsValues;
 
@@ -4363,22 +4312,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *bucketValueCount;
 
 /**
- *  Sample of equivalence classes in this bucket. The total number of
- *  classes returned per bucket is capped at 20.
+ *  Sample of equivalence classes in this bucket. The total number of classes
+ *  returned per bucket is capped at 20.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2LDiversityEquivalenceClass *> *bucketValues;
 
 /**
- *  Lower bound on the sensitive value frequencies of the equivalence
- *  classes in this bucket.
+ *  Lower bound on the sensitive value frequencies of the equivalence classes in
+ *  this bucket.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sensitiveValueFrequencyLowerBound;
 
 /**
- *  Upper bound on the sensitive value frequencies of the equivalence
- *  classes in this bucket.
+ *  Upper bound on the sensitive value frequencies of the equivalence classes in
+ *  this bucket.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4400,8 +4349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Skips the data without modifying it if the requested transformation would
- *  cause an error. For example, if a `DateShift` transformation were applied
- *  an an IP address, this mode would leave the IP address unchanged in the
+ *  cause an error. For example, if a `DateShift` transformation were applied an
+ *  an IP address, this mode would leave the IP address unchanged in the
  *  response.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2LeaveUntransformed : GTLRObject
@@ -4409,8 +4358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Message for specifying an adjustment to the likelihood of a finding as
- *  part of a detection rule.
+ *  Message for specifying an adjustment to the likelihood of a finding as part
+ *  of a detection rule.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment : GTLRObject
 
@@ -4434,14 +4383,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *fixedLikelihood;
 
 /**
- *  Increase or decrease the likelihood by the specified number of
- *  levels. For example, if a finding would be `POSSIBLE` without the
- *  detection rule and `relative_likelihood` is 1, then it is upgraded to
- *  `LIKELY`, while a value of -1 would downgrade it to `UNLIKELY`.
- *  Likelihood may never drop below `VERY_UNLIKELY` or exceed
- *  `VERY_LIKELY`, so applying an adjustment of 1 followed by an
- *  adjustment of -1 when base likelihood is `VERY_LIKELY` will result in
- *  a final likelihood of `LIKELY`.
+ *  Increase or decrease the likelihood by the specified number of levels. For
+ *  example, if a finding would be `POSSIBLE` without the detection rule and
+ *  `relative_likelihood` is 1, then it is upgraded to `LIKELY`, while a value
+ *  of -1 would downgrade it to `UNLIKELY`. Likelihood may never drop below
+ *  `VERY_UNLIKELY` or exceed `VERY_LIKELY`, so applying an adjustment of 1
+ *  followed by an adjustment of -1 when base likelihood is `VERY_LIKELY` will
+ *  result in a final likelihood of `LIKELY`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4470,8 +4418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DeidentifyTemplate *> *deidentifyTemplates;
 
 /**
- *  If the next page is available then the next page token to be used
- *  in following ListDeidentifyTemplates request.
+ *  If the next page is available then the next page token to be used in
+ *  following ListDeidentifyTemplates request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4532,8 +4480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InspectTemplate *> *inspectTemplates;
 
 /**
- *  If the next page is available then the next page token to be used
- *  in following ListInspectTemplates request.
+ *  If the next page is available then the next page token to be used in
+ *  following ListInspectTemplates request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4559,8 +4507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2JobTrigger *> *jobTriggers;
 
 /**
- *  If the next page is available then the next page token to be used
- *  in following ListJobTriggers request.
+ *  If the next page is available then the next page token to be used in
+ *  following ListJobTriggers request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4578,8 +4526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2ListStoredInfoTypesResponse : GTLRCollectionObject
 
 /**
- *  If the next page is available then the next page token to be used
- *  in following ListStoredInfoTypes request.
+ *  If the next page is available then the next page token to be used in
+ *  following ListStoredInfoTypes request.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4600,18 +4548,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2Location : GTLRObject
 
 /**
- *  Zero-based byte offsets delimiting the finding.
- *  These are relative to the finding's containing element.
- *  Note that when the content is not textual, this references
- *  the UTF-8 encoded textual representation of the content.
+ *  Zero-based byte offsets delimiting the finding. These are relative to the
+ *  finding's containing element. Note that when the content is not textual,
+ *  this references the UTF-8 encoded textual representation of the content.
  *  Omitted if content is an image.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Range *byteRange;
 
 /**
- *  Unicode character offsets delimiting the finding.
- *  These are relative to the finding's containing element.
- *  Provided when the content is text.
+ *  Unicode character offsets delimiting the finding. These are relative to the
+ *  finding's containing element. Provided when the content is text.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Range *codepointRange;
 
@@ -4630,8 +4576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Job trigger option for hybrid jobs. Jobs must be manually created
- *  and finished.
+ *  Job trigger option for hybrid jobs. Jobs must be manually created and
+ *  finished.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Manual : GTLRObject
 @end
@@ -4661,14 +4607,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Compute numerical stats over an individual column, including
- *  min, max, and quantiles.
+ *  Compute numerical stats over an individual column, including min, max, and
+ *  quantiles.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig : GTLRObject
 
 /**
- *  Field to compute numerical stats on. Supported types are
- *  integer, float, date, datetime, timestamp, time.
+ *  Field to compute numerical stats on. Supported types are integer, float,
+ *  date, datetime, timestamp, time.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
@@ -4704,12 +4650,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Schema used for writing the findings for Inspect jobs. This field is only
  *  used for Inspect and must be unspecified for Risk jobs. Columns are derived
  *  from the `Finding` object. If appending to an existing table, any columns
- *  from the predefined schema that are missing will be added. No columns in
- *  the existing table will be deleted.
- *  If unspecified, then all available columns will be used for a new table or
- *  an (existing) table with no schema, and no changes will be made to an
- *  existing table that has a schema.
- *  Only for use with external storage.
+ *  from the predefined schema that are missing will be added. No columns in the
+ *  existing table will be deleted. If unspecified, then all available columns
+ *  will be used for a new table or an (existing) table with no schema, and no
+ *  changes will be made to an existing table that has a schema. Only for use
+ *  with external storage.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2OutputStorageConfig_OutputSchema_AllColumns
@@ -4732,17 +4677,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *outputSchema;
 
 /**
- *  Store findings in an existing table or a new table in an existing
- *  dataset. If table_id is not set a new one will be generated
- *  for you with the following format:
- *  dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
- *  generating the date details.
- *  For Inspect, each column in an existing output table must have the same
- *  name, type, and mode of a field in the `Finding` object.
- *  For Risk, an existing output table should be the output of a previous
- *  Risk analysis job run on the same source table, with the same privacy
- *  metric and quasi-identifiers. Risk jobs that analyze the same table but
- *  compute a different privacy metric, or use different sets of
+ *  Store findings in an existing table or a new table in an existing dataset.
+ *  If table_id is not set a new one will be generated for you with the
+ *  following format: dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone
+ *  will be used for generating the date details. For Inspect, each column in an
+ *  existing output table must have the same name, type, and mode of a field in
+ *  the `Finding` object. For Risk, an existing output table should be the
+ *  output of a previous Risk analysis job run on the same source table, with
+ *  the same privacy metric and quasi-identifiers. Risk jobs that analyze the
+ *  same table but compute a different privacy metric, or use different sets of
  *  quasi-identifiers, cannot store their results in the same table.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
@@ -4751,11 +4694,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Datastore partition ID.
- *  A partition ID identifies a grouping of entities. The grouping is always
- *  by project and namespace, however the namespace ID may be empty.
- *  A partition ID contains several dimensions:
- *  project ID and namespace ID.
+ *  Datastore partition ID. A partition ID identifies a grouping of entities.
+ *  The grouping is always by project and namespace, however the namespace ID
+ *  may be empty. A partition ID contains several dimensions: project ID and
+ *  namespace ID.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PartitionId : GTLRObject
 
@@ -4769,16 +4711,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A (kind, ID/name) pair used to construct a key path.
- *  If either name or ID is set, the element is complete.
- *  If neither is set, the element is incomplete.
+ *  A (kind, ID/name) pair used to construct a key path. If either name or ID is
+ *  set, the element is complete. If neither is set, the element is incomplete.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PathElement : GTLRObject
 
 /**
- *  The auto-allocated ID of the entity.
- *  Never equal to zero. Values less than zero are discouraged and may not
- *  be supported in the future.
+ *  The auto-allocated ID of the entity. Never equal to zero. Values less than
+ *  zero are discouraged and may not be supported in the future.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  *
@@ -4787,18 +4727,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The kind of the entity.
- *  A kind matching regex `__.*__` is reserved/read-only.
- *  A kind must not contain more than 1500 bytes when UTF-8 encoded.
- *  Cannot be `""`.
+ *  The kind of the entity. A kind matching regex `__.*__` is
+ *  reserved/read-only. A kind must not contain more than 1500 bytes when UTF-8
+ *  encoded. Cannot be `""`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the entity.
- *  A name matching regex `__.*__` is reserved/read-only.
- *  A name must not be more than 1500 bytes when UTF-8 encoded.
- *  Cannot be `""`.
+ *  The name of the entity. A name matching regex `__.*__` is
+ *  reserved/read-only. A name must not be more than 1500 bytes when UTF-8
+ *  encoded. Cannot be `""`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4873,8 +4811,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Message for specifying a window around a finding to apply a detection
- *  rule.
+ *  Message for specifying a window around a finding to apply a detection rule.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Proximity : GTLRObject
 
@@ -4902,26 +4839,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  be deleted. InfoType naming patterns are strictly enforced when using this
  *  feature. Note that the findings will be persisted in Cloud Data Catalog
  *  storage and are governed by Data Catalog service-specific policy, see
- *  https://cloud.google.com/terms/service-terms
- *  Only a single instance of this action can be specified and only allowed if
- *  all resources being scanned are BigQuery tables.
- *  Compatible with: Inspect
+ *  https://cloud.google.com/terms/service-terms Only a single instance of this
+ *  action can be specified and only allowed if all resources being scanned are
+ *  BigQuery tables. Compatible with: Inspect
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog : GTLRObject
 @end
 
 
 /**
- *  Publish the result summary of a DlpJob to the Cloud Security
- *  Command Center (CSCC Alpha).
- *  This action is only available for projects which are parts of
- *  an organization and whitelisted for the alpha Cloud Security Command
- *  Center.
- *  The action will publish count of finding instances and their info types.
- *  The summary of findings will be persisted in CSCC and are governed by CSCC
+ *  Publish the result summary of a DlpJob to the Cloud Security Command Center
+ *  (CSCC Alpha). This action is only available for projects which are parts of
+ *  an organization and whitelisted for the alpha Cloud Security Command Center.
+ *  The action will publish count of finding instances and their info types. The
+ *  summary of findings will be persisted in CSCC and are governed by CSCC
  *  service-specific policy, see https://cloud.google.com/terms/service-terms
- *  Only a single instance of this action can be specified.
- *  Compatible with: Inspect
+ *  Only a single instance of this action can be specified. Compatible with:
+ *  Inspect
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc : GTLRObject
 @end
@@ -4938,9 +4872,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Cloud Pub/Sub topic to send notifications to. The topic must have given
- *  publishing access rights to the DLP API service account executing
- *  the long running DlpJob sending the notifications.
- *  Format is projects/{project}/topics/{topic}.
+ *  publishing access rights to the DLP API service account executing the long
+ *  running DlpJob sending the notifications. Format is
+ *  projects/{project}/topics/{topic}.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -4948,10 +4882,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Enable Stackdriver metric dlp.googleapis.com/finding_count. This
- *  will publish a metric to stack driver on each infotype requested and
- *  how many findings were found for it. CustomDetectors will be bucketed
- *  as 'Custom' under the Stackdriver label 'info_type'.
+ *  Enable Stackdriver metric dlp.googleapis.com/finding_count. This will
+ *  publish a metric to stack driver on each infotype requested and how many
+ *  findings were found for it. CustomDetectors will be bucketed as 'Custom'
+ *  under the Stackdriver label 'info_type'.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishToStackdriver : GTLRObject
 @end
@@ -4964,8 +4898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A column can be tagged with a custom tag. In this case, the user must
- *  indicate an auxiliary table that contains statistical information on
- *  the possible values of this column (below).
+ *  indicate an auxiliary table that contains statistical information on the
+ *  possible values of this column (below).
  */
 @property(nonatomic, copy, nullable) NSString *customTag;
 
@@ -4973,17 +4907,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 /**
- *  If no semantic tag is indicated, we infer the statistical model from
- *  the distribution of values in the input data
+ *  If no semantic tag is indicated, we infer the statistical model from the
+ *  distribution of values in the input data
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleProtobufEmpty *inferred;
 
 /**
- *  A column can be tagged with a InfoType to use the relevant public
- *  dataset as a statistical model of population, if available. We
- *  currently support US ZIP codes, region codes, ages and genders.
- *  To programmatically obtain the list of supported InfoTypes, use
- *  ListInfoTypes with the supported_by=RISK_ANALYSIS filter.
+ *  A column can be tagged with a InfoType to use the relevant public dataset as
+ *  a statistical model of population, if available. We currently support US ZIP
+ *  codes, region codes, ages and genders. To programmatically obtain the list
+ *  of supported InfoTypes, use ListInfoTypes with the
+ *  supported_by=RISK_ANALYSIS filter.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
@@ -4991,15 +4925,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A quasi-identifier column has a custom_tag, used to know which column
- *  in the data corresponds to which column in the statistical model.
+ *  A quasi-identifier column has a custom_tag, used to know which column in the
+ *  data corresponds to which column in the statistical model.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2QuasiIdentifierField : GTLRObject
 
 /**
  *  A column can be tagged with a custom tag. In this case, the user must
- *  indicate an auxiliary table that contains statistical information on
- *  the possible values of this column (below).
+ *  indicate an auxiliary table that contains statistical information on the
+ *  possible values of this column (below).
  */
 @property(nonatomic, copy, nullable) NSString *customTag;
 
@@ -5010,8 +4944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A quasi-identifier column has a custom_tag, used to know which column
- *  in the data corresponds to which column in the statistical model.
+ *  A quasi-identifier column has a custom_tag, used to know which column in the
+ *  data corresponds to which column in the statistical model.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2QuasiIdField : GTLRObject
 
@@ -5058,8 +4992,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  A condition for determining whether a transformation should be applied to
- *  a field.
+ *  A condition for determining whether a transformation should be applied to a
+ *  field.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2RecordCondition : GTLRObject
 
@@ -5078,8 +5012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DatastoreKey *datastoreKey;
 
 /**
- *  Values of identifying columns in the given row. Order of values matches
- *  the order of `identifying_fields` specified in the scanning request.
+ *  Values of identifying columns in the given row. Order of values matches the
+ *  order of `identifying_fields` specified in the scanning request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *idValues;
 
@@ -5158,8 +5092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig *> *imageRedactionConfigs;
 
 /**
- *  Whether the response should include findings along with the redacted
- *  image.
+ *  Whether the response should include findings along with the redacted image.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5206,8 +5139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2Regex : GTLRObject
 
 /**
- *  The index of the submatch to extract as findings. When not
- *  specified, the entire match is returned. No more than 3 may be included.
+ *  The index of the submatch to extract as findings. When not specified, the
+ *  entire match is returned. No more than 3 may be included.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5232,11 +5165,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
 
 /**
- *  Template to use. Any configuration directly specified in
- *  `inspect_config` will override those set in the template. Singular fields
- *  that are set in this request will replace their corresponding fields in the
- *  template. Repeated fields are appended. Singular sub-messages and groups
- *  are recursively merged.
+ *  Template to use. Any configuration directly specified in `inspect_config`
+ *  will override those set in the template. Singular fields that are set in
+ *  this request will replace their corresponding fields in the template.
+ *  Repeated fields are appended. Singular sub-messages and groups are
+ *  recursively merged.
  */
 @property(nonatomic, copy, nullable) NSString *inspectTemplateName;
 
@@ -5247,26 +5180,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Configuration for the re-identification of the content item.
- *  This field shares the same proto message type that is used for
- *  de-identification, however its usage here is for the reversal of the
- *  previous de-identification. Re-identification is performed by examining
- *  the transformations used to de-identify the items and executing the
- *  reverse. This requires that only reversible transformations
- *  be provided here. The reversible transformations are:
- *  - `CryptoDeterministicConfig`
- *  - `CryptoReplaceFfxFpeConfig`
+ *  Configuration for the re-identification of the content item. This field
+ *  shares the same proto message type that is used for de-identification,
+ *  however its usage here is for the reversal of the previous
+ *  de-identification. Re-identification is performed by examining the
+ *  transformations used to de-identify the items and executing the reverse.
+ *  This requires that only reversible transformations be provided here. The
+ *  reversible transformations are: - `CryptoDeterministicConfig` -
+ *  `CryptoReplaceFfxFpeConfig`
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig *reidentifyConfig;
 
 /**
- *  Template to use. References an instance of `DeidentifyTemplate`.
- *  Any configuration directly specified in `reidentify_config` or
- *  `inspect_config` will override those set in the template. The
- *  `DeidentifyTemplate` used must include only reversible transformations.
- *  Singular fields that are set in this request will replace their
- *  corresponding fields in the template. Repeated fields are appended.
- *  Singular sub-messages and groups are recursively merged.
+ *  Template to use. References an instance of `DeidentifyTemplate`. Any
+ *  configuration directly specified in `reidentify_config` or `inspect_config`
+ *  will override those set in the template. The `DeidentifyTemplate` used must
+ *  include only reversible transformations. Singular fields that are set in
+ *  this request will replace their corresponding fields in the template.
+ *  Repeated fields are appended. Singular sub-messages and groups are
+ *  recursively merged.
  */
 @property(nonatomic, copy, nullable) NSString *reidentifyTemplateName;
 
@@ -5314,8 +5246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectJobConfig *jobConfig;
 
 /**
- *  If run with an InspectTemplate, a snapshot of its state at the time of
- *  this run.
+ *  If run with an InspectTemplate, a snapshot of its state at the time of this
+ *  run.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectTemplate *snapshotInspectTemplate;
 
@@ -5328,16 +5260,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2Result : GTLRObject
 
 /**
- *  Statistics related to the processing of hybrid inspect.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
+ *  Statistics related to the processing of hybrid inspect. Early access feature
+ *  is in a pre-release state and might change or have limited support. For more
+ *  information, see https://cloud.google.com/products#product-launch-stages.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics *hybridStats;
 
 /**
- *  Statistics of how many instances of each info type were found during
- *  inspect job.
+ *  Statistics of how many instances of each info type were found during inspect
+ *  job.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoTypeStats *> *infoTypeStats;
 
@@ -5392,8 +5323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  If set, the detailed findings will be persisted to the specified
- *  OutputStorageConfig. Only a single instance of this action can be
- *  specified.
+ *  OutputStorageConfig. Only a single instance of this action can be specified.
  *  Compatible with: Inspect, Risk
  */
 @interface GTLRDLP_GooglePrivacyDlpV2SaveFindings : GTLRObject
@@ -5410,12 +5340,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2Schedule : GTLRObject
 
 /**
- *  With this option a job is started a regular periodic basis. For
- *  example: every day (86400 seconds).
- *  A scheduled start time will be skipped if the previous
- *  execution has not ended when its scheduled time occurs.
- *  This value must be set to a time duration greater than or equal
- *  to 1 day and can be no longer than 60 days.
+ *  With this option a job is started a regular periodic basis. For example:
+ *  every day (86400 seconds). A scheduled start time will be skipped if the
+ *  previous execution has not ended when its scheduled time occurs. This value
+ *  must be set to a time duration greater than or equal to 1 day and can be no
+ *  longer than 60 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *recurrencePeriodDuration;
 
@@ -5426,10 +5355,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  An auxiliary table containing statistical information on the relative
  *  frequency of different quasi-identifiers values. It has one or several
  *  quasi-identifiers columns, and one column that indicates the relative
- *  frequency of each quasi-identifier tuple.
- *  If a tuple is present in the data but not in the auxiliary table, the
- *  corresponding relative frequency is assumed to be zero (and thus, the
- *  tuple is highly reidentifiable).
+ *  frequency of each quasi-identifier tuple. If a tuple is present in the data
+ *  but not in the auxiliary table, the corresponding relative frequency is
+ *  assumed to be zero (and thus, the tuple is highly reidentifiable).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2StatisticalTable : GTLRObject
 
@@ -5463,9 +5391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DatastoreOptions *datastoreOptions;
 
 /**
- *  Hybrid inspection options.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
+ *  Hybrid inspection options. Early access feature is in a pre-release state
+ *  and might change or have limited support. For more information, see
  *  https://cloud.google.com/products#product-launch-stages.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridOptions *hybridOptions;
@@ -5498,8 +5425,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Pending versions of the stored info type. Empty if no versions are
- *  pending.
+ *  Pending versions of the stored info type. Empty if no versions are pending.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion *> *pendingVersions;
 
@@ -5507,8 +5433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Configuration for stored infoTypes. All fields and subfield are provided
- *  by the user. For more information, see
+ *  Configuration for stored infoTypes. All fields and subfield are provided by
+ *  the user. For more information, see
  *  https://cloud.google.com/dlp/docs/creating-custom-infotypes.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig : GTLRObject
@@ -5556,41 +5482,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
 
 /**
- *  Create timestamp of the version. Read-only, determined by the system
- *  when the version is created.
+ *  Create timestamp of the version. Read-only, determined by the system when
+ *  the version is created.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Errors that occurred when creating this storedInfoType version, or
- *  anomalies detected in the storedInfoType data that render it unusable. Only
- *  the five most recent errors will be displayed, with the most recent error
- *  appearing first.
- *  For example, some of the data for stored custom dictionaries is put in
- *  the user's Google Cloud Storage bucket, and if this data is modified or
- *  deleted by the user or another system, the dictionary becomes invalid.
- *  If any errors occur, fix the problem indicated by the error message and
- *  use the UpdateStoredInfoType API method to create another version of the
- *  storedInfoType to continue using it, reusing the same `config` if it was
- *  not the source of the error.
+ *  Errors that occurred when creating this storedInfoType version, or anomalies
+ *  detected in the storedInfoType data that render it unusable. Only the five
+ *  most recent errors will be displayed, with the most recent error appearing
+ *  first. For example, some of the data for stored custom dictionaries is put
+ *  in the user's Google Cloud Storage bucket, and if this data is modified or
+ *  deleted by the user or another system, the dictionary becomes invalid. If
+ *  any errors occur, fix the problem indicated by the error message and use the
+ *  UpdateStoredInfoType API method to create another version of the
+ *  storedInfoType to continue using it, reusing the same `config` if it was not
+ *  the source of the error.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2Error *> *errors;
 
 /**
- *  Stored info type version state. Read-only, updated by the system
- *  during dictionary creation.
+ *  Stored info type version state. Read-only, updated by the system during
+ *  dictionary creation.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Failed
  *        StoredInfoType creation failed. All relevant error messages are
- *        returned in
- *        the `StoredInfoTypeVersion` message. (Value: "FAILED")
+ *        returned in the `StoredInfoTypeVersion` message. (Value: "FAILED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Invalid
  *        StoredInfoType is no longer valid because artifacts stored in
  *        user-controlled storage were modified. To fix an invalid
- *        StoredInfoType,
- *        use the `UpdateStoredInfoType` method to create a new version. (Value:
- *        "INVALID")
+ *        StoredInfoType, use the `UpdateStoredInfoType` method to create a new
+ *        version. (Value: "INVALID")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Pending
  *        StoredInfoType version is being created. (Value: "PENDING")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2StoredInfoTypeVersion_State_Ready
@@ -5654,8 +5577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *count;
 
 /**
- *  A place for warnings or errors to show up if a transformation didn't
- *  work as expected.
+ *  A place for warnings or errors to show up if a transformation didn't work as
+ *  expected.
  */
 @property(nonatomic, copy, nullable) NSString *details;
 
@@ -5663,14 +5586,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Message for detecting output from deidentification transformations
- *  such as
+ *  Message for detecting output from deidentification transformations such as
  *  [`CryptoReplaceFfxFpeConfig`](https://cloud.google.com/dlp/docs/reference/rest/v2/organizations.deidentifyTemplates#cryptoreplaceffxfpeconfig).
- *  These types of transformations are
- *  those that perform pseudonymization, thereby producing a "surrogate" as
- *  output. This should be used in conjunction with a field on the
- *  transformation such as `surrogate_info_type`. This CustomInfoType does
- *  not support the use of `detection_rules`.
+ *  These types of transformations are those that perform pseudonymization,
+ *  thereby producing a "surrogate" as output. This should be used in
+ *  conjunction with a field on the transformation such as
+ *  `surrogate_info_type`. This CustomInfoType does not support the use of
+ *  `detection_rules`.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2SurrogateType : GTLRObject
 @end
@@ -5698,12 +5620,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2TableLocation : GTLRObject
 
 /**
- *  The zero-based index of the row where the finding is located. Only
- *  populated for resources that have a natural ordering, not BigQuery. In
- *  BigQuery, to identify the row a finding came from, populate
+ *  The zero-based index of the row where the finding is located. Only populated
+ *  for resources that have a natural ordering, not BigQuery. In BigQuery, to
+ *  identify the row a finding came from, populate
  *  BigQueryOptions.identifying_fields with your primary key column names and
- *  when you store the findings the value of those columns will be stored
- *  inside of Finding.
+ *  when you store the findings the value of those columns will be stored inside
+ *  of Finding.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5735,8 +5657,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  A column can be tagged with a custom tag. In this case, the user must
- *  indicate an auxiliary table that contains statistical information on
- *  the possible values of this column (below).
+ *  indicate an auxiliary table that contains statistical information on the
+ *  possible values of this column (below).
  */
 @property(nonatomic, copy, nullable) NSString *customTag;
 
@@ -5744,17 +5666,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 /**
- *  If no semantic tag is indicated, we infer the statistical model from
- *  the distribution of values in the input data
+ *  If no semantic tag is indicated, we infer the statistical model from the
+ *  distribution of values in the input data
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GoogleProtobufEmpty *inferred;
 
 /**
- *  A column can be tagged with a InfoType to use the relevant public
- *  dataset as a statistical model of population, if available. We
- *  currently support US ZIP codes, region codes, ages and genders.
- *  To programmatically obtain the list of supported InfoTypes, use
- *  ListInfoTypes with the supported_by=RISK_ANALYSIS filter.
+ *  A column can be tagged with a InfoType to use the relevant public dataset as
+ *  a statistical model of population, if available. We currently support US ZIP
+ *  codes, region codes, ages and genders. To programmatically obtain the list
+ *  of supported InfoTypes, use ListInfoTypes with the
+ *  supported_by=RISK_ANALYSIS filter.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InfoType *infoType;
 
@@ -5799,24 +5721,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Configuration of the timespan of the items to include in scanning.
- *  Currently only supported when inspecting Google Cloud Storage and BigQuery.
+ *  Configuration of the timespan of the items to include in scanning. Currently
+ *  only supported when inspecting Google Cloud Storage and BigQuery.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TimespanConfig : GTLRObject
 
 /**
- *  When the job is started by a JobTrigger we will automatically figure out
- *  a valid start_time to avoid scanning files that have not been modified
- *  since the last time the JobTrigger executed. This will be based on the
- *  time of the execution of the last run of the JobTrigger.
+ *  When the job is started by a JobTrigger we will automatically figure out a
+ *  valid start_time to avoid scanning files that have not been modified since
+ *  the last time the JobTrigger executed. This will be based on the time of the
+ *  execution of the last run of the JobTrigger.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableAutoPopulationOfTimespanConfig;
 
 /**
- *  Exclude files or rows newer than this value.
- *  If set to zero, no upper time limit is applied.
+ *  Exclude files or rows newer than this value. If set to zero, no upper time
+ *  limit is applied.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -5824,18 +5746,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Specification of the field containing the timestamp of scanned items.
- *  Used for data sources like Datastore and BigQuery.
- *  For BigQuery:
- *  Required to filter out rows based on the given start and
- *  end times. If not specified and the table was modified between the given
- *  start and end times, the entire table will be scanned.
- *  The valid data types of the timestamp field are: `INTEGER`, `DATE`,
- *  `TIMESTAMP`, or `DATETIME` BigQuery column.
- *  For Datastore.
- *  Valid data types of the timestamp field are: `TIMESTAMP`.
- *  Datastore entity will be scanned if the timestamp property does not
- *  exist or its value is empty or invalid.
+ *  Specification of the field containing the timestamp of scanned items. Used
+ *  for data sources like Datastore and BigQuery. For BigQuery: Required to
+ *  filter out rows based on the given start and end times. If not specified and
+ *  the table was modified between the given start and end times, the entire
+ *  table will be scanned. The valid data types of the timestamp field are:
+ *  `INTEGER`, `DATE`, `TIMESTAMP`, or `DATETIME` BigQuery column. For
+ *  Datastore. Valid data types of the timestamp field are: `TIMESTAMP`.
+ *  Datastore entity will be scanned if the timestamp property does not exist or
+ *  its value is empty or invalid.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *timestampField;
 
@@ -5861,14 +5780,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  How to handle transformation errors during de-identification. A
  *  transformation error occurs when the requested transformation is
- *  incompatible
- *  with the data. For example, trying to de-identify an IP address using a
- *  `DateShift` transformation would result in a transformation error, since
- *  date
- *  info cannot be extracted from an IP address.
- *  Information about any incompatible transformations, and how they were
- *  handled, is returned in the response as part of the
- *  `TransformationOverviews`.
+ *  incompatible with the data. For example, trying to de-identify an IP address
+ *  using a `DateShift` transformation would result in a transformation error,
+ *  since date info cannot be extracted from an IP address. Information about
+ *  any incompatible transformations, and how they were handled, is returned in
+ *  the response as part of the `TransformationOverviews`.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TransformationErrorHandling : GTLRObject
 
@@ -5900,9 +5816,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Summary of a single transformation.
- *  Only one of 'transformation', 'field_transformation', or 'record_suppress'
- *  will be set.
+ *  Summary of a single transformation. Only one of 'transformation',
+ *  'field_transformation', or 'record_suppress' will be set.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TransformationSummary : GTLRObject
 
@@ -5910,9 +5825,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *field;
 
 /**
- *  The field transformation that was applied.
- *  If multiple field transformations are requested for a single field,
- *  this list will contain all of them; otherwise, only one is supplied.
+ *  The field transformation that was applied. If multiple field transformations
+ *  are requested for a single field, this list will contain all of them;
+ *  otherwise, only one is supplied.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldTransformation *> *fieldTransformations;
 
@@ -5939,18 +5854,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Use this to have a random data crypto key generated.
- *  It will be discarded after the request finishes.
+ *  Use this to have a random data crypto key generated. It will be discarded
+ *  after the request finishes.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2TransientCryptoKey : GTLRObject
 
 /**
- *  Required. Name of the key.
- *  This is an arbitrary string used to differentiate different keys.
- *  A unique key is generated per name: two separate `TransientCryptoKey`
- *  protos share the same generated key if their names are the same.
- *  When the data crypto key is generated, this name is not used in any way
- *  (repeating the api call will result in a different key being generated).
+ *  Required. Name of the key. This is an arbitrary string used to differentiate
+ *  different keys. A unique key is generated per name: two separate
+ *  `TransientCryptoKey` protos share the same generated key if their names are
+ *  the same. When the data crypto key is generated, this name is not used in
+ *  any way (repeating the api call will result in a different key being
+ *  generated).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5963,9 +5878,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2Trigger : GTLRObject
 
 /**
- *  For use with hybrid jobs. Jobs must be manually created and finished.
- *  Early access feature is in a pre-release state and might change or have
- *  limited support. For more information, see
+ *  For use with hybrid jobs. Jobs must be manually created and finished. Early
+ *  access feature is in a pre-release state and might change or have limited
+ *  support. For more information, see
  *  https://cloud.google.com/products#product-launch-stages.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Manual *manual;
@@ -5977,8 +5892,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Using raw keys is prone to security risks due to accidentally
- *  leaking the key. Choose another type of key if possible.
+ *  Using raw keys is prone to security risks due to accidentally leaking the
+ *  key. Choose another type of key if possible.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2UnwrappedCryptoKey : GTLRObject
 
@@ -6053,9 +5968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2UpdateStoredInfoTypeRequest : GTLRObject
 
 /**
- *  Updated configuration for the storedInfoType. If not provided, a new
- *  version of the storedInfoType will be created with the existing
- *  configuration.
+ *  Updated configuration for the storedInfoType. If not provided, a new version
+ *  of the storedInfoType will be created with the existing configuration.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredInfoTypeConfig *config;
 
@@ -6070,12 +5984,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Set of primitive values supported by the system.
- *  Note that for the purposes of inspection or transformation, the number
- *  of bytes considered to comprise a 'Value' is based on its representation
- *  as a UTF-8 encoded string. For example, if 'integer_value' is set to
- *  123456789, the number of bytes would be counted as 9, even though an
- *  int64 only holds up to 8 bytes of data.
+ *  Set of primitive values supported by the system. Note that for the purposes
+ *  of inspection or transformation, the number of bytes considered to comprise
+ *  a 'Value' is based on its representation as a UTF-8 encoded string. For
+ *  example, if 'integer_value' is set to 123456789, the number of bytes would
+ *  be counted as 9, even though an int64 only holds up to 8 bytes of data.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Value : GTLRObject
 
@@ -6162,9 +6075,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2WordList : GTLRObject
 
 /**
- *  Words or phrases defining the dictionary. The dictionary must contain
- *  at least one phrase and every phrase must contain at least 2 characters
- *  that are letters or digits. [required]
+ *  Words or phrases defining the dictionary. The dictionary must contain at
+ *  least one phrase and every phrase must contain at least 2 characters that
+ *  are letters or digits. [required]
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *words;
 
@@ -6174,11 +6087,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRDLP_GoogleProtobufEmpty : GTLRObject
 @end
@@ -6188,9 +6099,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRDLP_GoogleRpcStatus : GTLRObject
 
@@ -6231,22 +6142,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day
- *  and time zone are either specified elsewhere or are not significant. The
- *  date
- *  is relative to the Proleptic Gregorian Calendar. This can represent:
- *  * A full date, with non-zero year, month and day values
- *  * A month and day value, with a zero year, e.g. an anniversary
- *  * A year on its own, with zero month and day values
- *  * A year and month value, with a zero day, e.g. a credit card expiration
- *  date
- *  Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  day and time zone are either specified elsewhere or are not significant. The
+ *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
+ *  A full date, with non-zero year, month and day values * A month and day
+ *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
+ *  month and day values * A year and month value, with a zero day, e.g. a
+ *  credit card expiration date Related types are google.type.TimeOfDay and
+ *  `google.protobuf.Timestamp`.
  */
 @interface GTLRDLP_GoogleTypeDate : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year by itself or a year and month where the day is not
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
+ *  specifying a year by itself or a year and month where the day is not
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -6262,8 +6170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
- *  a year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  year.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6280,8 +6188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GoogleTypeTimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
- *  to allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
+ *  allow the value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */

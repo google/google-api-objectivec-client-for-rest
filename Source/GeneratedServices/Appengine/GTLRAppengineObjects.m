@@ -982,7 +982,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Resources
-@dynamic cpu, diskGb, memoryGb, volumes;
+@dynamic cpu, diskGb, kmsKeyReference, memoryGb, volumes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1148,14 +1148,15 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Version
-@dynamic apiConfig, automaticScaling, basicScaling, betaSettings, createdBy,
-         createTime, defaultExpiration, deployment, diskUsageBytes,
-         endpointsApiService, entrypoint, env, envVariables, errorHandlers,
-         handlers, healthCheck, identifier, inboundServices, instanceClass,
-         libraries, livenessCheck, manualScaling, name, network,
-         nobuildFilesRegex, readinessCheck, resources, runtime,
-         runtimeApiVersion, runtimeChannel, runtimeMainExecutablePath,
-         servingStatus, threadsafe, versionUrl, vm, vpcAccessConnector, zones;
+@dynamic apiConfig, automaticScaling, basicScaling, betaSettings,
+         buildEnvVariables, createdBy, createTime, defaultExpiration,
+         deployment, diskUsageBytes, endpointsApiService, entrypoint, env,
+         envVariables, errorHandlers, handlers, healthCheck, identifier,
+         inboundServices, instanceClass, libraries, livenessCheck,
+         manualScaling, name, network, nobuildFilesRegex, readinessCheck,
+         resources, runtime, runtimeApiVersion, runtimeChannel,
+         runtimeMainExecutablePath, servingStatus, threadsafe, versionUrl, vm,
+         vpcAccessConnector, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1181,6 +1182,20 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Version_BetaSettings
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppengine_Version_BuildEnvVariables
+//
+
+@implementation GTLRAppengine_Version_BuildEnvVariables
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

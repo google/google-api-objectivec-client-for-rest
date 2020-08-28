@@ -48,8 +48,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Finds named entities (currently proper names and common nouns) in the text
- *  along with entity types, salience, mentions for each entity, and
- *  other properties.
+ *  along with entity types, salience, mentions for each entity, and other
+ *  properties.
  *
  *  Method: language.documents.analyzeEntities
  *
@@ -65,8 +65,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeEntitiesResponse.
  *
  *  Finds named entities (currently proper names and common nouns) in the text
- *  along with entity types, salience, mentions for each entity, and
- *  other properties.
+ *  along with entity types, salience, mentions for each entity, and other
+ *  properties.
  *
  *  @param object The @c GTLRCloudNaturalLanguage_AnalyzeEntitiesRequest to
  *    include in the query.

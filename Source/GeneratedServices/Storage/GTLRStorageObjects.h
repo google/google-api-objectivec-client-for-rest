@@ -553,8 +553,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *createdBefore;
 
 /**
- *  A timestamp in RFC 3339 format. This condition is satisfied when the custom
- *  time on an object is before this timestamp.
+ *  A date in RFC 3339 format with only the date part (for instance,
+ *  "2013-01-15"). This condition is satisfied when the custom time on an object
+ *  is before this date in UTC.
+ *
+ *  Date only (yyyy-mm-dd).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *customTimeBefore;
 
@@ -604,9 +607,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *matchesStorageClass;
 
 /**
- *  A timestamp in RFC 3339 format. This condition is satisfied when the
- *  noncurrent time on an object is before this timestamp. This condition is
- *  relevant only for versioned objects.
+ *  A date in RFC 3339 format with only the date part (for instance,
+ *  "2013-01-15"). This condition is satisfied when the noncurrent time on an
+ *  object is before this date in UTC. This condition is relevant only for
+ *  versioned objects.
+ *
+ *  Date only (yyyy-mm-dd).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *noncurrentTimeBefore;
 

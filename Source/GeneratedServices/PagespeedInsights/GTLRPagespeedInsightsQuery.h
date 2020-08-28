@@ -36,27 +36,67 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // category
 
-/** Value: "ACCESSIBILITY" */
+/**
+ *  Accessibility (a11y), category pertaining to a website's capacity to be
+ *  accessible to all users.
+ *
+ *  Value: "ACCESSIBILITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryAccessibility;
-/** Value: "BEST_PRACTICES" */
+/**
+ *  Best Practices, category pertaining to a website's conformance to web best
+ *  practice.
+ *
+ *  Value: "BEST_PRACTICES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryBestPractices;
-/** Value: "CATEGORY_UNSPECIFIED" */
+/**
+ *  Default UNDEFINED category.
+ *
+ *  Value: "CATEGORY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryCategoryUnspecified;
-/** Value: "PERFORMANCE" */
+/**
+ *  Performance, category pertaining to a website's performance.
+ *
+ *  Value: "PERFORMANCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPerformance;
-/** Value: "PWA" */
+/**
+ *  Progressive Web App (PWA), category pertaining to a website's ability to be
+ *  run as a PWA.
+ *
+ *  Value: "PWA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategoryPwa;
-/** Value: "SEO" */
+/**
+ *  Search Engine Optimization (SEO), category pertaining to a website's ability
+ *  to be indexed by search engines.
+ *
+ *  Value: "SEO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsCategorySeo;
 
 // ----------------------------------------------------------------------------
 // strategy
 
-/** Value: "DESKTOP" */
+/**
+ *  Fetch and analyze the URL for desktop browsers.
+ *
+ *  Value: "DESKTOP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyDesktop;
-/** Value: "MOBILE" */
+/**
+ *  Fetch and analyze the URL for mobile devices.
+ *
+ *  Value: "MOBILE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyMobile;
-/** Value: "STRATEGY_UNSPECIFIED" */
+/**
+ *  UNDEFINED.
+ *
+ *  Value: "STRATEGY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -95,13 +135,22 @@ FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspeci
  *  will be run
  *
  *  Likely values:
- *    @arg @c kGTLRPagespeedInsightsCategoryCategoryUnspecified Value
- *        "CATEGORY_UNSPECIFIED"
- *    @arg @c kGTLRPagespeedInsightsCategoryAccessibility Value "ACCESSIBILITY"
- *    @arg @c kGTLRPagespeedInsightsCategoryBestPractices Value "BEST_PRACTICES"
- *    @arg @c kGTLRPagespeedInsightsCategoryPerformance Value "PERFORMANCE"
- *    @arg @c kGTLRPagespeedInsightsCategoryPwa Value "PWA"
- *    @arg @c kGTLRPagespeedInsightsCategorySeo Value "SEO"
+ *    @arg @c kGTLRPagespeedInsightsCategoryCategoryUnspecified Default
+ *        UNDEFINED category. (Value: "CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRPagespeedInsightsCategoryAccessibility Accessibility (a11y),
+ *        category pertaining to a website's capacity to be accessible to all
+ *        users. (Value: "ACCESSIBILITY")
+ *    @arg @c kGTLRPagespeedInsightsCategoryBestPractices Best Practices,
+ *        category pertaining to a website's conformance to web best practice.
+ *        (Value: "BEST_PRACTICES")
+ *    @arg @c kGTLRPagespeedInsightsCategoryPerformance Performance, category
+ *        pertaining to a website's performance. (Value: "PERFORMANCE")
+ *    @arg @c kGTLRPagespeedInsightsCategoryPwa Progressive Web App (PWA),
+ *        category pertaining to a website's ability to be run as a PWA. (Value:
+ *        "PWA")
+ *    @arg @c kGTLRPagespeedInsightsCategorySeo Search Engine Optimization
+ *        (SEO), category pertaining to a website's ability to be indexed by
+ *        search engines. (Value: "SEO")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *category;
 
@@ -109,18 +158,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspeci
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
- *  The analysis strategy (desktop or mobile) to use, and desktop is the
- *  default
+ *  The analysis strategy (desktop or mobile) to use, and desktop is the default
  *
  *  Likely values:
- *    @arg @c kGTLRPagespeedInsightsStrategyStrategyUnspecified Value
- *        "STRATEGY_UNSPECIFIED"
- *    @arg @c kGTLRPagespeedInsightsStrategyDesktop Value "DESKTOP"
- *    @arg @c kGTLRPagespeedInsightsStrategyMobile Value "MOBILE"
+ *    @arg @c kGTLRPagespeedInsightsStrategyStrategyUnspecified UNDEFINED.
+ *        (Value: "STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRPagespeedInsightsStrategyDesktop Fetch and analyze the URL
+ *        for desktop browsers. (Value: "DESKTOP")
+ *    @arg @c kGTLRPagespeedInsightsStrategyMobile Fetch and analyze the URL for
+ *        mobile devices. (Value: "MOBILE")
  */
 @property(nonatomic, copy, nullable) NSString *strategy;
 
-/** The URL to fetch and analyze */
+/** Required. The URL to fetch and analyze */
 @property(nonatomic, copy, nullable) NSString *url;
 
 /** Campaign name for analytics. */

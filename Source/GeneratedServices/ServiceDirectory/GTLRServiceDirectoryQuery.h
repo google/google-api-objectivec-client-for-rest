@@ -129,18 +129,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The Resource ID must be 1-63 characters long, and comply with
- *  <a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC1035</a>.
- *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first
- *  character must be a lowercase letter, and all following characters must
- *  be a dash, lowercase letter, or digit, except the last character, which
- *  cannot be a dash.
+ *  RFC1035. Specifically, the name must be 1-63 characters long and match the
+ *  regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first
+ *  character must be a lowercase letter, and all following characters must be a
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
  */
 @property(nonatomic, copy, nullable) NSString *namespaceId;
 
 /**
- *  Required. The resource name of the project and location the namespace
- *  will be created in.
+ *  Required. The resource name of the project and location the namespace will
+ *  be created in.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -151,8 +150,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceDirectory_Namespace to include in the query.
  *  @param parent Required. The resource name of the project and location the
- *    namespace
- *    will be created in.
+ *    namespace will be created in.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesCreate
  */
@@ -162,8 +160,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a namespace. This also deletes all services and endpoints in
- *  the namespace.
+ *  Deletes a namespace. This also deletes all services and endpoints in the
+ *  namespace.
  *
  *  Method: servicedirectory.projects.locations.namespaces.delete
  *
@@ -180,8 +178,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_Empty.
  *
- *  Deletes a namespace. This also deletes all services and endpoints in
- *  the namespace.
+ *  Deletes a namespace. This also deletes all services and endpoints in the
+ *  namespace.
  *
  *  @param name Required. The name of the namespace to delete.
  *
@@ -232,8 +230,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -245,8 +243,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceDirectory_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesGetIamPolicy
  */
@@ -268,39 +266,29 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesListWithparent:]
 
 /**
- *  Optional. The filter to list result by.
- *  General filter string syntax:
- *  <field> <operator> <value> (<logical connector>)
- *  <field> can be "name", or "labels.<key>" for map field.
- *  <operator> can be "<, >, <=, >=, !=, =, :". Of which ":" means HAS, and
- *  is roughly the same as "=".
- *  <value> must be the same data type as field.
- *  <logical connector> can be "AND, OR, NOT".
- *  Examples of valid filters:
- *  * "labels.owner" returns Namespaces that have a label with the key "owner"
- *  this is the same as "labels:owner".
- *  * "labels.protocol=gRPC" returns Namespaces that have key/value
- *  "protocol=gRPC".
- *  * "name>projects/my-project/locations/us-east/namespaces/namespace-c"
- *  returns Namespaces that have name that is alphabetically later than the
- *  string, so "namespace-e" will be returned but "namespace-a" will not be.
- *  * "labels.owner!=sd AND labels.foo=bar" returns Namespaces that have
- *  "owner" in label key but value is not "sd" AND have key/value foo=bar.
- *  * "doesnotexist.foo=bar" returns an empty list. Note that Namespace doesn't
+ *  Optional. The filter to list result by. General filter string syntax: () can
+ *  be "name", or "labels." for map field. can be "<, >, <=, >=, !=, =, :". Of
+ *  which ":" means HAS, and is roughly the same as "=". must be the same data
+ *  type as field. can be "AND, OR, NOT". Examples of valid filters: *
+ *  "labels.owner" returns Namespaces that have a label with the key "owner"
+ *  this is the same as "labels:owner". * "labels.protocol=gRPC" returns
+ *  Namespaces that have key/value "protocol=gRPC". *
+ *  "name>projects/my-project/locations/us-east/namespaces/namespace-c" returns
+ *  Namespaces that have name that is alphabetically later than the string, so
+ *  "namespace-e" will be returned but "namespace-a" will not be. *
+ *  "labels.owner!=sd AND labels.foo=bar" returns Namespaces that have "owner"
+ *  in label key but value is not "sd" AND have key/value foo=bar. *
+ *  "doesnotexist.foo=bar" returns an empty list. Note that Namespace doesn't
  *  have a field called "doesnotexist". Since the filter does not match any
  *  Namespaces, it returns no results.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The order to list result by.
- *  General order by string syntax:
- *  <field> (<asc|desc>) (,)
- *  <field> allows values {"name"}
- *  <asc/desc> ascending or descending order by <field>. If this is left
- *  blank, "asc" is used.
- *  Note that an empty order_by string result in default order, which is order
- *  by name in ascending order.
+ *  Optional. The order to list result by. General order by string syntax: ()
+ *  (,) allows values {"name"} ascending or descending order by . If this is
+ *  left blank, "asc" is used. Note that an empty order_by string result in
+ *  default order, which is order by name in ascending order.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -315,8 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the project and location whose namespaces
- *  we'd like to
- *  list.
+ *  we'd like to list.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -326,8 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all namespaces.
  *
  *  @param parent Required. The resource name of the project and location whose
- *    namespaces we'd like to
- *    list.
+ *    namespaces we'd like to list.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesList
  *
@@ -352,8 +338,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesPatchWithObject:name:]
 
 /**
- *  Immutable. The resource name for the namespace in the format
- *  'projects/ * /locations/ * /namespaces/ *'.
+ *  Immutable. The resource name for the namespace in the format 'projects/ *
+ *  /locations/ * /namespaces/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -399,12 +385,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The Resource ID must be 1-63 characters long, and comply with
- *  <a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC1035</a>.
- *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first
- *  character must be a lowercase letter, and all following characters must
- *  be a dash, lowercase letter, or digit, except the last character, which
- *  cannot be a dash.
+ *  RFC1035. Specifically, the name must be 1-63 characters long and match the
+ *  regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first
+ *  character must be a lowercase letter, and all following characters must be a
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
@@ -425,8 +410,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a service. This also deletes all endpoints associated with
- *  the service.
+ *  Deletes a service. This also deletes all endpoints associated with the
+ *  service.
  *
  *  Method: servicedirectory.projects.locations.namespaces.services.delete
  *
@@ -443,8 +428,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_Empty.
  *
- *  Deletes a service. This also deletes all endpoints associated with
- *  the service.
+ *  Deletes a service. This also deletes all endpoints associated with the
+ *  service.
  *
  *  @param name Required. The name of the service to delete.
  *
@@ -468,12 +453,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The Resource ID must be 1-63 characters long, and comply with
- *  <a href="https://www.ietf.org/rfc/rfc1035.txt" target="_blank">RFC1035</a>.
- *  Specifically, the name must be 1-63 characters long and match the regular
- *  expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first
- *  character must be a lowercase letter, and all following characters must
- *  be a dash, lowercase letter, or digit, except the last character, which
- *  cannot be a dash.
+ *  RFC1035. Specifically, the name must be 1-63 characters long and match the
+ *  regular expression `[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?` which means the first
+ *  character must be a lowercase letter, and all following characters must be a
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
  */
 @property(nonatomic, copy, nullable) NSString *endpointId;
 
@@ -565,28 +549,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsListWithparent:]
 
 /**
- *  Optional. The filter to list result by.
- *  General filter string syntax:
- *  <field> <operator> <value> (<logical connector>)
- *  <field> can be "name", "address", "port" or "metadata.<key>" for map field.
- *  <operator> can be "<, >, <=, >=, !=, =, :". Of which ":" means HAS, and
- *  is roughly the same as "=".
- *  <value> must be the same data type as field.
- *  <logical connector> can be "AND, OR, NOT".
- *  Examples of valid filters:
- *  * "metadata.owner" returns Endpoints that have a label with the key "owner"
- *  this is the same as "metadata:owner".
- *  * "metadata.protocol=gRPC" returns Endpoints that have key/value
- *  "protocol=gRPC".
- *  * "address=192.108.1.105" returns Endpoints that have this address.
- *  * "port>8080" returns Endpoints that have port number larger than 8080.
- *  *
+ *  Optional. The filter to list result by. General filter string syntax: () can
+ *  be "name", "address", "port" or "metadata." for map field. can be "<, >, <=,
+ *  >=, !=, =, :". Of which ":" means HAS, and is roughly the same as "=". must
+ *  be the same data type as field. can be "AND, OR, NOT". Examples of valid
+ *  filters: * "metadata.owner" returns Endpoints that have a label with the key
+ *  "owner" this is the same as "metadata:owner". * "metadata.protocol=gRPC"
+ *  returns Endpoints that have key/value "protocol=gRPC". *
+ *  "address=192.108.1.105" returns Endpoints that have this address. *
+ *  "port>8080" returns Endpoints that have port number larger than 8080. *
  *  "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/my-service/endpoints/endpoint-c"
  *  returns Endpoints that have name that is alphabetically later than the
- *  string, so "endpoint-e" will be returned but "endpoint-a" will not be.
- *  * "metadata.owner!=sd AND metadata.foo=bar" returns Endpoints that have
- *  "owner" in label key but value is not "sd" AND have key/value foo=bar.
- *  * "doesnotexist.foo=bar" returns an empty list. Note that Endpoint doesn't
+ *  string, so "endpoint-e" will be returned but "endpoint-a" will not be. *
+ *  "metadata.owner!=sd AND metadata.foo=bar" returns Endpoints that have
+ *  "owner" in label key but value is not "sd" AND have key/value foo=bar. *
+ *  "doesnotexist.foo=bar" returns an empty list. Note that Endpoint doesn't
  *  have a field called "doesnotexist". Since the filter does not match any
  *  Endpoints, it returns no results.
  */
@@ -616,8 +593,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all endpoints.
  *
  *  @param parent Required. The resource name of the service whose endpoints
- *    we'd like to
- *    list.
+ *    we'd like to list.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsList
  *
@@ -642,8 +618,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsPatchWithObject:name:]
 
 /**
- *  Immutable. The resource name for the endpoint in the format
- *  'projects/ * /locations/ * /namespaces/ * /services/ * /endpoints/ *'.
+ *  Immutable. The resource name for the endpoint in the format 'projects/ *
+ *  /locations/ * /namespaces/ * /services/ * /endpoints/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -711,8 +687,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -724,8 +700,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceDirectory_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesGetIamPolicy
  */
@@ -747,28 +723,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesListWithparent:]
 
 /**
- *  Optional. The filter to list result by.
- *  General filter string syntax:
- *  <field> <operator> <value> (<logical connector>)
- *  <field> can be "name", or "metadata.<key>" for map field.
- *  <operator> can be "<, >, <=, >=, !=, =, :". Of which ":" means HAS, and
- *  is roughly the same as "=".
- *  <value> must be the same data type as field.
- *  <logical connector> can be "AND, OR, NOT".
- *  Examples of valid filters:
- *  * "metadata.owner" returns Services that have a label with the key "owner"
- *  this is the same as "metadata:owner".
- *  * "metadata.protocol=gRPC" returns Services that have key/value
- *  "protocol=gRPC".
- *  *
+ *  Optional. The filter to list result by. General filter string syntax: () can
+ *  be "name", or "metadata." for map field. can be "<, >, <=, >=, !=, =, :". Of
+ *  which ":" means HAS, and is roughly the same as "=". must be the same data
+ *  type as field. can be "AND, OR, NOT". Examples of valid filters: *
+ *  "metadata.owner" returns Services that have a label with the key "owner"
+ *  this is the same as "metadata:owner". * "metadata.protocol=gRPC" returns
+ *  Services that have key/value "protocol=gRPC". *
  *  "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/service-c"
  *  returns Services that have name that is alphabetically later than the
- *  string, so "service-e" will be returned but "service-a" will not be.
- *  * "metadata.owner!=sd AND metadata.foo=bar" returns Services that have
- *  "owner" in label key but value is not "sd" AND have key/value foo=bar.
- *  * "doesnotexist.foo=bar" returns an empty list. Note that Service doesn't
- *  have a field called "doesnotexist". Since the filter does not match any
- *  Services, it returns no results.
+ *  string, so "service-e" will be returned but "service-a" will not be. *
+ *  "metadata.owner!=sd AND metadata.foo=bar" returns Services that have "owner"
+ *  in label key but value is not "sd" AND have key/value foo=bar. *
+ *  "doesnotexist.foo=bar" returns an empty list. Note that Service doesn't have
+ *  a field called "doesnotexist". Since the filter does not match any Services,
+ *  it returns no results.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -785,8 +754,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the namespace whose services we'd
- *  like to list.
+ *  Required. The resource name of the namespace whose services we'd like to
+ *  list.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -796,8 +765,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all services belonging to a namespace.
  *
  *  @param parent Required. The resource name of the namespace whose services
- *    we'd
- *    like to list.
+ *    we'd like to list.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesList
  *
@@ -822,8 +790,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesPatchWithObject:name:]
 
 /**
- *  Immutable. The resource name for the service in the format
- *  'projects/ * /locations/ * /namespaces/ * /services/ *'.
+ *  Immutable. The resource name for the service in the format 'projects/ *
+ *  /locations/ * /namespaces/ * /services/ *'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -851,9 +819,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns a service and its
- *  associated endpoints.
- *  Resolving a service is not considered an active developer method.
+ *  Returns a service and its associated endpoints. Resolving a service is not
+ *  considered an active developer method.
  *
  *  Method: servicedirectory.projects.locations.namespaces.services.resolve
  *
@@ -870,9 +837,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_ResolveServiceResponse.
  *
- *  Returns a service and its
- *  associated endpoints.
- *  Resolving a service is not considered an active developer method.
+ *  Returns a service and its associated endpoints. Resolving a service is not
+ *  considered an active developer method.
  *
  *  @param object The @c GTLRServiceDirectory_ResolveServiceRequest to include
  *    in the query.
@@ -898,8 +864,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -911,8 +877,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceDirectory_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesSetIamPolicy
  */
@@ -934,8 +900,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -947,8 +913,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceDirectory_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesTestIamPermissions
  */
@@ -970,8 +936,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -983,8 +949,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceDirectory_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesSetIamPolicy
  */
@@ -1006,8 +972,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1019,8 +985,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceDirectory_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesTestIamPermissions
  */

@@ -5,8 +5,7 @@
 //   Web Fonts Developer API (webfonts/v1)
 // Description:
 //   The Google Web Fonts Developer API lets you retrieve information about web
-//   fonts served
-//   by Google.
+//   fonts served by Google.
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 
@@ -81,8 +80,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Response containing the list of fonts currently served by the
- *  Google Fonts API.
+ *  Response containing the list of fonts currently served by the Google Fonts
+ *  API.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.

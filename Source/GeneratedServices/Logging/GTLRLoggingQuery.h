@@ -29,6 +29,7 @@
 @class GTLRLogging_LogExclusion;
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogSink;
+@class GTLRLogging_UndeleteBucketRequest;
 @class GTLRLogging_WriteLogEntriesRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -68,8 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -83,8 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsBucketsGet
@@ -110,11 +109,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource in which to create the exclusion:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *  "projects/my-logging-project", "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -127,12 +124,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
- *    exclusion:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_BillingAccountsExclusionsCreate
  */
@@ -159,8 +153,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -173,8 +167,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsExclusionsDelete
  */
@@ -202,8 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -216,8 +210,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsExclusionsGet
  */
@@ -257,10 +251,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose exclusions are to be listed.
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -270,11 +262,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all the exclusions in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
- *    listed.
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_BillingAccountsExclusionsList
  *
@@ -304,8 +293,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -331,13 +320,104 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsExclusionsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsCreateWithObject:parent:]
+
+/**
+ *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
+ *  limited to 100 characters and can include only letters, digits, underscores,
+ *  hyphens, and periods.
+ */
+@property(nonatomic, copy, nullable) NSString *bucketId;
+
+/**
+ *  Required. The resource in which to create the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *  "projects/my-logging-project/locations/global"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param parent Required. The resource in which to create the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *    "projects/my-logging-project/locations/global"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the bucket to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  @param name Required. The full resource name of the bucket to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -376,9 +456,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *  Note: The locations portion of the resource must be specified, but supplying
- *  the character - in place of LOCATION_ID will return all buckets.
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of
+ *  the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all buckets.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -391,9 +471,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *    Note: The locations portion of the resource must be specified, but
- *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion
+ *    of the resource must be specified, but supplying the character - in place
+ *    of LOCATION_ID will return all buckets.
  *
  *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsList
  *
@@ -428,8 +508,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *  requires permission "resourcemanager.projects.updateLiens" to set the locked
  *  property
@@ -463,8 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *    requires permission "resourcemanager.projects.updateLiens" to set the
  *    locked property
@@ -472,6 +550,52 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsUndelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsUndeleteWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to undelete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  @param object The @c GTLRLogging_UndeleteBucketRequest to include in the
+ *    query.
+ *  @param name Required. The full resource name of the bucket to undelete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -497,9 +621,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  [LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog",
+ *  "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *  example, "projects/my-project-id/logs/syslog",
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *  For more information about log names, see LogEntry.
  */
@@ -517,9 +640,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *    "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *    [LOG_ID] must be URL-encoded. For example,
- *    "projects/my-project-id/logs/syslog",
+ *    "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *    example, "projects/my-project-id/logs/syslog",
  *    "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *    For more information about log names, see LogEntry.
  *
@@ -561,10 +683,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  Required. The resource name that owns the logs: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -576,10 +696,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Only logs that have entries are listed.
  *
  *  @param parent Required. The resource name that owns the logs:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_BillingAccountsLogsList
  */
@@ -604,12 +722,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForBillingAccountsSinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource in which to create the sink:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]" Examples: "projects/my-logging-project",
+ *  "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -636,11 +752,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_BillingAccountsSinksCreate
  */
@@ -665,12 +779,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -685,8 +798,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsSinksDelete
  */
@@ -714,8 +827,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -728,8 +841,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsSinksGet
  */
@@ -769,10 +882,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose sinks are to be listed:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -782,10 +893,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists sinks.
  *
  *  @param parent Required. The parent resource whose sinks are to be listed:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_BillingAccountsSinksList
  *
@@ -814,25 +923,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -864,8 +971,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsSinksPatch
  */
@@ -891,25 +998,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -941,8 +1046,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsSinksUpdate
  */
@@ -1037,11 +1142,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource in which to create the exclusion:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *  "projects/my-logging-project", "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1054,12 +1157,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
- *    exclusion:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_ExclusionsCreate
  */
@@ -1086,8 +1186,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1100,8 +1200,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_ExclusionsDelete
  */
@@ -1129,8 +1229,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1143,8 +1243,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_ExclusionsGet
  */
@@ -1184,10 +1284,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose exclusions are to be listed.
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1197,11 +1295,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all the exclusions in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
- *    listed.
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_ExclusionsList
  *
@@ -1231,8 +1326,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1258,8 +1353,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_ExclusionsPatch
  */
@@ -1285,11 +1380,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource in which to create the exclusion:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *  "projects/my-logging-project", "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1302,12 +1395,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
- *    exclusion:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_FoldersExclusionsCreate
  */
@@ -1334,8 +1424,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1348,8 +1438,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_FoldersExclusionsDelete
  */
@@ -1377,8 +1467,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1391,8 +1481,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_FoldersExclusionsGet
  */
@@ -1432,10 +1522,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose exclusions are to be listed.
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1445,11 +1533,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all the exclusions in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
- *    listed.
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_FoldersExclusionsList
  *
@@ -1479,8 +1564,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1506,13 +1591,104 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_FoldersExclusionsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  Method: logging.folders.locations.buckets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsCreateWithObject:parent:]
+
+/**
+ *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
+ *  limited to 100 characters and can include only letters, digits, underscores,
+ *  hyphens, and periods.
+ */
+@property(nonatomic, copy, nullable) NSString *bucketId;
+
+/**
+ *  Required. The resource in which to create the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *  "projects/my-logging-project/locations/global"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param parent Required. The resource in which to create the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *    "projects/my-logging-project/locations/global"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  Method: logging.folders.locations.buckets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the bucket to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  @param name Required. The full resource name of the bucket to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -1536,8 +1712,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1551,8 +1726,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  *
  *  @return GTLRLoggingQuery_FoldersLocationsBucketsGet
@@ -1596,9 +1770,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *  Note: The locations portion of the resource must be specified, but supplying
- *  the character - in place of LOCATION_ID will return all buckets.
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of
+ *  the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all buckets.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1611,9 +1785,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *    Note: The locations portion of the resource must be specified, but
- *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion
+ *    of the resource must be specified, but supplying the character - in place
+ *    of LOCATION_ID will return all buckets.
  *
  *  @return GTLRLoggingQuery_FoldersLocationsBucketsList
  *
@@ -1648,8 +1822,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *  requires permission "resourcemanager.projects.updateLiens" to set the locked
  *  property
@@ -1683,8 +1856,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *    requires permission "resourcemanager.projects.updateLiens" to set the
  *    locked property
@@ -1692,6 +1864,52 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_FoldersLocationsBucketsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  Method: logging.folders.locations.buckets.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsUndelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsUndeleteWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to undelete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  @param object The @c GTLRLogging_UndeleteBucketRequest to include in the
+ *    query.
+ *  @param name Required. The full resource name of the bucket to undelete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -1717,9 +1935,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  [LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog",
+ *  "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *  example, "projects/my-project-id/logs/syslog",
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *  For more information about log names, see LogEntry.
  */
@@ -1737,9 +1954,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *    "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *    [LOG_ID] must be URL-encoded. For example,
- *    "projects/my-project-id/logs/syslog",
+ *    "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *    example, "projects/my-project-id/logs/syslog",
  *    "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *    For more information about log names, see LogEntry.
  *
@@ -1781,10 +1997,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  Required. The resource name that owns the logs: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1796,10 +2010,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Only logs that have entries are listed.
  *
  *  @param parent Required. The resource name that owns the logs:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_FoldersLogsList
  */
@@ -1824,12 +2036,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForFoldersSinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource in which to create the sink:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]" Examples: "projects/my-logging-project",
+ *  "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1856,11 +2066,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_FoldersSinksCreate
  */
@@ -1885,12 +2093,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -1905,8 +2112,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_FoldersSinksDelete
  */
@@ -1934,8 +2141,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -1948,8 +2155,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_FoldersSinksGet
  */
@@ -1989,10 +2196,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose sinks are to be listed:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2002,10 +2207,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists sinks.
  *
  *  @param parent Required. The parent resource whose sinks are to be listed:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_FoldersSinksList
  *
@@ -2034,25 +2237,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -2084,8 +2285,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_FoldersSinksPatch
  */
@@ -2111,25 +2312,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -2161,13 +2360,104 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_FoldersSinksUpdate
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogSink *)object
                        sinkName:(NSString *)sinkName;
+
+@end
+
+/**
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  Method: logging.locations.buckets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_LocationsBucketsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsCreateWithObject:parent:]
+
+/**
+ *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
+ *  limited to 100 characters and can include only letters, digits, underscores,
+ *  hyphens, and periods.
+ */
+@property(nonatomic, copy, nullable) NSString *bucketId;
+
+/**
+ *  Required. The resource in which to create the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *  "projects/my-logging-project/locations/global"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param parent Required. The resource in which to create the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *    "projects/my-logging-project/locations/global"
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  Method: logging.locations.buckets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_LocationsBucketsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the bucket to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  @param name Required. The full resource name of the bucket to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2191,8 +2481,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2206,8 +2495,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  *
  *  @return GTLRLoggingQuery_LocationsBucketsGet
@@ -2251,9 +2539,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *  Note: The locations portion of the resource must be specified, but supplying
- *  the character - in place of LOCATION_ID will return all buckets.
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of
+ *  the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all buckets.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2266,9 +2554,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *    Note: The locations portion of the resource must be specified, but
- *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion
+ *    of the resource must be specified, but supplying the character - in place
+ *    of LOCATION_ID will return all buckets.
  *
  *  @return GTLRLoggingQuery_LocationsBucketsList
  *
@@ -2303,8 +2591,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *  requires permission "resourcemanager.projects.updateLiens" to set the locked
  *  property
@@ -2338,8 +2625,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *    requires permission "resourcemanager.projects.updateLiens" to set the
  *    locked property
@@ -2347,6 +2633,52 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_LocationsBucketsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  Method: logging.locations.buckets.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_LocationsBucketsUndelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsUndeleteWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to undelete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  @param object The @c GTLRLogging_UndeleteBucketRequest to include in the
+ *    query.
+ *  @param name Required. The full resource name of the bucket to undelete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -2372,9 +2704,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  [LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog",
+ *  "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *  example, "projects/my-project-id/logs/syslog",
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *  For more information about log names, see LogEntry.
  */
@@ -2392,9 +2723,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *    "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *    [LOG_ID] must be URL-encoded. For example,
- *    "projects/my-project-id/logs/syslog",
+ *    "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *    example, "projects/my-project-id/logs/syslog",
  *    "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *    For more information about log names, see LogEntry.
  *
@@ -2436,10 +2766,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  Required. The resource name that owns the logs: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2451,10 +2779,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Only logs that have entries are listed.
  *
  *  @param parent Required. The resource name that owns the logs:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_LogsList
  */
@@ -2524,11 +2850,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource in which to create the exclusion:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *  "projects/my-logging-project", "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2541,12 +2865,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
- *    exclusion:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_OrganizationsExclusionsCreate
  */
@@ -2573,8 +2894,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2587,8 +2908,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_OrganizationsExclusionsDelete
  */
@@ -2616,8 +2937,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2630,8 +2951,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_OrganizationsExclusionsGet
  */
@@ -2671,10 +2992,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose exclusions are to be listed.
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2684,11 +3003,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all the exclusions in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
- *    listed.
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_OrganizationsExclusionsList
  *
@@ -2718,8 +3034,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2745,8 +3061,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_OrganizationsExclusionsPatch
  */
@@ -2780,9 +3096,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/cmekSettings"
  *  "organizations/[ORGANIZATION_ID]/cmekSettings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
- *  "folders/[FOLDER_ID]/cmekSettings"
- *  Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router
- *  can currently only be configured for GCP organizations. Once configured, it
+ *  "folders/[FOLDER_ID]/cmekSettings" Example:
+ *  "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can
+ *  currently only be configured for GCP organizations. Once configured, it
  *  applies to all projects and folders in the GCP organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2801,12 +3117,103 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/cmekSettings"
  *    "organizations/[ORGANIZATION_ID]/cmekSettings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
- *    "folders/[FOLDER_ID]/cmekSettings"
- *    Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router
- *    can currently only be configured for GCP organizations. Once configured,
- *    it applies to all projects and folders in the GCP organization.
+ *    "folders/[FOLDER_ID]/cmekSettings" Example:
+ *    "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can
+ *    currently only be configured for GCP organizations. Once configured, it
+ *    applies to all projects and folders in the GCP organization.
  *
  *  @return GTLRLoggingQuery_OrganizationsGetCmekSettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  Method: logging.organizations.locations.buckets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsCreateWithObject:parent:]
+
+/**
+ *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
+ *  limited to 100 characters and can include only letters, digits, underscores,
+ *  hyphens, and periods.
+ */
+@property(nonatomic, copy, nullable) NSString *bucketId;
+
+/**
+ *  Required. The resource in which to create the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *  "projects/my-logging-project/locations/global"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param parent Required. The resource in which to create the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *    "projects/my-logging-project/locations/global"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  Method: logging.organizations.locations.buckets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the bucket to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  @param name Required. The full resource name of the bucket to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -2832,8 +3239,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2847,8 +3253,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsGet
@@ -2892,9 +3297,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *  Note: The locations portion of the resource must be specified, but supplying
- *  the character - in place of LOCATION_ID will return all buckets.
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of
+ *  the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all buckets.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2907,9 +3312,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *    Note: The locations portion of the resource must be specified, but
- *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion
+ *    of the resource must be specified, but supplying the character - in place
+ *    of LOCATION_ID will return all buckets.
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsList
  *
@@ -2944,8 +3349,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *  requires permission "resourcemanager.projects.updateLiens" to set the locked
  *  property
@@ -2979,8 +3383,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *    requires permission "resourcemanager.projects.updateLiens" to set the
  *    locked property
@@ -2988,6 +3391,52 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  Method: logging.organizations.locations.buckets.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsUndelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsUndeleteWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to undelete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  @param object The @c GTLRLogging_UndeleteBucketRequest to include in the
+ *    query.
+ *  @param name Required. The full resource name of the bucket to undelete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -3013,9 +3462,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  [LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog",
+ *  "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *  example, "projects/my-project-id/logs/syslog",
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *  For more information about log names, see LogEntry.
  */
@@ -3033,9 +3481,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *    "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *    [LOG_ID] must be URL-encoded. For example,
- *    "projects/my-project-id/logs/syslog",
+ *    "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *    example, "projects/my-project-id/logs/syslog",
  *    "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *    For more information about log names, see LogEntry.
  *
@@ -3077,10 +3524,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  Required. The resource name that owns the logs: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3092,10 +3537,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Only logs that have entries are listed.
  *
  *  @param parent Required. The resource name that owns the logs:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_OrganizationsLogsList
  */
@@ -3120,12 +3563,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForOrganizationsSinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource in which to create the sink:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]" Examples: "projects/my-logging-project",
+ *  "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3152,11 +3593,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_OrganizationsSinksCreate
  */
@@ -3181,12 +3620,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -3201,8 +3639,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_OrganizationsSinksDelete
  */
@@ -3230,8 +3668,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -3244,8 +3682,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_OrganizationsSinksGet
  */
@@ -3285,10 +3723,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose sinks are to be listed:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3298,10 +3734,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists sinks.
  *
  *  @param parent Required. The parent resource whose sinks are to be listed:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_OrganizationsSinksList
  *
@@ -3330,25 +3764,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -3380,8 +3812,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_OrganizationsSinksPatch
  */
@@ -3407,25 +3839,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -3457,8 +3887,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_OrganizationsSinksUpdate
  */
@@ -3493,9 +3923,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/cmekSettings"
  *  "organizations/[ORGANIZATION_ID]/cmekSettings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
- *  "folders/[FOLDER_ID]/cmekSettings"
- *  Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router
- *  can currently only be configured for GCP organizations. Once configured, it
+ *  "folders/[FOLDER_ID]/cmekSettings" Example:
+ *  "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can
+ *  currently only be configured for GCP organizations. Once configured, it
  *  applies to all projects and folders in the GCP organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3528,10 +3958,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/cmekSettings"
  *    "organizations/[ORGANIZATION_ID]/cmekSettings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
- *    "folders/[FOLDER_ID]/cmekSettings"
- *    Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router
- *    can currently only be configured for GCP organizations. Once configured,
- *    it applies to all projects and folders in the GCP organization.
+ *    "folders/[FOLDER_ID]/cmekSettings" Example:
+ *    "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can
+ *    currently only be configured for GCP organizations. Once configured, it
+ *    applies to all projects and folders in the GCP organization.
  *
  *  @return GTLRLoggingQuery_OrganizationsUpdateCmekSettings
  */
@@ -3557,11 +3987,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource in which to create the exclusion:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *  "projects/my-logging-project", "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3574,12 +4002,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogExclusion to include in the query.
  *  @param parent Required. The parent resource in which to create the
- *    exclusion:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    exclusion: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_ProjectsExclusionsCreate
  */
@@ -3606,8 +4031,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3620,8 +4045,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_ProjectsExclusionsDelete
  */
@@ -3649,8 +4074,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3663,8 +4088,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_ProjectsExclusionsGet
  */
@@ -3704,10 +4129,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose exclusions are to be listed.
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3717,11 +4140,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all the exclusions in a parent resource.
  *
  *  @param parent Required. The parent resource whose exclusions are to be
- *    listed.
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    listed. "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsExclusionsList
  *
@@ -3751,8 +4171,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *  "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *  Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *  "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *  "projects/my-project-id/exclusions/my-exclusion-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3778,13 +4198,104 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/exclusions/[EXCLUSION_ID]"
  *    "organizations/[ORGANIZATION_ID]/exclusions/[EXCLUSION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/exclusions/[EXCLUSION_ID]"
- *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]"
- *    Example: "projects/my-project-id/exclusions/my-exclusion-id".
+ *    "folders/[FOLDER_ID]/exclusions/[EXCLUSION_ID]" Example:
+ *    "projects/my-project-id/exclusions/my-exclusion-id".
  *
  *  @return GTLRLoggingQuery_ProjectsExclusionsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogExclusion *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  Method: logging.projects.locations.buckets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsCreateWithObject:parent:]
+
+/**
+ *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
+ *  limited to 100 characters and can include only letters, digits, underscores,
+ *  hyphens, and periods.
+ */
+@property(nonatomic, copy, nullable) NSString *bucketId;
+
+/**
+ *  Required. The resource in which to create the bucket:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *  "projects/my-logging-project/locations/global"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_LogBucket.
+ *
+ *  Creates a bucket that can be used to store log entries. Once a bucket has
+ *  been created, the region cannot be changed.
+ *
+ *  @param object The @c GTLRLogging_LogBucket to include in the query.
+ *  @param parent Required. The resource in which to create the bucket:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" Example:
+ *    "projects/my-logging-project/locations/global"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  Method: logging.projects.locations.buckets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the bucket to delete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a bucket. Moves the bucket to the DELETE_REQUESTED state. After 7
+ *  days, the bucket will be purged and all logs in the bucket will be
+ *  permanently deleted.
+ *
+ *  @param name Required. The full resource name of the bucket to delete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -3808,8 +4319,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3823,8 +4333,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsBucketsGet
@@ -3868,9 +4377,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *  Note: The locations portion of the resource must be specified, but supplying
- *  the character - in place of LOCATION_ID will return all buckets.
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion of
+ *  the resource must be specified, but supplying the character - in place of
+ *  LOCATION_ID will return all buckets.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3883,9 +4392,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]"
- *    Note: The locations portion of the resource must be specified, but
- *    supplying the character - in place of LOCATION_ID will return all buckets.
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" Note: The locations portion
+ *    of the resource must be specified, but supplying the character - in place
+ *    of LOCATION_ID will return all buckets.
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsBucketsList
  *
@@ -3920,8 +4429,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *  Example:
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *  requires permission "resourcemanager.projects.updateLiens" to set the locked
  *  property
@@ -3955,8 +4463,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
- *    Example:
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id". Also
  *    requires permission "resourcemanager.projects.updateLiens" to set the
  *    locked property
@@ -3964,6 +4471,52 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_ProjectsLocationsBucketsPatch
  */
 + (instancetype)queryWithObject:(GTLRLogging_LogBucket *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  Method: logging.projects.locations.buckets.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsUndelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsUndeleteWithObject:name:]
+
+/**
+ *  Required. The full resource name of the bucket to undelete.
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Undeletes a bucket. A bucket that has been deleted may be undeleted within
+ *  the grace period of 7 days.
+ *
+ *  @param object The @c GTLRLogging_UndeleteBucketRequest to include in the
+ *    query.
+ *  @param name Required. The full resource name of the bucket to undelete.
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -3989,9 +4542,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *  "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *  "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *  [LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog",
+ *  "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *  example, "projects/my-project-id/logs/syslog",
  *  "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *  For more information about log names, see LogEntry.
  */
@@ -4009,9 +4561,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/logs/[LOG_ID]"
  *    "organizations/[ORGANIZATION_ID]/logs/[LOG_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]"
- *    "folders/[FOLDER_ID]/logs/[LOG_ID]"
- *    [LOG_ID] must be URL-encoded. For example,
- *    "projects/my-project-id/logs/syslog",
+ *    "folders/[FOLDER_ID]/logs/[LOG_ID]" [LOG_ID] must be URL-encoded. For
+ *    example, "projects/my-project-id/logs/syslog",
  *    "organizations/1234567890/logs/cloudresourcemanager.googleapis.com%2Factivity".
  *    For more information about log names, see LogEntry.
  *
@@ -4053,10 +4604,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name that owns the logs:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  Required. The resource name that owns the logs: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4068,10 +4617,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Only logs that have entries are listed.
  *
  *  @param parent Required. The resource name that owns the logs:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsLogsList
  */
@@ -4095,8 +4642,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the project in which to create the metric:
- *  "projects/[PROJECT_ID]"
- *  The new metric must be provided in the request.
+ *  "projects/[PROJECT_ID]" The new metric must be provided in the request.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4107,9 +4653,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogMetric to include in the query.
  *  @param parent Required. The resource name of the project in which to create
- *    the metric:
- *    "projects/[PROJECT_ID]"
- *    The new metric must be provided in the request.
+ *    the metric: "projects/[PROJECT_ID]" The new metric must be provided in the
+ *    request.
  *
  *  @return GTLRLoggingQuery_ProjectsMetricsCreate
  */
@@ -4257,10 +4802,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the metric to update:
- *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
- *  The updated metric must be provided in the request and it's name field must
- *  be the same as [METRIC_ID] If the metric does not exist in [PROJECT_ID],
- *  then a new metric is created.
+ *  "projects/[PROJECT_ID]/metrics/[METRIC_ID]" The updated metric must be
+ *  provided in the request and it's name field must be the same as [METRIC_ID]
+ *  If the metric does not exist in [PROJECT_ID], then a new metric is created.
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -4271,10 +4815,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogMetric to include in the query.
  *  @param metricName Required. The resource name of the metric to update:
- *    "projects/[PROJECT_ID]/metrics/[METRIC_ID]"
- *    The updated metric must be provided in the request and it's name field
- *    must be the same as [METRIC_ID] If the metric does not exist in
- *    [PROJECT_ID], then a new metric is created.
+ *    "projects/[PROJECT_ID]/metrics/[METRIC_ID]" The updated metric must be
+ *    provided in the request and it's name field must be the same as
+ *    [METRIC_ID] If the metric does not exist in [PROJECT_ID], then a new
+ *    metric is created.
  *
  *  @return GTLRLoggingQuery_ProjectsMetricsUpdate
  */
@@ -4300,12 +4844,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForProjectsSinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource in which to create the sink:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]" Examples: "projects/my-logging-project",
+ *  "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4332,11 +4874,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_ProjectsSinksCreate
  */
@@ -4361,12 +4901,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -4381,8 +4920,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_ProjectsSinksDelete
  */
@@ -4410,8 +4949,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -4424,8 +4963,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_ProjectsSinksGet
  */
@@ -4465,10 +5004,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose sinks are to be listed:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4478,10 +5015,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists sinks.
  *
  *  @param parent Required. The parent resource whose sinks are to be listed:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_ProjectsSinksList
  *
@@ -4510,25 +5045,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -4560,8 +5093,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_ProjectsSinksPatch
  */
@@ -4587,25 +5120,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -4637,8 +5168,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_ProjectsSinksUpdate
  */
@@ -4664,12 +5195,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLogging queryForSinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource in which to create the sink:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
- *  Examples: "projects/my-logging-project", "organizations/123456789".
+ *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
+ *  "organizations/[ORGANIZATION_ID]" "billingAccounts/[BILLING_ACCOUNT_ID]"
+ *  "folders/[FOLDER_ID]" Examples: "projects/my-logging-project",
+ *  "organizations/123456789".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4696,11 +5225,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRLogging_LogSink to include in the query.
  *  @param parent Required. The resource in which to create the sink:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
- *    Examples: "projects/my-logging-project", "organizations/123456789".
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Examples:
+ *    "projects/my-logging-project", "organizations/123456789".
  *
  *  @return GTLRLoggingQuery_SinksCreate
  */
@@ -4725,12 +5252,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -4745,8 +5271,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_SinksDelete
  */
@@ -4774,8 +5300,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
@@ -4788,8 +5314,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_SinksGet
  */
@@ -4829,10 +5355,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource whose sinks are to be listed:
- *  "projects/[PROJECT_ID]"
- *  "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]"
- *  "folders/[FOLDER_ID]"
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -4842,10 +5366,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists sinks.
  *
  *  @param parent Required. The parent resource whose sinks are to be listed:
- *    "projects/[PROJECT_ID]"
- *    "organizations/[ORGANIZATION_ID]"
- *    "billingAccounts/[BILLING_ACCOUNT_ID]"
- *    "folders/[FOLDER_ID]"
+ *    "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *    "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]"
  *
  *  @return GTLRLoggingQuery_SinksList
  *
@@ -4874,25 +5396,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
- *  resource and the sink identifier:
- *  "projects/[PROJECT_ID]/sinks/[SINK_ID]"
+ *  resource and the sink identifier: "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *  "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *  "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *  Example: "projects/my-project-id/sinks/my-sink-id".
+ *  "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *  "projects/my-project-id/sinks/my-sink-id".
  */
 @property(nonatomic, copy, nullable) NSString *sinkName;
 
 /**
  *  Optional. See sinks.create for a description of this field. When updating a
  *  sink, the effect of this field on the value of writer_identity in the
- *  updated sink depends on both the old and new values of this field:
- *  If the old and new values of this field are both false or both true, then
- *  there is no change to the sink's writer_identity.
- *  If the old value is false and the new value is true, then writer_identity is
- *  changed to a unique service account.
- *  It is an error if the old value is true and the new value is set to false or
- *  defaulted to false.
+ *  updated sink depends on both the old and new values of this field: If the
+ *  old and new values of this field are both false or both true, then there is
+ *  no change to the sink's writer_identity. If the old value is false and the
+ *  new value is true, then writer_identity is changed to a unique service
+ *  account. It is an error if the old value is true and the new value is set to
+ *  false or defaulted to false.
  */
 @property(nonatomic, assign) BOOL uniqueWriterIdentity;
 
@@ -4924,8 +5444,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/sinks/[SINK_ID]"
  *    "organizations/[ORGANIZATION_ID]/sinks/[SINK_ID]"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_ID]"
- *    "folders/[FOLDER_ID]/sinks/[SINK_ID]"
- *    Example: "projects/my-project-id/sinks/my-sink-id".
+ *    "folders/[FOLDER_ID]/sinks/[SINK_ID]" Example:
+ *    "projects/my-project-id/sinks/my-sink-id".
  *
  *  @return GTLRLoggingQuery_SinksUpdate
  */
@@ -4959,9 +5479,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/cmekSettings"
  *  "organizations/[ORGANIZATION_ID]/cmekSettings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
- *  "folders/[FOLDER_ID]/cmekSettings"
- *  Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router
- *  can currently only be configured for GCP organizations. Once configured, it
+ *  "folders/[FOLDER_ID]/cmekSettings" Example:
+ *  "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can
+ *  currently only be configured for GCP organizations. Once configured, it
  *  applies to all projects and folders in the GCP organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4980,10 +5500,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/cmekSettings"
  *    "organizations/[ORGANIZATION_ID]/cmekSettings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
- *    "folders/[FOLDER_ID]/cmekSettings"
- *    Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router
- *    can currently only be configured for GCP organizations. Once configured,
- *    it applies to all projects and folders in the GCP organization.
+ *    "folders/[FOLDER_ID]/cmekSettings" Example:
+ *    "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can
+ *    currently only be configured for GCP organizations. Once configured, it
+ *    applies to all projects and folders in the GCP organization.
  *
  *  @return GTLRLoggingQuery_V2GetCmekSettings
  */
@@ -5017,9 +5537,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/[PROJECT_ID]/cmekSettings"
  *  "organizations/[ORGANIZATION_ID]/cmekSettings"
  *  "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
- *  "folders/[FOLDER_ID]/cmekSettings"
- *  Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router
- *  can currently only be configured for GCP organizations. Once configured, it
+ *  "folders/[FOLDER_ID]/cmekSettings" Example:
+ *  "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can
+ *  currently only be configured for GCP organizations. Once configured, it
  *  applies to all projects and folders in the GCP organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5052,10 +5572,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/[PROJECT_ID]/cmekSettings"
  *    "organizations/[ORGANIZATION_ID]/cmekSettings"
  *    "billingAccounts/[BILLING_ACCOUNT_ID]/cmekSettings"
- *    "folders/[FOLDER_ID]/cmekSettings"
- *    Example: "organizations/12345/cmekSettings".Note: CMEK for the Logs Router
- *    can currently only be configured for GCP organizations. Once configured,
- *    it applies to all projects and folders in the GCP organization.
+ *    "folders/[FOLDER_ID]/cmekSettings" Example:
+ *    "organizations/12345/cmekSettings".Note: CMEK for the Logs Router can
+ *    currently only be configured for GCP organizations. Once configured, it
+ *    applies to all projects and folders in the GCP organization.
  *
  *  @return GTLRLoggingQuery_V2UpdateCmekSettings
  */

@@ -57,6 +57,10 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
 NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
 NSString * const kGTLRShoppingContentTemplateNameTemplate4  = @"template4";
 
+// view
+NSString * const kGTLRShoppingContentViewCss      = @"css";
+NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -151,7 +155,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate4  = @"template4";
 
 @implementation GTLRShoppingContentQuery_AccountsGet
 
-@dynamic accountId, merchantId;
+@dynamic accountId, merchantId, view;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           accountId:(unsigned long long)accountId {
@@ -232,7 +236,7 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate4  = @"template4";
 
 @implementation GTLRShoppingContentQuery_AccountsList
 
-@dynamic maxResults, merchantId, pageToken;
+@dynamic label, maxResults, merchantId, pageToken, view;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
@@ -376,6 +380,37 @@ NSString * const kGTLRShoppingContentTemplateNameTemplate4  = @"template4";
   query.accountId = accountId;
   query.expectedObjectClass = [GTLRShoppingContent_Account class];
   query.loggingName = @"content.accounts.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsUpdatelabels
+
+@dynamic accountId, merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountsUpdateLabelsRequest *)object
+                     merchantId:(unsigned long long)merchantId
+                      accountId:(unsigned long long)accountId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/updatelabels";
+  GTLRShoppingContentQuery_AccountsUpdatelabels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_AccountsUpdateLabelsResponse class];
+  query.loggingName = @"content.accounts.updatelabels";
   return query;
 }
 

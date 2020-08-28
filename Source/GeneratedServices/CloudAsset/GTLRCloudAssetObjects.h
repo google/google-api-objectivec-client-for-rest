@@ -104,7 +104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTyp
 // GTLRCloudAsset_ExportAssetsRequest.contentType
 
 /**
- *  The Cloud Access context mananger Policy set on an asset.
+ *  The Cloud Access context manager Policy set on an asset.
  *
  *  Value: "ACCESS_POLICY"
  */
@@ -138,7 +138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentTy
 // GTLRCloudAsset_Feed.contentType
 
 /**
- *  The Cloud Access context mananger Policy set on an asset.
+ *  The Cloud Access context manager Policy set on an asset.
  *
  *  Value: "ACCESS_POLICY"
  */
@@ -209,25 +209,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy.allowedDeviceManagementLevels
 
-/** Value: "BASIC" */
+/**
+ *  Basic management is enabled, which is generally limited to monitoring and
+ *  wiping the corporate account.
+ *
+ *  Value: "BASIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_Basic;
-/** Value: "COMPLETE" */
+/**
+ *  Complete device management. This includes more thorough monitoring and the
+ *  ability to directly manage the device (such as remote wiping). This can be
+ *  enabled through the Android Enterprise Platform.
+ *
+ *  Value: "COMPLETE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_Complete;
-/** Value: "MANAGEMENT_UNSPECIFIED" */
+/**
+ *  The device's management level is not specified or not known.
+ *
+ *  Value: "MANAGEMENT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_ManagementUnspecified;
-/** Value: "NONE" */
+/**
+ *  The device is not managed.
+ *
+ *  Value: "NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedDeviceManagementLevels_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy.allowedEncryptionStatuses
 
-/** Value: "ENCRYPTED" */
+/**
+ *  The device is encrypted.
+ *
+ *  Value: "ENCRYPTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Encrypted;
-/** Value: "ENCRYPTION_UNSPECIFIED" */
+/**
+ *  The encryption status of the device is not specified or not known.
+ *
+ *  Value: "ENCRYPTION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnspecified;
-/** Value: "ENCRYPTION_UNSUPPORTED" */
+/**
+ *  The device does not support encryption.
+ *
+ *  Value: "ENCRYPTION_UNSUPPORTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported;
-/** Value: "UNENCRYPTED" */
+/**
+ *  The device supports encryption, but is currently unencrypted.
+ *
+ *  Value: "UNENCRYPTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Unencrypted;
 
 // ----------------------------------------------------------------------------
@@ -332,8 +367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  a resource outside the Google Cloud resource hierarchy (such as Google
  *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
- *  policy).
- *  See [Supported asset
+ *  policy). See [Supported asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for more information.
  */
@@ -355,16 +389,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The ancestry path of an asset in Google Cloud [resource
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  represented as a list of relative resource names. An ancestry path starts
- *  with the closest ancestor in the hierarchy and ends at root. If the asset
- *  is a project, folder, or organization, the ancestry path starts from the
- *  asset itself.
- *  Example: `["projects/123456789", "folders/5432", "organizations/1234"]`
+ *  with the closest ancestor in the hierarchy and ends at root. If the asset is
+ *  a project, folder, or organization, the ancestry path starts from the asset
+ *  itself. Example: `["projects/123456789", "folders/5432",
+ *  "organizations/1234"]`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
 
 /**
- *  The type of the asset. Example: `compute.googleapis.com/Disk`
- *  See [Supported asset
+ *  The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported
+ *  asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for more information.
  */
@@ -372,14 +406,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A representation of the Cloud IAM policy set on a Google Cloud resource.
- *  There can be a maximum of one Cloud IAM policy set on any given resource.
- *  In addition, Cloud IAM policies inherit their granted access scope from any
+ *  There can be a maximum of one Cloud IAM policy set on any given resource. In
+ *  addition, Cloud IAM policies inherit their granted access scope from any
  *  policies set on parent resources in the resource hierarchy. Therefore, the
- *  effectively policy is the union of both the policy set on this resource
- *  and each policy set on all of the resource's ancestry resource levels in
- *  the hierarchy. See
- *  [this topic](https://cloud.google.com/iam/docs/policies#inheritance) for
- *  more information.
+ *  effectively policy is the union of both the policy set on this resource and
+ *  each policy set on all of the resource's ancestry resource levels in the
+ *  hierarchy. See [this
+ *  topic](https://cloud.google.com/iam/docs/policies#inheritance) for more
+ *  information.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *iamPolicy;
 
@@ -419,50 +453,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  },
- *  {
- *  "log_type": "ADMIN_READ"
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ"
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -473,9 +476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AuditLogConfig *> *auditLogConfigs;
 
 /**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -483,30 +486,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRCloudAsset_AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -546,26 +536,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Required. The BigQuery dataset in format
- *  "projects/projectId/datasets/datasetId", to which the snapshot result
- *  should be exported. If this dataset does not exist, the export call returns
- *  an INVALID_ARGUMENT error.
+ *  "projects/projectId/datasets/datasetId", to which the snapshot result should
+ *  be exported. If this dataset does not exist, the export call returns an
+ *  INVALID_ARGUMENT error.
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
 /**
- *  If the destination table already exists and this flag is `TRUE`, the
- *  table will be overwritten by the contents of assets snapshot. If the flag
- *  is `FALSE` or unset and the destination table already exists, the export
- *  call returns an INVALID_ARGUMEMT error.
+ *  If the destination table already exists and this flag is `TRUE`, the table
+ *  will be overwritten by the contents of assets snapshot. If the flag is
+ *  `FALSE` or unset and the destination table already exists, the export call
+ *  returns an INVALID_ARGUMEMT error.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *force;
 
 /**
- *  Required. The BigQuery table to which the snapshot result should be
- *  written. If this table does not exist, a new table with the given name
- *  will be created.
+ *  Required. The BigQuery table to which the snapshot result should be written.
+ *  If this table does not exist, a new table with the given name will be
+ *  created.
  */
 @property(nonatomic, copy, nullable) NSString *table;
 
@@ -578,56 +568,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -641,9 +626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Required. The feed details. The field `name` must be empty and it will be
- *  generated
- *  in the format of:
- *  projects/project_number/feeds/feed_id
+ *  generated in the format of: projects/project_number/feeds/feed_id
  *  folders/folder_number/feeds/feed_id
  *  organizations/organization_number/feeds/feed_id
  */
@@ -661,11 +644,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudAsset_Empty : GTLRObject
 @end
@@ -677,13 +658,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_Explanation : GTLRObject
 
 /**
- *  The map from roles to their included permissions that match the
- *  permission query (i.e., a query containing `policy.role.permissions:`).
- *  Example: if query `policy.role.permissions : "compute.disk.get"`
- *  matches a policy binding that contains owner role, the
- *  matched_permissions will be `{"roles/owner": ["compute.disk.get"]}`. The
- *  roles can also be found in the returned `policy` bindings. Note that the
- *  map is populated only for requests with permission queries.
+ *  The map from roles to their included permissions that match the permission
+ *  query (i.e., a query containing `policy.role.permissions:`). Example: if
+ *  query `policy.role.permissions:compute.disk.get` matches a policy binding
+ *  that contains owner role, the matched_permissions will be `{"roles/owner":
+ *  ["compute.disk.get"]}`. The roles can also be found in the returned `policy`
+ *  bindings. Note that the map is populated only for requests with permission
+ *  queries.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Explanation_MatchedPermissions *matchedPermissions;
 
@@ -691,13 +672,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  The map from roles to their included permissions that match the
- *  permission query (i.e., a query containing `policy.role.permissions:`).
- *  Example: if query `policy.role.permissions : "compute.disk.get"`
- *  matches a policy binding that contains owner role, the
- *  matched_permissions will be `{"roles/owner": ["compute.disk.get"]}`. The
- *  roles can also be found in the returned `policy` bindings. Note that the
- *  map is populated only for requests with permission queries.
+ *  The map from roles to their included permissions that match the permission
+ *  query (i.e., a query containing `policy.role.permissions:`). Example: if
+ *  query `policy.role.permissions:compute.disk.get` matches a policy binding
+ *  that contains owner role, the matched_permissions will be `{"roles/owner":
+ *  ["compute.disk.get"]}`. The roles can also be found in the returned `policy`
+ *  bindings. Note that the map is populated only for requests with permission
+ *  queries.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudAsset_Permissions. Use @c -additionalJSONKeys and @c
@@ -715,19 +696,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A list of asset types to take a snapshot for. For example:
- *  "compute.googleapis.com/Disk".
- *  Regular expressions are also supported. For example:
- *  * "compute.googleapis.com.*" snapshots resources whose asset type starts
- *  with "compute.googleapis.com".
- *  * ".*Instance" snapshots resources whose asset type ends with "Instance".
- *  * ".*Instance.*" snapshots resources whose asset type contains "Instance".
- *  See [RE2](https://github.com/google/re2/wiki/Syntax) for all supported
- *  regular expression syntax. If the regular expression does not match any
- *  supported asset type, an INVALID_ARGUMENT error will be returned.
- *  If specified, only matching assets will be returned, otherwise, it will
- *  snapshot all asset types. See [Introduction to Cloud Asset
- *  Inventory](https://cloud.google.com/asset-inventory/docs/overview)
- *  for all supported asset types.
+ *  "compute.googleapis.com/Disk". Regular expressions are also supported. For
+ *  example: * "compute.googleapis.com.*" snapshots resources whose asset type
+ *  starts with "compute.googleapis.com". * ".*Instance" snapshots resources
+ *  whose asset type ends with "Instance". * ".*Instance.*" snapshots resources
+ *  whose asset type contains "Instance". See
+ *  [RE2](https://github.com/google/re2/wiki/Syntax) for all supported regular
+ *  expression syntax. If the regular expression does not match any supported
+ *  asset type, an INVALID_ARGUMENT error will be returned. If specified, only
+ *  matching assets will be returned, otherwise, it will snapshot all asset
+ *  types. See [Introduction to Cloud Asset
+ *  Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all
+ *  supported asset types.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
 
@@ -737,7 +717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_AccessPolicy The
- *        Cloud Access context mananger Policy set on an asset. (Value:
+ *        Cloud Access context manager Policy set on an asset. (Value:
  *        "ACCESS_POLICY")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnspecified
  *        Unspecified content type. (Value: "CONTENT_TYPE_UNSPECIFIED")
@@ -758,10 +738,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Timestamp to take an asset snapshot. This can only be set to a timestamp
- *  between the current time and the current time minus 35 days (inclusive).
- *  If not specified, the current time will be used. Due to delays in resource
- *  data collection and indexing, there is a volatile window during which
- *  running the same query may get different results.
+ *  between the current time and the current time minus 35 days (inclusive). If
+ *  not specified, the current time will be used. Due to delays in resource data
+ *  collection and indexing, there is a volatile window during which running the
+ *  same query may get different results.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -771,27 +751,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRCloudAsset_Expr : GTLRObject
 
@@ -816,9 +789,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -826,10 +798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  An asset feed used to export asset updates to a destinations.
- *  An asset feed filter controls what updates are exported.
- *  The asset feed must be created within a project, organization, or
- *  folder. Supported destinations are:
+ *  An asset feed used to export asset updates to a destinations. An asset feed
+ *  filter controls what updates are exported. The asset feed must be created
+ *  within a project, organization, or folder. Supported destinations are:
  *  Pub/Sub topics.
  */
 @interface GTLRCloudAsset_Feed : GTLRObject
@@ -837,8 +808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  A list of the full names of the assets to receive updates. You must specify
  *  either or both of asset_names and asset_types. Only asset updates matching
- *  specified asset_names or asset_types are exported to the feed.
- *  Example:
+ *  specified asset_names or asset_types are exported to the feed. Example:
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
  *  See [Resource
  *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
@@ -847,35 +817,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetNames;
 
 /**
- *  A list of types of the assets to receive updates. You must specify either
- *  or both of asset_names and asset_types. Only asset updates matching
- *  specified asset_names or asset_types are exported to the feed.
- *  Example: `"compute.googleapis.com/Disk"`
- *  See [this
+ *  A list of types of the assets to receive updates. You must specify either or
+ *  both of asset_names and asset_types. Only asset updates matching specified
+ *  asset_names or asset_types are exported to the feed. Example:
+ *  `"compute.googleapis.com/Disk"` See [this
  *  topic](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for a list of all supported asset types.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
 
 /**
- *  A condition which determines whether an asset update should be published.
- *  If specified, an asset will be returned only when the expression evaluates
- *  to true.
- *  When set, `expression` field in the `Expr` must be a valid [CEL expression]
- *  (https://github.com/google/cel-spec) on a TemporalAsset with name
- *  `temporal_asset`. Example: a Feed with expression ("temporal_asset.deleted
- *  == true") will only publish Asset deletions. Other fields of `Expr` are
- *  optional.
+ *  A condition which determines whether an asset update should be published. If
+ *  specified, an asset will be returned only when the expression evaluates to
+ *  true. When set, `expression` field in the `Expr` must be a valid [CEL
+ *  expression] (https://github.com/google/cel-spec) on a TemporalAsset with
+ *  name `temporal_asset`. Example: a Feed with expression
+ *  ("temporal_asset.deleted == true") will only publish Asset deletions. Other
+ *  fields of `Expr` are optional. See our [user
+ *  guide](https://cloud.google.com/asset-inventory/docs/monitoring-asset-changes#feed_with_condition)
+ *  for detailed instructions.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Expr *condition;
 
 /**
- *  Asset content type. If not specified, no content but the asset name and
- *  type will be returned.
+ *  Asset content type. If not specified, no content but the asset name and type
+ *  will be returned.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_AccessPolicy The Cloud Access
- *        context mananger Policy set on an asset. (Value: "ACCESS_POLICY")
+ *        context manager Policy set on an asset. (Value: "ACCESS_POLICY")
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified
  *        Unspecified content type. (Value: "CONTENT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_IamPolicy The actual IAM policy
@@ -924,8 +894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The uri of the Cloud Storage object. It's the same uri that is used by
- *  gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
- *  Editing Object
+ *  gsutil. Example: "gs://bucket_name/object_name". See [Viewing and Editing
+ *  Object
  *  Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
  *  for more information.
  */
@@ -934,13 +904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  The uri prefix of all generated Cloud Storage objects. Example:
  *  "gs://bucket_name/object_name_prefix". Each object uri is in format:
- *  "gs://bucket_name/object_name_prefix/<asset type>/<shard number> and only
- *  contains assets for that type. <shard number> starts from 0. Example:
- *  "gs://bucket_name/object_name_prefix/compute.googleapis.com/Disk/0" is
- *  the first shard of output objects containing all
- *  compute.googleapis.com/Disk assets. An INVALID_ARGUMENT error will be
- *  returned if file with the same name "gs://bucket_name/object_name_prefix"
- *  already exists.
+ *  "gs://bucket_name/object_name_prefix// and only contains assets for that
+ *  type. starts from 0. Example:
+ *  "gs://bucket_name/object_name_prefix/compute.googleapis.com/Disk/0" is the
+ *  first shard of output objects containing all compute.googleapis.com/Disk
+ *  assets. An INVALID_ARGUMENT error will be returned if file with the same
+ *  name "gs://bucket_name/object_name_prefix" already exists.
  */
 @property(nonatomic, copy, nullable) NSString *uriPrefix;
 
@@ -954,45 +923,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy : GTLRObject
 
 /**
- *  If `true`, then the `Policy` is enforced. If `false`, then any
- *  configuration is acceptable.
- *  Suppose you have a `Constraint`
- *  `constraints/compute.disableSerialPortAccess` with `constraint_default`
- *  set to `ALLOW`. A `Policy` for that `Constraint` exhibits the following
- *  behavior:
- *  - If the `Policy` at this resource has enforced set to `false`, serial
- *  port connection attempts will be allowed.
- *  - If the `Policy` at this resource has enforced set to `true`, serial
- *  port connection attempts will be refused.
- *  - If the `Policy` at this resource is `RestoreDefault`, serial port
- *  connection attempts will be allowed.
- *  - If no `Policy` is set at this resource or anywhere higher in the
- *  resource hierarchy, serial port connection attempts will be allowed.
- *  - If no `Policy` is set at this resource, but one exists higher in the
- *  resource hierarchy, the behavior is as if the`Policy` were set at
- *  this resource.
- *  The following examples demonstrate the different possible layerings:
- *  Example 1 (nearest `Constraint` wins):
- *  `organizations/foo` has a `Policy` with:
- *  {enforced: false}
- *  `projects/bar` has no `Policy` set.
- *  The constraint at `projects/bar` and `organizations/foo` will not be
- *  enforced.
- *  Example 2 (enforcement gets replaced):
- *  `organizations/foo` has a `Policy` with:
- *  {enforced: false}
- *  `projects/bar` has a `Policy` with:
- *  {enforced: true}
- *  The constraint at `organizations/foo` is not enforced.
- *  The constraint at `projects/bar` is enforced.
- *  Example 3 (RestoreDefault):
- *  `organizations/foo` has a `Policy` with:
- *  {enforced: true}
- *  `projects/bar` has a `Policy` with:
- *  {RestoreDefault: {}}
- *  The constraint at `organizations/foo` is enforced.
- *  The constraint at `projects/bar` is not enforced, because
- *  `constraint_default` for the `Constraint` is `ALLOW`.
+ *  If `true`, then the `Policy` is enforced. If `false`, then any configuration
+ *  is acceptable. Suppose you have a `Constraint`
+ *  `constraints/compute.disableSerialPortAccess` with `constraint_default` set
+ *  to `ALLOW`. A `Policy` for that `Constraint` exhibits the following
+ *  behavior: - If the `Policy` at this resource has enforced set to `false`,
+ *  serial port connection attempts will be allowed. - If the `Policy` at this
+ *  resource has enforced set to `true`, serial port connection attempts will be
+ *  refused. - If the `Policy` at this resource is `RestoreDefault`, serial port
+ *  connection attempts will be allowed. - If no `Policy` is set at this
+ *  resource or anywhere higher in the resource hierarchy, serial port
+ *  connection attempts will be allowed. - If no `Policy` is set at this
+ *  resource, but one exists higher in the resource hierarchy, the behavior is
+ *  as if the`Policy` were set at this resource. The following examples
+ *  demonstrate the different possible layerings: Example 1 (nearest
+ *  `Constraint` wins): `organizations/foo` has a `Policy` with: {enforced:
+ *  false} `projects/bar` has no `Policy` set. The constraint at `projects/bar`
+ *  and `organizations/foo` will not be enforced. Example 2 (enforcement gets
+ *  replaced): `organizations/foo` has a `Policy` with: {enforced: false}
+ *  `projects/bar` has a `Policy` with: {enforced: true} The constraint at
+ *  `organizations/foo` is not enforced. The constraint at `projects/bar` is
+ *  enforced. Example 3 (RestoreDefault): `organizations/foo` has a `Policy`
+ *  with: {enforced: true} `projects/bar` has a `Policy` with: {RestoreDefault:
+ *  {}} The constraint at `organizations/foo` is enforced. The constraint at
+ *  `projects/bar` is not enforced, because `constraint_default` for the
+ *  `Constraint` is `ALLOW`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1002,32 +957,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  Used in `policy_type` to specify how `list_policy` behaves at this
- *  resource.
+ *  Used in `policy_type` to specify how `list_policy` behaves at this resource.
  *  `ListPolicy` can define specific values and subtrees of Cloud Resource
- *  Manager resource hierarchy (`Organizations`, `Folders`, `Projects`) that
- *  are allowed or denied by setting the `allowed_values` and `denied_values`
+ *  Manager resource hierarchy (`Organizations`, `Folders`, `Projects`) that are
+ *  allowed or denied by setting the `allowed_values` and `denied_values`
  *  fields. This is achieved by using the `under:` and optional `is:` prefixes.
- *  The `under:` prefix is used to denote resource subtree values.
- *  The `is:` prefix is used to denote specific values, and is required only
- *  if the value contains a ":". Values prefixed with "is:" are treated the
- *  same as values with no prefix.
- *  Ancestry subtrees must be in one of the following formats:
- *  - "projects/<project-id>", e.g. "projects/tokyo-rain-123"
- *  - "folders/<folder-id>", e.g. "folders/1234"
- *  - "organizations/<organization-id>", e.g. "organizations/1234"
- *  The `supports_under` field of the associated `Constraint` defines whether
+ *  The `under:` prefix is used to denote resource subtree values. The `is:`
+ *  prefix is used to denote specific values, and is required only if the value
+ *  contains a ":". Values prefixed with "is:" are treated the same as values
+ *  with no prefix. Ancestry subtrees must be in one of the following formats: -
+ *  "projects/", e.g. "projects/tokyo-rain-123" - "folders/", e.g.
+ *  "folders/1234" - "organizations/", e.g. "organizations/1234" The
+ *  `supports_under` field of the associated `Constraint` defines whether
  *  ancestry prefixes can be used. You can set `allowed_values` and
  *  `denied_values` in the same `Policy` if `all_values` is
  *  `ALL_VALUES_UNSPECIFIED`. `ALLOW` or `DENY` are used to allow or deny all
- *  values. If `all_values` is set to either `ALLOW` or `DENY`,
- *  `allowed_values` and `denied_values` must be unset.
+ *  values. If `all_values` is set to either `ALLOW` or `DENY`, `allowed_values`
+ *  and `denied_values` must be unset.
  */
 @interface GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy : GTLRObject
 
 /**
- *  List of values allowed at this resource. Can only be set if `all_values`
- *  is set to `ALL_VALUES_UNSPECIFIED`.
+ *  List of values allowed at this resource. Can only be set if `all_values` is
+ *  set to `ALL_VALUES_UNSPECIFIED`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
 
@@ -1046,97 +998,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *allValues;
 
 /**
- *  List of values denied at this resource. Can only be set if `all_values`
- *  is set to `ALL_VALUES_UNSPECIFIED`.
+ *  List of values denied at this resource. Can only be set if `all_values` is
+ *  set to `ALL_VALUES_UNSPECIFIED`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deniedValues;
 
 /**
- *  Determines the inheritance behavior for this `Policy`.
- *  By default, a `ListPolicy` set at a resource supersedes any `Policy` set
- *  anywhere up the resource hierarchy. However, if `inherit_from_parent` is
- *  set to `true`, then the values from the effective `Policy` of the parent
- *  resource are inherited, meaning the values set in this `Policy` are
- *  added to the values inherited up the hierarchy.
- *  Setting `Policy` hierarchies that inherit both allowed values and denied
- *  values isn't recommended in most circumstances to keep the configuration
- *  simple and understandable. However, it is possible to set a `Policy` with
- *  `allowed_values` set that inherits a `Policy` with `denied_values` set.
- *  In this case, the values that are allowed must be in `allowed_values` and
- *  not present in `denied_values`.
- *  For example, suppose you have a `Constraint`
- *  `constraints/serviceuser.services`, which has a `constraint_type` of
- *  `list_constraint`, and with `constraint_default` set to `ALLOW`.
- *  Suppose that at the Organization level, a `Policy` is applied that
- *  restricts the allowed API activations to {`E1`, `E2`}. Then, if a
- *  `Policy` is applied to a project below the Organization that has
- *  `inherit_from_parent` set to `false` and field all_values set to DENY,
- *  then an attempt to activate any API will be denied.
- *  The following examples demonstrate different possible layerings for
- *  `projects/bar` parented by `organizations/foo`:
- *  Example 1 (no inherited values):
- *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: "E1" allowed_values:"E2"}
+ *  Determines the inheritance behavior for this `Policy`. By default, a
+ *  `ListPolicy` set at a resource supersedes any `Policy` set anywhere up the
+ *  resource hierarchy. However, if `inherit_from_parent` is set to `true`, then
+ *  the values from the effective `Policy` of the parent resource are inherited,
+ *  meaning the values set in this `Policy` are added to the values inherited up
+ *  the hierarchy. Setting `Policy` hierarchies that inherit both allowed values
+ *  and denied values isn't recommended in most circumstances to keep the
+ *  configuration simple and understandable. However, it is possible to set a
+ *  `Policy` with `allowed_values` set that inherits a `Policy` with
+ *  `denied_values` set. In this case, the values that are allowed must be in
+ *  `allowed_values` and not present in `denied_values`. For example, suppose
+ *  you have a `Constraint` `constraints/serviceuser.services`, which has a
+ *  `constraint_type` of `list_constraint`, and with `constraint_default` set to
+ *  `ALLOW`. Suppose that at the Organization level, a `Policy` is applied that
+ *  restricts the allowed API activations to {`E1`, `E2`}. Then, if a `Policy`
+ *  is applied to a project below the Organization that has
+ *  `inherit_from_parent` set to `false` and field all_values set to DENY, then
+ *  an attempt to activate any API will be denied. The following examples
+ *  demonstrate different possible layerings for `projects/bar` parented by
+ *  `organizations/foo`: Example 1 (no inherited values): `organizations/foo`
+ *  has a `Policy` with values: {allowed_values: "E1" allowed_values:"E2"}
  *  `projects/bar` has `inherit_from_parent` `false` and values:
- *  {allowed_values: "E3" allowed_values: "E4"}
- *  The accepted values at `organizations/foo` are `E1`, `E2`.
- *  The accepted values at `projects/bar` are `E3`, and `E4`.
- *  Example 2 (inherited values):
- *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: "E1" allowed_values:"E2"}
- *  `projects/bar` has a `Policy` with values:
- *  {value: "E3" value: "E4" inherit_from_parent: true}
- *  The accepted values at `organizations/foo` are `E1`, `E2`.
- *  The accepted values at `projects/bar` are `E1`, `E2`, `E3`, and `E4`.
- *  Example 3 (inheriting both allowed and denied values):
- *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: "E1" allowed_values: "E2"}
- *  `projects/bar` has a `Policy` with:
- *  {denied_values: "E1"}
- *  The accepted values at `organizations/foo` are `E1`, `E2`.
- *  The value accepted at `projects/bar` is `E2`.
- *  Example 4 (RestoreDefault):
- *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: "E1" allowed_values:"E2"}
- *  `projects/bar` has a `Policy` with values:
- *  {RestoreDefault: {}}
- *  The accepted values at `organizations/foo` are `E1`, `E2`.
- *  The accepted values at `projects/bar` are either all or none depending on
- *  the value of `constraint_default` (if `ALLOW`, all; if
- *  `DENY`, none).
- *  Example 5 (no policy inherits parent policy):
- *  `organizations/foo` has no `Policy` set.
- *  `projects/bar` has no `Policy` set.
- *  The accepted values at both levels are either all or none depending on
- *  the value of `constraint_default` (if `ALLOW`, all; if
- *  `DENY`, none).
- *  Example 6 (ListConstraint allowing all):
- *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: "E1" allowed_values: "E2"}
- *  `projects/bar` has a `Policy` with:
- *  {all: ALLOW}
- *  The accepted values at `organizations/foo` are `E1`, E2`.
- *  Any value is accepted at `projects/bar`.
- *  Example 7 (ListConstraint allowing none):
- *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: "E1" allowed_values: "E2"}
- *  `projects/bar` has a `Policy` with:
- *  {all: DENY}
- *  The accepted values at `organizations/foo` are `E1`, E2`.
- *  No value is accepted at `projects/bar`.
- *  Example 10 (allowed and denied subtrees of Resource Manager hierarchy):
- *  Given the following resource hierarchy
- *  O1->{F1, F2}; F1->{P1}; F2->{P2, P3},
- *  `organizations/foo` has a `Policy` with values:
- *  {allowed_values: "under:organizations/O1"}
- *  `projects/bar` has a `Policy` with:
- *  {allowed_values: "under:projects/P3"}
- *  {denied_values: "under:folders/F2"}
- *  The accepted values at `organizations/foo` are `organizations/O1`,
- *  `folders/F1`, `folders/F2`, `projects/P1`, `projects/P2`,
- *  `projects/P3`.
- *  The accepted values at `projects/bar` are `organizations/O1`,
- *  `folders/F1`, `projects/P1`.
+ *  {allowed_values: "E3" allowed_values: "E4"} The accepted values at
+ *  `organizations/foo` are `E1`, `E2`. The accepted values at `projects/bar`
+ *  are `E3`, and `E4`. Example 2 (inherited values): `organizations/foo` has a
+ *  `Policy` with values: {allowed_values: "E1" allowed_values:"E2"}
+ *  `projects/bar` has a `Policy` with values: {value: "E3" value: "E4"
+ *  inherit_from_parent: true} The accepted values at `organizations/foo` are
+ *  `E1`, `E2`. The accepted values at `projects/bar` are `E1`, `E2`, `E3`, and
+ *  `E4`. Example 3 (inheriting both allowed and denied values):
+ *  `organizations/foo` has a `Policy` with values: {allowed_values: "E1"
+ *  allowed_values: "E2"} `projects/bar` has a `Policy` with: {denied_values:
+ *  "E1"} The accepted values at `organizations/foo` are `E1`, `E2`. The value
+ *  accepted at `projects/bar` is `E2`. Example 4 (RestoreDefault):
+ *  `organizations/foo` has a `Policy` with values: {allowed_values: "E1"
+ *  allowed_values:"E2"} `projects/bar` has a `Policy` with values:
+ *  {RestoreDefault: {}} The accepted values at `organizations/foo` are `E1`,
+ *  `E2`. The accepted values at `projects/bar` are either all or none depending
+ *  on the value of `constraint_default` (if `ALLOW`, all; if `DENY`, none).
+ *  Example 5 (no policy inherits parent policy): `organizations/foo` has no
+ *  `Policy` set. `projects/bar` has no `Policy` set. The accepted values at
+ *  both levels are either all or none depending on the value of
+ *  `constraint_default` (if `ALLOW`, all; if `DENY`, none). Example 6
+ *  (ListConstraint allowing all): `organizations/foo` has a `Policy` with
+ *  values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a
+ *  `Policy` with: {all: ALLOW} The accepted values at `organizations/foo` are
+ *  `E1`, E2`. Any value is accepted at `projects/bar`. Example 7
+ *  (ListConstraint allowing none): `organizations/foo` has a `Policy` with
+ *  values: {allowed_values: "E1" allowed_values: "E2"} `projects/bar` has a
+ *  `Policy` with: {all: DENY} The accepted values at `organizations/foo` are
+ *  `E1`, E2`. No value is accepted at `projects/bar`. Example 10 (allowed and
+ *  denied subtrees of Resource Manager hierarchy): Given the following resource
+ *  hierarchy O1->{F1, F2}; F1->{P1}; F2->{P2, P3}, `organizations/foo` has a
+ *  `Policy` with values: {allowed_values: "under:organizations/O1"}
+ *  `projects/bar` has a `Policy` with: {allowed_values: "under:projects/P3"}
+ *  {denied_values: "under:folders/F2"} The accepted values at
+ *  `organizations/foo` are `organizations/O1`, `folders/F1`, `folders/F2`,
+ *  `projects/P1`, `projects/P2`, `projects/P3`. The accepted values at
+ *  `projects/bar` are `organizations/O1`, `folders/F1`, `projects/P1`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1144,9 +1070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Optional. The Google Cloud Console will try to default to a configuration
- *  that matches the value specified in this `Policy`. If `suggested_value`
- *  is not set, it will inherit the value specified higher in the hierarchy,
- *  unless `inherit_from_parent` is `false`.
+ *  that matches the value specified in this `Policy`. If `suggested_value` is
+ *  not set, it will inherit the value specified higher in the hierarchy, unless
+ *  `inherit_from_parent` is `false`.
  */
 @property(nonatomic, copy, nullable) NSString *suggestedValue;
 
@@ -1164,24 +1090,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  The name of the `Constraint` the `Policy` is configuring, for example,
- *  `constraints/serviceuser.services`.
- *  A [list of available
+ *  `constraints/serviceuser.services`. A [list of available
  *  constraints](/resource-manager/docs/organization-policy/org-policy-constraints)
- *  is available.
- *  Immutable after creation.
+ *  is available. Immutable after creation.
  */
 @property(nonatomic, copy, nullable) NSString *constraint;
 
 /**
  *  An opaque tag indicating the current version of the `Policy`, used for
- *  concurrency control.
- *  When the `Policy` is returned from either a `GetPolicy` or a
- *  `ListOrgPolicy` request, this `etag` indicates the version of the current
- *  `Policy` to use when executing a read-modify-write loop.
- *  When the `Policy` is returned from a `GetEffectivePolicy` request, the
- *  `etag` will be unset.
- *  When the `Policy` is used in a `SetOrgPolicy` method, use the `etag` value
- *  that was returned from a `GetOrgPolicy` request as part of a
+ *  concurrency control. When the `Policy` is returned from either a `GetPolicy`
+ *  or a `ListOrgPolicy` request, this `etag` indicates the version of the
+ *  current `Policy` to use when executing a read-modify-write loop. When the
+ *  `Policy` is returned from a `GetEffectivePolicy` request, the `etag` will be
+ *  unset. When the `Policy` is used in a `SetOrgPolicy` method, use the `etag`
+ *  value that was returned from a `GetOrgPolicy` request as part of a
  *  read-modify-write loop for concurrency control. Not setting the `etag`in a
  *  `SetOrgPolicy` request will result in an unconditional write of the
  *  `Policy`.
@@ -1195,8 +1117,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy *listPolicy;
 
 /**
- *  Restores the default behavior of the constraint; independent of
- *  `Constraint` type.
+ *  Restores the default behavior of the constraint; independent of `Constraint`
+ *  type.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault *restoreDefault;
 
@@ -1221,15 +1143,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Ignores policies set above this resource and restores the
  *  `constraint_default` enforcement behavior of the specific `Constraint` at
- *  this resource.
- *  Suppose that `constraint_default` is set to `ALLOW` for the
+ *  this resource. Suppose that `constraint_default` is set to `ALLOW` for the
  *  `Constraint` `constraints/serviceuser.services`. Suppose that organization
  *  foo.com sets a `Policy` at their Organization resource node that restricts
- *  the allowed service activations to deny all service activations. They
- *  could then set a `Policy` with the `policy_type` `restore_default` on
- *  several experimental projects, restoring the `constraint_default`
- *  enforcement of the `Constraint` for only those projects, allowing those
- *  projects to have all services activated.
+ *  the allowed service activations to deny all service activations. They could
+ *  then set a `Policy` with the `policy_type` `restore_default` on several
+ *  experimental projects, restoring the `constraint_default` enforcement of the
+ *  `Constraint` for only those projects, allowing those projects to have all
+ *  services activated.
  */
 @interface GTLRCloudAsset_GoogleCloudOrgpolicyV1RestoreDefault : GTLRObject
 @end
@@ -1293,9 +1214,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The parent of this `AccessPolicy` in the Cloud Resource
- *  Hierarchy. Currently immutable once created. Format:
- *  `organizations/{organization_id}`
+ *  Required. The parent of this `AccessPolicy` in the Cloud Resource Hierarchy.
+ *  Currently immutable once created. Format: `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1312,9 +1232,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  How the `conditions` list should be combined to determine if a request is
- *  granted this `AccessLevel`. If AND is used, each `Condition` in
- *  `conditions` must be satisfied for the `AccessLevel` to be applied. If OR
- *  is used, at least one `Condition` in `conditions` must be satisfied for the
+ *  granted this `AccessLevel`. If AND is used, each `Condition` in `conditions`
+ *  must be satisfied for the `AccessLevel` to be applied. If OR is used, at
+ *  least one `Condition` in `conditions` must be satisfied for the
  *  `AccessLevel` to be applied. Default behavior is AND.
  *
  *  Likely values:
@@ -1335,24 +1255,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  A condition necessary for an `AccessLevel` to be granted. The Condition is
- *  an
- *  AND over its fields. So a Condition is true if: 1) the request IP is from
- *  one
- *  of the listed subnetworks AND 2) the originating device complies with the
- *  listed device policy AND 3) all listed access levels are granted AND 4) the
- *  request was sent at a time allowed by the DateTimeRestriction.
+ *  an AND over its fields. So a Condition is true if: 1) the request IP is from
+ *  one of the listed subnetworks AND 2) the originating device complies with
+ *  the listed device policy AND 3) all listed access levels are granted AND 4)
+ *  the request was sent at a time allowed by the DateTimeRestriction.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1Condition : GTLRObject
 
 /**
- *  Device specific restrictions, all restrictions must hold for the
- *  Condition to be true. If not specified, all devices are allowed.
+ *  Device specific restrictions, all restrictions must hold for the Condition
+ *  to be true. If not specified, all devices are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy *devicePolicy;
 
 /**
- *  CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for
- *  a CIDR IP address block, the specified IP address portion must be properly
+ *  CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a
+ *  CIDR IP address block, the specified IP address portion must be properly
  *  truncated (i.e. all the host bits must be zero) or the input is considered
  *  malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is
  *  not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
@@ -1363,12 +1281,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipSubnetworks;
 
 /**
- *  The request must be made by one of the provided user or service
- *  accounts. Groups are not supported.
- *  Syntax:
- *  `user:{emailid}`
- *  `serviceAccount:{emailid}`
- *  If not specified, a request may come from any user.
+ *  The request must be made by one of the provided user or service accounts.
+ *  Groups are not supported. Syntax: `user:{emailid}`
+ *  `serviceAccount:{emailid}` If not specified, a request may come from any
+ *  user.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -1382,17 +1298,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, strong, nullable) NSNumber *negate;
 
 /**
- *  The request must originate from one of the provided countries/regions.
- *  Must be valid ISO 3166-1 alpha-2 codes.
+ *  The request must originate from one of the provided countries/regions. Must
+ *  be valid ISO 3166-1 alpha-2 codes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
 
 /**
  *  A list of other access levels defined in the same `Policy`, referenced by
  *  resource name. Referencing an `AccessLevel` which does not exist is an
- *  error. All access levels listed must be granted for the Condition
- *  to be true. Example:
- *  "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
+ *  error. All access levels listed must be granted for the Condition to be
+ *  true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requiredAccessLevels;
 
@@ -1415,11 +1330,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  `DevicePolicy` specifies device specific restrictions necessary to acquire a
  *  given access level. A `DevicePolicy` specifies requirements for requests
- *  from
- *  devices to be granted access levels, it does not do any enforcement on the
- *  device. `DevicePolicy` acts as an AND over all specified fields, and each
- *  repeated field is an OR over its elements. Any unset fields are ignored. For
- *  example, if the proto is { os_type : DESKTOP_WINDOWS, os_type :
+ *  from devices to be granted access levels, it does not do any enforcement on
+ *  the device. `DevicePolicy` acts as an AND over all specified fields, and
+ *  each repeated field is an OR over its elements. Any unset fields are
+ *  ignored. For example, if the proto is { os_type : DESKTOP_WINDOWS, os_type :
  *  DESKTOP_LINUX, encryption_status: ENCRYPTED}, then the DevicePolicy will be
  *  true for requests originating from encrypted Linux desktops and encrypted
  *  Windows desktops.
@@ -1469,9 +1383,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint : GTLRObject
 
 /**
- *  The minimum allowed OS version. If not set, any version of this OS
- *  satisfies the constraint. Format: `"major.minor.patch"`.
- *  Examples: `"10.5.301"`, `"9.2.1"`.
+ *  The minimum allowed OS version. If not set, any version of this OS satisfies
+ *  the constraint. Format: `"major.minor.patch"`. Examples: `"10.5.301"`,
+ *  `"9.2.1"`.
  */
 @property(nonatomic, copy, nullable) NSString *minimumVersion;
 
@@ -1498,10 +1412,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *osType;
 
 /**
- *  Only allows requests from devices with a verified Chrome OS.
- *  Verifications includes requirements that the device is enterprise-managed,
- *  conformant to domain policies, and the caller has permission to call
- *  the API targeted by the request.
+ *  Only allows requests from devices with a verified Chrome OS. Verifications
+ *  includes requirements that the device is enterprise-managed, conformant to
+ *  domain policies, and the caller has permission to call the API targeted by
+ *  the request.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1512,42 +1426,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  `ServicePerimeter` describes a set of Google Cloud resources which can
- *  freely
- *  import and export data amongst themselves, but not export outside of the
- *  `ServicePerimeter`. If a request with a source within this
- *  `ServicePerimeter`
- *  has a target outside of the `ServicePerimeter`, the request will be blocked.
- *  Otherwise the request is allowed. There are two types of Service Perimeter -
- *  Regular and Bridge. Regular Service Perimeters cannot overlap, a single
- *  Google Cloud project can only belong to a single regular Service Perimeter.
- *  Service Perimeter Bridges can contain only Google Cloud projects as members,
- *  a single Google Cloud project may belong to multiple Service Perimeter
- *  Bridges.
+ *  freely import and export data amongst themselves, but not export outside of
+ *  the `ServicePerimeter`. If a request with a source within this
+ *  `ServicePerimeter` has a target outside of the `ServicePerimeter`, the
+ *  request will be blocked. Otherwise the request is allowed. There are two
+ *  types of Service Perimeter - Regular and Bridge. Regular Service Perimeters
+ *  cannot overlap, a single Google Cloud project can only belong to a single
+ *  regular Service Perimeter. Service Perimeter Bridges can contain only Google
+ *  Cloud projects as members, a single Google Cloud project may belong to
+ *  multiple Service Perimeter Bridges.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter : GTLRObject
 
 /**
- *  Description of the `ServicePerimeter` and its use. Does not affect
- *  behavior.
+ *  Description of the `ServicePerimeter` and its use. Does not affect behavior.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Resource name for the ServicePerimeter. The `short_name`
- *  component must begin with a letter and only include alphanumeric and '_'.
- *  Format: `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ *  Required. Resource name for the ServicePerimeter. The `short_name` component
+ *  must begin with a letter and only include alphanumeric and '_'. Format:
+ *  `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Perimeter type indicator. A single project is
- *  allowed to be a member of single regular perimeter, but multiple service
- *  perimeter bridges. A project cannot be a included in a perimeter bridge
- *  without being included in regular perimeter. For perimeter bridges,
- *  the restricted service list as well as access level lists must be
- *  empty.
+ *  Perimeter type indicator. A single project is allowed to be a member of
+ *  single regular perimeter, but multiple service perimeter bridges. A project
+ *  cannot be a included in a perimeter bridge without being included in regular
+ *  perimeter. For perimeter bridges, the restricted service list as well as
+ *  access level lists must be empty.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge
@@ -1567,8 +1477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Current ServicePerimeter configuration. Specifies sets of resources,
- *  restricted services and access levels that determine perimeter
- *  content and boundaries.
+ *  restricted services and access levels that determine perimeter content and
+ *  boundaries.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig *status;
 
@@ -1576,16 +1486,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly
- *  exists for all Service Perimeters, and that spec is identical to the
- *  status for those Service Perimeters. When this flag is set, it inhibits the
- *  generation of the implicit spec, thereby allowing the user to explicitly
- *  provide a configuration ("spec") to use in a dry-run version of the Service
- *  Perimeter. This allows the user to test changes to the enforced config
- *  ("status") without actually enforcing them. This testing is done through
- *  analyzing the differences between currently enforced and suggested
- *  restrictions. use_explicit_dry_run_spec must bet set to True if any of the
- *  fields in the spec are set to non-default values.
+ *  Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists
+ *  for all Service Perimeters, and that spec is identical to the status for
+ *  those Service Perimeters. When this flag is set, it inhibits the generation
+ *  of the implicit spec, thereby allowing the user to explicitly provide a
+ *  configuration ("spec") to use in a dry-run version of the Service Perimeter.
+ *  This allows the user to test changes to the enforced config ("status")
+ *  without actually enforcing them. This testing is done through analyzing the
+ *  differences between currently enforced and suggested restrictions.
+ *  use_explicit_dry_run_spec must bet set to True if any of the fields in the
+ *  spec are set to non-default values.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1605,10 +1515,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed
  *  must be in the same policy as this `ServicePerimeter`. Referencing a
  *  nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are
- *  listed, resources within the perimeter can only be accessed via Google
- *  Cloud calls with request origins within the perimeter. Example:
- *  `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`.
- *  For Service Perimeter Bridge, must be empty.
+ *  listed, resources within the perimeter can only be accessed via Google Cloud
+ *  calls with request origins within the perimeter. Example:
+ *  `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`. For Service Perimeter
+ *  Bridge, must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
 
@@ -1621,8 +1531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Google Cloud services that are subject to the Service Perimeter
  *  restrictions. For example, if `storage.googleapis.com` is specified, access
- *  to the storage buckets inside the perimeter must meet the perimeter's
- *  access restrictions.
+ *  to the storage buckets inside the perimeter must meet the perimeter's access
+ *  restrictions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedServices;
 
@@ -1633,14 +1543,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  Specifies how APIs are allowed to communicate within the Service
- *  Perimeter.
+ *  Specifies how APIs are allowed to communicate within the Service Perimeter.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1VpcAccessibleServices : GTLRObject
 
 /**
- *  The list of APIs usable within the Service Perimeter. Must be empty
- *  unless 'enable_restriction' is True.
+ *  The list of APIs usable within the Service Perimeter. Must be empty unless
+ *  'enable_restriction' is True. You can specify a list of individual services,
+ *  as well as include the 'RESTRICTED-SERVICES' value, which automatically
+ *  includes all of the services protected by the perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedServices;
 
@@ -1670,26 +1581,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The IAM policy directly set on the given resource. Note that the original
  *  IAM policy can contain multiple bindings. This only contains the bindings
  *  that match the given query. For queries that don't contain a constrain on
- *  policies (e.g., an empty query), this contains all the bindings.
- *  To search against the `policy` bindings:
- *  * use a field query, as following:
- *  - query by the policy contained members. Example:
- *  `policy : "amy\@gmail.com"`
- *  - query by the policy contained roles. Example:
- *  `policy : "roles/compute.admin"`
- *  - query by the policy contained roles' implied permissions. Example:
- *  `policy.role.permissions : "compute.instances.create"`
+ *  policies (e.g., an empty query), this contains all the bindings. To search
+ *  against the `policy` bindings: * use a field query: - query by the policy
+ *  contained members. Example: `policy:amy\@gmail.com` - query by the policy
+ *  contained roles. Example: `policy:roles/compute.admin` - query by the policy
+ *  contained roles' included permissions. Example:
+ *  `policy.role.permissions:compute.instances.create`
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *policy;
 
 /**
  *  The project that the associated GCP resource belongs to, in the form of
  *  projects/{PROJECT_NUMBER}. If an IAM policy is set on a resource (like VM
- *  instance, Cloud Storage bucket), the project field will indicate the
- *  project that contains the resource. If an IAM policy is set on a folder or
- *  orgnization, the project field will be empty.
- *  To search against the `project`:
- *  * specify the `scope` field as this project in your search request.
+ *  instance, Cloud Storage bucket), the project field will indicate the project
+ *  that contains the resource. If an IAM policy is set on a folder or
+ *  orgnization, the project field will be empty. To search against the
+ *  `project`: * specify the `scope` field as this project in your search
+ *  request.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1699,9 +1607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
  *  See [Cloud Asset Inventory Resource Name
  *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
- *  for more information.
- *  To search against the `resource`:
- *  * use a field query. Example: `resource : "organizations/123"`
+ *  for more information. To search against the `resource`: * use a field query.
+ *  Example: `resource:organizations/123`
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1726,8 +1633,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1739,16 +1646,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1757,10 +1664,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Operation_Response *response;
 
@@ -1769,8 +1675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1787,10 +1693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1807,8 +1712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_OutputConfig : GTLRObject
 
 /**
- *  Destination on BigQuery. The output table stores the fields in asset
- *  proto as columns in BigQuery.
+ *  Destination on BigQuery. The output table stores the fields in asset proto
+ *  as columns in BigQuery.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_BigQueryDestination *bigqueryDestination;
 
@@ -1831,66 +1736,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudAsset_Policy : GTLRObject
 
@@ -1899,23 +1772,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1923,24 +1796,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1956,8 +1825,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_PubsubDestination : GTLRObject
 
 /**
- *  The name of the Pub/Sub topic to publish to.
- *  Example: `projects/PROJECT_ID/topics/TOPIC_ID`.
+ *  The name of the Pub/Sub topic to publish to. Example:
+ *  `projects/PROJECT_ID/topics/TOPIC_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -1970,23 +1839,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_Resource : GTLRObject
 
 /**
- *  The content of the resource, in which some sensitive fields are removed
- *  and may not be present.
+ *  The content of the resource, in which some sensitive fields are removed and
+ *  may not be present.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource_Data *data;
 
 /**
  *  The URL of the discovery document containing the resource's JSON schema.
- *  Example:
- *  `https://www.googleapis.com/discovery/v1/apis/compute/v1/rest`
- *  This value is unspecified for resources that do not have an API based on a
+ *  Example: `https://www.googleapis.com/discovery/v1/apis/compute/v1/rest` This
+ *  value is unspecified for resources that do not have an API based on a
  *  discovery document, such as Cloud Bigtable.
  */
 @property(nonatomic, copy, nullable) NSString *discoveryDocumentUri;
 
 /**
- *  The JSON schema name listed in the discovery document. Example:
- *  `Project`
+ *  The JSON schema name listed in the discovery document. Example: `Project`
  *  This value is unspecified for resources that do not have an API based on a
  *  discovery document, such as Cloud Bigtable.
  */
@@ -1999,16 +1866,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  The full name of the immediate parent of this resource. See
- *  [Resource
+ *  The full name of the immediate parent of this resource. See [Resource
  *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
- *  for more information.
- *  For Google Cloud assets, this value is the parent resource defined in the
- *  [Cloud IAM policy
+ *  for more information. For Google Cloud assets, this value is the parent
+ *  resource defined in the [Cloud IAM policy
  *  hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy).
- *  Example:
- *  `//cloudresourcemanager.googleapis.com/projects/my_project_123`
- *  For third-party assets, this field may be set differently.
+ *  Example: `//cloudresourcemanager.googleapis.com/projects/my_project_123` For
+ *  third-party assets, this field may be set differently.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2027,8 +1891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  The content of the resource, in which some sensitive fields are removed
- *  and may not be present.
+ *  The content of the resource, in which some sensitive fields are removed and
+ *  may not be present.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2052,63 +1916,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  corresponding GCP service (e.g., Compute Engine). see [API references and
  *  supported searchable
  *  attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types)
- *  for more information.
- *  You can search values of these fields through free text search. However,
- *  you should not consume the field programically as the field names and
- *  values may change as the GCP service updates to a new incompatible API
- *  version.
- *  To search against the `additional_attributes`:
- *  * use a free text query to match the attributes values. Example: to search
+ *  for more information. You can search values of these fields through free
+ *  text search. However, you should not consume the field programically as the
+ *  field names and values may change as the GCP service updates to a new
+ *  incompatible API version. To search against the `additional_attributes`: *
+ *  use a free text query to match the attributes values. Example: to search
  *  `additional_attributes = { dnsName: "foobar" }`, you can issue a query
- *  `"foobar"`.
+ *  `foobar`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_AdditionalAttributes *additionalAttributes;
 
 /**
- *  The type of this resource. Example: `compute.googleapis.com/Disk`.
- *  To search against the `asset_type`:
- *  * specify the `asset_type` field in your search request.
+ *  The type of this resource. Example: `compute.googleapis.com/Disk`. To search
+ *  against the `asset_type`: * specify the `asset_type` field in your search
+ *  request.
  */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
  *  One or more paragraphs of text description of this resource. Maximum length
- *  could be up to 1M bytes.
- *  To search against the `description`:
- *  * use a field query. Example: `description : "*important instance*"`
- *  * use a free text query. Example: `"*important instance*"`
+ *  could be up to 1M bytes. To search against the `description`: * use a field
+ *  query. Example: `description:"*important instance*"` * use a free text
+ *  query. Example: `"*important instance*"`
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The display name of this resource.
- *  To search against the `display_name`:
- *  * use a field query. Example: `displayName : "My Instance"`
- *  * use a free text query. Example: `"My Instance"`
+ *  The display name of this resource. To search against the `display_name`: *
+ *  use a field query. Example: `displayName:"My Instance"` * use a free text
+ *  query. Example: `"My Instance"`
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Labels associated with this resource. See [Labelling and grouping GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information.
- *  To search against the `labels`:
- *  * use a field query, as following:
- *  - query on any label's key or value. Example: `labels : "prod"`
- *  - query by a given label. Example: `labels.env : "prod"`
- *  - query by a given label'sexistence. Example: `labels.env : *`
- *  * use a free text query. Example: `"prod"`
+ *  for more information. To search against the `labels`: * use a field query: -
+ *  query on any label's key or value. Example: `labels:prod` - query by a given
+ *  label. Example: `labels.env:prod` - query by a given label's existence.
+ *  Example: `labels.env:*` * use a free text query. Example: `prod`
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_ResourceSearchResult_Labels *labels;
 
 /**
  *  Location can be `global`, regional like `us-east1`, or zonal like
- *  `us-west1-b`.
- *  To search against the `location`:
- *  * use a field query. Example: `location : "us-west*"`
- *  * use a free text query. Example: `"us-west*"`
+ *  `us-west1-b`. To search against the `location`: * use a field query.
+ *  Example: `location:us-west*` * use a free text query. Example: `us-west*`
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -2117,10 +1972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
  *  See [Cloud Asset Inventory Resource Name
  *  Format](https://cloud.google.com/asset-inventory/docs/resource-name-format)
- *  for more information.
- *  To search against the `name`:
- *  * use a field query. Example: `name : "instance1"`
- *  * use a free text query. Example: `"instance1"`
+ *  for more information. To search against the `name`: * use a field query.
+ *  Example: `name:instance1` * use a free text query. Example: `instance1`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2128,18 +1981,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Network tags associated with this resource. Like labels, network tags are a
  *  type of annotations used to group GCP resources. See [Labelling GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information.
- *  To search against the `network_tags`:
- *  * use a field query. Example: `networkTags : "internal"`
- *  * use a free text query. Example: `"internal"`
+ *  for more information. To search against the `network_tags`: * use a field
+ *  query. Example: `networkTags:internal` * use a free text query. Example:
+ *  `internal`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *networkTags;
 
 /**
  *  The project that this resource belongs to, in the form of
- *  projects/{PROJECT_NUMBER}.
- *  To search against the `project`:
- *  * specify the `scope` field as this project in your search request.
+ *  projects/{PROJECT_NUMBER}. To search against the `project`: * specify the
+ *  `scope` field as this project in your search request.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -2154,15 +2005,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  corresponding GCP service (e.g., Compute Engine). see [API references and
  *  supported searchable
  *  attributes](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types)
- *  for more information.
- *  You can search values of these fields through free text search. However,
- *  you should not consume the field programically as the field names and
- *  values may change as the GCP service updates to a new incompatible API
- *  version.
- *  To search against the `additional_attributes`:
- *  * use a free text query to match the attributes values. Example: to search
+ *  for more information. You can search values of these fields through free
+ *  text search. However, you should not consume the field programically as the
+ *  field names and values may change as the GCP service updates to a new
+ *  incompatible API version. To search against the `additional_attributes`: *
+ *  use a free text query to match the attributes values. Example: to search
  *  `additional_attributes = { dnsName: "foobar" }`, you can issue a query
- *  `"foobar"`.
+ *  `foobar`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2176,13 +2025,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Labels associated with this resource. See [Labelling and grouping GCP
  *  resources](https://cloud.google.com/blog/products/gcp/labelling-and-grouping-your-google-cloud-platform-resources)
- *  for more information.
- *  To search against the `labels`:
- *  * use a field query, as following:
- *  - query on any label's key or value. Example: `labels : "prod"`
- *  - query by a given label. Example: `labels.env : "prod"`
- *  - query by a given label'sexistence. Example: `labels.env : *`
- *  * use a free text query. Example: `"prod"`
+ *  for more information. To search against the `labels`: * use a field query: -
+ *  query on any label's key or value. Example: `labels:prod` - query by a given
+ *  label. Example: `labels.env:prod` - query by a given label's existence.
+ *  Example: `labels.env:*` * use a free text query. Example: `prod`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2211,8 +2057,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  A list of IamPolicy that match the search query. Related information such
- *  as the associated resource is returned along with the policy.
+ *  A list of IamPolicy that match the search query. Related information such as
+ *  the associated resource is returned along with the policy.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2255,9 +2101,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudAsset_Status : GTLRObject
 
@@ -2298,8 +2144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  An asset in Google Cloud and its temporal metadata, including the time
- *  window
- *  when it was observed and its status during that window.
+ *  window when it was observed and its status during that window.
  */
 @interface GTLRCloudAsset_TemporalAsset : GTLRObject
 
@@ -2367,18 +2212,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Required. The new values of feed details. It must match an existing feed and
- *  the
- *  field `name` must be in the format of:
- *  projects/project_number/feeds/feed_id or
- *  folders/folder_number/feeds/feed_id or
- *  organizations/organization_number/feeds/feed_id.
+ *  the field `name` must be in the format of:
+ *  projects/project_number/feeds/feed_id or folders/folder_number/feeds/feed_id
+ *  or organizations/organization_number/feeds/feed_id.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Feed *feed;
 
 /**
- *  Required. Only updates the `feed` fields indicated by this mask.
- *  The field mask must not be empty, and it must not contain fields that
- *  are immutable or only set by the server.
+ *  Required. Only updates the `feed` fields indicated by this mask. The field
+ *  mask must not be empty, and it must not contain fields that are immutable or
+ *  only set by the server.
  *
  *  String format is a comma-separated list of fields.
  */

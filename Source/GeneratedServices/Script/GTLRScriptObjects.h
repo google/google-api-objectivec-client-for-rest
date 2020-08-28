@@ -100,9 +100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_File_Type_EnumTypeUnspecified;
  */
 FOUNDATION_EXTERN NSString * const kGTLRScript_File_Type_Html;
 /**
- *  A file in JSON format. This type is only used for the script
- *  project's manifest. The manifest file content must match the
- *  structure of a valid
+ *  A file in JSON format. This type is only used for the script project's
+ *  manifest. The manifest file content must match the structure of a valid
  *  [ScriptManifest](/apps-script/concepts/manifests)
  *
  *  Value: "JSON"
@@ -160,8 +159,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiC
  */
 FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeExecutionApiConfig_Access_Domain;
 /**
- *  Only the user who deployed the web app or executable can access it.
- *  Note that this is not necessarily the owner of the script project.
+ *  Only the user who deployed the web app or executable can access it. Note
+ *  that this is not necessarily the owner of the script project.
  *
  *  Value: "MYSELF"
  */
@@ -352,8 +351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_
  */
 FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Domain;
 /**
- *  Only the user who deployed the web app or executable can access it.
- *  Note that this is not necessarily the owner of the script project.
+ *  Only the user who deployed the web app or executable can access it. Note
+ *  that this is not necessarily the owner of the script project.
  *
  *  Value: "MYSELF"
  */
@@ -381,8 +380,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_
  */
 FOUNDATION_EXTERN NSString * const kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserAccessing;
 /**
- *  The script runs as the user who deployed the web app. Note that this is
- *  not necessarily the owner of the script project.
+ *  The script runs as the user who deployed the web app. Note that this is not
+ *  necessarily the owner of the script project.
  *
  *  Value: "USER_DEPLOYING"
  */
@@ -404,10 +403,9 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 @interface GTLRScript_Content : GTLRObject
 
 /**
- *  The list of script project files.
- *  One of the files is a script manifest; it must be named "appsscript",
- *  must have type of JSON, and include the manifest configurations for the
- *  project.
+ *  The list of script project files. One of the files is a script manifest; it
+ *  must be named "appsscript", must have type of JSON, and include the manifest
+ *  configurations for the project.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRScript_File *> *files;
 
@@ -424,8 +422,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 /**
  *  The Drive ID of a parent file that the created script project is bound to.
- *  This is usually the ID of a Google Doc, Google Sheet, Google Form, or
- *  Google Slides file. If not set, a standalone script project is created.
+ *  This is usually the ID of a Google Doc, Google Sheet, Google Form, or Google
+ *  Slides file. If not set, a standalone script project is created.
  */
 @property(nonatomic, copy, nullable) NSString *parentId;
 
@@ -486,11 +484,9 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRScript_Empty : GTLRObject
 @end
@@ -543,13 +539,10 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 /**
  *  An object that provides information about the nature of an error resulting
  *  from an attempted execution of a script function using the Apps Script API.
- *  If a run call
- *  succeeds but the script function (or Apps Script itself) throws an
- *  exception,
- *  the response body's error field
- *  contains a
- *  Status object. The `Status` object's `details` field
- *  contains an array with a single one of these `ExecutionError` objects.
+ *  If a run call succeeds but the script function (or Apps Script itself)
+ *  throws an exception, the response body's error field contains a Status
+ *  object. The `Status` object's `details` field contains an array with a
+ *  single one of these `ExecutionError` objects.
  */
 @interface GTLRScript_ExecutionError : GTLRObject
 
@@ -599,26 +592,25 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 /**
  *  The parameters to be passed to the function being executed. The object type
- *  for each parameter should match the expected type in Apps Script.
- *  Parameters cannot be Apps Script-specific object types (such as a
- *  `Document` or a `Calendar`); they can only be primitive types such as
- *  `string`, `number`, `array`, `object`, or `boolean`. Optional.
+ *  for each parameter should match the expected type in Apps Script. Parameters
+ *  cannot be Apps Script-specific object types (such as a `Document` or a
+ *  `Calendar`); they can only be primitive types such as `string`, `number`,
+ *  `array`, `object`, or `boolean`. Optional.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) NSArray *parameters;
 
 /**
- *  <b>Deprecated</b>. For use with Android add-ons only. An ID that represents
- *  the user's current session in the Android app for Google Docs or Sheets,
+ *  *Deprecated*. For use with Android add-ons only. An ID that represents the
+ *  user's current session in the Android app for Google Docs or Sheets,
  *  included as extra data in the
  *  [Intent](https://developer.android.com/guide/components/intents-filters.html)
  *  that launches the add-on. When an Android add-on is run with a session
  *  state, it gains the privileges of a
- *  [bound](https://developers.google.com/apps-script/guides/bound)
- *  script&mdash;that is, it can access information like the user's current
- *  cursor position (in Docs) or selected cell (in Sheets). To retrieve the
- *  state, call
+ *  [bound](https://developers.google.com/apps-script/guides/bound) script—that
+ *  is, it can access information like the user's current cursor position (in
+ *  Docs) or selected cell (in Sheets). To retrieve the state, call
  *  `Intent.getStringExtra("com.google.android.apps.docs.addons.SessionState")`.
  *  Optional.
  */
@@ -630,8 +622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 /**
  *  An object that provides the return value of a function executed using the
  *  Apps Script API. If the script function returns successfully, the response
- *  body's response field contains this
- *  `ExecutionResponse` object.
+ *  body's response field contains this `ExecutionResponse` object.
  */
 @interface GTLRScript_ExecutionResponse : GTLRObject
 
@@ -661,17 +652,16 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 
 /**
- *  An individual file within a script project.
- *  A file is a third-party source code created by one or more
- *  developers. It can be a server-side JS code, HTML, or a
- *  configuration file. Each script project can contain multiple files.
+ *  An individual file within a script project. A file is a third-party source
+ *  code created by one or more developers. It can be a server-side JS code,
+ *  HTML, or a configuration file. Each script project can contain multiple
+ *  files.
  */
 @interface GTLRScript_File : GTLRObject
 
 /**
- *  Creation date timestamp.
- *  This read-only field is only visible to users who have WRITER
- *  permission for the script project.
+ *  Creation date timestamp. This read-only field is only visible to users who
+ *  have WRITER permission for the script project.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -679,15 +669,14 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRScript_GoogleAppsScriptTypeFunctionSet *functionSet;
 
 /**
- *  The user who modified the file most recently.
- *  This read-only field is only visible to users who have WRITER
- *  permission for the script project.
+ *  The user who modified the file most recently. This read-only field is only
+ *  visible to users who have WRITER permission for the script project.
  */
 @property(nonatomic, strong, nullable) GTLRScript_GoogleAppsScriptTypeUser *lastModifyUser;
 
 /**
- *  The name of the file. The file extension is not part of the file
- *  name, which can be identified from the type field.
+ *  The name of the file. The file extension is not part of the file name, which
+ *  can be identified from the type field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -703,9 +692,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
  *    @arg @c kGTLRScript_File_Type_Html A file containing client-side HTML.
  *        (Value: "HTML")
  *    @arg @c kGTLRScript_File_Type_Json A file in JSON format. This type is
- *        only used for the script
- *        project's manifest. The manifest file content must match the
- *        structure of a valid
+ *        only used for the script project's manifest. The manifest file content
+ *        must match the structure of a valid
  *        [ScriptManifest](/apps-script/concepts/manifests) (Value: "JSON")
  *    @arg @c kGTLRScript_File_Type_ServerJs An Apps Script server-side code
  *        file. (Value: "SERVER_JS")
@@ -713,9 +701,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Last modified date timestamp.
- *  This read-only field is only visible to users who have WRITER
- *  permission for the script project.
+ *  Last modified date timestamp. This read-only field is only visible to users
+ *  who have WRITER permission for the script project.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -828,8 +815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 /**
  *  Representation of a single script process execution that was started from
  *  the script editor, a trigger, an application, or using the Apps Script API.
- *  This is distinct from the `Operation`
- *  resource, which only represents executions started via the Apps Script API.
+ *  This is distinct from the `Operation` resource, which only represents
+ *  executions started via the Apps Script API.
  */
 @interface GTLRScript_GoogleAppsScriptTypeProcess : GTLRObject
 
@@ -957,9 +944,9 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
  *        users in the same domain as the user who deployed the web app or
  *        executable can access it. (Value: "DOMAIN")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_Myself Only
- *        the user who deployed the web app or executable can access it.
- *        Note that this is not necessarily the owner of the script project.
- *        (Value: "MYSELF")
+ *        the user who deployed the web app or executable can access it. Note
+ *        that this is not necessarily the owner of the script project. (Value:
+ *        "MYSELF")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeWebAppConfig_Access_UnknownAccess
  *        Default value, should not be used. (Value: "UNKNOWN_ACCESS")
  */
@@ -976,8 +963,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
  *        "USER_ACCESSING")
  *    @arg @c kGTLRScript_GoogleAppsScriptTypeWebAppConfig_ExecuteAs_UserDeploying
  *        The script runs as the user who deployed the web app. Note that this
- *        is
- *        not necessarily the owner of the script project. (Value:
+ *        is not necessarily the owner of the script project. (Value:
  *        "USER_DEPLOYING")
  */
 @property(nonatomic, copy, nullable) NSString *executeAs;
@@ -1018,8 +1004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<GTLRScript_Deployment *> *deployments;
 
 /**
- *  The token that can be used in the next call to get the next page of
- *  results.
+ *  The token that can be used in the next call to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1027,8 +1012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 
 /**
- *  Response with the list of
- *  Process resources.
+ *  Response with the list of Process resources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "processes" property. If returned as the result of a query, it
@@ -1055,8 +1039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 
 /**
- *  Response with the list of
- *  Process resources.
+ *  Response with the list of Process resources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "processes" property. If returned as the result of a query, it
@@ -1164,26 +1147,19 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
  *  run. The execution response does not arrive until the function finishes
  *  executing. The maximum execution runtime is listed in the [Apps Script
  *  quotas guide](/apps-script/guides/services/quotas#current_limitations).
- *  <p>After execution has started, it can have one of four outcomes:</p> <ul>
- *  <li> If the script function returns successfully, the
- *  response field contains an
- *  ExecutionResponse object
- *  with the function's return value in the object's `result` field.</li>
- *  <li> If the script function (or Apps Script itself) throws an exception, the
- *  error field contains a
- *  Status object. The `Status` object's `details`
- *  field contains an array with a single
- *  ExecutionError object that
- *  provides information about the nature of the error.</li>
- *  <li> If the execution has not yet completed,
- *  the done field is `false` and
- *  the neither the `response` nor `error` fields are present.</li>
- *  <li> If the `run` call itself fails (for example, because of a
- *  malformed request or an authorization error), the method returns an HTTP
- *  response code in the 4XX range with a different format for the response
- *  body. Client libraries automatically convert a 4XX response into an
- *  exception class.</li>
- *  </ul>
+ *  After execution has started, it can have one of four outcomes: - If the
+ *  script function returns successfully, the response field contains an
+ *  ExecutionResponse object with the function's return value in the object's
+ *  `result` field. - If the script function (or Apps Script itself) throws an
+ *  exception, the error field contains a Status object. The `Status` object's
+ *  `details` field contains an array with a single ExecutionError object that
+ *  provides information about the nature of the error. - If the execution has
+ *  not yet completed, the done field is `false` and the neither the `response`
+ *  nor `error` fields are present. - If the `run` call itself fails (for
+ *  example, because of a malformed request or an authorization error), the
+ *  method returns an HTTP response code in the 4XX range with a different
+ *  format for the response body. Client libraries automatically convert a 4XX
+ *  response into an exception class.
  */
 @interface GTLRScript_Operation : GTLRObject
 
@@ -1242,8 +1218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 /**
  *  The parent's Drive ID that the script will be attached to. This is usually
- *  the ID of a Google Document or Google Sheet. This filed is optional, and
- *  if not set, a stand-alone script will be created.
+ *  the ID of a Google Document or Google Sheet. This filed is optional, and if
+ *  not set, a stand-alone script will be created.
  */
 @property(nonatomic, copy, nullable) NSString *parentId;
 
@@ -1285,9 +1261,9 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 @interface GTLRScript_Status : GTLRObject
 
 /**
- *  The status code. For this API, this value either: <ul> <li> 10, indicating a
- *  `SCRIPT_TIMEOUT` error,</li> <li> 3, indicating an `INVALID_ARGUMENT` error,
- *  or</li> <li> 1, indicating a `CANCELLED` execution.</li> </ul>
+ *  The status code. For this API, this value either: - 10, indicating a
+ *  `SCRIPT_TIMEOUT` error, - 3, indicating an `INVALID_ARGUMENT` error, or - 1,
+ *  indicating a `CANCELLED` execution.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1448,8 +1424,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *scriptId;
 
 /**
- *  The incremental ID that is created by Apps Script when a version is
- *  created. This is system assigned number and is immutable once created.
+ *  The incremental ID that is created by Apps Script when a version is created.
+ *  This is system assigned number and is immutable once created.
  *
  *  Uses NSNumber of intValue.
  */

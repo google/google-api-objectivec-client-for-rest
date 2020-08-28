@@ -116,6 +116,11 @@ NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted = 
 NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator = @"SET_BY_OPERATOR";
 NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
 
+// GTLRContainer_UpgradeEvent.resourceType
+NSString * const kGTLRContainer_UpgradeEvent_ResourceType_Master = @"MASTER";
+NSString * const kGTLRContainer_UpgradeEvent_ResourceType_NodePool = @"NODE_POOL";
+NSString * const kGTLRContainer_UpgradeEvent_ResourceType_UpgradeResourceTypeUnspecified = @"UPGRADE_RESOURCE_TYPE_UNSPECIFIED";
+
 // GTLRContainer_UsableSubnetworkSecondaryRange.status
 NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseManagedPod = @"IN_USE_MANAGED_POD";
 NSString * const kGTLRContainer_UsableSubnetworkSecondaryRange_Status_InUseService = @"IN_USE_SERVICE";
@@ -341,14 +346,15 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_ClusterUpdate
 @dynamic desiredAddonsConfig, desiredBinaryAuthorization,
-         desiredClusterAutoscaling, desiredDatabaseEncryption, desiredImageType,
+         desiredClusterAutoscaling, desiredDatabaseEncryption,
+         desiredDefaultSnatStatus, desiredImageType,
          desiredIntraNodeVisibilityConfig, desiredLocations,
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMonitoringService,
          desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
-         desiredReleaseChannel, desiredResourceUsageExportConfig,
-         desiredShieldedNodes, desiredVerticalPodAutoscaling,
-         desiredWorkloadIdentityConfig;
+         desiredPrivateClusterConfig, desiredReleaseChannel,
+         desiredResourceUsageExportConfig, desiredShieldedNodes,
+         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -442,6 +448,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_DatabaseEncryption
 @dynamic keyName, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_DefaultSnatStatus
+//
+
+@implementation GTLRContainer_DefaultSnatStatus
+@dynamic disabled;
 @end
 
 
@@ -567,7 +583,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic clusterIpv4Cidr, clusterIpv4CidrBlock, clusterSecondaryRangeName,
          createSubnetwork, nodeIpv4Cidr, nodeIpv4CidrBlock, servicesIpv4Cidr,
          servicesIpv4CidrBlock, servicesSecondaryRangeName, subnetworkName,
-         tpuIpv4CidrBlock, useIpAliases;
+         tpuIpv4CidrBlock, useIpAliases, useRoutes;
 @end
 
 
@@ -768,7 +784,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NetworkConfig
-@dynamic enableIntraNodeVisibility, network, subnetwork;
+@dynamic defaultSnatStatus, enableIntraNodeVisibility, network, subnetwork;
 @end
 
 
@@ -947,8 +963,18 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_PrivateClusterConfig
-@dynamic enablePrivateEndpoint, enablePrivateNodes, masterIpv4CidrBlock,
-         peeringName, privateEndpoint, publicEndpoint;
+@dynamic enablePrivateEndpoint, enablePrivateNodes, masterGlobalAccessConfig,
+         masterIpv4CidrBlock, peeringName, privateEndpoint, publicEndpoint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_PrivateClusterMasterGlobalAccessConfig
+//
+
+@implementation GTLRContainer_PrivateClusterMasterGlobalAccessConfig
+@dynamic enabled;
 @end
 
 
@@ -1383,6 +1409,17 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UpgradeEvent
+//
+
+@implementation GTLRContainer_UpgradeEvent
+@dynamic currentVersion, operation, operationStartTime, resource, resourceType,
+         targetVersion;
 @end
 
 

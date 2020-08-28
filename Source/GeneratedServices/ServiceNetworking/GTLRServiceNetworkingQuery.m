@@ -392,6 +392,71 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_PeeredDnsDomain *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/peeredDnsDomains";
+  GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.projects.global.networks.peeredDnsDomains.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.projects.global.networks.peeredDnsDomains.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/peeredDnsDomains";
+  GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_ListPeeredDnsDomainsResponse class];
+  query.loggingName = @"servicenetworking.services.projects.global.networks.peeredDnsDomains.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_ServicesRolesAdd
 
 @dynamic parent;

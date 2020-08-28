@@ -51,7 +51,10 @@
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAutoscale;
+@class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy;
+@class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance;
+@class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool;
@@ -82,19 +85,49 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.digestFunction
 
-/** Value: "MD5" */
+/**
+ *  The MD5 digest function.
+ *
+ *  Value: "MD5"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Md5;
-/** Value: "SHA1" */
+/**
+ *  The SHA-1 digest function.
+ *
+ *  Value: "SHA1"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha1;
-/** Value: "SHA256" */
+/**
+ *  The SHA-256 digest function.
+ *
+ *  Value: "SHA256"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha256;
-/** Value: "SHA384" */
+/**
+ *  The SHA-384 digest function.
+ *
+ *  Value: "SHA384"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha384;
-/** Value: "SHA512" */
+/**
+ *  The SHA-512 digest function.
+ *
+ *  Value: "SHA512"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha512;
-/** Value: "UNKNOWN" */
+/**
+ *  It is an error for the server to return this value.
+ *
+ *  Value: "UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Unknown;
-/** Value: "VSO" */
+/**
+ *  The Microsoft "VSO-Hash" paged SHA256 digest function. See
+ *  https://github.com/microsoft/BuildXL/blob/master/Documentation/Specs/PagedHash.md
+ *  .
+ *
+ *  Value: "VSO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Vso;
 
 // ----------------------------------------------------------------------------
@@ -109,9 +142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExe
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Allowed;
 /**
  *  Server will return an `INVALID_ARGUMENT` on input symlinks with absolute
- *  targets.
- *  If an action tries to create an output symlink with an absolute target, a
- *  `FAILED_PRECONDITION` will be returned.
+ *  targets. If an action tries to create an output symlink with an absolute
+ *  target, a `FAILED_PRECONDITION` will be returned.
  *
  *  Value: "DISALLOWED"
  */
@@ -197,8 +229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExe
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Unknown;
 /**
- *  The Microsoft "VSO-Hash" paged SHA256 digest function.
- *  See
+ *  The Microsoft "VSO-Hash" paged SHA256 digest function. See
  *  https://github.com/microsoft/BuildXL/blob/master/Documentation/Specs/PagedHash.md
  *  .
  *
@@ -216,8 +247,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExe
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Aborted;
 /**
- *  The bot failed to do the cleanup, e.g. unable to delete the command
- *  working directory or the command process.
+ *  The bot failed to do the cleanup, e.g. unable to delete the command working
+ *  directory or the command process.
  *
  *  Value: "CLEANUP_ERROR"
  */
@@ -235,8 +266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerCreateComputeSystemError;
 /**
- *  Docker failed to run containers with CreateComputeSystem error that
- *  involves an incorrect parameter (more specific version of
+ *  Docker failed to run containers with CreateComputeSystem error that involves
+ *  an incorrect parameter (more specific version of
  *  DOCKER_CREATE_COMPUTE_SYSTEM_ERROR that is user-caused).
  *
  *  Value: "DOCKER_CREATE_COMPUTE_SYSTEM_INCORRECT_PARAMETER_ERROR"
@@ -444,6 +475,53 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotInBaseDir;
 
 // ----------------------------------------------------------------------------
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy.linuxIsolation
+
+/**
+ *  Use gVisor runsc runtime.
+ *
+ *  Value: "GVISOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_Gvisor;
+/**
+ *  Default value. Will be using Linux default runtime.
+ *
+ *  Value: "LINUX_ISOLATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_LinuxIsolationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature.policy
+
+/**
+ *  Feature is explicitly allowed.
+ *
+ *  Value: "ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Allowed;
+/**
+ *  Feature is forbidden. Requests attempting to leverage it will get an
+ *  FailedPrecondition error, with a message like: "Feature forbidden by
+ *  FeaturePolicy: Feature on instance "
+ *
+ *  Value: "FORBIDDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Forbidden;
+/**
+ *  Default value, if not explicitly set. Equivalent to FORBIDDEN, unless
+ *  otherwise documented on a specific Feature.
+ *
+ *  Value: "POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_PolicyUnspecified;
+/**
+ *  Only the values specified in the `allowed_values` are allowed.
+ *
+ *  Value: "RESTRICTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Restricted;
+
+// ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance.state
 
 /**
@@ -455,9 +533,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Creating;
 /**
  *  An `INACTIVE` instance indicates that there is a problem that needs to be
- *  fixed. Such instances cannot be used for execution and instances that
- *  remain in this state for a significant period of time will be removed
- *  permanently.
+ *  fixed. Such instances cannot be used for execution and instances that remain
+ *  in this state for a significant period of time will be removed permanently.
  *
  *  Value: "INACTIVE"
  */
@@ -479,8 +556,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool.state
 
 /**
- *  The worker pool is in state `CREATING` once `CreateWorkerPool` is called
- *  and before all requested workers are ready.
+ *  The worker pool is in state `CREATING` once `CreateWorkerPool` is called and
+ *  before all requested workers are ready.
  *
  *  Value: "CREATING"
  */
@@ -493,8 +570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Deleting;
 /**
- *  The worker pool is in state `INACTIVE` when the instance hosting the
- *  worker pool in not running.
+ *  The worker pool is in state `INACTIVE` when the instance hosting the worker
+ *  pool in not running.
  *
  *  Value: "INACTIVE"
  */
@@ -513,9 +590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_StateUnspecified;
 /**
- *  The worker pool is in state `UPDATING` once `UpdateWorkerPool` is called
- *  and before the new configuration has all the requested workers ready for
- *  use, and no older configuration has any workers. At that point the state
+ *  The worker pool is in state `UPDATING` once `UpdateWorkerPool` is called and
+ *  before the new configuration has all the requested workers ready for use,
+ *  and no older configuration has any workers. At that point the state
  *  transitions to `RUNNING`.
  *
  *  Value: "UPDATING"
@@ -526,16 +603,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp.command
 
 /**
- *  Restart the bot without downloading a new version. `arg` will be a
- *  message to log.
+ *  Restart the bot without downloading a new version. `arg` will be a message
+ *  to log.
  *
  *  Value: "BOT_RESTART"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotRestart;
 /**
- *  Shut down the bot. `arg` will be a task resource name (similar to those
- *  in tasks.proto) that the bot can use to tell the server that it is
- *  terminating.
+ *  Shut down the bot. `arg` will be a task resource name (similar to those in
+ *  tasks.proto) that the bot can use to tell the server that it is terminating.
  *
  *  Value: "BOT_TERMINATE"
  */
@@ -562,83 +638,69 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  An `Action` captures all the information about an execution which is
- *  required
- *  to reproduce it.
- *  `Action`s are the core component of the [Execution] service. A single
- *  `Action` represents a repeatable action that can be performed by the
- *  execution service. `Action`s can be succinctly identified by the digest of
- *  their wire format encoding and, once an `Action` has been executed, will be
- *  cached in the action cache. Future requests can then use the cached result
- *  rather than needing to run afresh.
- *  When a server completes execution of an
- *  Action, it MAY choose to
- *  cache the result in
- *  the ActionCache unless
- *  `do_not_cache` is `true`. Clients SHOULD expect the server to do so. By
- *  default, future calls to
- *  Execute the same
- *  `Action` will also serve their results from the cache. Clients must take
- *  care
- *  to understand the caching behaviour. Ideally, all `Action`s will be
+ *  required to reproduce it. `Action`s are the core component of the
+ *  [Execution] service. A single `Action` represents a repeatable action that
+ *  can be performed by the execution service. `Action`s can be succinctly
+ *  identified by the digest of their wire format encoding and, once an `Action`
+ *  has been executed, will be cached in the action cache. Future requests can
+ *  then use the cached result rather than needing to run afresh. When a server
+ *  completes execution of an Action, it MAY choose to cache the result in the
+ *  ActionCache unless `do_not_cache` is `true`. Clients SHOULD expect the
+ *  server to do so. By default, future calls to Execute the same `Action` will
+ *  also serve their results from the cache. Clients must take care to
+ *  understand the caching behaviour. Ideally, all `Action`s will be
  *  reproducible so that serving a result from cache is always desirable and
  *  correct.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Action : GTLRObject
 
 /**
- *  The digest of the Command
- *  to run, which MUST be present in the
+ *  The digest of the Command to run, which MUST be present in the
  *  ContentAddressableStorage.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *commandDigest;
 
 /**
- *  If true, then the `Action`'s result cannot be cached, and in-flight
- *  requests for the same `Action` may not be merged.
+ *  If true, then the `Action`'s result cannot be cached, and in-flight requests
+ *  for the same `Action` may not be merged.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *doNotCache;
 
 /**
- *  The digest of the root
- *  Directory for the input
- *  files. The files in the directory tree are available in the correct
- *  location on the build machine before the command is executed. The root
- *  directory, as well as every subdirectory and content blob referred to, MUST
- *  be in the
+ *  The digest of the root Directory for the input files. The files in the
+ *  directory tree are available in the correct location on the build machine
+ *  before the command is executed. The root directory, as well as every
+ *  subdirectory and content blob referred to, MUST be in the
  *  ContentAddressableStorage.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *inputRootDigest;
 
 /**
- *  List of required supported NodeProperty
- *  keys. In order to ensure that equivalent `Action`s always hash to the same
- *  value, the supported node properties MUST be lexicographically sorted by
- *  name.
- *  Sorting of strings is done by code point, equivalently, by the UTF-8 bytes.
- *  The interpretation of these properties is server-dependent. If a property is
- *  not recognized by the server, the server will return an `INVALID_ARGUMENT`
- *  error.
+ *  List of required supported NodeProperty keys. In order to ensure that
+ *  equivalent `Action`s always hash to the same value, the supported node
+ *  properties MUST be lexicographically sorted by name. Sorting of strings is
+ *  done by code point, equivalently, by the UTF-8 bytes. The interpretation of
+ *  these properties is server-dependent. If a property is not recognized by the
+ *  server, the server will return an `INVALID_ARGUMENT` error.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputNodeProperties;
 
 /**
  *  A timeout after which the execution should be killed. If the timeout is
- *  absent, then the client is specifying that the execution should continue
- *  as long as the server will let it. The server SHOULD impose a timeout if
- *  the client does not specify one, however, if the client does specify a
- *  timeout that is longer than the server's maximum timeout, the server MUST
- *  reject the request.
- *  The timeout is a part of the
- *  Action message, and
- *  therefore two `Actions` with different timeouts are different, even if they
- *  are otherwise identical. This is because, if they were not, running an
- *  `Action` with a lower timeout than is required might result in a cache hit
- *  from an execution run with a longer timeout, hiding the fact that the
- *  timeout is too short. By encoding it directly in the `Action`, a lower
- *  timeout will result in a cache miss and the execution timeout will fail
- *  immediately, rather than whenever the cache entry gets evicted.
+ *  absent, then the client is specifying that the execution should continue as
+ *  long as the server will let it. The server SHOULD impose a timeout if the
+ *  client does not specify one, however, if the client does specify a timeout
+ *  that is longer than the server's maximum timeout, the server MUST reject the
+ *  request. The timeout is a part of the Action message, and therefore two
+ *  `Actions` with different timeouts are different, even if they are otherwise
+ *  identical. This is because, if they were not, running an `Action` with a
+ *  lower timeout than is required might result in a cache hit from an execution
+ *  run with a longer timeout, hiding the fact that the timeout is too short. By
+ *  encoding it directly in the `Action`, a lower timeout will result in a cache
+ *  miss and the execution timeout will fail immediately, rather than whenever
+ *  the cache entry gets evicted.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
@@ -661,8 +723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  An ActionResult represents the result of an
- *  Action being run.
+ *  An ActionResult represents the result of an Action being run.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ActionResult : GTLRObject
 
@@ -677,86 +738,44 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSNumber *exitCode;
 
 /**
- *  The output directories of the action. For each output directory requested
- *  in the `output_directories` or `output_paths` field of the Action, if the
+ *  The output directories of the action. For each output directory requested in
+ *  the `output_directories` or `output_paths` field of the Action, if the
  *  corresponding directory existed after the action completed, a single entry
- *  will be present in the output list, which will contain the digest of a
- *  Tree message containing the
- *  directory tree, and the path equal exactly to the corresponding Action
- *  output_directories member.
- *  As an example, suppose the Action had an output directory `a/b/dir` and the
- *  execution produced the following contents in `a/b/dir`: a file named `bar`
- *  and a directory named `foo` with an executable file named `baz`. Then,
- *  output_directory will contain (hashes shortened for readability):
- *  ```json
- *  // OutputDirectory proto:
- *  {
- *  path: "a/b/dir"
- *  tree_digest: {
- *  hash: "4a73bc9d03...",
- *  size: 55
- *  }
- *  }
- *  // Tree proto with hash "4a73bc9d03..." and size 55:
- *  {
- *  root: {
- *  files: [
- *  {
- *  name: "bar",
- *  digest: {
- *  hash: "4a73bc9d03...",
- *  size: 65534
- *  }
- *  }
- *  ],
- *  directories: [
- *  {
- *  name: "foo",
- *  digest: {
- *  hash: "4cf2eda940...",
- *  size: 43
- *  }
- *  }
- *  ]
- *  }
- *  children : {
- *  // (Directory proto with hash "4cf2eda940..." and size 43)
- *  files: [
- *  {
- *  name: "baz",
- *  digest: {
- *  hash: "b2c941073e...",
- *  size: 1294,
- *  },
- *  is_executable: true
- *  }
- *  ]
- *  }
- *  }
- *  ```
- *  If an output of the same name as listed in `output_files` of
- *  the Command was found in `output_directories`, but was not a directory, the
- *  server will return a FAILED_PRECONDITION.
+ *  will be present in the output list, which will contain the digest of a Tree
+ *  message containing the directory tree, and the path equal exactly to the
+ *  corresponding Action output_directories member. As an example, suppose the
+ *  Action had an output directory `a/b/dir` and the execution produced the
+ *  following contents in `a/b/dir`: a file named `bar` and a directory named
+ *  `foo` with an executable file named `baz`. Then, output_directory will
+ *  contain (hashes shortened for readability): ```json // OutputDirectory
+ *  proto: { path: "a/b/dir" tree_digest: { hash: "4a73bc9d03...", size: 55 } }
+ *  // Tree proto with hash "4a73bc9d03..." and size 55: { root: { files: [ {
+ *  name: "bar", digest: { hash: "4a73bc9d03...", size: 65534 } } ],
+ *  directories: [ { name: "foo", digest: { hash: "4cf2eda940...", size: 43 } }
+ *  ] } children : { // (Directory proto with hash "4cf2eda940..." and size 43)
+ *  files: [ { name: "baz", digest: { hash: "b2c941073e...", size: 1294, },
+ *  is_executable: true } ] } } ``` If an output of the same name as listed in
+ *  `output_files` of the Command was found in `output_directories`, but was not
+ *  a directory, the server will return a FAILED_PRECONDITION.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputDirectory *> *outputDirectories;
 
 /**
  *  The output directories of the action that are symbolic links to other
  *  directories. Those may be links to other output directories, or input
- *  directories, or even absolute paths outside of the working directory,
- *  if the server supports
- *  SymlinkAbsolutePathStrategy.ALLOWED.
- *  For each output directory requested in the `output_directories` field of
- *  the Action, if the directory existed after the action completed, a
- *  single entry will be present either in this field, or in the
- *  `output_directories` field, if the directory was not a symbolic link.
- *  If an output of the same name was found, but was a symbolic link to a file
- *  instead of a directory, the server will return a FAILED_PRECONDITION.
- *  If the action does not produce the requested output, then that output
- *  will be omitted from the list. The server is free to arrange the output
- *  list as desired; clients MUST NOT assume that the output list is sorted.
- *  DEPRECATED as of v2.1. Servers that wish to be compatible with v2.0 API
- *  should still populate this field in addition to `output_symlinks`.
+ *  directories, or even absolute paths outside of the working directory, if the
+ *  server supports SymlinkAbsolutePathStrategy.ALLOWED. For each output
+ *  directory requested in the `output_directories` field of the Action, if the
+ *  directory existed after the action completed, a single entry will be present
+ *  either in this field, or in the `output_directories` field, if the directory
+ *  was not a symbolic link. If an output of the same name was found, but was a
+ *  symbolic link to a file instead of a directory, the server will return a
+ *  FAILED_PRECONDITION. If the action does not produce the requested output,
+ *  then that output will be omitted from the list. The server is free to
+ *  arrange the output list as desired; clients MUST NOT assume that the output
+ *  list is sorted. DEPRECATED as of v2.1. Servers that wish to be compatible
+ *  with v2.0 API should still populate this field in addition to
+ *  `output_symlinks`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink *> *outputDirectorySymlinks;
 
@@ -764,13 +783,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  The output files of the action. For each output file requested in the
  *  `output_files` or `output_paths` field of the Action, if the corresponding
  *  file existed after the action completed, a single entry will be present
- *  either in this field, or the `output_file_symlinks` field if the file was
- *  a symbolic link to another file (`output_symlinks` field after v2.1).
- *  If an output listed in `output_files` was found, but was a directory rather
- *  than a regular file, the server will return a FAILED_PRECONDITION.
- *  If the action does not produce the requested output, then that output
- *  will be omitted from the list. The server is free to arrange the output
- *  list as desired; clients MUST NOT assume that the output list is sorted.
+ *  either in this field, or the `output_file_symlinks` field if the file was a
+ *  symbolic link to another file (`output_symlinks` field after v2.1). If an
+ *  output listed in `output_files` was found, but was a directory rather than a
+ *  regular file, the server will return a FAILED_PRECONDITION. If the action
+ *  does not produce the requested output, then that output will be omitted from
+ *  the list. The server is free to arrange the output list as desired; clients
+ *  MUST NOT assume that the output list is sorted.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputFile *> *outputFiles;
 
@@ -778,52 +797,46 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  The output files of the action that are symbolic links to other files. Those
  *  may be links to other output files, or input files, or even absolute paths
  *  outside of the working directory, if the server supports
- *  SymlinkAbsolutePathStrategy.ALLOWED.
- *  For each output file requested in the `output_files` or `output_paths`
- *  field of the Action, if the corresponding file existed after
- *  the action completed, a single entry will be present either in this field,
- *  or in the `output_files` field, if the file was not a symbolic link.
- *  If an output symbolic link of the same name as listed in `output_files` of
- *  the Command was found, but its target type was not a regular file, the
- *  server will return a FAILED_PRECONDITION.
- *  If the action does not produce the requested output, then that output
- *  will be omitted from the list. The server is free to arrange the output
- *  list as desired; clients MUST NOT assume that the output list is sorted.
- *  DEPRECATED as of v2.1. Servers that wish to be compatible with v2.0 API
- *  should still populate this field in addition to `output_symlinks`.
+ *  SymlinkAbsolutePathStrategy.ALLOWED. For each output file requested in the
+ *  `output_files` or `output_paths` field of the Action, if the corresponding
+ *  file existed after the action completed, a single entry will be present
+ *  either in this field, or in the `output_files` field, if the file was not a
+ *  symbolic link. If an output symbolic link of the same name as listed in
+ *  `output_files` of the Command was found, but its target type was not a
+ *  regular file, the server will return a FAILED_PRECONDITION. If the action
+ *  does not produce the requested output, then that output will be omitted from
+ *  the list. The server is free to arrange the output list as desired; clients
+ *  MUST NOT assume that the output list is sorted. DEPRECATED as of v2.1.
+ *  Servers that wish to be compatible with v2.0 API should still populate this
+ *  field in addition to `output_symlinks`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink *> *outputFileSymlinks;
 
 /**
- *  New in v2.1: this field will only be populated if the command
- *  `output_paths` field was used, and not the pre v2.1 `output_files` or
- *  `output_directories` fields.
- *  The output paths of the action that are symbolic links to other paths. Those
- *  may be links to other outputs, or inputs, or even absolute paths
- *  outside of the working directory, if the server supports
- *  SymlinkAbsolutePathStrategy.ALLOWED.
- *  A single entry for each output requested in `output_paths`
- *  field of the Action, if the corresponding path existed after
- *  the action completed and was a symbolic link.
- *  If the action does not produce a requested output, then that output
- *  will be omitted from the list. The server is free to arrange the output
- *  list as desired; clients MUST NOT assume that the output list is sorted.
+ *  New in v2.1: this field will only be populated if the command `output_paths`
+ *  field was used, and not the pre v2.1 `output_files` or `output_directories`
+ *  fields. The output paths of the action that are symbolic links to other
+ *  paths. Those may be links to other outputs, or inputs, or even absolute
+ *  paths outside of the working directory, if the server supports
+ *  SymlinkAbsolutePathStrategy.ALLOWED. A single entry for each output
+ *  requested in `output_paths` field of the Action, if the corresponding path
+ *  existed after the action completed and was a symbolic link. If the action
+ *  does not produce a requested output, then that output will be omitted from
+ *  the list. The server is free to arrange the output list as desired; clients
+ *  MUST NOT assume that the output list is sorted.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink *> *outputSymlinks;
 
 /**
- *  The digest for a blob containing the standard error of the action, which
- *  can be retrieved from the
- *  ContentAddressableStorage.
+ *  The digest for a blob containing the standard error of the action, which can
+ *  be retrieved from the ContentAddressableStorage.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *stderrDigest;
 
 /**
- *  The standard error buffer of the action. The server SHOULD NOT inline
- *  stderr unless requested by the client in the
- *  GetActionResultRequest
- *  message. The server MAY omit inlining, even if requested, and MUST do so if
- *  inlining
+ *  The standard error buffer of the action. The server SHOULD NOT inline stderr
+ *  unless requested by the client in the GetActionResultRequest message. The
+ *  server MAY omit inlining, even if requested, and MUST do so if inlining
  *  would cause the response to exceed message size limits.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -833,17 +846,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  The digest for a blob containing the standard output of the action, which
- *  can be retrieved from the
- *  ContentAddressableStorage.
+ *  can be retrieved from the ContentAddressableStorage.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *stdoutDigest;
 
 /**
  *  The standard output buffer of the action. The server SHOULD NOT inline
- *  stdout unless requested by the client in the
- *  GetActionResultRequest
- *  message. The server MAY omit inlining, even if requested, and MUST do so if
- *  inlining
+ *  stdout unless requested by the client in the GetActionResultRequest message.
+ *  The server MAY omit inlining, even if requested, and MUST do so if inlining
  *  would cause the response to exceed message size limits.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -855,8 +865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A request message for
- *  ContentAddressableStorage.BatchReadBlobs.
+ *  A request message for ContentAddressableStorage.BatchReadBlobs.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2BatchReadBlobsRequest : GTLRObject
 
@@ -867,8 +876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A response message for
- *  ContentAddressableStorage.BatchReadBlobs.
+ *  A response message for ContentAddressableStorage.BatchReadBlobs.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2BatchReadBlobsResponse : GTLRObject
 
@@ -901,8 +909,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A request message for
- *  ContentAddressableStorage.BatchUpdateBlobs.
+ *  A request message for ContentAddressableStorage.BatchUpdateBlobs.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2BatchUpdateBlobsRequest : GTLRObject
 
@@ -932,8 +939,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A response message for
- *  ContentAddressableStorage.BatchUpdateBlobs.
+ *  A response message for ContentAddressableStorage.BatchUpdateBlobs.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2BatchUpdateBlobsResponse : GTLRObject
 
@@ -969,16 +975,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2PriorityCapabilities *cachePriorityCapabilities;
 
 /**
- *  All the digest functions supported by the remote cache.
- *  Remote cache may support multiple digest functions simultaneously.
+ *  All the digest functions supported by the remote cache. Remote cache may
+ *  support multiple digest functions simultaneously.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *digestFunction;
 
 /**
- *  Maximum total size of blobs to be uploaded/downloaded using
- *  batch methods. A value of 0 means no limit is set, although
- *  in practice there will always be a message size limitation
- *  of the protocol in use, e.g. GRPC.
+ *  Maximum total size of blobs to be uploaded/downloaded using batch methods. A
+ *  value of 0 means no limit is set, although in practice there will always be
+ *  a message size limitation of the protocol in use, e.g. GRPC.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -990,15 +995,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Likely values:
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Allowed
  *        Server will allow symlink targets to escape the input root tree,
- *        possibly
- *        resulting in non-hermetic builds. (Value: "ALLOWED")
+ *        possibly resulting in non-hermetic builds. (Value: "ALLOWED")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Disallowed
  *        Server will return an `INVALID_ARGUMENT` on input symlinks with
- *        absolute
- *        targets.
- *        If an action tries to create an output symlink with an absolute
- *        target, a
- *        `FAILED_PRECONDITION` will be returned. (Value: "DISALLOWED")
+ *        absolute targets. If an action tries to create an output symlink with
+ *        an absolute target, a `FAILED_PRECONDITION` will be returned. (Value:
+ *        "DISALLOWED")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Unknown
  *        Invalid value. (Value: "UNKNOWN")
  */
@@ -1008,13 +1010,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A `Command` is the actual command executed by a worker running an
- *  Action and specifications of its
- *  environment.
- *  Except as otherwise required, the environment (such as which system
- *  libraries or binaries are available, and what filesystems are mounted where)
- *  is defined by and specific to the implementation of the remote execution
- *  API.
+ *  A `Command` is the actual command executed by a worker running an Action and
+ *  specifications of its environment. Except as otherwise required, the
+ *  environment (such as which system libraries or binaries are available, and
+ *  what filesystems are mounted where) is defined by and specific to the
+ *  implementation of the remote execution API.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Command : GTLRObject
 
@@ -1028,58 +1028,49 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /**
  *  The environment variables to set when running the program. The worker may
  *  provide its own default environment variables; these defaults can be
- *  overridden using this field. Additional variables can also be specified.
- *  In order to ensure that equivalent
- *  Commands always hash to the same
- *  value, the environment variables MUST be lexicographically sorted by name.
- *  Sorting of strings is done by code point, equivalently, by the UTF-8 bytes.
+ *  overridden using this field. Additional variables can also be specified. In
+ *  order to ensure that equivalent Commands always hash to the same value, the
+ *  environment variables MUST be lexicographically sorted by name. Sorting of
+ *  strings is done by code point, equivalently, by the UTF-8 bytes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CommandEnvironmentVariable *> *environmentVariables;
 
 /**
  *  A list of the output directories that the client expects to retrieve from
  *  the action. Only the listed directories will be returned (an entire
- *  directory structure will be returned as a
- *  Tree message digest, see
- *  OutputDirectory), as
- *  well as files listed in `output_files`. Other files or directories that
- *  may be created during command execution are discarded.
- *  The paths are relative to the working directory of the action execution.
- *  The paths are specified using a single forward slash (`/`) as a path
- *  separator, even if the execution platform natively uses a different
- *  separator. The path MUST NOT include a trailing slash, nor a leading slash,
- *  being a relative path. The special value of empty string is allowed,
- *  although not recommended, and can be used to capture the entire working
- *  directory tree, including inputs.
- *  In order to ensure consistent hashing of the same Action, the output paths
- *  MUST be sorted lexicographically by code point (or, equivalently, by UTF-8
- *  bytes).
- *  An output directory cannot be duplicated or have the same path as any of
- *  the listed output files. An output directory is allowed to be a parent of
- *  another output directory.
- *  Directories leading up to the output directories (but not the output
- *  directories themselves) are created by the worker prior to execution, even
- *  if they are not explicitly part of the input root.
- *  DEPRECATED since 2.1: Use `output_paths` instead.
+ *  directory structure will be returned as a Tree message digest, see
+ *  OutputDirectory), as well as files listed in `output_files`. Other files or
+ *  directories that may be created during command execution are discarded. The
+ *  paths are relative to the working directory of the action execution. The
+ *  paths are specified using a single forward slash (`/`) as a path separator,
+ *  even if the execution platform natively uses a different separator. The path
+ *  MUST NOT include a trailing slash, nor a leading slash, being a relative
+ *  path. The special value of empty string is allowed, although not
+ *  recommended, and can be used to capture the entire working directory tree,
+ *  including inputs. In order to ensure consistent hashing of the same Action,
+ *  the output paths MUST be sorted lexicographically by code point (or,
+ *  equivalently, by UTF-8 bytes). An output directory cannot be duplicated or
+ *  have the same path as any of the listed output files. An output directory is
+ *  allowed to be a parent of another output directory. Directories leading up
+ *  to the output directories (but not the output directories themselves) are
+ *  created by the worker prior to execution, even if they are not explicitly
+ *  part of the input root. DEPRECATED since 2.1: Use `output_paths` instead.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputDirectories;
 
 /**
  *  A list of the output files that the client expects to retrieve from the
  *  action. Only the listed files, as well as directories listed in
- *  `output_directories`, will be returned to the client as output.
- *  Other files or directories that may be created during command execution
- *  are discarded.
- *  The paths are relative to the working directory of the action execution.
- *  The paths are specified using a single forward slash (`/`) as a path
- *  separator, even if the execution platform natively uses a different
- *  separator. The path MUST NOT include a trailing slash, nor a leading slash,
- *  being a relative path.
- *  In order to ensure consistent hashing of the same Action, the output paths
- *  MUST be sorted lexicographically by code point (or, equivalently, by UTF-8
- *  bytes).
- *  An output file cannot be duplicated, be a parent of another output file, or
- *  have the same path as any of the listed output directories.
+ *  `output_directories`, will be returned to the client as output. Other files
+ *  or directories that may be created during command execution are discarded.
+ *  The paths are relative to the working directory of the action execution. The
+ *  paths are specified using a single forward slash (`/`) as a path separator,
+ *  even if the execution platform natively uses a different separator. The path
+ *  MUST NOT include a trailing slash, nor a leading slash, being a relative
+ *  path. In order to ensure consistent hashing of the same Action, the output
+ *  paths MUST be sorted lexicographically by code point (or, equivalently, by
+ *  UTF-8 bytes). An output file cannot be duplicated, be a parent of another
+ *  output file, or have the same path as any of the listed output directories.
  *  Directories leading up to the output files are created by the worker prior
  *  to execution, even if they are not explicitly part of the input root.
  *  DEPRECATED since v2.1: Use `output_paths` instead.
@@ -1088,29 +1079,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  A list of the output paths that the client expects to retrieve from the
- *  action. Only the listed paths will be returned to the client as output.
- *  The type of the output (file or directory) is not specified, and will be
- *  determined by the server after action execution. If the resulting path is
- *  a file, it will be returned in an
- *  OutputFile) typed field.
- *  If the path is a directory, the entire directory structure will be returned
- *  as a Tree message digest, see
- *  OutputDirectory)
- *  Other files or directories that may be created during command execution
- *  are discarded.
- *  The paths are relative to the working directory of the action execution.
- *  The paths are specified using a single forward slash (`/`) as a path
- *  separator, even if the execution platform natively uses a different
- *  separator. The path MUST NOT include a trailing slash, nor a leading slash,
- *  being a relative path.
- *  In order to ensure consistent hashing of the same Action, the output paths
- *  MUST be deduplicated and sorted lexicographically by code point (or,
- *  equivalently, by UTF-8 bytes).
- *  Directories leading up to the output paths are created by the worker prior
- *  to execution, even if they are not explicitly part of the input root.
- *  New in v2.1: this field supersedes the DEPRECATED `output_files` and
- *  `output_directories` fields. If `output_paths` is used, `output_files` and
- *  `output_directories` will be ignored!
+ *  action. Only the listed paths will be returned to the client as output. The
+ *  type of the output (file or directory) is not specified, and will be
+ *  determined by the server after action execution. If the resulting path is a
+ *  file, it will be returned in an OutputFile) typed field. If the path is a
+ *  directory, the entire directory structure will be returned as a Tree message
+ *  digest, see OutputDirectory) Other files or directories that may be created
+ *  during command execution are discarded. The paths are relative to the
+ *  working directory of the action execution. The paths are specified using a
+ *  single forward slash (`/`) as a path separator, even if the execution
+ *  platform natively uses a different separator. The path MUST NOT include a
+ *  trailing slash, nor a leading slash, being a relative path. In order to
+ *  ensure consistent hashing of the same Action, the output paths MUST be
+ *  deduplicated and sorted lexicographically by code point (or, equivalently,
+ *  by UTF-8 bytes). Directories leading up to the output paths are created by
+ *  the worker prior to execution, even if they are not explicitly part of the
+ *  input root. New in v2.1: this field supersedes the DEPRECATED `output_files`
+ *  and `output_directories` fields. If `output_paths` is used, `output_files`
+ *  and `output_directories` will be ignored!
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputPaths;
 
@@ -1118,8 +1104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  The platform requirements for the execution environment. The server MAY
  *  choose to execute the action on any worker satisfying the requirements, so
  *  the client SHOULD ensure that running the action on any such worker will
- *  have the same result.
- *  A detailed lexicon for this can be found in the accompanying platform.md.
+ *  have the same result. A detailed lexicon for this can be found in the
+ *  accompanying platform.md.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Platform *platform;
 
@@ -1150,33 +1136,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  A content digest. A digest for a given blob consists of the size of the blob
- *  and its hash. The hash algorithm to use is defined by the server.
- *  The size is considered to be an integral part of the digest and cannot be
- *  separated. That is, even if the `hash` field is correctly specified but
- *  `size_bytes` is not, the server MUST reject the request.
- *  The reason for including the size in the digest is as follows: in a great
- *  many cases, the server needs to know the size of the blob it is about to
- *  work
- *  with prior to starting an operation with it, such as flattening Merkle tree
- *  structures or streaming it to a worker. Technically, the server could
- *  implement a separate metadata store, but this results in a significantly
- *  more
- *  complicated implementation as opposed to having the client specify the size
- *  up-front (or storing the size along with the digest in every message where
- *  digests are embedded). This does mean that the API leaks some implementation
- *  details of (what we consider to be) a reasonable server implementation, but
- *  we consider this to be a worthwhile tradeoff.
- *  When a `Digest` is used to refer to a proto message, it always refers to the
- *  message in binary encoded form. To ensure consistent hashing, clients and
- *  servers MUST ensure that they serialize messages according to the following
- *  rules, even if there are alternate valid encodings for the same message:
- *  * Fields are serialized in tag order.
- *  * There are no unknown fields.
- *  * There are no duplicate fields.
- *  * Fields are serialized according to the default semantics for their type.
- *  Most protocol buffer implementations will always follow these rules when
- *  serializing, but care should be taken to avoid shortcuts. For instance,
- *  concatenating two messages to merge them may produce duplicate fields.
+ *  and its hash. The hash algorithm to use is defined by the server. The size
+ *  is considered to be an integral part of the digest and cannot be separated.
+ *  That is, even if the `hash` field is correctly specified but `size_bytes` is
+ *  not, the server MUST reject the request. The reason for including the size
+ *  in the digest is as follows: in a great many cases, the server needs to know
+ *  the size of the blob it is about to work with prior to starting an operation
+ *  with it, such as flattening Merkle tree structures or streaming it to a
+ *  worker. Technically, the server could implement a separate metadata store,
+ *  but this results in a significantly more complicated implementation as
+ *  opposed to having the client specify the size up-front (or storing the size
+ *  along with the digest in every message where digests are embedded). This
+ *  does mean that the API leaks some implementation details of (what we
+ *  consider to be) a reasonable server implementation, but we consider this to
+ *  be a worthwhile tradeoff. When a `Digest` is used to refer to a proto
+ *  message, it always refers to the message in binary encoded form. To ensure
+ *  consistent hashing, clients and servers MUST ensure that they serialize
+ *  messages according to the following rules, even if there are alternate valid
+ *  encodings for the same message: * Fields are serialized in tag order. *
+ *  There are no unknown fields. * There are no duplicate fields. * Fields are
+ *  serialized according to the default semantics for their type. Most protocol
+ *  buffer implementations will always follow these rules when serializing, but
+ *  care should be taken to avoid shortcuts. For instance, concatenating two
+ *  messages to merge them may produce duplicate fields.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest : GTLRObject
 
@@ -1200,75 +1182,32 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  A `Directory` represents a directory node in a file tree, containing zero or
- *  more children FileNodes,
- *  DirectoryNodes and
- *  SymlinkNodes.
- *  Each `Node` contains its name in the directory, either the digest of its
- *  content (either a file blob or a `Directory` proto) or a symlink target, as
- *  well as possibly some metadata about the file or directory.
- *  In order to ensure that two equivalent directory trees hash to the same
- *  value, the following restrictions MUST be obeyed when constructing a
- *  a `Directory`:
- *  * Every child in the directory must have a path of exactly one segment.
- *  Multiple levels of directory hierarchy may not be collapsed.
- *  * Each child in the directory must have a unique path segment (file name).
- *  Note that while the API itself is case-sensitive, the environment where
- *  the Action is executed may or may not be case-sensitive. That is, it is
- *  legal to call the API with a Directory that has both "Foo" and "foo" as
- *  children, but the Action may be rejected by the remote system upon
- *  execution.
- *  * The files, directories and symlinks in the directory must each be sorted
- *  in lexicographical order by path. The path strings must be sorted by code
- *  point, equivalently, by UTF-8 bytes.
- *  * The NodeProperties of files,
- *  directories, and symlinks must be sorted in lexicographical order by
- *  property name.
- *  A `Directory` that obeys the restrictions is said to be in canonical form.
- *  As an example, the following could be used for a file named `bar` and a
- *  directory named `foo` with an executable file named `baz` (hashes shortened
- *  for readability):
- *  ```json
- *  // (Directory proto)
- *  {
- *  files: [
- *  {
- *  name: "bar",
- *  digest: {
- *  hash: "4a73bc9d03...",
- *  size: 65534
- *  },
- *  node_properties: [
- *  {
- *  "name": "MTime",
- *  "value": "2017-01-15T01:30:15.01Z"
- *  }
- *  ]
- *  }
- *  ],
- *  directories: [
- *  {
- *  name: "foo",
- *  digest: {
- *  hash: "4cf2eda940...",
- *  size: 43
- *  }
- *  }
- *  ]
- *  }
- *  // (Directory proto with hash "4cf2eda940..." and size 43)
- *  {
- *  files: [
- *  {
- *  name: "baz",
- *  digest: {
- *  hash: "b2c941073e...",
- *  size: 1294,
- *  },
- *  is_executable: true
- *  }
- *  ]
- *  }
- *  ```
+ *  more children FileNodes, DirectoryNodes and SymlinkNodes. Each `Node`
+ *  contains its name in the directory, either the digest of its content (either
+ *  a file blob or a `Directory` proto) or a symlink target, as well as possibly
+ *  some metadata about the file or directory. In order to ensure that two
+ *  equivalent directory trees hash to the same value, the following
+ *  restrictions MUST be obeyed when constructing a a `Directory`: * Every child
+ *  in the directory must have a path of exactly one segment. Multiple levels of
+ *  directory hierarchy may not be collapsed. * Each child in the directory must
+ *  have a unique path segment (file name). Note that while the API itself is
+ *  case-sensitive, the environment where the Action is executed may or may not
+ *  be case-sensitive. That is, it is legal to call the API with a Directory
+ *  that has both "Foo" and "foo" as children, but the Action may be rejected by
+ *  the remote system upon execution. * The files, directories and symlinks in
+ *  the directory must each be sorted in lexicographical order by path. The path
+ *  strings must be sorted by code point, equivalently, by UTF-8 bytes. * The
+ *  NodeProperties of files, directories, and symlinks must be sorted in
+ *  lexicographical order by property name. A `Directory` that obeys the
+ *  restrictions is said to be in canonical form. As an example, the following
+ *  could be used for a file named `bar` and a directory named `foo` with an
+ *  executable file named `baz` (hashes shortened for readability): ```json //
+ *  (Directory proto) { files: [ { name: "bar", digest: { hash: "4a73bc9d03...",
+ *  size: 65534 }, node_properties: [ { "name": "MTime", "value":
+ *  "2017-01-15T01:30:15.01Z" } ] } ], directories: [ { name: "foo", digest: {
+ *  hash: "4cf2eda940...", size: 43 } } ] } // (Directory proto with hash
+ *  "4cf2eda940..." and size 43) { files: [ { name: "baz", digest: { hash:
+ *  "b2c941073e...", size: 1294, }, is_executable: true } ] } ```
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Directory : GTLRObject
 
@@ -1288,17 +1227,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A `DirectoryNode` represents a child of a
- *  Directory which is itself
- *  a `Directory` and its associated metadata.
+ *  A `DirectoryNode` represents a child of a Directory which is itself a
+ *  `Directory` and its associated metadata.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2DirectoryNode : GTLRObject
 
 /**
- *  The digest of the
- *  Directory object
- *  represented. See Digest
- *  for information about how to take the digest of a proto message.
+ *  The digest of the Directory object represented. See Digest for information
+ *  about how to take the digest of a proto message.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *digest;
 
@@ -1347,18 +1283,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  Metadata about an ongoing
- *  execution, which
- *  will be contained in the metadata
- *  field of the
- *  Operation.
+ *  Metadata about an ongoing execution, which will be contained in the metadata
+ *  field of the Operation.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOperationMetadata : GTLRObject
 
-/**
- *  The digest of the Action
- *  being executed.
- */
+/** The digest of the Action being executed. */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *actionDigest;
 
 /**
@@ -1379,15 +1309,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, copy, nullable) NSString *stage;
 
 /**
- *  If set, the client can use this name with
- *  ByteStream.Read to stream the
+ *  If set, the client can use this name with ByteStream.Read to stream the
  *  standard error.
  */
 @property(nonatomic, copy, nullable) NSString *stderrStreamName;
 
 /**
- *  If set, the client can use this name with
- *  ByteStream.Read to stream the
+ *  If set, the client can use this name with ByteStream.Read to stream the
  *  standard output.
  */
 @property(nonatomic, copy, nullable) NSString *stdoutStreamName;
@@ -1396,44 +1324,39 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A request message for
- *  Execution.Execute.
+ *  A request message for Execution.Execute.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteRequest : GTLRObject
 
-/**
- *  The digest of the Action to
- *  execute.
- */
+/** The digest of the Action to execute. */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *actionDigest;
 
 /**
- *  An optional policy for execution of the action.
- *  The server will have a default policy if this is not provided.
+ *  An optional policy for execution of the action. The server will have a
+ *  default policy if this is not provided.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionPolicy *executionPolicy;
 
 /**
  *  An optional policy for the results of this execution in the remote cache.
- *  The server will have a default policy if this is not provided.
- *  This may be applied to both the ActionResult and the associated blobs.
+ *  The server will have a default policy if this is not provided. This may be
+ *  applied to both the ActionResult and the associated blobs.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ResultsCachePolicy *resultsCachePolicy;
 
 /**
- *  If true, the action will be executed even if its result is already
- *  present in the ActionCache.
- *  The execution is still allowed to be merged with other in-flight executions
- *  of the same action, however - semantically, the service MUST only guarantee
- *  that the results of an execution with this field set were not visible
- *  before the corresponding execution request was sent.
- *  Note that actions from execution requests setting this field set are still
+ *  If true, the action will be executed even if its result is already present
+ *  in the ActionCache. The execution is still allowed to be merged with other
+ *  in-flight executions of the same action, however - semantically, the service
+ *  MUST only guarantee that the results of an execution with this field set
+ *  were not visible before the corresponding execution request was sent. Note
+ *  that actions from execution requests setting this field set are still
  *  eligible to be entered into the action cache upon completion, and services
  *  SHOULD overwrite any existing entries that may exist. This allows
  *  skip_cache_lookup requests to be used as a mechanism for replacing action
  *  cache entries that reference outputs no longer available or that are
- *  poisoned in any way.
- *  If false, the result may be served from the action cache.
+ *  poisoned in any way. If false, the result may be served from the action
+ *  cache.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1443,11 +1366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  The response message for
- *  Execution.Execute,
- *  which will be contained in the response
- *  field of the
- *  Operation.
+ *  The response message for Execution.Execute, which will be contained in the
+ *  response field of the Operation.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteResponse : GTLRObject
 
@@ -1481,13 +1401,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /**
  *  If the status has a code other than `OK`, it indicates that the action did
  *  not finish execution. For example, if the operation times out during
- *  execution, the status will have a `DEADLINE_EXCEEDED` code. Servers MUST
- *  use this field for errors in execution, rather than the error field on the
- *  `Operation` object.
- *  If the status code is other than `OK`, then the result MUST NOT be cached.
- *  For an error status, the `result` field is optional; the server may
- *  populate the output-, stdout-, and stderr-related fields if it has any
- *  information available, such as the stdout and stderr of a timed-out action.
+ *  execution, the status will have a `DEADLINE_EXCEEDED` code. Servers MUST use
+ *  this field for errors in execution, rather than the error field on the
+ *  `Operation` object. If the status code is other than `OK`, then the result
+ *  MUST NOT be cached. For an error status, the `result` field is optional; the
+ *  server may populate the output-, stdout-, and stderr-related fields if it
+ *  has any information available, such as the stdout and stderr of a timed-out
+ *  action.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleRpcStatus *status;
 
@@ -1535,8 +1455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Unknown
  *        It is an error for the server to return this value. (Value: "UNKNOWN")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Vso
- *        The Microsoft "VSO-Hash" paged SHA256 digest function.
- *        See
+ *        The Microsoft "VSO-Hash" paged SHA256 digest function. See
  *        https://github.com/microsoft/BuildXL/blob/master/Documentation/Specs/PagedHash.md
  *        . (Value: "VSO")
  */
@@ -1606,8 +1525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A request message for
- *  ContentAddressableStorage.FindMissingBlobs.
+ *  A request message for ContentAddressableStorage.FindMissingBlobs.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FindMissingBlobsRequest : GTLRObject
 
@@ -1618,8 +1536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A response message for
- *  ContentAddressableStorage.FindMissingBlobs.
+ *  A response message for ContentAddressableStorage.FindMissingBlobs.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FindMissingBlobsResponse : GTLRObject
 
@@ -1630,8 +1547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A response message for
- *  ContentAddressableStorage.GetTree.
+ *  A response message for ContentAddressableStorage.GetTree.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "directories" property. If returned as the result of a query, it
@@ -1650,9 +1566,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  If present, signifies that there are more results which the client can
- *  retrieve by passing this as the page_token in a subsequent
- *  request.
- *  If empty, signifies that this is the last page of results.
+ *  retrieve by passing this as the page_token in a subsequent request. If
+ *  empty, signifies that this is the last page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1670,9 +1585,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /**
  *  This is a hint as to the purpose of the log, and is set to true if the log
  *  is human-readable text that can be usefully displayed to a user, and false
- *  otherwise. For instance, if a command-line client wishes to print the
- *  server logs to the terminal for a failed action, this allows it to avoid
- *  displaying a binary file.
+ *  otherwise. For instance, if a command-line client wishes to print the server
+ *  logs to the terminal for a failed action, this allows it to avoid displaying
+ *  a binary file.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1682,11 +1597,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A single property for FileNodes,
- *  DirectoryNodes, and
- *  SymlinkNodes. The server is
- *  responsible for specifying the property `name`s that it accepts. If
- *  permitted by the server, the same `name` may occur multiple times.
+ *  A single property for FileNodes, DirectoryNodes, and SymlinkNodes. The
+ *  server is responsible for specifying the property `name`s that it accepts.
+ *  If permitted by the server, the same `name` may occur multiple times.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty : GTLRObject
 
@@ -1707,16 +1620,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  The full path of the directory relative to the working directory. The path
- *  separator is a forward slash `/`. Since this is a relative path, it MUST
- *  NOT begin with a leading forward slash. The empty string value is allowed,
- *  and it denotes the entire working directory.
+ *  separator is a forward slash `/`. Since this is a relative path, it MUST NOT
+ *  begin with a leading forward slash. The empty string value is allowed, and
+ *  it denotes the entire working directory.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  The digest of the encoded
- *  Tree proto containing the
- *  directory's contents.
+ *  The digest of the encoded Tree proto containing the directory's contents.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *treeDigest;
 
@@ -1724,21 +1635,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  An `OutputFile` is similar to a
- *  FileNode, but it is used as an
- *  output in an `ActionResult`. It allows a full file path rather than
- *  only a name.
+ *  An `OutputFile` is similar to a FileNode, but it is used as an output in an
+ *  `ActionResult`. It allows a full file path rather than only a name.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputFile : GTLRObject
 
 /**
  *  The contents of the file if inlining was requested. The server SHOULD NOT
- *  inline
- *  file contents unless requested by the client in the
- *  GetActionResultRequest
- *  message. The server MAY omit inlining, even if requested, and MUST do so if
- *  inlining
- *  would cause the response to exceed message size limits.
+ *  inline file contents unless requested by the client in the
+ *  GetActionResultRequest message. The server MAY omit inlining, even if
+ *  requested, and MUST do so if inlining would cause the response to exceed
+ *  message size limits.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1771,10 +1678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  An `OutputSymlink` is similar to a
- *  Symlink, but it is used as an
- *  output in an `ActionResult`.
- *  `OutputSymlink` is binary-compatible with `SymlinkNode`.
+ *  An `OutputSymlink` is similar to a Symlink, but it is used as an output in
+ *  an `ActionResult`. `OutputSymlink` is binary-compatible with `SymlinkNode`.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink : GTLRObject
 
@@ -1786,19 +1691,18 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  The full path of the symlink relative to the working directory, including
- *  the
- *  filename. The path separator is a forward slash `/`. Since this is a
+ *  the filename. The path separator is a forward slash `/`. Since this is a
  *  relative path, it MUST NOT begin with a leading forward slash.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
  *  The target path of the symlink. The path separator is a forward slash `/`.
- *  The target path can be relative to the parent directory of the symlink or
- *  it can be an absolute path starting with `/`. Support for absolute paths
- *  can be checked using the Capabilities
- *  API. The canonical form forbids the substrings `/./` and `//` in the target
- *  path. `..` components are allowed anywhere in the target path.
+ *  The target path can be relative to the parent directory of the symlink or it
+ *  can be an absolute path starting with `/`. Support for absolute paths can be
+ *  checked using the Capabilities API. The canonical form forbids the
+ *  substrings `/./` and `//` in the target path. `..` components are allowed
+ *  anywhere in the target path.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -1807,19 +1711,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  A `Platform` is a set of requirements, such as hardware, operating system,
- *  or
- *  compiler toolchain, for an
- *  Action's execution
- *  environment. A `Platform` is represented as a series of key-value pairs
- *  representing the properties that are required of the platform.
+ *  or compiler toolchain, for an Action's execution environment. A `Platform`
+ *  is represented as a series of key-value pairs representing the properties
+ *  that are required of the platform.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Platform : GTLRObject
 
 /**
  *  The properties that make up this platform. In order to ensure that
- *  equivalent `Platform`s always hash to the same value, the properties MUST
- *  be lexicographically sorted by name, and then by value. Sorting of strings
- *  is done by code point, equivalently, by the UTF-8 bytes.
+ *  equivalent `Platform`s always hash to the same value, the properties MUST be
+ *  lexicographically sorted by name, and then by value. Sorting of strings is
+ *  done by code point, equivalently, by the UTF-8 bytes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2PlatformProperty *> *properties;
 
@@ -1829,19 +1731,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /**
  *  A single property for the environment. The server is responsible for
  *  specifying the property `name`s that it accepts. If an unknown `name` is
- *  provided in the requirements for an
- *  Action, the server SHOULD
- *  reject the execution request. If permitted by the server, the same `name`
- *  may occur multiple times.
- *  The server is also responsible for specifying the interpretation of
- *  property `value`s. For instance, a property describing how much RAM must be
- *  available may be interpreted as allowing a worker with 16GB to fulfill a
- *  request for 8GB, while a property describing the OS environment on which
- *  the action must be performed may require an exact match with the worker's
- *  OS.
- *  The server MAY use the `value` of one or more properties to determine how
- *  it sets up the execution environment, such as by making specific system
- *  files available to the worker.
+ *  provided in the requirements for an Action, the server SHOULD reject the
+ *  execution request. If permitted by the server, the same `name` may occur
+ *  multiple times. The server is also responsible for specifying the
+ *  interpretation of property `value`s. For instance, a property describing how
+ *  much RAM must be available may be interpreted as allowing a worker with 16GB
+ *  to fulfill a request for 8GB, while a property describing the OS environment
+ *  on which the action must be performed may require an exact match with the
+ *  worker's OS. The server MAY use the `value` of one or more properties to
+ *  determine how it sets up the execution environment, such as by making
+ *  specific system files available to the worker.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2PlatformProperty : GTLRObject
 
@@ -1855,9 +1754,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  Allowed values for priority in
- *  ResultsCachePolicy
- *  Used for querying both cache and execution valid priority ranges.
+ *  Allowed values for priority in ResultsCachePolicy Used for querying both
+ *  cache and execution valid priority ranges.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2PriorityCapabilities : GTLRObject
 
@@ -1890,32 +1788,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  An optional Metadata to attach to any RPC request to tell the server about
- *  an
- *  external context of the request. The server may use this for logging or
- *  other
- *  purposes. To use it, the client attaches the header to the call using the
- *  canonical proto serialization:
- *  * name: `build.bazel.remote.execution.v2.requestmetadata-bin`
- *  * contents: the base64 encoded binary `RequestMetadata` message.
- *  Note: the gRPC library serializes binary headers encoded in base 64 by
- *  default
+ *  an external context of the request. The server may use this for logging or
+ *  other purposes. To use it, the client attaches the header to the call using
+ *  the canonical proto serialization: * name:
+ *  `build.bazel.remote.execution.v2.requestmetadata-bin` * contents: the base64
+ *  encoded binary `RequestMetadata` message. Note: the gRPC library serializes
+ *  binary headers encoded in base 64 by default
  *  (https://github.com/grpc/grpc/blob/master/doc/PROTOCOL-HTTP2.md#requests).
- *  Therefore, if the gRPC library is used to pass/retrieve this
- *  metadata, the user may ignore the base64 encoding and assume it is simply
- *  serialized as a binary message.
+ *  Therefore, if the gRPC library is used to pass/retrieve this metadata, the
+ *  user may ignore the base64 encoding and assume it is simply serialized as a
+ *  binary message.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2RequestMetadata : GTLRObject
 
 /**
- *  An identifier that ties multiple requests to the same action.
- *  For example, multiple requests to the CAS, Action Cache, and Execution
- *  API are used in order to compile foo.cc.
+ *  An identifier that ties multiple requests to the same action. For example,
+ *  multiple requests to the CAS, Action Cache, and Execution API are used in
+ *  order to compile foo.cc.
  */
 @property(nonatomic, copy, nullable) NSString *actionId;
 
 /**
- *  An identifier to tie multiple tool invocations together. For example,
- *  runs of foo_test, bar_test and baz_test on a post-submit of a given patch.
+ *  An identifier to tie multiple tool invocations together. For example, runs
+ *  of foo_test, bar_test and baz_test on a post-submit of a given patch.
  */
 @property(nonatomic, copy, nullable) NSString *correlatedInvocationsId;
 
@@ -1923,8 +1818,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ToolDetails *toolDetails;
 
 /**
- *  An identifier that ties multiple actions together to a final result.
- *  For example, multiple actions are required to build and run foo_test.
+ *  An identifier that ties multiple actions together to a final result. For
+ *  example, multiple actions are required to build and run foo_test.
  */
 @property(nonatomic, copy, nullable) NSString *toolInvocationId;
 
@@ -1940,11 +1835,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /**
  *  The priority (relative importance) of this content in the overall cache.
  *  Generally, a lower value means a longer retention time or other advantage,
- *  but the interpretation of a given value is server-dependent. A priority of
- *  0 means a *default* value, decided by the server.
- *  The particular semantics of this field is up to the server. In particular,
- *  every server will have their own supported range of priorities, and will
- *  decide how these map into retention/eviction policy.
+ *  but the interpretation of a given value is server-dependent. A priority of 0
+ *  means a *default* value, decided by the server. The particular semantics of
+ *  this field is up to the server. In particular, every server will have their
+ *  own supported range of priorities, and will decide how these map into
+ *  retention/eviction policy.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1954,8 +1849,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A response message for
- *  Capabilities.GetCapabilities.
+ *  A response message for Capabilities.GetCapabilities.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ServerCapabilities : GTLRObject
 
@@ -1990,11 +1884,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  The target path of the symlink. The path separator is a forward slash `/`.
- *  The target path can be relative to the parent directory of the symlink or
- *  it can be an absolute path starting with `/`. Support for absolute paths
- *  can be checked using the Capabilities
- *  API. The canonical form forbids the substrings `/./` and `//` in the target
- *  path. `..` components are allowed anywhere in the target path.
+ *  The target path can be relative to the parent directory of the symlink or it
+ *  can be an absolute path starting with `/`. Support for absolute paths can be
+ *  checked using the Capabilities API. The canonical form forbids the
+ *  substrings `/./` and `//` in the target path. `..` components are allowed
+ *  anywhere in the target path.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -2016,9 +1910,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A `Tree` contains all the
- *  Directory protos in a
- *  single directory Merkle tree, compressed into one message.
+ *  A `Tree` contains all the Directory protos in a single directory Merkle
+ *  tree, compressed into one message.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Tree : GTLRObject
 
@@ -2037,8 +1930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  A request message for
- *  WaitExecution.
+ *  A request message for WaitExecution.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2WaitExecutionRequest : GTLRObject
 @end
@@ -2071,9 +1963,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSNumber *patch;
 
 /**
- *  The pre-release version. Either this field or major/minor/patch fields
- *  must be filled. They are mutually exclusive. Pre-release versions are
- *  assumed to be earlier than any released versions.
+ *  The pre-release version. Either this field or major/minor/patch fields must
+ *  be filled. They are mutually exclusive. Pre-release versions are assumed to
+ *  be earlier than any released versions.
  */
 @property(nonatomic, copy, nullable) NSString *prerelease;
 
@@ -2131,8 +2023,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  CommandEvents contains counters for the number of warnings and errors
- *  that occurred during the execution of a command.
+ *  CommandEvents contains counters for the number of warnings and errors that
+ *  occurred during the execution of a command.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents : GTLRObject
 
@@ -2243,14 +2135,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *        The inputs contain duplicate files. (Value: "DUPLICATE_INPUTS")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_FailedPrecondition
  *        The command failed because the system is not in a state required for
- *        the
- *        command, e.g. the command inputs cannot be found on the server.
+ *        the command, e.g. the command inputs cannot be found on the server.
  *        (Value: "FAILED_PRECONDITION")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Internal
  *        The command failed because of some invariants expected by the
- *        underlying
- *        system have been broken. This usually indicates a bug wit the system.
- *        (Value: "INTERNAL")
+ *        underlying system have been broken. This usually indicates a bug wit
+ *        the system. (Value: "INTERNAL")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument
  *        The command input was invalid. (Value: "INVALID_ARGUMENT")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning
@@ -2383,24 +2273,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaCreateInstanceRequest : GTLRObject
 
 /**
- *  Specifies the instance to create.
- *  The name in the instance, if specified in the instance, is ignored.
+ *  Specifies the instance to create. The name in the instance, if specified in
+ *  the instance, is ignored.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance *instance;
 
 /**
- *  ID of the created instance.
- *  A valid `instance_id` must:
- *  be 6-50 characters long,
- *  contain only lowercase letters, digits, hyphens and underscores,
- *  start with a lowercase letter, and
- *  end with a lowercase letter or a digit.
+ *  ID of the created instance. A valid `instance_id` must: be 6-50 characters
+ *  long, contain only lowercase letters, digits, hyphens and underscores, start
+ *  with a lowercase letter, and end with a lowercase letter or a digit.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
- *  Resource name of the project containing the instance.
- *  Format: `projects/[PROJECT_ID]`.
+ *  Resource name of the project containing the instance. Format:
+ *  `projects/[PROJECT_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2419,18 +2306,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  ID of the created worker pool.
- *  A valid pool ID must:
- *  be 6-50 characters long,
- *  contain only lowercase letters, digits, hyphens and underscores,
- *  start with a lowercase letter, and
- *  end with a lowercase letter or a digit.
+ *  ID of the created worker pool. A valid pool ID must: be 6-50 characters
+ *  long, contain only lowercase letters, digits, hyphens and underscores, start
+ *  with a lowercase letter, and end with a lowercase letter or a digit.
  */
 @property(nonatomic, copy, nullable) NSString *poolId;
 
 /**
- *  Specifies the worker pool to create.
- *  The name in the worker pool, if specified, is ignored.
+ *  Specifies the worker pool to create. The name in the worker pool, if
+ *  specified, is ignored.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool *workerPool;
 
@@ -2443,8 +2327,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaDeleteInstanceRequest : GTLRObject
 
 /**
- *  Name of the instance to delete.
- *  Format: `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
+ *  Name of the instance to delete. Format:
+ *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2457,11 +2341,107 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaDeleteWorkerPoolRequest : GTLRObject
 
 /**
- *  Name of the worker pool to delete.
- *  Format:
+ *  Name of the worker pool to delete. Format:
  *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]/workerpools/[POOL_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  FeaturePolicy defines features allowed to be used on RBE instances, as well
+ *  as instance-wide behavior changes that take effect without opt-in or opt-out
+ *  at usage time.
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy : GTLRObject
+
+/**
+ *  Which container image sources are allowed. Currently only RBE-supported
+ *  registry (gcr.io) is allowed. One can allow all repositories under a project
+ *  or one specific repository only. E.g. container_image_sources { policy:
+ *  RESTRICTED allowed_values: [ "gcr.io/project-foo",
+ *  "gcr.io/project-bar/repo-baz", ] } will allow any repositories under
+ *  "gcr.io/project-foo" plus the repository "gcr.io/project-bar/repo-baz".
+ *  Default (UNSPECIFIED) is equivalent to any source is allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature *containerImageSources;
+
+/**
+ *  Whether dockerAddCapabilities can be used or what capabilities are allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature *dockerAddCapabilities;
+
+/** Whether dockerChrootPath can be used. */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature *dockerChrootPath;
+
+/**
+ *  Whether dockerNetwork can be used or what network modes are allowed. E.g.
+ *  one may allow `off` value only via `allowed_values`.
+ */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature *dockerNetwork;
+
+/** Whether dockerPrivileged can be used. */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature *dockerPrivileged;
+
+/** Whether dockerRunAsRoot can be used. */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature *dockerRunAsRoot;
+
+/**
+ *  Whether dockerRuntime is allowed to be set or what runtimes are allowed.
+ *  Note linux_isolation takes precedence, and if set, docker_runtime values may
+ *  be rejected if they are incompatible with the selected isolation.
+ */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature *dockerRuntime;
+
+/** Whether dockerSiblingContainers can be used. */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature *dockerSiblingContainers;
+
+/**
+ *  linux_isolation allows overriding the docker runtime used for containers
+ *  started on Linux.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_Gvisor
+ *        Use gVisor runsc runtime. (Value: "GVISOR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_LinuxIsolationUnspecified
+ *        Default value. Will be using Linux default runtime. (Value:
+ *        "LINUX_ISOLATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *linuxIsolation;
+
+@end
+
+
+/**
+ *  Defines whether a feature can be used or what values are accepted.
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature : GTLRObject
+
+/**
+ *  A list of acceptable values. Only effective when the policy is `RESTRICTED`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedValues;
+
+/**
+ *  The policy of the feature.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Allowed
+ *        Feature is explicitly allowed. (Value: "ALLOWED")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Forbidden
+ *        Feature is forbidden. Requests attempting to leverage it will get an
+ *        FailedPrecondition error, with a message like: "Feature forbidden by
+ *        FeaturePolicy: Feature on instance " (Value: "FORBIDDEN")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_PolicyUnspecified
+ *        Default value, if not explicitly set. Equivalent to FORBIDDEN, unless
+ *        otherwise documented on a specific Feature. (Value:
+ *        "POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature_Policy_Restricted
+ *        Only the values specified in the `allowed_values` are allowed. (Value:
+ *        "RESTRICTED")
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
 
 @end
 
@@ -2472,8 +2452,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaGetInstanceRequest : GTLRObject
 
 /**
- *  Name of the instance to retrieve.
- *  Format: `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
+ *  Name of the instance to retrieve. Format:
+ *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2486,8 +2466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaGetWorkerPoolRequest : GTLRObject
 
 /**
- *  Name of the worker pool to retrieve.
- *  Format:
+ *  Name of the worker pool to retrieve. Format:
  *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]/workerpools/[POOL_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2496,14 +2475,19 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  Instance conceptually encapsulates all Remote Build Execution resources
- *  for remote builds.
- *  An instance consists of storage and compute resources (for example,
- *  `ContentAddressableStorage`, `ActionCache`, `WorkerPools`) used for
- *  running remote builds.
- *  All Remote Build Execution API calls are scoped to an instance.
+ *  Instance conceptually encapsulates all Remote Build Execution resources for
+ *  remote builds. An instance consists of storage and compute resources (for
+ *  example, `ContentAddressableStorage`, `ActionCache`, `WorkerPools`) used for
+ *  running remote builds. All Remote Build Execution API calls are scoped to an
+ *  instance.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance : GTLRObject
+
+/**
+ *  The policy to define whether or not RBE features can be used or how they can
+ *  be used.
+ */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy *featurePolicy;
 
 /**
  *  The location is a GCP region. Currently only `us-central1` is supported.
@@ -2519,9 +2503,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  Output only. Instance resource name formatted as:
- *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
- *  Name should not be populated when creating an instance since it is provided
- *  in the `instance_id` field.
+ *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`. Name should not be
+ *  populated when creating an instance since it is provided in the
+ *  `instance_id` field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2531,14 +2515,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Likely values:
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Creating
  *        The instance is in state `CREATING` once `CreateInstance` is called
- *        and
- *        before the instance is ready for use. (Value: "CREATING")
+ *        and before the instance is ready for use. (Value: "CREATING")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Inactive
  *        An `INACTIVE` instance indicates that there is a problem that needs to
- *        be
- *        fixed. Such instances cannot be used for execution and instances that
- *        remain in this state for a significant period of time will be removed
- *        permanently. (Value: "INACTIVE")
+ *        be fixed. Such instances cannot be used for execution and instances
+ *        that remain in this state for a significant period of time will be
+ *        removed permanently. (Value: "INACTIVE")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance_State_Running
  *        The instance is in state `RUNNING` when it is ready for use. (Value:
  *        "RUNNING")
@@ -2556,10 +2538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaListInstancesRequest : GTLRObject
 
-/**
- *  Resource name of the project.
- *  Format: `projects/[PROJECT_ID]`.
- */
+/** Resource name of the project. Format: `projects/[PROJECT_ID]`. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 @end
@@ -2582,32 +2561,27 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaListWorkerPoolsRequest : GTLRObject
 
 /**
- *  Optional. A filter expression that filters resources listed in
- *  the response. The expression must specify the field name, a comparison
- *  operator, and the value that you want to use for filtering. The value
- *  must be a string, a number, or a boolean. String values are
- *  case-insensitive.
- *  The comparison operator must be either `:`, `=`, `!=`, `>`, `>=`, `<=` or
- *  `<`.
- *  The `:` operator can be used with string fields to match substrings.
- *  For non-string fields it is equivalent to the `=` operator.
- *  The `:*` comparison can be used to test whether a key has been defined.
- *  You can also filter on nested fields.
- *  To filter on multiple expressions, you can separate expression using
+ *  Optional. A filter expression that filters resources listed in the response.
+ *  The expression must specify the field name, a comparison operator, and the
+ *  value that you want to use for filtering. The value must be a string, a
+ *  number, or a boolean. String values are case-insensitive. The comparison
+ *  operator must be either `:`, `=`, `!=`, `>`, `>=`, `<=` or `<`. The `:`
+ *  operator can be used with string fields to match substrings. For non-string
+ *  fields it is equivalent to the `=` operator. The `:*` comparison can be used
+ *  to test whether a key has been defined. You can also filter on nested
+ *  fields. To filter on multiple expressions, you can separate expression using
  *  `AND` and `OR` operators, using parentheses to specify precedence. If
- *  neither operator is specified, `AND` is assumed.
- *  Examples:
- *  Include only pools with more than 100 reserved workers:
- *  `(worker_count > 100) (worker_config.reserved = true)`
- *  Include only pools with a certain label or machines of the n1-standard
- *  family:
- *  `worker_config.labels.key1 : * OR worker_config.machine_type: n1-standard`
+ *  neither operator is specified, `AND` is assumed. Examples: Include only
+ *  pools with more than 100 reserved workers: `(worker_count > 100)
+ *  (worker_config.reserved = true)` Include only pools with a certain label or
+ *  machines of the n1-standard family: `worker_config.labels.key1 : * OR
+ *  worker_config.machine_type: n1-standard`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Resource name of the instance.
- *  Format: `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
+ *  Resource name of the instance. Format:
+ *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2626,6 +2600,20 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
+ *  SoleTenancyConfig specifies information required to host a pool on STNs.
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig : GTLRObject
+
+/** Zone in which STNs are reserved. */
+@property(nonatomic, copy, nullable) NSString *nodesZone;
+
+/** The sole-tenant node type to host the pool's workers on. */
+@property(nonatomic, copy, nullable) NSString *nodeType;
+
+@end
+
+
+/**
  *  The request used for `UpdateInstance`.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateInstanceRequest : GTLRObject
@@ -2634,16 +2622,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance *instance;
 
 /**
- *  Deprecated, use instance.logging_enabled instead.
- *  Whether to enable Stackdriver logging for this instance.
+ *  Deprecated, use instance.logging_enabled instead. Whether to enable
+ *  Stackdriver logging for this instance.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *loggingEnabled;
 
 /**
- *  Deprecated, use instance.Name instead.
- *  Name of the instance to update.
+ *  Deprecated, use instance.Name instead. Name of the instance to update.
  *  Format: `projects/[PROJECT_ID]/instances/[INSTANCE_ID]`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2669,8 +2656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateWorkerPoolRequest : GTLRObject
 
 /**
- *  The update mask applies to worker_pool. For the `FieldMask` definition,
- *  see
+ *  The update mask applies to worker_pool. For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If an empty update_mask is provided, only the non-default valued field in
  *  the worker pool field will be updated. Note that in order to update a field
@@ -2688,8 +2674,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  Defines the configuration to be used for a creating workers in
- *  the worker pool.
+ *  Defines the configuration to be used for creating workers in the worker
+ *  pool.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig : GTLRObject
 
@@ -2697,36 +2683,33 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig *accelerator;
 
 /**
- *  Required. Size of the disk attached to the worker, in GB.
- *  See https://cloud.google.com/compute/docs/disks/
+ *  Required. Size of the disk attached to the worker, in GB. See
+ *  https://cloud.google.com/compute/docs/disks/
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
- *  Required. Disk Type to use for the worker.
- *  See [Storage
+ *  Required. Disk Type to use for the worker. See [Storage
  *  options](https://cloud.google.com/compute/docs/disks/#introduction).
  *  Currently only `pd-standard` and `pd-ssd` are supported.
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
 /**
- *  Labels associated with the workers.
- *  Label keys and values can be no longer than 63 characters, can only contain
- *  lowercase letters, numeric characters, underscores and dashes.
- *  International letters are permitted. Label keys must start with a letter.
- *  Label values are optional.
- *  There can not be more than 64 labels per resource.
+ *  Labels associated with the workers. Label keys and values can be no longer
+ *  than 63 characters, can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International letters are permitted. Label keys must
+ *  start with a letter. Label values are optional. There can not be more than
+ *  64 labels per resource.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels *labels;
 
 /**
- *  Required. Machine type of the worker, such as `n1-standard-2`.
- *  See https://cloud.google.com/compute/docs/machine-types for a list of
- *  supported machine types. Note that `f1-micro` and `g1-small` are not yet
- *  supported.
+ *  Required. Machine type of the worker, such as `n1-standard-2`. See
+ *  https://cloud.google.com/compute/docs/machine-types for a list of supported
+ *  machine types. Note that `f1-micro` and `g1-small` are not yet supported.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
@@ -2738,29 +2721,31 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSNumber *maxConcurrentActions;
 
 /**
- *  Minimum CPU platform to use when creating the worker.
- *  See [CPU Platforms](https://cloud.google.com/compute/docs/cpu-platforms).
+ *  Minimum CPU platform to use when creating the worker. See [CPU
+ *  Platforms](https://cloud.google.com/compute/docs/cpu-platforms).
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
- *  Determines the type of network access granted to workers. Possible values:
- *  - "public": Workers can connect to the public internet.
- *  - "private": Workers can only connect to Google APIs and services.
- *  - "restricted-private": Workers can only connect to Google APIs that are
- *  reachable through `restricted.googleapis.com` (`199.36.153.4/30`).
+ *  Determines the type of network access granted to workers. Possible values: -
+ *  "public": Workers can connect to the public internet. - "private": Workers
+ *  can only connect to Google APIs and services. - "restricted-private":
+ *  Workers can only connect to Google APIs that are reachable through
+ *  `restricted.googleapis.com` (`199.36.153.4/30`).
  */
 @property(nonatomic, copy, nullable) NSString *networkAccess;
 
 /**
  *  Determines whether the worker is reserved (equivalent to a Compute Engine
- *  on-demand VM and therefore won't be preempted).
- *  See [Preemptible VMs](https://cloud.google.com/preemptible-vms/) for more
- *  details.
+ *  on-demand VM and therefore won't be preempted). See [Preemptible
+ *  VMs](https://cloud.google.com/preemptible-vms/) for more details.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reserved;
+
+/** Sole-tenant node information for pools hosted on STNs. */
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig *soleTenancy;
 
 /** The name of the image used by each VM. */
 @property(nonatomic, copy, nullable) NSString *vmImage;
@@ -2769,12 +2754,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  Labels associated with the workers.
- *  Label keys and values can be no longer than 63 characters, can only contain
- *  lowercase letters, numeric characters, underscores and dashes.
- *  International letters are permitted. Label keys must start with a letter.
- *  Label values are optional.
- *  There can not be more than 64 labels per resource.
+ *  Labels associated with the workers. Label keys and values can be no longer
+ *  than 63 characters, can only contain lowercase letters, numeric characters,
+ *  underscores and dashes. International letters are permitted. Label keys must
+ *  start with a letter. Label values are optional. There can not be more than
+ *  64 labels per resource.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2798,9 +2782,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  WorkerPool resource name formatted as:
- *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]/workerpools/[POOL_ID]`.
- *  name should not be populated when creating a worker pool since it is
- *  provided in the `poolId` field.
+ *  `projects/[PROJECT_ID]/instances/[INSTANCE_ID]/workerpools/[POOL_ID]`. name
+ *  should not be populated when creating a worker pool since it is provided in
+ *  the `poolId` field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2810,30 +2794,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Likely values:
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Creating
  *        The worker pool is in state `CREATING` once `CreateWorkerPool` is
- *        called
- *        and before all requested workers are ready. (Value: "CREATING")
+ *        called and before all requested workers are ready. (Value: "CREATING")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Deleting
  *        The worker pool is in state `DELETING` once the `Delete` method is
- *        called
- *        and before the deletion completes. (Value: "DELETING")
+ *        called and before the deletion completes. (Value: "DELETING")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Inactive
  *        The worker pool is in state `INACTIVE` when the instance hosting the
  *        worker pool in not running. (Value: "INACTIVE")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Running
  *        The worker pool is in state `RUNNING` when all its workers are ready
- *        for
- *        use. (Value: "RUNNING")
+ *        for use. (Value: "RUNNING")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_StateUnspecified
  *        Not a valid state, but the default value of the enum. (Value:
  *        "STATE_UNSPECIFIED")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool_State_Updating
  *        The worker pool is in state `UPDATING` once `UpdateWorkerPool` is
- *        called
- *        and before the new configuration has all the requested workers ready
- *        for
- *        use, and no older configuration has any workers. At that point the
- *        state
- *        transitions to `RUNNING`. (Value: "UPDATING")
+ *        called and before the new configuration has all the requested workers
+ *        ready for use, and no older configuration has any workers. At that
+ *        point the state transitions to `RUNNING`. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -2844,8 +2822,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig *workerConfig;
 
 /**
- *  The desired number of workers in the worker pool. Must be a value between
- *  0 and 15000.
+ *  The desired number of workers in the worker pool. Must be a value between 0
+ *  and 15000.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2859,11 +2837,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  because we do not yet know the best way to represent admin tasks; it's
  *  possible that this will be entirely replaced in later versions of this API.
  *  If this message proves to be sufficient, it will be renamed in the alpha or
- *  beta release of this API.
- *  This message (suitably marshalled into a protobuf.Any) can be used as the
- *  inline_assignment field in a lease; the lease assignment field should simply
- *  be `"admin"` in these cases.
- *  This message is heavily based on Swarming administration tasks from the LUCI
+ *  beta release of this API. This message (suitably marshalled into a
+ *  protobuf.Any) can be used as the inline_assignment field in a lease; the
+ *  lease assignment field should simply be `"admin"` in these cases. This
+ *  message is heavily based on Swarming administration tasks from the LUCI
  *  project (http://github.com/luci/luci-py/appengine/swarming).
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp : GTLRObject
@@ -2880,9 +2857,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *        message to log. (Value: "BOT_RESTART")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotTerminate
  *        Shut down the bot. `arg` will be a task resource name (similar to
- *        those
- *        in tasks.proto) that the bot can use to tell the server that it is
- *        terminating. (Value: "BOT_TERMINATE")
+ *        those in tasks.proto) that the bot can use to tell the server that it
+ *        is terminating. (Value: "BOT_TERMINATE")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2AdminTemp_Command_BotUpdate
  *        Download and run a new version of the bot. `arg` will be a resource
  *        accessible via `ByteStream.Read` to obtain the new bot code. (Value:
@@ -2918,8 +2894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  DEPRECATED - use CommandResult instead.
- *  Describes the actual outputs from the task.
+ *  DEPRECATED - use CommandResult instead. Describes the actual outputs from
+ *  the task.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandOutputs : GTLRObject
 
@@ -2934,10 +2910,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSNumber *exitCode;
 
 /**
- *  The output files. The blob referenced by the digest should contain
- *  one of the following (implementation-dependent):
- *  * A marshalled DirectoryMetadata of the returned filesystem
- *  * A LUCI-style .isolated file
+ *  The output files. The blob referenced by the digest should contain one of
+ *  the following (implementation-dependent): * A marshalled DirectoryMetadata
+ *  of the returned filesystem * A LUCI-style .isolated file
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Digest *outputs;
 
@@ -2945,9 +2920,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  DEPRECATED - use CommandResult instead.
- *  Can be used as part of CompleteRequest.metadata, or are part of a more
- *  sophisticated message.
+ *  DEPRECATED - use CommandResult instead. Can be used as part of
+ *  CompleteRequest.metadata, or are part of a more sophisticated message.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandOverhead : GTLRObject
 
@@ -2989,20 +2963,19 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSNumber *exitCode;
 
 /**
- *  Implementation-dependent metadata about the task. Both servers and bots
- *  may define messages which can be encoded here; bots are free to provide
- *  metadata in multiple formats, and servers are free to choose one or more
- *  of the values to process and ignore others. In particular, it is *not*
- *  considered an error for the bot to provide the server with a field that it
- *  doesn't know about.
+ *  Implementation-dependent metadata about the task. Both servers and bots may
+ *  define messages which can be encoded here; bots are free to provide metadata
+ *  in multiple formats, and servers are free to choose one or more of the
+ *  values to process and ignore others. In particular, it is *not* considered
+ *  an error for the bot to provide the server with a field that it doesn't know
+ *  about.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandResult_Metadata_Item *> *metadata;
 
 /**
- *  The output files. The blob referenced by the digest should contain
- *  one of the following (implementation-dependent):
- *  * A marshalled DirectoryMetadata of the returned filesystem
- *  * A LUCI-style .isolated file
+ *  The output files. The blob referenced by the digest should contain one of
+ *  the following (implementation-dependent): * A marshalled DirectoryMetadata
+ *  of the returned filesystem * A LUCI-style .isolated file
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Digest *outputs;
 
@@ -3058,14 +3031,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandTaskInputs : GTLRObject
 
 /**
- *  The command itself to run (e.g., argv).
- *  This field should be passed directly to the underlying operating system,
- *  and so it must be sensible to that operating system. For example, on
- *  Windows, the first argument might be "C:\\Windows\\System32\\ping.exe" -
- *  that is, using drive letters and backslashes. A command for a *nix
- *  system, on the other hand, would use forward slashes.
- *  All other fields in the RWAPI must consistently use forward slashes,
- *  since those fields may be interpretted by both the service and the bot.
+ *  The command itself to run (e.g., argv). This field should be passed directly
+ *  to the underlying operating system, and so it must be sensible to that
+ *  operating system. For example, on Windows, the first argument might be
+ *  "C:\\Windows\\System32\\ping.exe" - that is, using drive letters and
+ *  backslashes. A command for a *nix system, on the other hand, would use
+ *  forward slashes. All other fields in the RWAPI must consistently use forward
+ *  slashes, since those fields may be interpretted by both the service and the
+ *  bot.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *arguments;
 
@@ -3073,31 +3046,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandTaskInputsEnvironmentVariable *> *environmentVariables;
 
 /**
- *  The input filesystem to be set up prior to the task beginning. The
- *  contents should be a repeated set of FileMetadata messages though other
- *  formats are allowed if better for the implementation (eg, a LUCI-style
- *  .isolated file).
+ *  The input filesystem to be set up prior to the task beginning. The contents
+ *  should be a repeated set of FileMetadata messages though other formats are
+ *  allowed if better for the implementation (eg, a LUCI-style .isolated file).
  *  This field is repeated since implementations might want to cache the
  *  metadata, in which case it may be useful to break up portions of the
- *  filesystem that change frequently (eg, specific input files) from those
- *  that don't (eg, standard header files).
+ *  filesystem that change frequently (eg, specific input files) from those that
+ *  don't (eg, standard header files).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Digest *> *files;
 
 /**
  *  Inline contents for blobs expected to be needed by the bot to execute the
  *  task. For example, contents of entries in `files` or blobs that are
- *  indirectly referenced by an entry there.
- *  The bot should check against this list before downloading required task
- *  inputs to reduce the number of communications between itself and the
- *  remote CAS server.
+ *  indirectly referenced by an entry there. The bot should check against this
+ *  list before downloading required task inputs to reduce the number of
+ *  communications between itself and the remote CAS server.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Blob *> *inlineBlobs;
 
 /**
- *  Directory from which a command is executed. It is a relative directory
- *  with respect to the bot's working directory (i.e., "./"). If it is
- *  non-empty, then it must exist under "./". Otherwise, "./" will be used.
+ *  Directory from which a command is executed. It is a relative directory with
+ *  respect to the bot's working directory (i.e., "./"). If it is non-empty,
+ *  then it must exist under "./". Otherwise, "./" will be used.
  */
 @property(nonatomic, copy, nullable) NSString *workingDirectory;
 
@@ -3130,26 +3101,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directories;
 
 /**
- *  A list of expected files, relative to the execution root. All paths
- *  MUST be delimited by forward slashes.
+ *  A list of expected files, relative to the execution root. All paths MUST be
+ *  delimited by forward slashes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *files;
 
 /**
- *  The destination to which any stderr should be sent. The method by which
- *  the bot should send the stream contents to that destination is not
- *  defined in this API. As examples, the destination could be a file
- *  referenced in the `files` field in this message, or it could be a URI
- *  that must be written via the ByteStream API.
+ *  The destination to which any stderr should be sent. The method by which the
+ *  bot should send the stream contents to that destination is not defined in
+ *  this API. As examples, the destination could be a file referenced in the
+ *  `files` field in this message, or it could be a URI that must be written via
+ *  the ByteStream API.
  */
 @property(nonatomic, copy, nullable) NSString *stderrDestination;
 
 /**
- *  The destination to which any stdout should be sent. The method by which
- *  the bot should send the stream contents to that destination is not
- *  defined in this API. As examples, the destination could be a file
- *  referenced in the `files` field in this message, or it could be a URI
- *  that must be written via the ByteStream API.
+ *  The destination to which any stdout should be sent. The method by which the
+ *  bot should send the stream contents to that destination is not defined in
+ *  this API. As examples, the destination could be a file referenced in the
+ *  `files` field in this message, or it could be a URI that must be written via
+ *  the ByteStream API.
  */
 @property(nonatomic, copy, nullable) NSString *stdoutDestination;
 
@@ -3162,27 +3133,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2CommandTaskTimeouts : GTLRObject
 
 /**
- *  This specifies the maximum time that the task can run, excluding the
- *  time required to download inputs or upload outputs. That is, the worker
- *  will terminate the task if it runs longer than this.
+ *  This specifies the maximum time that the task can run, excluding the time
+ *  required to download inputs or upload outputs. That is, the worker will
+ *  terminate the task if it runs longer than this.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *execution;
 
 /**
- *  This specifies the maximum amount of time the task can be idle - that is,
- *  go without generating some output in either stdout or stderr. If the
- *  process is silent for more than the specified time, the worker will
- *  terminate the task.
+ *  This specifies the maximum amount of time the task can be idle - that is, go
+ *  without generating some output in either stdout or stderr. If the process is
+ *  silent for more than the specified time, the worker will terminate the task.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idle;
 
 /**
  *  If the execution or IO timeouts are exceeded, the worker will try to
- *  gracefully terminate the task and return any existing logs. However,
- *  tasks may be hard-frozen in which case this process will fail. This
- *  timeout specifies how long to wait for a terminated task to shut down
- *  gracefully (e.g. via SIGTERM) before we bring down the hammer (e.g.
- *  SIGKILL on *nix, CTRL_BREAK_EVENT on Windows).
+ *  gracefully terminate the task and return any existing logs. However, tasks
+ *  may be hard-frozen in which case this process will fail. This timeout
+ *  specifies how long to wait for a terminated task to shut down gracefully
+ *  (e.g. via SIGTERM) before we bring down the hammer (e.g. SIGKILL on *nix,
+ *  CTRL_BREAK_EVENT on Windows).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *shutdown;
 
@@ -3194,10 +3164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  that can serve blobs of content, identified by a hash and size known as a
  *  "digest." The method by which these blobs may be retrieved is not specified
  *  here, but a model implementation is in the Remote Execution API's
- *  "ContentAddressibleStorage" interface.
- *  In the context of the RWAPI, a Digest will virtually always refer to the
- *  contents of a file or a directory. The latter is represented by the
- *  byte-encoded Directory message.
+ *  "ContentAddressibleStorage" interface. In the context of the RWAPI, a Digest
+ *  will virtually always refer to the contents of a file or a directory. The
+ *  latter is represented by the byte-encoded Directory message.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Digest : GTLRObject
 
@@ -3211,9 +3180,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  The size of the contents. While this is not strictly required as part of an
- *  identifier (after all, any given hash will have exactly one canonical
- *  size), it's useful in almost all cases when one might want to send or
- *  retrieve blobs of content and is included here for this reason.
+ *  identifier (after all, any given hash will have exactly one canonical size),
+ *  it's useful in almost all cases when one might want to send or retrieve
+ *  blobs of content and is included here for this reason.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3239,8 +3208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  The metadata for a directory. Similar to the equivalent message in the
- *  Remote
- *  Execution API.
+ *  Remote Execution API.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2DirectoryMetadata : GTLRObject
 
@@ -3285,11 +3253,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSNumber *isExecutable;
 
 /**
- *  The path of this file. If this message is part of the
- *  CommandOutputs.outputs fields, the path is relative to the execution root
- *  and must correspond to an entry in CommandTask.outputs.files. If this
- *  message is part of a Directory message, then the path is relative to the
- *  root of that directory. All paths MUST be delimited by forward slashes.
+ *  The path of this file. If this message is part of the CommandOutputs.outputs
+ *  fields, the path is relative to the execution root and must correspond to an
+ *  entry in CommandTask.outputs.files. If this message is part of a Directory
+ *  message, then the path is relative to the root of that directory. All paths
+ *  MUST be delimited by forward slashes.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -3303,8 +3271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleLongrunningOperation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -3316,16 +3284,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleLongrunningOperation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3334,10 +3302,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleLongrunningOperation_Response *response;
 
@@ -3346,8 +3313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -3364,10 +3331,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3382,9 +3348,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRRemoteBuildExecution_GoogleRpcStatus : GTLRObject
 

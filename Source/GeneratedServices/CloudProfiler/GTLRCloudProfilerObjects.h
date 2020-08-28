@@ -37,21 +37,59 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRCloudProfiler_CreateProfileRequest.profileType
 
-/** Value: "CONTENTION" */
+/**
+ *  Synchronization contention profile.
+ *
+ *  Value: "CONTENTION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Contention;
-/** Value: "CPU" */
+/**
+ *  Thread CPU time sampling.
+ *
+ *  Value: "CPU"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Cpu;
-/** Value: "HEAP" */
+/**
+ *  In-use heap profile. Represents a snapshot of the allocations that are live
+ *  at the time of the profiling.
+ *
+ *  Value: "HEAP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Heap;
-/** Value: "HEAP_ALLOC" */
+/**
+ *  Heap allocation profile. It represents the aggregation of all allocations
+ *  made over the duration of the profile. All allocations are included,
+ *  including those that might have been freed by the end of the profiling
+ *  interval. The profile is in particular useful for garbage collecting
+ *  languages to understand which parts of the code create most of the garbage
+ *  collection pressure to see if those can be optimized.
+ *
+ *  Value: "HEAP_ALLOC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_HeapAlloc;
-/** Value: "PEAK_HEAP" */
+/**
+ *  Peak heap profile.
+ *
+ *  Value: "PEAK_HEAP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_PeakHeap;
-/** Value: "PROFILE_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified profile type.
+ *
+ *  Value: "PROFILE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_ProfileTypeUnspecified;
-/** Value: "THREADS" */
+/**
+ *  Single-shot collection of all thread stacks.
+ *
+ *  Value: "THREADS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Threads;
-/** Value: "WALL" */
+/**
+ *  Wallclock time sampling. More expensive as stops all threads.
+ *
+ *  Value: "WALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_CreateProfileRequest_ProfileType_Wall;
 
 // ----------------------------------------------------------------------------
@@ -70,8 +108,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Conten
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Cpu;
 /**
- *  In-use heap profile. Represents a snapshot of the allocations that are
- *  live at the time of the profiling.
+ *  In-use heap profile. Represents a snapshot of the allocations that are live
+ *  at the time of the profiling.
  *
  *  Value: "HEAP"
  */
@@ -137,31 +175,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
 /**
  *  Labels identify the deployment within the user universe and same target.
  *  Validation regex for label names: `^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`.
- *  Value for an individual label must be <= 512 bytes, the total
- *  size of all label names and values must be <= 1024 bytes.
- *  Label named "language" can be used to record the programming language of
- *  the profiled deployment. The standard choices for the value include "java",
- *  "go", "python", "ruby", "nodejs", "php", "dotnet".
- *  For deployments running on Google Cloud Platform, "zone" or "region" label
- *  should be present describing the deployment location. An example of a zone
- *  is "us-central1-a", an example of a region is "us-central1" or
- *  "us-central".
+ *  Value for an individual label must be <= 512 bytes, the total size of all
+ *  label names and values must be <= 1024 bytes. Label named "language" can be
+ *  used to record the programming language of the profiled deployment. The
+ *  standard choices for the value include "java", "go", "python", "ruby",
+ *  "nodejs", "php", "dotnet". For deployments running on Google Cloud Platform,
+ *  "zone" or "region" label should be present describing the deployment
+ *  location. An example of a zone is "us-central1-a", an example of a region is
+ *  "us-central1" or "us-central".
  */
 @property(nonatomic, strong, nullable) GTLRCloudProfiler_Deployment_Labels *labels;
 
 /**
- *  Project ID is the ID of a cloud project.
- *  Validation regex: `^a-z{4,61}[a-z0-9]$`.
+ *  Project ID is the ID of a cloud project. Validation regex:
+ *  `^a-z{4,61}[a-z0-9]$`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Target is the service name used to group related deployments:
- *  * Service name for GAE Flex / Standard.
- *  * Cluster and container name for GKE.
- *  * User-specified string for direct GCE profiling (e.g. Java).
- *  * Job name for Dataflow.
- *  Validation regex: `^[a-z]([-a-z0-9_.]{0,253}[a-z0-9])?$`.
+ *  Target is the service name used to group related deployments: * Service name
+ *  for GAE Flex / Standard. * Cluster and container name for GKE. *
+ *  User-specified string for direct GCE profiling (e.g. Java). * Job name for
+ *  Dataflow. Validation regex: `^[a-z]([-a-z0-9_.]{0,253}[a-z0-9])?$`.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -171,15 +206,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
 /**
  *  Labels identify the deployment within the user universe and same target.
  *  Validation regex for label names: `^[a-z0-9]([a-z0-9-]{0,61}[a-z0-9])?$`.
- *  Value for an individual label must be <= 512 bytes, the total
- *  size of all label names and values must be <= 1024 bytes.
- *  Label named "language" can be used to record the programming language of
- *  the profiled deployment. The standard choices for the value include "java",
- *  "go", "python", "ruby", "nodejs", "php", "dotnet".
- *  For deployments running on Google Cloud Platform, "zone" or "region" label
- *  should be present describing the deployment location. An example of a zone
- *  is "us-central1-a", an example of a region is "us-central1" or
- *  "us-central".
+ *  Value for an individual label must be <= 512 bytes, the total size of all
+ *  label names and values must be <= 1024 bytes. Label named "language" can be
+ *  used to record the programming language of the profiled deployment. The
+ *  standard choices for the value include "java", "go", "python", "ruby",
+ *  "nodejs", "php", "dotnet". For deployments running on Google Cloud Platform,
+ *  "zone" or "region" label should be present describing the deployment
+ *  location. An example of a zone is "us-central1-a", an example of a region is
+ *  "us-central1" or "us-central".
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -199,12 +233,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
 @property(nonatomic, strong, nullable) GTLRCloudProfiler_Deployment *deployment;
 
 /**
- *  Duration of the profiling session.
- *  Input (for the offline mode) or output (for the online mode).
- *  The field represents requested profiling duration. It may slightly differ
- *  from the effective profiling duration, which is recorded in the profile
- *  data, in case the profiling can't be stopped immediately (e.g. in case
- *  stopping the profiling is handled asynchronously).
+ *  Duration of the profiling session. Input (for the offline mode) or output
+ *  (for the online mode). The field represents requested profiling duration. It
+ *  may slightly differ from the effective profiling duration, which is recorded
+ *  in the profile data, in case the profiling can't be stopped immediately
+ *  (e.g. in case stopping the profiling is handled asynchronously).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -219,8 +252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Input only. Profile bytes, as a gzip compressed serialized proto, the
- *  format is https://github.com/google/pprof/blob/master/proto/profile.proto.
+ *  Input only. Profile bytes, as a gzip compressed serialized proto, the format
+ *  is https://github.com/google/pprof/blob/master/proto/profile.proto.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -228,9 +261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
 @property(nonatomic, copy, nullable) NSString *profileBytes;
 
 /**
- *  Type of profile.
- *  For offline mode, this must be specified when creating the profile. For
- *  online mode it is assigned and returned by the server.
+ *  Type of profile. For offline mode, this must be specified when creating the
+ *  profile. For online mode it is assigned and returned by the server.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_Contention Synchronization
@@ -238,15 +270,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudProfiler_Profile_ProfileType_Wall;
  *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_Cpu Thread CPU time
  *        sampling. (Value: "CPU")
  *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_Heap In-use heap profile.
- *        Represents a snapshot of the allocations that are
- *        live at the time of the profiling. (Value: "HEAP")
+ *        Represents a snapshot of the allocations that are live at the time of
+ *        the profiling. (Value: "HEAP")
  *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_HeapAlloc Heap allocation
- *        profile. It represents the aggregation of all allocations
- *        made over the duration of the profile. All allocations are included,
- *        including those that might have been freed by the end of the profiling
- *        interval. The profile is in particular useful for garbage collecting
- *        languages to understand which parts of the code create most of the
- *        garbage
+ *        profile. It represents the aggregation of all allocations made over
+ *        the duration of the profile. All allocations are included, including
+ *        those that might have been freed by the end of the profiling interval.
+ *        The profile is in particular useful for garbage collecting languages
+ *        to understand which parts of the code create most of the garbage
  *        collection pressure to see if those can be optimized. (Value:
  *        "HEAP_ALLOC")
  *    @arg @c kGTLRCloudProfiler_Profile_ProfileType_PeakHeap Peak heap profile.

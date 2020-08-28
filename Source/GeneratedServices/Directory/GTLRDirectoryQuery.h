@@ -36,7 +36,6 @@
 @class GTLRDirectory_Group;
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDeviceAction;
-@class GTLRDirectory_Notification;
 @class GTLRDirectory_OrgUnit;
 @class GTLRDirectory_Role;
 @class GTLRDirectory_RoleAssignment;
@@ -1880,195 +1879,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Deletes a notification
- *
- *  Method: directory.notifications.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDirectoryDirectoryNotifications
- */
-@interface GTLRDirectoryQuery_NotificationsDelete : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForNotificationsDeleteWithcustomer:notificationId:]
-
-/**
- *  The unique ID for the customer's G Suite account. The customerId is also
- *  returned as part of the Users resource.
- */
-@property(nonatomic, copy, nullable) NSString *customer;
-
-/** The unique ID of the notification. */
-@property(nonatomic, copy, nullable) NSString *notificationId;
-
-/**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
- *
- *  Deletes a notification
- *
- *  @param customer The unique ID for the customer's G Suite account. The
- *    customerId is also returned as part of the Users resource.
- *  @param notificationId The unique ID of the notification.
- *
- *  @return GTLRDirectoryQuery_NotificationsDelete
- */
-+ (instancetype)queryWithCustomer:(NSString *)customer
-                   notificationId:(NSString *)notificationId;
-
-@end
-
-/**
- *  Retrieves a notification.
- *
- *  Method: directory.notifications.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDirectoryDirectoryNotifications
- */
-@interface GTLRDirectoryQuery_NotificationsGet : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForNotificationsGetWithcustomer:notificationId:]
-
-/**
- *  The unique ID for the customer's G Suite account. The customerId is also
- *  returned as part of the Users resource.
- */
-@property(nonatomic, copy, nullable) NSString *customer;
-
-/** The unique ID of the notification. */
-@property(nonatomic, copy, nullable) NSString *notificationId;
-
-/**
- *  Fetches a @c GTLRDirectory_Notification.
- *
- *  Retrieves a notification.
- *
- *  @param customer The unique ID for the customer's G Suite account. The
- *    customerId is also returned as part of the Users resource.
- *  @param notificationId The unique ID of the notification.
- *
- *  @return GTLRDirectoryQuery_NotificationsGet
- */
-+ (instancetype)queryWithCustomer:(NSString *)customer
-                   notificationId:(NSString *)notificationId;
-
-@end
-
-/**
- *  Retrieves a list of notifications.
- *
- *  Method: directory.notifications.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDirectoryDirectoryNotifications
- */
-@interface GTLRDirectoryQuery_NotificationsList : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForNotificationsListWithcustomer:]
-
-/** The unique ID for the customer's G Suite account. */
-@property(nonatomic, copy, nullable) NSString *customer;
-
-/**
- *  The ISO 639-1 code of the language notifications are returned in. The
- *  default is English (en).
- */
-@property(nonatomic, copy, nullable) NSString *language;
-
-/** Maximum number of notifications to return per page. The default is 100. */
-@property(nonatomic, assign) NSUInteger maxResults;
-
-/** The token to specify the page of results to retrieve. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRDirectory_Notifications.
- *
- *  Retrieves a list of notifications.
- *
- *  @param customer The unique ID for the customer's G Suite account.
- *
- *  @return GTLRDirectoryQuery_NotificationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithCustomer:(NSString *)customer;
-
-@end
-
-/**
- *  Updates a notification. This method supports patch semantics.
- *
- *  Method: directory.notifications.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDirectoryDirectoryNotifications
- */
-@interface GTLRDirectoryQuery_NotificationsPatch : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForNotificationsPatchWithObject:customer:notificationId:]
-
-/** The unique ID for the customer's G Suite account. */
-@property(nonatomic, copy, nullable) NSString *customer;
-
-/** The unique ID of the notification. */
-@property(nonatomic, copy, nullable) NSString *notificationId;
-
-/**
- *  Fetches a @c GTLRDirectory_Notification.
- *
- *  Updates a notification. This method supports patch semantics.
- *
- *  @param object The @c GTLRDirectory_Notification to include in the query.
- *  @param customer The unique ID for the customer's G Suite account.
- *  @param notificationId The unique ID of the notification.
- *
- *  @return GTLRDirectoryQuery_NotificationsPatch
- */
-+ (instancetype)queryWithObject:(GTLRDirectory_Notification *)object
-                       customer:(NSString *)customer
-                 notificationId:(NSString *)notificationId;
-
-@end
-
-/**
- *  Updates a notification.
- *
- *  Method: directory.notifications.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDirectoryDirectoryNotifications
- */
-@interface GTLRDirectoryQuery_NotificationsUpdate : GTLRDirectoryQuery
-// Previous library name was
-//   +[GTLQueryDirectory queryForNotificationsUpdateWithObject:customer:notificationId:]
-
-/** The unique ID for the customer's G Suite account. */
-@property(nonatomic, copy, nullable) NSString *customer;
-
-/** The unique ID of the notification. */
-@property(nonatomic, copy, nullable) NSString *notificationId;
-
-/**
- *  Fetches a @c GTLRDirectory_Notification.
- *
- *  Updates a notification.
- *
- *  @param object The @c GTLRDirectory_Notification to include in the query.
- *  @param customer The unique ID for the customer's G Suite account.
- *  @param notificationId The unique ID of the notification.
- *
- *  @return GTLRDirectoryQuery_NotificationsUpdate
- */
-+ (instancetype)queryWithObject:(GTLRDirectory_Notification *)object
-                       customer:(NSString *)customer
-                 notificationId:(NSString *)notificationId;
-
-@end
-
-/**
  *  Remove organizational unit
  *
  *  Method: directory.orgunits.delete
@@ -2775,10 +2585,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  String query used to filter results. Should be of the form "field operator
  *  value" where field can be any of supported fields and operators can be any
  *  of supported operations. Operators include '=' for exact match and ':' for
- *  prefix match or HAS match where applicable. For prefix match, the value
- *  should always be followed by a *. Supported fields include
- *  generatedResourceName, name, buildingId, featureInstances.feature.name. For
- *  example buildingId=US-NYC-9TH AND featureInstances.feature.name:Phone.
+ *  prefix match or HAS match, depending on type of field.
+ *  For ':', when the field supports a scalar value, such as a String, and the
+ *  value is followed by an asterisk (*), the query is considered a prefix
+ *  match. In a prefix match, the value must be at the start of a string to be a
+ *  match. For example, resourceName:Conference* returns all strings whose
+ *  resourceName starts with "Conference," such as "Conference-Room-1."
+ *  For ':', when the field supports repeated values, such as
+ *  featureInstances[].features, use a colon (:) without an asterisk (*) to
+ *  indicate a HAS match. For example, featureInstances.feature.name:Phone would
+ *  return any calendar resource that has a feature instance whose name is
+ *  "Phone" (all rooms with phones).
+ *  An asterisk (*) is only valid at end of value, it cannot be used at start or
+ *  middle of value. For example, resourceName:*Room* doesn't work. Query
+ *  strings are case sensitive.
+ *  Supported fields include generatedResourceName, resourceName, name,
+ *  buildingId, featureInstances.feature.name.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

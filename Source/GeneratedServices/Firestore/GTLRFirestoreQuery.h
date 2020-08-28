@@ -89,11 +89,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists the field configuration and metadata for this database.
- *  Currently, FirestoreAdmin.ListFields only supports listing fields
- *  that have been explicitly overridden. To issue this query, call
- *  FirestoreAdmin.ListFields with the filter set to
- *  `indexConfig.usesAncestorConfig:false`.
+ *  Lists the field configuration and metadata for this database. Currently,
+ *  FirestoreAdmin.ListFields only supports listing fields that have been
+ *  explicitly overridden. To issue this query, call FirestoreAdmin.ListFields
+ *  with the filter set to `indexConfig.usesAncestorConfig:false`.
  *
  *  Method: firestore.projects.databases.collectionGroups.fields.list
  *
@@ -106,10 +105,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsFieldsListWithparent:]
 
 /**
- *  The filter to apply to list results. Currently,
- *  FirestoreAdmin.ListFields only supports listing fields
- *  that have been explicitly overridden. To issue this query, call
- *  FirestoreAdmin.ListFields with the filter set to
+ *  The filter to apply to list results. Currently, FirestoreAdmin.ListFields
+ *  only supports listing fields that have been explicitly overridden. To issue
+ *  this query, call FirestoreAdmin.ListFields with the filter set to
  *  `indexConfig.usesAncestorConfig:false`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -118,9 +116,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, returned from a previous call to
- *  FirestoreAdmin.ListFields, that may be used to get the next
- *  page of results.
+ *  A page token, returned from a previous call to FirestoreAdmin.ListFields,
+ *  that may be used to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -133,11 +130,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_GoogleFirestoreAdminV1ListFieldsResponse.
  *
- *  Lists the field configuration and metadata for this database.
- *  Currently, FirestoreAdmin.ListFields only supports listing fields
- *  that have been explicitly overridden. To issue this query, call
- *  FirestoreAdmin.ListFields with the filter set to
- *  `indexConfig.usesAncestorConfig:false`.
+ *  Lists the field configuration and metadata for this database. Currently,
+ *  FirestoreAdmin.ListFields only supports listing fields that have been
+ *  explicitly overridden. To issue this query, call FirestoreAdmin.ListFields
+ *  with the filter set to `indexConfig.usesAncestorConfig:false`.
  *
  *  @param parent Required. A parent name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}`
@@ -153,16 +149,14 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a field configuration. Currently, field updates apply only to
- *  single field index configuration. However, calls to
- *  FirestoreAdmin.UpdateField should provide a field mask to avoid
- *  changing any configuration that the caller isn't aware of. The field mask
- *  should be specified as: `{ paths: "index_config" }`.
- *  This call returns a google.longrunning.Operation which may be used to
- *  track the status of the field update. The metadata for
- *  the operation will be the type FieldOperationMetadata.
- *  To configure the default field settings for the database, use
- *  the special `Field` with resource name:
+ *  Updates a field configuration. Currently, field updates apply only to single
+ *  field index configuration. However, calls to FirestoreAdmin.UpdateField
+ *  should provide a field mask to avoid changing any configuration that the
+ *  caller isn't aware of. The field mask should be specified as: `{ paths:
+ *  "index_config" }`. This call returns a google.longrunning.Operation which
+ *  may be used to track the status of the field update. The metadata for the
+ *  operation will be the type FieldOperationMetadata. To configure the default
+ *  field settings for the database, use the special `Field` with resource name:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
  *  *`.
  *
@@ -180,33 +174,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  A field name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
  *  A field path may be a simple field name, e.g. `address` or a path to fields
- *  within map_value , e.g. `address.city`,
- *  or a special field path. The only valid special field is `*`, which
- *  represents any field.
- *  Field paths may be quoted using ` (backtick). The only character that needs
- *  to be escaped within a quoted field path is the backtick character itself,
- *  escaped using a backslash. Special characters in field paths that
- *  must be quoted include: `*`, `.`,
- *  ``` (backtick), `[`, `]`, as well as any ascii symbolic characters.
- *  Examples:
- *  (Note: Comments here are written in markdown syntax, so there is an
- *  additional layer of backticks to represent a code block)
+ *  within map_value , e.g. `address.city`, or a special field path. The only
+ *  valid special field is `*`, which represents any field. Field paths may be
+ *  quoted using ` (backtick). The only character that needs to be escaped
+ *  within a quoted field path is the backtick character itself, escaped using a
+ *  backslash. Special characters in field paths that must be quoted include:
+ *  `*`, `.`, ``` (backtick), `[`, `]`, as well as any ascii symbolic
+ *  characters. Examples: (Note: Comments here are written in markdown syntax,
+ *  so there is an additional layer of backticks to represent a code block)
  *  `\\`address.city\\`` represents a field named `address.city`, not the map
- *  key
- *  `city` in the field `address`.
- *  `\\`*\\`` represents a field named `*`, not any field.
- *  A special `Field` contains the default indexing settings for all fields.
- *  This field's resource name is:
+ *  key `city` in the field `address`. `\\`*\\`` represents a field named `*`,
+ *  not any field. A special `Field` contains the default indexing settings for
+ *  all fields. This field's resource name is:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
- *  *`
- *  Indexes defined on this `Field` will be applied to all fields which do not
- *  have their own `Field` index configuration.
+ *  *` Indexes defined on this `Field` will be applied to all fields which do
+ *  not have their own `Field` index configuration.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A mask, relative to the field. If specified, only configuration specified
- *  by this field_mask will be updated in the field.
+ *  A mask, relative to the field. If specified, only configuration specified by
+ *  this field_mask will be updated in the field.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -215,16 +203,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
  *
- *  Updates a field configuration. Currently, field updates apply only to
- *  single field index configuration. However, calls to
- *  FirestoreAdmin.UpdateField should provide a field mask to avoid
- *  changing any configuration that the caller isn't aware of. The field mask
- *  should be specified as: `{ paths: "index_config" }`.
- *  This call returns a google.longrunning.Operation which may be used to
- *  track the status of the field update. The metadata for
- *  the operation will be the type FieldOperationMetadata.
- *  To configure the default field settings for the database, use
- *  the special `Field` with resource name:
+ *  Updates a field configuration. Currently, field updates apply only to single
+ *  field index configuration. However, calls to FirestoreAdmin.UpdateField
+ *  should provide a field mask to avoid changing any configuration that the
+ *  caller isn't aware of. The field mask should be specified as: `{ paths:
+ *  "index_config" }`. This call returns a google.longrunning.Operation which
+ *  may be used to track the status of the field update. The metadata for the
+ *  operation will be the type FieldOperationMetadata. To configure the default
+ *  field settings for the database, use the special `Field` with resource name:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
  *  *`.
  *
@@ -233,29 +219,22 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name A field name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
  *    A field path may be a simple field name, e.g. `address` or a path to
- *    fields
- *    within map_value , e.g. `address.city`,
- *    or a special field path. The only valid special field is `*`, which
- *    represents any field.
- *    Field paths may be quoted using ` (backtick). The only character that
- *    needs
- *    to be escaped within a quoted field path is the backtick character itself,
- *    escaped using a backslash. Special characters in field paths that
- *    must be quoted include: `*`, `.`,
- *    ``` (backtick), `[`, `]`, as well as any ascii symbolic characters.
- *    Examples:
- *    (Note: Comments here are written in markdown syntax, so there is an
- *    additional layer of backticks to represent a code block)
- *    `\\`address.city\\`` represents a field named `address.city`, not the map
- *    key
- *    `city` in the field `address`.
- *    `\\`*\\`` represents a field named `*`, not any field.
- *    A special `Field` contains the default indexing settings for all fields.
- *    This field's resource name is:
+ *    fields within map_value , e.g. `address.city`, or a special field path.
+ *    The only valid special field is `*`, which represents any field. Field
+ *    paths may be quoted using ` (backtick). The only character that needs to
+ *    be escaped within a quoted field path is the backtick character itself,
+ *    escaped using a backslash. Special characters in field paths that must be
+ *    quoted include: `*`, `.`, ``` (backtick), `[`, `]`, as well as any ascii
+ *    symbolic characters. Examples: (Note: Comments here are written in
+ *    markdown syntax, so there is an additional layer of backticks to represent
+ *    a code block) `\\`address.city\\`` represents a field named
+ *    `address.city`, not the map key `city` in the field `address`. `\\`*\\``
+ *    represents a field named `*`, not any field. A special `Field` contains
+ *    the default indexing settings for all fields. This field's resource name
+ *    is:
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
- *    *`
- *    Indexes defined on this `Field` will be applied to all fields which do not
- *    have their own `Field` index configuration.
+ *    *` Indexes defined on this `Field` will be applied to all fields which do
+ *    not have their own `Field` index configuration.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsPatch
  */
@@ -265,9 +244,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a composite index. This returns a google.longrunning.Operation
- *  which may be used to track the status of the creation. The metadata for
- *  the operation will be the type IndexOperationMetadata.
+ *  Creates a composite index. This returns a google.longrunning.Operation which
+ *  may be used to track the status of the creation. The metadata for the
+ *  operation will be the type IndexOperationMetadata.
  *
  *  Method: firestore.projects.databases.collectionGroups.indexes.create
  *
@@ -288,9 +267,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_GoogleLongrunningOperation.
  *
- *  Creates a composite index. This returns a google.longrunning.Operation
- *  which may be used to track the status of the creation. The metadata for
- *  the operation will be the type IndexOperationMetadata.
+ *  Creates a composite index. This returns a google.longrunning.Operation which
+ *  may be used to track the status of the creation. The metadata for the
+ *  operation will be the type IndexOperationMetadata.
  *
  *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1Index to include in
  *    the query.
@@ -390,9 +369,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, returned from a previous call to
- *  FirestoreAdmin.ListIndexes, that may be used to get the next
- *  page of results.
+ *  A page token, returned from a previous call to FirestoreAdmin.ListIndexes,
+ *  that may be used to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -421,9 +399,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets multiple documents.
- *  Documents returned by this method are not guaranteed to be returned in the
- *  same order that they were requested.
+ *  Gets multiple documents. Documents returned by this method are not
+ *  guaranteed to be returned in the same order that they were requested.
  *
  *  Method: firestore.projects.databases.documents.batchGet
  *
@@ -444,9 +421,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_BatchGetDocumentsResponse.
  *
- *  Gets multiple documents.
- *  Documents returned by this method are not guaranteed to be returned in the
- *  same order that they were requested.
+ *  Gets multiple documents. Documents returned by this method are not
+ *  guaranteed to be returned in the same order that they were requested.
  *
  *  @param object The @c GTLRFirestore_BatchGetDocumentsRequest to include in
  *    the query.
@@ -461,13 +437,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Applies a batch of write operations.
- *  The BatchWrite method does not apply the write operations atomically
- *  and can apply them out of order. Method does not allow more than one write
- *  per document. Each write succeeds or fails independently. See the
- *  BatchWriteResponse for the success status of each write.
- *  If you require an atomically applied set of writes, use
- *  Commit instead.
+ *  Applies a batch of write operations. The BatchWrite method does not apply
+ *  the write operations atomically and can apply them out of order. Method does
+ *  not allow more than one write per document. Each write succeeds or fails
+ *  independently. See the BatchWriteResponse for the success status of each
+ *  write. If you require an atomically applied set of writes, use Commit
+ *  instead.
  *
  *  Method: firestore.projects.databases.documents.batchWrite
  *
@@ -488,13 +463,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirestore_BatchWriteResponse.
  *
- *  Applies a batch of write operations.
- *  The BatchWrite method does not apply the write operations atomically
- *  and can apply them out of order. Method does not allow more than one write
- *  per document. Each write succeeds or fails independently. See the
- *  BatchWriteResponse for the success status of each write.
- *  If you require an atomically applied set of writes, use
- *  Commit instead.
+ *  Applies a batch of write operations. The BatchWrite method does not apply
+ *  the write operations atomically and can apply them out of order. Method does
+ *  not allow more than one write per document. Each write succeeds or fails
+ *  independently. See the BatchWriteResponse for the success status of each
+ *  write. If you require an atomically applied set of writes, use Commit
+ *  instead.
  *
  *  @param object The @c GTLRFirestore_BatchWriteRequest to include in the
  *    query.
@@ -599,14 +573,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *collectionId;
 
 /**
- *  The client-assigned document ID to use for this document.
- *  Optional. If not specified, an ID will be assigned by the service.
+ *  The client-assigned document ID to use for this document. Optional. If not
+ *  specified, an ID will be assigned by the service.
  */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
 /**
- *  The list of field paths in the mask. See Document.fields for a field
- *  path syntax reference.
+ *  The list of field paths in the mask. See Document.fields for a field path
+ *  syntax reference.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *maskFieldPaths;
 
@@ -651,14 +625,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsDeleteWithname:]
 
 /**
- *  When set to `true`, the target document must exist.
- *  When set to `false`, the target document must not exist.
+ *  When set to `true`, the target document must exist. When set to `false`, the
+ *  target document must not exist.
  */
 @property(nonatomic, assign) BOOL currentDocumentExists;
 
 /**
- *  When set, the target document must exist and have been last updated at
- *  that time.
+ *  When set, the target document must exist and have been last updated at that
+ *  time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *currentDocumentUpdateTime;
 
@@ -697,8 +671,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsGetWithname:]
 
 /**
- *  The list of field paths in the mask. See Document.fields for a field
- *  path syntax reference.
+ *  The list of field paths in the mask. See Document.fields for a field path
+ *  syntax reference.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *maskFieldPaths;
 
@@ -709,8 +683,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Reads the version of the document at the given time.
- *  This may not be older than 270 seconds.
+ *  Reads the version of the document at the given time. This may not be older
+ *  than 270 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -752,14 +726,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The collection ID, relative to `parent`, to list. For example:
- *  `chatrooms`
- *  or `messages`.
+ *  `chatrooms` or `messages`.
  */
 @property(nonatomic, copy, nullable) NSString *collectionId;
 
 /**
- *  The list of field paths in the mask. See Document.fields for a field
- *  path syntax reference.
+ *  The list of field paths in the mask. See Document.fields for a field path
+ *  syntax reference.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *maskFieldPaths;
 
@@ -778,25 +751,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The parent resource name. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents` or
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
- *  For example:
- *  `projects/my-project/databases/my-database/documents` or
+ *  For example: `projects/my-project/databases/my-database/documents` or
  *  `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Reads documents as they were at the given time.
- *  This may not be older than 270 seconds.
+ *  Reads documents as they were at the given time. This may not be older than
+ *  270 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
- *  If the list should show missing documents. A missing document is a
- *  document that does not exist but has sub-documents. These documents will
- *  be returned with a key but will not have fields, Document.create_time,
- *  or Document.update_time set.
- *  Requests with `show_missing` may not specify `where` or
- *  `order_by`.
+ *  If the list should show missing documents. A missing document is a document
+ *  that does not exist but has sub-documents. These documents will be returned
+ *  with a key but will not have fields, Document.create_time, or
+ *  Document.update_time set. Requests with `show_missing` may not specify
+ *  `where` or `order_by`.
  */
 @property(nonatomic, assign) BOOL showMissing;
 
@@ -816,12 +787,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The parent resource name. In the format:
  *    `projects/{project_id}/databases/{database_id}/documents` or
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
- *    For example:
- *    `projects/my-project/databases/my-database/documents` or
+ *    For example: `projects/my-project/databases/my-database/documents` or
  *    `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
  *  @param collectionId Required. The collection ID, relative to `parent`, to
- *    list. For example: `chatrooms`
- *    or `messages`.
+ *    list. For example: `chatrooms` or `messages`.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsList
  *
@@ -926,9 +895,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource name. In the format:
- *  `projects/{project_id}/databases/{database_id}/documents`.
- *  Document resource names are not supported; only database resource names
- *  can be specified.
+ *  `projects/{project_id}/databases/{database_id}/documents`. Document resource
+ *  names are not supported; only database resource names can be specified.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -942,9 +910,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFirestore_PartitionQueryRequest to include in the
  *    query.
  *  @param parent Required. The parent resource name. In the format:
- *    `projects/{project_id}/databases/{database_id}/documents`.
- *    Document resource names are not supported; only database resource names
- *    can be specified.
+ *    `projects/{project_id}/databases/{database_id}/documents`. Document
+ *    resource names are not supported; only database resource names can be
+ *    specified.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsPartitionQuery
  */
@@ -967,20 +935,20 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsPatchWithObject:name:]
 
 /**
- *  When set to `true`, the target document must exist.
- *  When set to `false`, the target document must not exist.
+ *  When set to `true`, the target document must exist. When set to `false`, the
+ *  target document must not exist.
  */
 @property(nonatomic, assign) BOOL currentDocumentExists;
 
 /**
- *  When set, the target document must exist and have been last updated at
- *  that time.
+ *  When set, the target document must exist and have been last updated at that
+ *  time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *currentDocumentUpdateTime;
 
 /**
- *  The list of field paths in the mask. See Document.fields for a field
- *  path syntax reference.
+ *  The list of field paths in the mask. See Document.fields for a field path
+ *  syntax reference.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *maskFieldPaths;
 
@@ -991,8 +959,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of field paths in the mask. See Document.fields for a field
- *  path syntax reference.
+ *  The list of field paths in the mask. See Document.fields for a field path
+ *  syntax reference.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *updateMaskFieldPaths;
 
@@ -1064,8 +1032,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The parent resource name. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents` or
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
- *  For example:
- *  `projects/my-project/databases/my-database/documents` or
+ *  For example: `projects/my-project/databases/my-database/documents` or
  *  `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1079,8 +1046,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. The parent resource name. In the format:
  *    `projects/{project_id}/databases/{database_id}/documents` or
  *    `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
- *    For example:
- *    `projects/my-project/databases/my-database/documents` or
+ *    For example: `projects/my-project/databases/my-database/documents` or
  *    `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsRunQuery
@@ -1105,8 +1071,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The database name. In the format:
- *  `projects/{project_id}/databases/{database_id}`.
- *  This is only required in the first message.
+ *  `projects/{project_id}/databases/{database_id}`. This is only required in
+ *  the first message.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
@@ -1117,8 +1083,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirestore_WriteRequest to include in the query.
  *  @param database Required. The database name. In the format:
- *    `projects/{project_id}/databases/{database_id}`.
- *    This is only required in the first message.
+ *    `projects/{project_id}/databases/{database_id}`. This is only required in
+ *    the first message.
  *
  *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsWrite
  */
@@ -1131,11 +1097,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Exports a copy of all or a subset of documents from Google Cloud Firestore
  *  to another storage system, such as Google Cloud Storage. Recent updates to
  *  documents may not be reflected in the export. The export occurs in the
- *  background and its progress can be monitored and managed via the
- *  Operation resource that is created. The output of an export may only be
- *  used once the associated operation is done. If an export operation is
- *  cancelled before completion it may leave partial data behind in Google
- *  Cloud Storage.
+ *  background and its progress can be monitored and managed via the Operation
+ *  resource that is created. The output of an export may only be used once the
+ *  associated operation is done. If an export operation is cancelled before
+ *  completion it may leave partial data behind in Google Cloud Storage.
  *
  *  Method: firestore.projects.databases.exportDocuments
  *
@@ -1159,11 +1124,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Exports a copy of all or a subset of documents from Google Cloud Firestore
  *  to another storage system, such as Google Cloud Storage. Recent updates to
  *  documents may not be reflected in the export. The export occurs in the
- *  background and its progress can be monitored and managed via the
- *  Operation resource that is created. The output of an export may only be
- *  used once the associated operation is done. If an export operation is
- *  cancelled before completion it may leave partial data behind in Google
- *  Cloud Storage.
+ *  background and its progress can be monitored and managed via the Operation
+ *  resource that is created. The output of an export may only be used once the
+ *  associated operation is done. If an export operation is cancelled before
+ *  completion it may leave partial data behind in Google Cloud Storage.
  *
  *  @param object The @c
  *    GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest to include in
@@ -1182,8 +1146,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Imports documents into Google Cloud Firestore. Existing documents with the
  *  same name are overwritten. The import occurs in the background and its
  *  progress can be monitored and managed via the Operation resource that is
- *  created. If an ImportDocuments operation is cancelled, it is possible
- *  that a subset of the data has already been imported to Cloud Firestore.
+ *  created. If an ImportDocuments operation is cancelled, it is possible that a
+ *  subset of the data has already been imported to Cloud Firestore.
  *
  *  Method: firestore.projects.databases.importDocuments
  *
@@ -1207,8 +1171,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Imports documents into Google Cloud Firestore. Existing documents with the
  *  same name are overwritten. The import occurs in the background and its
  *  progress can be monitored and managed via the Operation resource that is
- *  created. If an ImportDocuments operation is cancelled, it is possible
- *  that a subset of the data has already been imported to Cloud Firestore.
+ *  created. If an ImportDocuments operation is cancelled, it is possible that a
+ *  subset of the data has already been imported to Cloud Firestore.
  *
  *  @param object The @c
  *    GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest to include in
@@ -1225,15 +1189,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: firestore.projects.databases.operations.cancel
  *
@@ -1252,15 +1215,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirestore_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRFirestore_GoogleLongrunningCancelOperationRequest
  *    to include in the query.
@@ -1343,14 +1305,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: firestore.projects.databases.operations.list
  *
@@ -1378,14 +1340,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirestore_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *

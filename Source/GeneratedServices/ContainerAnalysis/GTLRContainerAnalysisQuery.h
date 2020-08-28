@@ -43,23 +43,59 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // kind
 
-/** Value: "ATTESTATION_AUTHORITY" */
+/**
+ *  This represents a logical "role" that can attest to artifacts.
+ *
+ *  Value: "ATTESTATION_AUTHORITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindAttestationAuthority;
-/** Value: "BUILD_DETAILS" */
+/**
+ *  The note and occurrence assert build provenance.
+ *
+ *  Value: "BUILD_DETAILS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindBuildDetails;
-/** Value: "DEPLOYABLE" */
+/**
+ *  The note and occurrence track deployment events.
+ *
+ *  Value: "DEPLOYABLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindDeployable;
-/** Value: "DISCOVERY" */
+/**
+ *  The note and occurrence track the initial discovery status of a resource.
+ *
+ *  Value: "DISCOVERY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindDiscovery;
-/** Value: "IMAGE_BASIS" */
+/**
+ *  This represents an image basis relationship.
+ *
+ *  Value: "IMAGE_BASIS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindImageBasis;
-/** Value: "KIND_UNSPECIFIED" */
+/**
+ *  Unknown
+ *
+ *  Value: "KIND_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindKindUnspecified;
-/** Value: "PACKAGE_MANAGER" */
+/**
+ *  This represents a package installed via a package manager.
+ *
+ *  Value: "PACKAGE_MANAGER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindPackageManager;
-/** Value: "PACKAGE_VULNERABILITY" */
+/**
+ *  The note and occurrence represent a package vulnerability.
+ *
+ *  Value: "PACKAGE_VULNERABILITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindPackageVulnerability;
-/** Value: "UPGRADE" */
+/**
+ *  This represents an available software upgrade.
+ *
+ *  Value: "UPGRADE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 
 // ----------------------------------------------------------------------------
@@ -89,8 +125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsNotesCreateWithObject:parent:]
 
 /**
- *  The name of the project.
- *  Should be of the form "providers/{provider_id}".
+ *  The name of the project. Should be of the form "providers/{provider_id}".
  *  \@Deprecated
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -98,10 +133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /** The ID to use for this note. */
 @property(nonatomic, copy, nullable) NSString *noteId;
 
-/**
- *  This field contains the project Id for example:
- *  "projects/{project_id}
- */
+/** This field contains the project Id for example: "projects/{project_id} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -187,15 +219,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Gets the access control policy for a note or an `Occurrence` resource.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a note or occurrence, respectively.
- *  Attempting to call this method on a resource without the required
- *  permission will result in a `PERMISSION_DENIED` error. Attempting to call
- *  this method on a non-existent resource will result in a `NOT_FOUND` error
- *  if the user has list permission on the project, or a `PERMISSION_DENIED`
- *  error otherwise. The resource takes the following formats:
- *  `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and
- *  projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  note or occurrence, respectively. Attempting to call this method on a
+ *  resource without the required permission will result in a
+ *  `PERMISSION_DENIED` error. Attempting to call this method on a non-existent
+ *  resource will result in a `NOT_FOUND` error if the user has list permission
+ *  on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes
+ *  the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}`
+ *  for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
  *
  *  Method: containeranalysis.projects.notes.getIamPolicy
  *
@@ -207,8 +238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsNotesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -217,21 +248,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Gets the access control policy for a note or an `Occurrence` resource.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a note or occurrence, respectively.
- *  Attempting to call this method on a resource without the required
- *  permission will result in a `PERMISSION_DENIED` error. Attempting to call
- *  this method on a non-existent resource will result in a `NOT_FOUND` error
- *  if the user has list permission on the project, or a `PERMISSION_DENIED`
- *  error otherwise. The resource takes the following formats:
- *  `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and
- *  projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  note or occurrence, respectively. Attempting to call this method on a
+ *  resource without the required permission will result in a
+ *  `PERMISSION_DENIED` error. Attempting to call this method on a non-existent
+ *  resource will result in a `NOT_FOUND` error if the user has list permission
+ *  on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes
+ *  the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}`
+ *  for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
  *
  *  @param object The @c GTLRContainerAnalysis_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsNotesGetIamPolicy
  */
@@ -257,8 +287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 
 /**
  *  The name field will contain the project Id for example:
- *  "providers/{provider_id}
- *  \@Deprecated
+ *  "providers/{provider_id} \@Deprecated
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -292,9 +321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 @end
 
 /**
- *  Lists `Occurrences` referencing the specified `Note`. Use this method to
- *  get all occurrences referencing your `Note` across all your customer
- *  projects.
+ *  Lists `Occurrences` referencing the specified `Note`. Use this method to get
+ *  all occurrences referencing your `Note` across all your customer projects.
  *
  *  Method: containeranalysis.projects.notes.occurrences.list
  *
@@ -323,9 +351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Fetches a @c GTLRContainerAnalysis_ListNoteOccurrencesResponse.
  *
- *  Lists `Occurrences` referencing the specified `Note`. Use this method to
- *  get all occurrences referencing your `Note` across all your customer
- *  projects.
+ *  Lists `Occurrences` referencing the specified `Note`. Use this method to get
+ *  all occurrences referencing your `Note` across all your customer projects.
  *
  *  @param name The name field will contain the note name for example:
  *    "provider/{provider_id}/notes/{note_id}"
@@ -353,8 +380,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsNotesPatchWithObject:name:]
 
 /**
- *  The name of the note.
- *  Should be of the form "projects/{provider_id}/notes/{note_id}".
+ *  The name of the note. Should be of the form
+ *  "projects/{provider_id}/notes/{note_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -371,8 +398,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *  Updates an existing `Note`.
  *
  *  @param object The @c GTLRContainerAnalysis_Note to include in the query.
- *  @param name The name of the note.
- *    Should be of the form "projects/{provider_id}/notes/{note_id}".
+ *  @param name The name of the note. Should be of the form
+ *    "projects/{provider_id}/notes/{note_id}".
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsNotesPatch
  */
@@ -384,14 +411,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Sets the access control policy on the specified `Note` or `Occurrence`.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a `Note` or an `Occurrence`, respectively.
- *  Attempting to call this method without these permissions will result in a `
- *  `PERMISSION_DENIED` error.
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  `Note` or an `Occurrence`, respectively. Attempting to call this method
+ *  without these permissions will result in a ` `PERMISSION_DENIED` error.
  *  Attempting to call this method on a non-existent resource will result in a
  *  `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission
- *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
- *  a `PERMISSION_DENIED` error otherwise. The resource takes the following
+ *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a
+ *  `PERMISSION_DENIED` error otherwise. The resource takes the following
  *  formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences
  *  and projects/{projectid}/notes/{noteid} for notes
  *
@@ -405,8 +431,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsNotesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -415,22 +441,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Sets the access control policy on the specified `Note` or `Occurrence`.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a `Note` or an `Occurrence`, respectively.
- *  Attempting to call this method without these permissions will result in a `
- *  `PERMISSION_DENIED` error.
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  `Note` or an `Occurrence`, respectively. Attempting to call this method
+ *  without these permissions will result in a ` `PERMISSION_DENIED` error.
  *  Attempting to call this method on a non-existent resource will result in a
  *  `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission
- *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
- *  a `PERMISSION_DENIED` error otherwise. The resource takes the following
+ *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a
+ *  `PERMISSION_DENIED` error otherwise. The resource takes the following
  *  formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences
  *  and projects/{projectid}/notes/{noteid} for notes
  *
  *  @param object The @c GTLRContainerAnalysis_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsNotesSetIamPolicy
  */
@@ -442,8 +467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Returns the permissions that a caller has on the specified note or
  *  occurrence resource. Requires list permission on the project (for example,
- *  "storage.objects.list" on the containing bucket for testing permission of
- *  an object). Attempting to call this method on a non-existent resource will
+ *  "storage.objects.list" on the containing bucket for testing permission of an
+ *  object). Attempting to call this method on a non-existent resource will
  *  result in a `NOT_FOUND` error if the user has list permission on the
  *  project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
  *  following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for
@@ -459,8 +484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsNotesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -469,8 +494,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Returns the permissions that a caller has on the specified note or
  *  occurrence resource. Requires list permission on the project (for example,
- *  "storage.objects.list" on the containing bucket for testing permission of
- *  an object). Attempting to call this method on a non-existent resource will
+ *  "storage.objects.list" on the containing bucket for testing permission of an
+ *  object). Attempting to call this method on a non-existent resource will
  *  result in a `NOT_FOUND` error if the user has list permission on the
  *  project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
  *  following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for
@@ -479,8 +504,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *  @param object The @c GTLRContainerAnalysis_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsNotesTestIamPermissions
  */
@@ -490,8 +515,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 @end
 
 /**
- *  Creates a new `Occurrence`. Use this method to create `Occurrences`
- *  for a resource.
+ *  Creates a new `Occurrence`. Use this method to create `Occurrences` for a
+ *  resource.
  *
  *  Method: containeranalysis.projects.occurrences.create
  *
@@ -514,8 +539,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Fetches a @c GTLRContainerAnalysis_Occurrence.
  *
- *  Creates a new `Occurrence`. Use this method to create `Occurrences`
- *  for a resource.
+ *  Creates a new `Occurrence`. Use this method to create `Occurrences` for a
+ *  resource.
  *
  *  @param object The @c GTLRContainerAnalysis_Occurrence to include in the
  *    query.
@@ -530,8 +555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 @end
 
 /**
- *  Deletes the given `Occurrence` from the system. Use this when
- *  an `Occurrence` is no longer applicable for the given resource.
+ *  Deletes the given `Occurrence` from the system. Use this when an
+ *  `Occurrence` is no longer applicable for the given resource.
  *
  *  Method: containeranalysis.projects.occurrences.delete
  *
@@ -551,8 +576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Fetches a @c GTLRContainerAnalysis_Empty.
  *
- *  Deletes the given `Occurrence` from the system. Use this when
- *  an `Occurrence` is no longer applicable for the given resource.
+ *  Deletes the given `Occurrence` from the system. Use this when an
+ *  `Occurrence` is no longer applicable for the given resource.
  *
  *  @param name The name of the occurrence in the form of
  *    "projects/{project_id}/occurrences/{OCCURRENCE_ID}"
@@ -598,15 +623,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Gets the access control policy for a note or an `Occurrence` resource.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a note or occurrence, respectively.
- *  Attempting to call this method on a resource without the required
- *  permission will result in a `PERMISSION_DENIED` error. Attempting to call
- *  this method on a non-existent resource will result in a `NOT_FOUND` error
- *  if the user has list permission on the project, or a `PERMISSION_DENIED`
- *  error otherwise. The resource takes the following formats:
- *  `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and
- *  projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  note or occurrence, respectively. Attempting to call this method on a
+ *  resource without the required permission will result in a
+ *  `PERMISSION_DENIED` error. Attempting to call this method on a non-existent
+ *  resource will result in a `NOT_FOUND` error if the user has list permission
+ *  on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes
+ *  the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}`
+ *  for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
  *
  *  Method: containeranalysis.projects.occurrences.getIamPolicy
  *
@@ -618,8 +642,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -628,21 +652,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Gets the access control policy for a note or an `Occurrence` resource.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a note or occurrence, respectively.
- *  Attempting to call this method on a resource without the required
- *  permission will result in a `PERMISSION_DENIED` error. Attempting to call
- *  this method on a non-existent resource will result in a `NOT_FOUND` error
- *  if the user has list permission on the project, or a `PERMISSION_DENIED`
- *  error otherwise. The resource takes the following formats:
- *  `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and
- *  projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  note or occurrence, respectively. Attempting to call this method on a
+ *  resource without the required permission will result in a
+ *  `PERMISSION_DENIED` error. Attempting to call this method on a non-existent
+ *  resource will result in a `NOT_FOUND` error if the user has list permission
+ *  on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes
+ *  the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}`
+ *  for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
  *
  *  @param object The @c GTLRContainerAnalysis_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsOccurrencesGetIamPolicy
  */
@@ -734,23 +757,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *  The kind of occurrences to filter on.
  *
  *  Likely values:
- *    @arg @c kGTLRContainerAnalysisKindKindUnspecified Value "KIND_UNSPECIFIED"
- *    @arg @c kGTLRContainerAnalysisKindPackageVulnerability Value
- *        "PACKAGE_VULNERABILITY"
- *    @arg @c kGTLRContainerAnalysisKindBuildDetails Value "BUILD_DETAILS"
- *    @arg @c kGTLRContainerAnalysisKindImageBasis Value "IMAGE_BASIS"
- *    @arg @c kGTLRContainerAnalysisKindPackageManager Value "PACKAGE_MANAGER"
- *    @arg @c kGTLRContainerAnalysisKindDeployable Value "DEPLOYABLE"
- *    @arg @c kGTLRContainerAnalysisKindDiscovery Value "DISCOVERY"
- *    @arg @c kGTLRContainerAnalysisKindAttestationAuthority Value
- *        "ATTESTATION_AUTHORITY"
- *    @arg @c kGTLRContainerAnalysisKindUpgrade Value "UPGRADE"
+ *    @arg @c kGTLRContainerAnalysisKindKindUnspecified Unknown (Value:
+ *        "KIND_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysisKindPackageVulnerability The note and
+ *        occurrence represent a package vulnerability. (Value:
+ *        "PACKAGE_VULNERABILITY")
+ *    @arg @c kGTLRContainerAnalysisKindBuildDetails The note and occurrence
+ *        assert build provenance. (Value: "BUILD_DETAILS")
+ *    @arg @c kGTLRContainerAnalysisKindImageBasis This represents an image
+ *        basis relationship. (Value: "IMAGE_BASIS")
+ *    @arg @c kGTLRContainerAnalysisKindPackageManager This represents a package
+ *        installed via a package manager. (Value: "PACKAGE_MANAGER")
+ *    @arg @c kGTLRContainerAnalysisKindDeployable The note and occurrence track
+ *        deployment events. (Value: "DEPLOYABLE")
+ *    @arg @c kGTLRContainerAnalysisKindDiscovery The note and occurrence track
+ *        the initial discovery status of a resource. (Value: "DISCOVERY")
+ *    @arg @c kGTLRContainerAnalysisKindAttestationAuthority This represents a
+ *        logical "role" that can attest to artifacts. (Value:
+ *        "ATTESTATION_AUTHORITY")
+ *    @arg @c kGTLRContainerAnalysisKindUpgrade This represents an available
+ *        software upgrade. (Value: "UPGRADE")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name field contains the project Id. For example:
- *  "projects/{project_id}
+ *  The name field contains the project Id. For example: "projects/{project_id}
  *  \@Deprecated
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -795,8 +826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesPatchWithObject:name:]
 
 /**
- *  The name of the occurrence.
- *  Should be of the form "projects/{project_id}/occurrences/{OCCURRENCE_ID}".
+ *  The name of the occurrence. Should be of the form
+ *  "projects/{project_id}/occurrences/{OCCURRENCE_ID}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -814,8 +845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  @param object The @c GTLRContainerAnalysis_Occurrence to include in the
  *    query.
- *  @param name The name of the occurrence.
- *    Should be of the form "projects/{project_id}/occurrences/{OCCURRENCE_ID}".
+ *  @param name The name of the occurrence. Should be of the form
+ *    "projects/{project_id}/occurrences/{OCCURRENCE_ID}".
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsOccurrencesPatch
  */
@@ -827,14 +858,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Sets the access control policy on the specified `Note` or `Occurrence`.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a `Note` or an `Occurrence`, respectively.
- *  Attempting to call this method without these permissions will result in a `
- *  `PERMISSION_DENIED` error.
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  `Note` or an `Occurrence`, respectively. Attempting to call this method
+ *  without these permissions will result in a ` `PERMISSION_DENIED` error.
  *  Attempting to call this method on a non-existent resource will result in a
  *  `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission
- *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
- *  a `PERMISSION_DENIED` error otherwise. The resource takes the following
+ *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a
+ *  `PERMISSION_DENIED` error otherwise. The resource takes the following
  *  formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences
  *  and projects/{projectid}/notes/{noteid} for notes
  *
@@ -848,8 +878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -858,22 +888,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Sets the access control policy on the specified `Note` or `Occurrence`.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a `Note` or an `Occurrence`, respectively.
- *  Attempting to call this method without these permissions will result in a `
- *  `PERMISSION_DENIED` error.
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  `Note` or an `Occurrence`, respectively. Attempting to call this method
+ *  without these permissions will result in a ` `PERMISSION_DENIED` error.
  *  Attempting to call this method on a non-existent resource will result in a
  *  `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission
- *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
- *  a `PERMISSION_DENIED` error otherwise. The resource takes the following
+ *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a
+ *  `PERMISSION_DENIED` error otherwise. The resource takes the following
  *  formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences
  *  and projects/{projectid}/notes/{noteid} for notes
  *
  *  @param object The @c GTLRContainerAnalysis_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsOccurrencesSetIamPolicy
  */
@@ -885,8 +914,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Returns the permissions that a caller has on the specified note or
  *  occurrence resource. Requires list permission on the project (for example,
- *  "storage.objects.list" on the containing bucket for testing permission of
- *  an object). Attempting to call this method on a non-existent resource will
+ *  "storage.objects.list" on the containing bucket for testing permission of an
+ *  object). Attempting to call this method on a non-existent resource will
  *  result in a `NOT_FOUND` error if the user has list permission on the
  *  project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
  *  following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for
@@ -902,8 +931,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -912,8 +941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Returns the permissions that a caller has on the specified note or
  *  occurrence resource. Requires list permission on the project (for example,
- *  "storage.objects.list" on the containing bucket for testing permission of
- *  an object). Attempting to call this method on a non-existent resource will
+ *  "storage.objects.list" on the containing bucket for testing permission of an
+ *  object). Attempting to call this method on a non-existent resource will
  *  result in a `NOT_FOUND` error if the user has list permission on the
  *  project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
  *  following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for
@@ -922,8 +951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *  @param object The @c GTLRContainerAnalysis_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsOccurrencesTestIamPermissions
  */
@@ -964,9 +993,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 @end
 
 /**
- *  Updates an existing operation returns an error if operation
- *  does not exist. The only valid operations are to update mark the done bit
- *  change the result.
+ *  Updates an existing operation returns an error if operation does not exist.
+ *  The only valid operations are to update mark the done bit change the result.
  *
  *  Method: containeranalysis.projects.operations.patch
  *
@@ -978,22 +1006,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProjectsOperationsPatchWithObject:name:]
 
 /**
- *  The name of the Operation.
- *  Should be of the form "projects/{provider_id}/operations/{operation_id}".
+ *  The name of the Operation. Should be of the form
+ *  "projects/{provider_id}/operations/{operation_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRContainerAnalysis_Operation.
  *
- *  Updates an existing operation returns an error if operation
- *  does not exist. The only valid operations are to update mark the done bit
- *  change the result.
+ *  Updates an existing operation returns an error if operation does not exist.
+ *  The only valid operations are to update mark the done bit change the result.
  *
  *  @param object The @c GTLRContainerAnalysis_UpdateOperationRequest to include
  *    in the query.
- *  @param name The name of the Operation.
- *    Should be of the form "projects/{provider_id}/operations/{operation_id}".
+ *  @param name The name of the Operation. Should be of the form
+ *    "projects/{provider_id}/operations/{operation_id}".
  *
  *  @return GTLRContainerAnalysisQuery_ProjectsOperationsPatch
  */
@@ -1130,8 +1157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProvidersNotesCreateWithObject:name:]
 
 /**
- *  The name of the project.
- *  Should be of the form "providers/{provider_id}".
+ *  The name of the project. Should be of the form "providers/{provider_id}".
  *  \@Deprecated
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1139,10 +1165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /** The ID to use for this note. */
 @property(nonatomic, copy, nullable) NSString *noteId;
 
-/**
- *  This field contains the project Id for example:
- *  "projects/{project_id}
- */
+/** This field contains the project Id for example: "projects/{project_id} */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -1151,9 +1174,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *  Creates a new `Note`.
  *
  *  @param object The @c GTLRContainerAnalysis_Note to include in the query.
- *  @param name The name of the project.
- *    Should be of the form "providers/{provider_id}".
- *    \@Deprecated
+ *  @param name The name of the project. Should be of the form
+ *    "providers/{provider_id}". \@Deprecated
  *
  *  @return GTLRContainerAnalysisQuery_ProvidersNotesCreate
  */
@@ -1229,15 +1251,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Gets the access control policy for a note or an `Occurrence` resource.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a note or occurrence, respectively.
- *  Attempting to call this method on a resource without the required
- *  permission will result in a `PERMISSION_DENIED` error. Attempting to call
- *  this method on a non-existent resource will result in a `NOT_FOUND` error
- *  if the user has list permission on the project, or a `PERMISSION_DENIED`
- *  error otherwise. The resource takes the following formats:
- *  `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and
- *  projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  note or occurrence, respectively. Attempting to call this method on a
+ *  resource without the required permission will result in a
+ *  `PERMISSION_DENIED` error. Attempting to call this method on a non-existent
+ *  resource will result in a `NOT_FOUND` error if the user has list permission
+ *  on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes
+ *  the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}`
+ *  for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
  *
  *  Method: containeranalysis.providers.notes.getIamPolicy
  *
@@ -1249,8 +1270,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProvidersNotesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1259,21 +1280,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Gets the access control policy for a note or an `Occurrence` resource.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a note or occurrence, respectively.
- *  Attempting to call this method on a resource without the required
- *  permission will result in a `PERMISSION_DENIED` error. Attempting to call
- *  this method on a non-existent resource will result in a `NOT_FOUND` error
- *  if the user has list permission on the project, or a `PERMISSION_DENIED`
- *  error otherwise. The resource takes the following formats:
- *  `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for occurrences and
- *  projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  note or occurrence, respectively. Attempting to call this method on a
+ *  resource without the required permission will result in a
+ *  `PERMISSION_DENIED` error. Attempting to call this method on a non-existent
+ *  resource will result in a `NOT_FOUND` error if the user has list permission
+ *  on the project, or a `PERMISSION_DENIED` error otherwise. The resource takes
+ *  the following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}`
+ *  for occurrences and projects/{PROJECT_ID}/notes/{NOTE_ID} for notes
  *
  *  @param object The @c GTLRContainerAnalysis_GetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProvidersNotesGetIamPolicy
  */
@@ -1299,8 +1319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 
 /**
  *  The name field will contain the project Id for example:
- *  "providers/{provider_id}
- *  \@Deprecated
+ *  "providers/{provider_id} \@Deprecated
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1321,8 +1340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *  Lists all `Notes` for a given project.
  *
  *  @param name The name field will contain the project Id for example:
- *    "providers/{provider_id}
- *    \@Deprecated
+ *    "providers/{provider_id} \@Deprecated
  *
  *  @return GTLRContainerAnalysisQuery_ProvidersNotesList
  *
@@ -1335,9 +1353,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 @end
 
 /**
- *  Lists `Occurrences` referencing the specified `Note`. Use this method to
- *  get all occurrences referencing your `Note` across all your customer
- *  projects.
+ *  Lists `Occurrences` referencing the specified `Note`. Use this method to get
+ *  all occurrences referencing your `Note` across all your customer projects.
  *
  *  Method: containeranalysis.providers.notes.occurrences.list
  *
@@ -1366,9 +1383,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Fetches a @c GTLRContainerAnalysis_ListNoteOccurrencesResponse.
  *
- *  Lists `Occurrences` referencing the specified `Note`. Use this method to
- *  get all occurrences referencing your `Note` across all your customer
- *  projects.
+ *  Lists `Occurrences` referencing the specified `Note`. Use this method to get
+ *  all occurrences referencing your `Note` across all your customer projects.
  *
  *  @param name The name field will contain the note name for example:
  *    "provider/{provider_id}/notes/{note_id}"
@@ -1396,8 +1412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProvidersNotesPatchWithObject:name:]
 
 /**
- *  The name of the note.
- *  Should be of the form "projects/{provider_id}/notes/{note_id}".
+ *  The name of the note. Should be of the form
+ *  "projects/{provider_id}/notes/{note_id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1414,8 +1430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *  Updates an existing `Note`.
  *
  *  @param object The @c GTLRContainerAnalysis_Note to include in the query.
- *  @param name The name of the note.
- *    Should be of the form "projects/{provider_id}/notes/{note_id}".
+ *  @param name The name of the note. Should be of the form
+ *    "projects/{provider_id}/notes/{note_id}".
  *
  *  @return GTLRContainerAnalysisQuery_ProvidersNotesPatch
  */
@@ -1427,14 +1443,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Sets the access control policy on the specified `Note` or `Occurrence`.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a `Note` or an `Occurrence`, respectively.
- *  Attempting to call this method without these permissions will result in a `
- *  `PERMISSION_DENIED` error.
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  `Note` or an `Occurrence`, respectively. Attempting to call this method
+ *  without these permissions will result in a ` `PERMISSION_DENIED` error.
  *  Attempting to call this method on a non-existent resource will result in a
  *  `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission
- *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
- *  a `PERMISSION_DENIED` error otherwise. The resource takes the following
+ *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a
+ *  `PERMISSION_DENIED` error otherwise. The resource takes the following
  *  formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences
  *  and projects/{projectid}/notes/{noteid} for notes
  *
@@ -1448,8 +1463,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProvidersNotesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1458,22 +1473,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Sets the access control policy on the specified `Note` or `Occurrence`.
  *  Requires `containeranalysis.notes.setIamPolicy` or
- *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is
- *  a `Note` or an `Occurrence`, respectively.
- *  Attempting to call this method without these permissions will result in a `
- *  `PERMISSION_DENIED` error.
+ *  `containeranalysis.occurrences.setIamPolicy` permission if the resource is a
+ *  `Note` or an `Occurrence`, respectively. Attempting to call this method
+ *  without these permissions will result in a ` `PERMISSION_DENIED` error.
  *  Attempting to call this method on a non-existent resource will result in a
  *  `NOT_FOUND` error if the user has `containeranalysis.notes.list` permission
- *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or
- *  a `PERMISSION_DENIED` error otherwise. The resource takes the following
+ *  on a `Note` or `containeranalysis.occurrences.list` on an `Occurrence`, or a
+ *  `PERMISSION_DENIED` error otherwise. The resource takes the following
  *  formats: `projects/{projectid}/occurrences/{occurrenceid}` for occurrences
  *  and projects/{projectid}/notes/{noteid} for notes
  *
  *  @param object The @c GTLRContainerAnalysis_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProvidersNotesSetIamPolicy
  */
@@ -1485,8 +1499,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 /**
  *  Returns the permissions that a caller has on the specified note or
  *  occurrence resource. Requires list permission on the project (for example,
- *  "storage.objects.list" on the containing bucket for testing permission of
- *  an object). Attempting to call this method on a non-existent resource will
+ *  "storage.objects.list" on the containing bucket for testing permission of an
+ *  object). Attempting to call this method on a non-existent resource will
  *  result in a `NOT_FOUND` error if the user has list permission on the
  *  project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
  *  following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for
@@ -1502,8 +1516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
 //   +[GTLQueryContainerAnalysis queryForProvidersNotesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1512,8 +1526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *
  *  Returns the permissions that a caller has on the specified note or
  *  occurrence resource. Requires list permission on the project (for example,
- *  "storage.objects.list" on the containing bucket for testing permission of
- *  an object). Attempting to call this method on a non-existent resource will
+ *  "storage.objects.list" on the containing bucket for testing permission of an
+ *  object). Attempting to call this method on a non-existent resource will
  *  result in a `NOT_FOUND` error if the user has list permission on the
  *  project, or a `PERMISSION_DENIED` error otherwise. The resource takes the
  *  following formats: `projects/{PROJECT_ID}/occurrences/{OCCURRENCE_ID}` for
@@ -1522,8 +1536,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysisKindUpgrade;
  *  @param object The @c GTLRContainerAnalysis_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRContainerAnalysisQuery_ProvidersNotesTestIamPermissions
  */

@@ -58,183 +58,161 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRStorageTransfer_ErrorSummary.errorCode
 
 /**
- *  The operation was aborted, typically due to a concurrency issue such as
- *  a sequencer check failure or transaction abort.
- *  See the guidelines above for deciding between `FAILED_PRECONDITION`,
- *  `ABORTED`, and `UNAVAILABLE`.
- *  HTTP Mapping: 409 Conflict
+ *  The operation was aborted, typically due to a concurrency issue such as a
+ *  sequencer check failure or transaction abort. See the guidelines above for
+ *  deciding between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`. HTTP
+ *  Mapping: 409 Conflict
  *
  *  Value: "ABORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted;
 /**
  *  The entity that a client attempted to create (e.g., file or directory)
- *  already exists.
- *  HTTP Mapping: 409 Conflict
+ *  already exists. HTTP Mapping: 409 Conflict
  *
  *  Value: "ALREADY_EXISTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists;
 /**
- *  The operation was cancelled, typically by the caller.
- *  HTTP Mapping: 499 Client Closed Request
+ *  The operation was cancelled, typically by the caller. HTTP Mapping: 499
+ *  Client Closed Request
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Cancelled;
 /**
- *  Unrecoverable data loss or corruption.
- *  HTTP Mapping: 500 Internal Server Error
+ *  Unrecoverable data loss or corruption. HTTP Mapping: 500 Internal Server
+ *  Error
  *
  *  Value: "DATA_LOSS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DataLoss;
 /**
  *  The deadline expired before the operation could complete. For operations
- *  that change the state of the system, this error may be returned
- *  even if the operation has completed successfully. For example, a
- *  successful response from a server could have been delayed long
- *  enough for the deadline to expire.
- *  HTTP Mapping: 504 Gateway Timeout
+ *  that change the state of the system, this error may be returned even if the
+ *  operation has completed successfully. For example, a successful response
+ *  from a server could have been delayed long enough for the deadline to
+ *  expire. HTTP Mapping: 504 Gateway Timeout
  *
  *  Value: "DEADLINE_EXCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_DeadlineExceeded;
 /**
- *  The operation was rejected because the system is not in a state
- *  required for the operation's execution. For example, the directory
- *  to be deleted is non-empty, an rmdir operation is applied to
- *  a non-directory, etc.
- *  Service implementors can use the following guidelines to decide
- *  between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:
- *  (a) Use `UNAVAILABLE` if the client can retry just the failing call.
- *  (b) Use `ABORTED` if the client should retry at a higher level
- *  (e.g., when a client-specified test-and-set fails, indicating the
- *  client should restart a read-modify-write sequence).
- *  (c) Use `FAILED_PRECONDITION` if the client should not retry until
- *  the system state has been explicitly fixed. E.g., if an "rmdir"
- *  fails because the directory is non-empty, `FAILED_PRECONDITION`
- *  should be returned since the client should not retry unless
- *  the files are deleted from the directory.
- *  HTTP Mapping: 400 Bad Request
+ *  The operation was rejected because the system is not in a state required for
+ *  the operation's execution. For example, the directory to be deleted is
+ *  non-empty, an rmdir operation is applied to a non-directory, etc. Service
+ *  implementors can use the following guidelines to decide between
+ *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
+ *  if the client can retry just the failing call. (b) Use `ABORTED` if the
+ *  client should retry at a higher level (e.g., when a client-specified
+ *  test-and-set fails, indicating the client should restart a read-modify-write
+ *  sequence). (c) Use `FAILED_PRECONDITION` if the client should not retry
+ *  until the system state has been explicitly fixed. E.g., if an "rmdir" fails
+ *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
+ *  since the client should not retry unless the files are deleted from the
+ *  directory. HTTP Mapping: 400 Bad Request
  *
  *  Value: "FAILED_PRECONDITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_FailedPrecondition;
 /**
- *  Internal errors. This means that some invariants expected by the
- *  underlying system have been broken. This error code is reserved
- *  for serious errors.
+ *  Internal errors. This means that some invariants expected by the underlying
+ *  system have been broken. This error code is reserved for serious errors.
  *  HTTP Mapping: 500 Internal Server Error
  *
  *  Value: "INTERNAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Internal;
 /**
- *  The client specified an invalid argument. Note that this differs
- *  from `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments
- *  that are problematic regardless of the state of the system
- *  (e.g., a malformed file name).
- *  HTTP Mapping: 400 Bad Request
+ *  The client specified an invalid argument. Note that this differs from
+ *  `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments that are
+ *  problematic regardless of the state of the system (e.g., a malformed file
+ *  name). HTTP Mapping: 400 Bad Request
  *
  *  Value: "INVALID_ARGUMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_InvalidArgument;
 /**
- *  Some requested entity (e.g., file or directory) was not found.
- *  Note to server developers: if a request is denied for an entire class
- *  of users, such as gradual feature rollout or undocumented whitelist,
- *  `NOT_FOUND` may be used. If a request is denied for some users within
- *  a class of users, such as user-based access control, `PERMISSION_DENIED`
- *  must be used.
- *  HTTP Mapping: 404 Not Found
+ *  Some requested entity (e.g., file or directory) was not found. Note to
+ *  server developers: if a request is denied for an entire class of users, such
+ *  as gradual feature rollout or undocumented allowlist, `NOT_FOUND` may be
+ *  used. If a request is denied for some users within a class of users, such as
+ *  user-based access control, `PERMISSION_DENIED` must be used. HTTP Mapping:
+ *  404 Not Found
  *
  *  Value: "NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_NotFound;
 /**
- *  Not an error; returned on success
- *  HTTP Mapping: 200 OK
+ *  Not an error; returned on success HTTP Mapping: 200 OK
  *
  *  Value: "OK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok;
 /**
- *  The operation was attempted past the valid range. E.g., seeking or
- *  reading past end-of-file.
- *  Unlike `INVALID_ARGUMENT`, this error indicates a problem that may
- *  be fixed if the system state changes. For example, a 32-bit file
- *  system will generate `INVALID_ARGUMENT` if asked to read at an
- *  offset that is not in the range [0,2^32-1], but it will generate
- *  `OUT_OF_RANGE` if asked to read from an offset past the current
- *  file size.
- *  There is a fair bit of overlap between `FAILED_PRECONDITION` and
- *  `OUT_OF_RANGE`. We recommend using `OUT_OF_RANGE` (the more specific
- *  error) when it applies so that callers who are iterating through
- *  a space can easily look for an `OUT_OF_RANGE` error to detect when
- *  they are done.
- *  HTTP Mapping: 400 Bad Request
+ *  The operation was attempted past the valid range. E.g., seeking or reading
+ *  past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a problem
+ *  that may be fixed if the system state changes. For example, a 32-bit file
+ *  system will generate `INVALID_ARGUMENT` if asked to read at an offset that
+ *  is not in the range [0,2^32-1], but it will generate `OUT_OF_RANGE` if asked
+ *  to read from an offset past the current file size. There is a fair bit of
+ *  overlap between `FAILED_PRECONDITION` and `OUT_OF_RANGE`. We recommend using
+ *  `OUT_OF_RANGE` (the more specific error) when it applies so that callers who
+ *  are iterating through a space can easily look for an `OUT_OF_RANGE` error to
+ *  detect when they are done. HTTP Mapping: 400 Bad Request
  *
  *  Value: "OUT_OF_RANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRange;
 /**
- *  The caller does not have permission to execute the specified
- *  operation. `PERMISSION_DENIED` must not be used for rejections
- *  caused by exhausting some resource (use `RESOURCE_EXHAUSTED`
- *  instead for those errors). `PERMISSION_DENIED` must not be
- *  used if the caller can not be identified (use `UNAUTHENTICATED`
- *  instead for those errors). This error code does not imply the
- *  request is valid or the requested entity exists or satisfies
- *  other pre-conditions.
- *  HTTP Mapping: 403 Forbidden
+ *  The caller does not have permission to execute the specified operation.
+ *  `PERMISSION_DENIED` must not be used for rejections caused by exhausting
+ *  some resource (use `RESOURCE_EXHAUSTED` instead for those errors).
+ *  `PERMISSION_DENIED` must not be used if the caller can not be identified
+ *  (use `UNAUTHENTICATED` instead for those errors). This error code does not
+ *  imply the request is valid or the requested entity exists or satisfies other
+ *  pre-conditions. HTTP Mapping: 403 Forbidden
  *
  *  Value: "PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_PermissionDenied;
 /**
- *  Some resource has been exhausted, perhaps a per-user quota, or
- *  perhaps the entire file system is out of space.
- *  HTTP Mapping: 429 Too Many Requests
+ *  Some resource has been exhausted, perhaps a per-user quota, or perhaps the
+ *  entire file system is out of space. HTTP Mapping: 429 Too Many Requests
  *
  *  Value: "RESOURCE_EXHAUSTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_ResourceExhausted;
 /**
  *  The request does not have valid authentication credentials for the
- *  operation.
- *  HTTP Mapping: 401 Unauthorized
+ *  operation. HTTP Mapping: 401 Unauthorized
  *
  *  Value: "UNAUTHENTICATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthenticated;
 /**
- *  The service is currently unavailable. This is most likely a
- *  transient condition, which can be corrected by retrying with
- *  a backoff. Note that it is not always safe to retry
- *  non-idempotent operations.
- *  See the guidelines above for deciding between `FAILED_PRECONDITION`,
- *  `ABORTED`, and `UNAVAILABLE`.
- *  HTTP Mapping: 503 Service Unavailable
+ *  The service is currently unavailable. This is most likely a transient
+ *  condition, which can be corrected by retrying with a backoff. Note that it
+ *  is not always safe to retry non-idempotent operations. See the guidelines
+ *  above for deciding between `FAILED_PRECONDITION`, `ABORTED`, and
+ *  `UNAVAILABLE`. HTTP Mapping: 503 Service Unavailable
  *
  *  Value: "UNAVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable;
 /**
  *  The operation is not implemented or is not supported/enabled in this
- *  service.
- *  HTTP Mapping: 501 Not Implemented
+ *  service. HTTP Mapping: 501 Not Implemented
  *
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented;
 /**
- *  Unknown error. For example, this error may be returned when
- *  a `Status` value received from another address space belongs to
- *  an error space that is not known in this address space. Also
- *  errors raised by APIs that do not return enough error information
- *  may be converted to this error.
- *  HTTP Mapping: 500 Internal Server Error
+ *  Unknown error. For example, this error may be returned when a `Status` value
+ *  received from another address space belongs to an error space that is not
+ *  known in this address space. Also errors raised by APIs that do not return
+ *  enough error information may be converted to this error. HTTP Mapping: 500
+ *  Internal Server Error
  *
  *  Value: "UNKNOWN"
  */
@@ -243,13 +221,29 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_ErrorSummary_ErrorCode_U
 // ----------------------------------------------------------------------------
 // GTLRStorageTransfer_NotificationConfig.eventTypes
 
-/** Value: "EVENT_TYPE_UNSPECIFIED" */
+/**
+ *  Illegal value, to avoid allowing a default.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_EventTypeUnspecified;
-/** Value: "TRANSFER_OPERATION_ABORTED" */
+/**
+ *  `TransferOperation` completed with status ABORTED.
+ *
+ *  Value: "TRANSFER_OPERATION_ABORTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationAborted;
-/** Value: "TRANSFER_OPERATION_FAILED" */
+/**
+ *  `TransferOperation` completed with status FAILED.
+ *
+ *  Value: "TRANSFER_OPERATION_FAILED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationFailed;
-/** Value: "TRANSFER_OPERATION_SUCCESS" */
+/**
+ *  `TransferOperation` completed with status SUCCESS.
+ *
+ *  Value: "TRANSFER_OPERATION_SUCCESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_EventTypes_TransferOperationSuccess;
 
 // ----------------------------------------------------------------------------
@@ -280,10 +274,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_Paylo
 // GTLRStorageTransfer_TransferJob.status
 
 /**
- *  This is a soft delete state. After a transfer job is set to this
- *  state, the job and all the transfer executions are subject to
- *  garbage collection. Transfer jobs become eligible for garbage collection
- *  30 days after their status is set to `DELETED`.
+ *  This is a soft delete state. After a transfer job is set to this state, the
+ *  job and all the transfer executions are subject to garbage collection.
+ *  Transfer jobs become eligible for garbage collection 30 days after their
+ *  status is set to `DELETED`.
  *
  *  Value: "DELETED"
  */
@@ -354,8 +348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success;
 
 /**
- *  AWS access key (see
- *  [AWS Security
+ *  AWS access key (see [AWS Security
  *  Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)).
  */
 @interface GTLRStorageTransfer_AwsAccessKey : GTLRObject
@@ -373,21 +366,20 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  An AwsS3Data resource can be a data source, but not a data sink.
- *  In an AwsS3Data resource, an object's name is the S3 object's key name.
+ *  An AwsS3Data resource can be a data source, but not a data sink. In an
+ *  AwsS3Data resource, an object's name is the S3 object's key name.
  */
 @interface GTLRStorageTransfer_AwsS3Data : GTLRObject
 
 /**
- *  Required. AWS access key used to sign the API requests to the AWS S3
- *  bucket. Permissions on the bucket must be granted to the access ID of the
- *  AWS access key.
+ *  Required. AWS access key used to sign the API requests to the AWS S3 bucket.
+ *  Permissions on the bucket must be granted to the access ID of the AWS access
+ *  key.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsAccessKey *awsAccessKey;
 
 /**
- *  Required. S3 Bucket name (see
- *  [Creating a
+ *  Required. S3 Bucket name (see [Creating a
  *  bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/create-bucket-get-location-example.html)).
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
@@ -424,9 +416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_AzureCredentials : GTLRObject
 
 /**
- *  Required. Azure shared access signature. (see
- *  [Grant limited access to Azure Storage resources using shared access
- *  signatures
+ *  Required. Azure shared access signature. (see [Grant limited access to Azure
+ *  Storage resources using shared access signatures
  *  (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)).
  */
 @property(nonatomic, copy, nullable) NSString *sasToken;
@@ -436,22 +427,19 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day
- *  and time zone are either specified elsewhere or are not significant. The
- *  date
- *  is relative to the Proleptic Gregorian Calendar. This can represent:
- *  * A full date, with non-zero year, month and day values
- *  * A month and day value, with a zero year, e.g. an anniversary
- *  * A year on its own, with zero month and day values
- *  * A year and month value, with a zero day, e.g. a credit card expiration
- *  date
- *  Related types are google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ *  day and time zone are either specified elsewhere or are not significant. The
+ *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
+ *  A full date, with non-zero year, month and day values * A month and day
+ *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
+ *  month and day values * A year and month value, with a zero day, e.g. a
+ *  credit card expiration date Related types are google.type.TimeOfDay and
+ *  `google.protobuf.Timestamp`.
  */
 @interface GTLRStorageTransfer_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0
- *  if specifying a year by itself or a year and month where the day is not
+ *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
+ *  specifying a year by itself or a year and month where the day is not
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -467,8 +455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without
- *  a year.
+ *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  year.
  *
  *  Uses NSNumber of intValue.
  */
@@ -480,11 +468,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRStorageTransfer_Empty : GTLRObject
 @end
@@ -499,8 +485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSArray<NSString *> *errorDetails;
 
 /**
- *  Required. A URL that refers to the target (a data source, a data sink,
- *  or an object) with which the error is associated.
+ *  Required. A URL that refers to the target (a data source, a data sink, or an
+ *  object) with which the error is associated.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -518,120 +504,105 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Aborted The operation
- *        was aborted, typically due to a concurrency issue such as
- *        a sequencer check failure or transaction abort.
- *        See the guidelines above for deciding between `FAILED_PRECONDITION`,
- *        `ABORTED`, and `UNAVAILABLE`.
+ *        was aborted, typically due to a concurrency issue such as a sequencer
+ *        check failure or transaction abort. See the guidelines above for
+ *        deciding between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`.
  *        HTTP Mapping: 409 Conflict (Value: "ABORTED")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_AlreadyExists The
  *        entity that a client attempted to create (e.g., file or directory)
- *        already exists.
- *        HTTP Mapping: 409 Conflict (Value: "ALREADY_EXISTS")
+ *        already exists. HTTP Mapping: 409 Conflict (Value: "ALREADY_EXISTS")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Cancelled The
- *        operation was cancelled, typically by the caller.
- *        HTTP Mapping: 499 Client Closed Request (Value: "CANCELLED")
+ *        operation was cancelled, typically by the caller. HTTP Mapping: 499
+ *        Client Closed Request (Value: "CANCELLED")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_DataLoss Unrecoverable
- *        data loss or corruption.
- *        HTTP Mapping: 500 Internal Server Error (Value: "DATA_LOSS")
+ *        data loss or corruption. HTTP Mapping: 500 Internal Server Error
+ *        (Value: "DATA_LOSS")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_DeadlineExceeded The
  *        deadline expired before the operation could complete. For operations
- *        that change the state of the system, this error may be returned
- *        even if the operation has completed successfully. For example, a
- *        successful response from a server could have been delayed long
- *        enough for the deadline to expire.
- *        HTTP Mapping: 504 Gateway Timeout (Value: "DEADLINE_EXCEEDED")
+ *        that change the state of the system, this error may be returned even
+ *        if the operation has completed successfully. For example, a successful
+ *        response from a server could have been delayed long enough for the
+ *        deadline to expire. HTTP Mapping: 504 Gateway Timeout (Value:
+ *        "DEADLINE_EXCEEDED")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_FailedPrecondition The
- *        operation was rejected because the system is not in a state
- *        required for the operation's execution. For example, the directory
- *        to be deleted is non-empty, an rmdir operation is applied to
- *        a non-directory, etc.
- *        Service implementors can use the following guidelines to decide
- *        between `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`:
- *        (a) Use `UNAVAILABLE` if the client can retry just the failing call.
- *        (b) Use `ABORTED` if the client should retry at a higher level
- *        (e.g., when a client-specified test-and-set fails, indicating the
- *        client should restart a read-modify-write sequence).
- *        (c) Use `FAILED_PRECONDITION` if the client should not retry until
- *        the system state has been explicitly fixed. E.g., if an "rmdir"
- *        fails because the directory is non-empty, `FAILED_PRECONDITION`
- *        should be returned since the client should not retry unless
- *        the files are deleted from the directory.
- *        HTTP Mapping: 400 Bad Request (Value: "FAILED_PRECONDITION")
+ *        operation was rejected because the system is not in a state required
+ *        for the operation's execution. For example, the directory to be
+ *        deleted is non-empty, an rmdir operation is applied to a
+ *        non-directory, etc. Service implementors can use the following
+ *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
+ *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
+ *        failing call. (b) Use `ABORTED` if the client should retry at a higher
+ *        level (e.g., when a client-specified test-and-set fails, indicating
+ *        the client should restart a read-modify-write sequence). (c) Use
+ *        `FAILED_PRECONDITION` if the client should not retry until the system
+ *        state has been explicitly fixed. E.g., if an "rmdir" fails because the
+ *        directory is non-empty, `FAILED_PRECONDITION` should be returned since
+ *        the client should not retry unless the files are deleted from the
+ *        directory. HTTP Mapping: 400 Bad Request (Value:
+ *        "FAILED_PRECONDITION")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Internal Internal
- *        errors. This means that some invariants expected by the
- *        underlying system have been broken. This error code is reserved
- *        for serious errors.
- *        HTTP Mapping: 500 Internal Server Error (Value: "INTERNAL")
+ *        errors. This means that some invariants expected by the underlying
+ *        system have been broken. This error code is reserved for serious
+ *        errors. HTTP Mapping: 500 Internal Server Error (Value: "INTERNAL")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_InvalidArgument The
- *        client specified an invalid argument. Note that this differs
- *        from `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments
- *        that are problematic regardless of the state of the system
- *        (e.g., a malformed file name).
- *        HTTP Mapping: 400 Bad Request (Value: "INVALID_ARGUMENT")
+ *        client specified an invalid argument. Note that this differs from
+ *        `FAILED_PRECONDITION`. `INVALID_ARGUMENT` indicates arguments that are
+ *        problematic regardless of the state of the system (e.g., a malformed
+ *        file name). HTTP Mapping: 400 Bad Request (Value: "INVALID_ARGUMENT")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_NotFound Some
- *        requested entity (e.g., file or directory) was not found.
- *        Note to server developers: if a request is denied for an entire class
- *        of users, such as gradual feature rollout or undocumented whitelist,
+ *        requested entity (e.g., file or directory) was not found. Note to
+ *        server developers: if a request is denied for an entire class of
+ *        users, such as gradual feature rollout or undocumented allowlist,
  *        `NOT_FOUND` may be used. If a request is denied for some users within
  *        a class of users, such as user-based access control,
- *        `PERMISSION_DENIED`
- *        must be used.
- *        HTTP Mapping: 404 Not Found (Value: "NOT_FOUND")
+ *        `PERMISSION_DENIED` must be used. HTTP Mapping: 404 Not Found (Value:
+ *        "NOT_FOUND")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Ok Not an error;
- *        returned on success
- *        HTTP Mapping: 200 OK (Value: "OK")
+ *        returned on success HTTP Mapping: 200 OK (Value: "OK")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_OutOfRange The
- *        operation was attempted past the valid range. E.g., seeking or
- *        reading past end-of-file.
- *        Unlike `INVALID_ARGUMENT`, this error indicates a problem that may
- *        be fixed if the system state changes. For example, a 32-bit file
- *        system will generate `INVALID_ARGUMENT` if asked to read at an
- *        offset that is not in the range [0,2^32-1], but it will generate
- *        `OUT_OF_RANGE` if asked to read from an offset past the current
- *        file size.
- *        There is a fair bit of overlap between `FAILED_PRECONDITION` and
+ *        operation was attempted past the valid range. E.g., seeking or reading
+ *        past end-of-file. Unlike `INVALID_ARGUMENT`, this error indicates a
+ *        problem that may be fixed if the system state changes. For example, a
+ *        32-bit file system will generate `INVALID_ARGUMENT` if asked to read
+ *        at an offset that is not in the range [0,2^32-1], but it will generate
+ *        `OUT_OF_RANGE` if asked to read from an offset past the current file
+ *        size. There is a fair bit of overlap between `FAILED_PRECONDITION` and
  *        `OUT_OF_RANGE`. We recommend using `OUT_OF_RANGE` (the more specific
- *        error) when it applies so that callers who are iterating through
- *        a space can easily look for an `OUT_OF_RANGE` error to detect when
- *        they are done.
- *        HTTP Mapping: 400 Bad Request (Value: "OUT_OF_RANGE")
+ *        error) when it applies so that callers who are iterating through a
+ *        space can easily look for an `OUT_OF_RANGE` error to detect when they
+ *        are done. HTTP Mapping: 400 Bad Request (Value: "OUT_OF_RANGE")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_PermissionDenied The
- *        caller does not have permission to execute the specified
- *        operation. `PERMISSION_DENIED` must not be used for rejections
- *        caused by exhausting some resource (use `RESOURCE_EXHAUSTED`
- *        instead for those errors). `PERMISSION_DENIED` must not be
- *        used if the caller can not be identified (use `UNAUTHENTICATED`
- *        instead for those errors). This error code does not imply the
- *        request is valid or the requested entity exists or satisfies
- *        other pre-conditions.
- *        HTTP Mapping: 403 Forbidden (Value: "PERMISSION_DENIED")
+ *        caller does not have permission to execute the specified operation.
+ *        `PERMISSION_DENIED` must not be used for rejections caused by
+ *        exhausting some resource (use `RESOURCE_EXHAUSTED` instead for those
+ *        errors). `PERMISSION_DENIED` must not be used if the caller can not be
+ *        identified (use `UNAUTHENTICATED` instead for those errors). This
+ *        error code does not imply the request is valid or the requested entity
+ *        exists or satisfies other pre-conditions. HTTP Mapping: 403 Forbidden
+ *        (Value: "PERMISSION_DENIED")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_ResourceExhausted Some
- *        resource has been exhausted, perhaps a per-user quota, or
- *        perhaps the entire file system is out of space.
- *        HTTP Mapping: 429 Too Many Requests (Value: "RESOURCE_EXHAUSTED")
+ *        resource has been exhausted, perhaps a per-user quota, or perhaps the
+ *        entire file system is out of space. HTTP Mapping: 429 Too Many
+ *        Requests (Value: "RESOURCE_EXHAUSTED")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unauthenticated The
  *        request does not have valid authentication credentials for the
- *        operation.
- *        HTTP Mapping: 401 Unauthorized (Value: "UNAUTHENTICATED")
+ *        operation. HTTP Mapping: 401 Unauthorized (Value: "UNAUTHENTICATED")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unavailable The
- *        service is currently unavailable. This is most likely a
- *        transient condition, which can be corrected by retrying with
- *        a backoff. Note that it is not always safe to retry
- *        non-idempotent operations.
- *        See the guidelines above for deciding between `FAILED_PRECONDITION`,
- *        `ABORTED`, and `UNAVAILABLE`.
- *        HTTP Mapping: 503 Service Unavailable (Value: "UNAVAILABLE")
+ *        service is currently unavailable. This is most likely a transient
+ *        condition, which can be corrected by retrying with a backoff. Note
+ *        that it is not always safe to retry non-idempotent operations. See the
+ *        guidelines above for deciding between `FAILED_PRECONDITION`,
+ *        `ABORTED`, and `UNAVAILABLE`. HTTP Mapping: 503 Service Unavailable
+ *        (Value: "UNAVAILABLE")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unimplemented The
  *        operation is not implemented or is not supported/enabled in this
- *        service.
- *        HTTP Mapping: 501 Not Implemented (Value: "UNIMPLEMENTED")
+ *        service. HTTP Mapping: 501 Not Implemented (Value: "UNIMPLEMENTED")
  *    @arg @c kGTLRStorageTransfer_ErrorSummary_ErrorCode_Unknown Unknown error.
- *        For example, this error may be returned when
- *        a `Status` value received from another address space belongs to
- *        an error space that is not known in this address space. Also
- *        errors raised by APIs that do not return enough error information
- *        may be converted to this error.
- *        HTTP Mapping: 500 Internal Server Error (Value: "UNKNOWN")
+ *        For example, this error may be returned when a `Status` value received
+ *        from another address space belongs to an error space that is not known
+ *        in this address space. Also errors raised by APIs that do not return
+ *        enough error information may be converted to this error. HTTP Mapping:
+ *        500 Internal Server Error (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *errorCode;
 
@@ -643,8 +614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *errorCount;
 
 /**
- *  Error samples.
- *  At most 5 error log entries will be recorded for a given
+ *  Error samples. At most 5 error log entries will be recorded for a given
  *  error code for a single transfer operation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_ErrorLogEntry *> *errorLogEntries;
@@ -653,16 +623,15 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  In a GcsData resource, an object's name is the Cloud Storage object's
- *  name and its "last modification time" refers to the object's `updated`
- *  property of Cloud Storage objects, which changes when the content or the
- *  metadata of the object is updated.
+ *  In a GcsData resource, an object's name is the Cloud Storage object's name
+ *  and its "last modification time" refers to the object's `updated` property
+ *  of Cloud Storage objects, which changes when the content or the metadata of
+ *  the object is updated.
  */
 @interface GTLRStorageTransfer_GcsData : GTLRObject
 
 /**
- *  Required. Cloud Storage bucket name (see
- *  [Bucket Name
+ *  Required. Cloud Storage bucket name (see [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/naming#requirements)).
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
@@ -683,44 +652,37 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  An HttpData resource specifies a list of objects on the web to be
- *  transferred
- *  over HTTP. The information of the objects to be transferred is contained in
- *  a file referenced by a URL. The first line in the file must be
+ *  transferred over HTTP. The information of the objects to be transferred is
+ *  contained in a file referenced by a URL. The first line in the file must be
  *  `"TsvHttpData-1.0"`, which specifies the format of the file. Subsequent
  *  lines specify the information of the list of objects, one object per list
- *  entry. Each entry has the following tab-delimited fields:
- *  * **HTTP URL** — The location of the object.
- *  * **Length** — The size of the object in bytes.
- *  * **MD5** — The base64-encoded MD5 hash of the object.
- *  For an example of a valid TSV file, see
- *  [Transferring data from
- *  URLs](https://cloud.google.com/storage-transfer/docs/create-url-list).
- *  When transferring data based on a URL list, keep the following in mind:
- *  * When an object located at `http(s)://hostname:port/<URL-path>` is
- *  transferred to a data sink, the name of the object at the data sink is
- *  `<hostname>/<URL-path>`.
- *  * If the specified size of an object does not match the actual size of the
- *  object fetched, the object will not be transferred.
- *  * If the specified MD5 does not match the MD5 computed from the transferred
- *  bytes, the object transfer will fail. For more information, see
- *  [Generating MD5
+ *  entry. Each entry has the following tab-delimited fields: * **HTTP URL** —
+ *  The location of the object. * **Length** — The size of the object in bytes.
+ *  * **MD5** — The base64-encoded MD5 hash of the object. For an example of a
+ *  valid TSV file, see [Transferring data from
+ *  URLs](https://cloud.google.com/storage-transfer/docs/create-url-list). When
+ *  transferring data based on a URL list, keep the following in mind: * When an
+ *  object located at `http(s)://hostname:port/` is transferred to a data sink,
+ *  the name of the object at the data sink is `/`. * If the specified size of
+ *  an object does not match the actual size of the object fetched, the object
+ *  will not be transferred. * If the specified MD5 does not match the MD5
+ *  computed from the transferred bytes, the object transfer will fail. For more
+ *  information, see [Generating MD5
  *  hashes](https://cloud.google.com/storage-transfer/docs/create-url-list#md5)
- *  * Ensure that each URL you specify is publicly accessible. For
- *  example, in Cloud Storage you can
- *  [share an object publicly]
- *  (https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get
- *  a link to it.
- *  * Storage Transfer Service obeys `robots.txt` rules and requires the source
- *  HTTP server to support `Range` requests and to return a `Content-Length`
- *  header in each response.
- *  * ObjectConditions have no effect when filtering objects to transfer.
+ *  * Ensure that each URL you specify is publicly accessible. For example, in
+ *  Cloud Storage you can [share an object publicly]
+ *  (https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get a
+ *  link to it. * Storage Transfer Service obeys `robots.txt` rules and requires
+ *  the source HTTP server to support `Range` requests and to return a
+ *  `Content-Length` header in each response. * ObjectConditions have no effect
+ *  when filtering objects to transfer.
  */
 @interface GTLRStorageTransfer_HttpData : GTLRObject
 
 /**
  *  Required. The URL that points to the file that stores the object list
- *  entries. This file must allow public access. Currently, only URLs with
- *  HTTP and HTTPS schemes are supported.
+ *  entries. This file must allow public access. Currently, only URLs with HTTP
+ *  and HTTPS schemes are supported.
  */
 @property(nonatomic, copy, nullable) NSString *listUrl;
 
@@ -778,18 +740,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  Specification to configure notifications published to Cloud Pub/Sub.
  *  Notifications will be published to the customer-provided topic using the
- *  following `PubsubMessage.attributes`:
- *  * `"eventType"`: one of the EventType values
- *  * `"payloadFormat"`: one of the PayloadFormat values
- *  * `"projectId"`: the project_id of the
- *  `TransferOperation`
- *  * `"transferJobName"`: the
- *  transfer_job_name of the
- *  `TransferOperation`
- *  * `"transferOperationName"`: the name of the
- *  `TransferOperation`
- *  The `PubsubMessage.data` will contain a TransferOperation resource
- *  formatted according to the specified `PayloadFormat`.
+ *  following `PubsubMessage.attributes`: * `"eventType"`: one of the EventType
+ *  values * `"payloadFormat"`: one of the PayloadFormat values * `"projectId"`:
+ *  the project_id of the `TransferOperation` * `"transferJobName"`: the
+ *  transfer_job_name of the `TransferOperation` * `"transferOperationName"`:
+ *  the name of the `TransferOperation` The `PubsubMessage.data` will contain a
+ *  TransferOperation resource formatted according to the specified
+ *  `PayloadFormat`.
  */
 @interface GTLRStorageTransfer_NotificationConfig : GTLRObject
 
@@ -818,8 +775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  Required. The `Topic.name` of the Cloud Pub/Sub topic to which to publish
  *  notifications. Must be of the format: `projects/{project}/topics/{topic}`.
- *  Not matching this format will result in an
- *  INVALID_ARGUMENT error.
+ *  Not matching this format will result in an INVALID_ARGUMENT error.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -827,49 +783,42 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Conditions that determine which objects will be transferred. Applies only
- *  to S3 and Cloud Storage objects.
- *  The "last modification time" refers to the time of the
- *  last change to the object's content or metadata — specifically, this is
- *  the `updated` property of Cloud Storage objects and the `LastModified`
- *  field of S3 objects.
+ *  Conditions that determine which objects will be transferred. Applies only to
+ *  Cloud Data Sources such as S3, Azure, and Cloud Storage. The "last
+ *  modification time" refers to the time of the last change to the object's
+ *  content or metadata — specifically, this is the `updated` property of Cloud
+ *  Storage objects, the `LastModified` field of S3 objects, and the
+ *  `Last-Modified` header of Azure blobs.
  */
 @interface GTLRStorageTransfer_ObjectConditions : GTLRObject
 
 /**
  *  `exclude_prefixes` must follow the requirements described for
- *  include_prefixes.
- *  The max size of `exclude_prefixes` is 1000.
+ *  include_prefixes. The max size of `exclude_prefixes` is 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludePrefixes;
 
 /**
  *  If `include_prefixes` is specified, objects that satisfy the object
- *  conditions must have names that start with one of the `include_prefixes`
- *  and that do not start with any of the exclude_prefixes. If
- *  `include_prefixes` is not specified, all objects except those that have
- *  names starting with one of the `exclude_prefixes` must satisfy the object
- *  conditions.
- *  Requirements:
- *  * Each include-prefix and exclude-prefix can contain any sequence of
- *  Unicode characters, to a max length of 1024 bytes when UTF8-encoded,
- *  and must not contain Carriage Return or Line Feed characters. Wildcard
- *  matching and regular expression matching are not supported.
- *  * Each include-prefix and exclude-prefix must omit the leading slash.
- *  For example, to include the `requests.gz` object in a transfer from
- *  `s3://my-aws-bucket/logs/y=2015/requests.gz`, specify the include
- *  prefix as `logs/y=2015/requests.gz`.
- *  * None of the include-prefix or the exclude-prefix values can be empty,
- *  if specified.
- *  * Each include-prefix must include a distinct portion of the object
- *  namespace. No include-prefix may be a prefix of another
- *  include-prefix.
- *  * Each exclude-prefix must exclude a distinct portion of the object
- *  namespace. No exclude-prefix may be a prefix of another
- *  exclude-prefix.
- *  * If `include_prefixes` is specified, then each exclude-prefix must start
- *  with the value of a path explicitly included by `include_prefixes`.
- *  The max size of `include_prefixes` is 1000.
+ *  conditions must have names that start with one of the `include_prefixes` and
+ *  that do not start with any of the exclude_prefixes. If `include_prefixes` is
+ *  not specified, all objects except those that have names starting with one of
+ *  the `exclude_prefixes` must satisfy the object conditions. Requirements: *
+ *  Each include-prefix and exclude-prefix can contain any sequence of Unicode
+ *  characters, to a max length of 1024 bytes when UTF8-encoded, and must not
+ *  contain Carriage Return or Line Feed characters. Wildcard matching and
+ *  regular expression matching are not supported. * Each include-prefix and
+ *  exclude-prefix must omit the leading slash. For example, to include the
+ *  `requests.gz` object in a transfer from
+ *  `s3://my-aws-bucket/logs/y=2015/requests.gz`, specify the include prefix as
+ *  `logs/y=2015/requests.gz`. * None of the include-prefix or the
+ *  exclude-prefix values can be empty, if specified. * Each include-prefix must
+ *  include a distinct portion of the object namespace. No include-prefix may be
+ *  a prefix of another include-prefix. * Each exclude-prefix must exclude a
+ *  distinct portion of the object namespace. No exclude-prefix may be a prefix
+ *  of another exclude-prefix. * If `include_prefixes` is specified, then each
+ *  exclude-prefix must start with the value of a path explicitly included by
+ *  `include_prefixes`. The max size of `include_prefixes` is 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includePrefixes;
 
@@ -881,34 +830,30 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedBefore;
 
 /**
- *  If specified, only objects with a "last modification time" on or after
- *  this timestamp and objects that don't have a "last modification time" are
- *  transferred.
- *  The `last_modified_since` and `last_modified_before` fields can be used
- *  together for chunked data processing. For example, consider a script that
- *  processes each day's worth of data at a time. For that you'd set each
- *  of the fields as follows:
- *  * `last_modified_since` to the start of the day
- *  * `last_modified_before` to the end of the day
+ *  If specified, only objects with a "last modification time" on or after this
+ *  timestamp and objects that don't have a "last modification time" are
+ *  transferred. The `last_modified_since` and `last_modified_before` fields can
+ *  be used together for chunked data processing. For example, consider a script
+ *  that processes each day's worth of data at a time. For that you'd set each
+ *  of the fields as follows: * `last_modified_since` to the start of the day *
+ *  `last_modified_before` to the end of the day
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedSince;
 
 /**
- *  If specified, only objects with a "last modification time" on or after
- *  `NOW` - `max_time_elapsed_since_last_modification` and objects that don't
- *  have a "last modification time" are transferred.
- *  For each TransferOperation started by this TransferJob,
- *  `NOW` refers to the start_time of the
+ *  If specified, only objects with a "last modification time" on or after `NOW`
+ *  - `max_time_elapsed_since_last_modification` and objects that don't have a
+ *  "last modification time" are transferred. For each TransferOperation started
+ *  by this TransferJob, `NOW` refers to the start_time of the
  *  `TransferOperation`.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxTimeElapsedSinceLastModification;
 
 /**
- *  If specified, only objects with a "last modification time" before
- *  `NOW` - `min_time_elapsed_since_last_modification` and objects that don't
- *  have a "last modification time" are transferred.
- *  For each TransferOperation started by this TransferJob, `NOW`
- *  refers to the start_time of the
+ *  If specified, only objects with a "last modification time" before `NOW` -
+ *  `min_time_elapsed_since_last_modification` and objects that don't have a
+ *  "last modification time" are transferred. For each TransferOperation started
+ *  by this TransferJob, `NOW` refers to the start_time of the
  *  `TransferOperation`.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *minTimeElapsedSinceLastModification;
@@ -923,8 +868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -952,10 +897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Operation_Response *response;
 
@@ -980,10 +924,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1014,42 +957,37 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_Schedule : GTLRObject
 
 /**
- *  The last day a transfer runs. Date boundaries are determined relative to
- *  UTC time. A job will run once per 24 hours within the following guidelines:
- *  * If `schedule_end_date` and schedule_start_date are the same and in
- *  the future relative to UTC, the transfer is executed only one time.
- *  * If `schedule_end_date` is later than `schedule_start_date` and
- *  `schedule_end_date` is in the future relative to UTC, the job will
- *  run each day at start_time_of_day through `schedule_end_date`.
+ *  The last day a transfer runs. Date boundaries are determined relative to UTC
+ *  time. A job will run once per 24 hours within the following guidelines: * If
+ *  `schedule_end_date` and schedule_start_date are the same and in the future
+ *  relative to UTC, the transfer is executed only one time. * If
+ *  `schedule_end_date` is later than `schedule_start_date` and
+ *  `schedule_end_date` is in the future relative to UTC, the job will run each
+ *  day at start_time_of_day through `schedule_end_date`.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Date *scheduleEndDate;
 
 /**
  *  Required. The start date of a transfer. Date boundaries are determined
- *  relative to UTC time. If `schedule_start_date` and start_time_of_day
- *  are in the past relative to the job's creation time, the transfer starts
- *  the day after you schedule the transfer request.
- *  **Note:** When starting jobs at or near midnight UTC it is possible that
- *  a job will start later than expected. For example, if you send an outbound
- *  request on June 1 one millisecond prior to midnight UTC and the Storage
- *  Transfer Service server receives the request on June 2, then it will create
- *  a TransferJob with `schedule_start_date` set to June 2 and a
- *  `start_time_of_day` set to midnight UTC. The first scheduled
+ *  relative to UTC time. If `schedule_start_date` and start_time_of_day are in
+ *  the past relative to the job's creation time, the transfer starts the day
+ *  after you schedule the transfer request. **Note:** When starting jobs at or
+ *  near midnight UTC it is possible that a job will start later than expected.
+ *  For example, if you send an outbound request on June 1 one millisecond prior
+ *  to midnight UTC and the Storage Transfer Service server receives the request
+ *  on June 2, then it will create a TransferJob with `schedule_start_date` set
+ *  to June 2 and a `start_time_of_day` set to midnight UTC. The first scheduled
  *  TransferOperation will take place on June 3 at midnight UTC.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Date *scheduleStartDate;
 
 /**
- *  The time in UTC that a transfer job is scheduled to run. Transfers may
- *  start later than this time.
- *  If `start_time_of_day` is not specified:
- *  * One-time transfers run immediately.
- *  * Recurring transfers run immediately, and each day at midnight UTC,
- *  through schedule_end_date.
- *  If `start_time_of_day` is specified:
- *  * One-time transfers run at the specified time.
- *  * Recurring transfers run at the specified time each day, through
- *  `schedule_end_date`.
+ *  The time in UTC that a transfer job is scheduled to run. Transfers may start
+ *  later than this time. If `start_time_of_day` is not specified: * One-time
+ *  transfers run immediately. * Recurring transfers run immediately, and each
+ *  day at midnight UTC, through schedule_end_date. If `start_time_of_day` is
+ *  specified: * One-time transfers run at the specified time. * Recurring
+ *  transfers run at the specified time each day, through `schedule_end_date`.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TimeOfDay *startTimeOfDay;
 
@@ -1060,9 +998,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRStorageTransfer_Status : GTLRObject
 
@@ -1109,8 +1047,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
- *  to allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
+ *  allow the value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1176,8 +1114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Bytes found in the data source that are scheduled to be transferred,
- *  excluding any that are filtered based on object conditions or skipped due
- *  to sync.
+ *  excluding any that are filtered based on object conditions or skipped due to
+ *  sync.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1191,16 +1129,16 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *bytesFoundOnlyFromSink;
 
 /**
- *  Bytes in the data source that failed to be transferred or that failed to
- *  be deleted after being transferred.
+ *  Bytes in the data source that failed to be transferred or that failed to be
+ *  deleted after being transferred.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *bytesFromSourceFailed;
 
 /**
- *  Bytes in the data source that are not transferred because they already
- *  exist in the data sink.
+ *  Bytes in the data source that are not transferred because they already exist
+ *  in the data sink.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1236,8 +1174,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Objects found in the data source that are scheduled to be transferred,
- *  excluding any that are filtered based on object conditions or skipped due
- *  to sync.
+ *  excluding any that are filtered based on object conditions or skipped due to
+ *  sync.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1251,8 +1189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *objectsFoundOnlyFromSink;
 
 /**
- *  Objects in the data source that failed to be transferred or that failed
- *  to be deleted after being transferred.
+ *  Objects in the data source that failed to be transferred or that failed to
+ *  be deleted after being transferred.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1282,8 +1220,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
 
 /**
- *  A description provided by the user for the job. Its max length is 1024
- *  bytes when Unicode-encoded.
+ *  A description provided by the user for the job. Its max length is 1024 bytes
+ *  when Unicode-encoded.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1295,15 +1233,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  A unique name (within the transfer project) assigned when the job is
  *  created. If this field is empty in a CreateTransferJobRequest, Storage
- *  Transfer Service will assign a unique name. Otherwise, the specified name
- *  is used as the unique name for this job.
- *  If the specified name is in use by a job, the creation request fails with
- *  an ALREADY_EXISTS error.
- *  This name must start with `"transferJobs/"` prefix and end with a letter or
- *  a number, and should be no more than 128 characters.
- *  Example: `"transferJobs/[A-Za-z0-9-._~]*[A-Za-z0-9]$"`
- *  Invalid job names will fail with an
- *  INVALID_ARGUMENT error.
+ *  Transfer Service will assign a unique name. Otherwise, the specified name is
+ *  used as the unique name for this job. If the specified name is in use by a
+ *  job, the creation request fails with an ALREADY_EXISTS error. This name must
+ *  start with `"transferJobs/"` prefix and end with a letter or a number, and
+ *  should be no more than 128 characters. Example:
+ *  `"transferJobs/[A-Za-z0-9-._~]*[A-Za-z0-9]$"` Invalid job names will fail
+ *  with an INVALID_ARGUMENT error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1318,20 +1254,17 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Status of the job. This value MUST be specified for
- *  `CreateTransferJobRequests`.
- *  **Note:** The effect of the new job status takes place during a subsequent
- *  job run. For example, if you change the job status from
- *  ENABLED to DISABLED, and an operation
- *  spawned by the transfer is running, the status change would not affect the
- *  current operation.
+ *  `CreateTransferJobRequests`. **Note:** The effect of the new job status
+ *  takes place during a subsequent job run. For example, if you change the job
+ *  status from ENABLED to DISABLED, and an operation spawned by the transfer is
+ *  running, the status change would not affect the current operation.
  *
  *  Likely values:
  *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Deleted This is a soft
- *        delete state. After a transfer job is set to this
- *        state, the job and all the transfer executions are subject to
- *        garbage collection. Transfer jobs become eligible for garbage
- *        collection
- *        30 days after their status is set to `DELETED`. (Value: "DELETED")
+ *        delete state. After a transfer job is set to this state, the job and
+ *        all the transfer executions are subject to garbage collection.
+ *        Transfer jobs become eligible for garbage collection 30 days after
+ *        their status is set to `DELETED`. (Value: "DELETED")
  *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Disabled New transfers
  *        will not be scheduled. (Value: "DISABLED")
  *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Enabled New transfers will
@@ -1404,25 +1337,23 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  TransferOptions uses three boolean parameters to define the actions
- *  to be performed on objects in a transfer.
+ *  TransferOptions define the actions to be performed on objects in a transfer.
  */
 @interface GTLRStorageTransfer_TransferOptions : GTLRObject
 
 /**
- *  Whether objects should be deleted from the source after they are
- *  transferred to the sink.
- *  **Note:** This option and delete_objects_unique_in_sink are mutually
- *  exclusive.
+ *  Whether objects should be deleted from the source after they are transferred
+ *  to the sink. **Note:** This option and delete_objects_unique_in_sink are
+ *  mutually exclusive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deleteObjectsFromSourceAfterTransfer;
 
 /**
- *  Whether objects that exist only in the sink should be deleted.
- *  **Note:** This option and delete_objects_from_source_after_transfer are
- *  mutually exclusive.
+ *  Whether objects that exist only in the sink should be deleted. **Note:**
+ *  This option and delete_objects_from_source_after_transfer are mutually
+ *  exclusive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1459,17 +1390,16 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_HttpData *httpDataSource;
 
 /**
- *  Only objects that satisfy these object conditions are included in the set
- *  of data source and data sink objects. Object conditions based on
- *  objects' "last modification time" do not exclude objects in a data sink.
+ *  Only objects that satisfy these object conditions are included in the set of
+ *  data source and data sink objects. Object conditions based on objects' "last
+ *  modification time" do not exclude objects in a data sink.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_ObjectConditions *objectConditions;
 
 /**
- *  If the option
- *  delete_objects_unique_in_sink
- *  is `true`, object conditions based on objects' "last modification time" are
- *  ignored and do not exclude objects in a data source or a data sink.
+ *  If the option delete_objects_unique_in_sink is `true`, object conditions
+ *  based on objects' "last modification time" are ignored and do not exclude
+ *  objects in a data source or a data sink.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferOptions *transferOptions;
 
@@ -1488,26 +1418,20 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Required. The job to update. `transferJob` is expected to specify only
- *  four fields: description,
- *  transfer_spec,
- *  notification_config, and
- *  status. An `UpdateTransferJobRequest` that specifies
- *  other fields will be rejected with the error
- *  INVALID_ARGUMENT.
+ *  Required. The job to update. `transferJob` is expected to specify only four
+ *  fields: description, transfer_spec, notification_config, and status. An
+ *  `UpdateTransferJobRequest` that specifies other fields will be rejected with
+ *  the error INVALID_ARGUMENT.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferJob *transferJob;
 
 /**
- *  The field mask of the fields in `transferJob` that are to be updated in
- *  this request. Fields in `transferJob` that can be updated are:
- *  description,
- *  transfer_spec,
- *  notification_config, and
- *  status. To update the `transfer_spec` of the job, a
- *  complete transfer specification must be provided. An incomplete
- *  specification missing any required fields will be rejected with the error
- *  INVALID_ARGUMENT.
+ *  The field mask of the fields in `transferJob` that are to be updated in this
+ *  request. Fields in `transferJob` that can be updated are: description,
+ *  transfer_spec, notification_config, and status. To update the
+ *  `transfer_spec` of the job, a complete transfer specification must be
+ *  provided. An incomplete specification missing any required fields will be
+ *  rejected with the error INVALID_ARGUMENT.
  *
  *  String format is a comma-separated list of fields.
  */

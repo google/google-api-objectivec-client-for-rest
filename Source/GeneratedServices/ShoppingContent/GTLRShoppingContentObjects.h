@@ -242,6 +242,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountBusinessInformation *businessInformation;
 
 /**
+ *  ID of CSS the account belongs to.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cssId;
+
+/**
  *  The GMB account which is linked or in the process of being linked with the
  *  Merchant Center account.
  */
@@ -261,6 +268,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  "`content#account`"
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  List of label IDs that are assigned to the account by CSS.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *labelIds;
 
 /** Required. Display name for the account. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -552,6 +566,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *overwrite;
+
+/**
+ *  Controls which fields are visible. Only applicable if the method is 'get'.
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 @end
 
@@ -1038,6 +1057,35 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pending;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountsUpdateLabelsRequest
+ */
+@interface GTLRShoppingContent_AccountsUpdateLabelsRequest : GTLRObject
+
+/**
+ *  The IDs of labels that should be assigned to the account.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *labelIds;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_AccountsUpdateLabelsResponse
+ */
+@interface GTLRShoppingContent_AccountsUpdateLabelsResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "content#accountsUpdateLabelsResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -5322,7 +5370,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_OrderShipmentScheduledDeliveryDetails : GTLRObject
 
-/** The phone number of the carrier fulfilling the delivery. */
+/**
+ *  The phone number of the carrier fulfilling the delivery. The phone number is
+ *  formatted as the international notation in ITU-T Recommendation E.123 (e.g.,
+ *  "+41 44 668 1800").
+ */
 @property(nonatomic, copy, nullable) NSString *carrierPhoneNumber;
 
 /** The date a shipment is scheduled for delivery, in ISO 8601 format. */
@@ -6884,6 +6936,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRShoppingContent_ProductShippingDimension *shippingWidth;
 
 /**
+ *  List of country codes (ISO 3166-1 alpha-2) to exclude the offer from
+ *  Shopping Ads destination. Countries from this list are removed from
+ *  countries configured in MC feed settings.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *shoppingAdsExcludedCountries;
+
+/**
  *  Size of the item. Only one value is allowed. For variants with different
  *  sizes, insert a separate product for each size with the same `itemGroupId`
  *  value (see size definition).
@@ -7232,8 +7291,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_ProductStatusDestinationStatus : GTLRObject
 
+/** List of country codes (ISO 3166-1 alpha-2) where the offer is approved. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *approvedCountries;
+
 /** The name of the destination */
 @property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  List of country codes (ISO 3166-1 alpha-2) where the offer is disapproved.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *disapprovedCountries;
+
+/**
+ *  List of country codes (ISO 3166-1 alpha-2) where the offer is pending
+ *  approval.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pendingCountries;
 
 /** Destination approval status in `targetCountry` of the offer. */
 @property(nonatomic, copy, nullable) NSString *status;
@@ -7377,6 +7450,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRShoppingContent_ProductStatusItemLevelIssue
  */
 @interface GTLRShoppingContent_ProductStatusItemLevelIssue : GTLRObject
+
+/**
+ *  List of country codes (ISO 3166-1 alpha-2) where issue applies to the offer.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *applicableCountries;
 
 /** The attribute's name, if the issue is caused by a single attribute. */
 @property(nonatomic, copy, nullable) NSString *attributeName;
@@ -7674,7 +7752,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The price of the product. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
 
-/** The ID (name) of the region. */
+/** The ID uniquely identifying each region. */
 @property(nonatomic, copy, nullable) NSString *regionId;
 
 /**

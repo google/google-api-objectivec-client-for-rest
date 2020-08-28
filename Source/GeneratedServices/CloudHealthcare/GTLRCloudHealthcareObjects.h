@@ -123,10 +123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_AuditLogConfig_LogType_L
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile;
 /**
- *  Inspects within tag contents and replaces sensitive text. The process
- *  can be configured using the TextConfig.
- *  Applies to all tags with the following Value Representation names:
- *  AE, LO, LT, PN, SH, ST, UC, UT, DA, DT, AS
+ *  Inspects within tag contents and replaces sensitive text. The process can be
+ *  configured using the TextConfig. Applies to all tags with the following
+ *  Value Representation names: AE, LO, LT, PN, SH, ST, UC, UT, DA, DT, AS
  *
  *  Value: "DEIDENTIFY_TAG_CONTENTS"
  */
@@ -172,8 +171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_R4;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FhirStore_Version_Stu3;
 /**
- *  Users must specify a version on store creation or an error is
- *  returned.
+ *  Users must specify a version on store creation or an error is returned.
  *
  *  Value: "VERSION_UNSPECIFIED"
  */
@@ -240,8 +238,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactio
 
 /**
  *  The source file contains one or more lines of newline-delimited JSON
- *  (ndjson). Each line is a bundle that contains one or more resources.
- *  Set the bundle type to `history` to import resource versions.
+ *  (ndjson). Each line is a bundle that contains one or more resources. Set the
+ *  bundle type to `history` to import resource versions.
  *
  *  Value: "BUNDLE"
  */
@@ -253,8 +251,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty;
 /**
- *  If the content structure is not specified, the default value `BUNDLE`
- *  is used.
+ *  If the content structure is not specified, the default value `BUNDLE` is
+ *  used.
  *
  *  Value: "CONTENT_STRUCTURE_UNSPECIFIED"
  */
@@ -277,11 +275,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_C
 // GTLRCloudHealthcare_SchemaConfig.schemaType
 
 /**
- *  Analytics schema defined by the FHIR community.
- *  See https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md.
- *  BigQuery only allows a maximum of 10,000 columns per table. Due to this
- *  limitation, the server will not generate schemas for fields of type
- *  `Resource`, which can hold any resource type. The affected fields are
+ *  Analytics schema defined by the FHIR community. See
+ *  https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md. BigQuery
+ *  only allows a maximum of 10,000 columns per table. Due to this limitation,
+ *  the server will not generate schemas for fields of type `Resource`, which
+ *  can hold any resource type. The affected fields are
  *  `Parameters.parameter.resource`, `Bundle.entry.resource`, and
  *  `Bundle.entry.response.outcome`.
  *
@@ -296,50 +294,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified;
 
 /**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  },
- *  {
- *  "log_type": "ADMIN_READ"
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ"
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -350,9 +317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_AuditLogConfig *> *auditLogConfigs;
 
 /**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -360,30 +327,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRCloudHealthcare_AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -411,56 +365,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -500,8 +449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Pseudonymization method that generates surrogates via cryptographic hashing.
- *  Uses SHA-256.
- *  Outputs a base64-encoded representation of the hashed output
+ *  Uses SHA-256. Outputs a base64-encoded representation of the hashed output
  *  (for example, `L7k0BHmF1ha5U3NfGykjro4xWi1MPVQPjhMAZbSV9mM=`).
  */
 @interface GTLRCloudHealthcare_CryptoHashConfig : GTLRObject
@@ -520,11 +468,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  A message representing a health dataset.
- *  A health dataset represents a collection of healthcare data pertaining to
- *  one
- *  or more patients. This may include multiple modalities of healthcare data,
- *  such as electronic medical records or medical imaging data.
+ *  A message representing a health dataset. A health dataset represents a
+ *  collection of healthcare data pertaining to one or more patients. This may
+ *  include multiple modalities of healthcare data, such as electronic medical
+ *  records or medical imaging data.
  */
 @interface GTLRCloudHealthcare_Dataset : GTLRObject
 
@@ -553,8 +500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  An AES 128/192/256 bit key. Causes the shift to be computed based on this
- *  key and the patient ID. A default key is generated for each
- *  Deidentify operation and is used wherever crypto_key is not specified.
+ *  key and the patient ID. A default key is generated for each Deidentify
+ *  operation and is used wherever crypto_key is not specified.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -565,10 +512,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  Configures de-id options specific to different types of content.
- *  Each submessage customizes the handling of an
- *  https://tools.ietf.org/html/rfc6838 media type or subtype. Configs are
- *  applied in a nested manner at runtime.
+ *  Configures de-id options specific to different types of content. Each
+ *  submessage customizes the handling of an https://tools.ietf.org/html/rfc6838
+ *  media type or subtype. Configs are applied in a nested manner at runtime.
  */
 @interface GTLRCloudHealthcare_DeidentifyConfig : GTLRObject
 
@@ -602,11 +548,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  The name of the dataset resource to create and write the redacted data to.
- *  * The destination dataset must not exist.
- *  * The destination dataset must be in the same project and location as the
- *  source dataset. De-identifying data across multiple projects or locations
- *  is not supported.
+ *  The name of the dataset resource to create and write the redacted data to. *
+ *  The destination dataset must not exist. * The destination dataset must be in
+ *  the same project and location as the source dataset. De-identifying data
+ *  across multiple projects or locations is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *destinationDataset;
 
@@ -622,15 +567,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  The name of the DICOM store to create and write the redacted data to.
- *  For example,
+ *  The name of the DICOM store to create and write the redacted data to. For
+ *  example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  * The destination dataset must exist.
- *  * The source dataset and destination dataset must both reside in the same
- *  project. De-identifying data across multiple projects is not supported.
- *  * The destination DICOM store must not exist.
- *  * The caller must have the necessary permissions to create the destination
- *  DICOM store.
+ *  * The destination dataset must exist. * The source dataset and destination
+ *  dataset must both reside in the same project. De-identifying data across
+ *  multiple projects is not supported. * The destination DICOM store must not
+ *  exist. * The caller must have the necessary permissions to create the
+ *  destination DICOM store.
  */
 @property(nonatomic, copy, nullable) NSString *destinationStore;
 
@@ -649,13 +593,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  The name of the FHIR store to create and write the redacted data to.
- *  For example,
+ *  The name of the FHIR store to create and write the redacted data to. For
+ *  example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
- *  * The destination dataset must exist.
- *  * The source dataset and destination dataset must both reside in the same
- *  project. De-identifying data across multiple projects is not supported.
- *  * The destination FHIR store must exist.
+ *  * The destination dataset must exist. * The source dataset and destination
+ *  dataset must both reside in the same project. De-identifying data across
+ *  multiple projects is not supported. * The destination FHIR store must exist.
  *  * The caller must have the healthcare.fhirResources.update permission to
  *  write to the destination FHIR store.
  */
@@ -693,10 +636,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *        (Value: "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE")
  *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_DeidentifyTagContents
  *        Inspects within tag contents and replaces sensitive text. The process
- *        can be configured using the TextConfig.
- *        Applies to all tags with the following Value Representation names:
- *        AE, LO, LT, PN, SH, ST, UC, UT, DA, DT, AS (Value:
- *        "DEIDENTIFY_TAG_CONTENTS")
+ *        can be configured using the TextConfig. Applies to all tags with the
+ *        following Value Representation names: AE, LO, LT, PN, SH, ST, UC, UT,
+ *        DA, DT, AS (Value: "DEIDENTIFY_TAG_CONTENTS")
  *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_KeepAllProfile Keep
  *        all tags. (Value: "KEEP_ALL_PROFILE")
  *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_MinimalKeepListProfile
@@ -715,13 +657,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_TagFilterList *removeList;
 
 /**
- *  If true, skip replacing StudyInstanceUID, SeriesInstanceUID,
- *  SOPInstanceUID, and MediaStorageSOPInstanceUID and leave them untouched.
- *  The Cloud Healthcare API regenerates these UIDs by default based on the
- *  DICOM Standard's reasoning: "Whilst these UIDs cannot be mapped directly
- *  to an individual out of context, given access to the original images, or
- *  to a database of the original images containing the UIDs, it would be
- *  possible to recover the individual's identity."
+ *  If true, skip replacing StudyInstanceUID, SeriesInstanceUID, SOPInstanceUID,
+ *  and MediaStorageSOPInstanceUID and leave them untouched. The Cloud
+ *  Healthcare API regenerates these UIDs by default based on the DICOM
+ *  Standard's reasoning: "Whilst these UIDs cannot be mapped directly to an
+ *  individual out of context, given access to the original images, or to a
+ *  database of the original images containing the UIDs, it would be possible to
+ *  recover the individual's identity."
  *  http://dicom.nema.org/medical/dicom/current/output/chtml/part15/sect_E.3.9.html
  *
  *  Uses NSNumber of boolValue.
@@ -737,15 +679,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_DicomFilterConfig : GTLRObject
 
 /**
- *  The Cloud Storage location of the filter configuration file.
- *  The `gcs_uri` must be in the format `gs://bucket/path/to/object`.
- *  The filter configuration file must contain a list of resource paths
- *  separated by newline characters (\\n or \\r\\n). Each resource path
- *  must be in the format
- *  "/studies/{studyUID}[/series/{seriesUID}[/instances/{instanceUID}]]"
- *  The Cloud Healthcare API service account must have the
- *  `roles/storage.objectViewer` Cloud IAM role for this Cloud Storage
- *  location.
+ *  The Cloud Storage location of the filter configuration file. The `gcs_uri`
+ *  must be in the format `gs://bucket/path/to/object`. The filter configuration
+ *  file must contain a list of resource paths separated by newline characters
+ *  (\\n or \\r\\n). Each resource path must be in the format
+ *  "/studies/{studyUID}[/series/{seriesUID}[/instances/{instanceUID}]]" The
+ *  Cloud Healthcare API service account must have the
+ *  `roles/storage.objectViewer` Cloud IAM role for this Cloud Storage location.
  */
 @property(nonatomic, copy, nullable) NSString *resourcePathsGcsUri;
 
@@ -758,15 +698,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_DicomStore : GTLRObject
 
 /**
- *  User-supplied key-value pairs used to organize DICOM stores.
- *  Label keys must be between 1 and 63 characters long, have a UTF-8 encoding
- *  of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression:
- *  \\p{Ll}\\p{Lo}{0,62}
- *  Label values are optional, must be between 1 and 63 characters long, have
- *  a UTF-8 encoding of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
- *  No more than 64 labels can be associated with a given store.
+ *  User-supplied key-value pairs used to organize DICOM stores. Label keys must
+ *  be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128
+ *  bytes, and must conform to the following PCRE regular expression:
+ *  \\p{Ll}\\p{Lo}{0,62} Label values are optional, must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DicomStore_Labels *labels;
 
@@ -777,8 +716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Notification destination for new DICOM instances.
- *  Supplied by the client.
+ *  Notification destination for new DICOM instances. Supplied by the client.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
 
@@ -786,15 +724,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  User-supplied key-value pairs used to organize DICOM stores.
- *  Label keys must be between 1 and 63 characters long, have a UTF-8 encoding
- *  of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression:
- *  \\p{Ll}\\p{Lo}{0,62}
- *  Label values are optional, must be between 1 and 63 characters long, have
- *  a UTF-8 encoding of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
- *  No more than 64 labels can be associated with a given store.
+ *  User-supplied key-value pairs used to organize DICOM stores. Label keys must
+ *  be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128
+ *  bytes, and must conform to the following PCRE regular expression:
+ *  \\p{Ll}\\p{Lo}{0,62} Label values are optional, must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -808,39 +745,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudHealthcare_Empty : GTLRObject
 @end
 
 
 /**
- *  Exports data from the specified DICOM store.
- *  If a given resource, such as a DICOM object with the same SOPInstance UID,
- *  already exists in the output, it is overwritten with the version
- *  in the source dataset.
- *  Exported DICOM data persists when the DICOM store from which it was
- *  exported is deleted.
+ *  Exports data from the specified DICOM store. If a given resource, such as a
+ *  DICOM object with the same SOPInstance UID, already exists in the output, it
+ *  is overwritten with the version in the source dataset. Exported DICOM data
+ *  persists when the DICOM store from which it was exported is deleted.
  */
 @interface GTLRCloudHealthcare_ExportDicomDataRequest : GTLRObject
 
 /**
- *  The BigQuery output destination.
- *  You can only export to a BigQuery dataset that's in the same project as
- *  the DICOM store you're exporting from.
- *  The BigQuery location requires two IAM roles:
- *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
+ *  The BigQuery output destination. You can only export to a BigQuery dataset
+ *  that's in the same project as the DICOM store you're exporting from. The
+ *  BigQuery location requires two IAM roles: `roles/bigquery.dataEditor` and
+ *  `roles/bigquery.jobUser`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination *bigqueryDestination;
 
 /**
- *  The Cloud Storage output destination.
- *  The Cloud Storage location requires the `roles/storage.objectAdmin` Cloud
- *  IAM role.
+ *  The Cloud Storage output destination. The Cloud Storage location requires
+ *  the `roles/storage.objectAdmin` Cloud IAM role.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsDestination *gcsDestination;
 
@@ -860,21 +791,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_ExportResourcesRequest : GTLRObject
 
 /**
- *  The BigQuery output destination.
- *  The BigQuery location requires two IAM roles:
- *  `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
- *  The output is one BigQuery table per resource type.
+ *  The BigQuery output destination. The BigQuery location requires two IAM
+ *  roles: `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`. The output
+ *  is one BigQuery table per resource type.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 
 /**
- *  The Cloud Storage output destination.
- *  The Cloud Storage location requires the `roles/storage.objectAdmin` Cloud
- *  IAM role.
- *  The exported outputs are
- *  organized by FHIR resource types. The server creates one object per
- *  resource type. Each object contains newline delimited JSON, and each line
- *  is a FHIR resource.
+ *  The Cloud Storage output destination. The Healthcare Service Agent account
+ *  requires the `roles/storage.objectAdmin` role on the Cloud Storage location.
+ *  The exported outputs are organized by FHIR resource types. The server
+ *  creates one object per resource type. Each object contains newline delimited
+ *  JSON, and each line is a FHIR resource.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsDestination *gcsDestination;
 
@@ -882,10 +810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  Response when all resources export successfully.
- *  This structure is included in the
- *  response to describe the detailed
- *  outcome after the operation finishes successfully.
+ *  Response when all resources export successfully. This structure is included
+ *  in the response to describe the detailed outcome after the operation
+ *  finishes successfully.
  */
 @interface GTLRCloudHealthcare_ExportResourcesResponse : GTLRObject
 @end
@@ -894,27 +821,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRCloudHealthcare_Expr : GTLRObject
 
@@ -939,9 +859,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -954,9 +873,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_FhirConfig : GTLRObject
 
 /**
- *  Specifies FHIR paths to match and how to transform them. Any field that
- *  is not matched by a FieldMetadata is passed through to the output
- *  dataset unmodified. All extensions are removed in the output.
+ *  Specifies FHIR paths to match and how to transform them. Any field that is
+ *  not matched by a FieldMetadata is passed through to the output dataset
+ *  unmodified. All extensions are removed in the output.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_FieldMetadata *> *fieldMetadataList;
 
@@ -969,8 +888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_FhirFilter : GTLRObject
 
 /**
- *  List of resources to include in the output. If this list is empty or
- *  not specified, all resources are included in the output.
+ *  List of resources to include in the output. If this list is empty or not
+ *  specified, all resources are included in the output.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Resources *resources;
 
@@ -984,14 +903,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Whether to disable referential integrity in this FHIR store. This field is
- *  immutable after FHIR store creation.
- *  The default value is false, meaning that the API enforces referential
- *  integrity and fails the requests that result in inconsistent state in
- *  the FHIR store.
- *  When this field is set to true, the API skips referential integrity
- *  checks. Consequently, operations that rely on references, such as
- *  GetPatientEverything, do not return all the results if broken references
- *  exist.
+ *  immutable after FHIR store creation. The default value is false, meaning
+ *  that the API enforces referential integrity and fails the requests that
+ *  result in inconsistent state in the FHIR store. When this field is set to
+ *  true, the API skips referential integrity checks. Consequently, operations
+ *  that rely on references, such as GetPatientEverything, do not return all the
+ *  results if broken references exist.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -999,12 +916,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Whether to disable resource versioning for this FHIR store. This field can
- *  not be changed after the creation of FHIR store.
- *  If set to false, which is the default behavior, all write operations
- *  cause historical versions to be recorded automatically. The historical
- *  versions can be fetched through the history APIs, but cannot be updated.
- *  If set to true, no historical versions are kept. The server sends
- *  errors for attempts to read the historical versions.
+ *  not be changed after the creation of FHIR store. If set to false, which is
+ *  the default behavior, all write operations cause historical versions to be
+ *  recorded automatically. The historical versions can be fetched through the
+ *  history APIs, but cannot be updated. If set to true, no historical versions
+ *  are kept. The server sends errors for attempts to read the historical
+ *  versions.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1016,25 +933,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  This determines if the client can use an Update operation to create a new
  *  resource with a client-specified ID. If false, all IDs are server-assigned
  *  through the Create operation and attempts to update a non-existent resource
- *  return errors. Please treat the audit logs with appropriate levels of
- *  care if client-specified resource IDs contain sensitive data such as
- *  patient identifiers, those IDs are part of the FHIR resource path
- *  recorded in Cloud audit logs and Cloud Pub/Sub notifications.
+ *  return errors. Please treat the audit logs with appropriate levels of care
+ *  if client-specified resource IDs contain sensitive data such as patient
+ *  identifiers, those IDs are part of the FHIR resource path recorded in Cloud
+ *  audit logs and Cloud Pub/Sub notifications.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableUpdateCreate;
 
 /**
- *  User-supplied key-value pairs used to organize FHIR stores.
- *  Label keys must be between 1 and 63 characters long, have a UTF-8 encoding
- *  of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression:
- *  \\p{Ll}\\p{Lo}{0,62}
- *  Label values are optional, must be between 1 and 63 characters long, have
- *  a UTF-8 encoding of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
- *  No more than 64 labels can be associated with a given store.
+ *  User-supplied key-value pairs used to organize FHIR stores. Label keys must
+ *  be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128
+ *  bytes, and must conform to the following PCRE regular expression:
+ *  \\p{Ll}\\p{Lo}{0,62} Label values are optional, must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_FhirStore_Labels *labels;
 
@@ -1045,34 +961,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If non-empty, publish all resource modifications of this FHIR store to
- *  this destination. The Cloud Pub/Sub message attributes contain a map
- *  with a string describing the action that has triggered the notification.
- *  For example, "action":"CreateResource".
+ *  If non-empty, publish all resource modifications of this FHIR store to this
+ *  destination. The Cloud Pub/Sub message attributes contain a map with a
+ *  string describing the action that has triggered the notification. For
+ *  example, "action":"CreateResource".
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
 
 /**
  *  A list of streaming configs that configure the destinations of streaming
- *  export for every resource mutation in this FHIR store. Each store is
- *  allowed to have up to 10 streaming configs.
- *  After a new config is added, the next resource mutation is streamed to
- *  the new location in addition to the existing ones.
- *  When a location is removed from the list, the server stops
+ *  export for every resource mutation in this FHIR store. Each store is allowed
+ *  to have up to 10 streaming configs. After a new config is added, the next
+ *  resource mutation is streamed to the new location in addition to the
+ *  existing ones. When a location is removed from the list, the server stops
  *  streaming to that location. Before adding a new config, you must add the
  *  required
  *  [`bigquery.dataEditor`](https://cloud.google.com/bigquery/docs/access-control#bigquery.dataEditor)
- *  role to your project's **Cloud Healthcare Service Agent**
- *  [service account](https://cloud.google.com/iam/docs/service-accounts).
- *  Some lag (typically on the order of dozens of seconds) is expected before
- *  the results show up in the streaming destination.
+ *  role to your project's **Cloud Healthcare Service Agent** [service
+ *  account](https://cloud.google.com/iam/docs/service-accounts). Some lag
+ *  (typically on the order of dozens of seconds) is expected before the results
+ *  show up in the streaming destination.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_StreamConfig *> *streamConfigs;
 
 /**
  *  The FHIR specification version that this FHIR store supports natively. This
  *  field is immutable after store creation. Requests are rejected if they
- *  contain FHIR resources of a different version.
+ *  contain FHIR resources of a different version. Version is required for every
+ *  FHIR store.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Dstu2 Draft Standard for
@@ -1083,8 +999,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Stu3 Standard for Trial
  *        Use, [Release 3](https://www.hl7.org/fhir/STU3) (Value: "STU3")
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_VersionUnspecified Users
- *        must specify a version on store creation or an error is
- *        returned. (Value: "VERSION_UNSPECIFIED")
+ *        must specify a version on store creation or an error is returned.
+ *        (Value: "VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -1092,15 +1008,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  User-supplied key-value pairs used to organize FHIR stores.
- *  Label keys must be between 1 and 63 characters long, have a UTF-8 encoding
- *  of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression:
- *  \\p{Ll}\\p{Lo}{0,62}
- *  Label values are optional, must be between 1 and 63 characters long, have
- *  a UTF-8 encoding of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
- *  No more than 64 labels can be associated with a given store.
+ *  User-supplied key-value pairs used to organize FHIR stores. Label keys must
+ *  be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128
+ *  bytes, and must conform to the following PCRE regular expression:
+ *  \\p{Ll}\\p{Lo}{0,62} Label values are optional, must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1133,17 +1048,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  List of paths to FHIR fields to be redacted. Each path is a
- *  period-separated list where each component is either a field name or
- *  FHIR type name, for example: Patient, HumanName.
- *  For "choice" types (those defined in the FHIR spec with the form:
- *  field[x]) we use two separate components. For example,
- *  "deceasedAge.unit" is matched by "Deceased.Age.unit".
- *  Supported types are: AdministrativeGenderCode, Code, Date, DateTime,
- *  Decimal, HumanName, Id, LanguageCode, Markdown, Oid, String, Uri, Uuid,
- *  Xhtml.
- *  Base64Binary is also supported, but may only be kept as-is or have all
- *  the content removed.
+ *  List of paths to FHIR fields to be redacted. Each path is a period-separated
+ *  list where each component is either a field name or FHIR type name, for
+ *  example: Patient, HumanName. For "choice" types (those defined in the FHIR
+ *  spec with the form: field[x]) we use two separate components. For example,
+ *  "deceasedAge.unit" is matched by "Deceased.Age.unit". Supported types are:
+ *  AdministrativeGenderCode, Code, Date, DateTime, Decimal, HumanName, Id,
+ *  LanguageCode, Markdown, Oid, String, Uri, Uuid, Xhtml. Base64Binary is also
+ *  supported, but may only be kept as-is or have all the content removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
 
@@ -1171,9 +1083,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  If the destination table already exists and this flag is `TRUE`, the table
- *  is overwritten by the contents of the DICOM store. If the flag is not
- *  set and the destination table already exists, the export call returns an
- *  error.
+ *  is overwritten by the contents of the DICOM store. If the flag is not set
+ *  and the destination table already exists, the export call returns an error.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1195,46 +1106,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsDestination : GTLRObject
 
 /**
- *  MIME types supported by DICOM spec.
- *  Each file is written in the following format:
- *  `.../{study_id}/{series_id}/{instance_id}[/{frame_number}].{extension}`
- *  The frame_number component exists only for multi-frame instances.
- *  Supported MIME types are consistent with supported formats in DICOMweb:
+ *  MIME types supported by DICOM spec. Each file is written in the following
+ *  format:
+ *  `.../{study_id}/{series_id}/{instance_id}[/{frame_number}].{extension}` The
+ *  frame_number component exists only for multi-frame instances. Supported MIME
+ *  types are consistent with supported formats in DICOMweb:
  *  https://cloud.google.com/healthcare/docs/dicom#retrieve_transaction.
- *  Specifically, the following are supported:
- *  - application/dicom; transfer-syntax=1.2.840.10008.1.2.1
- *  (uncompressed DICOM)
- *  - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.50
- *  (DICOM with embedded JPEG Baseline)
- *  - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.90
- *  (DICOM with embedded JPEG 2000 Lossless Only)
- *  - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.91
- *  (DICOM with embedded JPEG 2000)
- *  - application/dicom; transfer-syntax=*
- *  (DICOM with no transcoding)
- *  - application/octet-stream; transfer-syntax=1.2.840.10008.1.2.1
- *  (raw uncompressed PixelData)
- *  - application/octet-stream; transfer-syntax=*
- *  (raw PixelData in whatever format it was uploaded in)
- *  - image/jpeg; transfer-syntax=1.2.840.10008.1.2.4.50
- *  (Consumer JPEG)
- *  - image/png
- *  The following extensions are used for output files:
- *  - application/dicom -> .dcm
- *  - image/jpeg -> .jpg
- *  - image/png -> .png
- *  - application/octet-stream -> no extension
- *  If unspecified, the instances are exported in the original
- *  DICOM format they were uploaded in.
+ *  Specifically, the following are supported: - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.1 (uncompressed DICOM) -
+ *  application/dicom; transfer-syntax=1.2.840.10008.1.2.4.50 (DICOM with
+ *  embedded JPEG Baseline) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.4.90 (DICOM with embedded JPEG 2000
+ *  Lossless Only) - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.91
+ *  (DICOM with embedded JPEG 2000) - application/dicom; transfer-syntax=*
+ *  (DICOM with no transcoding) - application/octet-stream;
+ *  transfer-syntax=1.2.840.10008.1.2.1 (raw uncompressed PixelData) -
+ *  application/octet-stream; transfer-syntax=* (raw PixelData in whatever
+ *  format it was uploaded in) - image/jpeg;
+ *  transfer-syntax=1.2.840.10008.1.2.4.50 (Consumer JPEG) - image/png The
+ *  following extensions are used for output files: - application/dicom -> .dcm
+ *  - image/jpeg -> .jpg - image/png -> .png - application/octet-stream -> no
+ *  extension If unspecified, the instances are exported in the original DICOM
+ *  format they were uploaded in.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
- *  The Cloud Storage destination to export to.
- *  URI for a Cloud Storage directory where the server writes the result files,
- *  in the format `gs://{bucket-id}/{path/to/destination/dir}`). If there is no
- *  trailing slash, the service appends one when composing the object path.
- *  The user is responsible for creating the Cloud Storage bucket referenced in
+ *  The Cloud Storage destination to export to. URI for a Cloud Storage
+ *  directory where the server writes the result files, in the format
+ *  `gs://{bucket-id}/{path/to/destination/dir}`). If there is no trailing
+ *  slash, the service appends one when composing the object path. The user is
+ *  responsible for creating the Cloud Storage bucket referenced in
  *  `uri_prefix`.
  */
 @property(nonatomic, copy, nullable) NSString *uriPrefix;
@@ -1248,22 +1150,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsSource : GTLRObject
 
 /**
- *  Points to a Cloud Storage URI containing file(s) with
- *  content only. The URI must be in the following format:
- *  `gs://{bucket_id}/{object_id}`. The URI can include wildcards in
- *  `object_id` and thus identify multiple files. Supported wildcards:
- *  '*' to match 0 or more non-separator characters
- *  '**' to match 0 or more characters (including separators). Must be used at
- *  the end of a path and with no other wildcards in the
- *  path. Can also be used with a file extension (such as .dcm), which
- *  imports all files with the extension in the specified directory and
- *  its sub-directories. For example,
- *  `gs://my-bucket/my-directory/ **.dcm` imports all files with .dcm
- *  extensions in `my-directory/` and its sub-directories.
- *  '?' to match 1 character
- *  All other URI formats are invalid.
- *  Files matching the wildcard are expected to contain content only, no
- *  metadata.
+ *  Points to a Cloud Storage URI containing file(s) with content only. The URI
+ *  must be in the following format: `gs://{bucket_id}/{object_id}`. The URI can
+ *  include wildcards in `object_id` and thus identify multiple files. Supported
+ *  wildcards: '*' to match 0 or more non-separator characters '**' to match 0
+ *  or more characters (including separators). Must be used at the end of a path
+ *  and with no other wildcards in the path. Can also be used with a file
+ *  extension (such as .dcm), which imports all files with the extension in the
+ *  specified directory and its sub-directories. For example,
+ *  `gs://my-bucket/my-directory/ **.dcm` imports all files with .dcm extensions
+ *  in `my-directory/` and its sub-directories. '?' to match 1 character All
+ *  other URI formats are invalid. Files matching the wildcard are expected to
+ *  contain content only, no metadata.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1276,15 +1174,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination : GTLRObject
 
 /**
- *  BigQuery URI to a dataset, up to 2000 characters long, in the format
- *  `bq://projectId.bqDatasetId`
+ *  BigQuery URI to an existing dataset, up to 2000 characters long, in the
+ *  format `bq://projectId.bqDatasetId`.
  */
 @property(nonatomic, copy, nullable) NSString *datasetUri;
 
 /**
- *  If this flag is `TRUE`, all tables are deleted from the dataset before
- *  the new exported tables are written. If the flag is not set and the
- *  destination dataset contains tables, the export call returns an error.
+ *  If this flag is `TRUE`, all tables are deleted from the dataset before the
+ *  new exported tables are written. If the flag is not set and the destination
+ *  dataset contains tables, the export call returns an error.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1304,8 +1202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 /**
  *  URI for a Cloud Storage directory where result files should be written, in
  *  the format of `gs://{bucket-id}/{path/to/destination/dir}`. If there is no
- *  trailing slash, the service appends one when composing the object path.
- *  The user is responsible for creating the Cloud Storage bucket referenced in
+ *  trailing slash, the service appends one when composing the object path. The
+ *  user is responsible for creating the Cloud Storage bucket referenced in
  *  `uri_prefix`.
  */
 @property(nonatomic, copy, nullable) NSString *uriPrefix;
@@ -1319,21 +1217,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsSource : GTLRObject
 
 /**
- *  Points to a Cloud Storage URI containing file(s) to import.
- *  The URI must be in the following format: `gs://{bucket_id}/{object_id}`.
- *  The URI can include wildcards in `object_id` and thus identify multiple
- *  files. Supported wildcards:
- *  * `*` to match 0 or more non-separator characters
- *  * `**` to match 0 or more characters (including separators). Must be used
- *  at the end of a path and with no other wildcards in the
- *  path. Can also be used with a file extension (such as .ndjson), which
- *  imports all files with the extension in the specified directory and
- *  its sub-directories. For example, `gs://my-bucket/my-directory/ **.ndjson`
- *  imports all files with `.ndjson` extensions in `my-directory/` and its
- *  sub-directories.
- *  * `?` to match 1 character
- *  Files matching the wildcard are expected to contain content only, no
- *  metadata.
+ *  Points to a Cloud Storage URI containing file(s) to import. The URI must be
+ *  in the following format: `gs://{bucket_id}/{object_id}`. The URI can include
+ *  wildcards in `object_id` and thus identify multiple files. Supported
+ *  wildcards: * `*` to match 0 or more non-separator characters * `**` to match
+ *  0 or more characters (including separators). Must be used at the end of a
+ *  path and with no other wildcards in the path. Can also be used with a file
+ *  extension (such as .ndjson), which imports all files with the extension in
+ *  the specified directory and its sub-directories. For example,
+ *  `gs://my-bucket/my-directory/ **.ndjson` imports all files with `.ndjson`
+ *  extensions in `my-directory/` and its sub-directories. * `?` to match 1
+ *  character Files matching the wildcard are expected to contain content only,
+ *  no metadata.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1341,8 +1236,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  Specifies where and whether to send notifications upon changes to a
- *  data store.
+ *  Specifies where and whether to send notifications upon changes to a data
+ *  store.
  */
 @interface GTLRCloudHealthcare_Hl7V2NotificationConfig : GTLRObject
 
@@ -1350,48 +1245,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  Restricts notifications sent for messages matching a filter. If this is
  *  empty, all messages are matched. Syntax:
  *  https://cloud.google.com/appengine/docs/standard/python/search/query_strings
- *  The following fields and functions are available for filtering:
- *  * `message_type`, from the MSH-9.1 field. For example,
- *  `NOT message_type = "ADT"`.
- *  * `send_date` or `sendDate`, the YYYY-MM-DD date the message was sent in
- *  the dataset's time_zone, from the MSH-7 segment. For example,
- *  `send_date < "2017-01-02"`.
- *  * `send_time`, the timestamp when the message was sent, using the
- *  RFC3339 time format for comparisons, from the MSH-7 segment. For example,
- *  `send_time < "2017-01-02T00:00:00-05:00"`.
- *  * `send_facility`, the care center that the message came from, from the
- *  MSH-4 segment. For example, `send_facility = "ABC"`.
- *  * `PatientId(value, type)`, which matches if the message lists a patient
- *  having an ID of the given value and type in the PID-2, PID-3, or PID-4
- *  segments. For example, `PatientId("123456", "MRN")`.
- *  * `labels.x`, a string value of the label with key `x` as set using the
- *  Message.labels
- *  map. For example, `labels."priority"="high"`. The operator `:*` can be
- *  used to assert the existence of a label. For example,
- *  `labels."priority":*`.
+ *  The following fields and functions are available for filtering: *
+ *  `message_type`, from the MSH-9.1 field. For example, `NOT message_type =
+ *  "ADT"`. * `send_date` or `sendDate`, the YYYY-MM-DD date the message was
+ *  sent in the dataset's time_zone, from the MSH-7 segment. For example,
+ *  `send_date < "2017-01-02"`. * `send_time`, the timestamp when the message
+ *  was sent, using the RFC3339 time format for comparisons, from the MSH-7
+ *  segment. For example, `send_time < "2017-01-02T00:00:00-05:00"`. *
+ *  `send_facility`, the care center that the message came from, from the MSH-4
+ *  segment. For example, `send_facility = "ABC"`. * `PatientId(value, type)`,
+ *  which matches if the message lists a patient having an ID of the given value
+ *  and type in the PID-2, PID-3, or PID-4 segments. For example,
+ *  `PatientId("123456", "MRN")`. * `labels.x`, a string value of the label with
+ *  key `x` as set using the Message.labels map. For example,
+ *  `labels."priority"="high"`. The operator `:*` can be used to assert the
+ *  existence of a label. For example, `labels."priority":*`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
- *  notifications of changes are published on. Supplied by the client.
- *  The notification is a `PubsubMessage` with the following fields:
- *  * `PubsubMessage.Data` contains the resource name.
- *  * `PubsubMessage.MessageId` is the ID of this notification. It's
- *  guaranteed to be unique within the topic.
- *  * `PubsubMessage.PublishTime` is the time when the message was
- *  published.
- *  Note that notifications are only sent if the topic is non-empty. [Topic
- *  names](https://cloud.google.com/pubsub/docs/overview#names) must be
- *  scoped to a project.
- *  The Cloud Healthcare API service account,
- *  service-PROJECT_NUMBER\@gcp-sa-healthcare.iam.gserviceaccount.com,
- *  must have
+ *  notifications of changes are published on. Supplied by the client. The
+ *  notification is a `PubsubMessage` with the following fields: *
+ *  `PubsubMessage.Data` contains the resource name. * `PubsubMessage.MessageId`
+ *  is the ID of this notification. It's guaranteed to be unique within the
+ *  topic. * `PubsubMessage.PublishTime` is the time when the message was
+ *  published. Note that notifications are only sent if the topic is non-empty.
+ *  [Topic names](https://cloud.google.com/pubsub/docs/overview#names) must be
+ *  scoped to a project. The Cloud Healthcare API service account,
+ *  service-PROJECT_NUMBER\@gcp-sa-healthcare.iam.gserviceaccount.com, must have
  *  publisher permissions on the given Pub/Sub topic. Not having adequate
- *  permissions causes the calls that send notifications to fail.
- *  If a notification cannot be published to Cloud Pub/Sub, errors are
- *  logged to Cloud Logging. For more information, see
- *  [Viewing error logs in Cloud Logging](/healthcare/docs/how-tos/logging)).
+ *  permissions causes the calls that send notifications to fail. If a
+ *  notification cannot be published to Cloud Pub/Sub, errors are logged to
+ *  Cloud Logging. For more information, see [Viewing error logs in Cloud
+ *  Logging](/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -1404,15 +1291,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_Hl7V2Store : GTLRObject
 
 /**
- *  User-supplied key-value pairs used to organize HL7v2 stores.
- *  Label keys must be between 1 and 63 characters long, have a UTF-8 encoding
- *  of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression:
- *  \\p{Ll}\\p{Lo}{0,62}
- *  Label values are optional, must be between 1 and 63 characters long, have
- *  a UTF-8 encoding of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
- *  No more than 64 labels can be associated with a given store.
+ *  User-supplied key-value pairs used to organize HL7v2 stores. Label keys must
+ *  be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128
+ *  bytes, and must conform to the following PCRE regular expression:
+ *  \\p{Ll}\\p{Lo}{0,62} Label values are optional, must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Hl7V2Store_Labels *labels;
 
@@ -1424,9 +1310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  A list of notification configs. Each configuration uses a filter to
- *  determine whether to publish a message (both Ingest & Create) on
- *  the corresponding notification destination. Only the message name is sent
- *  as part of the notification. Supplied by the client.
+ *  determine whether to publish a message (both Ingest & Create) on the
+ *  corresponding notification destination. Only the message name is sent as
+ *  part of the notification. Supplied by the client.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Hl7V2NotificationConfig *> *notificationConfigs;
 
@@ -1437,17 +1323,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_ParserConfig *parserConfig;
 
 /**
- *  Determines whether to reject duplicate messages. A duplicate
- *  message is a message with the same raw bytes as a message that has already
- *  been ingested/created in this HL7v2 store.
- *  The default value is false, meaning that the store accepts the duplicate
- *  messages and it also returns the same ACK message in the
- *  IngestMessageResponse as has been returned previously. Note that only
- *  one resource is created in the store.
- *  When this field is set to true,
- *  CreateMessage/IngestMessage
- *  requests with a duplicate message will be rejected by the store, and
- *  IngestMessageErrorDetail returns a NACK message upon rejection.
+ *  Determines whether to reject duplicate messages. A duplicate message is a
+ *  message with the same raw bytes as a message that has already been
+ *  ingested/created in this HL7v2 store. The default value is false, meaning
+ *  that the store accepts the duplicate messages and it also returns the same
+ *  ACK message in the IngestMessageResponse as has been returned previously.
+ *  Note that only one resource is created in the store. When this field is set
+ *  to true, CreateMessage/IngestMessage requests with a duplicate message will
+ *  be rejected by the store, and IngestMessageErrorDetail returns a NACK
+ *  message upon rejection.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1457,15 +1341,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  User-supplied key-value pairs used to organize HL7v2 stores.
- *  Label keys must be between 1 and 63 characters long, have a UTF-8 encoding
- *  of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression:
- *  \\p{Ll}\\p{Lo}{0,62}
- *  Label values are optional, must be between 1 and 63 characters long, have
- *  a UTF-8 encoding of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
- *  No more than 64 labels can be associated with a given store.
+ *  User-supplied key-value pairs used to organize HL7v2 stores. Label keys must
+ *  be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128
+ *  bytes, and must conform to the following PCRE regular expression:
+ *  \\p{Ll}\\p{Lo}{0,62} Label values are optional, must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1478,34 +1361,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Message that represents an arbitrary HTTP body. It should only be used for
- *  payload formats that can't be represented as JSON, such as raw binary or
- *  an HTML page.
- *  This message can be used both in streaming and non-streaming API methods in
- *  the request as well as the response.
- *  It can be used as a top-level request field, which is convenient if one
- *  wants to extract parameters from either the URL or HTTP template into the
- *  request fields and also want access to the raw HTTP body.
- *  Example:
- *  message GetResourceRequest {
- *  // A unique request id.
- *  string request_id = 1;
- *  // The raw HTTP body is bound to this field.
- *  google.api.HttpBody http_body = 2;
- *  }
- *  service ResourceService {
- *  rpc GetResource(GetResourceRequest) returns (google.api.HttpBody);
- *  rpc UpdateResource(google.api.HttpBody) returns
- *  (google.protobuf.Empty);
- *  }
- *  Example with streaming methods:
- *  service CaldavService {
- *  rpc GetCalendar(stream google.api.HttpBody)
- *  returns (stream google.api.HttpBody);
- *  rpc UpdateCalendar(stream google.api.HttpBody)
- *  returns (stream google.api.HttpBody);
- *  }
- *  Use of this type only changes how the request and response bodies are
- *  handled, all other features will continue to work unchanged.
+ *  payload formats that can't be represented as JSON, such as raw binary or an
+ *  HTML page. This message can be used both in streaming and non-streaming API
+ *  methods in the request as well as the response. It can be used as a
+ *  top-level request field, which is convenient if one wants to extract
+ *  parameters from either the URL or HTTP template into the request fields and
+ *  also want access to the raw HTTP body. Example: message GetResourceRequest {
+ *  // A unique request id. string request_id = 1; // The raw HTTP body is bound
+ *  to this field. google.api.HttpBody http_body = 2; } service ResourceService
+ *  { rpc GetResource(GetResourceRequest) returns (google.api.HttpBody); rpc
+ *  UpdateResource(google.api.HttpBody) returns (google.protobuf.Empty); }
+ *  Example with streaming methods: service CaldavService { rpc
+ *  GetCalendar(stream google.api.HttpBody) returns (stream
+ *  google.api.HttpBody); rpc UpdateCalendar(stream google.api.HttpBody) returns
+ *  (stream google.api.HttpBody); } Use of this type only changes how the
+ *  request and response bodies are handled, all other features will continue to
+ *  work unchanged.
  */
 @interface GTLRCloudHealthcare_HttpBody : GTLRObject
 
@@ -1568,17 +1439,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  Imports data into the specified DICOM store.
- *  Returns an error if any of the files to import are not DICOM files. This
- *  API accepts duplicate DICOM instances by ignoring the newly-pushed instance.
- *  It does not overwrite.
+ *  Imports data into the specified DICOM store. Returns an error if any of the
+ *  files to import are not DICOM files. This API accepts duplicate DICOM
+ *  instances by ignoring the newly-pushed instance. It does not overwrite.
  */
 @interface GTLRCloudHealthcare_ImportDicomDataRequest : GTLRObject
 
 /**
- *  Cloud Storage source data location and import configuration.
- *  The Cloud Storage location requires the `roles/storage.objectViewer`
- *  Cloud IAM role.
+ *  Cloud Storage source data location and import configuration. The Cloud
+ *  Storage location requires the `roles/storage.objectViewer` Cloud IAM role.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsSource *gcsSource;
 
@@ -1623,11 +1492,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *contentStructure;
 
 /**
- *  Cloud Storage source data location and import configuration.
- *  The Cloud Storage location requires the `roles/storage.objectViewer`
- *  Cloud IAM role.
- *  Each Cloud Storage object should be a text file that contains the format
- *  specified in ContentStructure.
+ *  Cloud Storage source data location and import configuration. The Healthcare
+ *  Service Agent account requires the `roles/storage.objectAdmin` role on the
+ *  Cloud Storage location. Each Cloud Storage object should be a text file that
+ *  contains the format specified in ContentStructure.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsSource *gcsSource;
 
@@ -1635,10 +1503,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  Final response of importing resources.
- *  This structure is included in the
- *  response to describe the detailed
- *  outcome after the operation finishes successfully.
+ *  Final response of importing resources. This structure is included in the
+ *  response to describe the detailed outcome after the operation finishes
+ *  successfully.
  */
 @interface GTLRCloudHealthcare_ImportResourcesResponse : GTLRObject
 @end
@@ -1686,8 +1553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  Acknowledges that a message has been ingested into the specified
- *  HL7v2 store.
+ *  Acknowledges that a message has been ingested into the specified HL7v2
+ *  store.
  */
 @interface GTLRCloudHealthcare_IngestMessageResponse : GTLRObject
 
@@ -1724,8 +1591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Dataset *> *datasets;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1827,10 +1694,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_ListMessagesResponse : GTLRCollectionObject
 
 /**
- *  The returned Messages. Won't be more Messages than the value of
- *  page_size in the request. See
- *  view for
- *  populated fields.
+ *  The returned Messages. Won't be more Messages than the value of page_size in
+ *  the request. See view for populated fields.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -1871,10 +1736,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  A complete HL7v2 message.
- *  See [Introduction to HL7 Standards]
- *  (https://www.hl7.org/implement/standards/index.cfm?ref=common) for
- *  details on the standard.
+ *  A complete HL7v2 message. See [Introduction to HL7 Standards]
+ *  (https://www.hl7.org/implement/standards/index.cfm?ref=common) for details
+ *  on the standard.
  */
 @interface GTLRCloudHealthcare_Message : GTLRObject
 
@@ -1892,15 +1756,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *data;
 
 /**
- *  User-supplied key-value pairs used to organize HL7v2 stores.
- *  Label keys must be between 1 and 63 characters long, have a UTF-8 encoding
- *  of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression:
- *  \\p{Ll}\\p{Lo}{0,62}
- *  Label values are optional, must be between 1 and 63 characters long, have
- *  a UTF-8 encoding of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
- *  No more than 64 labels can be associated with a given store.
+ *  User-supplied key-value pairs used to organize HL7v2 stores. Label keys must
+ *  be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128
+ *  bytes, and must conform to the following PCRE regular expression:
+ *  \\p{Ll}\\p{Lo}{0,62} Label values are optional, must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Message_Labels *labels;
 
@@ -1933,15 +1796,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  User-supplied key-value pairs used to organize HL7v2 stores.
- *  Label keys must be between 1 and 63 characters long, have a UTF-8 encoding
- *  of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression:
- *  \\p{Ll}\\p{Lo}{0,62}
- *  Label values are optional, must be between 1 and 63 characters long, have
- *  a UTF-8 encoding of maximum 128 bytes, and must conform to the
- *  following PCRE regular expression: [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}
- *  No more than 64 labels can be associated with a given store.
+ *  User-supplied key-value pairs used to organize HL7v2 stores. Label keys must
+ *  be between 1 and 63 characters long, have a UTF-8 encoding of maximum 128
+ *  bytes, and must conform to the following PCRE regular expression:
+ *  \\p{Ll}\\p{Lo}{0,62} Label values are optional, must be between 1 and 63
+ *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
+ *  conform to the following PCRE regular expression:
+ *  [\\p{Ll}\\p{Lo}\\p{N}_-]{0,63} No more than 64 labels can be associated with
+ *  a given store.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1960,20 +1822,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 /**
  *  The [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
  *  notifications of changes are published on. Supplied by the client.
- *  PubsubMessage.Data contains the resource name.
- *  PubsubMessage.MessageId is the ID of this message. It is guaranteed to be
- *  unique within the topic.
+ *  PubsubMessage.Data contains the resource name. PubsubMessage.MessageId is
+ *  the ID of this message. It is guaranteed to be unique within the topic.
  *  PubsubMessage.PublishTime is the time at which the message was published.
- *  Notifications are only sent if the topic is
- *  non-empty. [Topic
+ *  Notifications are only sent if the topic is non-empty. [Topic
  *  names](https://cloud.google.com/pubsub/docs/overview#names) must be scoped
  *  to a project. Cloud Healthcare API service account must have publisher
  *  permissions on the given Cloud Pub/Sub topic. Not having adequate
- *  permissions causes the calls that send notifications to fail.
- *  If a notification can't be published to Cloud Pub/Sub, errors are logged to
- *  Cloud Logging (see [Viewing
- *  logs](/healthcare/docs/how-tos/logging)). If the number of
- *  errors exceeds a certain rate, some aren't submitted.
+ *  permissions causes the calls that send notifications to fail. If a
+ *  notification can't be published to Cloud Pub/Sub, errors are logged to Cloud
+ *  Logging (see [Viewing logs](/healthcare/docs/how-tos/logging)). If the
+ *  number of errors exceeds a certain rate, some aren't submitted.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -1987,8 +1846,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -2000,16 +1859,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2018,10 +1877,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Operation_Response *response;
 
@@ -2030,8 +1888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -2048,10 +1906,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2088,8 +1945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  A link to audit and error logs in the log viewer. Error logs are generated
- *  only by some operations, listed at
- *  [Viewing logs](/healthcare/docs/how-tos/logging).
+ *  only by some operations, listed at [Viewing
+ *  logs](/healthcare/docs/how-tos/logging).
  */
 @property(nonatomic, copy, nullable) NSString *logsUrl;
 
@@ -2120,8 +1977,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) NSNumber *allowNullHeader;
 
 /**
- *  Byte(s) to use as the segment terminator. If this is unset, '\\r' is
- *  used as segment terminator.
+ *  Byte(s) to use as the segment terminator. If this is unset, '\\r' is used as
+ *  segment terminator.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2147,66 +2004,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRCloudHealthcare_Policy : GTLRObject
 
@@ -2215,23 +2040,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2239,24 +2064,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -2296,20 +2117,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  Define how to redact sensitive values. Default behaviour is erase.
- *  For example, "My name is Jane." becomes "My name is ."
+ *  Define how to redact sensitive values. Default behaviour is erase. For
+ *  example, "My name is Jane." becomes "My name is ."
  */
 @interface GTLRCloudHealthcare_RedactConfig : GTLRObject
 @end
 
 
 /**
- *  When using the
- *  INSPECT_AND_TRANSFORM
- *  action, each match is replaced with the name of the info_type. For example,
- *  "My name is Jane" becomes "My name is [PERSON_NAME]." The
- *  TRANSFORM
- *  action is equivalent to redacting.
+ *  When using the INSPECT_AND_TRANSFORM action, each match is replaced with the
+ *  name of the info_type. For example, "My name is Jane" becomes "My name is
+ *  [PERSON_NAME]." The TRANSFORM action is equivalent to redacting.
  */
 @interface GTLRCloudHealthcare_ReplaceWithInfoTypeConfig : GTLRObject
 @end
@@ -2333,29 +2151,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_SchemaConfig : GTLRObject
 
 /**
- *  The depth for all recursive structures in the output analytics
- *  schema. For example, `concept` in the CodeSystem resource is a recursive
- *  structure; when the depth is 2, the CodeSystem table will have a column
- *  called `concept.concept` but not `concept.concept.concept`. If not
- *  specified or set to 0, the server will use the default value 2. The
- *  maximum depth allowed is 5.
+ *  The depth for all recursive structures in the output analytics schema. For
+ *  example, `concept` in the CodeSystem resource is a recursive structure; when
+ *  the depth is 2, the CodeSystem table will have a column called
+ *  `concept.concept` but not `concept.concept.concept`. If not specified or set
+ *  to 0, the server will use the default value 2. The maximum depth allowed is
+ *  5.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *recursiveStructureDepth;
 
 /**
- *  Specifies the output schema type.
+ *  Specifies the output schema type. Schema type is required.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics Analytics
- *        schema defined by the FHIR community.
- *        See https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md.
+ *        schema defined by the FHIR community. See
+ *        https://github.com/FHIR/sql-on-fhir/blob/master/sql-on-fhir.md.
  *        BigQuery only allows a maximum of 10,000 columns per table. Due to
- *        this
- *        limitation, the server will not generate schemas for fields of type
- *        `Resource`, which can hold any resource type. The affected fields are
- *        `Parameters.parameter.resource`, `Bundle.entry.resource`, and
+ *        this limitation, the server will not generate schemas for fields of
+ *        type `Resource`, which can hold any resource type. The affected fields
+ *        are `Parameters.parameter.resource`, `Bundle.entry.resource`, and
  *        `Bundle.entry.response.outcome`. (Value: "ANALYTICS")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified
  *        No schema type specified. (Value: "SCHEMA_TYPE_UNSPECIFIED")
@@ -2388,18 +2205,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_Segment : GTLRObject
 
 /**
- *  A mapping from the positional location to the value.
- *  The key string uses zero-based indexes separated by dots to identify
- *  Fields, components and sub-components. A bracket notation is also used to
- *  identify different instances of a repeated field.
- *  Regex for key: (\\d+)(\\[\\d+\\])?(.\\d+)?(.\\d+)?
- *  Examples of (key, value) pairs:
- *  * (0.1, "hemoglobin") denotes that the first component of Field 0 has the
- *  value "hemoglobin".
- *  * (1.1.2, "CBC") denotes that the second sub-component of the first
- *  component of Field 1 has the value "CBC".
- *  * (1[0].1, "HbA1c") denotes that the first component of the
- *  first Instance of Field 1, which is repeated, has the value "HbA1c".
+ *  A mapping from the positional location to the value. The key string uses
+ *  zero-based indexes separated by dots to identify Fields, components and
+ *  sub-components. A bracket notation is also used to identify different
+ *  instances of a repeated field. Regex for key:
+ *  (\\d+)(\\[\\d+\\])?(.\\d+)?(.\\d+)? Examples of (key, value) pairs: * (0.1,
+ *  "hemoglobin") denotes that the first component of Field 0 has the value
+ *  "hemoglobin". * (1.1.2, "CBC") denotes that the second sub-component of the
+ *  first component of Field 1 has the value "CBC". * (1[0].1, "HbA1c") denotes
+ *  that the first component of the first Instance of Field 1, which is
+ *  repeated, has the value "HbA1c".
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Segment_Fields *fields;
 
@@ -2407,8 +2222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, copy, nullable) NSString *segmentId;
 
 /**
- *  Set ID for segments that can be in a set. This can be empty if it's
- *  missing or isn't applicable.
+ *  Set ID for segments that can be in a set. This can be empty if it's missing
+ *  or isn't applicable.
  */
 @property(nonatomic, copy, nullable) NSString *setId;
 
@@ -2416,18 +2231,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
- *  A mapping from the positional location to the value.
- *  The key string uses zero-based indexes separated by dots to identify
- *  Fields, components and sub-components. A bracket notation is also used to
- *  identify different instances of a repeated field.
- *  Regex for key: (\\d+)(\\[\\d+\\])?(.\\d+)?(.\\d+)?
- *  Examples of (key, value) pairs:
- *  * (0.1, "hemoglobin") denotes that the first component of Field 0 has the
- *  value "hemoglobin".
- *  * (1.1.2, "CBC") denotes that the second sub-component of the first
- *  component of Field 1 has the value "CBC".
- *  * (1[0].1, "HbA1c") denotes that the first component of the
- *  first Instance of Field 1, which is repeated, has the value "HbA1c".
+ *  A mapping from the positional location to the value. The key string uses
+ *  zero-based indexes separated by dots to identify Fields, components and
+ *  sub-components. A bracket notation is also used to identify different
+ *  instances of a repeated field. Regex for key:
+ *  (\\d+)(\\[\\d+\\])?(.\\d+)?(.\\d+)? Examples of (key, value) pairs: * (0.1,
+ *  "hemoglobin") denotes that the first component of Field 0 has the value
+ *  "hemoglobin". * (1.1.2, "CBC") denotes that the second sub-component of the
+ *  first component of Field 1 has the value "CBC". * (1[0].1, "HbA1c") denotes
+ *  that the first component of the first Instance of Field 1, which is
+ *  repeated, has the value "HbA1c".
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2445,17 +2258,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_Policy *policy;
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
- *  following default mask is used:
- *  `paths: "bindings, etag"`
+ *  following default mask is used: `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2468,9 +2279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudHealthcare_Status : GTLRObject
 
@@ -2515,48 +2326,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_StreamConfig : GTLRObject
 
 /**
- *  The destination BigQuery structure that contains both the dataset
- *  location and corresponding schema config.
- *  The output is organized in one table per resource type. The server
- *  reuses the existing tables (if any) that are named after the resource
- *  types. For example, "Patient", "Observation". When there is no existing
- *  table for a given resource type, the server attempts to create one.
- *  When a table schema doesn't align with the schema config, either
+ *  The destination BigQuery structure that contains both the dataset location
+ *  and corresponding schema config. The output is organized in one table per
+ *  resource type. The server reuses the existing tables (if any) that are named
+ *  after the resource types. For example, "Patient", "Observation". When there
+ *  is no existing table for a given resource type, the server attempts to
+ *  create one. When a table schema doesn't align with the schema config, either
  *  because of existing incompatible schema or out of band incompatible
- *  modification, the server does not stream in new data.
- *  BigQuery imposes a 1 MB limit on streaming insert row size, therefore
- *  any resource mutation that generates more than 1 MB of BigQuery data
- *  is not streamed.
- *  One resolution in this case is to delete the incompatible
- *  table and let the server recreate one, though the newly created table
- *  only contains data after the table recreation.
- *  Results are appended to the corresponding BigQuery tables. Different
- *  versions of the same resource are distinguishable by the meta.versionId
- *  and meta.lastUpdated columns. The operation (CREATE/UPDATE/DELETE) that
- *  results in the new version is recorded in the meta.tag.
- *  The tables contain all historical resource versions since streaming was
- *  enabled. For query convenience, the server also creates one view per
- *  table of the same name containing only the current resource version.
- *  The streamed data in the BigQuery dataset is not guaranteed to be
+ *  modification, the server does not stream in new data. BigQuery imposes a 1
+ *  MB limit on streaming insert row size, therefore any resource mutation that
+ *  generates more than 1 MB of BigQuery data is not streamed. One resolution in
+ *  this case is to delete the incompatible table and let the server recreate
+ *  one, though the newly created table only contains data after the table
+ *  recreation. Results are appended to the corresponding BigQuery tables.
+ *  Different versions of the same resource are distinguishable by the
+ *  meta.versionId and meta.lastUpdated columns. The operation
+ *  (CREATE/UPDATE/DELETE) that results in the new version is recorded in the
+ *  meta.tag. The tables contain all historical resource versions since
+ *  streaming was enabled. For query convenience, the server also creates one
+ *  view per table of the same name containing only the current resource
+ *  version. The streamed data in the BigQuery dataset is not guaranteed to be
  *  completely unique. The combination of the id and meta.versionId columns
- *  should ideally identify a single unique row. But in rare cases,
- *  duplicates may exist. At query time, users may use the SQL select
- *  statement to keep only one of the duplicate rows given an id and
- *  meta.versionId pair. Alternatively, the server created view mentioned
- *  above also filters out duplicates.
- *  If a resource mutation cannot be streamed to BigQuery, errors are
- *  logged to Cloud Logging. For more information, see
- *  [Viewing error logs in Cloud
- *  Logging](/healthcare/docs/how-tos/logging)).
+ *  should ideally identify a single unique row. But in rare cases, duplicates
+ *  may exist. At query time, users may use the SQL select statement to keep
+ *  only one of the duplicate rows given an id and meta.versionId pair.
+ *  Alternatively, the server created view mentioned above also filters out
+ *  duplicates. If a resource mutation cannot be streamed to BigQuery, errors
+ *  are logged to Cloud Logging. For more information, see [Viewing error logs
+ *  in Cloud Logging](/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 
 /**
- *  Supply a FHIR resource type (such as "Patient" or "Observation").
- *  See https://www.hl7.org/fhir/valueset-resource-types.html for a list of
- *  all FHIR resource types.
- *  The server treats an empty list as an intent to stream all the
- *  supported resource types in this FHIR store.
+ *  Supply a FHIR resource type (such as "Patient" or "Observation"). See
+ *  https://www.hl7.org/fhir/valueset-resource-types.html for a list of all FHIR
+ *  resource types. The server treats an empty list as an intent to stream all
+ *  the supported resource types in this FHIR store.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
 
@@ -2569,8 +2374,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_TagFilterList : GTLRObject
 
 /**
- *  Tags to be filtered. Tags must be DICOM Data Elements, File Meta
- *  Elements, or Directory Structuring Elements, as defined at:
+ *  Tags to be filtered. Tags must be DICOM Data Elements, File Meta Elements,
+ *  or Directory Structuring Elements, as defined at:
  *  http://dicom.nema.org/medical/dicom/current/output/html/part06.html#table_6-1,.
  *  They may be provided by "Keyword" or "Tag". For example "PatientID",
  *  "00100010".
@@ -2587,9 +2392,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -2602,8 +2406,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

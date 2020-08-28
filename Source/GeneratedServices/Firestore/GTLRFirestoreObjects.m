@@ -27,6 +27,8 @@ NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual = @"GREATER_TH
 NSString * const kGTLRFirestore_FieldFilter_Op_In              = @"IN";
 NSString * const kGTLRFirestore_FieldFilter_Op_LessThan        = @"LESS_THAN";
 NSString * const kGTLRFirestore_FieldFilter_Op_LessThanOrEqual = @"LESS_THAN_OR_EQUAL";
+NSString * const kGTLRFirestore_FieldFilter_Op_NotEqual        = @"NOT_EQUAL";
+NSString * const kGTLRFirestore_FieldFilter_Op_NotIn           = @"NOT_IN";
 NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 
 // GTLRFirestore_FieldTransform.setToServerValue
@@ -112,6 +114,8 @@ NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Reset = @"RESET";
 
 // GTLRFirestore_UnaryFilter.op
 NSString * const kGTLRFirestore_UnaryFilter_Op_IsNan           = @"IS_NAN";
+NSString * const kGTLRFirestore_UnaryFilter_Op_IsNotNan        = @"IS_NOT_NAN";
+NSString * const kGTLRFirestore_UnaryFilter_Op_IsNotNull       = @"IS_NOT_NULL";
 NSString * const kGTLRFirestore_UnaryFilter_Op_IsNull          = @"IS_NULL";
 NSString * const kGTLRFirestore_UnaryFilter_Op_OperatorUnspecified = @"OPERATOR_UNSPECIFIED";
 

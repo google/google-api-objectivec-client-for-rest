@@ -44,11 +44,23 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // gatewayListOptionsGatewayType
 
-/** Value: "GATEWAY" */
+/**
+ *  The device is a gateway.
+ *
+ *  Value: "GATEWAY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeGateway;
-/** Value: "GATEWAY_TYPE_UNSPECIFIED" */
+/**
+ *  If unspecified, the device is considered a non-gateway device.
+ *
+ *  Value: "GATEWAY_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeGatewayTypeUnspecified;
-/** Value: "NON_GATEWAY" */
+/**
+ *  The device is not a gateway.
+ *
+ *  Value: "NON_GATEWAY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway;
 
 // ----------------------------------------------------------------------------
@@ -116,8 +128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  Required. The project and cloud region where this device registry must be
- *  created.
- *  For example, `projects/example-project/locations/us-central1`.
+ *  created. For example, `projects/example-project/locations/us-central1`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -128,8 +139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *
  *  @param object The @c GTLRCloudIot_DeviceRegistry to include in the query.
  *  @param parent Required. The project and cloud region where this device
- *    registry must be created.
- *    For example, `projects/example-project/locations/us-central1`.
+ *    registry must be created. For example,
+ *    `projects/example-project/locations/us-central1`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesCreate
  */
@@ -172,8 +183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @end
 
 /**
- *  Lists the last few versions of the device configuration in descending
- *  order (i.e.: newest first).
+ *  Lists the last few versions of the device configuration in descending order
+ *  (i.e.: newest first).
  *
  *  Method: cloudiot.projects.locations.registries.devices.configVersions.list
  *
@@ -202,8 +213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 /**
  *  Fetches a @c GTLRCloudIot_ListDeviceConfigVersionsResponse.
  *
- *  Lists the last few versions of the device configuration in descending
- *  order (i.e.: newest first).
+ *  Lists the last few versions of the device configuration in descending order
+ *  (i.e.: newest first).
  *
  *  @param name Required. The name of the device. For example,
  *    `projects/p0/locations/us-central1/registries/registry0/devices/device0`
@@ -231,8 +242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  Required. The name of the device registry where this device should be
- *  created.
- *  For example,
+ *  created. For example,
  *  `projects/example-project/locations/us-central1/registries/my-registry`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -244,8 +254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *
  *  @param object The @c GTLRCloudIot_Device to include in the query.
  *  @param parent Required. The name of the device registry where this device
- *    should be created.
- *    For example,
+ *    should be created. For example,
  *    `projects/example-project/locations/us-central1/registries/my-registry`.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesCreate
@@ -349,14 +358,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesListWithparent:]
 
 /**
- *  A list of device string IDs. For example, `['device0', 'device12']`.
- *  If empty, this field is ignored. Maximum IDs: 10,000
+ *  A list of device string IDs. For example, `['device0', 'device12']`. If
+ *  empty, this field is ignored. Maximum IDs: 10,000
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceIds;
 
 /**
- *  A list of device numeric IDs. If empty, this field is ignored. Maximum
- *  IDs: 10,000.
+ *  A list of device numeric IDs. If empty, this field is ignored. Maximum IDs:
+ *  10,000.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -364,8 +373,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  The fields of the `Device` resource to be returned in the response. The
- *  fields `id` and `num_id` are always returned, along with any
- *  other fields specified.
+ *  fields `id` and `num_id` are always returned, along with any other fields
+ *  specified.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -374,45 +383,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 /**
  *  If set, returns only the gateways with which the specified device is
  *  associated. The device ID can be numeric (`num_id`) or the user-defined
- *  string (`id`). For example, if `456` is specified, returns only the
- *  gateways to which the device with `num_id` 456 is bound.
+ *  string (`id`). For example, if `456` is specified, returns only the gateways
+ *  to which the device with `num_id` 456 is bound.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayListOptionsAssociationsDeviceId;
 
 /**
- *  If set, only devices associated with the specified gateway are returned.
- *  The gateway ID can be numeric (`num_id`) or the user-defined string
- *  (`id`). For example, if `123` is specified, only devices bound to the
- *  gateway with `num_id` 123 are returned.
+ *  If set, only devices associated with the specified gateway are returned. The
+ *  gateway ID can be numeric (`num_id`) or the user-defined string (`id`). For
+ *  example, if `123` is specified, only devices bound to the gateway with
+ *  `num_id` 123 are returned.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayListOptionsAssociationsGatewayId;
 
 /**
- *  If `GATEWAY` is specified, only gateways are returned. If `NON_GATEWAY`
- *  is specified, only non-gateway devices are returned. If
+ *  If `GATEWAY` is specified, only gateways are returned. If `NON_GATEWAY` is
+ *  specified, only non-gateway devices are returned. If
  *  `GATEWAY_TYPE_UNSPECIFIED` is specified, all devices are returned.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeGatewayTypeUnspecified
- *        Value "GATEWAY_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeGateway Value "GATEWAY"
- *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway Value
- *        "NON_GATEWAY"
+ *        If unspecified, the device is considered a non-gateway device. (Value:
+ *        "GATEWAY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeGateway The device is a
+ *        gateway. (Value: "GATEWAY")
+ *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway The device is
+ *        not a gateway. (Value: "NON_GATEWAY")
  */
 @property(nonatomic, copy, nullable) NSString *gatewayListOptionsGatewayType;
 
 /**
- *  The maximum number of devices to return in the response. If this value
- *  is zero, the service will select a default size. A call may return fewer
+ *  The maximum number of devices to return in the response. If this value is
+ *  zero, the service will select a default size. A call may return fewer
  *  objects than requested. A non-empty `next_page_token` in the response
  *  indicates that more data is available.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListDevicesResponse`; indicates
- *  that this is a continuation of a prior `ListDevices` call and
- *  the system should return the next page of data.
+ *  The value returned by the last `ListDevicesResponse`; indicates that this is
+ *  a continuation of a prior `ListDevices` call and the system should return
+ *  the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -441,9 +452,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @end
 
 /**
- *  Modifies the configuration for the device, which is eventually sent from
- *  the Cloud IoT Core servers. Returns the modified configuration version and
- *  its metadata.
+ *  Modifies the configuration for the device, which is eventually sent from the
+ *  Cloud IoT Core servers. Returns the modified configuration version and its
+ *  metadata.
  *
  *  Method: cloudiot.projects.locations.registries.devices.modifyCloudToDeviceConfig
  *
@@ -465,9 +476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 /**
  *  Fetches a @c GTLRCloudIot_DeviceConfig.
  *
- *  Modifies the configuration for the device, which is eventually sent from
- *  the Cloud IoT Core servers. Returns the modified configuration version and
- *  its metadata.
+ *  Modifies the configuration for the device, which is eventually sent from the
+ *  Cloud IoT Core servers. Returns the modified configuration version and its
+ *  metadata.
  *
  *  @param object The @c GTLRCloudIot_ModifyCloudToDeviceConfigRequest to
  *    include in the query.
@@ -500,16 +511,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  The resource path name. For example,
  *  `projects/p1/locations/us-central1/registries/registry0/devices/dev0` or
  *  `projects/p1/locations/us-central1/registries/registry0/devices/{num_id}`.
- *  When `name` is populated as a response from the service, it always ends
- *  in the device numeric ID.
+ *  When `name` is populated as a response from the service, it always ends in
+ *  the device numeric ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Only updates the `device` fields indicated by this mask.
- *  The field mask must not be empty, and it must not contain fields that
- *  are immutable or only set by the server.
- *  Mutable top-level fields: `credentials`, `blocked`, and `metadata`
+ *  Required. Only updates the `device` fields indicated by this mask. The field
+ *  mask must not be empty, and it must not contain fields that are immutable or
+ *  only set by the server. Mutable top-level fields: `credentials`, `blocked`,
+ *  and `metadata`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -524,8 +535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param name The resource path name. For example,
  *    `projects/p1/locations/us-central1/registries/registry0/devices/dev0` or
  *    `projects/p1/locations/us-central1/registries/registry0/devices/{num_id}`.
- *    When `name` is populated as a response from the service, it always ends
- *    in the device numeric ID.
+ *    When `name` is populated as a response from the service, it always ends in
+ *    the device numeric ID.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesPatch
  */
@@ -535,19 +546,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @end
 
 /**
- *  Sends a command to the specified device. In order for a device to be able
- *  to receive commands, it must:
- *  1) be connected to Cloud IoT Core using the MQTT protocol, and
- *  2) be subscribed to the group of MQTT topics specified by
- *  /devices/{device-id}/commands/#. This subscription will receive commands
- *  at the top-level topic /devices/{device-id}/commands as well as commands
- *  for subfolders, like /devices/{device-id}/commands/subfolder.
- *  Note that subscribing to specific subfolders is not supported.
- *  If the command could not be delivered to the device, this method will
- *  return an error; in particular, if the device is not subscribed, this
- *  method will return FAILED_PRECONDITION. Otherwise, this method will
- *  return OK. If the subscription is QoS 1, at least once delivery will be
- *  guaranteed; for QoS 0, no acknowledgment will be expected from the device.
+ *  Sends a command to the specified device. In order for a device to be able to
+ *  receive commands, it must: 1) be connected to Cloud IoT Core using the MQTT
+ *  protocol, and 2) be subscribed to the group of MQTT topics specified by
+ *  /devices/{device-id}/commands/#. This subscription will receive commands at
+ *  the top-level topic /devices/{device-id}/commands as well as commands for
+ *  subfolders, like /devices/{device-id}/commands/subfolder. Note that
+ *  subscribing to specific subfolders is not supported. If the command could
+ *  not be delivered to the device, this method will return an error; in
+ *  particular, if the device is not subscribed, this method will return
+ *  FAILED_PRECONDITION. Otherwise, this method will return OK. If the
+ *  subscription is QoS 1, at least once delivery will be guaranteed; for QoS 0,
+ *  no acknowledgment will be expected from the device.
  *
  *  Method: cloudiot.projects.locations.registries.devices.sendCommandToDevice
  *
@@ -569,19 +579,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 /**
  *  Fetches a @c GTLRCloudIot_SendCommandToDeviceResponse.
  *
- *  Sends a command to the specified device. In order for a device to be able
- *  to receive commands, it must:
- *  1) be connected to Cloud IoT Core using the MQTT protocol, and
- *  2) be subscribed to the group of MQTT topics specified by
- *  /devices/{device-id}/commands/#. This subscription will receive commands
- *  at the top-level topic /devices/{device-id}/commands as well as commands
- *  for subfolders, like /devices/{device-id}/commands/subfolder.
- *  Note that subscribing to specific subfolders is not supported.
- *  If the command could not be delivered to the device, this method will
- *  return an error; in particular, if the device is not subscribed, this
- *  method will return FAILED_PRECONDITION. Otherwise, this method will
- *  return OK. If the subscription is QoS 1, at least once delivery will be
- *  guaranteed; for QoS 0, no acknowledgment will be expected from the device.
+ *  Sends a command to the specified device. In order for a device to be able to
+ *  receive commands, it must: 1) be connected to Cloud IoT Core using the MQTT
+ *  protocol, and 2) be subscribed to the group of MQTT topics specified by
+ *  /devices/{device-id}/commands/#. This subscription will receive commands at
+ *  the top-level topic /devices/{device-id}/commands as well as commands for
+ *  subfolders, like /devices/{device-id}/commands/subfolder. Note that
+ *  subscribing to specific subfolders is not supported. If the command could
+ *  not be delivered to the device, this method will return an error; in
+ *  particular, if the device is not subscribed, this method will return
+ *  FAILED_PRECONDITION. Otherwise, this method will return OK. If the
+ *  subscription is QoS 1, at least once delivery will be guaranteed; for QoS 0,
+ *  no acknowledgment will be expected from the device.
  *
  *  @param object The @c GTLRCloudIot_SendCommandToDeviceRequest to include in
  *    the query.
@@ -620,8 +629,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  The number of states to list. States are listed in descending order of
- *  update time. The maximum number of states retained is 10. If this
- *  value is zero, it will return all the states available.
+ *  update time. The maximum number of states retained is 10. If this value is
+ *  zero, it will return all the states available.
  */
 @property(nonatomic, assign) NSInteger numStates;
 
@@ -676,9 +685,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: cloudiot.projects.locations.registries.getIamPolicy
  *
@@ -691,23 +699,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudIot_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param object The @c GTLRCloudIot_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGetIamPolicy
  */
@@ -730,14 +737,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsDevicesListWithparent:]
 
 /**
- *  A list of device string IDs. For example, `['device0', 'device12']`.
- *  If empty, this field is ignored. Maximum IDs: 10,000
+ *  A list of device string IDs. For example, `['device0', 'device12']`. If
+ *  empty, this field is ignored. Maximum IDs: 10,000
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceIds;
 
 /**
- *  A list of device numeric IDs. If empty, this field is ignored. Maximum
- *  IDs: 10,000.
+ *  A list of device numeric IDs. If empty, this field is ignored. Maximum IDs:
+ *  10,000.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -745,8 +752,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  The fields of the `Device` resource to be returned in the response. The
- *  fields `id` and `num_id` are always returned, along with any
- *  other fields specified.
+ *  fields `id` and `num_id` are always returned, along with any other fields
+ *  specified.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -755,45 +762,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 /**
  *  If set, returns only the gateways with which the specified device is
  *  associated. The device ID can be numeric (`num_id`) or the user-defined
- *  string (`id`). For example, if `456` is specified, returns only the
- *  gateways to which the device with `num_id` 456 is bound.
+ *  string (`id`). For example, if `456` is specified, returns only the gateways
+ *  to which the device with `num_id` 456 is bound.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayListOptionsAssociationsDeviceId;
 
 /**
- *  If set, only devices associated with the specified gateway are returned.
- *  The gateway ID can be numeric (`num_id`) or the user-defined string
- *  (`id`). For example, if `123` is specified, only devices bound to the
- *  gateway with `num_id` 123 are returned.
+ *  If set, only devices associated with the specified gateway are returned. The
+ *  gateway ID can be numeric (`num_id`) or the user-defined string (`id`). For
+ *  example, if `123` is specified, only devices bound to the gateway with
+ *  `num_id` 123 are returned.
  */
 @property(nonatomic, copy, nullable) NSString *gatewayListOptionsAssociationsGatewayId;
 
 /**
- *  If `GATEWAY` is specified, only gateways are returned. If `NON_GATEWAY`
- *  is specified, only non-gateway devices are returned. If
+ *  If `GATEWAY` is specified, only gateways are returned. If `NON_GATEWAY` is
+ *  specified, only non-gateway devices are returned. If
  *  `GATEWAY_TYPE_UNSPECIFIED` is specified, all devices are returned.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeGatewayTypeUnspecified
- *        Value "GATEWAY_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeGateway Value "GATEWAY"
- *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway Value
- *        "NON_GATEWAY"
+ *        If unspecified, the device is considered a non-gateway device. (Value:
+ *        "GATEWAY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeGateway The device is a
+ *        gateway. (Value: "GATEWAY")
+ *    @arg @c kGTLRCloudIotGatewayListOptionsGatewayTypeNonGateway The device is
+ *        not a gateway. (Value: "NON_GATEWAY")
  */
 @property(nonatomic, copy, nullable) NSString *gatewayListOptionsGatewayType;
 
 /**
- *  The maximum number of devices to return in the response. If this value
- *  is zero, the service will select a default size. A call may return fewer
+ *  The maximum number of devices to return in the response. If this value is
+ *  zero, the service will select a default size. A call may return fewer
  *  objects than requested. A non-empty `next_page_token` in the response
  *  indicates that more data is available.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListDevicesResponse`; indicates
- *  that this is a continuation of a prior `ListDevices` call and
- *  the system should return the next page of data.
+ *  The value returned by the last `ListDevicesResponse`; indicates that this is
+ *  a continuation of a prior `ListDevices` call and the system should return
+ *  the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -822,9 +831,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: cloudiot.projects.locations.registries.groups.getIamPolicy
  *
@@ -837,23 +845,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudIot_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param object The @c GTLRCloudIot_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsGetIamPolicy
  */
@@ -877,8 +884,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -891,8 +898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param object The @c GTLRCloudIot_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsSetIamPolicy
  */
@@ -902,9 +909,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.
  *
  *  Method: cloudiot.projects.locations.registries.groups.testIamPermissions
  *
@@ -917,23 +924,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudIot_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.
  *
  *  @param object The @c GTLRCloudIot_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsTestIamPermissions
  */
@@ -956,8 +963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesListWithparent:]
 
 /**
- *  The maximum number of registries to return in the response. If this value
- *  is zero, the service will select a default size. A call may return fewer
+ *  The maximum number of registries to return in the response. If this value is
+ *  zero, the service will select a default size. A call may return fewer
  *  objects than requested. A non-empty `next_page_token` in the response
  *  indicates that more data is available.
  */
@@ -965,8 +972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  The value returned by the last `ListDeviceRegistriesResponse`; indicates
- *  that this is a continuation of a prior `ListDeviceRegistries` call and
- *  the system should return the next page of data.
+ *  that this is a continuation of a prior `ListDeviceRegistries` call and the
+ *  system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1015,10 +1022,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  Required. Only updates the `device_registry` fields indicated by this mask.
- *  The field mask must not be empty, and it must not contain fields that
- *  are immutable or only set by the server.
- *  Mutable top-level fields: `event_notification_config`, `http_config`,
- *  `mqtt_config`, and `state_notification_config`.
+ *  The field mask must not be empty, and it must not contain fields that are
+ *  immutable or only set by the server. Mutable top-level fields:
+ *  `event_notification_config`, `http_config`, `mqtt_config`, and
+ *  `state_notification_config`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1055,8 +1062,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1069,8 +1076,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *  @param object The @c GTLRCloudIot_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesSetIamPolicy
  */
@@ -1080,9 +1087,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.
  *
  *  Method: cloudiot.projects.locations.registries.testIamPermissions
  *
@@ -1095,23 +1102,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 //   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRCloudIot_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a NOT_FOUND error.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.
  *
  *  @param object The @c GTLRCloudIot_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRCloudIotQuery_ProjectsLocationsRegistriesTestIamPermissions
  */

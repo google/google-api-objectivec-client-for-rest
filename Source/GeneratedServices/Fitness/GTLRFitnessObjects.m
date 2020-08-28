@@ -63,13 +63,14 @@ NSString * const kGTLRFitness_DataTypeField_Format_Map         = @"map";
 NSString * const kGTLRFitness_DataTypeField_Format_String      = @"string";
 
 // GTLRFitness_Device.type
-NSString * const kGTLRFitness_Device_Type_ChestStrap  = @"chestStrap";
-NSString * const kGTLRFitness_Device_Type_HeadMounted = @"headMounted";
-NSString * const kGTLRFitness_Device_Type_Phone       = @"phone";
-NSString * const kGTLRFitness_Device_Type_Scale       = @"scale";
-NSString * const kGTLRFitness_Device_Type_Tablet      = @"tablet";
-NSString * const kGTLRFitness_Device_Type_Unknown     = @"unknown";
-NSString * const kGTLRFitness_Device_Type_Watch       = @"watch";
+NSString * const kGTLRFitness_Device_Type_ChestStrap   = @"chestStrap";
+NSString * const kGTLRFitness_Device_Type_HeadMounted  = @"headMounted";
+NSString * const kGTLRFitness_Device_Type_Phone        = @"phone";
+NSString * const kGTLRFitness_Device_Type_Scale        = @"scale";
+NSString * const kGTLRFitness_Device_Type_SmartDisplay = @"smartDisplay";
+NSString * const kGTLRFitness_Device_Type_Tablet       = @"tablet";
+NSString * const kGTLRFitness_Device_Type_Unknown      = @"unknown";
+NSString * const kGTLRFitness_Device_Type_Watch        = @"watch";
 
 // ----------------------------------------------------------------------------
 //

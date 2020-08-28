@@ -28,7 +28,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/lineitems/downloadlineitems";
+  NSString *pathURITemplate = @"lineitems/downloadlineitems";
   GTLRDoubleClickBidManagerQuery_LineitemsDownloadlineitems *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -50,7 +50,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/lineitems/uploadlineitems";
+  NSString *pathURITemplate = @"lineitems/uploadlineitems";
   GTLRDoubleClickBidManagerQuery_LineitemsUploadlineitems *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -74,7 +74,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/query";
+  NSString *pathURITemplate = @"query";
   GTLRDoubleClickBidManagerQuery_QueriesCreatequery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -93,7 +93,7 @@
 
 + (instancetype)queryWithQueryId:(long long)queryId {
   NSArray *pathParams = @[ @"queryId" ];
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/query/{queryId}";
+  NSString *pathURITemplate = @"query/{queryId}";
   GTLRDoubleClickBidManagerQuery_QueriesDeletequery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -111,7 +111,7 @@
 
 + (instancetype)queryWithQueryId:(long long)queryId {
   NSArray *pathParams = @[ @"queryId" ];
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/query/{queryId}";
+  NSString *pathURITemplate = @"query/{queryId}";
   GTLRDoubleClickBidManagerQuery_QueriesGetquery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -129,7 +129,7 @@
 @dynamic pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/queries";
+  NSString *pathURITemplate = @"queries";
   GTLRDoubleClickBidManagerQuery_QueriesListqueries *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -154,7 +154,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"queryId" ];
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/query/{queryId}";
+  NSString *pathURITemplate = @"query/{queryId}";
   GTLRDoubleClickBidManagerQuery_QueriesRunquery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -173,7 +173,7 @@
 
 + (instancetype)queryWithQueryId:(long long)queryId {
   NSArray *pathParams = @[ @"queryId" ];
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/queries/{queryId}/reports";
+  NSString *pathURITemplate = @"queries/{queryId}/reports";
   GTLRDoubleClickBidManagerQuery_ReportsListreports *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -195,7 +195,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"doubleclickbidmanager/v1.1/sdf/download";
+  NSString *pathURITemplate = @"sdf/download";
   GTLRDoubleClickBidManagerQuery_SdfDownload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

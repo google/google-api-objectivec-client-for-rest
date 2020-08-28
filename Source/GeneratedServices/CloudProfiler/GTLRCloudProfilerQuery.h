@@ -41,16 +41,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateProfile creates a new profile resource in the online mode.
- *  The server ensures that the new profiles are created at a constant rate per
- *  deployment, so the creation request may hang for some time until the next
- *  profile session is available.
- *  The request may fail with ABORTED error if the creation is not available
- *  within ~1m, the response will indicate the duration of the backoff the
- *  client should take before attempting creating a profile again. The backoff
- *  duration is returned in google.rpc.RetryInfo extension on the response
- *  status. To a gRPC client, the extension will be return as a
- *  binary-serialized proto in the trailing metadata item named
+ *  CreateProfile creates a new profile resource in the online mode. The server
+ *  ensures that the new profiles are created at a constant rate per deployment,
+ *  so the creation request may hang for some time until the next profile
+ *  session is available. The request may fail with ABORTED error if the
+ *  creation is not available within ~1m, the response will indicate the
+ *  duration of the backoff the client should take before attempting creating a
+ *  profile again. The backoff duration is returned in google.rpc.RetryInfo
+ *  extension on the response status. To a gRPC client, the extension will be
+ *  return as a binary-serialized proto in the trailing metadata item named
  *  "google.rpc.retryinfo-bin".
  *
  *  Method: cloudprofiler.projects.profiles.create
@@ -70,16 +69,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudProfiler_Profile.
  *
- *  CreateProfile creates a new profile resource in the online mode.
- *  The server ensures that the new profiles are created at a constant rate per
- *  deployment, so the creation request may hang for some time until the next
- *  profile session is available.
- *  The request may fail with ABORTED error if the creation is not available
- *  within ~1m, the response will indicate the duration of the backoff the
- *  client should take before attempting creating a profile again. The backoff
- *  duration is returned in google.rpc.RetryInfo extension on the response
- *  status. To a gRPC client, the extension will be return as a
- *  binary-serialized proto in the trailing metadata item named
+ *  CreateProfile creates a new profile resource in the online mode. The server
+ *  ensures that the new profiles are created at a constant rate per deployment,
+ *  so the creation request may hang for some time until the next profile
+ *  session is available. The request may fail with ABORTED error if the
+ *  creation is not available within ~1m, the response will indicate the
+ *  duration of the backoff the client should take before attempting creating a
+ *  profile again. The backoff duration is returned in google.rpc.RetryInfo
+ *  extension on the response status. To a gRPC client, the extension will be
+ *  return as a binary-serialized proto in the trailing metadata item named
  *  "google.rpc.retryinfo-bin".
  *
  *  @param object The @c GTLRCloudProfiler_CreateProfileRequest to include in
@@ -94,8 +92,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  CreateOfflineProfile creates a new profile resource in the offline mode.
- *  The client provides the profile to create along with the profile bytes, the
+ *  CreateOfflineProfile creates a new profile resource in the offline mode. The
+ *  client provides the profile to create along with the profile bytes, the
  *  server records it.
  *
  *  Method: cloudprofiler.projects.profiles.createOffline
@@ -115,8 +113,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudProfiler_Profile.
  *
- *  CreateOfflineProfile creates a new profile resource in the offline mode.
- *  The client provides the profile to create along with the profile bytes, the
+ *  CreateOfflineProfile creates a new profile resource in the offline mode. The
+ *  client provides the profile to create along with the profile bytes, the
  *  server records it.
  *
  *  @param object The @c GTLRCloudProfiler_Profile to include in the query.

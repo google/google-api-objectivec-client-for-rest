@@ -5,8 +5,7 @@
 //   Web Fonts Developer API (webfonts/v1)
 // Description:
 //   The Google Web Fonts Developer API lets you retrieve information about web
-//   fonts served
-//   by Google.
+//   fonts served by Google.
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 
@@ -35,17 +34,41 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // sort
 
-/** Value: "ALPHA" */
+/**
+ *  Sort alphabetically
+ *
+ *  Value: "ALPHA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortAlpha;
-/** Value: "DATE" */
+/**
+ *  Sort by date added
+ *
+ *  Value: "DATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortDate;
-/** Value: "POPULARITY" */
+/**
+ *  Sort by popularity
+ *
+ *  Value: "POPULARITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortPopularity;
-/** Value: "SORT_UNDEFINED" */
+/**
+ *  No sorting specified, use the default sorting method.
+ *
+ *  Value: "SORT_UNDEFINED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortSortUndefined;
-/** Value: "STYLE" */
+/**
+ *  Sort by number of styles
+ *
+ *  Value: "STYLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortStyle;
-/** Value: "TRENDING" */
+/**
+ *  Sort by trending
+ *
+ *  Value: "TRENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
 
 // ----------------------------------------------------------------------------
@@ -76,12 +99,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
  *  Enables sorting of the list.
  *
  *  Likely values:
- *    @arg @c kGTLRWebfontsSortSortUndefined Value "SORT_UNDEFINED"
- *    @arg @c kGTLRWebfontsSortAlpha Value "ALPHA"
- *    @arg @c kGTLRWebfontsSortDate Value "DATE"
- *    @arg @c kGTLRWebfontsSortPopularity Value "POPULARITY"
- *    @arg @c kGTLRWebfontsSortStyle Value "STYLE"
- *    @arg @c kGTLRWebfontsSortTrending Value "TRENDING"
+ *    @arg @c kGTLRWebfontsSortSortUndefined No sorting specified, use the
+ *        default sorting method. (Value: "SORT_UNDEFINED")
+ *    @arg @c kGTLRWebfontsSortAlpha Sort alphabetically (Value: "ALPHA")
+ *    @arg @c kGTLRWebfontsSortDate Sort by date added (Value: "DATE")
+ *    @arg @c kGTLRWebfontsSortPopularity Sort by popularity (Value:
+ *        "POPULARITY")
+ *    @arg @c kGTLRWebfontsSortStyle Sort by number of styles (Value: "STYLE")
+ *    @arg @c kGTLRWebfontsSortTrending Sort by trending (Value: "TRENDING")
  */
 @property(nonatomic, copy, nullable) NSString *sort;
 

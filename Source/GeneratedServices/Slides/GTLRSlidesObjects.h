@@ -166,8 +166,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRSlides_AffineTransform.unit
 
 /**
- *  An English Metric Unit (EMU) is defined as 1/360,000 of a centimeter
- *  and thus there are 914,400 EMUs per inch, and 12,700 EMUs per point.
+ *  An English Metric Unit (EMU) is defined as 1/360,000 of a centimeter and
+ *  thus there are 914,400 EMUs per inch, and 12,700 EMUs per point.
  *
  *  Value: "EMU"
  */
@@ -256,15 +256,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateLineRequest_LineCategory_St
 // GTLRSlides_CreateParagraphBulletsRequest.bulletPreset
 
 /**
- *  A bulleted list with a `ARROW3D`, `CIRCLE` and `SQUARE` bullet glyph for
- *  the first 3 list nesting levels.
+ *  A bulleted list with a `ARROW3D`, `CIRCLE` and `SQUARE` bullet glyph for the
+ *  first 3 list nesting levels.
  *
  *  Value: "BULLET_ARROW3D_CIRCLE_SQUARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrow3dCircleSquare;
 /**
- *  A bulleted list with a `ARROW`, `DIAMOND` and `DISC` bullet glyph for
- *  the first 3 list nesting levels.
+ *  A bulleted list with a `ARROW`, `DIAMOND` and `DISC` bullet glyph for the
+ *  first 3 list nesting levels.
  *
  *  Value: "BULLET_ARROW_DIAMOND_DISC"
  */
@@ -276,8 +276,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_Bul
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletCheckbox;
 /**
- *  A bulleted list with a `DIAMOND`, `CIRCLE` and `SQUARE` bullet glyph
- *  for the first 3 list nesting levels.
+ *  A bulleted list with a `DIAMOND`, `CIRCLE` and `SQUARE` bullet glyph for the
+ *  first 3 list nesting levels.
  *
  *  Value: "BULLET_DIAMOND_CIRCLE_SQUARE"
  */
@@ -290,8 +290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_Bul
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxArrow3dSquare;
 /**
- *  A bulleted list with a `DIAMONDX`, `HOLLOWDIAMOND` and `SQUARE` bullet
- *  glyph for the first 3 list nesting levels.
+ *  A bulleted list with a `DIAMONDX`, `HOLLOWDIAMOND` and `SQUARE` bullet glyph
+ *  for the first 3 list nesting levels.
  *
  *  Value: "BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE"
  */
@@ -304,37 +304,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_Bul
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiscCircleSquare;
 /**
- *  A bulleted list with a `LEFTTRIANGLE`, `DIAMOND` and `DISC` bullet glyph
- *  for the first 3 list nesting levels.
+ *  A bulleted list with a `LEFTTRIANGLE`, `DIAMOND` and `DISC` bullet glyph for
+ *  the first 3 list nesting levels.
  *
  *  Value: "BULLET_LEFTTRIANGLE_DIAMOND_DISC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletLefttriangleDiamondDisc;
 /**
- *  A bulleted list with a `STAR`, `CIRCLE` and `SQUARE` bullet glyph for
- *  the first 3 list nesting levels.
+ *  A bulleted list with a `STAR`, `CIRCLE` and `SQUARE` bullet glyph for the
+ *  first 3 list nesting levels.
  *
  *  Value: "BULLET_STAR_CIRCLE_SQUARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletStarCircleSquare;
 /**
- *  A numbered list with `DIGIT`, `ALPHA` and `ROMAN` numeric glyphs for
- *  the first 3 list nesting levels, followed by periods.
+ *  A numbered list with `DIGIT`, `ALPHA` and `ROMAN` numeric glyphs for the
+ *  first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_DIGIT_ALPHA_ROMAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitAlphaRoman;
 /**
- *  A numbered list with `DIGIT`, `ALPHA` and `ROMAN` numeric glyphs for
- *  the first 3 list nesting levels, followed by parenthesis.
+ *  A numbered list with `DIGIT`, `ALPHA` and `ROMAN` numeric glyphs for the
+ *  first 3 list nesting levels, followed by parenthesis.
  *
  *  Value: "NUMBERED_DIGIT_ALPHA_ROMAN_PARENS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitAlphaRomanParens;
 /**
- *  A numbered list with `DIGIT` numeric glyphs separated by periods, where
- *  each nesting level uses the previous nesting level's glyph as a prefix.
- *  For example: '1.', '1.1.', '2.', '2.2.'.
+ *  A numbered list with `DIGIT` numeric glyphs separated by periods, where each
+ *  nesting level uses the previous nesting level's glyph as a prefix. For
+ *  example: '1.', '1.1.', '2.', '2.2.'.
  *
  *  Value: "NUMBERED_DIGIT_NESTED"
  */
@@ -354,8 +354,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_Bul
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperromanUpperalphaDigit;
 /**
- *  A numbered list with `ZERODIGIT`, `ALPHA` and `ROMAN` numeric glyphs for
- *  the first 3 list nesting levels, followed by periods.
+ *  A numbered list with `ZERODIGIT`, `ALPHA` and `ROMAN` numeric glyphs for the
+ *  first 3 list nesting levels, followed by periods.
  *
  *  Value: "NUMBERED_ZERODIGIT_ALPHA_ROMAN"
  */
@@ -488,8 +488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Curv
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_CurvedRightArrow;
 /**
- *  Curved up arrow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'curvedUpArrow'
+ *  Curved up arrow shape. Corresponds to ECMA-376 ST_ShapeType 'curvedUpArrow'
  *
  *  Value: "CURVED_UP_ARROW"
  */
@@ -556,8 +555,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Down
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Ellipse;
 /**
- *  Ellipse ribbon shape. Corresponds to ECMA-376 ST_ShapeType
- *  'ellipseRibbon'
+ *  Ellipse ribbon shape. Corresponds to ECMA-376 ST_ShapeType 'ellipseRibbon'
  *
  *  Value: "ELLIPSE_RIBBON"
  */
@@ -577,8 +575,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Elli
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartAlternateProcess;
 /**
- *  Collate flow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'flowChartCollate'
+ *  Collate flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartCollate'
  *
  *  Value: "FLOW_CHART_COLLATE"
  */
@@ -604,8 +601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Flow
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDelay;
 /**
- *  Display flow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'flowChartDisplay'
+ *  Display flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartDisplay'
  *
  *  Value: "FLOW_CHART_DISPLAY"
  */
@@ -618,8 +614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Flow
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDocument;
 /**
- *  Extract flow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'flowChartExtract'
+ *  Extract flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartExtract'
  *
  *  Value: "FLOW_CHART_EXTRACT"
  */
@@ -728,8 +723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Flow
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPreparation;
 /**
- *  Process flow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'flowChartProcess'
+ *  Process flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartProcess'
  *
  *  Value: "FLOW_CHART_PROCESS"
  */
@@ -884,8 +878,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Left
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_LeftUpArrow;
 /**
- *  Lightning bolt shape. Corresponds to ECMA-376 ST_ShapeType
- *  'lightningBolt'
+ *  Lightning bolt shape. Corresponds to ECMA-376 ST_ShapeType 'lightningBolt'
  *
  *  Value: "LIGHTNING_BOLT"
  */
@@ -1137,8 +1130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Star24;
 /**
- *  Thirty two pointed star shape. Corresponds to ECMA-376 ST_ShapeType
- *  'star32'
+ *  Thirty two pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star32'
  *
  *  Value: "STAR_32"
  */
@@ -1248,8 +1240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UpDo
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_UturnArrow;
 /**
- *  Vertical scroll shape. Corresponds to ECMA-376 ST_ShapeType
- *  'verticalScroll'
+ *  Vertical scroll shape. Corresponds to ECMA-376 ST_ShapeType 'verticalScroll'
  *
  *  Value: "VERTICAL_SCROLL"
  */
@@ -1286,8 +1277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateShapeRequest_ShapeType_Wedg
 // GTLRSlides_CreateSheetsChartRequest.linkingMode
 
 /**
- *  Linking the chart allows it to be updated, and other collaborators will
- *  see a link to the spreadsheet.
+ *  Linking the chart allows it to be updated, and other collaborators will see
+ *  a link to the spreadsheet.
  *
  *  Value: "LINKED"
  */
@@ -1326,8 +1317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_CreateVideoRequest_Source_Youtube
 // GTLRSlides_Dimension.unit
 
 /**
- *  An English Metric Unit (EMU) is defined as 1/360,000 of a centimeter
- *  and thus there are 914,400 EMUs per inch, and 12,700 EMUs per point.
+ *  An English Metric Unit (EMU) is defined as 1/360,000 of a centimeter and
+ *  thus there are 914,400 EMUs per inch, and 12,700 EMUs per point.
  *
  *  Value: "EMU"
  */
@@ -1516,8 +1507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_CurvedConnector5;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Line_LineType_StraightConnector1;
 /**
- *  Straight line. Corresponds to ECMA-376 ST_ShapeType 'line'. This line
- *  type is not a connector.
+ *  Straight line. Corresponds to ECMA-376 ST_ShapeType 'line'. This line type
+ *  is not a connector.
  *
  *  Value: "STRAIGHT_LINE"
  */
@@ -1558,8 +1549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_DashStyl
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_Dot;
 /**
- *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
- *  value 'lgDash'.
+ *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal value
+ *  'lgDash'.
  *
  *  Value: "LONG_DASH"
  */
@@ -1572,8 +1563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_LongDash
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_LineProperties_DashStyle_LongDashDot;
 /**
- *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
- *  This is the default dash style.
+ *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'. This
+ *  is the default dash style.
  *
  *  Value: "SOLID"
  */
@@ -1890,8 +1881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_DashStyleUnspec
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Dot;
 /**
- *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
- *  value 'lgDash'.
+ *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal value
+ *  'lgDash'.
  *
  *  Value: "LONG_DASH"
  */
@@ -1904,8 +1895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_LongDash;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_LongDashDot;
 /**
- *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
- *  This is the default dash style.
+ *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'. This
+ *  is the default dash style.
  *
  *  Value: "SOLID"
  */
@@ -1924,9 +1915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_DashStyle_Solid;
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
- *  corresponding property when rendered on a page. However, the field may
- *  still be set so it can be inherited by child shapes. To remove a property
- *  from a rendered element, set its property_state to NOT_RENDERED.
+ *  corresponding property when rendered on a page. However, the field may still
+ *  be set so it can be inherited by child shapes. To remove a property from a
+ *  rendered element, set its property_state to NOT_RENDERED.
  *
  *  Value: "NOT_RENDERED"
  */
@@ -1934,11 +1925,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Outline_PropertyState_NotRendered
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
- *  determined by the placeholder
- *  field, and it inherits from a placeholder shape, the corresponding field
- *  may be unset, meaning that the property value is inherited from a parent
- *  placeholder. If the element does not inherit, then the field will contain
- *  the rendered value. This is the default value.
+ *  determined by the placeholder field, and it inherits from a placeholder
+ *  shape, the corresponding field may be unset, meaning that the property value
+ *  is inherited from a parent placeholder. If the element does not inherit,
+ *  then the field will contain the rendered value. This is the default value.
  *
  *  Value: "RENDERED"
  */
@@ -1991,9 +1981,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Page_PageType_Slide;
 FOUNDATION_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
- *  corresponding property when rendered on a page. However, the field may
- *  still be set so it can be inherited by child shapes. To remove a property
- *  from a rendered element, set its property_state to NOT_RENDERED.
+ *  corresponding property when rendered on a page. However, the field may still
+ *  be set so it can be inherited by child shapes. To remove a property from a
+ *  rendered element, set its property_state to NOT_RENDERED.
  *
  *  Value: "NOT_RENDERED"
  */
@@ -2001,11 +1991,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_PageBackgroundFill_PropertyState_
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
- *  determined by the placeholder
- *  field, and it inherits from a placeholder shape, the corresponding field
- *  may be unset, meaning that the property value is inherited from a parent
- *  placeholder. If the element does not inherit, then the field will contain
- *  the rendered value. This is the default value.
+ *  determined by the placeholder field, and it inherits from a placeholder
+ *  shape, the corresponding field may be unset, meaning that the property value
+ *  is inherited from a parent placeholder. If the element does not inherit,
+ *  then the field will contain the rendered value. This is the default value.
  *
  *  Value: "RENDERED"
  */
@@ -2027,8 +2016,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Alignmen
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Center;
 /**
- *  The paragraph is aligned to the end of the line. Right-aligned for
- *  LTR text, left-aligned otherwise.
+ *  The paragraph is aligned to the end of the line. Right-aligned for LTR text,
+ *  left-aligned otherwise.
  *
  *  Value: "END"
  */
@@ -2040,8 +2029,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_End;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_ParagraphStyle_Alignment_Justified;
 /**
- *  The paragraph is aligned to the start of the line. Left-aligned for
- *  LTR text, right-aligned otherwise.
+ *  The paragraph is aligned to the start of the line. Left-aligned for LTR
+ *  text, right-aligned otherwise.
  *
  *  Value: "START"
  */
@@ -2202,22 +2191,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Placeholder_Type_Title;
 
 /**
  *  Sets the range to be the whole length of the collection. Both the
- *  `start_index` and the `end_index` must not be
- *  specified.
+ *  `start_index` and the `end_index` must not be specified.
  *
  *  Value: "ALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Range_Type_All;
 /**
- *  A fixed range. Both the `start_index` and
- *  `end_index` must be specified.
+ *  A fixed range. Both the `start_index` and `end_index` must be specified.
  *
  *  Value: "FIXED_RANGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Range_Type_FixedRange;
 /**
- *  Starts the range at `start_index` and continues until the
- *  end of the collection. The `end_index` must not be specified.
+ *  Starts the range at `start_index` and continues until the end of the
+ *  collection. The `end_index` must not be specified.
  *
  *  Value: "FROM_START_INDEX"
  */
@@ -2233,8 +2220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Range_Type_RangeTypeUnspecified;
 // GTLRSlides_Recolor.name
 
 /**
- *  Custom recolor effect. Refer to `recolor_stops` for the concrete
- *  gradient.
+ *  Custom recolor effect. Refer to `recolor_stops` for the concrete gradient.
  *
  *  Value: "CUSTOM"
  */
@@ -2289,8 +2275,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark5;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Dark6;
 /**
- *  A recolor effect that darkens the image using the page's seventh
- *  available color from its color scheme.
+ *  A recolor effect that darkens the image using the page's seventh available
+ *  color from its color scheme.
  *
  *  Value: "DARK7"
  */
@@ -2330,8 +2316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light1;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light10;
 /**
- *  A recolor effect that lightens the image using the page's second
- *  available color from its color scheme.
+ *  A recolor effect that lightens the image using the page's second available
+ *  color from its color scheme.
  *
  *  Value: "LIGHT2"
  */
@@ -2365,15 +2351,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light5;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light6;
 /**
- *  A recolor effect that lightens the image using the page's seventh
- *  available color from its color scheme.
+ *  A recolor effect that lightens the image using the page's seventh available
+ *  color from its color scheme.
  *
  *  Value: "LIGHT7"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Light7;
 /**
- *  A recolor effect that lightens the image using the page's eighth
- *  available color from its color scheme.
+ *  A recolor effect that lightens the image using the page's eighth available
+ *  color from its color scheme.
  *
  *  Value: "LIGHT8"
  */
@@ -2408,18 +2394,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Recolor_Name_Sepia;
 // GTLRSlides_ReplaceAllShapesWithImageRequest.imageReplaceMethod
 
 /**
- *  Scales and centers the image to fill the bounds of the original shape.
- *  The image may be cropped in order to fill the shape. The rendered size of
- *  the image will be the same as that of the original shape.
+ *  Scales and centers the image to fill the bounds of the original shape. The
+ *  image may be cropped in order to fill the shape. The rendered size of the
+ *  image will be the same as that of the original shape.
  *
  *  Value: "CENTER_CROP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterCrop;
 /**
- *  Scales and centers the image to fit within the bounds of the original
- *  shape and maintains the image's aspect ratio. The rendered size of the
- *  image may be smaller than the size of the shape. This is the default
- *  method when one is not specified.
+ *  Scales and centers the image to fit within the bounds of the original shape
+ *  and maintains the image's aspect ratio. The rendered size of the image may
+ *  be smaller than the size of the shape. This is the default method when one
+ *  is not specified.
  *
  *  Value: "CENTER_INSIDE"
  */
@@ -2435,18 +2421,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_
 // GTLRSlides_ReplaceAllShapesWithImageRequest.replaceMethod
 
 /**
- *  Scales and centers the image to fill the bounds of the original shape.
- *  The image may be cropped in order to fill the shape. The rendered size of
- *  the image will be the same as that of the original shape.
+ *  Scales and centers the image to fill the bounds of the original shape. The
+ *  image may be cropped in order to fill the shape. The rendered size of the
+ *  image will be the same as that of the original shape.
  *
  *  Value: "CENTER_CROP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterCrop;
 /**
- *  Scales and centers the image to fit within the bounds of the original
- *  shape and maintains the image's aspect ratio. The rendered size of the
- *  image may be smaller than the size of the shape. This is the default
- *  method when one is not specified.
+ *  Scales and centers the image to fit within the bounds of the original shape
+ *  and maintains the image's aspect ratio. The rendered size of the image may
+ *  be smaller than the size of the shape. This is the default method when one
+ *  is not specified.
  *
  *  Value: "CENTER_INSIDE"
  */
@@ -2456,8 +2442,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithImageRequest_
 // GTLRSlides_ReplaceAllShapesWithSheetsChartRequest.linkingMode
 
 /**
- *  Linking the chart allows it to be updated, and other collaborators will
- *  see a link to the spreadsheet.
+ *  Linking the chart allows it to be updated, and other collaborators will see
+ *  a link to the spreadsheet.
  *
  *  Value: "LINKED"
  */
@@ -2474,18 +2460,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceAllShapesWithSheetsChartRe
 // GTLRSlides_ReplaceImageRequest.imageReplaceMethod
 
 /**
- *  Scales and centers the image to fill the bounds of the original shape.
- *  The image may be cropped in order to fill the shape. The rendered size of
- *  the image will be the same as that of the original shape.
+ *  Scales and centers the image to fill the bounds of the original shape. The
+ *  image may be cropped in order to fill the shape. The rendered size of the
+ *  image will be the same as that of the original shape.
  *
  *  Value: "CENTER_CROP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterCrop;
 /**
- *  Scales and centers the image to fit within the bounds of the original
- *  shape and maintains the image's aspect ratio. The rendered size of the
- *  image may be smaller than the size of the shape. This is the default
- *  method when one is not specified.
+ *  Scales and centers the image to fit within the bounds of the original shape
+ *  and maintains the image's aspect ratio. The rendered size of the image may
+ *  be smaller than the size of the shape. This is the default method when one
+ *  is not specified.
  *
  *  Value: "CENTER_INSIDE"
  */
@@ -2574,9 +2560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_Alignment_TopRight;
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
- *  corresponding property when rendered on a page. However, the field may
- *  still be set so it can be inherited by child shapes. To remove a property
- *  from a rendered element, set its property_state to NOT_RENDERED.
+ *  corresponding property when rendered on a page. However, the field may still
+ *  be set so it can be inherited by child shapes. To remove a property from a
+ *  rendered element, set its property_state to NOT_RENDERED.
  *
  *  Value: "NOT_RENDERED"
  */
@@ -2584,11 +2570,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shadow_PropertyState_NotRendered;
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
- *  determined by the placeholder
- *  field, and it inherits from a placeholder shape, the corresponding field
- *  may be unset, meaning that the property value is inherited from a parent
- *  placeholder. If the element does not inherit, then the field will contain
- *  the rendered value. This is the default value.
+ *  determined by the placeholder field, and it inherits from a placeholder
+ *  shape, the corresponding field may be unset, meaning that the property value
+ *  is inherited from a parent placeholder. If the element does not inherit,
+ *  then the field will contain the rendered value. This is the default value.
  *
  *  Value: "RENDERED"
  */
@@ -2737,8 +2722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedLeftArrow;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_CurvedRightArrow;
 /**
- *  Curved up arrow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'curvedUpArrow'
+ *  Curved up arrow shape. Corresponds to ECMA-376 ST_ShapeType 'curvedUpArrow'
  *
  *  Value: "CURVED_UP_ARROW"
  */
@@ -2805,8 +2789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_DownArrowCallout;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Ellipse;
 /**
- *  Ellipse ribbon shape. Corresponds to ECMA-376 ST_ShapeType
- *  'ellipseRibbon'
+ *  Ellipse ribbon shape. Corresponds to ECMA-376 ST_ShapeType 'ellipseRibbon'
  *
  *  Value: "ELLIPSE_RIBBON"
  */
@@ -2826,8 +2809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_EllipseRibbon2;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartAlternateProcess;
 /**
- *  Collate flow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'flowChartCollate'
+ *  Collate flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartCollate'
  *
  *  Value: "FLOW_CHART_COLLATE"
  */
@@ -2853,8 +2835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDecision
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDelay;
 /**
- *  Display flow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'flowChartDisplay'
+ *  Display flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartDisplay'
  *
  *  Value: "FLOW_CHART_DISPLAY"
  */
@@ -2867,8 +2848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDisplay;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartDocument;
 /**
- *  Extract flow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'flowChartExtract'
+ *  Extract flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartExtract'
  *
  *  Value: "FLOW_CHART_EXTRACT"
  */
@@ -2977,8 +2957,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPredefin
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_FlowChartPreparation;
 /**
- *  Process flow shape. Corresponds to ECMA-376 ST_ShapeType
- *  'flowChartProcess'
+ *  Process flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartProcess'
  *
  *  Value: "FLOW_CHART_PROCESS"
  */
@@ -3133,8 +3112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftRightUpArrow;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_LeftUpArrow;
 /**
- *  Lightning bolt shape. Corresponds to ECMA-376 ST_ShapeType
- *  'lightningBolt'
+ *  Lightning bolt shape. Corresponds to ECMA-376 ST_ShapeType 'lightningBolt'
  *
  *  Value: "LIGHTNING_BOLT"
  */
@@ -3386,8 +3364,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star16;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_Star24;
 /**
- *  Thirty two pointed star shape. Corresponds to ECMA-376 ST_ShapeType
- *  'star32'
+ *  Thirty two pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star32'
  *
  *  Value: "STAR_32"
  */
@@ -3497,8 +3474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UpDownArrow;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_UturnArrow;
 /**
- *  Vertical scroll shape. Corresponds to ECMA-376 ST_ShapeType
- *  'verticalScroll'
+ *  Vertical scroll shape. Corresponds to ECMA-376 ST_ShapeType 'verticalScroll'
  *
  *  Value: "VERTICAL_SCROLL"
  */
@@ -3544,9 +3520,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Shape_ShapeType_WedgeRoundRectang
 FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
- *  corresponding property when rendered on a page. However, the field may
- *  still be set so it can be inherited by child shapes. To remove a property
- *  from a rendered element, set its property_state to NOT_RENDERED.
+ *  corresponding property when rendered on a page. However, the field may still
+ *  be set so it can be inherited by child shapes. To remove a property from a
+ *  rendered element, set its property_state to NOT_RENDERED.
  *
  *  Value: "NOT_RENDERED"
  */
@@ -3554,11 +3530,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
- *  determined by the placeholder
- *  field, and it inherits from a placeholder shape, the corresponding field
- *  may be unset, meaning that the property value is inherited from a parent
- *  placeholder. If the element does not inherit, then the field will contain
- *  the rendered value. This is the default value.
+ *  determined by the placeholder field, and it inherits from a placeholder
+ *  shape, the corresponding field may be unset, meaning that the property value
+ *  is inherited from a parent placeholder. If the element does not inherit,
+ *  then the field will contain the rendered value. This is the default value.
  *
  *  Value: "RENDERED"
  */
@@ -3568,8 +3543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeBackgroundFill_PropertyState
 // GTLRSlides_ShapeProperties.contentAlignment
 
 /**
- *  An alignment that aligns the content to the bottom of the content
- *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'b'.
+ *  An alignment that aligns the content to the bottom of the content holder.
+ *  Corresponds to ECMA-376 ST_TextAnchoringType 'b'.
  *
  *  Value: "BOTTOM"
  */
@@ -3588,8 +3563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnsupported;
 /**
- *  An alignment that aligns the content to the middle of the content
- *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
+ *  An alignment that aligns the content to the middle of the content holder.
+ *  Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
  *
  *  Value: "MIDDLE"
  */
@@ -3631,8 +3606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_Dot;
 /**
- *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
- *  value 'lgDash'.
+ *  Line with large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal value
+ *  'lgDash'.
  *
  *  Value: "LONG_DASH"
  */
@@ -3645,8 +3620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_L
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_LongDashDot;
 /**
- *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
- *  This is the default dash style.
+ *  Solid line. Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'. This
+ *  is the default dash style.
  *
  *  Value: "SOLID"
  */
@@ -3665,9 +3640,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_TableBorderProperties_DashStyle_S
 FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyState_Inherit;
 /**
  *  If a property's state is NOT_RENDERED, then the element does not have the
- *  corresponding property when rendered on a page. However, the field may
- *  still be set so it can be inherited by child shapes. To remove a property
- *  from a rendered element, set its property_state to NOT_RENDERED.
+ *  corresponding property when rendered on a page. However, the field may still
+ *  be set so it can be inherited by child shapes. To remove a property from a
+ *  rendered element, set its property_state to NOT_RENDERED.
  *
  *  Value: "NOT_RENDERED"
  */
@@ -3675,11 +3650,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyS
 /**
  *  If a property's state is RENDERED, then the element has the corresponding
  *  property when rendered on a page. If the element is a placeholder shape as
- *  determined by the placeholder
- *  field, and it inherits from a placeholder shape, the corresponding field
- *  may be unset, meaning that the property value is inherited from a parent
- *  placeholder. If the element does not inherit, then the field will contain
- *  the rendered value. This is the default value.
+ *  determined by the placeholder field, and it inherits from a placeholder
+ *  shape, the corresponding field may be unset, meaning that the property value
+ *  is inherited from a parent placeholder. If the element does not inherit,
+ *  then the field will contain the rendered value. This is the default value.
  *
  *  Value: "RENDERED"
  */
@@ -3689,8 +3663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellBackgroundFill_PropertyS
 // GTLRSlides_TableCellProperties.contentAlignment
 
 /**
- *  An alignment that aligns the content to the bottom of the content
- *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'b'.
+ *  An alignment that aligns the content to the bottom of the content holder.
+ *  Corresponds to ECMA-376 ST_TextAnchoringType 'b'.
  *
  *  Value: "BOTTOM"
  */
@@ -3709,8 +3683,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignm
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnsupported;
 /**
- *  An alignment that aligns the content to the middle of the content
- *  holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
+ *  An alignment that aligns the content to the middle of the content holder.
+ *  Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'.
  *
  *  Value: "MIDDLE"
  */
@@ -3937,8 +3911,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_UpdatePageElementTransformRequest_ApplyMode_ApplyModeUnspecified;
 /**
- *  Applies the new AffineTransform matrix to the existing one, and
- *  replaces the existing one with the resulting concatenation.
+ *  Applies the new AffineTransform matrix to the existing one, and replaces the
+ *  existing one with the resulting concatenation.
  *
  *  Value: "RELATIVE"
  */
@@ -4025,15 +3999,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_SourceUnspecified;
 FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
- *  AffineTransform uses a 3x3 matrix with an implied last row of [ 0 0 1 ]
- *  to transform source coordinates (x,y) into destination coordinates (x', y')
- *  according to:
- *  x' x = shear_y scale_y translate_y
- *  1 [ 1 ]
- *  After transformation,
- *  x' = scale_x * x + shear_x * y + translate_x;
- *  y' = scale_y * y + shear_y * x + translate_y;
- *  This message is therefore composed of these six matrix elements.
+ *  AffineTransform uses a 3x3 matrix with an implied last row of [ 0 0 1 ] to
+ *  transform source coordinates (x,y) into destination coordinates (x', y')
+ *  according to: x' x = shear_y scale_y translate_y 1 [ 1 ] After
+ *  transformation, x' = scale_x * x + shear_x * y + translate_x; y' = scale_y *
+ *  y + shear_y * x + translate_y; This message is therefore composed of these
+ *  six matrix elements.
  */
 @interface GTLRSlides_AffineTransform : GTLRObject
 
@@ -4084,9 +4055,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_AffineTransform_Unit_Emu An English Metric Unit (EMU)
- *        is defined as 1/360,000 of a centimeter
- *        and thus there are 914,400 EMUs per inch, and 12,700 EMUs per point.
- *        (Value: "EMU")
+ *        is defined as 1/360,000 of a centimeter and thus there are 914,400
+ *        EMUs per inch, and 12,700 EMUs per point. (Value: "EMU")
  *    @arg @c kGTLRSlides_AffineTransform_Unit_Pt A point, 1/72 of an inch.
  *        (Value: "PT")
  *    @arg @c kGTLRSlides_AffineTransform_Unit_UnitUnspecified The units are
@@ -4145,8 +4115,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *presentationId;
 
 /**
- *  The reply of the updates. This maps 1:1 with the updates, although
- *  replies to some requests may be empty.
+ *  The reply of the updates. This maps 1:1 with the updates, although replies
+ *  to some requests may be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_Response *> *replies;
 
@@ -4197,8 +4167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_ColorStop : GTLRObject
 
 /**
- *  The alpha value of this color in the gradient band. Defaults to 1.0,
- *  fully opaque.
+ *  The alpha value of this color in the gradient band. Defaults to 1.0, fully
+ *  opaque.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4208,8 +4178,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_OpaqueColor *color;
 
 /**
- *  The relative position of the color stop in the gradient band measured
- *  in percentage. The value should be in the interval [0.0, 1.0].
+ *  The relative position of the color stop in the gradient band measured in
+ *  percentage. The value should be in the interval [0.0, 1.0].
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4224,40 +4194,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_CreateImageRequest : GTLRObject
 
 /**
- *  The element properties for the image.
- *  When the aspect ratio of the provided size does not match the image aspect
- *  ratio, the image is scaled and centered with respect to the size in order
- *  to maintain aspect ratio. The provided transform is applied after this
- *  operation.
- *  The PageElementProperties.size property is
- *  optional. If you don't specify the size, the default size of the image is
- *  used.
- *  The PageElementProperties.transform property is
- *  optional. If you don't specify a transform, the image will be placed at the
- *  top left corner of the page.
+ *  The element properties for the image. When the aspect ratio of the provided
+ *  size does not match the image aspect ratio, the image is scaled and centered
+ *  with respect to the size in order to maintain aspect ratio. The provided
+ *  transform is applied after this operation. The PageElementProperties.size
+ *  property is optional. If you don't specify the size, the default size of the
+ *  image is used. The PageElementProperties.transform property is optional. If
+ *  you don't specify a transform, the image will be placed at the top left
+ *  corner of the page.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
 /**
- *  A user-supplied object ID.
- *  If you specify an ID, it must be unique among all pages and page elements
- *  in the presentation. The ID must start with an alphanumeric character or an
- *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
- *  may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`).
- *  The length of the ID must not be less than 5 or greater than 50.
- *  If you don't specify an ID, a unique one is generated.
+ *  A user-supplied object ID. If you specify an ID, it must be unique among all
+ *  pages and page elements in the presentation. The ID must start with an
+ *  alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`);
+ *  remaining characters may include those as well as a hyphen or colon (matches
+ *  regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or
+ *  greater than 50. If you don't specify an ID, a unique one is generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
- *  The image URL.
- *  The image is fetched once at insertion time and a copy is stored for
- *  display inside the presentation. Images must be less than 50MB in size,
- *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
- *  format.
- *  The provided URL can be at most 2 kB in length. The URL itself is saved
- *  with the image, and exposed via the Image.source_url field.
+ *  The image URL. The image is fetched once at insertion time and a copy is
+ *  stored for display inside the presentation. Images must be less than 50MB in
+ *  size, cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
+ *  format. The provided URL can be at most 2 kB in length. The URL itself is
+ *  saved with the image, and exposed via the Image.source_url field.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -4281,15 +4244,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_CreateLineRequest : GTLRObject
 
 /**
- *  The category of the line to be created.
- *  The exact line type created is
+ *  The category of the line to be created. The exact line type created is
  *  determined based on the category and how it's routed to connect to other
- *  page elements.
- *  If you specify both a `category` and a `line_category`, the `category`
- *  takes precedence.
- *  If you do not specify a value for `category`, but specify a value for
- *  `line_category`, then the specified `line_category` value is used.
- *  If you do not specify either, then STRAIGHT is used.
+ *  page elements. If you specify both a `category` and a `line_category`, the
+ *  `category` takes precedence. If you do not specify a value for `category`,
+ *  but specify a value for `line_category`, then the specified `line_category`
+ *  value is used. If you do not specify either, then STRAIGHT is used.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_CreateLineRequest_Category_Bent Bent connectors,
@@ -4307,13 +4267,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
 /**
- *  The category of the line to be created.
- *  <b>Deprecated</b>: use `category` instead.
- *  The exact line type created is
- *  determined based on the category and how it's routed to connect to other
- *  page elements.
- *  If you specify both a `category` and a `line_category`, the `category`
- *  takes precedence.
+ *  The category of the line to be created. *Deprecated*: use `category`
+ *  instead. The exact line type created is determined based on the category and
+ *  how it's routed to connect to other page elements. If you specify both a
+ *  `category` and a `line_category`, the `category` takes precedence.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_CreateLineRequest_LineCategory_Bent Bent connectors,
@@ -4327,14 +4284,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *lineCategory;
 
 /**
- *  A user-supplied object ID.
- *  If you specify an ID, it must be unique among all pages and page elements
- *  in the presentation. The ID must start with an alphanumeric character or an
- *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
- *  may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`).
- *  The length of the ID must not be less than 5 or greater than 50.
- *  If you don't specify an ID, a unique one is generated.
+ *  A user-supplied object ID. If you specify an ID, it must be unique among all
+ *  pages and page elements in the presentation. The ID must start with an
+ *  alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`);
+ *  remaining characters may include those as well as a hyphen or colon (matches
+ *  regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or
+ *  greater than 50. If you don't specify an ID, a unique one is generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -4353,13 +4308,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Creates bullets for all of the paragraphs that overlap with the given
- *  text index range.
- *  The nesting level of each paragraph will be determined by counting leading
- *  tabs in front of each paragraph. To avoid excess space between the bullet
- *  and
- *  the corresponding paragraph, these leading tabs are removed by this request.
- *  This may change the indices of parts of the text.
+ *  Creates bullets for all of the paragraphs that overlap with the given text
+ *  index range. The nesting level of each paragraph will be determined by
+ *  counting leading tabs in front of each paragraph. To avoid excess space
+ *  between the bullet and the corresponding paragraph, these leading tabs are
+ *  removed by this request. This may change the indices of parts of the text.
  *  If the paragraph immediately before paragraphs being updated is in a list
  *  with a matching preset, the paragraphs being updated are added to that
  *  preceding list.
@@ -4373,8 +4326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  Likely values:
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrow3dCircleSquare
  *        A bulleted list with a `ARROW3D`, `CIRCLE` and `SQUARE` bullet glyph
- *        for
- *        the first 3 list nesting levels. (Value:
+ *        for the first 3 list nesting levels. (Value:
  *        "BULLET_ARROW3D_CIRCLE_SQUARE")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletArrowDiamondDisc
  *        A bulleted list with a `ARROW`, `DIAMOND` and `DISC` bullet glyph for
@@ -4388,8 +4340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        "BULLET_DIAMOND_CIRCLE_SQUARE")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxArrow3dSquare
  *        A bulleted list with a `DIAMONDX`, `ARROW3D` and `SQUARE` bullet glyph
- *        for
- *        the first 3 list nesting levels. (Value:
+ *        for the first 3 list nesting levels. (Value:
  *        "BULLET_DIAMONDX_ARROW3D_SQUARE")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiamondxHollowdiamondSquare
  *        A bulleted list with a `DIAMONDX`, `HOLLOWDIAMOND` and `SQUARE` bullet
@@ -4397,12 +4348,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        "BULLET_DIAMONDX_HOLLOWDIAMOND_SQUARE")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletDiscCircleSquare
  *        A bulleted list with a `DISC`, `CIRCLE` and `SQUARE` bullet glyph for
- *        the
- *        first 3 list nesting levels. (Value: "BULLET_DISC_CIRCLE_SQUARE")
+ *        the first 3 list nesting levels. (Value: "BULLET_DISC_CIRCLE_SQUARE")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletLefttriangleDiamondDisc
  *        A bulleted list with a `LEFTTRIANGLE`, `DIAMOND` and `DISC` bullet
- *        glyph
- *        for the first 3 list nesting levels. (Value:
+ *        glyph for the first 3 list nesting levels. (Value:
  *        "BULLET_LEFTTRIANGLE_DIAMOND_DISC")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_BulletStarCircleSquare
  *        A bulleted list with a `STAR`, `CIRCLE` and `SQUARE` bullet glyph for
@@ -4417,25 +4366,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        "NUMBERED_DIGIT_ALPHA_ROMAN_PARENS")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedDigitNested
  *        A numbered list with `DIGIT` numeric glyphs separated by periods,
- *        where
- *        each nesting level uses the previous nesting level's glyph as a
- *        prefix.
- *        For example: '1.', '1.1.', '2.', '2.2.'. (Value:
+ *        where each nesting level uses the previous nesting level's glyph as a
+ *        prefix. For example: '1.', '1.1.', '2.', '2.2.'. (Value:
  *        "NUMBERED_DIGIT_NESTED")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperalphaAlphaRoman
  *        A numbered list with `UPPERALPHA`, `ALPHA` and `ROMAN` numeric glyphs
- *        for
- *        the first 3 list nesting levels, followed by periods. (Value:
+ *        for the first 3 list nesting levels, followed by periods. (Value:
  *        "NUMBERED_UPPERALPHA_ALPHA_ROMAN")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperromanUpperalphaDigit
  *        A numbered list with `UPPERROMAN`, `UPPERALPHA` and `DIGIT` numeric
- *        glyphs
- *        for the first 3 list nesting levels, followed by periods. (Value:
- *        "NUMBERED_UPPERROMAN_UPPERALPHA_DIGIT")
+ *        glyphs for the first 3 list nesting levels, followed by periods.
+ *        (Value: "NUMBERED_UPPERROMAN_UPPERALPHA_DIGIT")
  *    @arg @c kGTLRSlides_CreateParagraphBulletsRequest_BulletPreset_NumberedZerodigitAlphaRoman
  *        A numbered list with `ZERODIGIT`, `ALPHA` and `ROMAN` numeric glyphs
- *        for
- *        the first 3 list nesting levels, followed by periods. (Value:
+ *        for the first 3 list nesting levels, followed by periods. (Value:
  *        "NUMBERED_ZERODIGIT_ALPHA_ROMAN")
  */
 @property(nonatomic, copy, nullable) NSString *bulletPreset;
@@ -4469,14 +4413,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
 /**
- *  A user-supplied object ID.
- *  If you specify an ID, it must be unique among all pages and page elements
- *  in the presentation. The ID must start with an alphanumeric character or an
- *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
- *  may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`).
- *  The length of the ID must not be less than 5 or greater than 50.
- *  If empty, a unique identifier will be generated.
+ *  A user-supplied object ID. If you specify an ID, it must be unique among all
+ *  pages and page elements in the presentation. The ID must start with an
+ *  alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`);
+ *  remaining characters may include those as well as a hyphen or colon (matches
+ *  regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or
+ *  greater than 50. If empty, a unique identifier will be generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -4533,8 +4475,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'curvedRightArrow' (Value: "CURVED_RIGHT_ARROW")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_CurvedUpArrow Curved up
- *        arrow shape. Corresponds to ECMA-376 ST_ShapeType
- *        'curvedUpArrow' (Value: "CURVED_UP_ARROW")
+ *        arrow shape. Corresponds to ECMA-376 ST_ShapeType 'curvedUpArrow'
+ *        (Value: "CURVED_UP_ARROW")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Custom Custom shape.
  *        (Value: "CUSTOM")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Decagon Decagon shape.
@@ -4561,17 +4503,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Ellipse Ellipse shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'ellipse' (Value: "ELLIPSE")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_EllipseRibbon Ellipse
- *        ribbon shape. Corresponds to ECMA-376 ST_ShapeType
- *        'ellipseRibbon' (Value: "ELLIPSE_RIBBON")
+ *        ribbon shape. Corresponds to ECMA-376 ST_ShapeType 'ellipseRibbon'
+ *        (Value: "ELLIPSE_RIBBON")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_EllipseRibbon2 Ellipse
- *        ribbon 2 shape. Corresponds to ECMA-376 ST_ShapeType
- *        'ellipseRibbon2' (Value: "ELLIPSE_RIBBON_2")
+ *        ribbon 2 shape. Corresponds to ECMA-376 ST_ShapeType 'ellipseRibbon2'
+ *        (Value: "ELLIPSE_RIBBON_2")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartAlternateProcess
  *        Alternate process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartAlternateProcess' (Value: "FLOW_CHART_ALTERNATE_PROCESS")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartCollate Collate
- *        flow shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartCollate' (Value: "FLOW_CHART_COLLATE")
+ *        flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartCollate'
+ *        (Value: "FLOW_CHART_COLLATE")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartConnector
  *        Connector flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartConnector' (Value: "FLOW_CHART_CONNECTOR")
@@ -4582,14 +4524,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartDelay' (Value:
  *        "FLOW_CHART_DELAY")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDisplay Display
- *        flow shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartDisplay' (Value: "FLOW_CHART_DISPLAY")
+ *        flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartDisplay'
+ *        (Value: "FLOW_CHART_DISPLAY")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartDocument
  *        Document flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartDocument' (Value: "FLOW_CHART_DOCUMENT")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartExtract Extract
- *        flow shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartExtract' (Value: "FLOW_CHART_EXTRACT")
+ *        flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartExtract'
+ *        (Value: "FLOW_CHART_EXTRACT")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartInputOutput
  *        Input output flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartInputOutput' (Value: "FLOW_CHART_INPUT_OUTPUT")
@@ -4636,8 +4578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        Preparation flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartPreparation' (Value: "FLOW_CHART_PREPARATION")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartProcess Process
- *        flow shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartProcess' (Value: "FLOW_CHART_PROCESS")
+ *        flow shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartProcess'
+ *        (Value: "FLOW_CHART_PROCESS")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_FlowChartPunchedCard
  *        Punched card flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartPunchedCard' (Value: "FLOW_CHART_PUNCHED_CARD")
@@ -4674,11 +4616,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        Horizontal scroll shape. Corresponds to ECMA-376 ST_ShapeType
  *        'horizontalScroll' (Value: "HORIZONTAL_SCROLL")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_IrregularSeal1 Irregular
- *        seal 1 shape. Corresponds to ECMA-376 ST_ShapeType
- *        'irregularSeal1' (Value: "IRREGULAR_SEAL_1")
+ *        seal 1 shape. Corresponds to ECMA-376 ST_ShapeType 'irregularSeal1'
+ *        (Value: "IRREGULAR_SEAL_1")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_IrregularSeal2 Irregular
- *        seal 2 shape. Corresponds to ECMA-376 ST_ShapeType
- *        'irregularSeal2' (Value: "IRREGULAR_SEAL_2")
+ *        seal 2 shape. Corresponds to ECMA-376 ST_ShapeType 'irregularSeal2'
+ *        (Value: "IRREGULAR_SEAL_2")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_LeftArrow Left arrow
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'leftArrow' (Value:
  *        "LEFT_ARROW")
@@ -4692,8 +4634,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'leftBracket' (Value:
  *        "LEFT_BRACKET")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_LeftRightArrow Left right
- *        arrow shape. Corresponds to ECMA-376 ST_ShapeType
- *        'leftRightArrow' (Value: "LEFT_RIGHT_ARROW")
+ *        arrow shape. Corresponds to ECMA-376 ST_ShapeType 'leftRightArrow'
+ *        (Value: "LEFT_RIGHT_ARROW")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_LeftRightArrowCallout
  *        Callout left right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'leftRightArrowCallout' (Value: "LEFT_RIGHT_ARROW_CALLOUT")
@@ -4704,8 +4646,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'leftUpArrow' (Value:
  *        "LEFT_UP_ARROW")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_LightningBolt Lightning
- *        bolt shape. Corresponds to ECMA-376 ST_ShapeType
- *        'lightningBolt' (Value: "LIGHTNING_BOLT")
+ *        bolt shape. Corresponds to ECMA-376 ST_ShapeType 'lightningBolt'
+ *        (Value: "LIGHTNING_BOLT")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_MathDivide Divide math
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'mathDivide' (Value:
  *        "MATH_DIVIDE")
@@ -4811,11 +4753,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        star shape. Corresponds to ECMA-376 ST_ShapeType 'star16' (Value:
  *        "STAR_16")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Star24 Twenty four
- *        pointed star shape. Corresponds to ECMA-376 ST_ShapeType
- *        'star24' (Value: "STAR_24")
+ *        pointed star shape. Corresponds to ECMA-376 ST_ShapeType 'star24'
+ *        (Value: "STAR_24")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Star32 Thirty two pointed
- *        star shape. Corresponds to ECMA-376 ST_ShapeType
- *        'star32' (Value: "STAR_32")
+ *        star shape. Corresponds to ECMA-376 ST_ShapeType 'star32' (Value:
+ *        "STAR_32")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Star4 Four pointed star
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'star4' (Value: "STAR_4")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Star5 Five pointed star
@@ -4847,8 +4789,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_UpArrow Up arrow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'upArrow' (Value: "UP_ARROW")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_UpArrowCallout Callout up
- *        arrow shape. Corresponds to ECMA-376 ST_ShapeType
- *        'upArrowCallout' (Value: "UP_ARROW_CALLOUT")
+ *        arrow shape. Corresponds to ECMA-376 ST_ShapeType 'upArrowCallout'
+ *        (Value: "UP_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_UpDownArrow Up down arrow
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'upDownArrow' (Value:
  *        "UP_DOWN_ARROW")
@@ -4856,8 +4798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        shape. Corresponds to ECMA-376 ST_ShapeType 'uturnArrow' (Value:
  *        "UTURN_ARROW")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_VerticalScroll Vertical
- *        scroll shape. Corresponds to ECMA-376 ST_ShapeType
- *        'verticalScroll' (Value: "VERTICAL_SCROLL")
+ *        scroll shape. Corresponds to ECMA-376 ST_ShapeType 'verticalScroll'
+ *        (Value: "VERTICAL_SCROLL")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_Wave Wave shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'wave' (Value: "WAVE")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_WedgeEllipseCallout
@@ -4868,8 +4810,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        'wedgeRectCallout' (Value: "WEDGE_RECTANGLE_CALLOUT")
  *    @arg @c kGTLRSlides_CreateShapeRequest_ShapeType_WedgeRoundRectangleCallout
  *        Callout wedge round rectangle shape. Corresponds to ECMA-376
- *        ST_ShapeType
- *        'wedgeRoundRectCallout' (Value: "WEDGE_ROUND_RECTANGLE_CALLOUT")
+ *        ST_ShapeType 'wedgeRoundRectCallout' (Value:
+ *        "WEDGE_ROUND_RECTANGLE_CALLOUT")
  */
 @property(nonatomic, copy, nullable) NSString *shapeType;
 
@@ -4888,9 +4830,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Creates an embedded Google Sheets chart.
- *  NOTE: Chart creation requires at least one of the spreadsheets.readonly,
- *  spreadsheets, drive.readonly, drive.file, or drive OAuth scopes.
+ *  Creates an embedded Google Sheets chart. NOTE: Chart creation requires at
+ *  least one of the spreadsheets.readonly, spreadsheets, drive.readonly,
+ *  drive.file, or drive OAuth scopes.
  */
 @interface GTLRSlides_CreateSheetsChartRequest : GTLRObject
 
@@ -4902,22 +4844,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *chartId;
 
 /**
- *  The element properties for the chart.
- *  When the aspect ratio of the provided size does not match the chart aspect
- *  ratio, the chart is scaled and centered with respect to the size in order
- *  to maintain aspect ratio. The provided transform is applied after this
- *  operation.
+ *  The element properties for the chart. When the aspect ratio of the provided
+ *  size does not match the chart aspect ratio, the chart is scaled and centered
+ *  with respect to the size in order to maintain aspect ratio. The provided
+ *  transform is applied after this operation.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
 /**
- *  The mode with which the chart is linked to the source spreadsheet. When
- *  not specified, the chart will be an image that is not linked.
+ *  The mode with which the chart is linked to the source spreadsheet. When not
+ *  specified, the chart will be an image that is not linked.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_CreateSheetsChartRequest_LinkingMode_Linked Linking
- *        the chart allows it to be updated, and other collaborators will
- *        see a link to the spreadsheet. (Value: "LINKED")
+ *        the chart allows it to be updated, and other collaborators will see a
+ *        link to the spreadsheet. (Value: "LINKED")
  *    @arg @c kGTLRSlides_CreateSheetsChartRequest_LinkingMode_NotLinkedImage
  *        The chart is not associated with the source spreadsheet and cannot be
  *        updated. A chart that is not linked will be inserted as an image.
@@ -4926,12 +4867,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *linkingMode;
 
 /**
- *  A user-supplied object ID.
- *  If specified, the ID must be unique among all pages and page elements in
- *  the presentation. The ID should start with a word character [a-zA-Z0-9_]
- *  and then followed by any number of the following characters [a-zA-Z0-9_-:].
- *  The length of the ID should not be less than 5 or greater than 50.
- *  If empty, a unique identifier will be generated.
+ *  A user-supplied object ID. If specified, the ID must be unique among all
+ *  pages and page elements in the presentation. The ID should start with a word
+ *  character [a-zA-Z0-9_] and then followed by any number of the following
+ *  characters [a-zA-Z0-9_-:]. The length of the ID should not be less than 5 or
+ *  greater than 50. If empty, a unique identifier will be generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -4958,42 +4898,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_CreateSlideRequest : GTLRObject
 
 /**
- *  The optional zero-based index indicating where to insert the slides.
- *  If you don't specify an index, the new slide is created at the end.
+ *  The optional zero-based index indicating where to insert the slides. If you
+ *  don't specify an index, the new slide is created at the end.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *insertionIndex;
 
 /**
- *  A user-supplied object ID.
- *  If you specify an ID, it must be unique among all pages and page elements
- *  in the presentation. The ID must start with an alphanumeric character or an
- *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
- *  may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`).
- *  The length of the ID must not be less than 5 or greater than 50.
- *  If you don't specify an ID, a unique one is generated.
+ *  A user-supplied object ID. If you specify an ID, it must be unique among all
+ *  pages and page elements in the presentation. The ID must start with an
+ *  alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`);
+ *  remaining characters may include those as well as a hyphen or colon (matches
+ *  regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or
+ *  greater than 50. If you don't specify an ID, a unique one is generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
  *  An optional list of object ID mappings from the placeholder(s) on the layout
- *  to the placeholder(s)
- *  that will be created on the new slide from that specified layout. Can only
- *  be used when `slide_layout_reference` is specified.
+ *  to the placeholder(s) that will be created on the new slide from that
+ *  specified layout. Can only be used when `slide_layout_reference` is
+ *  specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_LayoutPlaceholderIdMapping *> *placeholderIdMappings;
 
 /**
- *  Layout reference of the slide to be inserted, based on the *current
- *  master*, which is one of the following:
- *  - The master of the previous slide index.
- *  - The master of the first slide, if the insertion_index is zero.
- *  - The first master in the presentation, if there are no slides.
- *  If the LayoutReference is not found in the current master, a 400 bad
- *  request error is returned.
- *  If you don't specify a layout reference, then the new slide will use the
+ *  Layout reference of the slide to be inserted, based on the *current master*,
+ *  which is one of the following: - The master of the previous slide index. -
+ *  The master of the first slide, if the insertion_index is zero. - The first
+ *  master in the presentation, if there are no slides. If the LayoutReference
+ *  is not found in the current master, a 400 bad request error is returned. If
+ *  you don't specify a layout reference, then the new slide will use the
  *  predefined layout `BLANK`.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_LayoutReference *slideLayoutReference;
@@ -5025,23 +4961,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *columns;
 
 /**
- *  The element properties for the table.
- *  The table will be created at the provided size, subject to a minimum size.
- *  If no size is provided, the table will be automatically sized.
- *  Table transforms must have a scale of 1 and no shear components. If no
- *  transform is provided, the table will be centered on the page.
+ *  The element properties for the table. The table will be created at the
+ *  provided size, subject to a minimum size. If no size is provided, the table
+ *  will be automatically sized. Table transforms must have a scale of 1 and no
+ *  shear components. If no transform is provided, the table will be centered on
+ *  the page.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
 /**
- *  A user-supplied object ID.
- *  If you specify an ID, it must be unique among all pages and page elements
- *  in the presentation. The ID must start with an alphanumeric character or an
- *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
- *  may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`).
- *  The length of the ID must not be less than 5 or greater than 50.
- *  If you don't specify an ID, a unique one is generated.
+ *  A user-supplied object ID. If you specify an ID, it must be unique among all
+ *  pages and page elements in the presentation. The ID must start with an
+ *  alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`);
+ *  remaining characters may include those as well as a hyphen or colon (matches
+ *  regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or
+ *  greater than 50. If you don't specify an ID, a unique one is generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -5067,44 +5001,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Creates a video.
- *  NOTE: Creating a video from Google Drive requires that the requesting app
- *  have at least one of the drive, drive.readonly, or drive.file OAuth scopes.
+ *  Creates a video. NOTE: Creating a video from Google Drive requires that the
+ *  requesting app have at least one of the drive, drive.readonly, or drive.file
+ *  OAuth scopes.
  */
 @interface GTLRSlides_CreateVideoRequest : GTLRObject
 
 /**
- *  The element properties for the video.
- *  The PageElementProperties.size property is
- *  optional. If you don't specify a size, a default size is chosen by the
- *  server.
- *  The PageElementProperties.transform property is
- *  optional. The transform must not have shear components.
- *  If you don't specify a transform, the video will be placed at the top left
- *  corner of the page.
+ *  The element properties for the video. The PageElementProperties.size
+ *  property is optional. If you don't specify a size, a default size is chosen
+ *  by the server. The PageElementProperties.transform property is optional. The
+ *  transform must not have shear components. If you don't specify a transform,
+ *  the video will be placed at the top left corner of the page.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_PageElementProperties *elementProperties;
 
 /**
- *  The video source's unique identifier for this video.
- *  e.g. For YouTube video https://www.youtube.com/watch?v=7U3axjORYZ0,
- *  the ID is 7U3axjORYZ0. For a Google Drive video
- *  https://drive.google.com/file/d/1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q the ID
- *  is 1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q.
+ *  The video source's unique identifier for this video. e.g. For YouTube video
+ *  https://www.youtube.com/watch?v=7U3axjORYZ0, the ID is 7U3axjORYZ0. For a
+ *  Google Drive video
+ *  https://drive.google.com/file/d/1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q the ID is
+ *  1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  A user-supplied object ID.
- *  If you specify an ID, it must be unique among all pages and page elements
- *  in the presentation. The ID must start with an alphanumeric character or an
- *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
- *  may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`).
- *  The length of the ID must not be less than 5 or greater than 50.
- *  If you don't specify an ID, a unique one is generated.
+ *  A user-supplied object ID. If you specify an ID, it must be unique among all
+ *  pages and page elements in the presentation. The ID must start with an
+ *  alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`);
+ *  remaining characters may include those as well as a hyphen or colon (matches
+ *  regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or
+ *  greater than 50. If you don't specify an ID, a unique one is generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -5137,23 +5066,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The crop properties of an object enclosed in a container. For example, an
- *  Image.
- *  The crop properties is represented by the offsets of four edges which define
- *  a crop rectangle. The offsets are measured in percentage from the
+ *  Image. The crop properties is represented by the offsets of four edges which
+ *  define a crop rectangle. The offsets are measured in percentage from the
  *  corresponding edges of the object's original bounding rectangle towards
- *  inside, relative to the object's original dimensions.
- *  - If the offset is in the interval (0, 1), the corresponding edge of crop
- *  rectangle is positioned inside of the object's original bounding rectangle.
- *  - If the offset is negative or greater than 1, the corresponding edge of
- *  crop
- *  rectangle is positioned outside of the object's original bounding rectangle.
- *  - If the left edge of the crop rectangle is on the right side of its right
- *  edge, the object will be flipped horizontally.
- *  - If the top edge of the crop rectangle is below its bottom edge, the object
- *  will be flipped vertically.
- *  - If all offsets and rotation angle is 0, the object is not cropped.
- *  After cropping, the content in the crop rectangle will be stretched to fit
- *  its container.
+ *  inside, relative to the object's original dimensions. - If the offset is in
+ *  the interval (0, 1), the corresponding edge of crop rectangle is positioned
+ *  inside of the object's original bounding rectangle. - If the offset is
+ *  negative or greater than 1, the corresponding edge of crop rectangle is
+ *  positioned outside of the object's original bounding rectangle. - If the
+ *  left edge of the crop rectangle is on the right side of its right edge, the
+ *  object will be flipped horizontally. - If the top edge of the crop rectangle
+ *  is below its bottom edge, the object will be flipped vertically. - If all
+ *  offsets and rotation angle is 0, the object is not cropped. After cropping,
+ *  the content in the crop rectangle will be stretched to fit its container.
  */
 @interface GTLRSlides_CropProperties : GTLRObject
 
@@ -5184,8 +5109,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *leftOffset;
 
 /**
- *  The offset specifies the right edge of the crop rectangle that is located
- *  to the left of the original bounding rectangle right edge, relative to the
+ *  The offset specifies the right edge of the crop rectangle that is located to
+ *  the left of the original bounding rectangle right edge, relative to the
  *  object's original width.
  *
  *  Uses NSNumber of floatValue.
@@ -5205,18 +5130,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Deletes an object, either pages or
- *  page elements, from the
- *  presentation.
+ *  Deletes an object, either pages or page elements, from the presentation.
  */
 @interface GTLRSlides_DeleteObjectRequest : GTLRObject
 
 /**
- *  The object ID of the page or page element to delete.
- *  If after a delete operation a group contains
- *  only 1 or no page elements, the group is also deleted.
- *  If a placeholder is deleted on a layout, any empty inheriting shapes are
- *  also deleted.
+ *  The object ID of the page or page element to delete. If after a delete
+ *  operation a group contains only 1 or no page elements, the group is also
+ *  deleted. If a placeholder is deleted on a layout, any empty inheriting
+ *  shapes are also deleted.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -5225,9 +5147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  Deletes bullets from all of the paragraphs that overlap with the given text
- *  index range.
- *  The nesting level of each paragraph will be visually preserved by adding
- *  indent to the start of the corresponding paragraph.
+ *  index range. The nesting level of each paragraph will be visually preserved
+ *  by adding indent to the start of the corresponding paragraph.
  */
 @interface GTLRSlides_DeleteParagraphBulletsRequest : GTLRObject
 
@@ -5255,10 +5176,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_DeleteTableColumnRequest : GTLRObject
 
 /**
- *  The reference table cell location from which a column will be deleted.
- *  The column this cell spans will be deleted. If this is a merged cell,
- *  multiple columns will be deleted. If no columns remain in the table after
- *  this deletion, the whole table is deleted.
+ *  The reference table cell location from which a column will be deleted. The
+ *  column this cell spans will be deleted. If this is a merged cell, multiple
+ *  columns will be deleted. If no columns remain in the table after this
+ *  deletion, the whole table is deleted.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
@@ -5274,10 +5195,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_DeleteTableRowRequest : GTLRObject
 
 /**
- *  The reference table cell location from which a row will be deleted.
- *  The row this cell spans will be deleted. If this is a merged cell, multiple
- *  rows will be deleted. If no rows remain in the table after this deletion,
- *  the whole table is deleted.
+ *  The reference table cell location from which a row will be deleted. The row
+ *  this cell spans will be deleted. If this is a merged cell, multiple rows
+ *  will be deleted. If no rows remain in the table after this deletion, the
+ *  whole table is deleted.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
@@ -5304,17 +5225,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
- *  The range of text to delete, based on TextElement indexes.
- *  There is always an implicit newline character at the end of a shape's or
- *  table cell's text that cannot be deleted. `Range.Type.ALL` will use the
- *  correct bounds, but care must be taken when specifying explicit bounds for
- *  range types `FROM_START_INDEX` and `FIXED_RANGE`. For example, if the text
- *  is "ABC", followed by an implicit newline, then the maximum value is 2 for
- *  `text_range.start_index` and 3 for `text_range.end_index`.
- *  Deleting text that crosses a paragraph boundary may result in changes
- *  to paragraph styles and lists as the two paragraphs are merged.
- *  Ranges that include only one code unit of a surrogate pair are expanded to
- *  include both code units.
+ *  The range of text to delete, based on TextElement indexes. There is always
+ *  an implicit newline character at the end of a shape's or table cell's text
+ *  that cannot be deleted. `Range.Type.ALL` will use the correct bounds, but
+ *  care must be taken when specifying explicit bounds for range types
+ *  `FROM_START_INDEX` and `FIXED_RANGE`. For example, if the text is "ABC",
+ *  followed by an implicit newline, then the maximum value is 2 for
+ *  `text_range.start_index` and 3 for `text_range.end_index`. Deleting text
+ *  that crosses a paragraph boundary may result in changes to paragraph styles
+ *  and lists as the two paragraphs are merged. Ranges that include only one
+ *  code unit of a surrogate pair are expanded to include both code units.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Range *textRange;
 
@@ -5338,9 +5258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Dimension_Unit_Emu An English Metric Unit (EMU) is
- *        defined as 1/360,000 of a centimeter
- *        and thus there are 914,400 EMUs per inch, and 12,700 EMUs per point.
- *        (Value: "EMU")
+ *        defined as 1/360,000 of a centimeter and thus there are 914,400 EMUs
+ *        per inch, and 12,700 EMUs per point. (Value: "EMU")
  *    @arg @c kGTLRSlides_Dimension_Unit_Pt A point, 1/72 of an inch. (Value:
  *        "PT")
  *    @arg @c kGTLRSlides_Dimension_Unit_UnitUnspecified The units are unknown.
@@ -5352,11 +5271,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Duplicates a slide or page element.
- *  When duplicating a slide, the duplicate slide will be created immediately
- *  following the specified slide. When duplicating a page element, the
- *  duplicate
- *  will be placed on the same page at the same position as the original.
+ *  Duplicates a slide or page element. When duplicating a slide, the duplicate
+ *  slide will be created immediately following the specified slide. When
+ *  duplicating a page element, the duplicate will be placed on the same page at
+ *  the same position as the original.
  */
 @interface GTLRSlides_DuplicateObjectRequest : GTLRObject
 
@@ -5365,21 +5283,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The object being duplicated may contain other objects, for example when
- *  duplicating a slide or a group page element. This map defines how the IDs
- *  of duplicated objects are generated: the keys are the IDs of the original
+ *  duplicating a slide or a group page element. This map defines how the IDs of
+ *  duplicated objects are generated: the keys are the IDs of the original
  *  objects and its values are the IDs that will be assigned to the
- *  corresponding duplicate object. The ID of the source object's duplicate
- *  may be specified in this map as well, using the same value of the
- *  `object_id` field as a key and the newly desired ID as the value.
- *  All keys must correspond to existing IDs in the presentation. All values
- *  must be unique in the presentation and must start with an alphanumeric
- *  character or an underscore (matches regex `[a-zA-Z0-9_]`); remaining
- *  characters may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`). The length of the new ID must not be less than 5 or
- *  greater than 50.
- *  If any IDs of source objects are omitted from the map, a new random ID will
- *  be assigned. If the map is empty or unset, all duplicate objects will
- *  receive a new random ID.
+ *  corresponding duplicate object. The ID of the source object's duplicate may
+ *  be specified in this map as well, using the same value of the `object_id`
+ *  field as a key and the newly desired ID as the value. All keys must
+ *  correspond to existing IDs in the presentation. All values must be unique in
+ *  the presentation and must start with an alphanumeric character or an
+ *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters may include
+ *  those as well as a hyphen or colon (matches regex `[a-zA-Z0-9_-:]`). The
+ *  length of the new ID must not be less than 5 or greater than 50. If any IDs
+ *  of source objects are omitted from the map, a new random ID will be
+ *  assigned. If the map is empty or unset, all duplicate objects will receive a
+ *  new random ID.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_DuplicateObjectRequest_ObjectIds *objectIds;
 
@@ -5388,21 +5305,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The object being duplicated may contain other objects, for example when
- *  duplicating a slide or a group page element. This map defines how the IDs
- *  of duplicated objects are generated: the keys are the IDs of the original
+ *  duplicating a slide or a group page element. This map defines how the IDs of
+ *  duplicated objects are generated: the keys are the IDs of the original
  *  objects and its values are the IDs that will be assigned to the
- *  corresponding duplicate object. The ID of the source object's duplicate
- *  may be specified in this map as well, using the same value of the
- *  `object_id` field as a key and the newly desired ID as the value.
- *  All keys must correspond to existing IDs in the presentation. All values
- *  must be unique in the presentation and must start with an alphanumeric
- *  character or an underscore (matches regex `[a-zA-Z0-9_]`); remaining
- *  characters may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`). The length of the new ID must not be less than 5 or
- *  greater than 50.
- *  If any IDs of source objects are omitted from the map, a new random ID will
- *  be assigned. If the map is empty or unset, all duplicate objects will
- *  receive a new random ID.
+ *  corresponding duplicate object. The ID of the source object's duplicate may
+ *  be specified in this map as well, using the same value of the `object_id`
+ *  field as a key and the newly desired ID as the value. All keys must
+ *  correspond to existing IDs in the presentation. All values must be unique in
+ *  the presentation and must start with an alphanumeric character or an
+ *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters may include
+ *  those as well as a hyphen or colon (matches regex `[a-zA-Z0-9_-:]`). The
+ *  length of the new ID must not be less than 5 or greater than 50. If any IDs
+ *  of source objects are omitted from the map, a new random ID will be
+ *  assigned. If the map is empty or unset, all duplicate objects will receive a
+ *  new random ID.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5425,8 +5341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing a
- *  joined collection of PageElements.
+ *  A PageElement kind representing a joined collection of PageElements.
  */
 @interface GTLRSlides_Group : GTLRObject
 
@@ -5445,22 +5360,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_GroupObjectsRequest : GTLRObject
 
 /**
- *  The object IDs of the objects to group.
- *  Only page elements can be grouped. There should be at least two page
- *  elements on the same page that are not already in another group. Some page
- *  elements, such as videos, tables and placeholder shapes cannot be grouped.
+ *  The object IDs of the objects to group. Only page elements can be grouped.
+ *  There should be at least two page elements on the same page that are not
+ *  already in another group. Some page elements, such as videos, tables and
+ *  placeholder shapes cannot be grouped.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *childrenObjectIds;
 
 /**
- *  A user-supplied object ID for the group to be created.
- *  If you specify an ID, it must be unique among all pages and page elements
- *  in the presentation. The ID must start with an alphanumeric character or an
- *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
- *  may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`).
- *  The length of the ID must not be less than 5 or greater than 50.
- *  If you don't specify an ID, a unique one is generated.
+ *  A user-supplied object ID for the group to be created. If you specify an ID,
+ *  it must be unique among all pages and page elements in the presentation. The
+ *  ID must start with an alphanumeric character or an underscore (matches regex
+ *  `[a-zA-Z0-9_]`); remaining characters may include those as well as a hyphen
+ *  or colon (matches regex `[a-zA-Z0-9_-:]`). The length of the ID must not be
+ *  less than 5 or greater than 50. If you don't specify an ID, a unique one is
+ *  generated.
  */
 @property(nonatomic, copy, nullable) NSString *groupObjectId;
 
@@ -5479,16 +5393,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing an
- *  image.
+ *  A PageElement kind representing an image.
  */
 @interface GTLRSlides_Image : GTLRObject
 
 /**
- *  An URL to an image with a default lifetime of 30 minutes.
- *  This URL is tagged with the account of the requester. Anyone with the URL
- *  effectively accesses the image as the original requester. Access to the
- *  image may be lost if the presentation's sharing settings change.
+ *  An URL to an image with a default lifetime of 30 minutes. This URL is tagged
+ *  with the account of the requester. Anyone with the URL effectively accesses
+ *  the image as the original requester. Access to the image may be lost if the
+ *  presentation's sharing settings change.
  */
 @property(nonatomic, copy, nullable) NSString *contentUrl;
 
@@ -5518,16 +5431,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *brightness;
 
 /**
- *  The contrast effect of the image. The value should be in the interval
- *  [-1.0, 1.0], where 0 means no effect. This property is read-only.
+ *  The contrast effect of the image. The value should be in the interval [-1.0,
+ *  1.0], where 0 means no effect. This property is read-only.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *contrast;
 
 /**
- *  The crop properties of the image. If not set, the image is not cropped.
- *  This property is read-only.
+ *  The crop properties of the image. If not set, the image is not cropped. This
+ *  property is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_CropProperties *cropProperties;
 
@@ -5551,8 +5464,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The transparency effect of the image. The value should be in the interval
- *  [0.0, 1.0], where 0 means no effect and 1 means completely transparent.
- *  This property is read-only.
+ *  [0.0, 1.0], where 0 means no effect and 1 means completely transparent. This
+ *  property is read-only.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5562,23 +5475,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Inserts columns into a table.
- *  Other columns in the table will be resized to fit the new column.
+ *  Inserts columns into a table. Other columns in the table will be resized to
+ *  fit the new column.
  */
 @interface GTLRSlides_InsertTableColumnsRequest : GTLRObject
 
 /**
- *  The reference table cell location from which columns will be inserted.
- *  A new column will be inserted to the left (or right) of the column where
- *  the reference cell is. If the reference cell is a merged cell, a new
- *  column will be inserted to the left (or right) of the merged cell.
+ *  The reference table cell location from which columns will be inserted. A new
+ *  column will be inserted to the left (or right) of the column where the
+ *  reference cell is. If the reference cell is a merged cell, a new column will
+ *  be inserted to the left (or right) of the merged cell.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
 /**
- *  Whether to insert new columns to the right of the reference cell location.
- *  - `True`: insert to the right.
- *  - `False`: insert to the left.
+ *  Whether to insert new columns to the right of the reference cell location. -
+ *  `True`: insert to the right. - `False`: insert to the left.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5603,17 +5515,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_InsertTableRowsRequest : GTLRObject
 
 /**
- *  The reference table cell location from which rows will be inserted.
- *  A new row will be inserted above (or below) the row where the reference
- *  cell is. If the reference cell is a merged cell, a new row will be
- *  inserted above (or below) the merged cell.
+ *  The reference table cell location from which rows will be inserted. A new
+ *  row will be inserted above (or below) the row where the reference cell is.
+ *  If the reference cell is a merged cell, a new row will be inserted above (or
+ *  below) the merged cell.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
 /**
- *  Whether to insert new rows below the reference cell location.
- *  - `True`: insert below the cell.
- *  - `False`: insert above the cell.
+ *  Whether to insert new rows below the reference cell location. - `True`:
+ *  insert below the cell. - `False`: insert above the cell.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5644,12 +5555,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
 /**
- *  The index where the text will be inserted, in Unicode code units, based
- *  on TextElement indexes.
- *  The index is zero-based and is computed from the start of the string.
- *  The index may be adjusted to prevent insertions inside Unicode grapheme
- *  clusters. In these cases, the text will be inserted immediately after the
- *  grapheme cluster.
+ *  The index where the text will be inserted, in Unicode code units, based on
+ *  TextElement indexes. The index is zero-based and is computed from the start
+ *  of the string. The index may be adjusted to prevent insertions inside
+ *  Unicode grapheme clusters. In these cases, the text will be inserted
+ *  immediately after the grapheme cluster.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5659,18 +5569,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
- *  The text to be inserted.
- *  Inserting a newline character will implicitly create a new
- *  ParagraphMarker at that index.
- *  The paragraph style of the new paragraph will be copied from the paragraph
- *  at the current insertion index, including lists and bullets.
- *  Text styles for inserted text will be determined automatically, generally
- *  preserving the styling of neighboring text. In most cases, the text will be
- *  added to the TextRun that exists at the
- *  insertion index.
- *  Some control characters (U+0000-U+0008, U+000C-U+001F) and characters
- *  from the Unicode Basic Multilingual Plane Private Use Area (U+E000-U+F8FF)
- *  will be stripped out of the inserted text.
+ *  The text to be inserted. Inserting a newline character will implicitly
+ *  create a new ParagraphMarker at that index. The paragraph style of the new
+ *  paragraph will be copied from the paragraph at the current insertion index,
+ *  including lists and bullets. Text styles for inserted text will be
+ *  determined automatically, generally preserving the styling of neighboring
+ *  text. In most cases, the text will be added to the TextRun that exists at
+ *  the insertion index. Some control characters (U+0000-U+0008, U+000C-U+001F)
+ *  and characters from the Unicode Basic Multilingual Plane Private Use Area
+ *  (U+E000-U+F8FF) will be stripped out of the inserted text.
  */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -5685,28 +5592,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The placeholder on a layout that will be applied to a slide. Only type and
- *  index are needed. For example, a
- *  predefined `TITLE_AND_BODY` layout may usually have a TITLE placeholder
- *  with index 0 and a BODY placeholder with index 0.
+ *  index are needed. For example, a predefined `TITLE_AND_BODY` layout may
+ *  usually have a TITLE placeholder with index 0 and a BODY placeholder with
+ *  index 0.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Placeholder *layoutPlaceholder;
 
 /**
- *  The object ID of the placeholder on a layout that will be applied
- *  to a slide.
+ *  The object ID of the placeholder on a layout that will be applied to a
+ *  slide.
  */
 @property(nonatomic, copy, nullable) NSString *layoutPlaceholderObjectId;
 
 /**
  *  A user-supplied object ID for the placeholder identified above that to be
- *  created onto a slide.
- *  If you specify an ID, it must be unique among all pages and page elements
- *  in the presentation. The ID must start with an alphanumeric character or an
- *  underscore (matches regex `[a-zA-Z0-9_]`); remaining characters
- *  may include those as well as a hyphen or colon (matches regex
- *  `[a-zA-Z0-9_-:]`).
- *  The length of the ID must not be less than 5 or greater than 50.
- *  If you don't specify an ID, a unique one is generated.
+ *  created onto a slide. If you specify an ID, it must be unique among all
+ *  pages and page elements in the presentation. The ID must start with an
+ *  alphanumeric character or an underscore (matches regex `[a-zA-Z0-9_]`);
+ *  remaining characters may include those as well as a hyphen or colon (matches
+ *  regex `[a-zA-Z0-9_-:]`). The length of the ID must not be less than 5 or
+ *  greater than 50. If you don't specify an ID, a unique one is generated.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -5714,8 +5619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The properties of Page are only
- *  relevant for pages with page_type LAYOUT.
+ *  The properties of Page are only relevant for pages with page_type LAYOUT.
  */
 @interface GTLRSlides_LayoutProperties : GTLRObject
 
@@ -5732,9 +5636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Slide layout reference. This may reference either:
- *  - A predefined layout
- *  - One of the layouts in the presentation.
+ *  Slide layout reference. This may reference either: - A predefined layout -
+ *  One of the layouts in the presentation.
  */
 @interface GTLRSlides_LayoutReference : GTLRObject
 
@@ -5778,16 +5681,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing a
- *  non-connector line, straight connector, curved connector, or bent connector.
+ *  A PageElement kind representing a non-connector line, straight connector,
+ *  curved connector, or bent connector.
  */
 @interface GTLRSlides_Line : GTLRObject
 
 /**
- *  The category of the line.
- *  It matches the `category` specified in CreateLineRequest, and can be updated
- *  with
- *  UpdateLineCategoryRequest.
+ *  The category of the line. It matches the `category` specified in
+ *  CreateLineRequest, and can be updated with UpdateLineCategoryRequest.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Line_LineCategory_Bent Bent connectors, including bent
@@ -5809,35 +5710,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Line_LineType_BentConnector2 Bent connector 2 form.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'bentConnector2'. (Value: "BENT_CONNECTOR_2")
+ *        Corresponds to ECMA-376 ST_ShapeType 'bentConnector2'. (Value:
+ *        "BENT_CONNECTOR_2")
  *    @arg @c kGTLRSlides_Line_LineType_BentConnector3 Bent connector 3 form.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'bentConnector3'. (Value: "BENT_CONNECTOR_3")
+ *        Corresponds to ECMA-376 ST_ShapeType 'bentConnector3'. (Value:
+ *        "BENT_CONNECTOR_3")
  *    @arg @c kGTLRSlides_Line_LineType_BentConnector4 Bent connector 4 form.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'bentConnector4'. (Value: "BENT_CONNECTOR_4")
+ *        Corresponds to ECMA-376 ST_ShapeType 'bentConnector4'. (Value:
+ *        "BENT_CONNECTOR_4")
  *    @arg @c kGTLRSlides_Line_LineType_BentConnector5 Bent connector 5 form.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'bentConnector5'. (Value: "BENT_CONNECTOR_5")
+ *        Corresponds to ECMA-376 ST_ShapeType 'bentConnector5'. (Value:
+ *        "BENT_CONNECTOR_5")
  *    @arg @c kGTLRSlides_Line_LineType_CurvedConnector2 Curved connector 2
- *        form. Corresponds to ECMA-376 ST_ShapeType
- *        'curvedConnector2'. (Value: "CURVED_CONNECTOR_2")
+ *        form. Corresponds to ECMA-376 ST_ShapeType 'curvedConnector2'. (Value:
+ *        "CURVED_CONNECTOR_2")
  *    @arg @c kGTLRSlides_Line_LineType_CurvedConnector3 Curved connector 3
- *        form. Corresponds to ECMA-376 ST_ShapeType
- *        'curvedConnector3'. (Value: "CURVED_CONNECTOR_3")
+ *        form. Corresponds to ECMA-376 ST_ShapeType 'curvedConnector3'. (Value:
+ *        "CURVED_CONNECTOR_3")
  *    @arg @c kGTLRSlides_Line_LineType_CurvedConnector4 Curved connector 4
- *        form. Corresponds to ECMA-376 ST_ShapeType
- *        'curvedConnector4'. (Value: "CURVED_CONNECTOR_4")
+ *        form. Corresponds to ECMA-376 ST_ShapeType 'curvedConnector4'. (Value:
+ *        "CURVED_CONNECTOR_4")
  *    @arg @c kGTLRSlides_Line_LineType_CurvedConnector5 Curved connector 5
- *        form. Corresponds to ECMA-376 ST_ShapeType
- *        'curvedConnector5'. (Value: "CURVED_CONNECTOR_5")
+ *        form. Corresponds to ECMA-376 ST_ShapeType 'curvedConnector5'. (Value:
+ *        "CURVED_CONNECTOR_5")
  *    @arg @c kGTLRSlides_Line_LineType_StraightConnector1 Straight connector 1
- *        form. Corresponds to ECMA-376 ST_ShapeType
- *        'straightConnector1'. (Value: "STRAIGHT_CONNECTOR_1")
+ *        form. Corresponds to ECMA-376 ST_ShapeType 'straightConnector1'.
+ *        (Value: "STRAIGHT_CONNECTOR_1")
  *    @arg @c kGTLRSlides_Line_LineType_StraightLine Straight line. Corresponds
- *        to ECMA-376 ST_ShapeType 'line'. This line
- *        type is not a connector. (Value: "STRAIGHT_LINE")
+ *        to ECMA-376 ST_ShapeType 'line'. This line type is not a connector.
+ *        (Value: "STRAIGHT_LINE")
  *    @arg @c kGTLRSlides_Line_LineType_TypeUnspecified An unspecified line
  *        type. (Value: "TYPE_UNSPECIFIED")
  */
@@ -5847,29 +5748,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The properties for one end of a Line
- *  connection.
+ *  The properties for one end of a Line connection.
  */
 @interface GTLRSlides_LineConnection : GTLRObject
 
 /**
- *  The object ID of the connected page element.
- *  Some page elements, such as groups, tables, and lines
- *  do not have connection sites and therefore cannot be connected to a
- *  connector line.
+ *  The object ID of the connected page element. Some page elements, such as
+ *  groups, tables, and lines do not have connection sites and therefore cannot
+ *  be connected to a connector line.
  */
 @property(nonatomic, copy, nullable) NSString *connectedObjectId;
 
 /**
- *  The index of the connection site on the connected page element.
- *  In most cases, it corresponds to the predefined connection site index from
- *  the ECMA-376 standard. More information on those connection sites can be
- *  found in the description of the "cnx" attribute in section 20.1.9.9 and
- *  Annex H. "Predefined DrawingML Shape and Text Geometries" of "Office Open
- *  XML File Formats-Fundamentals and Markup Language Reference", part 1 of
- *  [ECMA-376 5th edition]
- *  (http://www.ecma-international.org/publications/standards/Ecma-376.htm).
- *  The position of each connection site can also be viewed from Slides editor.
+ *  The index of the connection site on the connected page element. In most
+ *  cases, it corresponds to the predefined connection site index from the
+ *  ECMA-376 standard. More information on those connection sites can be found
+ *  in the description of the "cnx" attribute in section 20.1.9.9 and Annex H.
+ *  "Predefined DrawingML Shape and Text Geometries" of "Office Open XML File
+ *  Formats-Fundamentals and Markup Language Reference", part 1 of [ECMA-376 5th
+ *  edition]
+ *  (http://www.ecma-international.org/publications/standards/Ecma-376.htm). The
+ *  position of each connection site can also be viewed from Slides editor.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5890,9 +5789,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The properties of the Line.
- *  When unset, these fields default to values that match the appearance of
- *  new lines created in the Slides editor.
+ *  The properties of the Line. When unset, these fields default to values that
+ *  match the appearance of new lines created in the Slides editor.
  */
 @interface GTLRSlides_LineProperties : GTLRObject
 
@@ -5903,21 +5801,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_LineProperties_DashStyle_Dash Dashed line. Corresponds
  *        to ECMA-376 ST_PresetLineDashVal value 'dash'. (Value: "DASH")
  *    @arg @c kGTLRSlides_LineProperties_DashStyle_DashDot Alternating dashes
- *        and dots. Corresponds to ECMA-376 ST_PresetLineDashVal
- *        value 'dashDot'. (Value: "DASH_DOT")
+ *        and dots. Corresponds to ECMA-376 ST_PresetLineDashVal value
+ *        'dashDot'. (Value: "DASH_DOT")
  *    @arg @c kGTLRSlides_LineProperties_DashStyle_DashStyleUnspecified
  *        Unspecified dash style. (Value: "DASH_STYLE_UNSPECIFIED")
  *    @arg @c kGTLRSlides_LineProperties_DashStyle_Dot Dotted line. Corresponds
  *        to ECMA-376 ST_PresetLineDashVal value 'dot'. (Value: "DOT")
  *    @arg @c kGTLRSlides_LineProperties_DashStyle_LongDash Line with large
- *        dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
- *        value 'lgDash'. (Value: "LONG_DASH")
+ *        dashes. Corresponds to ECMA-376 ST_PresetLineDashVal value 'lgDash'.
+ *        (Value: "LONG_DASH")
  *    @arg @c kGTLRSlides_LineProperties_DashStyle_LongDashDot Alternating large
- *        dashes and dots. Corresponds to ECMA-376
- *        ST_PresetLineDashVal value 'lgDashDot'. (Value: "LONG_DASH_DOT")
+ *        dashes and dots. Corresponds to ECMA-376 ST_PresetLineDashVal value
+ *        'lgDashDot'. (Value: "LONG_DASH_DOT")
  *    @arg @c kGTLRSlides_LineProperties_DashStyle_Solid Solid line. Corresponds
- *        to ECMA-376 ST_PresetLineDashVal value 'solid'.
- *        This is the default dash style. (Value: "SOLID")
+ *        to ECMA-376 ST_PresetLineDashVal value 'solid'. This is the default
+ *        dash style. (Value: "SOLID")
  */
 @property(nonatomic, copy, nullable) NSString *dashStyle;
 
@@ -5948,15 +5846,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_LineProperties_EndArrow_OpenSquare Hollow square.
  *        (Value: "OPEN_SQUARE")
  *    @arg @c kGTLRSlides_LineProperties_EndArrow_StealthArrow Arrow with
- *        notched back. Corresponds to ECMA-376 ST_LineEndType value
- *        'stealth'. (Value: "STEALTH_ARROW")
+ *        notched back. Corresponds to ECMA-376 ST_LineEndType value 'stealth'.
+ *        (Value: "STEALTH_ARROW")
  */
 @property(nonatomic, copy, nullable) NSString *endArrow;
 
 /**
  *  The connection at the end of the line. If unset, there is no connection.
- *  Only lines with a Type indicating it is
- *  a "connector" can have an `end_connection`.
+ *  Only lines with a Type indicating it is a "connector" can have an
+ *  `end_connection`.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_LineConnection *endConnection;
 
@@ -5997,16 +5895,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_LineProperties_StartArrow_OpenSquare Hollow square.
  *        (Value: "OPEN_SQUARE")
  *    @arg @c kGTLRSlides_LineProperties_StartArrow_StealthArrow Arrow with
- *        notched back. Corresponds to ECMA-376 ST_LineEndType value
- *        'stealth'. (Value: "STEALTH_ARROW")
+ *        notched back. Corresponds to ECMA-376 ST_LineEndType value 'stealth'.
+ *        (Value: "STEALTH_ARROW")
  */
 @property(nonatomic, copy, nullable) NSString *startArrow;
 
 /**
  *  The connection at the beginning of the line. If unset, there is no
- *  connection.
- *  Only lines with a Type indicating it is
- *  a "connector" can have a `start_connection`.
+ *  connection. Only lines with a Type indicating it is a "connector" can have a
+ *  `start_connection`.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_LineConnection *startConnection;
 
@@ -6022,14 +5919,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Link : GTLRObject
 
 /**
- *  If set, indicates this is a link to the specific page in this
- *  presentation with this ID. A page with this ID may not exist.
+ *  If set, indicates this is a link to the specific page in this presentation
+ *  with this ID. A page with this ID may not exist.
  */
 @property(nonatomic, copy, nullable) NSString *pageObjectId;
 
 /**
- *  If set, indicates this is a link to a slide in this presentation,
- *  addressed by its position.
+ *  If set, indicates this is a link to a slide in this presentation, addressed
+ *  by its position.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Link_RelativeLink_FirstSlide A link to the first slide
@@ -6047,8 +5944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *relativeLink;
 
 /**
- *  If set, indicates this is a link to the slide at this zero-based index
- *  in the presentation. There may not be a slide at this index.
+ *  If set, indicates this is a link to the slide at this zero-based index in
+ *  the presentation. There may not be a slide at this index.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6072,8 +5969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  A map of nesting levels to the properties of bullets at the associated
- *  level. A list has at most nine levels of nesting, so the possible values
- *  for the keys of this map are 0 through 8, inclusive.
+ *  level. A list has at most nine levels of nesting, so the possible values for
+ *  the keys of this map are 0 through 8, inclusive.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_List_NestingLevel *nestingLevel;
 
@@ -6082,8 +5979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  A map of nesting levels to the properties of bullets at the associated
- *  level. A list has at most nine levels of nesting, so the possible values
- *  for the keys of this map are 0 through 8, inclusive.
+ *  level. A list has at most nine levels of nesting, so the possible values for
+ *  the keys of this map are 0 through 8, inclusive.
  *
  *  @note This class is documented as having more properties of
  *        GTLRSlides_NestingLevel. Use @c -additionalJSONKeys and @c
@@ -6095,8 +5992,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The properties of Page that are only
- *  relevant for pages with page_type MASTER.
+ *  The properties of Page that are only relevant for pages with page_type
+ *  MASTER.
  */
 @interface GTLRSlides_MasterProperties : GTLRObject
 
@@ -6115,11 +6012,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
- *  The table range specifying which cells of the table to merge.
- *  Any text in the cells being merged will be concatenated and stored in the
- *  upper-left ("head") cell of the range. If the range is non-rectangular
- *  (which can occur in some cases where the range covers cells that are
- *  already merged), a 400 bad request error is returned.
+ *  The table range specifying which cells of the table to merge. Any text in
+ *  the cells being merged will be concatenated and stored in the upper-left
+ *  ("head") cell of the range. If the range is non-rectangular (which can occur
+ *  in some cases where the range covers cells that are already merged), a 400
+ *  bad request error is returned.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableRange *tableRange;
 
@@ -6139,18 +6036,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The properties of Page that are only
- *  relevant for pages with page_type NOTES.
+ *  The properties of Page that are only relevant for pages with page_type
+ *  NOTES.
  */
 @interface GTLRSlides_NotesProperties : GTLRObject
 
 /**
  *  The object ID of the shape on this notes page that contains the speaker
- *  notes for the corresponding slide.
- *  The actual shape may not always exist on the notes page. Inserting text
- *  using this object ID will automatically create the shape. In this case, the
- *  actual shape may have different object ID. The `GetPresentation` or
- *  `GetPage` action will always return the latest object ID.
+ *  notes for the corresponding slide. The actual shape may not always exist on
+ *  the notes page. Inserting text using this object ID will automatically
+ *  create the shape. In this case, the actual shape may have different object
+ *  ID. The `GetPresentation` or `GetPage` action will always return the latest
+ *  object ID.
  */
 @property(nonatomic, copy, nullable) NSString *speakerNotesObjectId;
 
@@ -6216,8 +6113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_OptionalColor : GTLRObject
 
 /**
- *  If set, this will be used as an opaque color. If unset, this represents
- *  a transparent color.
+ *  If set, this will be used as an opaque color. If unset, this represents a
+ *  transparent color.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_OpaqueColor *opaqueColor;
 
@@ -6225,11 +6122,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The outline of a PageElement.
- *  If these fields are unset, they may be inherited from a parent placeholder
- *  if it exists. If there is no parent, the fields will default to the value
- *  used for new page elements created in the Slides editor, which may depend on
- *  the page element kind.
+ *  The outline of a PageElement. If these fields are unset, they may be
+ *  inherited from a parent placeholder if it exists. If there is no parent, the
+ *  fields will default to the value used for new page elements created in the
+ *  Slides editor, which may depend on the page element kind.
  */
 @interface GTLRSlides_Outline : GTLRObject
 
@@ -6240,21 +6136,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Outline_DashStyle_Dash Dashed line. Corresponds to
  *        ECMA-376 ST_PresetLineDashVal value 'dash'. (Value: "DASH")
  *    @arg @c kGTLRSlides_Outline_DashStyle_DashDot Alternating dashes and dots.
- *        Corresponds to ECMA-376 ST_PresetLineDashVal
- *        value 'dashDot'. (Value: "DASH_DOT")
+ *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'dashDot'. (Value:
+ *        "DASH_DOT")
  *    @arg @c kGTLRSlides_Outline_DashStyle_DashStyleUnspecified Unspecified
  *        dash style. (Value: "DASH_STYLE_UNSPECIFIED")
  *    @arg @c kGTLRSlides_Outline_DashStyle_Dot Dotted line. Corresponds to
  *        ECMA-376 ST_PresetLineDashVal value 'dot'. (Value: "DOT")
  *    @arg @c kGTLRSlides_Outline_DashStyle_LongDash Line with large dashes.
- *        Corresponds to ECMA-376 ST_PresetLineDashVal
- *        value 'lgDash'. (Value: "LONG_DASH")
+ *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'lgDash'. (Value:
+ *        "LONG_DASH")
  *    @arg @c kGTLRSlides_Outline_DashStyle_LongDashDot Alternating large dashes
- *        and dots. Corresponds to ECMA-376
- *        ST_PresetLineDashVal value 'lgDashDot'. (Value: "LONG_DASH_DOT")
+ *        and dots. Corresponds to ECMA-376 ST_PresetLineDashVal value
+ *        'lgDashDot'. (Value: "LONG_DASH_DOT")
  *    @arg @c kGTLRSlides_Outline_DashStyle_Solid Solid line. Corresponds to
- *        ECMA-376 ST_PresetLineDashVal value 'solid'.
- *        This is the default dash style. (Value: "SOLID")
+ *        ECMA-376 ST_PresetLineDashVal value 'solid'. This is the default dash
+ *        style. (Value: "SOLID")
  */
 @property(nonatomic, copy, nullable) NSString *dashStyle;
 
@@ -6262,39 +6158,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_OutlineFill *outlineFill;
 
 /**
- *  The outline property state.
- *  Updating the outline on a page element will implicitly update this field
- *  to `RENDERED`, unless another value is specified in the same request. To
- *  have no outline on a page element, set this field to `NOT_RENDERED`. In
- *  this case, any other outline fields set in the same request will be
- *  ignored.
+ *  The outline property state. Updating the outline on a page element will
+ *  implicitly update this field to `RENDERED`, unless another value is
+ *  specified in the same request. To have no outline on a page element, set
+ *  this field to `NOT_RENDERED`. In this case, any other outline fields set in
+ *  the same request will be ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Outline_PropertyState_Inherit If a property's state is
- *        INHERIT, then the property state uses the value of
- *        corresponding `property_state` field on the parent shape. Elements
- *        that do
- *        not inherit will never have an INHERIT property state. (Value:
- *        "INHERIT")
+ *        INHERIT, then the property state uses the value of corresponding
+ *        `property_state` field on the parent shape. Elements that do not
+ *        inherit will never have an INHERIT property state. (Value: "INHERIT")
  *    @arg @c kGTLRSlides_Outline_PropertyState_NotRendered If a property's
  *        state is NOT_RENDERED, then the element does not have the
  *        corresponding property when rendered on a page. However, the field may
  *        still be set so it can be inherited by child shapes. To remove a
- *        property
- *        from a rendered element, set its property_state to NOT_RENDERED.
- *        (Value: "NOT_RENDERED")
+ *        property from a rendered element, set its property_state to
+ *        NOT_RENDERED. (Value: "NOT_RENDERED")
  *    @arg @c kGTLRSlides_Outline_PropertyState_Rendered If a property's state
- *        is RENDERED, then the element has the corresponding
- *        property when rendered on a page. If the element is a placeholder
- *        shape as
- *        determined by the placeholder
- *        field, and it inherits from a placeholder shape, the corresponding
- *        field
- *        may be unset, meaning that the property value is inherited from a
- *        parent
- *        placeholder. If the element does not inherit, then the field will
- *        contain
- *        the rendered value. This is the default value. (Value: "RENDERED")
+ *        is RENDERED, then the element has the corresponding property when
+ *        rendered on a page. If the element is a placeholder shape as
+ *        determined by the placeholder field, and it inherits from a
+ *        placeholder shape, the corresponding field may be unset, meaning that
+ *        the property value is inherited from a parent placeholder. If the
+ *        element does not inherit, then the field will contain the rendered
+ *        value. This is the default value. (Value: "RENDERED")
  */
 @property(nonatomic, copy, nullable) NSString *propertyState;
 
@@ -6330,9 +6218,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_NotesProperties *notesProperties;
 
 /**
- *  The object ID for this page. Object IDs used by
- *  Page and
- *  PageElement share the same namespace.
+ *  The object ID for this page. Object IDs used by Page and PageElement share
+ *  the same namespace.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -6359,15 +6246,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  The revision ID of the presentation containing this page. Can be used in
  *  update requests to assert that the presentation revision hasn't changed
- *  since the last read operation. Only populated if the user has edit access
- *  to the presentation.
- *  The format of the revision ID may change over time, so it should be treated
- *  opaquely. A returned revision ID is only guaranteed to be valid for 24
- *  hours after it has been returned and cannot be shared across users. If the
- *  revision ID is unchanged between calls, then the presentation has not
- *  changed. Conversely, a changed ID (for the same presentation and user)
- *  usually means the presentation has been updated; however, a changed ID can
- *  also be due to internal factors such as ID format changes.
+ *  since the last read operation. Only populated if the user has edit access to
+ *  the presentation. The format of the revision ID may change over time, so it
+ *  should be treated opaquely. A returned revision ID is only guaranteed to be
+ *  valid for 24 hours after it has been returned and cannot be shared across
+ *  users. If the revision ID is unchanged between calls, then the presentation
+ *  has not changed. Conversely, a changed ID (for the same presentation and
+ *  user) usually means the presentation has been updated; however, a changed ID
+ *  can also be due to internal factors such as ID format changes.
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
@@ -6383,38 +6269,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_PageBackgroundFill : GTLRObject
 
 /**
- *  The background fill property state.
- *  Updating the fill on a page will implicitly update this field to
- *  `RENDERED`, unless another value is specified in the same request. To
- *  have no fill on a page, set this field to `NOT_RENDERED`. In this case,
- *  any other fill fields set in the same request will be ignored.
+ *  The background fill property state. Updating the fill on a page will
+ *  implicitly update this field to `RENDERED`, unless another value is
+ *  specified in the same request. To have no fill on a page, set this field to
+ *  `NOT_RENDERED`. In this case, any other fill fields set in the same request
+ *  will be ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_PageBackgroundFill_PropertyState_Inherit If a
  *        property's state is INHERIT, then the property state uses the value of
  *        corresponding `property_state` field on the parent shape. Elements
- *        that do
- *        not inherit will never have an INHERIT property state. (Value:
+ *        that do not inherit will never have an INHERIT property state. (Value:
  *        "INHERIT")
  *    @arg @c kGTLRSlides_PageBackgroundFill_PropertyState_NotRendered If a
  *        property's state is NOT_RENDERED, then the element does not have the
  *        corresponding property when rendered on a page. However, the field may
  *        still be set so it can be inherited by child shapes. To remove a
- *        property
- *        from a rendered element, set its property_state to NOT_RENDERED.
- *        (Value: "NOT_RENDERED")
+ *        property from a rendered element, set its property_state to
+ *        NOT_RENDERED. (Value: "NOT_RENDERED")
  *    @arg @c kGTLRSlides_PageBackgroundFill_PropertyState_Rendered If a
  *        property's state is RENDERED, then the element has the corresponding
  *        property when rendered on a page. If the element is a placeholder
- *        shape as
- *        determined by the placeholder
- *        field, and it inherits from a placeholder shape, the corresponding
- *        field
- *        may be unset, meaning that the property value is inherited from a
- *        parent
- *        placeholder. If the element does not inherit, then the field will
- *        contain
- *        the rendered value. This is the default value. (Value: "RENDERED")
+ *        shape as determined by the placeholder field, and it inherits from a
+ *        placeholder shape, the corresponding field may be unset, meaning that
+ *        the property value is inherited from a parent placeholder. If the
+ *        element does not inherit, then the field will contain the rendered
+ *        value. This is the default value. (Value: "RENDERED")
  */
 @property(nonatomic, copy, nullable) NSString *propertyState;
 
@@ -6434,9 +6314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The description of the page element. Combined with title to display alt
- *  text.
- *  The field is not supported for Group
- *  elements.
+ *  text. The field is not supported for Group elements.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -6453,8 +6331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The object ID for this page element. Object IDs used by
- *  google.apps.slides.v1.Page and
- *  google.apps.slides.v1.PageElement share the same namespace.
+ *  google.apps.slides.v1.Page and google.apps.slides.v1.PageElement share the
+ *  same namespace.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -6462,8 +6340,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_Shape *shape;
 
 /**
- *  A linked chart embedded from Google Sheets. Unlinked charts are
- *  represented as images.
+ *  A linked chart embedded from Google Sheets. Unlinked charts are represented
+ *  as images.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_SheetsChart *sheetsChart;
 
@@ -6475,21 +6353,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The title of the page element. Combined with description to display alt
- *  text.
- *  The field is not supported for Group
- *  elements.
+ *  text. The field is not supported for Group elements.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  The transform of the page element.
- *  The visual appearance of the page element is determined by its absolute
- *  transform. To compute the absolute transform, preconcatenate a page
- *  element's transform with the transforms of all of its parent groups. If the
- *  page element is not in a group, its absolute transform is the same as the
- *  value in this field.
- *  The initial transform for the newly created Group is always the identity
- *  transform.
+ *  The transform of the page element. The visual appearance of the page element
+ *  is determined by its absolute transform. To compute the absolute transform,
+ *  preconcatenate a page element's transform with the transforms of all of its
+ *  parent groups. If the page element is not in a group, its absolute transform
+ *  is the same as the value in this field. The initial transform for the newly
+ *  created Group is always the identity transform.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_AffineTransform *transform;
 
@@ -6503,11 +6377,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Common properties for a page element.
- *  Note: When you initially create a
- *  PageElement, the API may modify
- *  the values of both `size` and `transform`, but the
- *  visual size will be unchanged.
+ *  Common properties for a page element. Note: When you initially create a
+ *  PageElement, the API may modify the values of both `size` and `transform`,
+ *  but the visual size will be unchanged.
  */
 @interface GTLRSlides_PageElementProperties : GTLRObject
 
@@ -6524,22 +6396,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The properties of the Page.
- *  The page will inherit properties from the parent page. Depending on the page
- *  type the hierarchy is defined in either
- *  SlideProperties or
- *  LayoutProperties.
+ *  The properties of the Page. The page will inherit properties from the parent
+ *  page. Depending on the page type the hierarchy is defined in either
+ *  SlideProperties or LayoutProperties.
  */
 @interface GTLRSlides_PageProperties : GTLRObject
 
 /**
- *  The color scheme of the page. If unset, the color scheme is inherited from
- *  a parent page. If the page has no parent, the color scheme uses a default
- *  Slides color scheme, matching the defaults in the Slides editor.
- *  Only the concrete colors of the first 12 ThemeColorTypes are editable. In
- *  addition, only
- *  the color scheme on `Master` pages can be updated. To update the field, a
- *  color scheme containing mappings from all the first 12 ThemeColorTypes to
+ *  The color scheme of the page. If unset, the color scheme is inherited from a
+ *  parent page. If the page has no parent, the color scheme uses a default
+ *  Slides color scheme, matching the defaults in the Slides editor. Only the
+ *  concrete colors of the first 12 ThemeColorTypes are editable. In addition,
+ *  only the color scheme on `Master` pages can be updated. To update the field,
+ *  a color scheme containing mappings from all the first 12 ThemeColorTypes to
  *  their concrete colors must be provided. Colors for the remaining
  *  ThemeColorTypes will be ignored.
  */
@@ -6561,8 +6430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_ParagraphMarker : GTLRObject
 
 /**
- *  The bullet for this paragraph. If not present, the paragraph does not
- *  belong to a list.
+ *  The bullet for this paragraph. If not present, the paragraph does not belong
+ *  to a list.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Bullet *bullet;
 
@@ -6573,18 +6442,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Styles that apply to a whole paragraph.
- *  If this text is contained in a shape with a parent placeholder, then these
- *  paragraph styles may be
- *  inherited from the parent. Which paragraph styles are inherited depend on
- *  the
- *  nesting level of lists:
- *  * A paragraph not in a list will inherit its paragraph style from the
- *  paragraph at the 0 nesting level of the list inside the parent placeholder.
- *  * A paragraph in a list will inherit its paragraph style from the paragraph
- *  at its corresponding nesting level of the list inside the parent
- *  placeholder.
- *  Inherited paragraph styles are represented as unset fields in this message.
+ *  Styles that apply to a whole paragraph. If this text is contained in a shape
+ *  with a parent placeholder, then these paragraph styles may be inherited from
+ *  the parent. Which paragraph styles are inherited depend on the nesting level
+ *  of lists: * A paragraph not in a list will inherit its paragraph style from
+ *  the paragraph at the 0 nesting level of the list inside the parent
+ *  placeholder. * A paragraph in a list will inherit its paragraph style from
+ *  the paragraph at its corresponding nesting level of the list inside the
+ *  parent placeholder. Inherited paragraph styles are represented as unset
+ *  fields in this message.
  */
 @interface GTLRSlides_ParagraphStyle : GTLRObject
 
@@ -6598,20 +6464,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_ParagraphStyle_Alignment_Center The paragraph is
  *        centered. (Value: "CENTER")
  *    @arg @c kGTLRSlides_ParagraphStyle_Alignment_End The paragraph is aligned
- *        to the end of the line. Right-aligned for
- *        LTR text, left-aligned otherwise. (Value: "END")
+ *        to the end of the line. Right-aligned for LTR text, left-aligned
+ *        otherwise. (Value: "END")
  *    @arg @c kGTLRSlides_ParagraphStyle_Alignment_Justified The paragraph is
  *        justified. (Value: "JUSTIFIED")
  *    @arg @c kGTLRSlides_ParagraphStyle_Alignment_Start The paragraph is
- *        aligned to the start of the line. Left-aligned for
- *        LTR text, right-aligned otherwise. (Value: "START")
+ *        aligned to the start of the line. Left-aligned for LTR text,
+ *        right-aligned otherwise. (Value: "START")
  */
 @property(nonatomic, copy, nullable) NSString *alignment;
 
 /**
  *  The text direction of this paragraph. If unset, the value defaults to
- *  LEFT_TO_RIGHT since
- *  text direction is not inherited.
+ *  LEFT_TO_RIGHT since text direction is not inherited.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_ParagraphStyle_Direction_LeftToRight The text goes
@@ -6625,9 +6490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *direction;
 
 /**
- *  The amount indentation for the paragraph on the side that corresponds to
- *  the end of the text, based on the current text direction. If unset, the
- *  value is inherited from the parent.
+ *  The amount indentation for the paragraph on the side that corresponds to the
+ *  end of the text, based on the current text direction. If unset, the value is
+ *  inherited from the parent.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Dimension *indentEnd;
 
@@ -6638,9 +6503,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_Dimension *indentFirstLine;
 
 /**
- *  The amount indentation for the paragraph on the side that corresponds to
- *  the start of the text, based on the current text direction. If unset, the
- *  value is inherited from the parent.
+ *  The amount indentation for the paragraph on the side that corresponds to the
+ *  start of the text, based on the current text direction. If unset, the value
+ *  is inherited from the parent.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Dimension *indentStart;
 
@@ -6695,9 +6560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
- *  The object ID of this shape's parent placeholder.
- *  If unset, the parent placeholder shape does not exist, so the shape does
- *  not inherit properties from any other shape.
+ *  The object ID of this shape's parent placeholder. If unset, the parent
+ *  placeholder shape does not exist, so the shape does not inherit properties
+ *  from any other shape.
  */
 @property(nonatomic, copy, nullable) NSString *parentObjectId;
 
@@ -6743,9 +6608,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Presentation : GTLRObject
 
 /**
- *  The layouts in the presentation. A layout is a template that determines
- *  how content is arranged and styled on the slides that inherit from that
- *  layout.
+ *  The layouts in the presentation. A layout is a template that determines how
+ *  content is arranged and styled on the slides that inherit from that layout.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_Page *> *layouts;
 
@@ -6755,26 +6619,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  The slide masters in the presentation. A slide master contains all common
  *  page elements and the common properties for a set of layouts. They serve
- *  three purposes:
- *  - Placeholder shapes on a master contain the default text styles and shape
- *  properties of all placeholder shapes on pages that use that master.
- *  - The master page properties define the common page properties inherited by
- *  its layouts.
- *  - Any other shapes on the master slide appear on all slides using that
- *  master, regardless of their layout.
+ *  three purposes: - Placeholder shapes on a master contain the default text
+ *  styles and shape properties of all placeholder shapes on pages that use that
+ *  master. - The master page properties define the common page properties
+ *  inherited by its layouts. - Any other shapes on the master slide appear on
+ *  all slides using that master, regardless of their layout.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_Page *> *masters;
 
 /**
- *  The notes master in the presentation. It serves three purposes:
- *  - Placeholder shapes on a notes master contain the default text styles and
- *  shape properties of all placeholder shapes on notes pages. Specifically,
- *  a `SLIDE_IMAGE` placeholder shape contains the slide thumbnail, and a
- *  `BODY` placeholder shape contains the speaker notes.
- *  - The notes master page properties define the common page properties
- *  inherited by all notes pages.
- *  - Any other shapes on the notes master appears on all notes pages.
- *  The notes master is read-only.
+ *  The notes master in the presentation. It serves three purposes: -
+ *  Placeholder shapes on a notes master contain the default text styles and
+ *  shape properties of all placeholder shapes on notes pages. Specifically, a
+ *  `SLIDE_IMAGE` placeholder shape contains the slide thumbnail, and a `BODY`
+ *  placeholder shape contains the speaker notes. - The notes master page
+ *  properties define the common page properties inherited by all notes pages. -
+ *  Any other shapes on the notes master appears on all notes pages. The notes
+ *  master is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Page *notesMaster;
 
@@ -6785,13 +6646,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *presentationId;
 
 /**
- *  The revision ID of the presentation. Can be used in update requests
- *  to assert that the presentation revision hasn't changed since the last
- *  read operation. Only populated if the user has edit access to the
- *  presentation.
+ *  The revision ID of the presentation. Can be used in update requests to
+ *  assert that the presentation revision hasn't changed since the last read
+ *  operation. Only populated if the user has edit access to the presentation.
  *  The format of the revision ID may change over time, so it should be treated
- *  opaquely. A returned revision ID is only guaranteed to be valid for 24
- *  hours after it has been returned and cannot be shared across users. If the
+ *  opaquely. A returned revision ID is only guaranteed to be valid for 24 hours
+ *  after it has been returned and cannot be shared across users. If the
  *  revision ID is unchanged between calls, then the presentation has not
  *  changed. Conversely, a changed ID (for the same presentation and user)
  *  usually means the presentation has been updated; however, a changed ID can
@@ -6800,8 +6660,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
- *  The slides in the presentation.
- *  A slide inherits properties from a slide layout.
+ *  The slides in the presentation. A slide inherits properties from a slide
+ *  layout.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_Page *> *slides;
 
@@ -6818,16 +6678,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Range : GTLRObject
 
 /**
- *  The optional zero-based index of the end of the collection.
- *  Required for `FIXED_RANGE` ranges.
+ *  The optional zero-based index of the end of the collection. Required for
+ *  `FIXED_RANGE` ranges.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *endIndex;
 
 /**
- *  The optional zero-based index of the beginning of the collection.
- *  Required for `FIXED_RANGE` and `FROM_START_INDEX` ranges.
+ *  The optional zero-based index of the beginning of the collection. Required
+ *  for `FIXED_RANGE` and `FROM_START_INDEX` ranges.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6838,16 +6698,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Range_Type_All Sets the range to be the whole length
- *        of the collection. Both the
- *        `start_index` and the `end_index` must not be
- *        specified. (Value: "ALL")
+ *        of the collection. Both the `start_index` and the `end_index` must not
+ *        be specified. (Value: "ALL")
  *    @arg @c kGTLRSlides_Range_Type_FixedRange A fixed range. Both the
- *        `start_index` and
- *        `end_index` must be specified. (Value: "FIXED_RANGE")
+ *        `start_index` and `end_index` must be specified. (Value:
+ *        "FIXED_RANGE")
  *    @arg @c kGTLRSlides_Range_Type_FromStartIndex Starts the range at
- *        `start_index` and continues until the
- *        end of the collection. The `end_index` must not be specified. (Value:
- *        "FROM_START_INDEX")
+ *        `start_index` and continues until the end of the collection. The
+ *        `end_index` must not be specified. (Value: "FROM_START_INDEX")
  *    @arg @c kGTLRSlides_Range_Type_RangeTypeUnspecified Unspecified range
  *        type. This value must not be used. (Value: "RANGE_TYPE_UNSPECIFIED")
  */
@@ -6862,77 +6720,75 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Recolor : GTLRObject
 
 /**
- *  The name of the recolor effect.
- *  The name is determined from the `recolor_stops` by matching the gradient
- *  against the colors in the page's current color scheme. This property is
- *  read-only.
+ *  The name of the recolor effect. The name is determined from the
+ *  `recolor_stops` by matching the gradient against the colors in the page's
+ *  current color scheme. This property is read-only.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Recolor_Name_Custom Custom recolor effect. Refer to
- *        `recolor_stops` for the concrete
- *        gradient. (Value: "CUSTOM")
+ *        `recolor_stops` for the concrete gradient. (Value: "CUSTOM")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark1 A recolor effect that darkens the
- *        image using the page's first available
- *        color from its color scheme. (Value: "DARK1")
+ *        image using the page's first available color from its color scheme.
+ *        (Value: "DARK1")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark10 A recolor effect that darkens the
- *        image using the page's tenth available
- *        color from its color scheme. (Value: "DARK10")
+ *        image using the page's tenth available color from its color scheme.
+ *        (Value: "DARK10")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark2 A recolor effect that darkens the
- *        image using the page's second available
- *        color from its color scheme. (Value: "DARK2")
+ *        image using the page's second available color from its color scheme.
+ *        (Value: "DARK2")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark3 A recolor effect that darkens the
- *        image using the page's third available
- *        color from its color scheme. (Value: "DARK3")
+ *        image using the page's third available color from its color scheme.
+ *        (Value: "DARK3")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark4 A recolor effect that darkens the
- *        image using the page's fourth available
- *        color from its color scheme. (Value: "DARK4")
+ *        image using the page's fourth available color from its color scheme.
+ *        (Value: "DARK4")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark5 A recolor effect that darkens the
- *        image using the page's fifth available
- *        color from its color scheme. (Value: "DARK5")
+ *        image using the page's fifth available color from its color scheme.
+ *        (Value: "DARK5")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark6 A recolor effect that darkens the
- *        image using the page's sixth available
- *        color from its color scheme. (Value: "DARK6")
+ *        image using the page's sixth available color from its color scheme.
+ *        (Value: "DARK6")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark7 A recolor effect that darkens the
- *        image using the page's seventh
- *        available color from its color scheme. (Value: "DARK7")
+ *        image using the page's seventh available color from its color scheme.
+ *        (Value: "DARK7")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark8 A recolor effect that darkens the
- *        image using the page's eighth available
- *        color from its color scheme. (Value: "DARK8")
+ *        image using the page's eighth available color from its color scheme.
+ *        (Value: "DARK8")
  *    @arg @c kGTLRSlides_Recolor_Name_Dark9 A recolor effect that darkens the
- *        image using the page's ninth available
- *        color from its color scheme. (Value: "DARK9")
+ *        image using the page's ninth available color from its color scheme.
+ *        (Value: "DARK9")
  *    @arg @c kGTLRSlides_Recolor_Name_Grayscale A recolor effect that recolors
  *        the image to grayscale. (Value: "GRAYSCALE")
  *    @arg @c kGTLRSlides_Recolor_Name_Light1 A recolor effect that lightens the
- *        image using the page's first available
- *        color from its color scheme. (Value: "LIGHT1")
+ *        image using the page's first available color from its color scheme.
+ *        (Value: "LIGHT1")
  *    @arg @c kGTLRSlides_Recolor_Name_Light10 A recolor effect that lightens
- *        the image using the page's tenth available
- *        color from its color scheme. (Value: "LIGHT10")
+ *        the image using the page's tenth available color from its color
+ *        scheme. (Value: "LIGHT10")
  *    @arg @c kGTLRSlides_Recolor_Name_Light2 A recolor effect that lightens the
- *        image using the page's second
- *        available color from its color scheme. (Value: "LIGHT2")
+ *        image using the page's second available color from its color scheme.
+ *        (Value: "LIGHT2")
  *    @arg @c kGTLRSlides_Recolor_Name_Light3 A recolor effect that lightens the
- *        image using the page's third available
- *        color from its color scheme. (Value: "LIGHT3")
+ *        image using the page's third available color from its color scheme.
+ *        (Value: "LIGHT3")
  *    @arg @c kGTLRSlides_Recolor_Name_Light4 A recolor effect that lightens the
- *        image using the page's forth available
- *        color from its color scheme. (Value: "LIGHT4")
+ *        image using the page's forth available color from its color scheme.
+ *        (Value: "LIGHT4")
  *    @arg @c kGTLRSlides_Recolor_Name_Light5 A recolor effect that lightens the
- *        image using the page's fifth available
- *        color from its color scheme. (Value: "LIGHT5")
+ *        image using the page's fifth available color from its color scheme.
+ *        (Value: "LIGHT5")
  *    @arg @c kGTLRSlides_Recolor_Name_Light6 A recolor effect that lightens the
- *        image using the page's sixth available
- *        color from its color scheme. (Value: "LIGHT6")
+ *        image using the page's sixth available color from its color scheme.
+ *        (Value: "LIGHT6")
  *    @arg @c kGTLRSlides_Recolor_Name_Light7 A recolor effect that lightens the
- *        image using the page's seventh
- *        available color from its color scheme. (Value: "LIGHT7")
+ *        image using the page's seventh available color from its color scheme.
+ *        (Value: "LIGHT7")
  *    @arg @c kGTLRSlides_Recolor_Name_Light8 A recolor effect that lightens the
- *        image using the page's eighth
- *        available color from its color scheme. (Value: "LIGHT8")
+ *        image using the page's eighth available color from its color scheme.
+ *        (Value: "LIGHT8")
  *    @arg @c kGTLRSlides_Recolor_Name_Light9 A recolor effect that lightens the
- *        image using the page's ninth available
- *        color from its color scheme. (Value: "LIGHT9")
+ *        image using the page's ninth available color from its color scheme.
+ *        (Value: "LIGHT9")
  *    @arg @c kGTLRSlides_Recolor_Name_Negative A recolor effect that recolors
  *        the image to negative grayscale. (Value: "NEGATIVE")
  *    @arg @c kGTLRSlides_Recolor_Name_None No recolor effect. The default
@@ -6944,10 +6800,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The recolor effect is represented by a gradient, which is a list of color
- *  stops.
- *  The colors in the gradient will replace the corresponding colors at
- *  the same position in the color palette and apply to the image. This
- *  property is read-only.
+ *  stops. The colors in the gradient will replace the corresponding colors at
+ *  the same position in the color palette and apply to the image. This property
+ *  is read-only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_ColorStop *> *recolorStops;
 
@@ -6956,9 +6811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  Refreshes an embedded Google Sheets chart by replacing it with the latest
- *  version of the chart from Google Sheets.
- *  NOTE: Refreshing charts requires at least one of the spreadsheets.readonly,
- *  spreadsheets, drive.readonly, or drive OAuth scopes.
+ *  version of the chart from Google Sheets. NOTE: Refreshing charts requires at
+ *  least one of the spreadsheets.readonly, spreadsheets, drive.readonly, or
+ *  drive OAuth scopes.
  */
 @interface GTLRSlides_RefreshSheetsChartRequest : GTLRObject
 
@@ -6976,26 +6831,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_ReplaceAllShapesWithImageRequest : GTLRObject
 
 /**
- *  If set, this request will replace all of the shapes that contain the
- *  given text.
+ *  If set, this request will replace all of the shapes that contain the given
+ *  text.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_SubstringMatchCriteria *containsText;
 
 /**
- *  The image replace method.
- *  If you specify both a `replace_method` and an `image_replace_method`, the
- *  `image_replace_method` takes precedence.
- *  If you do not specify a value for `image_replace_method`, but specify a
- *  value for `replace_method`, then the specified `replace_method` value is
- *  used.
- *  If you do not specify either, then CENTER_INSIDE is used.
+ *  The image replace method. If you specify both a `replace_method` and an
+ *  `image_replace_method`, the `image_replace_method` takes precedence. If you
+ *  do not specify a value for `image_replace_method`, but specify a value for
+ *  `replace_method`, then the specified `replace_method` value is used. If you
+ *  do not specify either, then CENTER_INSIDE is used.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterCrop
  *        Scales and centers the image to fill the bounds of the original shape.
  *        The image may be cropped in order to fill the shape. The rendered size
- *        of
- *        the image will be the same as that of the original shape. (Value:
+ *        of the image will be the same as that of the original shape. (Value:
  *        "CENTER_CROP")
  *    @arg @c kGTLRSlides_ReplaceAllShapesWithImageRequest_ImageReplaceMethod_CenterInside
  *        Scales and centers the image to fit within the bounds of the original
@@ -7009,37 +6861,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *imageReplaceMethod;
 
 /**
- *  The image URL.
- *  The image is fetched once at insertion time and a copy is stored for
- *  display inside the presentation. Images must be less than 50MB in size,
- *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
- *  format.
- *  The provided URL can be at most 2 kB in length. The URL itself is saved
- *  with the image, and exposed via the Image.source_url field.
+ *  The image URL. The image is fetched once at insertion time and a copy is
+ *  stored for display inside the presentation. Images must be less than 50MB in
+ *  size, cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
+ *  format. The provided URL can be at most 2 kB in length. The URL itself is
+ *  saved with the image, and exposed via the Image.source_url field.
  */
 @property(nonatomic, copy, nullable) NSString *imageUrl;
 
 /**
  *  If non-empty, limits the matches to page elements only on the given pages.
- *  Returns a 400 bad request error if given the page object ID of a
- *  notes page or a
- *  notes master, or if a
- *  page with that object ID doesn't exist in the presentation.
+ *  Returns a 400 bad request error if given the page object ID of a notes page
+ *  or a notes master, or if a page with that object ID doesn't exist in the
+ *  presentation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageObjectIds;
 
 /**
- *  The replace method.
- *  <b>Deprecated</b>: use `image_replace_method` instead.
- *  If you specify both a `replace_method` and an `image_replace_method`, the
+ *  The replace method. *Deprecated*: use `image_replace_method` instead. If you
+ *  specify both a `replace_method` and an `image_replace_method`, the
  *  `image_replace_method` takes precedence.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterCrop
  *        Scales and centers the image to fill the bounds of the original shape.
  *        The image may be cropped in order to fill the shape. The rendered size
- *        of
- *        the image will be the same as that of the original shape. (Value:
+ *        of the image will be the same as that of the original shape. (Value:
  *        "CENTER_CROP")
  *    @arg @c kGTLRSlides_ReplaceAllShapesWithImageRequest_ReplaceMethod_CenterInside
  *        Scales and centers the image to fit within the bounds of the original
@@ -7070,9 +6917,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  Replaces all shapes that match the given criteria with the provided Google
  *  Sheets chart. The chart will be scaled and centered to fit within the bounds
- *  of the original shape.
- *  NOTE: Replacing shapes with a chart requires at least one of the
- *  spreadsheets.readonly, spreadsheets, drive.readonly, or drive OAuth scopes.
+ *  of the original shape. NOTE: Replacing shapes with a chart requires at least
+ *  one of the spreadsheets.readonly, spreadsheets, drive.readonly, or drive
+ *  OAuth scopes.
  */
 @interface GTLRSlides_ReplaceAllShapesWithSheetsChartRequest : GTLRObject
 
@@ -7084,20 +6931,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *chartId;
 
 /**
- *  The criteria that the shapes must match in order to be replaced. The
- *  request will replace all of the shapes that contain the given text.
+ *  The criteria that the shapes must match in order to be replaced. The request
+ *  will replace all of the shapes that contain the given text.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_SubstringMatchCriteria *containsText;
 
 /**
- *  The mode with which the chart is linked to the source spreadsheet. When
- *  not specified, the chart will be an image that is not linked.
+ *  The mode with which the chart is linked to the source spreadsheet. When not
+ *  specified, the chart will be an image that is not linked.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_Linked
  *        Linking the chart allows it to be updated, and other collaborators
- *        will
- *        see a link to the spreadsheet. (Value: "LINKED")
+ *        will see a link to the spreadsheet. (Value: "LINKED")
  *    @arg @c kGTLRSlides_ReplaceAllShapesWithSheetsChartRequest_LinkingMode_NotLinkedImage
  *        The chart is not associated with the source spreadsheet and cannot be
  *        updated. A chart that is not linked will be inserted as an image.
@@ -7107,10 +6953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  If non-empty, limits the matches to page elements only on the given pages.
- *  Returns a 400 bad request error if given the page object ID of a
- *  notes page or a
- *  notes master, or if a
- *  page with that object ID doesn't exist in the presentation.
+ *  Returns a 400 bad request error if given the page object ID of a notes page
+ *  or a notes master, or if a page with that object ID doesn't exist in the
+ *  presentation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageObjectIds;
 
@@ -7145,9 +6990,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  If non-empty, limits the matches to page elements only on the given pages.
- *  Returns a 400 bad request error if given the page object ID of a
- *  notes master,
- *  or if a page with that object ID doesn't exist in the presentation.
+ *  Returns a 400 bad request error if given the page object ID of a notes
+ *  master, or if a page with that object ID doesn't exist in the presentation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageObjectIds;
 
@@ -7173,8 +7017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Replaces an existing image with a new image.
- *  Replacing an image removes some image effects from the existing image.
+ *  Replaces an existing image with a new image. Replacing an image removes some
+ *  image effects from the existing image.
  */
 @interface GTLRSlides_ReplaceImageRequest : GTLRObject
 
@@ -7188,8 +7032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterCrop
  *        Scales and centers the image to fill the bounds of the original shape.
  *        The image may be cropped in order to fill the shape. The rendered size
- *        of
- *        the image will be the same as that of the original shape. (Value:
+ *        of the image will be the same as that of the original shape. (Value:
  *        "CENTER_CROP")
  *    @arg @c kGTLRSlides_ReplaceImageRequest_ImageReplaceMethod_CenterInside
  *        Scales and centers the image to fit within the bounds of the original
@@ -7203,13 +7046,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *imageReplaceMethod;
 
 /**
- *  The image URL.
- *  The image is fetched once at insertion time and a copy is stored for
- *  display inside the presentation. Images must be less than 50MB in size,
- *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
- *  format.
- *  The provided URL can be at most 2 kB in length. The URL itself is saved
- *  with the image, and exposed via the Image.source_url field.
+ *  The image URL. The image is fetched once at insertion time and a copy is
+ *  stored for display inside the presentation. Images must be less than 50MB in
+ *  size, cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
+ *  format. The provided URL can be at most 2 kB in length. The URL itself is
+ *  saved with the image, and exposed via the Image.source_url field.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -7294,8 +7135,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceImageRequest *replaceImage;
 
 /**
- *  Reroutes a line such that it's connected
- *  at the two closest connection sites on the connected page elements.
+ *  Reroutes a line such that it's connected at the two closest connection sites
+ *  on the connected page elements.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_RerouteLineRequest *rerouteLine;
 
@@ -7314,10 +7155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Updates the properties of a Line. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateLinePropertiesRequest *updateLineProperties;
 
-/**
- *  Updates the alt text title and/or description of a
- *  page element.
- */
+/** Updates the alt text title and/or description of a page element. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdatePageElementAltTextRequest *updatePageElementAltText;
 
 /** Updates the Z-order of page elements. */
@@ -7344,10 +7182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Updates the properties of a TableCell. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateTableCellPropertiesRequest *updateTableCellProperties;
 
-/**
- *  Updates the properties of a Table
- *  column.
- */
+/** Updates the properties of a Table column. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateTableColumnPropertiesRequest *updateTableColumnProperties;
 
 /** Updates the properties of a Table row. */
@@ -7363,16 +7198,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Reroutes a line such that it's connected at the
- *  two closest connection sites on the connected page elements.
+ *  Reroutes a line such that it's connected at the two closest connection sites
+ *  on the connected page elements.
  */
 @interface GTLRSlides_RerouteLineRequest : GTLRObject
 
 /**
- *  The object ID of the line to reroute.
- *  Only a line with a category
- *  indicating it is a "connector" can be rerouted. The start and end
- *  connections of the line must be on different page elements.
+ *  The object ID of the line to reroute. Only a line with a category indicating
+ *  it is a "connector" can be rerouted. The start and end connections of the
+ *  line must be on different page elements.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -7412,8 +7246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_GroupObjectsResponse *groupObjects;
 
 /**
- *  The result of replacing all shapes matching some criteria with an
- *  image.
+ *  The result of replacing all shapes matching some criteria with an image.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_ReplaceAllShapesWithImageResponse *replaceAllShapesWithImage;
 
@@ -7459,17 +7292,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The shadow properties of a page element.
- *  If these fields are unset, they may be inherited from a parent placeholder
- *  if it exists. If there is no parent, the fields will default to the value
- *  used for new page elements created in the Slides editor, which may depend on
- *  the page element kind.
+ *  The shadow properties of a page element. If these fields are unset, they may
+ *  be inherited from a parent placeholder if it exists. If there is no parent,
+ *  the fields will default to the value used for new page elements created in
+ *  the Slides editor, which may depend on the page element kind.
  */
 @interface GTLRSlides_Shadow : GTLRObject
 
 /**
- *  The alignment point of the shadow, that sets the origin for translate,
- *  scale and skew of the shadow. This property is read-only.
+ *  The alignment point of the shadow, that sets the origin for translate, scale
+ *  and skew of the shadow. This property is read-only.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Shadow_Alignment_BottomCenter Bottom center. (Value:
@@ -7510,44 +7342,36 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_OpaqueColor *color;
 
 /**
- *  The shadow property state.
- *  Updating the shadow on a page element will implicitly update this field to
- *  `RENDERED`, unless another value is specified in the same request. To have
- *  no shadow on a page element, set this field to `NOT_RENDERED`. In this
- *  case, any other shadow fields set in the same request will be ignored.
+ *  The shadow property state. Updating the shadow on a page element will
+ *  implicitly update this field to `RENDERED`, unless another value is
+ *  specified in the same request. To have no shadow on a page element, set this
+ *  field to `NOT_RENDERED`. In this case, any other shadow fields set in the
+ *  same request will be ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_Shadow_PropertyState_Inherit If a property's state is
- *        INHERIT, then the property state uses the value of
- *        corresponding `property_state` field on the parent shape. Elements
- *        that do
- *        not inherit will never have an INHERIT property state. (Value:
- *        "INHERIT")
+ *        INHERIT, then the property state uses the value of corresponding
+ *        `property_state` field on the parent shape. Elements that do not
+ *        inherit will never have an INHERIT property state. (Value: "INHERIT")
  *    @arg @c kGTLRSlides_Shadow_PropertyState_NotRendered If a property's state
- *        is NOT_RENDERED, then the element does not have the
- *        corresponding property when rendered on a page. However, the field may
- *        still be set so it can be inherited by child shapes. To remove a
- *        property
- *        from a rendered element, set its property_state to NOT_RENDERED.
- *        (Value: "NOT_RENDERED")
+ *        is NOT_RENDERED, then the element does not have the corresponding
+ *        property when rendered on a page. However, the field may still be set
+ *        so it can be inherited by child shapes. To remove a property from a
+ *        rendered element, set its property_state to NOT_RENDERED. (Value:
+ *        "NOT_RENDERED")
  *    @arg @c kGTLRSlides_Shadow_PropertyState_Rendered If a property's state is
- *        RENDERED, then the element has the corresponding
- *        property when rendered on a page. If the element is a placeholder
- *        shape as
- *        determined by the placeholder
- *        field, and it inherits from a placeholder shape, the corresponding
- *        field
- *        may be unset, meaning that the property value is inherited from a
- *        parent
- *        placeholder. If the element does not inherit, then the field will
- *        contain
- *        the rendered value. This is the default value. (Value: "RENDERED")
+ *        RENDERED, then the element has the corresponding property when
+ *        rendered on a page. If the element is a placeholder shape as
+ *        determined by the placeholder field, and it inherits from a
+ *        placeholder shape, the corresponding field may be unset, meaning that
+ *        the property value is inherited from a parent placeholder. If the
+ *        element does not inherit, then the field will contain the rendered
+ *        value. This is the default value. (Value: "RENDERED")
  */
 @property(nonatomic, copy, nullable) NSString *propertyState;
 
 /**
- *  Whether the shadow should rotate with the shape. This property is
- *  read-only.
+ *  Whether the shadow should rotate with the shape. This property is read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7573,17 +7397,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing a
- *  generic shape that does not have a more specific classification.
+ *  A PageElement kind representing a generic shape that does not have a more
+ *  specific classification.
  */
 @interface GTLRSlides_Shape : GTLRObject
 
 /**
  *  Placeholders are shapes that are inherit from corresponding placeholders on
- *  layouts and masters.
- *  If set, the shape is a placeholder shape and any inherited properties
- *  can be resolved by looking at the parent placeholder identified by the
- *  Placeholder.parent_object_id field.
+ *  layouts and masters. If set, the shape is a placeholder shape and any
+ *  inherited properties can be resolved by looking at the parent placeholder
+ *  identified by the Placeholder.parent_object_id field.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Placeholder *placeholder;
 
@@ -7632,17 +7455,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Shape_ShapeType_Cube Cube shape. Corresponds to
  *        ECMA-376 ST_ShapeType 'cube' (Value: "CUBE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_CurvedDownArrow Curved down arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'curvedDownArrow' (Value: "CURVED_DOWN_ARROW")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'curvedDownArrow' (Value:
+ *        "CURVED_DOWN_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_CurvedLeftArrow Curved left arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'curvedLeftArrow' (Value: "CURVED_LEFT_ARROW")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'curvedLeftArrow' (Value:
+ *        "CURVED_LEFT_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_CurvedRightArrow Curved right arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'curvedRightArrow' (Value: "CURVED_RIGHT_ARROW")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'curvedRightArrow' (Value:
+ *        "CURVED_RIGHT_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_CurvedUpArrow Curved up arrow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'curvedUpArrow' (Value: "CURVED_UP_ARROW")
+ *        Corresponds to ECMA-376 ST_ShapeType 'curvedUpArrow' (Value:
+ *        "CURVED_UP_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Custom Custom shape. (Value: "CUSTOM")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Decagon Decagon shape. Corresponds to
  *        ECMA-376 ST_ShapeType 'decagon' (Value: "DECAGON")
@@ -7661,43 +7484,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Shape_ShapeType_DownArrow Down arrow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'downArrow' (Value: "DOWN_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_DownArrowCallout Callout down arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'downArrowCallout' (Value: "DOWN_ARROW_CALLOUT")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'downArrowCallout' (Value:
+ *        "DOWN_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Ellipse Ellipse shape. Corresponds to
  *        ECMA-376 ST_ShapeType 'ellipse' (Value: "ELLIPSE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_EllipseRibbon Ellipse ribbon shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'ellipseRibbon' (Value: "ELLIPSE_RIBBON")
+ *        Corresponds to ECMA-376 ST_ShapeType 'ellipseRibbon' (Value:
+ *        "ELLIPSE_RIBBON")
  *    @arg @c kGTLRSlides_Shape_ShapeType_EllipseRibbon2 Ellipse ribbon 2 shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'ellipseRibbon2' (Value: "ELLIPSE_RIBBON_2")
+ *        Corresponds to ECMA-376 ST_ShapeType 'ellipseRibbon2' (Value:
+ *        "ELLIPSE_RIBBON_2")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartAlternateProcess Alternate
  *        process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartAlternateProcess' (Value: "FLOW_CHART_ALTERNATE_PROCESS")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartCollate Collate flow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartCollate' (Value: "FLOW_CHART_COLLATE")
+ *        Corresponds to ECMA-376 ST_ShapeType 'flowChartCollate' (Value:
+ *        "FLOW_CHART_COLLATE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartConnector Connector flow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartConnector' (Value: "FLOW_CHART_CONNECTOR")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartConnector'
+ *        (Value: "FLOW_CHART_CONNECTOR")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartDecision Decision flow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartDecision' (Value: "FLOW_CHART_DECISION")
+ *        Corresponds to ECMA-376 ST_ShapeType 'flowChartDecision' (Value:
+ *        "FLOW_CHART_DECISION")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartDelay Delay flow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'flowChartDelay' (Value:
  *        "FLOW_CHART_DELAY")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartDisplay Display flow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartDisplay' (Value: "FLOW_CHART_DISPLAY")
+ *        Corresponds to ECMA-376 ST_ShapeType 'flowChartDisplay' (Value:
+ *        "FLOW_CHART_DISPLAY")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartDocument Document flow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartDocument' (Value: "FLOW_CHART_DOCUMENT")
+ *        Corresponds to ECMA-376 ST_ShapeType 'flowChartDocument' (Value:
+ *        "FLOW_CHART_DOCUMENT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartExtract Extract flow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartExtract' (Value: "FLOW_CHART_EXTRACT")
+ *        Corresponds to ECMA-376 ST_ShapeType 'flowChartExtract' (Value:
+ *        "FLOW_CHART_EXTRACT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartInputOutput Input output flow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartInputOutput' (Value: "FLOW_CHART_INPUT_OUTPUT")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartInputOutput'
+ *        (Value: "FLOW_CHART_INPUT_OUTPUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartInternalStorage Internal
  *        storage flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartInternalStorage' (Value: "FLOW_CHART_INTERNAL_STORAGE")
@@ -7711,8 +7534,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartMagneticTape' (Value: "FLOW_CHART_MAGNETIC_TAPE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartManualInput Manual input flow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartManualInput' (Value: "FLOW_CHART_MANUAL_INPUT")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartManualInput'
+ *        (Value: "FLOW_CHART_MANUAL_INPUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartManualOperation Manual
  *        operation flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartManualOperation' (Value: "FLOW_CHART_MANUAL_OPERATION")
@@ -7737,17 +7560,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        process flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartPredefinedProcess' (Value: "FLOW_CHART_PREDEFINED_PROCESS")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartPreparation Preparation flow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartPreparation' (Value: "FLOW_CHART_PREPARATION")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartPreparation'
+ *        (Value: "FLOW_CHART_PREPARATION")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartProcess Process flow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartProcess' (Value: "FLOW_CHART_PROCESS")
+ *        Corresponds to ECMA-376 ST_ShapeType 'flowChartProcess' (Value:
+ *        "FLOW_CHART_PROCESS")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartPunchedCard Punched card flow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartPunchedCard' (Value: "FLOW_CHART_PUNCHED_CARD")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartPunchedCard'
+ *        (Value: "FLOW_CHART_PUNCHED_CARD")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartPunchedTape Punched tape flow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartPunchedTape' (Value: "FLOW_CHART_PUNCHED_TAPE")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartPunchedTape'
+ *        (Value: "FLOW_CHART_PUNCHED_TAPE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartSort Sort flow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'flowChartSort' (Value:
  *        "FLOW_CHART_SORT")
@@ -7755,8 +7578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        junction flow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'flowChartSummingJunction' (Value: "FLOW_CHART_SUMMING_JUNCTION")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FlowChartTerminator Terminator flow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'flowChartTerminator' (Value: "FLOW_CHART_TERMINATOR")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'flowChartTerminator'
+ *        (Value: "FLOW_CHART_TERMINATOR")
  *    @arg @c kGTLRSlides_Shape_ShapeType_FoldedCorner Folded corner shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'foldedCorner' (Value:
  *        "FOLDED_CORNER")
@@ -7773,39 +7596,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Shape_ShapeType_HomePlate Home plate shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'homePlate' (Value: "HOME_PLATE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_HorizontalScroll Horizontal scroll
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'horizontalScroll' (Value: "HORIZONTAL_SCROLL")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'horizontalScroll' (Value:
+ *        "HORIZONTAL_SCROLL")
  *    @arg @c kGTLRSlides_Shape_ShapeType_IrregularSeal1 Irregular seal 1 shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'irregularSeal1' (Value: "IRREGULAR_SEAL_1")
+ *        Corresponds to ECMA-376 ST_ShapeType 'irregularSeal1' (Value:
+ *        "IRREGULAR_SEAL_1")
  *    @arg @c kGTLRSlides_Shape_ShapeType_IrregularSeal2 Irregular seal 2 shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'irregularSeal2' (Value: "IRREGULAR_SEAL_2")
+ *        Corresponds to ECMA-376 ST_ShapeType 'irregularSeal2' (Value:
+ *        "IRREGULAR_SEAL_2")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LeftArrow Left arrow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'leftArrow' (Value: "LEFT_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LeftArrowCallout Callout left arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'leftArrowCallout' (Value: "LEFT_ARROW_CALLOUT")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'leftArrowCallout' (Value:
+ *        "LEFT_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LeftBrace Left brace shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'leftBrace' (Value: "LEFT_BRACE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LeftBracket Left bracket shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'leftBracket' (Value:
  *        "LEFT_BRACKET")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LeftRightArrow Left right arrow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'leftRightArrow' (Value: "LEFT_RIGHT_ARROW")
+ *        Corresponds to ECMA-376 ST_ShapeType 'leftRightArrow' (Value:
+ *        "LEFT_RIGHT_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LeftRightArrowCallout Callout left
  *        right arrow shape. Corresponds to ECMA-376 ST_ShapeType
  *        'leftRightArrowCallout' (Value: "LEFT_RIGHT_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LeftRightUpArrow Left right up arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'leftRightUpArrow' (Value: "LEFT_RIGHT_UP_ARROW")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'leftRightUpArrow' (Value:
+ *        "LEFT_RIGHT_UP_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LeftUpArrow Left up arrow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'leftUpArrow' (Value:
  *        "LEFT_UP_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_LightningBolt Lightning bolt shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'lightningBolt' (Value: "LIGHTNING_BOLT")
+ *        Corresponds to ECMA-376 ST_ShapeType 'lightningBolt' (Value:
+ *        "LIGHTNING_BOLT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_MathDivide Divide math shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'mathDivide' (Value:
  *        "MATH_DIVIDE")
@@ -7826,8 +7649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Shape_ShapeType_NoSmoking No smoking shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'noSmoking' (Value: "NO_SMOKING")
  *    @arg @c kGTLRSlides_Shape_ShapeType_NotchedRightArrow Notched right arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'notchedRightArrow' (Value: "NOTCHED_RIGHT_ARROW")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'notchedRightArrow'
+ *        (Value: "NOTCHED_RIGHT_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Octagon Octagon shape. Corresponds to
  *        ECMA-376 ST_ShapeType 'octagon' (Value: "OCTAGON")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Parallelogram Parallelogram shape.
@@ -7844,8 +7667,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Shape_ShapeType_QuadArrow Quad-arrow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'quadArrow' (Value: "QUAD_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_QuadArrowCallout Callout quad-arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'quadArrowCallout' (Value: "QUAD_ARROW_CALLOUT")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'quadArrowCallout' (Value:
+ *        "QUAD_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Rectangle Rectangle shape. Corresponds
  *        to ECMA-376 ST_ShapeType 'rect'. (Value: "RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Ribbon Ribbon shape. Corresponds to
@@ -7856,8 +7679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        Corresponds to ECMA-376 ST_ShapeType 'rightArrow' (Value:
  *        "RIGHT_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_RightArrowCallout Callout right arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'rightArrowCallout' (Value: "RIGHT_ARROW_CALLOUT")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'rightArrowCallout'
+ *        (Value: "RIGHT_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_RightBrace Right brace shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'rightBrace' (Value:
  *        "RIGHT_BRACE")
@@ -7868,32 +7691,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        Corresponds to ECMA-376 ST_ShapeType 'rtTriangle' (Value:
  *        "RIGHT_TRIANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Round1Rectangle One round corner
- *        rectangle shape. Corresponds to ECMA-376 ST_ShapeType
- *        'round1Rect' (Value: "ROUND_1_RECTANGLE")
+ *        rectangle shape. Corresponds to ECMA-376 ST_ShapeType 'round1Rect'
+ *        (Value: "ROUND_1_RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Round2DiagonalRectangle Two diagonal
- *        round corner rectangle shape. Corresponds to ECMA-376
- *        ST_ShapeType 'round2DiagRect' (Value: "ROUND_2_DIAGONAL_RECTANGLE")
+ *        round corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
+ *        'round2DiagRect' (Value: "ROUND_2_DIAGONAL_RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Round2SameRectangle Two same-side
- *        round corner rectangle shape. Corresponds to ECMA-376
- *        ST_ShapeType 'round2SameRect' (Value: "ROUND_2_SAME_RECTANGLE")
+ *        round corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
+ *        'round2SameRect' (Value: "ROUND_2_SAME_RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_RoundRectangle Round corner rectangle
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'roundRect' (Value: "ROUND_RECTANGLE")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'roundRect' (Value:
+ *        "ROUND_RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_SmileyFace Smiley face shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'smileyFace' (Value:
  *        "SMILEY_FACE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Snip1Rectangle One snip corner
- *        rectangle shape. Corresponds to ECMA-376 ST_ShapeType
- *        'snip1Rect' (Value: "SNIP_1_RECTANGLE")
+ *        rectangle shape. Corresponds to ECMA-376 ST_ShapeType 'snip1Rect'
+ *        (Value: "SNIP_1_RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Snip2DiagonalRectangle Two diagonal
- *        snip corner rectangle shape. Corresponds to ECMA-376
- *        ST_ShapeType 'snip2DiagRect' (Value: "SNIP_2_DIAGONAL_RECTANGLE")
+ *        snip corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
+ *        'snip2DiagRect' (Value: "SNIP_2_DIAGONAL_RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Snip2SameRectangle Two same-side snip
- *        corner rectangle shape. Corresponds to ECMA-376
- *        ST_ShapeType 'snip2SameRect' (Value: "SNIP_2_SAME_RECTANGLE")
+ *        corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
+ *        'snip2SameRect' (Value: "SNIP_2_SAME_RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_SnipRoundRectangle One snip one round
- *        corner rectangle shape. Corresponds to ECMA-376
- *        ST_ShapeType 'snipRoundRect' (Value: "SNIP_ROUND_RECTANGLE")
+ *        corner rectangle shape. Corresponds to ECMA-376 ST_ShapeType
+ *        'snipRoundRect' (Value: "SNIP_ROUND_RECTANGLE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Speech Speech shape. (Value: "SPEECH")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Star10 Ten pointed star shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'star10' (Value: "STAR_10")
@@ -7902,11 +7725,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Shape_ShapeType_Star16 Sixteen pointed star shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'star16' (Value: "STAR_16")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Star24 Twenty four pointed star shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'star24' (Value: "STAR_24")
+ *        Corresponds to ECMA-376 ST_ShapeType 'star24' (Value: "STAR_24")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Star32 Thirty two pointed star shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'star32' (Value: "STAR_32")
+ *        Corresponds to ECMA-376 ST_ShapeType 'star32' (Value: "STAR_32")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Star4 Four pointed star shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'star4' (Value: "STAR_4")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Star5 Five pointed star shape.
@@ -7920,8 +7741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Shape_ShapeType_Starburst Star burst shape. (Value:
  *        "STARBURST")
  *    @arg @c kGTLRSlides_Shape_ShapeType_StripedRightArrow Striped right arrow
- *        shape. Corresponds to ECMA-376 ST_ShapeType
- *        'stripedRightArrow' (Value: "STRIPED_RIGHT_ARROW")
+ *        shape. Corresponds to ECMA-376 ST_ShapeType 'stripedRightArrow'
+ *        (Value: "STRIPED_RIGHT_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Sun Sun shape. Corresponds to ECMA-376
  *        ST_ShapeType 'sun' (Value: "SUN")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Teardrop Teardrop shape. Corresponds
@@ -7937,8 +7758,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *    @arg @c kGTLRSlides_Shape_ShapeType_UpArrow Up arrow shape. Corresponds to
  *        ECMA-376 ST_ShapeType 'upArrow' (Value: "UP_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_UpArrowCallout Callout up arrow shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'upArrowCallout' (Value: "UP_ARROW_CALLOUT")
+ *        Corresponds to ECMA-376 ST_ShapeType 'upArrowCallout' (Value:
+ *        "UP_ARROW_CALLOUT")
  *    @arg @c kGTLRSlides_Shape_ShapeType_UpDownArrow Up down arrow shape.
  *        Corresponds to ECMA-376 ST_ShapeType 'upDownArrow' (Value:
  *        "UP_DOWN_ARROW")
@@ -7946,8 +7767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        Corresponds to ECMA-376 ST_ShapeType 'uturnArrow' (Value:
  *        "UTURN_ARROW")
  *    @arg @c kGTLRSlides_Shape_ShapeType_VerticalScroll Vertical scroll shape.
- *        Corresponds to ECMA-376 ST_ShapeType
- *        'verticalScroll' (Value: "VERTICAL_SCROLL")
+ *        Corresponds to ECMA-376 ST_ShapeType 'verticalScroll' (Value:
+ *        "VERTICAL_SCROLL")
  *    @arg @c kGTLRSlides_Shape_ShapeType_Wave Wave shape. Corresponds to
  *        ECMA-376 ST_ShapeType 'wave' (Value: "WAVE")
  *    @arg @c kGTLRSlides_Shape_ShapeType_WedgeEllipseCallout Callout wedge
@@ -7974,38 +7795,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_ShapeBackgroundFill : GTLRObject
 
 /**
- *  The background fill property state.
- *  Updating the fill on a shape will implicitly update this field to
- *  `RENDERED`, unless another value is specified in the same request. To
- *  have no fill on a shape, set this field to `NOT_RENDERED`. In this case,
- *  any other fill fields set in the same request will be ignored.
+ *  The background fill property state. Updating the fill on a shape will
+ *  implicitly update this field to `RENDERED`, unless another value is
+ *  specified in the same request. To have no fill on a shape, set this field to
+ *  `NOT_RENDERED`. In this case, any other fill fields set in the same request
+ *  will be ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_ShapeBackgroundFill_PropertyState_Inherit If a
  *        property's state is INHERIT, then the property state uses the value of
  *        corresponding `property_state` field on the parent shape. Elements
- *        that do
- *        not inherit will never have an INHERIT property state. (Value:
+ *        that do not inherit will never have an INHERIT property state. (Value:
  *        "INHERIT")
  *    @arg @c kGTLRSlides_ShapeBackgroundFill_PropertyState_NotRendered If a
  *        property's state is NOT_RENDERED, then the element does not have the
  *        corresponding property when rendered on a page. However, the field may
  *        still be set so it can be inherited by child shapes. To remove a
- *        property
- *        from a rendered element, set its property_state to NOT_RENDERED.
- *        (Value: "NOT_RENDERED")
+ *        property from a rendered element, set its property_state to
+ *        NOT_RENDERED. (Value: "NOT_RENDERED")
  *    @arg @c kGTLRSlides_ShapeBackgroundFill_PropertyState_Rendered If a
  *        property's state is RENDERED, then the element has the corresponding
  *        property when rendered on a page. If the element is a placeholder
- *        shape as
- *        determined by the placeholder
- *        field, and it inherits from a placeholder shape, the corresponding
- *        field
- *        may be unset, meaning that the property value is inherited from a
- *        parent
- *        placeholder. If the element does not inherit, then the field will
- *        contain
- *        the rendered value. This is the default value. (Value: "RENDERED")
+ *        shape as determined by the placeholder field, and it inherits from a
+ *        placeholder shape, the corresponding field may be unset, meaning that
+ *        the property value is inherited from a parent placeholder. If the
+ *        element does not inherit, then the field will contain the rendered
+ *        value. This is the default value. (Value: "RENDERED")
  */
 @property(nonatomic, copy, nullable) NSString *propertyState;
 
@@ -8016,40 +7831,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The properties of a Shape.
- *  If the shape is a placeholder shape as determined by the
- *  placeholder field, then these
- *  properties may be inherited from a parent placeholder shape.
- *  Determining the rendered value of the property depends on the corresponding
- *  property_state field value.
+ *  The properties of a Shape. If the shape is a placeholder shape as determined
+ *  by the placeholder field, then these properties may be inherited from a
+ *  parent placeholder shape. Determining the rendered value of the property
+ *  depends on the corresponding property_state field value.
  */
 @interface GTLRSlides_ShapeProperties : GTLRObject
 
 /**
- *  The alignment of the content in the shape. If unspecified,
- *  the alignment is inherited from a parent placeholder if it exists. If the
- *  shape has no parent, the default alignment matches the alignment for new
- *  shapes created in the Slides editor.
+ *  The alignment of the content in the shape. If unspecified, the alignment is
+ *  inherited from a parent placeholder if it exists. If the shape has no
+ *  parent, the default alignment matches the alignment for new shapes created
+ *  in the Slides editor.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_Bottom An alignment
- *        that aligns the content to the bottom of the content
- *        holder. Corresponds to ECMA-376 ST_TextAnchoringType 'b'. (Value:
- *        "BOTTOM")
+ *        that aligns the content to the bottom of the content holder.
+ *        Corresponds to ECMA-376 ST_TextAnchoringType 'b'. (Value: "BOTTOM")
  *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnspecified
  *        An unspecified content alignment. The content alignment is inherited
- *        from
- *        the parent if it exists. (Value: "CONTENT_ALIGNMENT_UNSPECIFIED")
+ *        from the parent if it exists. (Value: "CONTENT_ALIGNMENT_UNSPECIFIED")
  *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_ContentAlignmentUnsupported
  *        An unsupported content alignment. (Value:
  *        "CONTENT_ALIGNMENT_UNSUPPORTED")
  *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_Middle An alignment
- *        that aligns the content to the middle of the content
- *        holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'. (Value:
- *        "MIDDLE")
+ *        that aligns the content to the middle of the content holder.
+ *        Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'. (Value: "MIDDLE")
  *    @arg @c kGTLRSlides_ShapeProperties_ContentAlignment_Top An alignment that
- *        aligns the content to the top of the content holder.
- *        Corresponds to ECMA-376 ST_TextAnchoringType 't'. (Value: "TOP")
+ *        aligns the content to the top of the content holder. Corresponds to
+ *        ECMA-376 ST_TextAnchoringType 't'. (Value: "TOP")
  */
 @property(nonatomic, copy, nullable) NSString *contentAlignment;
 
@@ -8060,26 +7870,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_Link *link;
 
 /**
- *  The outline of the shape. If unset, the outline is inherited from a
- *  parent placeholder if it exists. If the shape has no parent, then the
- *  default outline depends on the shape type, matching the defaults for
- *  new shapes created in the Slides editor.
+ *  The outline of the shape. If unset, the outline is inherited from a parent
+ *  placeholder if it exists. If the shape has no parent, then the default
+ *  outline depends on the shape type, matching the defaults for new shapes
+ *  created in the Slides editor.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Outline *outline;
 
 /**
- *  The shadow properties of the shape. If unset, the shadow is inherited from
- *  a parent placeholder if it exists. If the shape has no parent, then the
+ *  The shadow properties of the shape. If unset, the shadow is inherited from a
+ *  parent placeholder if it exists. If the shape has no parent, then the
  *  default shadow matches the defaults for new shapes created in the Slides
  *  editor. This property is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Shadow *shadow;
 
 /**
- *  The background fill of the shape. If unset, the background fill is
- *  inherited from a parent placeholder if it exists. If the shape has no
- *  parent, then the default background fill depends on the shape type,
- *  matching the defaults for new shapes created in the Slides editor.
+ *  The background fill of the shape. If unset, the background fill is inherited
+ *  from a parent placeholder if it exists. If the shape has no parent, then the
+ *  default background fill depends on the shape type, matching the defaults for
+ *  new shapes created in the Slides editor.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_ShapeBackgroundFill *shapeBackgroundFill;
 
@@ -8087,8 +7897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing
- *  a linked chart embedded from Google Sheets.
+ *  A PageElement kind representing a linked chart embedded from Google Sheets.
  */
 @interface GTLRSlides_SheetsChart : GTLRObject
 
@@ -8143,8 +7952,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The properties of Page that are only
- *  relevant for pages with page_type SLIDE.
+ *  The properties of Page that are only relevant for pages with page_type
+ *  SLIDE.
  */
 @interface GTLRSlides_SlideProperties : GTLRObject
 
@@ -8163,13 +7972,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /**
  *  The notes page that this slide is associated with. It defines the visual
  *  appearance of a notes page when printing or exporting slides with speaker
- *  notes. A notes page inherits properties from the
- *  notes master.
- *  The placeholder shape with type BODY on the notes page contains the speaker
+ *  notes. A notes page inherits properties from the notes master. The
+ *  placeholder shape with type BODY on the notes page contains the speaker
  *  notes for this slide. The ID of this shape is identified by the
- *  speakerNotesObjectId field.
- *  The notes page is read-only except for the text content and styles of the
- *  speaker notes shape. This property is read-only.
+ *  speakerNotesObjectId field. The notes page is read-only except for the text
+ *  content and styles of the speaker notes shape. This property is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Page *notesPage;
 
@@ -8178,18 +7985,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  A solid color fill. The page or page element is filled entirely with the
- *  specified color value.
- *  If any field is unset, its value may be inherited from a parent placeholder
- *  if it exists.
+ *  specified color value. If any field is unset, its value may be inherited
+ *  from a parent placeholder if it exists.
  */
 @interface GTLRSlides_SolidFill : GTLRObject
 
 /**
- *  The fraction of this `color` that should be applied to the pixel.
- *  That is, the final pixel color is defined by the equation:
- *  pixel color = alpha * (color) + (1.0 - alpha) * (background color)
- *  This means that a value of 1.0 corresponds to a solid color, whereas
- *  a value of 0.0 corresponds to a completely transparent color.
+ *  The fraction of this `color` that should be applied to the pixel. That is,
+ *  the final pixel color is defined by the equation: pixel color = alpha *
+ *  (color) + (1.0 - alpha) * (background color) This means that a value of 1.0
+ *  corresponds to a solid color, whereas a value of 0.0 corresponds to a
+ *  completely transparent color.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -8208,17 +8014,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_StretchedPictureFill : GTLRObject
 
 /**
- *  Reading the content_url:
- *  An URL to a picture with a default lifetime of 30 minutes.
- *  This URL is tagged with the account of the requester. Anyone with the URL
- *  effectively accesses the picture as the original requester. Access to the
- *  picture may be lost if the presentation's sharing settings change.
- *  Writing the content_url:
- *  The picture is fetched once at insertion time and a copy is stored for
- *  display inside the presentation. Pictures must be less than 50MB in size,
- *  cannot exceed 25 megapixels, and must be in one of PNG, JPEG, or GIF
- *  format.
- *  The provided URL can be at most 2 kB in length.
+ *  Reading the content_url: An URL to a picture with a default lifetime of 30
+ *  minutes. This URL is tagged with the account of the requester. Anyone with
+ *  the URL effectively accesses the picture as the original requester. Access
+ *  to the picture may be lost if the presentation's sharing settings change.
+ *  Writing the content_url: The picture is fetched once at insertion time and a
+ *  copy is stored for display inside the presentation. Pictures must be less
+ *  than 50MB in size, cannot exceed 25 megapixels, and must be in one of PNG,
+ *  JPEG, or GIF format. The provided URL can be at most 2 kB in length.
  */
 @property(nonatomic, copy, nullable) NSString *contentUrl;
 
@@ -8234,9 +8037,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_SubstringMatchCriteria : GTLRObject
 
 /**
- *  Indicates whether the search should respect case:
- *  - `True`: the search is case sensitive.
- *  - `False`: the search is case insensitive.
+ *  Indicates whether the search should respect case: - `True`: the search is
+ *  case sensitive. - `False`: the search is case insensitive.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8249,8 +8051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing a
- *  table.
+ *  A PageElement kind representing a table.
  */
 @interface GTLRSlides_Table : GTLRObject
 
@@ -8262,11 +8063,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *columns;
 
 /**
- *  Properties of horizontal cell borders.
- *  A table's horizontal cell borders are represented as a grid. The grid has
- *  one more row than the number of rows in the table and the same number of
- *  columns as the table. For example, if the table is 3 x 3, its horizontal
- *  borders will be represented as a grid with 4 rows and 3 columns.
+ *  Properties of horizontal cell borders. A table's horizontal cell borders are
+ *  represented as a grid. The grid has one more row than the number of rows in
+ *  the table and the same number of columns as the table. For example, if the
+ *  table is 3 x 3, its horizontal borders will be represented as a grid with 4
+ *  rows and 3 columns.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableBorderRow *> *horizontalBorderRows;
 
@@ -8281,19 +8082,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableColumnProperties *> *tableColumns;
 
 /**
- *  Properties and contents of each row.
- *  Cells that span multiple rows are contained in only one of these rows and
- *  have a row_span greater
- *  than 1.
+ *  Properties and contents of each row. Cells that span multiple rows are
+ *  contained in only one of these rows and have a row_span greater than 1.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableRow *> *tableRows;
 
 /**
- *  Properties of vertical cell borders.
- *  A table's vertical cell borders are represented as a grid. The grid has the
- *  same number of rows as the table and one more column than the number of
- *  columns in the table. For example, if the table is 3 x 3, its vertical
- *  borders will be represented as a grid with 3 rows and 4 columns.
+ *  Properties of vertical cell borders. A table's vertical cell borders are
+ *  represented as a grid. The grid has the same number of rows as the table and
+ *  one more column than the number of columns in the table. For example, if the
+ *  table is 3 x 3, its vertical borders will be represented as a grid with 3
+ *  rows and 4 columns.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableBorderRow *> *verticalBorderRows;
 
@@ -8326,8 +8125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  The border styling properties of the
- *  TableBorderCell.
+ *  The border styling properties of the TableBorderCell.
  */
 @interface GTLRSlides_TableBorderProperties : GTLRObject
 
@@ -8339,22 +8137,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'dash'. (Value:
  *        "DASH")
  *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_DashDot Alternating
- *        dashes and dots. Corresponds to ECMA-376 ST_PresetLineDashVal
- *        value 'dashDot'. (Value: "DASH_DOT")
+ *        dashes and dots. Corresponds to ECMA-376 ST_PresetLineDashVal value
+ *        'dashDot'. (Value: "DASH_DOT")
  *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_DashStyleUnspecified
  *        Unspecified dash style. (Value: "DASH_STYLE_UNSPECIFIED")
  *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_Dot Dotted line.
  *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'dot'. (Value:
  *        "DOT")
  *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_LongDash Line with
- *        large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal
- *        value 'lgDash'. (Value: "LONG_DASH")
+ *        large dashes. Corresponds to ECMA-376 ST_PresetLineDashVal value
+ *        'lgDash'. (Value: "LONG_DASH")
  *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_LongDashDot
  *        Alternating large dashes and dots. Corresponds to ECMA-376
  *        ST_PresetLineDashVal value 'lgDashDot'. (Value: "LONG_DASH_DOT")
  *    @arg @c kGTLRSlides_TableBorderProperties_DashStyle_Solid Solid line.
- *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'.
- *        This is the default dash style. (Value: "SOLID")
+ *        Corresponds to ECMA-376 ST_PresetLineDashVal value 'solid'. This is
+ *        the default dash style. (Value: "SOLID")
  */
 @property(nonatomic, copy, nullable) NSString *dashStyle;
 
@@ -8418,38 +8216,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_TableCellBackgroundFill : GTLRObject
 
 /**
- *  The background fill property state.
- *  Updating the fill on a table cell will implicitly update this field
- *  to `RENDERED`, unless another value is specified in the same request. To
- *  have no fill on a table cell, set this field to `NOT_RENDERED`. In this
- *  case, any other fill fields set in the same request will be ignored.
+ *  The background fill property state. Updating the fill on a table cell will
+ *  implicitly update this field to `RENDERED`, unless another value is
+ *  specified in the same request. To have no fill on a table cell, set this
+ *  field to `NOT_RENDERED`. In this case, any other fill fields set in the same
+ *  request will be ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_TableCellBackgroundFill_PropertyState_Inherit If a
  *        property's state is INHERIT, then the property state uses the value of
  *        corresponding `property_state` field on the parent shape. Elements
- *        that do
- *        not inherit will never have an INHERIT property state. (Value:
+ *        that do not inherit will never have an INHERIT property state. (Value:
  *        "INHERIT")
  *    @arg @c kGTLRSlides_TableCellBackgroundFill_PropertyState_NotRendered If a
  *        property's state is NOT_RENDERED, then the element does not have the
  *        corresponding property when rendered on a page. However, the field may
  *        still be set so it can be inherited by child shapes. To remove a
- *        property
- *        from a rendered element, set its property_state to NOT_RENDERED.
- *        (Value: "NOT_RENDERED")
+ *        property from a rendered element, set its property_state to
+ *        NOT_RENDERED. (Value: "NOT_RENDERED")
  *    @arg @c kGTLRSlides_TableCellBackgroundFill_PropertyState_Rendered If a
  *        property's state is RENDERED, then the element has the corresponding
  *        property when rendered on a page. If the element is a placeholder
- *        shape as
- *        determined by the placeholder
- *        field, and it inherits from a placeholder shape, the corresponding
- *        field
- *        may be unset, meaning that the property value is inherited from a
- *        parent
- *        placeholder. If the element does not inherit, then the field will
- *        contain
- *        the rendered value. This is the default value. (Value: "RENDERED")
+ *        shape as determined by the placeholder field, and it inherits from a
+ *        placeholder shape, the corresponding field may be unset, meaning that
+ *        the property value is inherited from a parent placeholder. If the
+ *        element does not inherit, then the field will contain the rendered
+ *        value. This is the default value. (Value: "RENDERED")
  */
 @property(nonatomic, copy, nullable) NSString *propertyState;
 
@@ -8492,29 +8284,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_Bottom An
- *        alignment that aligns the content to the bottom of the content
- *        holder. Corresponds to ECMA-376 ST_TextAnchoringType 'b'. (Value:
- *        "BOTTOM")
+ *        alignment that aligns the content to the bottom of the content holder.
+ *        Corresponds to ECMA-376 ST_TextAnchoringType 'b'. (Value: "BOTTOM")
  *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnspecified
  *        An unspecified content alignment. The content alignment is inherited
- *        from
- *        the parent if it exists. (Value: "CONTENT_ALIGNMENT_UNSPECIFIED")
+ *        from the parent if it exists. (Value: "CONTENT_ALIGNMENT_UNSPECIFIED")
  *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_ContentAlignmentUnsupported
  *        An unsupported content alignment. (Value:
  *        "CONTENT_ALIGNMENT_UNSUPPORTED")
  *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_Middle An
- *        alignment that aligns the content to the middle of the content
- *        holder. Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'. (Value:
- *        "MIDDLE")
+ *        alignment that aligns the content to the middle of the content holder.
+ *        Corresponds to ECMA-376 ST_TextAnchoringType 'ctr'. (Value: "MIDDLE")
  *    @arg @c kGTLRSlides_TableCellProperties_ContentAlignment_Top An alignment
- *        that aligns the content to the top of the content holder.
- *        Corresponds to ECMA-376 ST_TextAnchoringType 't'. (Value: "TOP")
+ *        that aligns the content to the top of the content holder. Corresponds
+ *        to ECMA-376 ST_TextAnchoringType 't'. (Value: "TOP")
  */
 @property(nonatomic, copy, nullable) NSString *contentAlignment;
 
 /**
- *  The background fill of the table cell. The default fill matches the fill
- *  for newly created table cells in the Slides editor.
+ *  The background fill of the table cell. The default fill matches the fill for
+ *  newly created table cells in the Slides editor.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellBackgroundFill *tableCellBackgroundFill;
 
@@ -8533,16 +8322,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A table range represents a reference to a subset of a table.
- *  It's important to note that the cells specified by a table range do not
- *  necessarily form a rectangle. For example, let's say we have a 3 x 3 table
- *  where all the cells of the last row are merged together. The table looks
- *  like this:
- *  [ ]
- *  A table range with location = (0, 0), row span = 3 and column span = 2
- *  specifies the following cells:
- *  x x
- *  [ x x x ]
+ *  A table range represents a reference to a subset of a table. It's important
+ *  to note that the cells specified by a table range do not necessarily form a
+ *  rectangle. For example, let's say we have a 3 x 3 table where all the cells
+ *  of the last row are merged together. The table looks like this: [ ] A table
+ *  range with location = (0, 0), row span = 3 and column span = 2 specifies the
+ *  following cells: x x [ x x x ]
  */
 @interface GTLRSlides_TableRange : GTLRObject
 
@@ -8575,11 +8360,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_Dimension *rowHeight;
 
 /**
- *  Properties and contents of each cell.
- *  Cells that span multiple columns are represented only once with a
- *  column_span greater
- *  than 1. As a result, the length of this collection does not always match
- *  the number of columns of the entire table.
+ *  Properties and contents of each cell. Cells that span multiple columns are
+ *  represented only once with a column_span greater than 1. As a result, the
+ *  length of this collection does not always match the number of columns of the
+ *  entire table.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSlides_TableCell *> *tableCells;
 
@@ -8636,14 +8420,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  A TextElement describes the content of a range of indices in the text
- *  content
- *  of a Shape or TableCell.
+ *  content of a Shape or TableCell.
  */
 @interface GTLRSlides_TextElement : GTLRObject
 
 /**
- *  A TextElement representing a spot in the text that is dynamically
- *  replaced with content that can change over time.
+ *  A TextElement representing a spot in the text that is dynamically replaced
+ *  with content that can change over time.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_AutoText *autoText;
 
@@ -8656,12 +8439,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *endIndex;
 
 /**
- *  A marker representing the beginning of a new paragraph.
- *  The `start_index` and `end_index` of this TextElement represent the
- *  range of the paragraph. Other TextElements with an index range contained
- *  inside this paragraph's range are considered to be part of this
- *  paragraph. The range of indices of two separate paragraphs will never
- *  overlap.
+ *  A marker representing the beginning of a new paragraph. The `start_index`
+ *  and `end_index` of this TextElement represent the range of the paragraph.
+ *  Other TextElements with an index range contained inside this paragraph's
+ *  range are considered to be part of this paragraph. The range of indices of
+ *  two separate paragraphs will never overlap.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_ParagraphMarker *paragraphMarker;
 
@@ -8673,11 +8455,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
- *  A TextElement representing a run of text where all of the characters
- *  in the run have the same TextStyle.
- *  The `start_index` and `end_index` of TextRuns will always be fully
- *  contained in the index range of a single `paragraph_marker` TextElement.
- *  In other words, a TextRun will never span multiple paragraphs.
+ *  A TextElement representing a run of text where all of the characters in the
+ *  run have the same TextStyle. The `start_index` and `end_index` of TextRuns
+ *  will always be fully contained in the index range of a single
+ *  `paragraph_marker` TextElement. In other words, a TextRun will never span
+ *  multiple paragraphs.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TextRun *textRun;
 
@@ -8700,22 +8482,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Represents the styling that can be applied to a TextRun.
- *  If this text is contained in a shape with a parent placeholder, then these
- *  text styles may be
- *  inherited from the parent. Which text styles are inherited depend on the
- *  nesting level of lists:
- *  * A text run in a paragraph that is not in a list will inherit its text
- *  style
- *  from the the newline character in the paragraph at the 0 nesting level of
- *  the list inside the parent placeholder.
- *  * A text run in a paragraph that is in a list will inherit its text style
- *  from the newline character in the paragraph at its corresponding nesting
- *  level of the list inside the parent placeholder.
- *  Inherited text styles are represented as unset fields in this message. If
- *  text is contained in a shape without a parent placeholder, unsetting these
- *  fields will revert the style to a value matching the defaults in the Slides
- *  editor.
+ *  Represents the styling that can be applied to a TextRun. If this text is
+ *  contained in a shape with a parent placeholder, then these text styles may
+ *  be inherited from the parent. Which text styles are inherited depend on the
+ *  nesting level of lists: * A text run in a paragraph that is not in a list
+ *  will inherit its text style from the the newline character in the paragraph
+ *  at the 0 nesting level of the list inside the parent placeholder. * A text
+ *  run in a paragraph that is in a list will inherit its text style from the
+ *  newline character in the paragraph at its corresponding nesting level of the
+ *  list inside the parent placeholder. Inherited text styles are represented as
+ *  unset fields in this message. If text is contained in a shape without a
+ *  parent placeholder, unsetting these fields will revert the style to a value
+ *  matching the defaults in the Slides editor.
  */
 @interface GTLRSlides_TextStyle : GTLRObject
 
@@ -8726,10 +8504,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) GTLRSlides_OptionalColor *backgroundColor;
 
 /**
- *  The text's vertical offset from its normal position.
- *  Text with `SUPERSCRIPT` or `SUBSCRIPT` baseline offsets is automatically
- *  rendered in a smaller font size, computed based on the `font_size` field.
- *  The `font_size` itself is not affected by changes in this field.
+ *  The text's vertical offset from its normal position. Text with `SUPERSCRIPT`
+ *  or `SUBSCRIPT` baseline offsets is automatically rendered in a smaller font
+ *  size, computed based on the `font_size` field. The `font_size` itself is not
+ *  affected by changes in this field.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_TextStyle_BaselineOffset_BaselineOffsetUnspecified The
@@ -8752,13 +8530,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *bold;
 
 /**
- *  The font family of the text.
- *  The font family can be any font from the Font menu in Slides or from
- *  [Google Fonts] (https://fonts.google.com/). If the font name is
- *  unrecognized, the text is rendered in `Arial`.
- *  Some fonts can affect the weight of the text. If an update request
- *  specifies values for both `font_family` and `bold`, the explicitly-set
- *  `bold` value is used.
+ *  The font family of the text. The font family can be any font from the Font
+ *  menu in Slides or from [Google Fonts] (https://fonts.google.com/). If the
+ *  font name is unrecognized, the text is rendered in `Arial`. Some fonts can
+ *  affect the weight of the text. If an update request specifies values for
+ *  both `font_family` and `bold`, the explicitly-set `bold` value is used.
  */
 @property(nonatomic, copy, nullable) NSString *fontFamily;
 
@@ -8782,24 +8558,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *italic;
 
 /**
- *  The hyperlink destination of the text. If unset, there is no link. Links
- *  are not inherited from parent text.
- *  Changing the link in an update request causes some other changes to the
- *  text style of the range:
- *  * When setting a link, the text foreground color will be set to
- *  ThemeColorType.HYPERLINK and the text will
- *  be underlined. If these fields are modified in the same
- *  request, those values will be used instead of the link defaults.
- *  * Setting a link on a text range that overlaps with an existing link will
- *  also update the existing link to point to the new URL.
- *  * Links are not settable on newline characters. As a result, setting a link
- *  on a text range that crosses a paragraph boundary, such as `"ABC\\n123"`,
- *  will separate the newline character(s) into their own text runs. The
- *  link will be applied separately to the runs before and after the newline.
- *  * Removing a link will update the text style of the range to match the
- *  style of the preceding text (or the default text styles if the preceding
- *  text is another link) unless different styles are being set in the same
- *  request.
+ *  The hyperlink destination of the text. If unset, there is no link. Links are
+ *  not inherited from parent text. Changing the link in an update request
+ *  causes some other changes to the text style of the range: * When setting a
+ *  link, the text foreground color will be set to ThemeColorType.HYPERLINK and
+ *  the text will be underlined. If these fields are modified in the same
+ *  request, those values will be used instead of the link defaults. * Setting a
+ *  link on a text range that overlaps with an existing link will also update
+ *  the existing link to point to the new URL. * Links are not settable on
+ *  newline characters. As a result, setting a link on a text range that crosses
+ *  a paragraph boundary, such as `"ABC\\n123"`, will separate the newline
+ *  character(s) into their own text runs. The link will be applied separately
+ *  to the runs before and after the newline. * Removing a link will update the
+ *  text style of the range to match the style of the preceding text (or the
+ *  default text styles if the preceding text is another link) unless different
+ *  styles are being set in the same request.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Link *link;
 
@@ -8825,30 +8598,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSNumber *underline;
 
 /**
- *  The font family and rendered weight of the text.
- *  This field is an extension of `font_family` meant to support explicit font
- *  weights without breaking backwards compatibility. As such, when reading the
- *  style of a range of text, the value of `weighted_font_family#font_family`
- *  will always be equal to that of `font_family`. However, when writing, if
- *  both fields are included in the field mask (either explicitly or through
- *  the wildcard `"*"`), their values are reconciled as follows:
- *  * If `font_family` is set and `weighted_font_family` is not, the value of
- *  `font_family` is applied with weight `400` ("normal").
- *  * If both fields are set, the value of `font_family` must match that of
- *  `weighted_font_family#font_family`. If so, the font family and weight of
- *  `weighted_font_family` is applied. Otherwise, a 400 bad request error is
- *  returned.
- *  * If `weighted_font_family` is set and `font_family` is not, the font
- *  family and weight of `weighted_font_family` is applied.
- *  * If neither field is set, the font family and weight of the text inherit
- *  from the parent. Note that these properties cannot inherit separately
- *  from each other.
- *  If an update request specifies values for both `weighted_font_family` and
- *  `bold`, the `weighted_font_family` is applied first, then `bold`.
- *  If `weighted_font_family#weight` is not set, it defaults to `400`.
- *  If `weighted_font_family` is set, then `weighted_font_family#font_family`
- *  must also be set with a non-empty value. Otherwise, a 400 bad request error
- *  is returned.
+ *  The font family and rendered weight of the text. This field is an extension
+ *  of `font_family` meant to support explicit font weights without breaking
+ *  backwards compatibility. As such, when reading the style of a range of text,
+ *  the value of `weighted_font_family#font_family` will always be equal to that
+ *  of `font_family`. However, when writing, if both fields are included in the
+ *  field mask (either explicitly or through the wildcard `"*"`), their values
+ *  are reconciled as follows: * If `font_family` is set and
+ *  `weighted_font_family` is not, the value of `font_family` is applied with
+ *  weight `400` ("normal"). * If both fields are set, the value of
+ *  `font_family` must match that of `weighted_font_family#font_family`. If so,
+ *  the font family and weight of `weighted_font_family` is applied. Otherwise,
+ *  a 400 bad request error is returned. * If `weighted_font_family` is set and
+ *  `font_family` is not, the font family and weight of `weighted_font_family`
+ *  is applied. * If neither field is set, the font family and weight of the
+ *  text inherit from the parent. Note that these properties cannot inherit
+ *  separately from each other. If an update request specifies values for both
+ *  `weighted_font_family` and `bold`, the `weighted_font_family` is applied
+ *  first, then `bold`. If `weighted_font_family#weight` is not set, it defaults
+ *  to `400`. If `weighted_font_family` is set, then
+ *  `weighted_font_family#font_family` must also be set with a non-empty value.
+ *  Otherwise, a 400 bad request error is returned.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_WeightedFontFamily *weightedFontFamily;
 
@@ -8914,13 +8684,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Thumbnail : GTLRObject
 
 /**
- *  The content URL of the thumbnail image.
- *  The URL to the image has a default lifetime of 30 minutes.
- *  This URL is tagged with the account of the requester. Anyone with the URL
- *  effectively accesses the image as the original requester. Access to the
- *  image may be lost if the presentation's sharing settings change.
- *  The mime type of the thumbnail image is the same as specified in the
- *  `GetPageThumbnailRequest`.
+ *  The content URL of the thumbnail image. The URL to the image has a default
+ *  lifetime of 30 minutes. This URL is tagged with the account of the
+ *  requester. Anyone with the URL effectively accesses the image as the
+ *  original requester. Access to the image may be lost if the presentation's
+ *  sharing settings change. The mime type of the thumbnail image is the same as
+ *  specified in the `GetPageThumbnailRequest`.
  */
 @property(nonatomic, copy, nullable) NSString *contentUrl;
 
@@ -8947,11 +8716,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UngroupObjectsRequest : GTLRObject
 
 /**
- *  The object IDs of the objects to ungroup.
- *  Only groups that are not inside other
- *  groups can be ungrouped. All the groups
- *  should be on the same page. The group itself is deleted. The visual sizes
- *  and positions of all the children are preserved.
+ *  The object IDs of the objects to ungroup. Only groups that are not inside
+ *  other groups can be ungrouped. All the groups should be on the same page.
+ *  The group itself is deleted. The visual sizes and positions of all the
+ *  children are preserved.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *objectIds;
 
@@ -8967,12 +8735,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
- *  The table range specifying which cells of the table to unmerge.
- *  All merged cells in this range will be unmerged, and cells that are already
- *  unmerged will not be affected. If the range has no merged cells, the
- *  request will do nothing. If there is text in any of the merged cells, the
- *  text will remain in the upper-left ("head") cell of the resulting block of
- *  unmerged cells.
+ *  The table range specifying which cells of the table to unmerge. All merged
+ *  cells in this range will be unmerged, and cells that are already unmerged
+ *  will not be affected. If the range has no merged cells, the request will do
+ *  nothing. If there is text in any of the merged cells, the text will remain
+ *  in the upper-left ("head") cell of the resulting block of unmerged cells.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableRange *tableRange;
 
@@ -8985,14 +8752,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdateImagePropertiesRequest : GTLRObject
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `imageProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the image outline color, set `fields` to
- *  `"outline.outlineFill.solidFill.color"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `imageProperties` is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field. For example to
+ *  update the image outline color, set `fields` to
+ *  `"outline.outlineFill.solidFill.color"`. To reset a property to its default
+ *  value, include its field name in the field mask but leave the field itself
+ *  unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9013,9 +8779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdateLineCategoryRequest : GTLRObject
 
 /**
- *  The line category to update to.
- *  The exact line type is determined based
- *  on the category to update to and how it's routed to connect to other page
+ *  The line category to update to. The exact line type is determined based on
+ *  the category to update to and how it's routed to connect to other page
  *  elements.
  *
  *  Likely values:
@@ -9032,10 +8797,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *lineCategory;
 
 /**
- *  The object ID of the line the update is applied to.
- *  Only a line with a category
- *  indicating it is a "connector" can be updated.
- *  The line may be rerouted after updating its category.
+ *  The object ID of the line the update is applied to. Only a line with a
+ *  category indicating it is a "connector" can be updated. The line may be
+ *  rerouted after updating its category.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -9048,14 +8812,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdateLinePropertiesRequest : GTLRObject
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `lineProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the line solid fill color, set `fields` to
- *  `"lineFill.solidFill.color"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `lineProperties` is implied and should not be specified. A single `"*"`
+ *  can be used as short-hand for listing every field. For example to update the
+ *  line solid fill color, set `fields` to `"lineFill.solidFill.color"`. To
+ *  reset a property to its default value, include its field name in the field
+ *  mask but leave the field itself unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9071,16 +8833,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Updates the alt text title and/or description of a
- *  page element.
+ *  Updates the alt text title and/or description of a page element.
  */
 @interface GTLRSlides_UpdatePageElementAltTextRequest : GTLRObject
 
 /**
  *  The updated alt text description of the page element. If unset the existing
- *  value will be maintained. The description is exposed to screen readers
- *  and other accessibility interfaces. Only use human readable values related
- *  to the content of the page element.
+ *  value will be maintained. The description is exposed to screen readers and
+ *  other accessibility interfaces. Only use human readable values related to
+ *  the content of the page element.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -9090,10 +8851,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
- *  The updated alt text title of the page element. If unset the
- *  existing value will be maintained. The title is exposed to screen readers
- *  and other accessibility interfaces. Only use human readable values related
- *  to the content of the page element.
+ *  The updated alt text title of the page element. If unset the existing value
+ *  will be maintained. The title is exposed to screen readers and other
+ *  accessibility interfaces. Only use human readable values related to the
+ *  content of the page element.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -9108,23 +8869,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdatePageElementsZOrderRequest : GTLRObject
 
 /**
- *  The Z-order operation to apply on the page elements.
- *  When applying the operation on multiple page elements, the relative
- *  Z-orders within these page elements before the operation is maintained.
+ *  The Z-order operation to apply on the page elements. When applying the
+ *  operation on multiple page elements, the relative Z-orders within these page
+ *  elements before the operation is maintained.
  *
  *  Likely values:
  *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringForward
  *        Brings the page elements forward on the page by one element relative
- *        to the
- *        forwardmost one in the specified page elements. (Value:
+ *        to the forwardmost one in the specified page elements. (Value:
  *        "BRING_FORWARD")
  *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_BringToFront
  *        Brings the page elements to the front of the page. (Value:
  *        "BRING_TO_FRONT")
  *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendBackward
  *        Sends the page elements backward on the page by one element relative
- *        to the
- *        furthest behind one in the specified page elements. (Value:
+ *        to the furthest behind one in the specified page elements. (Value:
  *        "SEND_BACKWARD")
  *    @arg @c kGTLRSlides_UpdatePageElementsZOrderRequest_Operation_SendToBack
  *        Sends the page elements to the back of the page. (Value:
@@ -9135,8 +8894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /**
- *  The object IDs of the page elements to update.
- *  All the page elements must be on the same page and must not be grouped.
+ *  The object IDs of the page elements to update. All the page elements must be
+ *  on the same page and must not be grouped.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageElementObjectIds;
 
@@ -9144,10 +8903,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Updates the transform of a page element.
- *  Updating the transform of a group will change the absolute transform of the
- *  page elements in that group, which can change their visual appearance. See
- *  the documentation for PageElement.transform for more details.
+ *  Updates the transform of a page element. Updating the transform of a group
+ *  will change the absolute transform of the page elements in that group, which
+ *  can change their visual appearance. See the documentation for
+ *  PageElement.transform for more details.
  */
 @interface GTLRSlides_UpdatePageElementTransformRequest : GTLRObject
 
@@ -9182,14 +8941,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdatePagePropertiesRequest : GTLRObject
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `pageProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the page background solid fill color, set `fields`
- *  to `"pageBackgroundFill.solidFill.color"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `pageProperties` is implied and should not be specified. A single `"*"`
+ *  can be used as short-hand for listing every field. For example to update the
+ *  page background solid fill color, set `fields` to
+ *  `"pageBackgroundFill.solidFill.color"`. To reset a property to its default
+ *  value, include its field name in the field mask but leave the field itself
+ *  unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9211,21 +8969,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdateParagraphStyleRequest : GTLRObject
 
 /**
- *  The location of the cell in the table containing the paragraph(s) to
- *  style. If `object_id` refers to a table, `cell_location` must have a value.
+ *  The location of the cell in the table containing the paragraph(s) to style.
+ *  If `object_id` refers to a table, `cell_location` must have a value.
  *  Otherwise, it must not.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `style` is implied and
- *  should not be specified. A single `"*"` can be used as short-hand for
- *  listing every field.
- *  For example, to update the paragraph alignment, set `fields` to
- *  `"alignment"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `style` is implied and should not be specified. A single `"*"` can be
+ *  used as short-hand for listing every field. For example, to update the
+ *  paragraph alignment, set `fields` to `"alignment"`. To reset a property to
+ *  its default value, include its field name in the field mask but leave the
+ *  field itself unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9249,14 +9005,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdateShapePropertiesRequest : GTLRObject
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `shapeProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the shape background solid fill color, set `fields`
- *  to `"shapeBackgroundFill.solidFill.color"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `shapeProperties` is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field. For example to
+ *  update the shape background solid fill color, set `fields` to
+ *  `"shapeBackgroundFill.solidFill.color"`. To reset a property to its default
+ *  value, include its field name in the field mask but leave the field itself
+ *  unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9278,17 +9033,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The index where the slides should be inserted, based on the slide
- *  arrangement before the move takes place. Must be between zero and the
- *  number of slides in the presentation, inclusive.
+ *  arrangement before the move takes place. Must be between zero and the number
+ *  of slides in the presentation, inclusive.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *insertionIndex;
 
 /**
- *  The IDs of the slides in the presentation that should be moved.
- *  The slides in this list must be in existing presentation order, without
- *  duplicates.
+ *  The IDs of the slides in the presentation that should be moved. The slides
+ *  in this list must be in existing presentation order, without duplicates.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *slideObjectIds;
 
@@ -9329,14 +9083,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *borderPosition;
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `tableBorderProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the table border solid fill color, set
- *  `fields` to `"tableBorderFill.solidFill.color"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `tableBorderProperties` is implied and should not be specified. A
+ *  single `"*"` can be used as short-hand for listing every field. For example
+ *  to update the table border solid fill color, set `fields` to
+ *  `"tableBorderFill.solidFill.color"`. To reset a property to its default
+ *  value, include its field name in the field mask but leave the field itself
+ *  unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9364,14 +9117,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdateTableCellPropertiesRequest : GTLRObject
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `tableCellProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the table cell background solid fill color, set
- *  `fields` to `"tableCellBackgroundFill.solidFill.color"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `tableCellProperties` is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field. For example to
+ *  update the table cell background solid fill color, set `fields` to
+ *  `"tableCellBackgroundFill.solidFill.color"`. To reset a property to its
+ *  default value, include its field name in the field mask but leave the field
+ *  itself unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9407,12 +9159,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *columnIndices;
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `tableColumnProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the column width, set `fields` to `"column_width"`.
- *  If '"column_width"' is included in the field mask but the property is left
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `tableColumnProperties` is implied and should not be specified. A
+ *  single `"*"` can be used as short-hand for listing every field. For example
+ *  to update the column width, set `fields` to `"column_width"`. If
+ *  '"column_width"' is included in the field mask but the property is left
  *  unset, the column width will default to 406,400 EMU (32 points).
  *
  *  String format is a comma-separated list of fields.
@@ -9423,9 +9174,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
- *  The table column properties to update.
- *  If the value of `table_column_properties#column_width` in the request is
- *  less than 406,400 EMU (32 points), a 400 bad request error is returned.
+ *  The table column properties to update. If the value of
+ *  `table_column_properties#column_width` in the request is less than 406,400
+ *  EMU (32 points), a 400 bad request error is returned.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableColumnProperties *tableColumnProperties;
 
@@ -9438,14 +9189,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdateTableRowPropertiesRequest : GTLRObject
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `tableRowProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the minimum row height, set `fields` to
- *  `"min_row_height"`.
- *  If '"min_row_height"' is included in the field mask but the property is
- *  left unset, the minimum row height will default to 0.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `tableRowProperties` is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field. For example to
+ *  update the minimum row height, set `fields` to `"min_row_height"`. If
+ *  '"min_row_height"' is included in the field mask but the property is left
+ *  unset, the minimum row height will default to 0.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9469,26 +9218,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  Update the styling of text in a Shape or
- *  Table.
+ *  Update the styling of text in a Shape or Table.
  */
 @interface GTLRSlides_UpdateTextStyleRequest : GTLRObject
 
 /**
  *  The location of the cell in the table containing the text to style. If
- *  `object_id` refers to a table, `cell_location` must have a value.
- *  Otherwise, it must not.
+ *  `object_id` refers to a table, `cell_location` must have a value. Otherwise,
+ *  it must not.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TableCellLocation *cellLocation;
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `style` is implied and
- *  should not be specified. A single `"*"` can be used as short-hand for
- *  listing every field.
- *  For example, to update the text style to bold, set `fields` to `"bold"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `style` is implied and should not be specified. A single `"*"` can be
+ *  used as short-hand for listing every field. For example, to update the text
+ *  style to bold, set `fields` to `"bold"`. To reset a property to its default
+ *  value, include its field name in the field mask but leave the field itself
+ *  unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9498,19 +9245,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @property(nonatomic, copy, nullable) NSString *objectId;
 
 /**
- *  The style(s) to set on the text.
- *  If the value for a particular style matches that of the parent, that style
- *  will be set to inherit.
- *  Certain text style changes may cause other changes meant to mirror the
- *  behavior of the Slides editor. See the documentation of
- *  TextStyle for more information.
+ *  The style(s) to set on the text. If the value for a particular style matches
+ *  that of the parent, that style will be set to inherit. Certain text style
+ *  changes may cause other changes meant to mirror the behavior of the Slides
+ *  editor. See the documentation of TextStyle for more information.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_TextStyle *style;
 
 /**
- *  The range of text to style.
- *  The range may be extended to include adjacent newlines.
- *  If the range fully contains a paragraph belonging to a list, the
+ *  The range of text to style. The range may be extended to include adjacent
+ *  newlines. If the range fully contains a paragraph belonging to a list, the
  *  paragraph's bullet is also updated with the matching text style.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Range *textRange;
@@ -9524,14 +9268,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_UpdateVideoPropertiesRequest : GTLRObject
 
 /**
- *  The fields that should be updated.
- *  At least one field must be specified. The root `videoProperties` is
- *  implied and should not be specified. A single `"*"` can be used as
- *  short-hand for listing every field.
- *  For example to update the video outline color, set `fields` to
- *  `"outline.outlineFill.solidFill.color"`.
- *  To reset a property to its default value, include its field name in the
- *  field mask but leave the field itself unset.
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `videoProperties` is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field. For example to
+ *  update the video outline color, set `fields` to
+ *  `"outline.outlineFill.solidFill.color"`. To reset a property to its default
+ *  value, include its field name in the field mask but leave the field itself
+ *  unset.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -9547,8 +9290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing a
- *  video.
+ *  A PageElement kind representing a video.
  */
 @interface GTLRSlides_Video : GTLRObject
 
@@ -9590,19 +9332,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_VideoProperties : GTLRObject
 
 /**
- *  Whether to enable video autoplay when the page is displayed in present
- *  mode. Defaults to false.
+ *  Whether to enable video autoplay when the page is displayed in present mode.
+ *  Defaults to false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autoPlay;
 
 /**
- *  The time at which to end playback, measured in seconds from the beginning
- *  of the video.
- *  If set, the end time should be after the start time.
- *  If not set or if you set this to a value that exceeds the video's length,
- *  the video will be played until its end.
+ *  The time at which to end playback, measured in seconds from the beginning of
+ *  the video. If set, the end time should be after the start time. If not set
+ *  or if you set this to a value that exceeds the video's length, the video
+ *  will be played until its end.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -9623,11 +9364,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /**
  *  The time at which to start playback, measured in seconds from the beginning
- *  of the video.
- *  If set, the start time should be before the end time.
- *  If you set this to a value that exceeds the video's length in seconds, the
- *  video will be played from the last second.
- *  If not set, the video will be played from the beginning.
+ *  of the video. If set, the start time should be before the end time. If you
+ *  set this to a value that exceeds the video's length in seconds, the video
+ *  will be played from the last second. If not set, the video will be played
+ *  from the beginning.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -9642,22 +9382,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_WeightedFontFamily : GTLRObject
 
 /**
- *  The font family of the text.
- *  The font family can be any font from the Font menu in Slides or from
- *  [Google Fonts] (https://fonts.google.com/). If the font name is
- *  unrecognized, the text is rendered in `Arial`.
+ *  The font family of the text. The font family can be any font from the Font
+ *  menu in Slides or from [Google Fonts] (https://fonts.google.com/). If the
+ *  font name is unrecognized, the text is rendered in `Arial`.
  */
 @property(nonatomic, copy, nullable) NSString *fontFamily;
 
 /**
  *  The rendered weight of the text. This field can have any value that is a
- *  multiple of `100` between `100` and `900`, inclusive. This range
- *  corresponds to the numerical values described in the CSS 2.1
- *  Specification,
- *  [section 15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness),
- *  with non-numerical values disallowed. Weights greater than or equal to
- *  `700` are considered bold, and weights less than `700`are not bold. The
- *  default value is `400` ("normal").
+ *  multiple of `100` between `100` and `900`, inclusive. This range corresponds
+ *  to the numerical values described in the CSS 2.1 Specification, [section
+ *  15.6](https://www.w3.org/TR/CSS21/fonts.html#font-boldness), with
+ *  non-numerical values disallowed. Weights greater than or equal to `700` are
+ *  considered bold, and weights less than `700`are not bold. The default value
+ *  is `400` ("normal").
  *
  *  Uses NSNumber of intValue.
  */
@@ -9667,8 +9405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
- *  A PageElement kind representing
- *  word art.
+ *  A PageElement kind representing word art.
  */
 @interface GTLRSlides_WordArt : GTLRObject
 

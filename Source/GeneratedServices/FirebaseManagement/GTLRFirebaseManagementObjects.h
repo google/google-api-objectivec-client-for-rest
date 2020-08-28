@@ -37,7 +37,6 @@
 @class GTLRFirebaseManagement_Status;
 @class GTLRFirebaseManagement_Status_Details_Item;
 @class GTLRFirebaseManagement_StreamMapping;
-@class GTLRFirebaseManagement_TypedMessage;
 @class GTLRFirebaseManagement_WebApp;
 
 // Generated comments include content from the discovery document; avoid them
@@ -103,13 +102,34 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_FirebaseProject_State
 // ----------------------------------------------------------------------------
 // GTLRFirebaseManagement_Location.features
 
-/** Value: "DEFAULT_STORAGE" */
+/**
+ *  This location supports default Cloud Storage buckets. App Engine is
+ *  available in this location, so it can be a Project's [default GCP resource
+ *  location](//firebase.google.com/docs/projects/locations#default-cloud-location).
+ *
+ *  Value: "DEFAULT_STORAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_DefaultStorage;
-/** Value: "FIRESTORE" */
+/**
+ *  This location supports Cloud Firestore database instances. App Engine is
+ *  available in this location, so it can be a Project's [default GCP resource
+ *  location](//firebase.google.com/docs/projects/locations#default-cloud-location).
+ *
+ *  Value: "FIRESTORE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Firestore;
-/** Value: "FUNCTIONS" */
+/**
+ *  Cloud Functions for Firebase is available in this location.
+ *
+ *  Value: "FUNCTIONS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Functions;
-/** Value: "LOCATION_FEATURE_UNSPECIFIED" */
+/**
+ *  Used internally for distinguishing unset values and is not intended for
+ *  external use.
+ *
+ *  Value: "LOCATION_FEATURE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_LocationFeatureUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -123,17 +143,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Features_Loc
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_LocationTypeUnspecified;
 /**
- *  The location is a multi-regional location.
- *  Data in a multi-region location is replicated in multiple regions.
- *  Within each region, data is replicated in multiple zones.
+ *  The location is a multi-regional location. Data in a multi-region location
+ *  is replicated in multiple regions. Within each region, data is replicated in
+ *  multiple zones.
  *
  *  Value: "MULTI_REGIONAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_Location_Type_MultiRegional;
 /**
- *  The location is a regional location.
- *  Data in a regional location is replicated in multiple zones within a
- *  region.
+ *  The location is a regional location. Data in a regional location is
+ *  replicated in multiple zones within a region.
  *
  *  Value: "REGIONAL"
  */
@@ -167,34 +186,29 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_AddFirebaseRequest : GTLRObject
 
 /**
- *  Deprecated. Instead, to set a Project's default GCP resource location,
- *  call [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize)
- *  after you add Firebase resources to the GCP `Project`.
- *  The ID of the Project's default GCP resource location. The location
- *  must be one of the available [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations).
+ *  Deprecated. Instead, to set a Project's default GCP resource location, call
+ *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
+ *  add Firebase resources to the GCP `Project`. The ID of the Project's default
+ *  GCP resource location. The location must be one of the available [GCP
+ *  resource locations](https://firebase.google.com/docs/projects/locations).
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Deprecated. Instead, to link a Project with a Google Analytics
- *  account, call
- *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics)
- *  after you add Firebase resources to the GCP `Project`.
- *  The region code (CLDR) that the account will use for Google Analytics
- *  data
- *  <br>For example: US, GB, or DE
- *  In Java, use `com.google.i18n.identifiers.RegionCode`.
+ *  Deprecated. Instead, to link a Project with a Google Analytics account, call
+ *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) after you
+ *  add Firebase resources to the GCP `Project`. The region code (CLDR) that the
+ *  account will use for Google Analytics data For example: US, GB, or DE In
+ *  Java, use `com.google.i18n.identifiers.RegionCode`.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
- *  Deprecated. Instead, to link a Project with a Google Analytics
- *  account, call
- *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics)
- *  after you add Firebase resources to the GCP `Project`.
- *  The time zone that the account will use for Google Analytics data.
- *  <br>For example: America/Los_Angeles or Africa/Abidjan
+ *  Deprecated. Instead, to link a Project with a Google Analytics account, call
+ *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) after you
+ *  add Firebase resources to the GCP `Project`. The time zone that the account
+ *  will use for Google Analytics data. For example: America/Los_Angeles or
+ *  Africa/Abidjan
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -207,18 +221,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_AddGoogleAnalyticsRequest : GTLRObject
 
 /**
- *  The ID for the existing
- *  [Google Analytics account](http://www.google.com/analytics/) that you
- *  want to link with the `FirebaseProject`.
- *  Specifying this field will provision a new Google Analytics
- *  property in your Google Analytics account and associate the new property
- *  with the `FirebaseProject`.
+ *  The ID for the existing [Google Analytics
+ *  account](http://www.google.com/analytics/) that you want to link with the
+ *  `FirebaseProject`. Specifying this field will provision a new Google
+ *  Analytics property in your Google Analytics account and associate the new
+ *  property with the `FirebaseProject`.
  */
 @property(nonatomic, copy, nullable) NSString *analyticsAccountId;
 
 /**
- *  The ID for the existing Google Analytics property that you want to
- *  associate with the `FirebaseProject`.
+ *  The ID for the existing Google Analytics property that you want to associate
+ *  with the `FirebaseProject`.
  */
 @property(nonatomic, copy, nullable) NSString *analyticsPropertyId;
 
@@ -235,19 +248,18 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The ID of the Project's default GCP resource location. The location is one
- *  of the available
- *  [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations).
- *  This field is omitted if the default GCP resource location has not been
- *  finalized yet. To set a Project's default GCP resource location,
- *  call [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize)
- *  after you add Firebase resources to the Project.
+ *  of the available [GCP resource
+ *  locations](https://firebase.google.com/docs/projects/locations). This field
+ *  is omitted if the default GCP resource location has not been finalized yet.
+ *  To set a Project's default GCP resource location, call
+ *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
+ *  add Firebase resources to the Project.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Immutable. A user-assigned unique identifier for the `FirebaseProject`.
- *  This identifier may appear in URLs or names for some Firebase resources
+ *  Immutable. A user-assigned unique identifier for the `FirebaseProject`. This
+ *  identifier may appear in URLs or names for some Firebase resources
  *  associated with the Project, but it should generally be treated as a
  *  convenience alias to reference the Project.
  */
@@ -266,20 +278,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The Analytics Property object associated with the specified
- *  `FirebaseProject`.
- *  This object contains the details of the Google Analytics property
- *  associated with the Project.
+ *  `FirebaseProject`. This object contains the details of the Google Analytics
+ *  property associated with the Project.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_AnalyticsProperty *analyticsProperty;
 
 /**
- *  <ul>
- *  <li>For `AndroidApps` and `IosApps`: a map of `app` to `streamId` for each
- *  Firebase App in the specified `FirebaseProject`. Each `app` and
- *  `streamId` appears only once.
- *  <li>For `WebApps`: a map of `app` to `streamId` and `measurementId` for
- *  each `WebApp` in the specified `FirebaseProject`. Each `app`, `streamId`,
- *  and `measurementId` appears only once.
+ *  - For `AndroidApps` and `IosApps`: a map of `app` to `streamId` for each
+ *  Firebase App in the specified `FirebaseProject`. Each `app` and `streamId`
+ *  appears only once. - For `WebApps`: a map of `app` to `streamId` and
+ *  `measurementId` for each `WebApp` in the specified `FirebaseProject`. Each
+ *  `app`, `streamId`, and `measurementId` appears only once.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseManagement_StreamMapping *> *streamMappings;
 
@@ -299,8 +308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The globally unique, Google-assigned identifier of the Google Analytics
- *  property associated with the specified `FirebaseProject`.
- *  If you called
+ *  property associated with the specified `FirebaseProject`. If you called
  *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) to link
  *  the `FirebaseProject` with a Google Analytics account, the value in this
  *  `id` field is the same as the ID of the property either specified or
@@ -320,9 +328,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  Immutable. The globally unique, Firebase-assigned identifier for the
- *  `AndroidApp`.
- *  This identifier should be treated as an opaque token, as the data
- *  format is not specified.
+ *  `AndroidApp`. This identifier should be treated as an opaque token, as the
+ *  data format is not specified.
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
@@ -330,19 +337,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the AndroidApp, in the format:
- *  <code>projects/<var>PROJECT_IDENTIFIER</var>/androidApps/<var>APP_ID</var></code>
- *  * <var>PROJECT_IDENTIFIER</var>: the parent Project's
+ *  The resource name of the AndroidApp, in the format: projects/
+ *  PROJECT_IDENTIFIER/androidApps/APP_ID * PROJECT_IDENTIFIER: the parent
+ *  Project's
  *  [`ProjectNumber`](../projects#FirebaseProject.FIELDS.project_number)
- *  ***(recommended)***
- *  or its [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id).
- *  Learn more about using project identifiers in
- *  Google's [AIP 2510 standard](https://google.aip.dev/cloud/2510).
- *  <br>Note that the value for <var>PROJECT_IDENTIFIER</var> in any
- *  response body will be the `ProjectId`.
- *  * <var>APP_ID</var>: the globally unique, Firebase-assigned identifier
- *  for the App
- *  (see [`appId`](../projects.androidApps#AndroidApp.FIELDS.app_id)).
+ *  ***(recommended)*** or its
+ *  [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id). Learn more
+ *  about using project identifiers in Google's [AIP 2510
+ *  standard](https://google.aip.dev/cloud/2510). Note that the value for
+ *  PROJECT_IDENTIFIER in any response body will be the `ProjectId`. * APP_ID:
+ *  the globally unique, Firebase-assigned identifier for the App (see
+ *  [`appId`](../projects.androidApps#AndroidApp.FIELDS.app_id)).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -353,8 +358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
- *  Immutable. A user-assigned unique identifier of the parent
- *  FirebaseProject for the `AndroidApp`.
+ *  Immutable. A user-assigned unique identifier of the parent FirebaseProject
+ *  for the `AndroidApp`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -376,8 +381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The filename that the configuration artifact for the `AndroidApp` is
- *  typically saved as.
- *  <br>For example: `google-services.json`
+ *  typically saved as. For example: `google-services.json`
  */
 @property(nonatomic, copy, nullable) NSString *configFilename;
 
@@ -390,50 +394,44 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_DefaultResources : GTLRObject
 
 /**
- *  The default Firebase Hosting site name, in the format:
- *  <code><var>PROJECT_ID</var></code>
- *  Though rare, your `projectId` might already be used as the name for an
- *  existing Hosting site in another project (learn more about creating
- *  non-default,
- *  [additional sites](https://firebase.google.com/docs/hosting/multisites)).
- *  In these cases, your `projectId` is appended with a hyphen then five
+ *  The default Firebase Hosting site name, in the format: PROJECT_ID Though
+ *  rare, your `projectId` might already be used as the name for an existing
+ *  Hosting site in another project (learn more about creating non-default,
+ *  [additional sites](https://firebase.google.com/docs/hosting/multisites)). In
+ *  these cases, your `projectId` is appended with a hyphen then five
  *  alphanumeric characters to create your default Hosting site name. For
  *  example, if your `projectId` is `myproject123`, your default Hosting site
- *  name might be:
- *  `myproject123-a5c16`
+ *  name might be: `myproject123-a5c16`
  */
 @property(nonatomic, copy, nullable) NSString *hostingSite;
 
 /**
  *  The ID of the Project's default GCP resource location. The location is one
- *  of the available
- *  [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations).
- *  This field is omitted if the default GCP resource location has not been
- *  finalized yet. To set a Project's default GCP resource location,
- *  call [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize)
- *  after you add Firebase resources to the Project.
+ *  of the available [GCP resource
+ *  locations](https://firebase.google.com/docs/projects/locations). This field
+ *  is omitted if the default GCP resource location has not been finalized yet.
+ *  To set a Project's default GCP resource location, call
+ *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
+ *  add Firebase resources to the Project.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
  *  The default Firebase Realtime Database instance name, in the format:
- *  <code><var>PROJECT_ID</var></code>
- *  Though rare, your `projectId` might already be used as the name for an
- *  existing Realtime Database instance in another project (learn more about
- *  [database
+ *  PROJECT_ID Though rare, your `projectId` might already be used as the name
+ *  for an existing Realtime Database instance in another project (learn more
+ *  about [database
  *  sharding](https://firebase.google.com/docs/database/usage/sharding)). In
  *  these cases, your `projectId` is appended with a hyphen then five
  *  alphanumeric characters to create your default Realtime Database instance
  *  name. For example, if your `projectId` is `myproject123`, your default
- *  database instance name might be:
- *  `myproject123-a5c16`
+ *  database instance name might be: `myproject123-a5c16`
  */
 @property(nonatomic, copy, nullable) NSString *realtimeDatabaseInstance;
 
 /**
  *  The default Cloud Storage for Firebase storage bucket, in the format:
- *  <code><var>PROJECT_ID</var>.appspot.com</code>
+ *  PROJECT_ID.appspot.com
  */
 @property(nonatomic, copy, nullable) NSString *storageBucket;
 
@@ -443,11 +441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRFirebaseManagement_Empty : GTLRObject
 @end
@@ -474,10 +470,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_FirebaseAppInfo : GTLRObject
 
 /**
- *  Immutable. The globally unique, Firebase-assigned identifier for the
- *  `WebApp`.
- *  This identifier should be treated as an opaque token, as the data
- *  format is not specified.
+ *  Output only. Immutable. The globally unique, Firebase-assigned identifier
+ *  for the `WebApp`. This identifier should be treated as an opaque token, as
+ *  the data format is not specified.
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
@@ -485,14 +480,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the Firebase App, in the format:
- *  <code>projects/<var>PROJECT_ID</var>/iosApps/<var>APP_ID</var></code>
- *  or
- *  <code>projects/<var>PROJECT_ID</var>/androidApps/<var>APP_ID</var></code>
- *  or
- *  <code>projects/<var>PROJECT_ID</var>/webApps/<var>APP_ID</var></code>
+ *  The resource name of the Firebase App, in the format: projects/PROJECT_ID
+ *  /iosApps/APP_ID or projects/PROJECT_ID/androidApps/APP_ID or projects/
+ *  PROJECT_ID/webApps/APP_ID
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Immutable. The platform-specific identifier of the App. *Note:*
+ *  For most use cases, use `appId`, which is the canonical, globally unique
+ *  identifier for referencing an App. This string is derived from a native
+ *  identifier for each platform: `packageName` for an `AndroidApp`, `bundleId`
+ *  for an `IosApp`, and `webId` for a `WebApp`. Its contents should be treated
+ *  as opaque, as the native identifier format may change as platforms evolve.
+ *  This string is only unique within a `FirebaseProject` and its associated
+ *  Apps.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
 
 /**
  *  The platform of the Firebase App.
@@ -515,19 +521,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  A `FirebaseProject` is the top-level Firebase entity. It is the container
- *  for
- *  Firebase Apps, Firebase Hosting sites, storage systems (Firebase Realtime
- *  Database, Cloud Firestore, Cloud Storage buckets), and other Firebase and
- *  Google Cloud Platform (GCP) resources.
- *  You create a `FirebaseProject` by calling
- *  AddFirebase
- *  and specifying an *existing*
- *  [GCP
+ *  for Firebase Apps, Firebase Hosting sites, storage systems (Firebase
+ *  Realtime Database, Cloud Firestore, Cloud Storage buckets), and other
+ *  Firebase and Google Cloud Platform (GCP) resources. You create a
+ *  `FirebaseProject` by calling AddFirebase and specifying an *existing* [GCP
  *  `Project`](https://cloud.google.com/resource-manager/reference/rest/v1/projects).
- *  This adds Firebase resources to the existing GCP `Project`.
- *  Since a FirebaseProject is actually also a GCP `Project`, a
- *  `FirebaseProject` has the same underlying GCP identifiers (`projectNumber`
- *  and `projectId`). This allows for easy interop with Google APIs.
+ *  This adds Firebase resources to the existing GCP `Project`. Since a
+ *  FirebaseProject is actually also a GCP `Project`, a `FirebaseProject` has
+ *  the same underlying GCP identifiers (`projectNumber` and `projectId`). This
+ *  allows for easy interop with Google APIs.
  */
 @interface GTLRFirebaseManagement_FirebaseProject : GTLRObject
 
@@ -535,32 +537,29 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the Project, in the format:
- *  <code>projects/<var>PROJECT_IDENTIFIER</var></code>
- *  <var>PROJECT_IDENTIFIER</var>: the Project's
+ *  The resource name of the Project, in the format: projects/PROJECT_IDENTIFIER
+ *  PROJECT_IDENTIFIER: the Project's
  *  [`ProjectNumber`](../projects#FirebaseProject.FIELDS.project_number)
- *  ***(recommended)***
- *  or its [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id).
- *  <br>Learn more about using project identifiers in
- *  Google's [AIP 2510 standard](https://google.aip.dev/cloud/2510).
- *  <br>Note that the value for <var>PROJECT_IDENTIFIER</var> in any
- *  response body will be the `ProjectId`.
+ *  ***(recommended)*** or its
+ *  [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id). Learn more
+ *  about using project identifiers in Google's [AIP 2510
+ *  standard](https://google.aip.dev/cloud/2510). Note that the value for
+ *  PROJECT_IDENTIFIER in any response body will be the `ProjectId`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. A user-assigned unique identifier for the Project.
- *  This identifier may appear in URLs or names for some Firebase resources
+ *  Immutable. A user-assigned unique identifier for the Project. This
+ *  identifier may appear in URLs or names for some Firebase resources
  *  associated with the Project, but it should generally be treated as a
  *  convenience alias to reference the Project.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Immutable. The globally unique, Google-assigned canonical identifier for
- *  the Project.
- *  Use this identifier when configuring integrations and/or
- *  making API calls to Firebase or third-party services.
+ *  Immutable. The globally unique, Google-assigned canonical identifier for the
+ *  Project. Use this identifier when configuring integrations and/or making API
+ *  calls to Firebase or third-party services.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -570,10 +569,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_DefaultResources *resources;
 
 /**
- *  Output only. The lifecycle state of the Project.
- *  Updates to the state must be performed via
- *  com.google.cloudresourcemanager.v1.Projects.DeleteProject and
- *  com.google.cloudresourcemanager.v1.Projects.UndeleteProject
+ *  Output only. The lifecycle state of the Project. Updates to the state must
+ *  be performed via com.google.cloudresourcemanager.v1.Projects.DeleteProject
+ *  and com.google.cloudresourcemanager.v1.Projects.UndeleteProject
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseManagement_FirebaseProject_State_Active The normal
@@ -595,15 +593,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  Immutable. The globally unique, Firebase-assigned identifier for the
- *  `IosApp`.
- *  This identifier should be treated as an opaque token, as the data
+ *  `IosApp`. This identifier should be treated as an opaque token, as the data
  *  format is not specified.
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
 /**
- *  The automatically generated Apple ID assigned to the iOS app by Apple in
- *  the iOS App Store.
+ *  The automatically generated Apple ID assigned to the iOS app by Apple in the
+ *  iOS App Store.
  */
 @property(nonatomic, copy, nullable) NSString *appStoreId;
 
@@ -617,24 +614,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the IosApp, in the format:
- *  <code>projects/<var>PROJECT_IDENTIFIER</var>/iosApps/<var>APP_ID</var></code>
- *  * <var>PROJECT_IDENTIFIER</var>: the parent Project's
+ *  The resource name of the IosApp, in the format: projects/PROJECT_IDENTIFIER
+ *  /iosApps/APP_ID * PROJECT_IDENTIFIER: the parent Project's
  *  [`ProjectNumber`](../projects#FirebaseProject.FIELDS.project_number)
- *  ***(recommended)***
- *  or its [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id).
- *  Learn more about using project identifiers in
- *  Google's [AIP 2510 standard](https://google.aip.dev/cloud/2510).
- *  <br>Note that the value for <var>PROJECT_IDENTIFIER</var> in any
- *  response body will be the `ProjectId`.
- *  * <var>APP_ID</var>: the globally unique, Firebase-assigned identifier
- *  for the App (see [`appId`](../projects.iosApps#IosApp.FIELDS.app_id)).
+ *  ***(recommended)*** or its
+ *  [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id). Learn more
+ *  about using project identifiers in Google's [AIP 2510
+ *  standard](https://google.aip.dev/cloud/2510). Note that the value for
+ *  PROJECT_IDENTIFIER in any response body will be the `ProjectId`. * APP_ID:
+ *  the globally unique, Firebase-assigned identifier for the App (see
+ *  [`appId`](../projects.iosApps#IosApp.FIELDS.app_id)).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. A user-assigned unique identifier of the parent
- *  FirebaseProject for the `IosApp`.
+ *  Immutable. A user-assigned unique identifier of the parent FirebaseProject
+ *  for the `IosApp`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -656,8 +651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The filename that the configuration artifact for the `IosApp` is typically
- *  saved as.
- *  <br>For example: `GoogleService-Info.plist`
+ *  saved as. For example: `GoogleService-Info.plist`
  */
 @property(nonatomic, copy, nullable) NSString *configFilename;
 
@@ -683,12 +677,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseManagement_AndroidApp *> *apps;
 
 /**
- *  If the result list is too large to fit in a single response, then a token
- *  is returned. If the string is empty, then this response is the last page of
- *  results.
- *  This token can be used in a subsequent call to `ListAndroidApps` to
- *  find the next group of Apps.
- *  Page tokens are short-lived and should not be persisted.
+ *  If the result list is too large to fit in a single response, then a token is
+ *  returned. If the string is empty, then this response is the last page of
+ *  results. This token can be used in a subsequent call to `ListAndroidApps` to
+ *  find the next group of Apps. Page tokens are short-lived and should not be
+ *  persisted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -714,11 +707,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseManagement_Location *> *locations;
 
 /**
- *  If the result list is too large to fit in a single response, then a token
- *  is returned. If the string is empty, then this response is the last page of
- *  results and all available locations have been listed.
- *  This token can be used in a subsequent call to
- *  `ListAvailableLocations` to find more locations.
+ *  If the result list is too large to fit in a single response, then a token is
+ *  returned. If the string is empty, then this response is the last page of
+ *  results and all available locations have been listed. This token can be used
+ *  in a subsequent call to `ListAvailableLocations` to find more locations.
  *  Page tokens are short-lived and should not be persisted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -737,12 +729,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_ListAvailableProjectsResponse : GTLRCollectionObject
 
 /**
- *  If the result list is too large to fit in a single response, then a token
- *  is returned. If the string is empty, then this response is the last page of
- *  results.
- *  This token can be used in a subsequent calls to `ListAvailableProjects`
- *  to find the next group of Projects.
- *  Page tokens are short-lived and should not be persisted.
+ *  If the result list is too large to fit in a single response, then a token is
+ *  returned. If the string is empty, then this response is the last page of
+ *  results. This token can be used in a subsequent calls to
+ *  `ListAvailableProjects` to find the next group of Projects. Page tokens are
+ *  short-lived and should not be persisted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -768,12 +759,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_ListFirebaseProjectsResponse : GTLRCollectionObject
 
 /**
- *  If the result list is too large to fit in a single response, then a token
- *  is returned. If the string is empty, then this response is the last page of
- *  results.
- *  This token can be used in a subsequent calls to `ListFirebaseProjects`
- *  to find the next group of Projects.
- *  Page tokens are short-lived and should not be persisted.
+ *  If the result list is too large to fit in a single response, then a token is
+ *  returned. If the string is empty, then this response is the last page of
+ *  results. This token can be used in a subsequent calls to
+ *  `ListFirebaseProjects` to find the next group of Projects. Page tokens are
+ *  short-lived and should not be persisted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -807,12 +797,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseManagement_IosApp *> *apps;
 
 /**
- *  If the result list is too large to fit in a single response, then a token
- *  is returned. If the string is empty, then this response is the last page of
- *  results.
- *  This token can be used in a subsequent call to `ListIosApps` to find
- *  the next group of Apps.
- *  Page tokens are short-lived and should not be persisted.
+ *  If the result list is too large to fit in a single response, then a token is
+ *  returned. If the string is empty, then this response is the last page of
+ *  results. This token can be used in a subsequent call to `ListIosApps` to
+ *  find the next group of Apps. Page tokens are short-lived and should not be
+ *  persisted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -849,12 +838,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseManagement_WebApp *> *apps;
 
 /**
- *  If the result list is too large to fit in a single response, then a token
- *  is returned. If the string is empty, then this response is the last page of
- *  results.
- *  This token can be used in a subsequent call to `ListWebApps` to find
- *  the next group of Apps.
- *  Page tokens are short-lived and should not be persisted.
+ *  If the result list is too large to fit in a single response, then a token is
+ *  returned. If the string is empty, then this response is the last page of
+ *  results. This token can be used in a subsequent call to `ListWebApps` to
+ *  find the next group of Apps. Page tokens are short-lived and should not be
+ *  persisted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -877,24 +865,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  Indicates whether the GCP resource location is a [regional or
- *  multi-regional
- *  location](https://firebase.google.com/docs/projects/locations#types)
- *  for data replication.
+ *  Indicates whether the GCP resource location is a [regional or multi-regional
+ *  location](https://firebase.google.com/docs/projects/locations#types) for
+ *  data replication.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseManagement_Location_Type_LocationTypeUnspecified Used
  *        internally for distinguishing unset values and is not intended for
  *        external use. (Value: "LOCATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRFirebaseManagement_Location_Type_MultiRegional The location
- *        is a multi-regional location.
- *        Data in a multi-region location is replicated in multiple regions.
- *        Within each region, data is replicated in multiple zones. (Value:
- *        "MULTI_REGIONAL")
+ *        is a multi-regional location. Data in a multi-region location is
+ *        replicated in multiple regions. Within each region, data is replicated
+ *        in multiple zones. (Value: "MULTI_REGIONAL")
  *    @arg @c kGTLRFirebaseManagement_Location_Type_Regional The location is a
- *        regional location.
- *        Data in a regional location is replicated in multiple zones within a
- *        region. (Value: "REGIONAL")
+ *        regional location. Data in a regional location is replicated in
+ *        multiple zones within a region. (Value: "REGIONAL")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -915,8 +900,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -928,16 +913,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -946,10 +931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_Operation_Response *response;
 
@@ -958,8 +942,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -976,10 +960,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1002,12 +985,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The ID of the Project's default GCP resource location. The location is one
- *  of the available
- *  [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations).
- *  Not all Projects will have this field populated. If it is not populated, it
- *  means that the Project does not yet have a default GCP resource location.
- *  To set a Project's default GCP resource location, call
+ *  of the available [GCP resource
+ *  locations](https://firebase.google.com/docs/projects/locations). Not all
+ *  Projects will have this field populated. If it is not populated, it means
+ *  that the Project does not yet have a default GCP resource location. To set a
+ *  Project's default GCP resource location, call
  *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
  *  add Firebase resources to the Project.
  */
@@ -1015,11 +997,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The resource name of the GCP `Project` to which Firebase resources can be
- *  added, in the format:
- *  <code>projects/<var>PROJECT_IDENTIFIER</var></code>
- *  Refer to the `FirebaseProject`
- *  [`name`](../projects#FirebaseProject.FIELDS.name) field for details
- *  about <var>PROJECT_IDENTIFIER</var> values.
+ *  added, in the format: projects/PROJECT_IDENTIFIER Refer to the
+ *  `FirebaseProject` [`name`](../projects#FirebaseProject.FIELDS.name) field
+ *  for details about PROJECT_IDENTIFIER values.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1033,16 +1013,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  Optional. The ID of the Google Analytics property associated with the
- *  specified `FirebaseProject`.
- *  <ul>
- *  <li>If not set, then the Google Analytics property that is currently
- *  associated with the specified `FirebaseProject` is removed.
- *  </li>
- *  <li>If set, and the specified `FirebaseProject` is currently associated
- *  with a *different* Google Analytics property, then the response
+ *  specified `FirebaseProject`. - If not set, then the Google Analytics
+ *  property that is currently associated with the specified `FirebaseProject`
+ *  is removed. - If set, and the specified `FirebaseProject` is currently
+ *  associated with a *different* Google Analytics property, then the response
  *  is a `412 Precondition Failed` error.
- *  </li>
- *  </ul>
  */
 @property(nonatomic, copy, nullable) NSString *analyticsPropertyId;
 
@@ -1068,11 +1043,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseManagement_FirebaseAppInfo *> *apps;
 
 /**
- *  If the result list is too large to fit in a single response, then a token
- *  is returned.
- *  This token can be used in a subsequent calls to `SearchFirebaseApps`
- *  to find the next group of Apps.
- *  Page tokens are short-lived and should not be persisted.
+ *  If the result list is too large to fit in a single response, then a token is
+ *  returned. This token can be used in a subsequent calls to
+ *  `SearchFirebaseApps` to find the next group of Apps. Page tokens are
+ *  short-lived and should not be persisted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1099,21 +1073,18 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *certType;
 
 /**
- *  The resource name of the ShaCertificate for the AndroidApp,
- *  in the format:
- *  <code>projects/<var>PROJECT_IDENTIFIER</var>/androidApps/<var>APP_ID</var>/sha/<var>SHA_HASH</var></code>
- *  * <var>PROJECT_IDENTIFIER</var>: the parent Project's
+ *  The resource name of the ShaCertificate for the AndroidApp, in the format:
+ *  projects/PROJECT_IDENTIFIER/androidApps/APP_ID/sha/SHA_HASH *
+ *  PROJECT_IDENTIFIER: the parent Project's
  *  [`ProjectNumber`](../projects#FirebaseProject.FIELDS.project_number)
- *  ***(recommended)***
- *  or its [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id).
- *  Learn more about using project identifiers in
- *  Google's [AIP 2510 standard](https://google.aip.dev/cloud/2510).
- *  <br>Note that the value for <var>PROJECT_IDENTIFIER</var> in any
- *  response body will be the `ProjectId`.
- *  * <var>APP_ID</var>: the globally unique, Firebase-assigned identifier
- *  for the App
- *  (see [`appId`](../projects.androidApps#AndroidApp.FIELDS.app_id)).
- *  * <var>SHA_HASH</var>: the certificate hash for the App (see
+ *  ***(recommended)*** or its
+ *  [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id). Learn more
+ *  about using project identifiers in Google's [AIP 2510
+ *  standard](https://google.aip.dev/cloud/2510). Note that the value for
+ *  PROJECT_IDENTIFIER in any response body will be the `ProjectId`. * APP_ID:
+ *  the globally unique, Firebase-assigned identifier for the App (see
+ *  [`appId`](../projects.androidApps#AndroidApp.FIELDS.app_id)). * SHA_HASH:
+ *  the certificate hash for the App (see
  *  [`shaHash`](../projects.androidApps.sha#ShaCertificate.FIELDS.sha_hash)).
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1128,9 +1099,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRFirebaseManagement_Status : GTLRObject
 
@@ -1175,8 +1146,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_StatusProto : GTLRObject
 
 /**
- *  The canonical error code (see codes.proto) that most closely
- *  corresponds to this status. May be missing.
+ *  The canonical error code (see codes.proto) that most closely corresponds to
+ *  this status. May be missing.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1197,28 +1168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, strong, nullable) GTLRFirebaseManagement_MessageSet *messageSet;
 
 /**
- *  DEPRECATED.
- *  This field was deprecated in 2011 with cl/20297133. Java support
- *  for the field was moved to a proto1 backward compatibility class
- *  in April 2017 with cl/142615857 and cl/154123203. There was
- *  never support for this field in Go; if set Go will ignore it.
- *  C++ stopped setting StatusProto::payload in October 2015 with cl/106347055,
- *  and stopped reading the field in October 2017 with cl/173324114.
- *  In general, newly written code should use only "message_set". If you need
- *  to maintain backward compatibility with code written before 3/25/2011, do
- *  the following:
- *  - During the transition period, either (1) set both "payload" and
- *  "message_set", or (2) write the consumer of StatusProto so that it can
- *  forge a MessageSet object from "payload" if "message_set" is missing.
- *  The C++ util::Status implementation does (2).
- *  - Once all the consumers are converted to accept "message_set", then
- *  remove the use of "payload" on the producer side.
- */
-@property(nonatomic, strong, nullable) GTLRFirebaseManagement_TypedMessage *payload;
-
-/**
- *  The following are usually only present when code != 0
- *  Space to which this status belongs
+ *  The following are usually only present when code != 0 Space to which this
+ *  status belongs
  */
 @property(nonatomic, copy, nullable) NSString *space;
 
@@ -1231,74 +1182,33 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @interface GTLRFirebaseManagement_StreamMapping : GTLRObject
 
 /**
- *  The resource name of the Firebase App associated with the
- *  Google Analytics data stream, in the format:
- *  <code>projects/<var>PROJECT_IDENTIFIER</var>/androidApps/<var>APP_ID</var></code>
- *  or
- *  <code>projects/<var>PROJECT_IDENTIFIER</var>/iosApps/<var>APP_ID</var></code>
- *  or
- *  <code>projects/<var>PROJECT_IDENTIFIER</var>/webApps/<var>APP_ID</var></code>
- *  Refer to the `FirebaseProject`
- *  [`name`](../projects#FirebaseProject.FIELDS.name) field for details
- *  about <var>PROJECT_IDENTIFIER</var> values.
+ *  The resource name of the Firebase App associated with the Google Analytics
+ *  data stream, in the format: projects/PROJECT_IDENTIFIER/androidApps/APP_ID
+ *  or projects/PROJECT_IDENTIFIER/iosApps/APP_ID or projects/PROJECT_IDENTIFIER
+ *  /webApps/APP_ID Refer to the `FirebaseProject`
+ *  [`name`](../projects#FirebaseProject.FIELDS.name) field for details about
+ *  PROJECT_IDENTIFIER values.
  */
 @property(nonatomic, copy, nullable) NSString *app;
 
 /**
- *  Applicable for Firebase Web Apps only.
- *  The unique Google-assigned identifier of the Google Analytics web
- *  stream associated with the Firebase Web App. Firebase SDKs use this ID to
- *  interact with Google Analytics APIs.
- *  Learn more about this ID and Google Analytics web streams in the
- *  [Analytics
+ *  Applicable for Firebase Web Apps only. The unique Google-assigned identifier
+ *  of the Google Analytics web stream associated with the Firebase Web App.
+ *  Firebase SDKs use this ID to interact with Google Analytics APIs. Learn more
+ *  about this ID and Google Analytics web streams in the [Analytics
  *  documentation](https://support.google.com/analytics/topic/9303475).
  */
 @property(nonatomic, copy, nullable) NSString *measurementId;
 
 /**
  *  The unique Google-assigned identifier of the Google Analytics data stream
- *  associated with the Firebase App.
- *  Learn more about Google Analytics data streams in the
- *  [Analytics
+ *  associated with the Firebase App. Learn more about Google Analytics data
+ *  streams in the [Analytics
  *  documentation](https://support.google.com/analytics/answer/9303323).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *streamId;
-
-@end
-
-
-/**
- *  Message that groups a protocol type_id (as defined by MessageSet),
- *  with an encoded message of that type. Its use is similar to
- *  MessageSet, except it represents a single (type, encoded message)
- *  instead of a set.
- *  To embed "proto" inside "typed_msg":
- *  MyProtoMessage proto;
- *  TypedMessage typed_msg;
- *  typed_msg.set_type_id(proto2::bridge::GetTypeId(proto));
- *  proto.AppendToCord(typed_msg.mutable_message());
- *  Error handling is omitted from the sample code above. GetTypeId() will
- *  return
- *  0 for messages that don't have a TypeId specified.
- */
-@interface GTLRFirebaseManagement_TypedMessage : GTLRObject
-
-/**
- *  Message bytes.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *message;
-
-/**
- *  Identifier for the type.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *typeId;
 
 @end
 
@@ -1310,8 +1220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  Immutable. The globally unique, Firebase-assigned identifier for the
- *  `WebApp`.
- *  This identifier should be treated as an opaque token, as the data
+ *  `WebApp`. This identifier should be treated as an opaque token, as the data
  *  format is not specified.
  */
 @property(nonatomic, copy, nullable) NSString *appId;
@@ -1323,26 +1232,33 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the WebApp, in the format:
- *  <code>projects/<var>PROJECT_IDENTIFIER</var>/webApps/<var>APP_ID</var></code>
- *  * <var>PROJECT_IDENTIFIER</var>: the parent Project's
+ *  The resource name of the WebApp, in the format: projects/PROJECT_IDENTIFIER
+ *  /webApps/APP_ID * PROJECT_IDENTIFIER: the parent Project's
  *  [`ProjectNumber`](../projects#FirebaseProject.FIELDS.project_number)
- *  ***(recommended)***
- *  or its [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id).
- *  Learn more about using project identifiers in
- *  Google's [AIP 2510 standard](https://google.aip.dev/cloud/2510).
- *  <br>Note that the value for <var>PROJECT_IDENTIFIER</var> in any
- *  response body will be the `ProjectId`.
- *  * <var>APP_ID</var>: the globally unique, Firebase-assigned identifier
- *  for the App (see [`appId`](../projects.webApps#WebApp.FIELDS.app_id)).
+ *  ***(recommended)*** or its
+ *  [`ProjectId`](../projects#FirebaseProject.FIELDS.project_id). Learn more
+ *  about using project identifiers in Google's [AIP 2510
+ *  standard](https://google.aip.dev/cloud/2510). Note that the value for
+ *  PROJECT_IDENTIFIER in any response body will be the `ProjectId`. * APP_ID:
+ *  the globally unique, Firebase-assigned identifier for the App (see
+ *  [`appId`](../projects.webApps#WebApp.FIELDS.app_id)).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. A user-assigned unique identifier of the parent
- *  FirebaseProject for the `WebApp`.
+ *  Immutable. A user-assigned unique identifier of the parent FirebaseProject
+ *  for the `WebApp`.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Output only. Immutable. A unique, Firebase-assigned identifier for the
+ *  `WebApp`. This identifier is only used to populate the `namespace` value for
+ *  the `WebApp`. For most use cases, use `appId` to identify or reference the
+ *  App. The `webId` value is only unique within a `FirebaseProject` and its
+ *  associated Apps.
+ */
+@property(nonatomic, copy, nullable) NSString *webId;
 
 @end
 
@@ -1363,7 +1279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The domain Firebase Auth configures for OAuth redirects, in the format:
- *  <code><var>PROJECT_ID</var>.firebaseapp.com</code>
+ *  PROJECT_ID.firebaseapp.com
  */
 @property(nonatomic, copy, nullable) NSString *authDomain;
 
@@ -1372,19 +1288,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
 
 /**
  *  The ID of the Project's default GCP resource location. The location is one
- *  of the available
- *  [GCP resource
- *  locations](https://firebase.google.com/docs/projects/locations).
- *  This field is omitted if the default GCP resource location has not been
- *  finalized yet. To set a Project's default GCP resource location,
- *  call [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize)
- *  after you add Firebase resources to the Project.
+ *  of the available [GCP resource
+ *  locations](https://firebase.google.com/docs/projects/locations). This field
+ *  is omitted if the default GCP resource location has not been finalized yet.
+ *  To set a Project's default GCP resource location, call
+ *  [`FinalizeDefaultLocation`](../projects.defaultLocation/finalize) after you
+ *  add Firebase resources to the Project.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
 /**
- *  This field will no longer be provided here. Instead, use
- *  `GetAnalyticsDetails`
+ *  The unique Google-assigned identifier of the Google Analytics web stream
+ *  associated with the Firebase Web App. Firebase SDKs use this ID to interact
+ *  with Google Analytics APIs. This field is only present if the App is linked
+ *  to a web stream in a Google Analytics App + Web property. Learn more about
+ *  this ID and Google Analytics web streams in the [Analytics
+ *  documentation](https://support.google.com/analytics/topic/9303475). To
+ *  generate a `measurementId` and link the Web App with a Google Analytics web
+ *  stream, call
+ *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics).
  */
 @property(nonatomic, copy, nullable) NSString *measurementId;
 

@@ -109,11 +109,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_CompositeFilter_Op_OperatorUns
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains;
 /**
- *  The given `field` is an array that contains any of the values in the
- *  given array.
- *  Requires:
- *  * That `value` is a non-empty `ArrayValue` with at most 10 values.
- *  * No other `IN`, `ARRAY_CONTAINS_ANY`, or `NOT_IN`.
+ *  The given `field` is an array that contains any of the values in the given
+ *  array. Requires: * That `value` is a non-empty `ArrayValue` with at most 10
+ *  values. * No other `IN` or `ARRAY_CONTAINS_ANY`.
  *
  *  Value: "ARRAY_CONTAINS_ANY"
  */
@@ -125,46 +123,58 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContainsAn
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_Equal;
 /**
- *  The given `field` is greater than the given `value`.
- *  Requires:
- *  * That `field` come first in `order_by`.
+ *  The given `field` is greater than the given `value`. Requires: * That
+ *  `field` come first in `order_by`.
  *
  *  Value: "GREATER_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThan;
 /**
- *  The given `field` is greater than or equal to the given `value`.
- *  Requires:
- *  * That `field` come first in `order_by`.
+ *  The given `field` is greater than or equal to the given `value`. Requires: *
+ *  That `field` come first in `order_by`.
  *
  *  Value: "GREATER_THAN_OR_EQUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual;
 /**
  *  The given `field` is equal to at least one value in the given array.
- *  Requires:
- *  * That `value` is a non-empty `ArrayValue` with at most 10 values.
- *  * No other `IN`, `ARRAY_CONTAINS_ANY`, or `NOT_IN`.
+ *  Requires: * That `value` is a non-empty `ArrayValue` with at most 10 values.
+ *  * No other `IN` or `ARRAY_CONTAINS_ANY`.
  *
  *  Value: "IN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_In;
 /**
- *  The given `field` is less than the given `value`.
- *  Requires:
- *  * That `field` come first in `order_by`.
+ *  The given `field` is less than the given `value`. Requires: * That `field`
+ *  come first in `order_by`.
  *
  *  Value: "LESS_THAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_LessThan;
 /**
- *  The given `field` is less than or equal to the given `value`.
- *  Requires:
- *  * That `field` come first in `order_by`.
+ *  The given `field` is less than or equal to the given `value`. Requires: *
+ *  That `field` come first in `order_by`.
  *
  *  Value: "LESS_THAN_OR_EQUAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_LessThanOrEqual;
+/**
+ *  The given `field` is not equal to the given `value`. Requires: * No other
+ *  `NOT_EQUAL`, `NOT_IN`, `IS_NOT_NULL`, or `IS_NOT_NAN`. * That `field` comes
+ *  first in the `order_by`.
+ *
+ *  Value: "NOT_EQUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_NotEqual;
+/**
+ *  The value of the `field` is not in the given array. Requires: * That `value`
+ *  is a non-empty `ArrayValue` with at most 10 values. * No other `IN`,
+ *  `ARRAY_CONTAINS_ANY`, `NOT_IN`, `NOT_EQUAL`, `IS_NOT_NULL`, or `IS_NOT_NAN`.
+ *  * That `field` comes first in the `order_by`.
+ *
+ *  Value: "NOT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_NotIn;
 /**
  *  Unspecified. This value must not be used.
  *
@@ -355,17 +365,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1ImportDo
 // GTLRFirestore_GoogleFirestoreAdminV1Index.queryScope
 
 /**
- *  Indexes with a collection query scope specified allow queries
- *  against a collection that is the child of a specific document, specified
- *  at query time, and that has the collection id specified by the index.
+ *  Indexes with a collection query scope specified allow queries against a
+ *  collection that is the child of a specific document, specified at query
+ *  time, and that has the collection id specified by the index.
  *
  *  Value: "COLLECTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection;
 /**
- *  Indexes with a collection group query scope specified allow queries
- *  against all collections that has the collection id specified by the
- *  index.
+ *  Indexes with a collection group query scope specified allow queries against
+ *  all collections that has the collection id specified by the index.
  *
  *  Value: "COLLECTION_GROUP"
  */
@@ -381,30 +390,26 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_Qu
 // GTLRFirestore_GoogleFirestoreAdminV1Index.state
 
 /**
- *  The index is being created.
- *  There is an active long-running operation for the index.
- *  The index is updated when writing a document.
- *  Some index data may exist.
+ *  The index is being created. There is an active long-running operation for
+ *  the index. The index is updated when writing a document. Some index data may
+ *  exist.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Creating;
 /**
- *  The index was being created, but something went wrong.
- *  There is no active long-running operation for the index,
- *  and the most recently finished long-running operation failed.
- *  The index is not updated when writing a document.
- *  Some index data may exist.
- *  Use the google.longrunning.Operations API to determine why the operation
- *  that last attempted to create this index failed, then re-create the
- *  index.
+ *  The index was being created, but something went wrong. There is no active
+ *  long-running operation for the index, and the most recently finished
+ *  long-running operation failed. The index is not updated when writing a
+ *  document. Some index data may exist. Use the google.longrunning.Operations
+ *  API to determine why the operation that last attempted to create this index
+ *  failed, then re-create the index.
  *
  *  Value: "NEEDS_REPAIR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Index_State_NeedsRepair;
 /**
- *  The index is ready to be used.
- *  The index is updated when writing a document.
+ *  The index is ready to be used. The index is updated when writing a document.
  *  The index is fully populated from all stored documents it applies to.
  *
  *  Value: "READY"
@@ -563,12 +568,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Order_Direction_DirectionUnspe
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Add;
 /**
- *  The targets reflect all changes committed before the targets were added
- *  to the stream.
- *  This will be sent after or with a `read_time` that is greater than or
- *  equal to the time at which the targets were added.
- *  Listeners can wait for this change if read-after-write semantics
- *  are desired.
+ *  The targets reflect all changes committed before the targets were added to
+ *  the stream. This will be sent after or with a `read_time` that is greater
+ *  than or equal to the time at which the targets were added. Listeners can
+ *  wait for this change if read-after-write semantics are desired.
  *
  *  Value: "CURRENT"
  */
@@ -586,10 +589,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Remove;
 /**
- *  The targets have been reset, and a new initial state for the targets
- *  will be returned in subsequent changes.
- *  After the initial state is complete, `CURRENT` will be returned even
- *  if the target was previously indicated to be `CURRENT`.
+ *  The targets have been reset, and a new initial state for the targets will be
+ *  returned in subsequent changes. After the initial state is complete,
+ *  `CURRENT` will be returned even if the target was previously indicated to be
+ *  `CURRENT`.
  *
  *  Value: "RESET"
  */
@@ -604,6 +607,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_TargetChange_TargetChangeType_
  *  Value: "IS_NAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_IsNan;
+/**
+ *  The given `field` is not equal to `NaN`. Requires: * No other `NOT_EQUAL`,
+ *  `NOT_IN`, `IS_NOT_NULL`, or `IS_NOT_NAN`. * That `field` comes first in the
+ *  `order_by`.
+ *
+ *  Value: "IS_NOT_NAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_IsNotNan;
+/**
+ *  The given `field` is not equal to `NULL`. Requires: * A single `NOT_EQUAL`,
+ *  `NOT_IN`, `IS_NOT_NULL`, or `IS_NOT_NAN`. * That `field` comes first in the
+ *  `order_by`.
+ *
+ *  Value: "IS_NOT_NULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_UnaryFilter_Op_IsNotNull;
 /**
  *  The given `field` is equal to `NULL`.
  *
@@ -652,23 +671,22 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *documents;
 
 /**
- *  The fields to return. If not set, returns all fields.
- *  If a document has a field that is not present in this mask, that field will
- *  not be returned in the response.
+ *  The fields to return. If not set, returns all fields. If a document has a
+ *  field that is not present in this mask, that field will not be returned in
+ *  the response.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_DocumentMask *mask;
 
 /**
- *  Starts a new transaction and reads the documents.
- *  Defaults to a read-only transaction.
- *  The new transaction ID will be returned as the first response in the
- *  stream.
+ *  Starts a new transaction and reads the documents. Defaults to a read-only
+ *  transaction. The new transaction ID will be returned as the first response
+ *  in the stream.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_TransactionOptions *newTransaction NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Reads documents as they were at the given time.
- *  This may not be older than 270 seconds.
+ *  Reads documents as they were at the given time. This may not be older than
+ *  270 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -698,17 +716,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *missing;
 
 /**
- *  The time at which the document was read.
- *  This may be monotically increasing, in this case the previous documents in
- *  the result stream are guaranteed not to have changed between their
- *  read_time and this one.
+ *  The time at which the document was read. This may be monotically increasing,
+ *  in this case the previous documents in the result stream are guaranteed not
+ *  to have changed between their read_time and this one.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
- *  The transaction that was started as part of this request.
- *  Will only be set in the first response, and only if
- *  BatchGetDocumentsRequest.new_transaction was set in the request.
+ *  The transaction that was started as part of this request. Will only be set
+ *  in the first response, and only if BatchGetDocumentsRequest.new_transaction
+ *  was set in the request.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -727,10 +744,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_BatchWriteRequest_Labels *labels;
 
 /**
- *  The writes to apply.
- *  Method does not apply writes atomically and does not guarantee ordering.
- *  Each write succeeds or fails independently. You cannot write to the same
- *  document more than once per request.
+ *  The writes to apply. Method does not apply writes atomically and does not
+ *  guarantee ordering. Each write succeeds or fails independently. You cannot
+ *  write to the same document more than once per request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Write *> *writes;
 
@@ -755,16 +771,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_BatchWriteResponse : GTLRObject
 
 /**
- *  The status of applying the writes.
- *  This i-th write status corresponds to the i-th write in the
- *  request.
+ *  The status of applying the writes. This i-th write status corresponds to the
+ *  i-th write in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Status *> *status;
 
 /**
- *  The result of applying the writes.
- *  This i-th write result corresponds to the i-th write in the
- *  request.
+ *  The result of applying the writes. This i-th write result corresponds to the
+ *  i-th write in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_WriteResult *> *writeResults;
 
@@ -776,10 +790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_BeginTransactionRequest : GTLRObject
 
-/**
- *  The options for the transaction.
- *  Defaults to a read-write transaction.
- */
+/** The options for the transaction. Defaults to a read-write transaction. */
 @property(nonatomic, strong, nullable) GTLRFirestore_TransactionOptions *options;
 
 @end
@@ -807,18 +818,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_CollectionSelector : GTLRObject
 
 /**
- *  When false, selects only collections that are immediate children of
- *  the `parent` specified in the containing `RunQueryRequest`.
- *  When true, selects all descendant collections.
+ *  When false, selects only collections that are immediate children of the
+ *  `parent` specified in the containing `RunQueryRequest`. When true, selects
+ *  all descendant collections.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allDescendants;
 
-/**
- *  The collection ID.
- *  When set, selects only collections with this ID.
- */
+/** The collection ID. When set, selects only collections with this ID. */
 @property(nonatomic, copy, nullable) NSString *collectionId;
 
 @end
@@ -837,10 +845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, copy, nullable) NSString *transaction;
 
-/**
- *  The writes to apply.
- *  Always executed atomically and in order.
- */
+/** The writes to apply. Always executed atomically and in order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Write *> *writes;
 
 @end
@@ -858,9 +863,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
 
 /**
- *  The result of applying the writes.
- *  This i-th write result corresponds to the i-th write in the
- *  request.
+ *  The result of applying the writes. This i-th write result corresponds to the
+ *  i-th write in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_WriteResult *> *writeResults;
 
@@ -872,10 +876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_CompositeFilter : GTLRObject
 
-/**
- *  The list of filters to combine.
- *  Must contain at least one filter.
- */
+/** The list of filters to combine. Must contain at least one filter. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Filter *> *filters;
 
 /**
@@ -898,17 +899,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_Cursor : GTLRObject
 
 /**
- *  If the position is just before or just after the given values, relative
- *  to the sort order defined by the query.
+ *  If the position is just before or just after the given values, relative to
+ *  the sort order defined by the query.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *before;
 
 /**
- *  The values that represent a position, in the order they appear in
- *  the order by clause of a query.
- *  Can contain fewer values than specified in the order by clause.
+ *  The values that represent a position, in the order they appear in the order
+ *  by clause of a query. Can contain fewer values than specified in the order
+ *  by clause.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Value *> *values;
 
@@ -916,39 +917,34 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A Firestore document.
- *  Must not exceed 1 MiB - 4 bytes.
+ *  A Firestore document. Must not exceed 1 MiB - 4 bytes.
  */
 @interface GTLRFirestore_Document : GTLRObject
 
 /**
- *  Output only. The time at which the document was created.
- *  This value increases monotonically when a document is deleted then
- *  recreated. It can also be compared to values from other documents and
- *  the `read_time` of a query.
+ *  Output only. The time at which the document was created. This value
+ *  increases monotonically when a document is deleted then recreated. It can
+ *  also be compared to values from other documents and the `read_time` of a
+ *  query.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The document's fields.
- *  The map keys represent field names.
- *  A simple field name contains only characters `a` to `z`, `A` to `Z`,
- *  `0` to `9`, or `_`, and must not start with `0` to `9`. For example,
- *  `foo_bar_17`.
- *  Field names matching the regular expression `__.*__` are reserved. Reserved
- *  field names are forbidden except in certain documented contexts. The map
- *  keys, represented as UTF-8, must not exceed 1,500 bytes and cannot be
- *  empty.
- *  Field paths may be used in other contexts to refer to structured fields
- *  defined here. For `map_value`, the field path is represented by the simple
- *  or quoted field names of the containing fields, delimited by `.`. For
- *  example, the structured field
- *  `"foo" : { map_value: { "x&y" : { string_value: "hello" }}}` would be
- *  represented by the field path `foo.x&y`.
- *  Within a field path, a quoted field name starts and ends with `` ` `` and
- *  may contain any character. Some characters, including `` ` ``, must be
- *  escaped using a `\\`. For example, `` `x&y` `` represents `x&y` and
- *  `` `bak\\`tik` `` represents `` bak`tik ``.
+ *  The document's fields. The map keys represent field names. A simple field
+ *  name contains only characters `a` to `z`, `A` to `Z`, `0` to `9`, or `_`,
+ *  and must not start with `0` to `9`. For example, `foo_bar_17`. Field names
+ *  matching the regular expression `__.*__` are reserved. Reserved field names
+ *  are forbidden except in certain documented contexts. The map keys,
+ *  represented as UTF-8, must not exceed 1,500 bytes and cannot be empty. Field
+ *  paths may be used in other contexts to refer to structured fields defined
+ *  here. For `map_value`, the field path is represented by the simple or quoted
+ *  field names of the containing fields, delimited by `.`. For example, the
+ *  structured field `"foo" : { map_value: { "x&y" : { string_value: "hello"
+ *  }}}` would be represented by the field path `foo.x&y`. Within a field path,
+ *  a quoted field name starts and ends with `` ` `` and may contain any
+ *  character. Some characters, including `` ` ``, must be escaped using a `\\`.
+ *  For example, `` `x&y` `` represents `x&y` and `` `bak\\`tik` `` represents
+ *  `` bak`tik ``.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_Document_Fields *fields;
 
@@ -959,10 +955,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The time at which the document was last changed.
- *  This value is initially set to the `create_time` then increases
- *  monotonically with each change to the document. It can also be
- *  compared to values from other documents and the `read_time` of a query.
+ *  Output only. The time at which the document was last changed. This value is
+ *  initially set to the `create_time` then increases monotonically with each
+ *  change to the document. It can also be compared to values from other
+ *  documents and the `read_time` of a query.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -970,25 +966,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  The document's fields.
- *  The map keys represent field names.
- *  A simple field name contains only characters `a` to `z`, `A` to `Z`,
- *  `0` to `9`, or `_`, and must not start with `0` to `9`. For example,
- *  `foo_bar_17`.
- *  Field names matching the regular expression `__.*__` are reserved. Reserved
- *  field names are forbidden except in certain documented contexts. The map
- *  keys, represented as UTF-8, must not exceed 1,500 bytes and cannot be
- *  empty.
- *  Field paths may be used in other contexts to refer to structured fields
- *  defined here. For `map_value`, the field path is represented by the simple
- *  or quoted field names of the containing fields, delimited by `.`. For
- *  example, the structured field
- *  `"foo" : { map_value: { "x&y" : { string_value: "hello" }}}` would be
- *  represented by the field path `foo.x&y`.
- *  Within a field path, a quoted field name starts and ends with `` ` `` and
- *  may contain any character. Some characters, including `` ` ``, must be
- *  escaped using a `\\`. For example, `` `x&y` `` represents `x&y` and
- *  `` `bak\\`tik` `` represents `` bak`tik ``.
+ *  The document's fields. The map keys represent field names. A simple field
+ *  name contains only characters `a` to `z`, `A` to `Z`, `0` to `9`, or `_`,
+ *  and must not start with `0` to `9`. For example, `foo_bar_17`. Field names
+ *  matching the regular expression `__.*__` are reserved. Reserved field names
+ *  are forbidden except in certain documented contexts. The map keys,
+ *  represented as UTF-8, must not exceed 1,500 bytes and cannot be empty. Field
+ *  paths may be used in other contexts to refer to structured fields defined
+ *  here. For `map_value`, the field path is represented by the simple or quoted
+ *  field names of the containing fields, delimited by `.`. For example, the
+ *  structured field `"foo" : { map_value: { "x&y" : { string_value: "hello"
+ *  }}}` would be represented by the field path `foo.x&y`. Within a field path,
+ *  a quoted field name starts and ends with `` ` `` and may contain any
+ *  character. Some characters, including `` ` ``, must be escaped using a `\\`.
+ *  For example, `` `x&y` `` represents `x&y` and `` `bak\\`tik` `` represents
+ *  `` bak`tik ``.
  *
  *  @note This class is documented as having more properties of
  *        GTLRFirestore_Value. Use @c -additionalJSONKeys and @c
@@ -1000,17 +992,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A Document has changed.
- *  May be the result of multiple writes, including deletes, that
- *  ultimately resulted in a new value for the Document.
- *  Multiple DocumentChange messages may be returned for the same logical
- *  change, if multiple targets are affected.
+ *  A Document has changed. May be the result of multiple writes, including
+ *  deletes, that ultimately resulted in a new value for the Document. Multiple
+ *  DocumentChange messages may be returned for the same logical change, if
+ *  multiple targets are affected.
  */
 @interface GTLRFirestore_DocumentChange : GTLRObject
 
 /**
- *  The new state of the Document.
- *  If `mask` is set, contains only fields that were updated or added.
+ *  The new state of the Document. If `mask` is set, contains only fields that
+ *  were updated or added.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_Document *document;
 
@@ -1032,11 +1023,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A Document has been deleted.
- *  May be the result of multiple writes, including updates, the
- *  last of which deleted the Document.
- *  Multiple DocumentDelete messages may be returned for the same logical
- *  delete, if multiple targets are affected.
+ *  A Document has been deleted. May be the result of multiple writes, including
+ *  updates, the last of which deleted the Document. Multiple DocumentDelete
+ *  messages may be returned for the same logical delete, if multiple targets
+ *  are affected.
  */
 @interface GTLRFirestore_DocumentDelete : GTLRObject
 
@@ -1044,8 +1034,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *document;
 
 /**
- *  The read timestamp at which the delete was observed.
- *  Greater or equal to the `commit_time` of the delete.
+ *  The read timestamp at which the delete was observed. Greater or equal to the
+ *  `commit_time` of the delete.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -1060,17 +1050,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A set of field paths on a document.
- *  Used to restrict a get or update operation on a document to a subset of its
- *  fields.
- *  This is different from standard field masks, as this is always scoped to a
- *  Document, and takes in account the dynamic nature of Value.
+ *  A set of field paths on a document. Used to restrict a get or update
+ *  operation on a document to a subset of its fields. This is different from
+ *  standard field masks, as this is always scoped to a Document, and takes in
+ *  account the dynamic nature of Value.
  */
 @interface GTLRFirestore_DocumentMask : GTLRObject
 
 /**
- *  The list of field paths in the mask. See Document.fields for a field
- *  path syntax reference.
+ *  The list of field paths in the mask. See Document.fields for a field path
+ *  syntax reference.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fieldPaths;
 
@@ -1078,12 +1067,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A Document has been removed from the view of the targets.
- *  Sent if the document is no longer relevant to a target and is out of view.
- *  Can be sent instead of a DocumentDelete or a DocumentChange if the server
- *  can not send the new value of the document.
- *  Multiple DocumentRemove messages may be returned for the same logical
- *  write or delete, if multiple targets are affected.
+ *  A Document has been removed from the view of the targets. Sent if the
+ *  document is no longer relevant to a target and is out of view. Can be sent
+ *  instead of a DocumentDelete or a DocumentChange if the server can not send
+ *  the new value of the document. Multiple DocumentRemove messages may be
+ *  returned for the same logical write or delete, if multiple targets are
+ *  affected.
  */
 @interface GTLRFirestore_DocumentRemove : GTLRObject
 
@@ -1091,8 +1080,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *document;
 
 /**
- *  The read timestamp at which the remove was observed.
- *  Greater or equal to the `commit_time` of the change/delete/remove.
+ *  The read timestamp at which the remove was observed. Greater or equal to the
+ *  `commit_time` of the change/delete/remove.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -1114,8 +1103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  The names of the documents to retrieve. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
- *  The request will fail if any of the document is not a child resource of
- *  the given `database`. Duplicate names will be elided.
+ *  The request will fail if any of the document is not a child resource of the
+ *  given `database`. Duplicate names will be elided.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *documents;
 
@@ -1132,8 +1121,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  The list of transformations to apply to the fields of the document, in
- *  order.
- *  This must not be empty.
+ *  order. This must not be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_FieldTransform *> *fieldTransforms;
 
@@ -1143,11 +1131,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRFirestore_Empty : GTLRObject
 @end
@@ -1159,9 +1145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_ExistenceFilter : GTLRObject
 
 /**
- *  The total count of documents that match target_id.
- *  If different from the count of documents in the client that match, the
- *  client must manually determine which documents no longer match the target.
+ *  The total count of documents that match target_id. If different from the
+ *  count of documents in the client that match, the client must manually
+ *  determine which documents no longer match the target.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1192,36 +1178,38 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContains The given `field` is
  *        an array that contains the given `value`. (Value: "ARRAY_CONTAINS")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContainsAny The given `field`
- *        is an array that contains any of the values in the
- *        given array.
- *        Requires:
- *        * That `value` is a non-empty `ArrayValue` with at most 10 values.
- *        * No other `IN`, `ARRAY_CONTAINS_ANY`, or `NOT_IN`. (Value:
+ *        is an array that contains any of the values in the given array.
+ *        Requires: * That `value` is a non-empty `ArrayValue` with at most 10
+ *        values. * No other `IN` or `ARRAY_CONTAINS_ANY`. (Value:
  *        "ARRAY_CONTAINS_ANY")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_Equal The given `field` is equal to
  *        the given `value`. (Value: "EQUAL")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThan The given `field` is
- *        greater than the given `value`.
- *        Requires:
- *        * That `field` come first in `order_by`. (Value: "GREATER_THAN")
+ *        greater than the given `value`. Requires: * That `field` come first in
+ *        `order_by`. (Value: "GREATER_THAN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_GreaterThanOrEqual The given `field`
- *        is greater than or equal to the given `value`.
- *        Requires:
- *        * That `field` come first in `order_by`. (Value:
- *        "GREATER_THAN_OR_EQUAL")
+ *        is greater than or equal to the given `value`. Requires: * That
+ *        `field` come first in `order_by`. (Value: "GREATER_THAN_OR_EQUAL")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_In The given `field` is equal to at
- *        least one value in the given array.
- *        Requires:
- *        * That `value` is a non-empty `ArrayValue` with at most 10 values.
- *        * No other `IN`, `ARRAY_CONTAINS_ANY`, or `NOT_IN`. (Value: "IN")
+ *        least one value in the given array. Requires: * That `value` is a
+ *        non-empty `ArrayValue` with at most 10 values. * No other `IN` or
+ *        `ARRAY_CONTAINS_ANY`. (Value: "IN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThan The given `field` is less
- *        than the given `value`.
- *        Requires:
- *        * That `field` come first in `order_by`. (Value: "LESS_THAN")
+ *        than the given `value`. Requires: * That `field` come first in
+ *        `order_by`. (Value: "LESS_THAN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThanOrEqual The given `field` is
- *        less than or equal to the given `value`.
- *        Requires:
- *        * That `field` come first in `order_by`. (Value: "LESS_THAN_OR_EQUAL")
+ *        less than or equal to the given `value`. Requires: * That `field` come
+ *        first in `order_by`. (Value: "LESS_THAN_OR_EQUAL")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_NotEqual The given `field` is not
+ *        equal to the given `value`. Requires: * No other `NOT_EQUAL`,
+ *        `NOT_IN`, `IS_NOT_NULL`, or `IS_NOT_NAN`. * That `field` comes first
+ *        in the `order_by`. (Value: "NOT_EQUAL")
+ *    @arg @c kGTLRFirestore_FieldFilter_Op_NotIn The value of the `field` is
+ *        not in the given array. Requires: * That `value` is a non-empty
+ *        `ArrayValue` with at most 10 values. * No other `IN`,
+ *        `ARRAY_CONTAINS_ANY`, `NOT_IN`, `NOT_EQUAL`, `IS_NOT_NULL`, or
+ *        `IS_NOT_NAN`. * That `field` comes first in the `order_by`. (Value:
+ *        "NOT_IN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_OperatorUnspecified Unspecified.
  *        This value must not be used. (Value: "OPERATOR_UNSPECIFIED")
  */
@@ -1249,16 +1237,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_FieldTransform : GTLRObject
 
 /**
- *  Append the given elements in order if they are not already present in
- *  the current field value.
- *  If the field is not an array, or if the field does not yet exist, it is
- *  first set to the empty array.
- *  Equivalent numbers of different types (e.g. 3L and 3.0) are
- *  considered equal when checking if a value is missing.
- *  NaN is equal to NaN, and Null is equal to Null.
- *  If the input contains multiple equivalent values, only the first will
- *  be considered.
- *  The corresponding transform_result will be the null value.
+ *  Append the given elements in order if they are not already present in the
+ *  current field value. If the field is not an array, or if the field does not
+ *  yet exist, it is first set to the empty array. Equivalent numbers of
+ *  different types (e.g. 3L and 3.0) are considered equal when checking if a
+ *  value is missing. NaN is equal to NaN, and Null is equal to Null. If the
+ *  input contains multiple equivalent values, only the first will be
+ *  considered. The corresponding transform_result will be the null value.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *appendMissingElements;
 
@@ -1269,57 +1254,53 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *fieldPath;
 
 /**
- *  Adds the given value to the field's current value.
- *  This must be an integer or a double value.
- *  If the field is not an integer or double, or if the field does not yet
- *  exist, the transformation will set the field to the given value.
- *  If either of the given value or the current field value are doubles,
+ *  Adds the given value to the field's current value. This must be an integer
+ *  or a double value. If the field is not an integer or double, or if the field
+ *  does not yet exist, the transformation will set the field to the given
+ *  value. If either of the given value or the current field value are doubles,
  *  both values will be interpreted as doubles. Double arithmetic and
- *  representation of double values follow IEEE 754 semantics.
- *  If there is positive/negative integer overflow, the field is resolved
- *  to the largest magnitude positive/negative integer.
+ *  representation of double values follow IEEE 754 semantics. If there is
+ *  positive/negative integer overflow, the field is resolved to the largest
+ *  magnitude positive/negative integer.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_Value *increment;
 
 /**
- *  Sets the field to the maximum of its current value and the given value.
- *  This must be an integer or a double value.
- *  If the field is not an integer or double, or if the field does not yet
- *  exist, the transformation will set the field to the given value.
- *  If a maximum operation is applied where the field and the input value
- *  are of mixed types (that is - one is an integer and one is a double)
- *  the field takes on the type of the larger operand. If the operands are
- *  equivalent (e.g. 3 and 3.0), the field does not change.
- *  0, 0.0, and -0.0 are all zero. The maximum of a zero stored value and
- *  zero input value is always the stored value.
- *  The maximum of any numeric value x and NaN is NaN.
+ *  Sets the field to the maximum of its current value and the given value. This
+ *  must be an integer or a double value. If the field is not an integer or
+ *  double, or if the field does not yet exist, the transformation will set the
+ *  field to the given value. If a maximum operation is applied where the field
+ *  and the input value are of mixed types (that is - one is an integer and one
+ *  is a double) the field takes on the type of the larger operand. If the
+ *  operands are equivalent (e.g. 3 and 3.0), the field does not change. 0, 0.0,
+ *  and -0.0 are all zero. The maximum of a zero stored value and zero input
+ *  value is always the stored value. The maximum of any numeric value x and NaN
+ *  is NaN.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_Value *maximum;
 
 /**
- *  Sets the field to the minimum of its current value and the given value.
- *  This must be an integer or a double value.
- *  If the field is not an integer or double, or if the field does not yet
- *  exist, the transformation will set the field to the input value.
- *  If a minimum operation is applied where the field and the input value
- *  are of mixed types (that is - one is an integer and one is a double)
- *  the field takes on the type of the smaller operand. If the operands are
- *  equivalent (e.g. 3 and 3.0), the field does not change.
- *  0, 0.0, and -0.0 are all zero. The minimum of a zero stored value and
- *  zero input value is always the stored value.
- *  The minimum of any numeric value x and NaN is NaN.
+ *  Sets the field to the minimum of its current value and the given value. This
+ *  must be an integer or a double value. If the field is not an integer or
+ *  double, or if the field does not yet exist, the transformation will set the
+ *  field to the input value. If a minimum operation is applied where the field
+ *  and the input value are of mixed types (that is - one is an integer and one
+ *  is a double) the field takes on the type of the smaller operand. If the
+ *  operands are equivalent (e.g. 3 and 3.0), the field does not change. 0, 0.0,
+ *  and -0.0 are all zero. The minimum of a zero stored value and zero input
+ *  value is always the stored value. The minimum of any numeric value x and NaN
+ *  is NaN.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_Value *minimum;
 
 /**
- *  Remove all of the given elements from the array in the field.
- *  If the field is not an array, or if the field does not yet exist, it is
- *  set to the empty array.
- *  Equivalent numbers of the different types (e.g. 3L and 3.0) are
- *  considered equal when deciding whether an element should be removed.
- *  NaN is equal to NaN, and Null is equal to Null.
- *  This will remove all equivalent values if there are duplicates.
- *  The corresponding transform_result will be the null value.
+ *  Remove all of the given elements from the array in the field. If the field
+ *  is not an array, or if the field does not yet exist, it is set to the empty
+ *  array. Equivalent numbers of the different types (e.g. 3L and 3.0) are
+ *  considered equal when deciding whether an element should be removed. NaN is
+ *  equal to NaN, and Null is equal to Null. This will remove all equivalent
+ *  values if there are duplicates. The corresponding transform_result will be
+ *  the null value.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *removeAllFromArray;
 
@@ -1426,11 +1407,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The output URI. Currently only supports Google Cloud Storage URIs of the
  *  form: `gs://BUCKET_NAME[/NAMESPACE_PATH]`, where `BUCKET_NAME` is the name
  *  of the Google Cloud Storage bucket and `NAMESPACE_PATH` is an optional
- *  Google Cloud Storage namespace path. When
- *  choosing a name, be sure to consider Google Cloud Storage naming
- *  guidelines: https://cloud.google.com/storage/docs/naming.
- *  If the URI is a bucket (without a namespace path), a prefix will be
- *  generated based on the start time.
+ *  Google Cloud Storage namespace path. When choosing a name, be sure to
+ *  consider Google Cloud Storage naming guidelines:
+ *  https://cloud.google.com/storage/docs/naming. If the URI is a bucket
+ *  (without a namespace path), a prefix will be generated based on the start
+ *  time.
  */
 @property(nonatomic, copy, nullable) NSString *outputUriPrefix;
 
@@ -1443,9 +1424,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsResponse : GTLRObject
 
 /**
- *  Location of the output files. This can be used to begin an import
- *  into Cloud Firestore (this project or another project) after the operation
- *  completes successfully.
+ *  Location of the output files. This can be used to begin an import into Cloud
+ *  Firestore (this project or another project) after the operation completes
+ *  successfully.
  */
 @property(nonatomic, copy, nullable) NSString *outputUriPrefix;
 
@@ -1453,17 +1434,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Represents a single field in the database.
- *  Fields are grouped by their "Collection Group", which represent all
- *  collections in the database with the same id.
+ *  Represents a single field in the database. Fields are grouped by their
+ *  "Collection Group", which represent all collections in the database with the
+ *  same id.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Field : GTLRObject
 
 /**
- *  The index configuration for this field. If unset, field indexing will
- *  revert to the configuration defined by the `ancestor_field`. To
- *  explicitly remove all indexes for this field, specify an index config
- *  with an empty list of indexes.
+ *  The index configuration for this field. If unset, field indexing will revert
+ *  to the configuration defined by the `ancestor_field`. To explicitly remove
+ *  all indexes for this field, specify an index config with an empty list of
+ *  indexes.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1IndexConfig *indexConfig;
 
@@ -1471,27 +1452,21 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  A field name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
  *  A field path may be a simple field name, e.g. `address` or a path to fields
- *  within map_value , e.g. `address.city`,
- *  or a special field path. The only valid special field is `*`, which
- *  represents any field.
- *  Field paths may be quoted using ` (backtick). The only character that needs
- *  to be escaped within a quoted field path is the backtick character itself,
- *  escaped using a backslash. Special characters in field paths that
- *  must be quoted include: `*`, `.`,
- *  ``` (backtick), `[`, `]`, as well as any ascii symbolic characters.
- *  Examples:
- *  (Note: Comments here are written in markdown syntax, so there is an
- *  additional layer of backticks to represent a code block)
+ *  within map_value , e.g. `address.city`, or a special field path. The only
+ *  valid special field is `*`, which represents any field. Field paths may be
+ *  quoted using ` (backtick). The only character that needs to be escaped
+ *  within a quoted field path is the backtick character itself, escaped using a
+ *  backslash. Special characters in field paths that must be quoted include:
+ *  `*`, `.`, ``` (backtick), `[`, `]`, as well as any ascii symbolic
+ *  characters. Examples: (Note: Comments here are written in markdown syntax,
+ *  so there is an additional layer of backticks to represent a code block)
  *  `\\`address.city\\`` represents a field named `address.city`, not the map
- *  key
- *  `city` in the field `address`.
- *  `\\`*\\`` represents a field named `*`, not any field.
- *  A special `Field` contains the default indexing settings for all fields.
- *  This field's resource name is:
+ *  key `city` in the field `address`. `\\`*\\`` represents a field named `*`,
+ *  not any field. A special `Field` contains the default indexing settings for
+ *  all fields. This field's resource name is:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/__default__/fields/
- *  *`
- *  Indexes defined on this `Field` will be applied to all fields which do not
- *  have their own `Field` index configuration.
+ *  *` Indexes defined on this `Field` will be applied to all fields which do
+ *  not have their own `Field` index configuration.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1517,8 +1492,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *field;
 
 /**
- *  A list of IndexConfigDelta, which describe the intent of this
- *  operation.
+ *  A list of IndexConfigDelta, which describe the intent of this operation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1IndexConfigDelta *> *indexConfigDeltas;
 
@@ -1632,10 +1606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
 /**
- *  Location of the exported files.
- *  This must match the output_uri_prefix of an ExportDocumentsResponse from
- *  an export that has completed successfully.
- *  See:
+ *  Location of the exported files. This must match the output_uri_prefix of an
+ *  ExportDocumentsResponse from an export that has completed successfully. See:
  *  google.firestore.admin.v1.ExportDocumentsResponse.output_uri_prefix.
  */
 @property(nonatomic, copy, nullable) NSString *inputUriPrefix;
@@ -1644,46 +1616,44 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Cloud Firestore indexes enable simple and complex queries against
- *  documents in a database.
+ *  Cloud Firestore indexes enable simple and complex queries against documents
+ *  in a database.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Index : GTLRObject
 
 /**
- *  The fields supported by this index.
- *  For composite indexes, this is always 2 or more fields.
- *  The last field entry is always for the field path `__name__`. If, on
- *  creation, `__name__` was not specified as the last field, it will be added
- *  automatically with the same direction as that of the last field defined. If
- *  the final field in a composite index is not directional, the `__name__`
- *  will be ordered ASCENDING (unless explicitly specified).
- *  For single field indexes, this will always be exactly one entry with a
- *  field path equal to the field path of the associated field.
+ *  The fields supported by this index. For composite indexes, this is always 2
+ *  or more fields. The last field entry is always for the field path
+ *  `__name__`. If, on creation, `__name__` was not specified as the last field,
+ *  it will be added automatically with the same direction as that of the last
+ *  field defined. If the final field in a composite index is not directional,
+ *  the `__name__` will be ordered ASCENDING (unless explicitly specified). For
+ *  single field indexes, this will always be exactly one entry with a field
+ *  path equal to the field path of the associated field.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1IndexField *> *fields;
 
 /**
- *  Output only. A server defined name for this index.
- *  The form of this name for composite indexes will be:
+ *  Output only. A server defined name for this index. The form of this name for
+ *  composite indexes will be:
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/indexes/{composite_index_id}`
  *  For single field indexes, this field will be empty.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Indexes with a collection query scope specified allow queries
- *  against a collection that is the child of a specific document, specified at
- *  query time, and that has the same collection id.
- *  Indexes with a collection group query scope specified allow queries against
- *  all collections descended from a specific document, specified at query
- *  time, and that have the same collection id as this index.
+ *  Indexes with a collection query scope specified allow queries against a
+ *  collection that is the child of a specific document, specified at query
+ *  time, and that has the same collection id. Indexes with a collection group
+ *  query scope specified allow queries against all collections descended from a
+ *  specific document, specified at query time, and that have the same
+ *  collection id as this index.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_Collection
- *        Indexes with a collection query scope specified allow queries
- *        against a collection that is the child of a specific document,
- *        specified
- *        at query time, and that has the collection id specified by the index.
+ *        Indexes with a collection query scope specified allow queries against
+ *        a collection that is the child of a specific document, specified at
+ *        query time, and that has the collection id specified by the index.
  *        (Value: "COLLECTION")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_QueryScope_CollectionGroup
  *        Indexes with a collection group query scope specified allow queries
@@ -1700,24 +1670,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Creating The
- *        index is being created.
- *        There is an active long-running operation for the index.
- *        The index is updated when writing a document.
- *        Some index data may exist. (Value: "CREATING")
+ *        index is being created. There is an active long-running operation for
+ *        the index. The index is updated when writing a document. Some index
+ *        data may exist. (Value: "CREATING")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_State_NeedsRepair The
- *        index was being created, but something went wrong.
- *        There is no active long-running operation for the index,
- *        and the most recently finished long-running operation failed.
- *        The index is not updated when writing a document.
- *        Some index data may exist.
- *        Use the google.longrunning.Operations API to determine why the
- *        operation
- *        that last attempted to create this index failed, then re-create the
- *        index. (Value: "NEEDS_REPAIR")
+ *        index was being created, but something went wrong. There is no active
+ *        long-running operation for the index, and the most recently finished
+ *        long-running operation failed. The index is not updated when writing a
+ *        document. Some index data may exist. Use the
+ *        google.longrunning.Operations API to determine why the operation that
+ *        last attempted to create this index failed, then re-create the index.
+ *        (Value: "NEEDS_REPAIR")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_State_Ready The index
- *        is ready to be used.
- *        The index is updated when writing a document.
- *        The index is fully populated from all stored documents it applies to.
+ *        is ready to be used. The index is updated when writing a document. The
+ *        index is fully populated from all stored documents it applies to.
  *        (Value: "READY")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Index_State_StateUnspecified
  *        The state is unspecified. (Value: "STATE_UNSPECIFIED")
@@ -1734,10 +1700,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Output only. Specifies the resource name of the `Field` from which this
- *  field's
- *  index configuration is set (when `uses_ancestor_config` is true),
- *  or from which it *would* be set if this field had no index configuration
- *  (when `uses_ancestor_config` is false).
+ *  field's index configuration is set (when `uses_ancestor_config` is true), or
+ *  from which it *would* be set if this field had no index configuration (when
+ *  `uses_ancestor_config` is false).
  */
 @property(nonatomic, copy, nullable) NSString *ancestorField;
 
@@ -1745,10 +1710,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1Index *> *indexes;
 
 /**
- *  Output only
- *  When true, the `Field`'s index configuration is in the process of being
- *  reverted. Once complete, the index config will transition to the same
- *  state as the field specified by `ancestor_field`, at which point
+ *  Output only When true, the `Field`'s index configuration is in the process
+ *  of being reverted. Once complete, the index config will transition to the
+ *  same state as the field specified by `ancestor_field`, at which point
  *  `uses_ancestor_config` will be `true` and `reverting` will be `false`.
  *
  *  Uses NSNumber of boolValue.
@@ -1757,8 +1721,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Output only. When true, the `Field`'s index configuration is set from the
- *  configuration specified by the `ancestor_field`.
- *  When false, the `Field`'s index configuration is defined explicitly.
+ *  configuration specified by the `ancestor_field`. When false, the `Field`'s
+ *  index configuration is defined explicitly.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1793,9 +1757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  A field in an index.
- *  The field_path describes which field is indexed, the value_mode describes
- *  how the field value is indexed.
+ *  A field in an index. The field_path describes which field is indexed, the
+ *  value_mode describes how the field value is indexed.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1IndexField : GTLRObject
 
@@ -1812,9 +1775,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *arrayConfig;
 
 /**
- *  Can be __name__.
- *  For single field indexes, this must match the name of the field or may
- *  be omitted.
+ *  Can be __name__. For single field indexes, this must match the name of the
+ *  field or may be omitted.
  */
 @property(nonatomic, copy, nullable) NSString *fieldPath;
 
@@ -1956,9 +1918,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  Describes the progress of the operation.
- *  Unit of work is generic and must be interpreted based on where Progress
- *  is used.
+ *  Describes the progress of the operation. Unit of work is generic and must be
+ *  interpreted based on where Progress is used.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1Progress : GTLRObject
 
@@ -2017,8 +1978,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleLongrunningOperation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -2030,16 +1991,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleLongrunningOperation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2048,10 +2009,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleLongrunningOperation_Response *response;
 
@@ -2060,8 +2020,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -2078,10 +2038,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2094,11 +2053,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair
- *  of doubles representing degrees latitude and degrees longitude. Unless
- *  specified otherwise, this must conform to the
- *  <a href="http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf">WGS84
- *  standard</a>. Values must be within normalized ranges.
+ *  pair of doubles representing degrees latitude and degrees longitude. Unless
+ *  specified otherwise, this must conform to the WGS84 standard. Values must be
+ *  within normalized ranges.
  */
 @interface GTLRFirestore_LatLng : GTLRObject
 
@@ -2131,10 +2088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
-/**
- *  A page token. Must be a value from
- *  ListCollectionIdsResponse.
- */
+/** A page token. Must be a value from ListCollectionIdsResponse. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 @end
@@ -2223,16 +2177,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_DocumentDelete *documentDelete;
 
 /**
- *  A Document has been removed from a target (because it is no longer
- *  relevant to that target).
+ *  A Document has been removed from a target (because it is no longer relevant
+ *  to that target).
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_DocumentRemove *documentRemove;
 
 /**
- *  A filter to apply to the set of documents previously returned for the
- *  given target.
- *  Returned when documents may have been removed from the given target, but
- *  the exact documents are unknown.
+ *  A filter to apply to the set of documents previously returned for the given
+ *  target. Returned when documents may have been removed from the given target,
+ *  but the exact documents are unknown.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_ExistenceFilter *filter;
 
@@ -2272,8 +2225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2293,8 +2246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2333,11 +2286,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_MapValue : GTLRObject
 
 /**
- *  The map's fields.
- *  The map keys represent field names. Field names matching the regular
- *  expression `__.*__` are reserved. Reserved field names are forbidden except
- *  in certain documented contexts. The map keys, represented as UTF-8, must
- *  not exceed 1,500 bytes and cannot be empty.
+ *  The map's fields. The map keys represent field names. Field names matching
+ *  the regular expression `__.*__` are reserved. Reserved field names are
+ *  forbidden except in certain documented contexts. The map keys, represented
+ *  as UTF-8, must not exceed 1,500 bytes and cannot be empty.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_MapValue_Fields *fields;
 
@@ -2345,11 +2297,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  The map's fields.
- *  The map keys represent field names. Field names matching the regular
- *  expression `__.*__` are reserved. Reserved field names are forbidden except
- *  in certain documented contexts. The map keys, represented as UTF-8, must
- *  not exceed 1,500 bytes and cannot be empty.
+ *  The map's fields. The map keys represent field names. Field names matching
+ *  the regular expression `__.*__` are reserved. Reserved field names are
+ *  forbidden except in certain documented contexts. The map keys, represented
+ *  as UTF-8, must not exceed 1,500 bytes and cannot be empty.
  *
  *  @note This class is documented as having more properties of
  *        GTLRFirestore_Value. Use @c -additionalJSONKeys and @c
@@ -2391,47 +2342,44 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  The maximum number of partitions to return in this call, subject to
+ *  `partition_count`. For example, if `partition_count` = 10 and `page_size` =
+ *  8, the first call to PartitionQuery will return up to 8 partitions and a
+ *  `next_page_token` if more results exist. A second call to PartitionQuery
+ *  will return up to 2 partitions, to complete the total of 10 specified in
  *  `partition_count`.
- *  For example, if `partition_count` = 10 and `page_size` = 8, the first call
- *  to PartitionQuery will return up to 8 partitions and a `next_page_token`
- *  if more results exist. A second call to PartitionQuery will return up to
- *  2 partitions, to complete the total of 10 specified in `partition_count`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  The `next_page_token` value returned from a previous call to
- *  PartitionQuery that may be used to get an additional set of results.
- *  There are no ordering guarantees between sets of results. Thus, using
- *  multiple sets of results will require merging the different result sets.
- *  For example, two subsequent calls using a page_token may return:
- *  * cursor B, cursor M, cursor Q
- *  * cursor A, cursor U, cursor W
- *  To obtain a complete result set ordered with respect to the results of the
- *  query supplied to PartitionQuery, the results sets should be merged:
- *  cursor A, cursor B, cursor M, cursor Q, cursor U, cursor W
+ *  The `next_page_token` value returned from a previous call to PartitionQuery
+ *  that may be used to get an additional set of results. There are no ordering
+ *  guarantees between sets of results. Thus, using multiple sets of results
+ *  will require merging the different result sets. For example, two subsequent
+ *  calls using a page_token may return: * cursor B, cursor M, cursor Q * cursor
+ *  A, cursor U, cursor W To obtain a complete result set ordered with respect
+ *  to the results of the query supplied to PartitionQuery, the results sets
+ *  should be merged: cursor A, cursor B, cursor M, cursor Q, cursor U, cursor W
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The desired maximum number of partition points.
- *  The partitions may be returned across multiple pages of results.
- *  The number must be strictly positive. The actual number of partitions
- *  returned may be fewer.
- *  For example, this may be set to one fewer than the number of parallel
- *  queries to be run, or in running a data pipeline job, one fewer than the
- *  number of workers or compute instances available.
+ *  The desired maximum number of partition points. The partitions may be
+ *  returned across multiple pages of results. The number must be positive. The
+ *  actual number of partitions returned may be fewer. For example, this may be
+ *  set to one fewer than the number of parallel queries to be run, or in
+ *  running a data pipeline job, one fewer than the number of workers or compute
+ *  instances available.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *partitionCount;
 
 /**
- *  A structured query.
- *  Filters, order bys, limits, offsets, and start/end cursors are not
- *  supported.
+ *  A structured query. Query must specify collection with all descendants and
+ *  be ordered by name ascending. Other filters, order bys, limits, offsets, and
+ *  start/end cursors are not supported.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_StructuredQuery *structuredQuery;
 
@@ -2449,25 +2397,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_PartitionQueryResponse : GTLRCollectionObject
 
 /**
- *  A page token that may be used to request an additional set of results, up
- *  to the number specified by `partition_count` in the PartitionQuery request.
- *  If blank, there are no more results.
+ *  A page token that may be used to request an additional set of results, up to
+ *  the number specified by `partition_count` in the PartitionQuery request. If
+ *  blank, there are no more results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Partition results.
- *  Each partition is a split point that can be used by RunQuery as a starting
- *  or end point for the query results. The RunQuery requests must be made with
- *  the same query supplied to this PartitionQuery request. The partition
- *  cursors will be ordered according to same ordering as the results of the
- *  query supplied to PartitionQuery.
- *  For example, if a PartitionQuery request returns partition cursors A and B,
- *  running the following three queries will return the entire result set of
- *  the original query:
- *  * query, end_at A
- *  * query, start_at A, end_at B
- *  * query, start_at B
+ *  Partition results. Each partition is a split point that can be used by
+ *  RunQuery as a starting or end point for the query results. The RunQuery
+ *  requests must be made with the same query supplied to this PartitionQuery
+ *  request. The partition cursors will be ordered according to same ordering as
+ *  the results of the query supplied to PartitionQuery. For example, if a
+ *  PartitionQuery request returns partition cursors A and B, running the
+ *  following three queries will return the entire result set of the original
+ *  query: * query, end_at A * query, start_at A, end_at B * query, start_at B
+ *  An empty result may indicate that the query has too few results to be
+ *  partitioned.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2483,16 +2429,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_Precondition : GTLRObject
 
 /**
- *  When set to `true`, the target document must exist.
- *  When set to `false`, the target document must not exist.
+ *  When set to `true`, the target document must exist. When set to `false`, the
+ *  target document must not exist.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *exists;
 
 /**
- *  When set, the target document must exist and have been last updated at
- *  that time.
+ *  When set, the target document must exist and have been last updated at that
+ *  time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -2505,9 +2451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_Projection : GTLRObject
 
 /**
- *  The fields to return.
- *  If empty, all fields are returned. To only return the name
- *  of the document, use `['__name__']`.
+ *  The fields to return. If empty, all fields are returned. To only return the
+ *  name of the document, use `['__name__']`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_FieldReference *> *fields;
 
@@ -2523,8 +2468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The parent resource name. In the format:
  *  `projects/{project_id}/databases/{database_id}/documents` or
  *  `projects/{project_id}/databases/{database_id}/documents/{document_path}`.
- *  For example:
- *  `projects/my-project/databases/my-database/documents` or
+ *  For example: `projects/my-project/databases/my-database/documents` or
  *  `projects/my-project/databases/my-database/documents/chatrooms/my-chatroom`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2541,8 +2485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_ReadOnly : GTLRObject
 
 /**
- *  Reads documents at the given time.
- *  This may not be older than 60 seconds.
+ *  Reads documents at the given time. This may not be older than 60 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -2587,16 +2530,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_RunQueryRequest : GTLRObject
 
 /**
- *  Starts a new transaction and reads the documents.
- *  Defaults to a read-only transaction.
- *  The new transaction ID will be returned as the first response in the
- *  stream.
+ *  Starts a new transaction and reads the documents. Defaults to a read-only
+ *  transaction. The new transaction ID will be returned as the first response
+ *  in the stream.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_TransactionOptions *newTransaction NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Reads documents as they were at the given time.
- *  This may not be older than 270 seconds.
+ *  Reads documents as they were at the given time. This may not be older than
+ *  270 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
@@ -2619,35 +2561,30 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @interface GTLRFirestore_RunQueryResponse : GTLRObject
 
-/**
- *  A query result.
- *  Not set when reporting partial progress.
- */
+/** A query result. Not set when reporting partial progress. */
 @property(nonatomic, strong, nullable) GTLRFirestore_Document *document;
 
 /**
  *  The time at which the document was read. This may be monotonically
  *  increasing; in this case, the previous documents in the result stream are
- *  guaranteed not to have changed between their `read_time` and this one.
- *  If the query returns no results, a response with `read_time` and no
- *  `document` will be sent, and this represents the time at which the query
- *  was run.
+ *  guaranteed not to have changed between their `read_time` and this one. If
+ *  the query returns no results, a response with `read_time` and no `document`
+ *  will be sent, and this represents the time at which the query was run.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
- *  The number of results that have been skipped due to an offset between
- *  the last response and the current response.
+ *  The number of results that have been skipped due to an offset between the
+ *  last response and the current response.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *skippedResults;
 
 /**
- *  The transaction that was started as part of this request.
- *  Can only be set in the first response, and only if
- *  RunQueryRequest.new_transaction was set in the request.
- *  If set, no other fields will be set in this response.
+ *  The transaction that was started as part of this request. Can only be set in
+ *  the first response, and only if RunQueryRequest.new_transaction was set in
+ *  the request. If set, no other fields will be set in this response.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2661,9 +2598,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRFirestore_Status : GTLRObject
 
@@ -2714,38 +2651,32 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_CollectionSelector *> *from;
 
 /**
- *  The maximum number of results to return.
- *  Applies after all other constraints.
- *  Must be >= 0 if specified.
+ *  The maximum number of results to return. Applies after all other
+ *  constraints. Must be >= 0 if specified.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
 /**
- *  The number of results to skip.
- *  Applies before limit, but after all other constraints. Must be >= 0 if
- *  specified.
+ *  The number of results to skip. Applies before limit, but after all other
+ *  constraints. Must be >= 0 if specified.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *offset;
 
 /**
- *  The order to apply to the query results.
- *  Firestore guarantees a stable ordering through the following rules:
- *  * Any field required to appear in `order_by`, that is not already
- *  specified in `order_by`, is appended to the order in field name order
- *  by default.
- *  * If an order on `__name__` is not specified, it is appended by default.
- *  Fields are appended with the same sort direction as the last order
- *  specified, or 'ASCENDING' if no order was specified. For example:
- *  * `SELECT * FROM Foo ORDER BY A` becomes
- *  `SELECT * FROM Foo ORDER BY A, __name__`
- *  * `SELECT * FROM Foo ORDER BY A DESC` becomes
- *  `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC`
- *  * `SELECT * FROM Foo WHERE A > 1` becomes
- *  `SELECT * FROM Foo WHERE A > 1 ORDER BY A, __name__`
+ *  The order to apply to the query results. Firestore guarantees a stable
+ *  ordering through the following rules: * Any field required to appear in
+ *  `order_by`, that is not already specified in `order_by`, is appended to the
+ *  order in field name order by default. * If an order on `__name__` is not
+ *  specified, it is appended by default. Fields are appended with the same sort
+ *  direction as the last order specified, or 'ASCENDING' if no order was
+ *  specified. For example: * `SELECT * FROM Foo ORDER BY A` becomes `SELECT *
+ *  FROM Foo ORDER BY A, __name__` * `SELECT * FROM Foo ORDER BY A DESC` becomes
+ *  `SELECT * FROM Foo ORDER BY A DESC, __name__ DESC` * `SELECT * FROM Foo
+ *  WHERE A > 1` becomes `SELECT * FROM Foo WHERE A > 1 ORDER BY A, __name__`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Order *> *orderBy;
 
@@ -2780,14 +2711,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_QueryTarget *query;
 
 /**
- *  Start listening after a specific `read_time`.
- *  The client must know the state of matching documents at this time.
+ *  Start listening after a specific `read_time`. The client must know the state
+ *  of matching documents at this time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
- *  A resume token from a prior TargetChange for an identical target.
- *  Using a resume token with a different target is unsupported and may fail.
+ *  A resume token from a prior TargetChange for an identical target. Using a
+ *  resume token with a different target is unsupported and may fail.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2815,20 +2746,18 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  The consistent `read_time` for the given `target_ids` (omitted when the
- *  target_ids are not at a consistent snapshot).
- *  The stream is guaranteed to send a `read_time` with `target_ids` empty
- *  whenever the entire stream reaches a new consistent snapshot. ADD,
- *  CURRENT, and RESET messages are guaranteed to (eventually) result in a
- *  new consistent snapshot (while NO_CHANGE and REMOVE messages are not).
- *  For a given stream, `read_time` is guaranteed to be monotonically
- *  increasing.
+ *  target_ids are not at a consistent snapshot). The stream is guaranteed to
+ *  send a `read_time` with `target_ids` empty whenever the entire stream
+ *  reaches a new consistent snapshot. ADD, CURRENT, and RESET messages are
+ *  guaranteed to (eventually) result in a new consistent snapshot (while
+ *  NO_CHANGE and REMOVE messages are not). For a given stream, `read_time` is
+ *  guaranteed to be monotonically increasing.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 /**
- *  A token that can be used to resume the stream for the given `target_ids`,
- *  or all targets if `target_ids` is empty.
- *  Not set on every target change.
+ *  A token that can be used to resume the stream for the given `target_ids`, or
+ *  all targets if `target_ids` is empty. Not set on every target change.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2842,30 +2771,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_TargetChange_TargetChangeType_Add The targets have
  *        been added. (Value: "ADD")
  *    @arg @c kGTLRFirestore_TargetChange_TargetChangeType_Current The targets
- *        reflect all changes committed before the targets were added
- *        to the stream.
- *        This will be sent after or with a `read_time` that is greater than or
- *        equal to the time at which the targets were added.
- *        Listeners can wait for this change if read-after-write semantics
- *        are desired. (Value: "CURRENT")
+ *        reflect all changes committed before the targets were added to the
+ *        stream. This will be sent after or with a `read_time` that is greater
+ *        than or equal to the time at which the targets were added. Listeners
+ *        can wait for this change if read-after-write semantics are desired.
+ *        (Value: "CURRENT")
  *    @arg @c kGTLRFirestore_TargetChange_TargetChangeType_NoChange No change
  *        has occurred. Used only to send an updated `resume_token`. (Value:
  *        "NO_CHANGE")
  *    @arg @c kGTLRFirestore_TargetChange_TargetChangeType_Remove The targets
  *        have been removed. (Value: "REMOVE")
  *    @arg @c kGTLRFirestore_TargetChange_TargetChangeType_Reset The targets
- *        have been reset, and a new initial state for the targets
- *        will be returned in subsequent changes.
- *        After the initial state is complete, `CURRENT` will be returned even
- *        if the target was previously indicated to be `CURRENT`. (Value:
- *        "RESET")
+ *        have been reset, and a new initial state for the targets will be
+ *        returned in subsequent changes. After the initial state is complete,
+ *        `CURRENT` will be returned even if the target was previously indicated
+ *        to be `CURRENT`. (Value: "RESET")
  */
 @property(nonatomic, copy, nullable) NSString *targetChangeType;
 
 /**
- *  The target IDs of targets that have changed.
- *  If empty, the change applies to all targets.
- *  The order of the target IDs is not defined.
+ *  The target IDs of targets that have changed. If empty, the change applies to
+ *  all targets. The order of the target IDs is not defined.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2902,6 +2828,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Likely values:
  *    @arg @c kGTLRFirestore_UnaryFilter_Op_IsNan The given `field` is equal to
  *        `NaN`. (Value: "IS_NAN")
+ *    @arg @c kGTLRFirestore_UnaryFilter_Op_IsNotNan The given `field` is not
+ *        equal to `NaN`. Requires: * No other `NOT_EQUAL`, `NOT_IN`,
+ *        `IS_NOT_NULL`, or `IS_NOT_NAN`. * That `field` comes first in the
+ *        `order_by`. (Value: "IS_NOT_NAN")
+ *    @arg @c kGTLRFirestore_UnaryFilter_Op_IsNotNull The given `field` is not
+ *        equal to `NULL`. Requires: * A single `NOT_EQUAL`, `NOT_IN`,
+ *        `IS_NOT_NULL`, or `IS_NOT_NAN`. * That `field` comes first in the
+ *        `order_by`. (Value: "IS_NOT_NULL")
  *    @arg @c kGTLRFirestore_UnaryFilter_Op_IsNull The given `field` is equal to
  *        `NULL`. (Value: "IS_NULL")
  *    @arg @c kGTLRFirestore_UnaryFilter_Op_OperatorUnspecified Unspecified.
@@ -2918,9 +2852,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_Value : GTLRObject
 
 /**
- *  An array value.
- *  Cannot directly contain another array value, though can contain an
- *  map which contains another array.
+ *  An array value. Cannot directly contain another array value, though can
+ *  contain an map which contains another array.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_ArrayValue *arrayValue;
 
@@ -2932,9 +2865,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) NSNumber *booleanValue;
 
 /**
- *  A bytes value.
- *  Must not exceed 1 MiB - 89 bytes.
- *  Only the first 1,500 bytes are considered by queries.
+ *  A bytes value. Must not exceed 1 MiB - 89 bytes. Only the first 1,500 bytes
+ *  are considered by queries.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2977,17 +2909,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *referenceValue;
 
 /**
- *  A string value.
- *  The string, represented as UTF-8, must not exceed 1 MiB - 89 bytes.
- *  Only the first 1,500 bytes of the UTF-8 representation are considered by
- *  queries.
+ *  A string value. The string, represented as UTF-8, must not exceed 1 MiB - 89
+ *  bytes. Only the first 1,500 bytes of the UTF-8 representation are considered
+ *  by queries.
  */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
 /**
- *  A timestamp value.
- *  Precise only to microseconds. When stored, any additional precision is
- *  rounded down.
+ *  A timestamp value. Precise only to microseconds. When stored, any additional
+ *  precision is rounded down.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
 
@@ -3000,8 +2930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_Write : GTLRObject
 
 /**
- *  An optional precondition on the document.
- *  The write will fail if this is set and not met by the target document.
+ *  An optional precondition on the document. The write will fail if this is set
+ *  and not met by the target document.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_Precondition *currentDocument;
 
@@ -3020,23 +2950,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_Document *update;
 
 /**
- *  The fields to update in this write.
- *  This field can be set only when the operation is `update`.
- *  If the mask is not set for an `update` and the document exists, any
- *  existing data will be overwritten.
- *  If the mask is set and the document on the server has fields not covered by
- *  the mask, they are left unchanged.
- *  Fields referenced in the mask, but not present in the input document, are
- *  deleted from the document on the server.
- *  The field paths in this mask must not contain a reserved field name.
+ *  The fields to update in this write. This field can be set only when the
+ *  operation is `update`. If the mask is not set for an `update` and the
+ *  document exists, any existing data will be overwritten. If the mask is set
+ *  and the document on the server has fields not covered by the mask, they are
+ *  left unchanged. Fields referenced in the mask, but not present in the input
+ *  document, are deleted from the document on the server. The field paths in
+ *  this mask must not contain a reserved field name.
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_DocumentMask *updateMask;
 
 /**
- *  The transforms to perform after update.
- *  This field can be set only when the operation is `update`. If present, this
- *  write is equivalent to performing `update` and `transform` to the same
- *  document atomically and in order.
+ *  The transforms to perform after update. This field can be set only when the
+ *  operation is `update`. If present, this write is equivalent to performing
+ *  `update` and `transform` to the same document atomically and in order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_FieldTransform *> *updateTransforms;
 
@@ -3044,14 +2971,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  The request for Firestore.Write.
- *  The first request creates a stream, or resumes an existing one from a token.
- *  When creating a new stream, the server replies with a response containing
- *  only an ID and a token, to use in the next request.
- *  When resuming a stream, the server first streams any responses later than
- *  the
- *  given token, then a response containing only an up-to-date token, to use in
- *  the next request.
+ *  The request for Firestore.Write. The first request creates a stream, or
+ *  resumes an existing one from a token. When creating a new stream, the server
+ *  replies with a response containing only an ID and a token, to use in the
+ *  next request. When resuming a stream, the server first streams any responses
+ *  later than the given token, then a response containing only an up-to-date
+ *  token, to use in the next request.
  */
 @interface GTLRFirestore_WriteRequest : GTLRObject
 
@@ -3059,23 +2984,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_WriteRequest_Labels *labels;
 
 /**
- *  The ID of the write stream to resume.
- *  This may only be set in the first message. When left empty, a new write
- *  stream will be created.
+ *  The ID of the write stream to resume. This may only be set in the first
+ *  message. When left empty, a new write stream will be created.
  */
 @property(nonatomic, copy, nullable) NSString *streamId;
 
 /**
- *  A stream token that was previously sent by the server.
- *  The client should set this field to the token from the most recent
- *  WriteResponse it has received. This acknowledges that the client has
- *  received responses up to this token. After sending this token, earlier
- *  tokens may not be used anymore.
- *  The server may close the stream if there are too many unacknowledged
- *  responses.
- *  Leave this field unset when creating a new stream. To resume a stream at
- *  a specific point, set this field and the `stream_id` field.
- *  Leave this field unset when creating a new stream.
+ *  A stream token that was previously sent by the server. The client should set
+ *  this field to the token from the most recent WriteResponse it has received.
+ *  This acknowledges that the client has received responses up to this token.
+ *  After sending this token, earlier tokens may not be used anymore. The server
+ *  may close the stream if there are too many unacknowledged responses. Leave
+ *  this field unset when creating a new stream. To resume a stream at a
+ *  specific point, set this field and the `stream_id` field. Leave this field
+ *  unset when creating a new stream.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3083,11 +3005,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *streamToken;
 
 /**
- *  The writes to apply.
- *  Always executed atomically and in order.
- *  This must be empty on the first request.
- *  This may be empty on the last request.
- *  This must not be empty on all other requests.
+ *  The writes to apply. Always executed atomically and in order. This must be
+ *  empty on the first request. This may be empty on the last request. This must
+ *  not be empty on all other requests.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Write *> *writes;
 
@@ -3118,15 +3038,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTime;
 
 /**
- *  The ID of the stream.
- *  Only set on the first message, when a new stream was created.
+ *  The ID of the stream. Only set on the first message, when a new stream was
+ *  created.
  */
 @property(nonatomic, copy, nullable) NSString *streamId;
 
 /**
- *  A token that represents the position of this response in the stream.
- *  This can be used by a client to resume the stream at this point.
- *  This field is always set.
+ *  A token that represents the position of this response in the stream. This
+ *  can be used by a client to resume the stream at this point. This field is
+ *  always set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3134,9 +3054,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *streamToken;
 
 /**
- *  The result of applying the writes.
- *  This i-th write result corresponds to the i-th write in the
- *  request.
+ *  The result of applying the writes. This i-th write result corresponds to the
+ *  i-th write in the request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_WriteResult *> *writeResults;
 
@@ -3149,16 +3068,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_WriteResult : GTLRObject
 
 /**
- *  The results of applying each DocumentTransform.FieldTransform, in the
- *  same order.
+ *  The results of applying each DocumentTransform.FieldTransform, in the same
+ *  order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Value *> *transformResults;
 
 /**
- *  The last update time of the document after applying the write. Not set
- *  after a `delete`.
- *  If the write did not actually change the document, this will be the
- *  previous update_time.
+ *  The last update time of the document after applying the write. Not set after
+ *  a `delete`. If the write did not actually change the document, this will be
+ *  the previous update_time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 

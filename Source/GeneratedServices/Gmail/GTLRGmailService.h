@@ -4,8 +4,8 @@
 // API:
 //   Gmail API (gmail/v1)
 // Description:
-//   The Gmail API lets you view and manage Gmail mailbox data like
-//   threads, messages, and labels.
+//   The Gmail API lets you view and manage Gmail mailbox data like threads,
+//   messages, and labels.
 // Documentation:
 //   https://developers.google.com/gmail/api/
 
@@ -129,8 +129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailSettingsSharing;
 /**
  *  Service for executing Gmail API queries.
  *
- *  The Gmail API lets you view and manage Gmail mailbox data like
- *  threads, messages, and labels.
+ *  The Gmail API lets you view and manage Gmail mailbox data like threads,
+ *  messages, and labels.
  */
 @interface GTLRGmailService : GTLRService
 

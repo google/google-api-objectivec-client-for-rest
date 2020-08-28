@@ -46,15 +46,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: cloudbuild.operations.cancel
  *
@@ -72,15 +71,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudBuild_CancelOperationRequest to include in the
  *    query.
@@ -166,10 +164,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Starts a build with the specified configuration.
- *  This method returns a long-running `Operation`, which includes the build
- *  ID. Pass the build ID to `GetBuild` to determine the build status (such as
- *  `SUCCESS` or `FAILURE`).
+ *  Starts a build with the specified configuration. This method returns a
+ *  long-running `Operation`, which includes the build ID. Pass the build ID to
+ *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
  *
  *  Method: cloudbuild.projects.builds.create
  *
@@ -186,10 +183,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
- *  Starts a build with the specified configuration.
- *  This method returns a long-running `Operation`, which includes the build
- *  ID. Pass the build ID to `GetBuild` to determine the build status (such as
- *  `SUCCESS` or `FAILURE`).
+ *  Starts a build with the specified configuration. This method returns a
+ *  long-running `Operation`, which includes the build ID. Pass the build ID to
+ *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
  *
  *  @param object The @c GTLRCloudBuild_Build to include in the query.
  *  @param projectId Required. ID of the project.
@@ -202,9 +198,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns information about a previously requested build.
- *  The `Build` that is returned includes its status (such as `SUCCESS`,
- *  `FAILURE`, or `WORKING`), and timing information.
+ *  Returns information about a previously requested build. The `Build` that is
+ *  returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
+ *  and timing information.
  *
  *  Method: cloudbuild.projects.builds.get
  *
@@ -228,9 +224,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_Build.
  *
- *  Returns information about a previously requested build.
- *  The `Build` that is returned includes its status (such as `SUCCESS`,
- *  `FAILURE`, or `WORKING`), and timing information.
+ *  Returns information about a previously requested build. The `Build` that is
+ *  returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
+ *  and timing information.
  *
  *  @param projectId Required. ID of the project.
  *  @param identifier Required. ID of the build.
@@ -243,9 +239,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists previously requested builds.
- *  Previously requested builds may still be in-progress, or may have finished
- *  successfully or unsuccessfully.
+ *  Lists previously requested builds. Previously requested builds may still be
+ *  in-progress, or may have finished successfully or unsuccessfully.
  *
  *  Method: cloudbuild.projects.builds.list
  *
@@ -271,9 +266,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_ListBuildsResponse.
  *
- *  Lists previously requested builds.
- *  Previously requested builds may still be in-progress, or may have finished
- *  successfully or unsuccessfully.
+ *  Lists previously requested builds. Previously requested builds may still be
+ *  in-progress, or may have finished successfully or unsuccessfully.
  *
  *  @param projectId Required. ID of the project.
  *
@@ -288,26 +282,22 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new build based on the specified build.
- *  This method creates a new build using the original build request, which may
- *  or may not result in an identical build.
- *  For triggered builds:
- *  * Triggered builds resolve to a precise revision; therefore a retry of a
- *  triggered build will result in a build that uses the same revision.
- *  For non-triggered builds that specify `RepoSource`:
- *  * If the original build built from the tip of a branch, the retried build
- *  will build from the tip of that branch, which may not be the same revision
- *  as the original build.
- *  * If the original build specified a commit sha or revision ID, the retried
- *  build will use the identical source.
- *  For builds that specify `StorageSource`:
- *  * If the original build pulled source from Google Cloud Storage without
- *  specifying the generation of the object, the new build will use the current
- *  object, which may be different from the original build source.
- *  * If the original build pulled source from Cloud Storage and specified the
- *  generation of the object, the new build will attempt to use the same
- *  object, which may or may not be available depending on the bucket's
- *  lifecycle management settings.
+ *  Creates a new build based on the specified build. This method creates a new
+ *  build using the original build request, which may or may not result in an
+ *  identical build. For triggered builds: * Triggered builds resolve to a
+ *  precise revision; therefore a retry of a triggered build will result in a
+ *  build that uses the same revision. For non-triggered builds that specify
+ *  `RepoSource`: * If the original build built from the tip of a branch, the
+ *  retried build will build from the tip of that branch, which may not be the
+ *  same revision as the original build. * If the original build specified a
+ *  commit sha or revision ID, the retried build will use the identical source.
+ *  For builds that specify `StorageSource`: * If the original build pulled
+ *  source from Google Cloud Storage without specifying the generation of the
+ *  object, the new build will use the current object, which may be different
+ *  from the original build source. * If the original build pulled source from
+ *  Cloud Storage and specified the generation of the object, the new build will
+ *  attempt to use the same object, which may or may not be available depending
+ *  on the bucket's lifecycle management settings.
  *
  *  Method: cloudbuild.projects.builds.retry
  *
@@ -331,26 +321,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
- *  Creates a new build based on the specified build.
- *  This method creates a new build using the original build request, which may
- *  or may not result in an identical build.
- *  For triggered builds:
- *  * Triggered builds resolve to a precise revision; therefore a retry of a
- *  triggered build will result in a build that uses the same revision.
- *  For non-triggered builds that specify `RepoSource`:
- *  * If the original build built from the tip of a branch, the retried build
- *  will build from the tip of that branch, which may not be the same revision
- *  as the original build.
- *  * If the original build specified a commit sha or revision ID, the retried
- *  build will use the identical source.
- *  For builds that specify `StorageSource`:
- *  * If the original build pulled source from Google Cloud Storage without
- *  specifying the generation of the object, the new build will use the current
- *  object, which may be different from the original build source.
- *  * If the original build pulled source from Cloud Storage and specified the
- *  generation of the object, the new build will attempt to use the same
- *  object, which may or may not be available depending on the bucket's
- *  lifecycle management settings.
+ *  Creates a new build based on the specified build. This method creates a new
+ *  build using the original build request, which may or may not result in an
+ *  identical build. For triggered builds: * Triggered builds resolve to a
+ *  precise revision; therefore a retry of a triggered build will result in a
+ *  build that uses the same revision. For non-triggered builds that specify
+ *  `RepoSource`: * If the original build built from the tip of a branch, the
+ *  retried build will build from the tip of that branch, which may not be the
+ *  same revision as the original build. * If the original build specified a
+ *  commit sha or revision ID, the retried build will use the identical source.
+ *  For builds that specify `StorageSource`: * If the original build pulled
+ *  source from Google Cloud Storage without specifying the generation of the
+ *  object, the new build will use the current object, which may be different
+ *  from the original build source. * If the original build pulled source from
+ *  Cloud Storage and specified the generation of the object, the new build will
+ *  attempt to use the same object, which may or may not be available depending
+ *  on the bucket's lifecycle management settings.
  *
  *  @param object The @c GTLRCloudBuild_RetryBuildRequest to include in the
  *    query.
@@ -367,15 +353,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: cloudbuild.projects.locations.operations.cancel
  *
@@ -393,15 +378,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudBuild_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRCloudBuild_CancelOperationRequest to include in the
  *    query.
@@ -447,8 +431,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new `BuildTrigger`.
- *  This API is experimental.
+ *  Creates a new `BuildTrigger`. This API is experimental.
  *
  *  Method: cloudbuild.projects.triggers.create
  *
@@ -465,8 +448,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_BuildTrigger.
  *
- *  Creates a new `BuildTrigger`.
- *  This API is experimental.
+ *  Creates a new `BuildTrigger`. This API is experimental.
  *
  *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
  *  @param projectId Required. ID of the project for which to configure
@@ -480,8 +462,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a `BuildTrigger` by its project ID and trigger ID.
- *  This API is experimental.
+ *  Deletes a `BuildTrigger` by its project ID and trigger ID. This API is
+ *  experimental.
  *
  *  Method: cloudbuild.projects.triggers.delete
  *
@@ -501,8 +483,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_Empty.
  *
- *  Deletes a `BuildTrigger` by its project ID and trigger ID.
- *  This API is experimental.
+ *  Deletes a `BuildTrigger` by its project ID and trigger ID. This API is
+ *  experimental.
  *
  *  @param projectId Required. ID of the project that owns the trigger.
  *  @param triggerId Required. ID of the `BuildTrigger` to delete.
@@ -515,8 +497,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns information about a `BuildTrigger`.
- *  This API is experimental.
+ *  Returns information about a `BuildTrigger`. This API is experimental.
  *
  *  Method: cloudbuild.projects.triggers.get
  *
@@ -536,8 +517,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_BuildTrigger.
  *
- *  Returns information about a `BuildTrigger`.
- *  This API is experimental.
+ *  Returns information about a `BuildTrigger`. This API is experimental.
  *
  *  @param projectId Required. ID of the project that owns the trigger.
  *  @param triggerId Required. Identifier (`id` or `name`) of the `BuildTrigger`
@@ -551,8 +531,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists existing `BuildTrigger`s.
- *  This API is experimental.
+ *  Lists existing `BuildTrigger`s. This API is experimental.
  *
  *  Method: cloudbuild.projects.triggers.list
  *
@@ -575,8 +554,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_ListBuildTriggersResponse.
  *
- *  Lists existing `BuildTrigger`s.
- *  This API is experimental.
+ *  Lists existing `BuildTrigger`s. This API is experimental.
  *
  *  @param projectId Required. ID of the project for which to list
  *    BuildTriggers.
@@ -592,8 +570,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a `BuildTrigger` by its project ID and trigger ID.
- *  This API is experimental.
+ *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
+ *  experimental.
  *
  *  Method: cloudbuild.projects.triggers.patch
  *
@@ -613,8 +591,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudBuild_BuildTrigger.
  *
- *  Updates a `BuildTrigger` by its project ID and trigger ID.
- *  This API is experimental.
+ *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
+ *  experimental.
  *
  *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
  *  @param projectId Required. ID of the project that owns the trigger.

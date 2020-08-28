@@ -37,11 +37,23 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // imageType
 
-/** Value: "ACHIEVEMENT_ICON" */
+/**
+ *  The icon image for an achievement resource.
+ *
+ *  Value: "ACHIEVEMENT_ICON"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeAchievementIcon;
-/** Value: "IMAGE_TYPE_UNSPECIFIED" */
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "IMAGE_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeImageTypeUnspecified;
-/** Value: "LEADERBOARD_ICON" */
+/**
+ *  The icon image for a leaderboard resource.
+ *
+ *  Value: "LEADERBOARD_ICON"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIcon;
 
 // ----------------------------------------------------------------------------
@@ -237,12 +249,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *  Selects which image in a resource for this method.
  *
  *  Likely values:
- *    @arg @c kGTLRGamesConfigurationImageTypeImageTypeUnspecified Value
- *        "IMAGE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon Value
- *        "ACHIEVEMENT_ICON"
- *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon Value
- *        "LEADERBOARD_ICON"
+ *    @arg @c kGTLRGamesConfigurationImageTypeImageTypeUnspecified Default
+ *        value. This value is unused. (Value: "IMAGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon The icon image for
+ *        an achievement resource. (Value: "ACHIEVEMENT_ICON")
+ *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon The icon image for
+ *        a leaderboard resource. (Value: "LEADERBOARD_ICON")
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -258,12 +270,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *  @param imageType Selects which image in a resource for this method.
  *
  *  Likely values for @c imageType:
- *    @arg @c kGTLRGamesConfigurationImageTypeImageTypeUnspecified Value
- *        "IMAGE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon Value
- *        "ACHIEVEMENT_ICON"
- *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon Value
- *        "LEADERBOARD_ICON"
+ *    @arg @c kGTLRGamesConfigurationImageTypeImageTypeUnspecified Default
+ *        value. This value is unused. (Value: "IMAGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesConfigurationImageTypeAchievementIcon The icon image for
+ *        an achievement resource. (Value: "ACHIEVEMENT_ICON")
+ *    @arg @c kGTLRGamesConfigurationImageTypeLeaderboardIcon The icon image for
+ *        a leaderboard resource. (Value: "LEADERBOARD_ICON")
  *  @param uploadParameters The media to include in this query. Maximum size
  *    15728640. Accepted MIME type: image/ *
  *

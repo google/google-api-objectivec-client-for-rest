@@ -217,6 +217,8 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxR
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWalSenders = @"INSUFFICIENT_MAX_WAL_SENDERS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientMaxWorkerProcesses = @"INSUFFICIENT_MAX_WORKER_PROCESSES";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege = @"INSUFFICIENT_PRIVILEGE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidDbParam = @"INVALID_DB_PARAM";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidLoggingSetup = @"INVALID_LOGGING_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidRdsLogicalReplication = @"INVALID_RDS_LOGICAL_REPLICATION";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidSharedPreloadLibrary = @"INVALID_SHARED_PRELOAD_LIBRARY";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel = @"INVALID_WAL_LEVEL";
@@ -225,7 +227,13 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlr
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
+
+// GTLRSQLAdmin_User.type
+NSString * const kGTLRSQLAdmin_User_Type_BuiltIn               = @"BUILT_IN";
+NSString * const kGTLRSQLAdmin_User_Type_CloudIamServiceAccount = @"CLOUD_IAM_SERVICE_ACCOUNT";
+NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USER";
 
 // ----------------------------------------------------------------------------
 //
@@ -552,7 +560,8 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigra
 //
 
 @implementation GTLRSQLAdmin_ExportContext
-@dynamic csvExportOptions, databases, fileType, kind, sqlExportOptions, uri;
+@dynamic csvExportOptions, databases, fileType, kind, offload, sqlExportOptions,
+         uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1408,7 +1417,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigra
 
 @implementation GTLRSQLAdmin_User
 @dynamic ETag, host, instance, kind, name, password, project,
-         sqlserverUserDetails;
+         sqlserverUserDetails, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

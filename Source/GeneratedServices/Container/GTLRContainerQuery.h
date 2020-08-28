@@ -74,15 +74,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Filtering currently only supports equality on the networkProjectId and must
- *  be in the form: "networkProjectId=[PROJECTID]", where `networkProjectId`
- *  is the project which owns the listed subnetworks. This defaults to the
- *  parent project ID.
+ *  be in the form: "networkProjectId=[PROJECTID]", where `networkProjectId` is
+ *  the project which owns the listed subnetworks. This defaults to the parent
+ *  project ID.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The max number of results per page that should be returned. If the number
- *  of available results is larger than `page_size`, a `next_page_token` is
+ *  The max number of results per page that should be returned. If the number of
+ *  available results is larger than `page_size`, a `next_page_token` is
  *  returned which can be used to get the next page of results in subsequent
  *  requests. Acceptable values are 0 to 500, inclusive. (Default: 500)
  */
@@ -95,8 +95,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The parent project where subnetworks are usable.
- *  Specified in the format `projects/ *`.
+ *  The parent project where subnetworks are usable. Specified in the format
+ *  `projects/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -105,8 +105,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists subnetworks that are usable for creating clusters in a project.
  *
- *  @param parent The parent project where subnetworks are usable.
- *    Specified in the format `projects/ *`.
+ *  @param parent The parent project where subnetworks are usable. Specified in
+ *    the format `projects/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsAggregatedUsableSubnetworksList
  *
@@ -144,9 +144,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_CompleteIPRotationRequest to include in
  *    the query.
  *  @param name The name (project, location, cluster id) of the cluster to
- *    complete IP
- *    rotation. Specified in the format `projects/ * /locations/ * /clusters/
- *    *`.
+ *    complete IP rotation. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation
  */
@@ -157,16 +156,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a cluster, consisting of the specified number and type of Google
- *  Compute Engine instances.
- *  By default, the cluster is created in the project's
- *  [default
+ *  Compute Engine instances. By default, the cluster is created in the
+ *  project's [default
  *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
- *  One firewall is added for the cluster. After cluster creation,
- *  the Kubelet creates routes for each node to allow the containers
- *  on that node to communicate with all other instances in the
- *  cluster.
- *  Finally, an entry is added to the project's global metadata indicating
- *  which CIDR range the cluster is using.
+ *  One firewall is added for the cluster. After cluster creation, the Kubelet
+ *  creates routes for each node to allow the containers on that node to
+ *  communicate with all other instances in the cluster. Finally, an entry is
+ *  added to the project's global metadata indicating which CIDR range the
+ *  cluster is using.
  *
  *  Method: container.projects.locations.clusters.create
  *
@@ -187,22 +184,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRContainer_Operation.
  *
  *  Creates a cluster, consisting of the specified number and type of Google
- *  Compute Engine instances.
- *  By default, the cluster is created in the project's
- *  [default
+ *  Compute Engine instances. By default, the cluster is created in the
+ *  project's [default
  *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
- *  One firewall is added for the cluster. After cluster creation,
- *  the Kubelet creates routes for each node to allow the containers
- *  on that node to communicate with all other instances in the
- *  cluster.
- *  Finally, an entry is added to the project's global metadata indicating
- *  which CIDR range the cluster is using.
+ *  One firewall is added for the cluster. After cluster creation, the Kubelet
+ *  creates routes for each node to allow the containers on that node to
+ *  communicate with all other instances in the cluster. Finally, an entry is
+ *  added to the project's global metadata indicating which CIDR range the
+ *  cluster is using.
  *
  *  @param object The @c GTLRContainer_CreateClusterRequest to include in the
  *    query.
  *  @param parent The parent (project and location) where the cluster will be
- *    created.
- *    Specified in the format `projects/ * /locations/ *`.
+ *    created. Specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersCreate
  */
@@ -212,13 +206,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the cluster, including the Kubernetes endpoint and all worker
- *  nodes.
- *  Firewalls and routes that were configured during cluster creation
- *  are also deleted.
- *  Other Google Compute Engine resources that might be in use by the cluster,
- *  such as load balancer resources, are not deleted if they weren't present
- *  when the cluster was initially created.
+ *  Deletes the cluster, including the Kubernetes endpoint and all worker nodes.
+ *  Firewalls and routes that were configured during cluster creation are also
+ *  deleted. Other Google Compute Engine resources that might be in use by the
+ *  cluster, such as load balancer resources, are not deleted if they weren't
+ *  present when the cluster was initially created.
  *
  *  Method: container.projects.locations.clusters.delete
  *
@@ -230,21 +222,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersDeleteWithname:]
 
 /**
- *  Deprecated. The name of the cluster to delete.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to delete. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster) of the cluster to delete.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster) of the cluster to delete. Specified in
+ *  the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -261,13 +253,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Deletes the cluster, including the Kubernetes endpoint and all worker
- *  nodes.
- *  Firewalls and routes that were configured during cluster creation
- *  are also deleted.
- *  Other Google Compute Engine resources that might be in use by the cluster,
- *  such as load balancer resources, are not deleted if they weren't present
- *  when the cluster was initially created.
+ *  Deletes the cluster, including the Kubernetes endpoint and all worker nodes.
+ *  Firewalls and routes that were configured during cluster creation are also
+ *  deleted. Other Google Compute Engine resources that might be in use by the
+ *  cluster, such as load balancer resources, are not deleted if they weren't
+ *  present when the cluster was initially created.
  *
  *  @param name The name (project, location, cluster) of the cluster to delete.
  *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
@@ -291,21 +281,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersGetWithname:]
 
 /**
- *  Deprecated. The name of the cluster to retrieve.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to retrieve. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster) of the cluster to retrieve.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster) of the cluster to retrieve. Specified
+ *  in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -325,8 +315,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a specific cluster.
  *
  *  @param name The name (project, location, cluster) of the cluster to
- *    retrieve.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    retrieve. Specified in the format `projects/ * /locations/ * /clusters/
+ *    *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersGet
  */
@@ -335,10 +325,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the public component of the cluster signing keys in
- *  JSON Web Key format.
- *  This API is not yet intended for general use, and is not available for all
- *  clusters.
+ *  Gets the public component of the cluster signing keys in JSON Web Key
+ *  format. This API is not yet intended for general use, and is not available
+ *  for all clusters.
  *
  *  Method: container.projects.locations.clusters.getJwks
  */
@@ -355,14 +344,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_GetJSONWebKeysResponse.
  *
- *  Gets the public component of the cluster signing keys in
- *  JSON Web Key format.
- *  This API is not yet intended for general use, and is not available for all
- *  clusters.
+ *  Gets the public component of the cluster signing keys in JSON Web Key
+ *  format. This API is not yet intended for general use, and is not available
+ *  for all clusters.
  *
  *  @param parent The cluster (project, location, cluster id) to get keys for.
- *    Specified in
- *    the format `projects/ * /locations/ * /clusters/ *`.
+ *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersGetJwks
  */
@@ -385,15 +372,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the clusters will be listed.
- *  Specified in the format `projects/ * /locations/ *`.
- *  Location "-" matches all zones and all regions.
+ *  Specified in the format `projects/ * /locations/ *`. Location "-" matches
+ *  all zones and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the parent field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -414,9 +401,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  zones.
  *
  *  @param parent The parent (project and location) where the clusters will be
- *    listed.
- *    Specified in the format `projects/ * /locations/ *`.
- *    Location "-" matches all zones and all regions.
+ *    listed. Specified in the format `projects/ * /locations/ *`. Location "-"
+ *    matches all zones and all regions.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersList
  */
@@ -438,8 +424,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project, location, cluster id) where the node pool will be
- *  created. Specified in the format
- *  `projects/ * /locations/ * /clusters/ *`.
+ *  created. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -451,9 +436,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_CreateNodePoolRequest to include in the
  *    query.
  *  @param parent The parent (project, location, cluster id) where the node pool
- *    will be
- *    created. Specified in the format
- *    `projects/ * /locations/ * /clusters/ *`.
+ *    will be created. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate
  */
@@ -475,28 +459,28 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsDeleteWithname:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
- *  delete. Specified in the format
- *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *  delete. Specified in the format `projects/ * /locations/ * /clusters/ *
+ *  /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Deprecated. The name of the node pool to delete.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool to delete. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -516,9 +500,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a node pool from a cluster.
  *
  *  @param name The name (project, location, cluster, node pool id) of the node
- *    pool to
- *    delete. Specified in the format
- *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *    pool to delete. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete
  */
@@ -539,28 +522,28 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsGetWithname:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster, node pool id) of the node pool to
- *  get. Specified in the format
- *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *  The name (project, location, cluster, node pool id) of the node pool to get.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Deprecated. The name of the node pool.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -580,9 +563,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves the requested node pool.
  *
  *  @param name The name (project, location, cluster, node pool id) of the node
- *    pool to
- *    get. Specified in the format
- *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *    pool to get. Specified in the format `projects/ * /locations/ * /clusters/
+ *    * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsGet
  */
@@ -603,8 +585,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsListWithparent:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the parent field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
@@ -616,8 +598,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the parent field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -637,8 +619,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists the node pools for a cluster.
  *
  *  @param parent The parent (project, location, cluster id) where the node
- *    pools will be
- *    listed. Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    pools will be listed. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsList
  */
@@ -647,8 +629,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Rolls back a previously Aborted or Failed NodePool upgrade.
- *  This makes no changes if the last upgrade successfully completed.
+ *  Rolls back a previously Aborted or Failed NodePool upgrade. This makes no
+ *  changes if the last upgrade successfully completed.
  *
  *  Method: container.projects.locations.clusters.nodePools.rollback
  *
@@ -661,25 +643,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster, node pool id) of the node poll to
- *  rollback upgrade.
- *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
- *  *`.
+ *  rollback upgrade. Specified in the format `projects/ * /locations/ *
+ *  /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Rolls back a previously Aborted or Failed NodePool upgrade.
- *  This makes no changes if the last upgrade successfully completed.
+ *  Rolls back a previously Aborted or Failed NodePool upgrade. This makes no
+ *  changes if the last upgrade successfully completed.
  *
  *  @param object The @c GTLRContainer_RollbackNodePoolUpgradeRequest to include
  *    in the query.
  *  @param name The name (project, location, cluster, node pool id) of the node
- *    poll to
- *    rollback upgrade.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *
- *    /nodePools/ *`.
+ *    poll to rollback upgrade. Specified in the format `projects/ * /locations/
+ *    * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsRollback
  */
@@ -702,8 +681,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster, node pool) of the node pool to set
- *  autoscaler settings. Specified in the format
- *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *  autoscaler settings. Specified in the format `projects/ * /locations/ *
+ *  /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -715,9 +694,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetNodePoolAutoscalingRequest to include
  *    in the query.
  *  @param name The name (project, location, cluster, node pool) of the node
- *    pool to set
- *    autoscaler settings. Specified in the format
- *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *    pool to set autoscaler settings. Specified in the format `projects/ *
+ *    /locations/ * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetAutoscaling
  */
@@ -740,8 +718,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
- *  management properties. Specified in the format
- *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *  management properties. Specified in the format `projects/ * /locations/ *
+ *  /clusters/ * /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -753,9 +731,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetNodePoolManagementRequest to include
  *    in the query.
  *  @param name The name (project, location, cluster, node pool id) of the node
- *    pool to set
- *    management properties. Specified in the format
- *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *    pool to set management properties. Specified in the format `projects/ *
+ *    /locations/ * /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetManagement
  */
@@ -778,9 +755,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
- *  size.
- *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
- *  *`.
+ *  size. Specified in the format `projects/ * /locations/ * /clusters/ *
+ *  /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -792,10 +768,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetNodePoolSizeRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster, node pool id) of the node
- *    pool to set
- *    size.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *
- *    /nodePools/ *`.
+ *    pool to set size. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetSize
  */
@@ -817,9 +791,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsUpdateWithObject:name:]
 
 /**
- *  The name (project, location, cluster, node pool) of the node pool to
- *  update. Specified in the format
- *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *  The name (project, location, cluster, node pool) of the node pool to update.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -831,9 +805,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_UpdateNodePoolRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster, node pool) of the node
- *    pool to
- *    update. Specified in the format
- *    `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *    pool to update. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ * /nodePools/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersNodePoolsUpdate
  */
@@ -868,8 +841,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetAddonsConfigRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster) of the cluster to set
- *    addons.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    addons. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetAddons
  */
@@ -904,8 +876,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetLegacyAbacRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster id) of the cluster to set
- *    legacy abac.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    legacy abac. Specified in the format `projects/ * /locations/ * /clusters/
+ *    *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLegacyAbac
  */
@@ -915,8 +887,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the locations for a specific cluster.
- *  Deprecated. Use
+ *  Sets the locations for a specific cluster. Deprecated. Use
  *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
@@ -938,16 +909,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the locations for a specific cluster.
- *  Deprecated. Use
+ *  Sets the locations for a specific cluster. Deprecated. Use
  *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster) of the cluster to set
- *    locations.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    locations. Specified in the format `projects/ * /locations/ * /clusters/
+ *    *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLocations
  */
@@ -982,8 +952,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetLoggingServiceRequest to include in
  *    the query.
  *  @param name The name (project, location, cluster) of the cluster to set
- *    logging.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    logging. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetLogging
  */
@@ -1006,8 +975,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name (project, location, cluster id) of the cluster to set maintenance
- *  policy.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1019,9 +987,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetMaintenancePolicyRequest to include in
  *    the query.
  *  @param name The name (project, location, cluster id) of the cluster to set
- *    maintenance
- *    policy.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    maintenance policy. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMaintenancePolicy
  */
@@ -1045,8 +1012,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersSetMasterAuthWithObject:name:]
 
 /**
- *  The name (project, location, cluster) of the cluster to set auth.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster) of the cluster to set auth. Specified
+ *  in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1060,8 +1027,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetMasterAuthRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster) of the cluster to set
- *    auth.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    auth. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMasterAuth
  */
@@ -1096,8 +1062,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetMonitoringServiceRequest to include in
  *    the query.
  *  @param name The name (project, location, cluster) of the cluster to set
- *    monitoring.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    monitoring. Specified in the format `projects/ * /locations/ * /clusters/
+ *    *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetMonitoring
  */
@@ -1132,8 +1098,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetNetworkPolicyRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster id) of the cluster to set
- *    networking
- *    policy. Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    networking policy. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetNetworkPolicy
  */
@@ -1167,8 +1133,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRContainer_SetLabelsRequest to include in the query.
  *  @param name The name (project, location, cluster id) of the cluster to set
- *    labels.
- *    Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    labels. Specified in the format `projects/ * /locations/ * /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersSetResourceLabels
  */
@@ -1203,8 +1168,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_StartIPRotationRequest to include in the
  *    query.
  *  @param name The name (project, location, cluster id) of the cluster to start
- *    IP
- *    rotation. Specified in the format `projects/ * /locations/ * /clusters/
+ *    IP rotation. Specified in the format `projects/ * /locations/ * /clusters/
  *    *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation
@@ -1227,8 +1191,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersUpdateWithObject:name:]
 
 /**
- *  The name (project, location, cluster) of the cluster to update.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster) of the cluster to update. Specified in
+ *  the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1262,8 +1226,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsClustersUpdateMasterWithObject:name:]
 
 /**
- *  The name (project, location, cluster) of the cluster to update.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster) of the cluster to update. Specified in
+ *  the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1285,13 +1249,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the OIDC discovery document for the cluster.
- *  See the
- *  [OpenID Connect Discovery 1.0
+ *  Gets the OIDC discovery document for the cluster. See the [OpenID Connect
+ *  Discovery 1.0
  *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html)
- *  for details.
- *  This API is not yet intended for general use, and is not available for all
- *  clusters.
+ *  for details. This API is not yet intended for general use, and is not
+ *  available for all clusters.
  *
  *  Method: container.projects.locations.clusters.well-known.getOpenid-configuration
  */
@@ -1308,17 +1270,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_GetOpenIDConfigResponse.
  *
- *  Gets the OIDC discovery document for the cluster.
- *  See the
- *  [OpenID Connect Discovery 1.0
+ *  Gets the OIDC discovery document for the cluster. See the [OpenID Connect
+ *  Discovery 1.0
  *  specification](https://openid.net/specs/openid-connect-discovery-1_0.html)
- *  for details.
- *  This API is not yet intended for general use, and is not available for all
- *  clusters.
+ *  for details. This API is not yet intended for general use, and is not
+ *  available for all clusters.
  *
  *  @param parent The cluster (project, location, cluster id) to get the
- *    discovery document
- *    for. Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *    discovery document for. Specified in the format `projects/ * /locations/ *
+ *    /clusters/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration
  */
@@ -1339,15 +1299,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsLocationsGetServerConfigWithname:]
 
 /**
- *  The name (project and location) of the server config to get,
- *  specified in the format `projects/ * /locations/ *`.
+ *  The name (project and location) of the server config to get, specified in
+ *  the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1401,8 +1361,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_CancelOperationRequest to include in the
  *    query.
  *  @param name The name (project, location, operation id) of the operation to
- *    cancel.
- *    Specified in the format `projects/ * /locations/ * /operations/ *`.
+ *    cancel. Specified in the format `projects/ * /locations/ * /operations/
+ *    *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsOperationsCancel
  */
@@ -1430,15 +1390,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Deprecated. The server-assigned `name` of the operation.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The server-assigned `name` of the operation. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1458,8 +1418,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the specified operation.
  *
  *  @param name The name (project, location, operation id) of the operation to
- *    get.
- *    Specified in the format `projects/ * /locations/ * /operations/ *`.
+ *    get. Specified in the format `projects/ * /locations/ * /operations/ *`.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsOperationsGet
  */
@@ -1481,15 +1440,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the operations will be listed.
- *  Specified in the format `projects/ * /locations/ *`.
- *  Location "-" matches all zones and all regions.
+ *  Specified in the format `projects/ * /locations/ *`. Location "-" matches
+ *  all zones and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the parent field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1509,9 +1468,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all operations in a project in a specific zone or all zones.
  *
  *  @param parent The parent (project and location) where the operations will be
- *    listed.
- *    Specified in the format `projects/ * /locations/ *`.
- *    Location "-" matches all zones and all regions.
+ *    listed. Specified in the format `projects/ * /locations/ *`. Location "-"
+ *    matches all zones and all regions.
  *
  *  @return GTLRContainerQuery_ProjectsLocationsOperationsList
  */
@@ -1532,15 +1490,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersAddonsWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1562,15 +1520,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetAddonsConfigRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersAddons
  */
@@ -1594,15 +1551,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersCompleteIpRotationWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1631,8 +1588,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster. This field has been
+ *    deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation
  */
@@ -1645,16 +1602,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a cluster, consisting of the specified number and type of Google
- *  Compute Engine instances.
- *  By default, the cluster is created in the project's
- *  [default
+ *  Compute Engine instances. By default, the cluster is created in the
+ *  project's [default
  *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
- *  One firewall is added for the cluster. After cluster creation,
- *  the Kubelet creates routes for each node to allow the containers
- *  on that node to communicate with all other instances in the
- *  cluster.
- *  Finally, an entry is added to the project's global metadata indicating
- *  which CIDR range the cluster is using.
+ *  One firewall is added for the cluster. After cluster creation, the Kubelet
+ *  creates routes for each node to allow the containers on that node to
+ *  communicate with all other instances in the cluster. Finally, an entry is
+ *  added to the project's global metadata indicating which CIDR range the
+ *  cluster is using.
  *
  *  Method: container.projects.zones.clusters.create
  *
@@ -1667,8 +1622,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the parent field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1686,23 +1641,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRContainer_Operation.
  *
  *  Creates a cluster, consisting of the specified number and type of Google
- *  Compute Engine instances.
- *  By default, the cluster is created in the project's
- *  [default
+ *  Compute Engine instances. By default, the cluster is created in the
+ *  project's [default
  *  network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks).
- *  One firewall is added for the cluster. After cluster creation,
- *  the Kubelet creates routes for each node to allow the containers
- *  on that node to communicate with all other instances in the
- *  cluster.
- *  Finally, an entry is added to the project's global metadata indicating
- *  which CIDR range the cluster is using.
+ *  One firewall is added for the cluster. After cluster creation, the Kubelet
+ *  creates routes for each node to allow the containers on that node to
+ *  communicate with all other instances in the cluster. Finally, an entry is
+ *  added to the project's global metadata indicating which CIDR range the
+ *  cluster is using.
  *
  *  @param object The @c GTLRContainer_CreateClusterRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the parent field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the parent
@@ -1717,13 +1669,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the cluster, including the Kubernetes endpoint and all worker
- *  nodes.
- *  Firewalls and routes that were configured during cluster creation
- *  are also deleted.
- *  Other Google Compute Engine resources that might be in use by the cluster,
- *  such as load balancer resources, are not deleted if they weren't present
- *  when the cluster was initially created.
+ *  Deletes the cluster, including the Kubernetes endpoint and all worker nodes.
+ *  Firewalls and routes that were configured during cluster creation are also
+ *  deleted. Other Google Compute Engine resources that might be in use by the
+ *  cluster, such as load balancer resources, are not deleted if they weren't
+ *  present when the cluster was initially created.
  *
  *  Method: container.projects.zones.clusters.delete
  *
@@ -1735,21 +1685,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersDeleteWithprojectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to delete.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to delete. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster) of the cluster to delete.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster) of the cluster to delete. Specified in
+ *  the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1766,24 +1716,21 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Deletes the cluster, including the Kubernetes endpoint and all worker
- *  nodes.
- *  Firewalls and routes that were configured during cluster creation
- *  are also deleted.
- *  Other Google Compute Engine resources that might be in use by the cluster,
- *  such as load balancer resources, are not deleted if they weren't present
- *  when the cluster was initially created.
+ *  Deletes the cluster, including the Kubernetes endpoint and all worker nodes.
+ *  Firewalls and routes that were configured during cluster creation are also
+ *  deleted. Other Google Compute Engine resources that might be in use by the
+ *  cluster, such as load balancer resources, are not deleted if they weren't
+ *  present when the cluster was initially created.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to delete.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to delete. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersDelete
  */
@@ -1806,21 +1753,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersGetWithprojectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to retrieve.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to retrieve. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster) of the cluster to retrieve.
- *  Specified in the format `projects/ * /locations/ * /clusters/ *`.
+ *  The name (project, location, cluster) of the cluster to retrieve. Specified
+ *  in the format `projects/ * /locations/ * /clusters/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1840,15 +1787,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the details of a specific cluster.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to retrieve.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to retrieve. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersGet
  */
@@ -1871,15 +1817,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersLegacyAbacWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to update.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to update. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1901,15 +1847,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetLegacyAbacRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to update.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to update. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersLegacyAbac
  */
@@ -1935,15 +1880,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the clusters will be listed.
- *  Specified in the format `projects/ * /locations/ *`.
- *  Location "-" matches all zones and all regions.
+ *  Specified in the format `projects/ * /locations/ *`. Location "-" matches
+ *  all zones and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the parent field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1964,9 +1909,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  zones.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the parent field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides, or "-" for all zones. This field has been deprecated and
@@ -1980,8 +1924,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the locations for a specific cluster.
- *  Deprecated. Use
+ *  Sets the locations for a specific cluster. Deprecated. Use
  *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
@@ -1995,15 +1938,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersLocationsWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2020,23 +1963,21 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the locations for a specific cluster.
- *  Deprecated. Use
+ *  Sets the locations for a specific cluster. Deprecated. Use
  *  [projects.locations.clusters.update](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters/update)
  *  instead.
  *
  *  @param object The @c GTLRContainer_SetLocationsRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersLocations
  */
@@ -2060,15 +2001,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersLoggingWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2090,15 +2031,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetLoggingServiceRequest to include in
  *    the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersLogging
  */
@@ -2122,15 +2062,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersMasterWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2152,15 +2092,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_UpdateMasterRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersMaster
  */
@@ -2184,15 +2123,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersMonitoringWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2214,15 +2153,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetMonitoringServiceRequest to include in
  *    the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersMonitoring
  */
@@ -2246,21 +2184,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsAutoscalingWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  Deprecated. The name of the node pool to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2282,17 +2220,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetNodePoolAutoscalingRequest to include
  *    in the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
- *  @param nodePoolId Deprecated. The name of the node pool to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
+ *  @param nodePoolId Deprecated. The name of the node pool to upgrade. This
+ *    field has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsAutoscaling
  */
@@ -2317,15 +2254,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsCreateWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the parent field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the parent field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2354,8 +2291,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the parent
  *    field.
- *  @param clusterId Deprecated. The name of the cluster.
- *    This field has been deprecated and replaced by the parent field.
+ *  @param clusterId Deprecated. The name of the cluster. This field has been
+ *    deprecated and replaced by the parent field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsCreate
  */
@@ -2379,28 +2316,28 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsDeleteWithprojectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to
- *  delete. Specified in the format
- *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *  delete. Specified in the format `projects/ * /locations/ * /clusters/ *
+ *  /nodePools/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Deprecated. The name of the node pool to delete.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool to delete. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2427,10 +2364,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster.
- *    This field has been deprecated and replaced by the name field.
- *  @param nodePoolId Deprecated. The name of the node pool to delete.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster. This field has been
+ *    deprecated and replaced by the name field.
+ *  @param nodePoolId Deprecated. The name of the node pool to delete. This
+ *    field has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsDelete
  */
@@ -2454,28 +2391,28 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsGetWithprojectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  The name (project, location, cluster, node pool id) of the node pool to
- *  get. Specified in the format
- *  `projects/ * /locations/ * /clusters/ * /nodePools/ *`.
+ *  The name (project, location, cluster, node pool id) of the node pool to get.
+ *  Specified in the format `projects/ * /locations/ * /clusters/ * /nodePools/
+ *  *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Deprecated. The name of the node pool.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2502,10 +2439,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster.
- *    This field has been deprecated and replaced by the name field.
- *  @param nodePoolId Deprecated. The name of the node pool.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster. This field has been
+ *    deprecated and replaced by the name field.
+ *  @param nodePoolId Deprecated. The name of the node pool. This field has been
+ *    deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsGet
  */
@@ -2529,8 +2466,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsListWithprojectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the parent field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
@@ -2542,8 +2479,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the parent field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2570,8 +2507,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the parent
  *    field.
- *  @param clusterId Deprecated. The name of the cluster.
- *    This field has been deprecated and replaced by the parent field.
+ *  @param clusterId Deprecated. The name of the cluster. This field has been
+ *    deprecated and replaced by the parent field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsList
  */
@@ -2582,8 +2519,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Rolls back a previously Aborted or Failed NodePool upgrade.
- *  This makes no changes if the last upgrade successfully completed.
+ *  Rolls back a previously Aborted or Failed NodePool upgrade. This makes no
+ *  changes if the last upgrade successfully completed.
  *
  *  Method: container.projects.zones.clusters.nodePools.rollback
  *
@@ -2595,21 +2532,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsRollbackWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
- *  Deprecated. The name of the cluster to rollback.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to rollback. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  Deprecated. The name of the node pool to rollback.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool to rollback. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2626,23 +2563,22 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Rolls back a previously Aborted or Failed NodePool upgrade.
- *  This makes no changes if the last upgrade successfully completed.
+ *  Rolls back a previously Aborted or Failed NodePool upgrade. This makes no
+ *  changes if the last upgrade successfully completed.
  *
  *  @param object The @c GTLRContainer_RollbackNodePoolUpgradeRequest to include
  *    in the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to rollback.
- *    This field has been deprecated and replaced by the name field.
- *  @param nodePoolId Deprecated. The name of the node pool to rollback.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to rollback. This field
+ *    has been deprecated and replaced by the name field.
+ *  @param nodePoolId Deprecated. The name of the node pool to rollback. This
+ *    field has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsRollback
  */
@@ -2667,21 +2603,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsSetManagementWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
- *  Deprecated. The name of the cluster to update.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to update. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  Deprecated. The name of the node pool to update.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool to update. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2703,17 +2639,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetNodePoolManagementRequest to include
  *    in the query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to update.
- *    This field has been deprecated and replaced by the name field.
- *  @param nodePoolId Deprecated. The name of the node pool to update.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to update. This field
+ *    has been deprecated and replaced by the name field.
+ *  @param nodePoolId Deprecated. The name of the node pool to update. This
+ *    field has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetManagement
  */
@@ -2738,21 +2673,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsSetSizeWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
- *  Deprecated. The name of the cluster to update.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to update. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  Deprecated. The name of the node pool to update.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool to update. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2774,17 +2709,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetNodePoolSizeRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to update.
- *    This field has been deprecated and replaced by the name field.
- *  @param nodePoolId Deprecated. The name of the node pool to update.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to update. This field
+ *    has been deprecated and replaced by the name field.
+ *  @param nodePoolId Deprecated. The name of the node pool to update. This
+ *    field has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize
  */
@@ -2809,21 +2743,21 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsUpdateWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
- *  Deprecated. The name of the node pool to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the node pool to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *nodePoolId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2845,17 +2779,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_UpdateNodePoolRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
- *  @param nodePoolId Deprecated. The name of the node pool to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
+ *  @param nodePoolId Deprecated. The name of the node pool to upgrade. This
+ *    field has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersNodePoolsUpdate
  */
@@ -2880,15 +2813,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersResourceLabelsWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -2916,8 +2849,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster. This field has been
+ *    deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersResourceLabels
  */
@@ -2966,8 +2899,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetMaintenancePolicyRequest to include in
  *    the query.
  *  @param projectId Required. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
+ *    project number](https://support.google.com/cloud/answer/6158840).
  *  @param zoneProperty Required. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides.
@@ -2997,15 +2929,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersSetMasterAuthWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3029,15 +2961,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_SetMasterAuthRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersSetMasterAuth
  */
@@ -3061,15 +2992,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersSetNetworkPolicyWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3098,8 +3029,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster. This field has been
+ *    deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersSetNetworkPolicy
  */
@@ -3123,15 +3054,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersStartIpRotationWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster. This field has been deprecated and
+ *  replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://developers.google.com/console/help/new/#projectnumber).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://developers.google.com/console/help/new/#projectnumber). This
+ *  field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3160,8 +3091,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster. This field has been
+ *    deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersStartIpRotation
  */
@@ -3185,15 +3116,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesClustersUpdateWithObject:projectId:zoneProperty:clusterId:]
 
 /**
- *  Deprecated. The name of the cluster to upgrade.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The name of the cluster to upgrade. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3215,15 +3146,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_UpdateClusterRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
  *    field.
- *  @param clusterId Deprecated. The name of the cluster to upgrade.
- *    This field has been deprecated and replaced by the name field.
+ *  @param clusterId Deprecated. The name of the cluster to upgrade. This field
+ *    has been deprecated and replaced by the name field.
  *
  *  @return GTLRContainerQuery_ProjectsZonesClustersUpdate
  */
@@ -3247,15 +3177,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesGetServerconfigWithprojectId:zoneProperty:]
 
 /**
- *  The name (project and location) of the server config to get,
- *  specified in the format `projects/ * /locations/ *`.
+ *  The name (project and location) of the server config to get, specified in
+ *  the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3275,9 +3205,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Returns configuration info about the Google Kubernetes Engine service.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) to return
  *    operations for. This field has been deprecated and replaced by the name
@@ -3303,15 +3232,15 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryContainer queryForProjectsZonesOperationsCancelWithObject:projectId:zoneProperty:operationId:]
 
 /**
- *  Deprecated. The server-assigned `name` of the operation.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The server-assigned `name` of the operation. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3333,9 +3262,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRContainer_CancelOperationRequest to include in the
  *    query.
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    operation resides. This field has been deprecated and replaced by the name
@@ -3371,15 +3299,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Deprecated. The server-assigned `name` of the operation.
- *  This field has been deprecated and replaced by the name field.
+ *  Deprecated. The server-assigned `name` of the operation. This field has been
+ *  deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the name field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3399,9 +3327,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the specified operation.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the name field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the name field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) in which the
  *    cluster resides. This field has been deprecated and replaced by the name
@@ -3431,15 +3358,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The parent (project and location) where the operations will be listed.
- *  Specified in the format `projects/ * /locations/ *`.
- *  Location "-" matches all zones and all regions.
+ *  Specified in the format `projects/ * /locations/ *`. Location "-" matches
+ *  all zones and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://support.google.com/cloud/answer/6158840).
- *  This field has been deprecated and replaced by the parent field.
+ *  number](https://support.google.com/cloud/answer/6158840). This field has
+ *  been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -3459,9 +3386,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all operations in a project in a specific zone or all zones.
  *
  *  @param projectId Deprecated. The Google Developers Console [project ID or
- *    project
- *    number](https://support.google.com/cloud/answer/6158840).
- *    This field has been deprecated and replaced by the parent field.
+ *    project number](https://support.google.com/cloud/answer/6158840). This
+ *    field has been deprecated and replaced by the parent field.
  *  @param zoneProperty Deprecated. The name of the Google Compute Engine
  *    [zone](https://cloud.google.com/compute/docs/zones#available) to return
  *    operations for, or `-` for all zones. This field has been deprecated and

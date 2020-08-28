@@ -26,6 +26,7 @@
 @class GTLRPeopleService_Birthday;
 @class GTLRPeopleService_BraggingRights;
 @class GTLRPeopleService_CalendarUrl;
+@class GTLRPeopleService_ClientData;
 @class GTLRPeopleService_ContactGroup;
 @class GTLRPeopleService_ContactGroupMembership;
 @class GTLRPeopleService_ContactGroupMetadata;
@@ -42,6 +43,7 @@
 @class GTLRPeopleService_ImClient;
 @class GTLRPeopleService_Interest;
 @class GTLRPeopleService_Locale;
+@class GTLRPeopleService_Location;
 @class GTLRPeopleService_Membership;
 @class GTLRPeopleService_MiscKeyword;
 @class GTLRPeopleService_Name;
@@ -662,6 +664,24 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
+ *  Arbitrary client data that is populated by clients. Duplicate keys and
+ *  values are allowed.
+ */
+@interface GTLRPeopleService_ClientData : GTLRObject
+
+/** The client specified key of the client data. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Metadata about the client data. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_FieldMetadata *metadata;
+
+/** The client specified value of the client data. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  A contact group.
  */
 @interface GTLRPeopleService_ContactGroup : GTLRObject
@@ -802,10 +822,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  Multiple fields can be specified by separating them with commas. Defaults to
  *  the copy mask with metadata and membership fields if not set. Valid values
  *  are: * addresses * ageRanges * biographies * birthdays * calendarUrls *
- *  coverPhotos * emailAddresses * events * externalIds * genders * imClients *
- *  interests * locales * memberships * metadata * miscKeywords * names *
- *  nicknames * occupations * organizations * phoneNumbers * photos * relations
- *  * residences * sipAddresses * skills * urls * userDefined
+ *  clientData * coverPhotos * emailAddresses * events * externalIds * genders *
+ *  imClients * interests * locales * locations * memberships * metadata *
+ *  miscKeywords * names * nicknames * occupations * organizations *
+ *  phoneNumbers * photos * relations * sipAddresses * skills * urls *
+ *  userDefined
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1326,6 +1347,45 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
+ *  A person's location.
+ */
+@interface GTLRPeopleService_Location : GTLRObject
+
+/** The building identifier. */
+@property(nonatomic, copy, nullable) NSString *buildingId;
+
+/**
+ *  Whether the location is the current location.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *current;
+
+/** The individual desk location. */
+@property(nonatomic, copy, nullable) NSString *deskCode;
+
+/** The floor name or number. */
+@property(nonatomic, copy, nullable) NSString *floor;
+
+/** The floor section in `floor_name`. */
+@property(nonatomic, copy, nullable) NSString *floorSection;
+
+/** Metadata about the location. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_FieldMetadata *metadata;
+
+/**
+ *  The type of the location. The type can be custom or one of these predefined
+ *  values: * `desk` * `grewUp`
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** The free-form value of the location. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  A person's membership in a group. Only contact group memberships can be
  *  modified.
  */
@@ -1654,6 +1714,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /** The person's calendar URLs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_CalendarUrl *> *calendarUrls;
 
+/** The person's client data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_ClientData *> *clientData;
+
 /** Output only. The person's cover photos. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_CoverPhoto *> *coverPhotos;
 
@@ -1686,6 +1749,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /** The person's locale preferences. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Locale *> *locales;
+
+/** The person's locations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Location *> *locations;
 
 /** The person's group memberships. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Membership *> *memberships;
@@ -1729,7 +1795,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_RelationshipStatus *> *relationshipStatuses;
 
-/** The person's residences. */
+/**
+ *  **DEPRECATED**: (Please use `person.locations` instead) The person's
+ *  residences.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Residence *> *residences;
 
 /**
@@ -2004,7 +2073,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
- *  A person's past or current residence.
+ *  **DEPRECATED**: Please use `person.locations` instead. A person's past or
+ *  current residence.
  */
 @interface GTLRPeopleService_Residence : GTLRObject
 
@@ -2247,11 +2317,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  Optional. A field mask to restrict which fields on the person are returned.
  *  Multiple fields can be specified by separating them with commas. Defaults to
  *  empty if not set, which will skip the post mutate get. Valid values are: *
- *  addresses * ageRanges * biographies * birthdays * calendarUrls * coverPhotos
- *  * emailAddresses * events * externalIds * genders * imClients * interests *
- *  locales * memberships * metadata * miscKeywords * names * nicknames *
- *  occupations * organizations * phoneNumbers * photos * relations * residences
- *  * sipAddresses * skills * urls * userDefined
+ *  addresses * ageRanges * biographies * birthdays * calendarUrls * clientData
+ *  * coverPhotos * emailAddresses * events * externalIds * genders * imClients
+ *  * interests * locales * locations * memberships * metadata * miscKeywords *
+ *  names * nicknames * occupations * organizations * phoneNumbers * photos *
+ *  relations * sipAddresses * skills * urls * userDefined
  *
  *  String format is a comma-separated list of fields.
  */

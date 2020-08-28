@@ -79,8 +79,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_MapsPublishStatu
  */
 FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_Cancelled;
 /**
- *  The photo transfer has been completed, and this photo has been
- *  transferred to the recipient.
+ *  The photo transfer has been completed, and this photo has been transferred
+ *  to the recipient.
  *
  *  Value: "COMPLETED"
  */
@@ -129,9 +129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_BatchDeletePhotosRequest : GTLRObject
 
 /**
- *  Required. IDs of the Photos. HTTP
- *  GET requests require the following syntax for the URL query parameter:
- *  `photoIds=<id1>&photoIds=<id2>&...`.
+ *  Required. IDs of the Photos. HTTP GET requests require the following syntax
+ *  for the URL query parameter: `photoIds=&photoIds=&...`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *photoIds;
 
@@ -139,14 +138,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 
 /**
- *  Response to batch delete of one or more
- *  Photos.
+ *  Response to batch delete of one or more Photos.
  */
 @interface GTLRStreetViewPublish_BatchDeletePhotosResponse : GTLRObject
 
 /**
- *  The status for the operation to delete a single
- *  Photo in the batch request.
+ *  The status for the operation to delete a single Photo in the batch request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_Status *> *status;
 
@@ -159,10 +156,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_BatchGetPhotosResponse : GTLRObject
 
 /**
- *  List of results for each individual
- *  Photo requested, in the same order as
- *  the requests in
- *  BatchGetPhotos.
+ *  List of results for each individual Photo requested, in the same order as
+ *  the requests in BatchGetPhotos.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_PhotoResponse *> *results;
 
@@ -170,30 +165,25 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 
 /**
- *  Request to update the metadata of photos.
- *  Updating the pixels of photos is not supported.
+ *  Request to update the metadata of photos. Updating the pixels of photos is
+ *  not supported.
  */
 @interface GTLRStreetViewPublish_BatchUpdatePhotosRequest : GTLRObject
 
-/**
- *  Required. List of
- *  UpdatePhotoRequests.
- */
+/** Required. List of UpdatePhotoRequests. */
 @property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_UpdatePhotoRequest *> *updatePhotoRequests;
 
 @end
 
 
 /**
- *  Response to batch update of metadata of one or more
- *  Photos.
+ *  Response to batch update of metadata of one or more Photos.
  */
 @interface GTLRStreetViewPublish_BatchUpdatePhotosResponse : GTLRObject
 
 /**
- *  List of results for each individual
- *  Photo updated, in the same order as
- *  the request.
+ *  List of results for each individual Photo updated, in the same order as the
+ *  request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStreetViewPublish_PhotoResponse *> *results;
 
@@ -217,11 +207,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRStreetViewPublish_Empty : GTLRObject
 @end
@@ -229,11 +217,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 /**
  *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair
- *  of doubles representing degrees latitude and degrees longitude. Unless
- *  specified otherwise, this must conform to the
- *  <a href="http://www.unoosa.org/pdf/icg/2012/template/WGS_84.pdf">WGS84
- *  standard</a>. Values must be within normalized ranges.
+ *  pair of doubles representing degrees latitude and degrees longitude. Unless
+ *  specified otherwise, this must conform to the WGS84 standard. Values must be
+ *  within normalized ranges.
  */
 @interface GTLRStreetViewPublish_LatLng : GTLRObject
 
@@ -295,9 +281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  List of photos. The
- *  pageSize field
- *  in the request determines the number of items returned.
+ *  List of photos. The pageSize field in the request determines the number of
+ *  items returned.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -314,8 +299,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -327,16 +312,16 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -345,10 +330,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_Operation_Response *response;
 
@@ -357,8 +341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -375,10 +359,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -395,9 +378,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_Photo : GTLRObject
 
 /**
- *  Absolute time when the photo was captured.
- *  When the photo has no exif timestamp, this is used to set a timestamp in
- *  the photo metadata.
+ *  Absolute time when the photo was captured. When the photo has no exif
+ *  timestamp, this is used to set a timestamp in the photo metadata.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *captureTime;
 
@@ -409,10 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 /**
  *  Output only. The download URL for the photo bytes. This field is set only
- *  when
- *  GetPhotoRequest.view
- *  is set to
- *  PhotoView.INCLUDE_DOWNLOAD_URL.
+ *  when GetPhotoRequest.view is set to PhotoView.INCLUDE_DOWNLOAD_URL.
  */
 @property(nonatomic, copy, nullable) NSString *downloadUrl;
 
@@ -434,8 +413,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 /**
  *  Required when updating a photo. Output only when creating a photo.
- *  Identifier for the photo, which is unique among all photos in
- *  Google.
+ *  Identifier for the photo, which is unique among all photos in Google.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_PhotoId *photoId;
 
@@ -460,16 +438,16 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  *    @arg @c kGTLRStreetViewPublish_Photo_TransferStatus_Cancelled The sender
  *        cancelled this photo transfer. (Value: "CANCELLED")
  *    @arg @c kGTLRStreetViewPublish_Photo_TransferStatus_Completed The photo
- *        transfer has been completed, and this photo has been
- *        transferred to the recipient. (Value: "COMPLETED")
+ *        transfer has been completed, and this photo has been transferred to
+ *        the recipient. (Value: "COMPLETED")
  *    @arg @c kGTLRStreetViewPublish_Photo_TransferStatus_Expired The photo
  *        transfer expired before the recipient took any action. (Value:
  *        "EXPIRED")
  *    @arg @c kGTLRStreetViewPublish_Photo_TransferStatus_NeverTransferred This
  *        photo has never been in a transfer. (Value: "NEVER_TRANSFERRED")
  *    @arg @c kGTLRStreetViewPublish_Photo_TransferStatus_Pending This photo
- *        transfer has been initiated, but the receiver has not yet
- *        responded. (Value: "PENDING")
+ *        transfer has been initiated, but the receiver has not yet responded.
+ *        (Value: "PENDING")
  *    @arg @c kGTLRStreetViewPublish_Photo_TransferStatus_ReceivedViaTransfer
  *        The recipient owns this photo due to a rights transfer. (Value:
  *        "RECEIVED_VIA_TRANSFER")
@@ -482,8 +460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @property(nonatomic, copy, nullable) NSString *transferStatus;
 
 /**
- *  Required when creating a photo. Input only. The resource URL where the
- *  photo bytes are uploaded to.
+ *  Required when creating a photo. Input only. The resource URL where the photo
+ *  bytes are uploaded to.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_UploadRef *uploadReference;
 
@@ -513,19 +491,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 
 /**
- *  Response payload for a single
- *  Photo
- *  in batch operations including
- *  BatchGetPhotos
- *  and
- *  BatchUpdatePhotos.
+ *  Response payload for a single Photo in batch operations including
+ *  BatchGetPhotos and BatchUpdatePhotos.
  */
 @interface GTLRStreetViewPublish_PhotoResponse : GTLRObject
 
-/**
- *  The Photo resource, if the request
- *  was successful.
- */
+/** The Photo resource, if the request was successful. */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_Photo *photo;
 
 /**
@@ -566,9 +537,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_Pose : GTLRObject
 
 /**
- *  The estimated horizontal accuracy of this pose in meters with 68%
- *  confidence (one standard deviation). For example, on Android, this value is
- *  available from this method:
+ *  The estimated horizontal accuracy of this pose in meters with 68% confidence
+ *  (one standard deviation). For example, on Android, this value is available
+ *  from this method:
  *  https://developer.android.com/reference/android/location/Location#getAccuracy().
  *  Other platforms have different methods of obtaining similar accuracy
  *  estimations.
@@ -578,8 +549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @property(nonatomic, strong, nullable) NSNumber *accuracyMeters;
 
 /**
- *  Altitude of the pose in meters above WGS84 ellipsoid.
- *  NaN indicates an unmeasured quantity.
+ *  Altitude of the pose in meters above WGS84 ellipsoid. NaN indicates an
+ *  unmeasured quantity.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -587,8 +558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 /**
  *  Compass heading, measured at the center of the photo in degrees clockwise
- *  from North. Value must be >=0 and <360.
- *  NaN indicates an unmeasured quantity.
+ *  from North. Value must be >=0 and <360. NaN indicates an unmeasured
+ *  quantity.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -597,10 +568,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 /**
  *  Latitude and longitude pair of the pose, as explained here:
  *  https://cloud.google.com/datastore/docs/reference/rest/Shared.Types/LatLng
- *  When creating a Photo, if the
- *  latitude and longitude pair are not provided, the geolocation from the
- *  exif header is used. A latitude and longitude pair not provided in the
- *  photo or exif header causes the photo process to fail.
+ *  When creating a Photo, if the latitude and longitude pair are not provided,
+ *  the geolocation from the exif header is used. A latitude and longitude pair
+ *  not provided in the photo or exif header causes the photo process to fail.
  */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_LatLng *latLngPair;
 
@@ -610,17 +580,15 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 /**
  *  Pitch, measured at the center of the photo in degrees. Value must be >=-90
  *  and <= 90. A value of -90 means looking directly down, and a value of 90
- *  means looking directly up.
- *  NaN indicates an unmeasured quantity.
+ *  means looking directly up. NaN indicates an unmeasured quantity.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pitch;
 
 /**
- *  Roll, measured in degrees. Value must be >= 0 and <360. A value of 0
- *  means level with the horizon.
- *  NaN indicates an unmeasured quantity.
+ *  Roll, measured in degrees. Value must be >= 0 and <360. A value of 0 means
+ *  level with the horizon. NaN indicates an unmeasured quantity.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -633,9 +601,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRStreetViewPublish_Status : GTLRObject
 
@@ -675,41 +643,25 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 
 
 /**
- *  Request to update the metadata of a
- *  Photo. Updating the pixels of a photo
- *  is not supported.
+ *  Request to update the metadata of a Photo. Updating the pixels of a photo is
+ *  not supported.
  */
 @interface GTLRStreetViewPublish_UpdatePhotoRequest : GTLRObject
 
-/**
- *  Required. Photo object containing the
- *  new metadata.
- */
+/** Required. Photo object containing the new metadata. */
 @property(nonatomic, strong, nullable) GTLRStreetViewPublish_Photo *photo;
 
 /**
- *  Required. Mask that identifies fields on the photo metadata to update.
- *  If not present, the old Photo
- *  metadata is entirely replaced with the
- *  new Photo metadata in this request.
- *  The update fails if invalid fields are specified. Multiple fields can be
- *  specified in a comma-delimited list.
- *  The following fields are valid:
- *  * `pose.heading`
- *  * `pose.latLngPair`
- *  * `pose.pitch`
- *  * `pose.roll`
- *  * `pose.level`
- *  * `pose.altitude`
- *  * `connections`
- *  * `places`
- *  <aside class="note"><b>Note:</b> When
- *  updateMask
- *  contains repeated fields, the entire set of repeated values get replaced
- *  with the new contents. For example, if
- *  updateMask
+ *  Required. Mask that identifies fields on the photo metadata to update. If
+ *  not present, the old Photo metadata is entirely replaced with the new Photo
+ *  metadata in this request. The update fails if invalid fields are specified.
+ *  Multiple fields can be specified in a comma-delimited list. The following
+ *  fields are valid: * `pose.heading` * `pose.latLngPair` * `pose.pitch` *
+ *  `pose.roll` * `pose.level` * `pose.altitude` * `connections` * `places`
+ *  *Note:* When updateMask contains repeated fields, the entire set of repeated
+ *  values get replaced with the new contents. For example, if updateMask
  *  contains `connections` and `UpdatePhotoRequest.photo.connections` is empty,
- *  all connections are removed.</aside>
+ *  all connections are removed.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -724,8 +676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_UploadRef : GTLRObject
 
 /**
- *  Required. An upload reference should be unique for each user. It follows
- *  the form:
+ *  Required. An upload reference should be unique for each user. It follows the
+ *  form:
  *  "https://streetviewpublish.googleapis.com/media/user/{account_id}/photo/{upload_reference}"
  */
 @property(nonatomic, copy, nullable) NSString *uploadUrl;

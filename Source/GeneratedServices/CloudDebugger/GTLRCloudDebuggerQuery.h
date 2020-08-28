@@ -38,19 +38,43 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // actionValue
 
-/** Value: "CAPTURE" */
+/**
+ *  Capture stack frame and variables and update the breakpoint. The data is
+ *  only captured once. After that the breakpoint is set in a final state.
+ *
+ *  Value: "CAPTURE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerActionValueCapture;
-/** Value: "LOG" */
+/**
+ *  Log each breakpoint hit. The breakpoint remains active until deleted or
+ *  expired.
+ *
+ *  Value: "LOG"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerActionValueLog;
 
 // ----------------------------------------------------------------------------
 // canaryOption
 
-/** Value: "CANARY_OPTION_TRY_DISABLE" */
+/**
+ *  Disable the canary for this breakpoint if the canary_mode of the debuggee is
+ *  not CANARY_MODE_ALWAYS_ENABLED or CANARY_MODE_ALWAYS_DISABLED.
+ *
+ *  Value: "CANARY_OPTION_TRY_DISABLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryDisable;
-/** Value: "CANARY_OPTION_TRY_ENABLE" */
+/**
+ *  Enable the canary for this breakpoint if the canary_mode of the debuggee is
+ *  not CANARY_MODE_ALWAYS_ENABLED or CANARY_MODE_ALWAYS_DISABLED.
+ *
+ *  Value: "CANARY_OPTION_TRY_ENABLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionTryEnable;
-/** Value: "CANARY_OPTION_UNSPECIFIED" */
+/**
+ *  Depends on the canary_mode of the debuggee.
+ *
+ *  Value: "CANARY_OPTION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -68,17 +92,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 @end
 
 /**
- *  Returns the list of all active breakpoints for the debuggee.
- *  The breakpoint specification (`location`, `condition`, and `expressions`
- *  fields) is semantically immutable, although the field values may
- *  change. For example, an agent may update the location line number
- *  to reflect the actual line where the breakpoint was set, but this
- *  doesn't change the breakpoint semantics.
- *  This means that an agent does not need to check if a breakpoint has changed
- *  when it encounters the same breakpoint on a successive call.
- *  Moreover, an agent should remember the breakpoints that are completed
- *  until the controller removes them from the active list to avoid
- *  setting those breakpoints again.
+ *  Returns the list of all active breakpoints for the debuggee. The breakpoint
+ *  specification (`location`, `condition`, and `expressions` fields) is
+ *  semantically immutable, although the field values may change. For example,
+ *  an agent may update the location line number to reflect the actual line
+ *  where the breakpoint was set, but this doesn't change the breakpoint
+ *  semantics. This means that an agent does not need to check if a breakpoint
+ *  has changed when it encounters the same breakpoint on a successive call.
+ *  Moreover, an agent should remember the breakpoints that are completed until
+ *  the controller removes them from the active list to avoid setting those
+ *  breakpoints again.
  *
  *  Method: clouddebugger.controller.debuggees.breakpoints.list
  *
@@ -91,8 +114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 //   +[GTLQueryCloudDebugger queryForControllerDebuggeesBreakpointsListWithdebuggeeId:]
 
 /**
- *  Identifies the agent.
- *  This is the ID returned in the RegisterDebuggee response.
+ *  Identifies the agent. This is the ID returned in the RegisterDebuggee
+ *  response.
  */
 @property(nonatomic, copy, nullable) NSString *agentId;
 
@@ -100,36 +123,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 @property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
- *  If set to `true` (recommended), returns `google.rpc.Code.OK` status and
- *  sets the `wait_expired` response field to `true` when the server-selected
- *  timeout has expired.
- *  If set to `false` (deprecated), returns `google.rpc.Code.ABORTED` status
- *  when the server-selected timeout has expired.
+ *  If set to `true` (recommended), returns `google.rpc.Code.OK` status and sets
+ *  the `wait_expired` response field to `true` when the server-selected timeout
+ *  has expired. If set to `false` (deprecated), returns
+ *  `google.rpc.Code.ABORTED` status when the server-selected timeout has
+ *  expired.
  */
 @property(nonatomic, assign) BOOL successOnTimeout;
 
 /**
- *  A token that, if specified, blocks the method call until the list
- *  of active breakpoints has changed, or a server-selected timeout has
- *  expired. The value should be set from the `next_wait_token` field in
- *  the last response. The initial value should be set to `"init"`.
+ *  A token that, if specified, blocks the method call until the list of active
+ *  breakpoints has changed, or a server-selected timeout has expired. The value
+ *  should be set from the `next_wait_token` field in the last response. The
+ *  initial value should be set to `"init"`.
  */
 @property(nonatomic, copy, nullable) NSString *waitToken;
 
 /**
  *  Fetches a @c GTLRCloudDebugger_ListActiveBreakpointsResponse.
  *
- *  Returns the list of all active breakpoints for the debuggee.
- *  The breakpoint specification (`location`, `condition`, and `expressions`
- *  fields) is semantically immutable, although the field values may
- *  change. For example, an agent may update the location line number
- *  to reflect the actual line where the breakpoint was set, but this
- *  doesn't change the breakpoint semantics.
- *  This means that an agent does not need to check if a breakpoint has changed
- *  when it encounters the same breakpoint on a successive call.
- *  Moreover, an agent should remember the breakpoints that are completed
- *  until the controller removes them from the active list to avoid
- *  setting those breakpoints again.
+ *  Returns the list of all active breakpoints for the debuggee. The breakpoint
+ *  specification (`location`, `condition`, and `expressions` fields) is
+ *  semantically immutable, although the field values may change. For example,
+ *  an agent may update the location line number to reflect the actual line
+ *  where the breakpoint was set, but this doesn't change the breakpoint
+ *  semantics. This means that an agent does not need to check if a breakpoint
+ *  has changed when it encounters the same breakpoint on a successive call.
+ *  Moreover, an agent should remember the breakpoints that are completed until
+ *  the controller removes them from the active list to avoid setting those
+ *  breakpoints again.
  *
  *  @param debuggeeId Required. Identifies the debuggee.
  *
@@ -140,13 +162,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 @end
 
 /**
- *  Updates the breakpoint state or mutable fields.
- *  The entire Breakpoint message must be sent back to the controller service.
- *  Updates to active breakpoint fields are only allowed if the new value
- *  does not change the breakpoint specification. Updates to the `location`,
- *  `condition` and `expressions` fields should not alter the breakpoint
- *  semantics. These may only make changes such as canonicalizing a value
- *  or snapping the location to the correct line of code.
+ *  Updates the breakpoint state or mutable fields. The entire Breakpoint
+ *  message must be sent back to the controller service. Updates to active
+ *  breakpoint fields are only allowed if the new value does not change the
+ *  breakpoint specification. Updates to the `location`, `condition` and
+ *  `expressions` fields should not alter the breakpoint semantics. These may
+ *  only make changes such as canonicalizing a value or snapping the location to
+ *  the correct line of code.
  *
  *  Method: clouddebugger.controller.debuggees.breakpoints.update
  *
@@ -171,13 +193,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 /**
  *  Fetches a @c GTLRCloudDebugger_UpdateActiveBreakpointResponse.
  *
- *  Updates the breakpoint state or mutable fields.
- *  The entire Breakpoint message must be sent back to the controller service.
- *  Updates to active breakpoint fields are only allowed if the new value
- *  does not change the breakpoint specification. Updates to the `location`,
- *  `condition` and `expressions` fields should not alter the breakpoint
- *  semantics. These may only make changes such as canonicalizing a value
- *  or snapping the location to the correct line of code.
+ *  Updates the breakpoint state or mutable fields. The entire Breakpoint
+ *  message must be sent back to the controller service. Updates to active
+ *  breakpoint fields are only allowed if the new value does not change the
+ *  breakpoint specification. Updates to the `location`, `condition` and
+ *  `expressions` fields should not alter the breakpoint semantics. These may
+ *  only make changes such as canonicalizing a value or snapping the location to
+ *  the correct line of code.
  *
  *  @param object The @c GTLRCloudDebugger_UpdateActiveBreakpointRequest to
  *    include in the query.
@@ -194,14 +216,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 @end
 
 /**
- *  Registers the debuggee with the controller service.
- *  All agents attached to the same application must call this method with
- *  exactly the same request content to get back the same stable `debuggee_id`.
- *  Agents should call this method again whenever `google.rpc.Code.NOT_FOUND`
- *  is returned from any controller method.
- *  This protocol allows the controller service to disable debuggees, recover
- *  from data loss, or change the `debuggee_id` format. Agents must handle
- *  `debuggee_id` value changing upon re-registration.
+ *  Registers the debuggee with the controller service. All agents attached to
+ *  the same application must call this method with exactly the same request
+ *  content to get back the same stable `debuggee_id`. Agents should call this
+ *  method again whenever `google.rpc.Code.NOT_FOUND` is returned from any
+ *  controller method. This protocol allows the controller service to disable
+ *  debuggees, recover from data loss, or change the `debuggee_id` format.
+ *  Agents must handle `debuggee_id` value changing upon re-registration.
  *
  *  Method: clouddebugger.controller.debuggees.register
  *
@@ -216,14 +237,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 /**
  *  Fetches a @c GTLRCloudDebugger_RegisterDebuggeeResponse.
  *
- *  Registers the debuggee with the controller service.
- *  All agents attached to the same application must call this method with
- *  exactly the same request content to get back the same stable `debuggee_id`.
- *  Agents should call this method again whenever `google.rpc.Code.NOT_FOUND`
- *  is returned from any controller method.
- *  This protocol allows the controller service to disable debuggees, recover
- *  from data loss, or change the `debuggee_id` format. Agents must handle
- *  `debuggee_id` value changing upon re-registration.
+ *  Registers the debuggee with the controller service. All agents attached to
+ *  the same application must call this method with exactly the same request
+ *  content to get back the same stable `debuggee_id`. Agents should call this
+ *  method again whenever `google.rpc.Code.NOT_FOUND` is returned from any
+ *  controller method. This protocol allows the controller service to disable
+ *  debuggees, recover from data loss, or change the `debuggee_id` format.
+ *  Agents must handle `debuggee_id` value changing upon re-registration.
  *
  *  @param object The @c GTLRCloudDebugger_RegisterDebuggeeRequest to include in
  *    the query.
@@ -251,8 +271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 @property(nonatomic, copy, nullable) NSString *breakpointId;
 
 /**
- *  Required. The client version making the call.
- *  Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
+ *  Required. The client version making the call. Schema: `domain/type/version`
+ *  (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
@@ -291,8 +311,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 @property(nonatomic, copy, nullable) NSString *breakpointId;
 
 /**
- *  Required. The client version making the call.
- *  Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
+ *  Required. The client version making the call. Schema: `domain/type/version`
+ *  (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
@@ -331,14 +351,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *  Only breakpoints with the specified action will pass the filter.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudDebuggerActionValueCapture Value "CAPTURE"
- *    @arg @c kGTLRCloudDebuggerActionValueLog Value "LOG"
+ *    @arg @c kGTLRCloudDebuggerActionValueCapture Capture stack frame and
+ *        variables and update the breakpoint. The data is only captured once.
+ *        After that the breakpoint is set in a final state. (Value: "CAPTURE")
+ *    @arg @c kGTLRCloudDebuggerActionValueLog Log each breakpoint hit. The
+ *        breakpoint remains active until deleted or expired. (Value: "LOG")
  */
 @property(nonatomic, copy, nullable) NSString *actionValue;
 
 /**
- *  Required. The client version making the call.
- *  Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
+ *  Required. The client version making the call. Schema: `domain/type/version`
+ *  (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
@@ -346,14 +369,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 @property(nonatomic, copy, nullable) NSString *debuggeeId;
 
 /**
- *  When set to `true`, the response includes the list of breakpoints set by
- *  any user. Otherwise, it includes only breakpoints set by the caller.
+ *  When set to `true`, the response includes the list of breakpoints set by any
+ *  user. Otherwise, it includes only breakpoints set by the caller.
  */
 @property(nonatomic, assign) BOOL includeAllUsers;
 
 /**
- *  When set to `true`, the response includes active and inactive
- *  breakpoints. Otherwise, it includes only active breakpoints.
+ *  When set to `true`, the response includes active and inactive breakpoints.
+ *  Otherwise, it includes only active breakpoints.
  */
 @property(nonatomic, assign) BOOL includeInactive;
 
@@ -364,11 +387,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 @property(nonatomic, assign) BOOL stripResults;
 
 /**
- *  A wait token that, if specified, blocks the call until the breakpoints
- *  list has changed, or a server selected timeout has expired. The value
- *  should be set from the last response. The error code
- *  `google.rpc.Code.ABORTED` (RPC) is returned on wait timeout, which
- *  should be called again with the same `wait_token`.
+ *  A wait token that, if specified, blocks the call until the breakpoints list
+ *  has changed, or a server selected timeout has expired. The value should be
+ *  set from the last response. The error code `google.rpc.Code.ABORTED` (RPC)
+ *  is returned on wait timeout, which should be called again with the same
+ *  `wait_token`.
  */
 @property(nonatomic, copy, nullable) NSString *waitToken;
 
@@ -402,18 +425,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *  The canary option set by the user upon setting breakpoint.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified Value
- *        "CANARY_OPTION_UNSPECIFIED"
- *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionTryEnable Value
- *        "CANARY_OPTION_TRY_ENABLE"
- *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionTryDisable Value
- *        "CANARY_OPTION_TRY_DISABLE"
+ *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionUnspecified Depends on
+ *        the canary_mode of the debuggee. (Value: "CANARY_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionTryEnable Enable the
+ *        canary for this breakpoint if the canary_mode of the debuggee is not
+ *        CANARY_MODE_ALWAYS_ENABLED or CANARY_MODE_ALWAYS_DISABLED. (Value:
+ *        "CANARY_OPTION_TRY_ENABLE")
+ *    @arg @c kGTLRCloudDebuggerCanaryOptionCanaryOptionTryDisable Disable the
+ *        canary for this breakpoint if the canary_mode of the debuggee is not
+ *        CANARY_MODE_ALWAYS_ENABLED or CANARY_MODE_ALWAYS_DISABLED. (Value:
+ *        "CANARY_OPTION_TRY_DISABLE")
  */
 @property(nonatomic, copy, nullable) NSString *canaryOption;
 
 /**
- *  Required. The client version making the call.
- *  Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
+ *  Required. The client version making the call. Schema: `domain/type/version`
+ *  (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
@@ -450,14 +477,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
 //   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesList]
 
 /**
- *  Required. The client version making the call.
- *  Schema: `domain/type/version` (e.g., `google.com/intellij/v1`).
+ *  Required. The client version making the call. Schema: `domain/type/version`
+ *  (e.g., `google.com/intellij/v1`).
  */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
 /**
- *  When set to `true`, the result includes all debuggees. Otherwise, the
- *  result includes only debuggees that are active.
+ *  When set to `true`, the result includes all debuggees. Otherwise, the result
+ *  includes only debuggees that are active.
  */
 @property(nonatomic, assign) BOOL includeInactive;
 

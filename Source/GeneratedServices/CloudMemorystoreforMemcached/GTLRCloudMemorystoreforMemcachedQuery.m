@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Memcached API (memcache/v1)
+//   Cloud Memorystore for Memcached API (memcache/v1beta2)
 // Description:
 //   Google Cloud Memorystore for Memcached API is used for creating and
 //   managing Memcached instances in GCP.
@@ -25,7 +25,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v1beta2/{+name}";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -51,7 +51,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:applyParameters";
+  NSString *pathURITemplate = @"v1beta2/{+name}:applyParameters";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesApplyParameters *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -78,7 +78,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/instances";
+  NSString *pathURITemplate = @"v1beta2/{+parent}/instances";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -98,7 +98,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v1beta2/{+name}";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -117,7 +117,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v1beta2/{+name}";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -136,7 +136,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/instances";
+  NSString *pathURITemplate = @"v1beta2/{+parent}/instances";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -162,7 +162,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v1beta2/{+name}";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -189,7 +189,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:updateParameters";
+  NSString *pathURITemplate = @"v1beta2/{+name}:updateParameters";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesUpdateParameters *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -209,7 +209,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/locations";
+  NSString *pathURITemplate = @"v1beta2/{+name}/locations";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -235,7 +235,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1beta2/{+name}:cancel";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -255,7 +255,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v1beta2/{+name}";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -274,7 +274,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v1beta2/{+name}";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -293,7 +293,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}/operations";
+  NSString *pathURITemplate = @"v1beta2/{+name}/operations";
   GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

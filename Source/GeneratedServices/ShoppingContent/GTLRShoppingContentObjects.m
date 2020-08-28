@@ -17,9 +17,9 @@
 //
 
 @implementation GTLRShoppingContent_Account
-@dynamic adsLinks, adultContent, businessInformation, googleMyBusinessLink,
-         identifier, kind, name, sellerId, users, websiteUrl,
-         youtubeChannelLinks;
+@dynamic adsLinks, adultContent, businessInformation, cssId,
+         googleMyBusinessLink, identifier, kind, labelIds, name, sellerId,
+         users, websiteUrl, youtubeChannelLinks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -28,6 +28,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"adsLinks" : [GTLRShoppingContent_AccountAdsLink class],
+    @"labelIds" : [NSNumber class],
     @"users" : [GTLRShoppingContent_AccountUser class],
     @"youtubeChannelLinks" : [GTLRShoppingContent_AccountYouTubeChannelLink class]
   };
@@ -150,7 +151,7 @@
 
 @implementation GTLRShoppingContent_AccountsCustomBatchRequestEntry
 @dynamic account, accountId, batchId, force, labelIds, linkRequest, merchantId,
-         method, overwrite;
+         method, overwrite, view;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -442,6 +443,34 @@
 
 @implementation GTLRShoppingContent_AccountStatusStatistics
 @dynamic active, disapproved, expiring, pending;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountsUpdateLabelsRequest
+//
+
+@implementation GTLRShoppingContent_AccountsUpdateLabelsRequest
+@dynamic labelIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountsUpdateLabelsResponse
+//
+
+@implementation GTLRShoppingContent_AccountsUpdateLabelsResponse
+@dynamic kind;
 @end
 
 
@@ -2900,9 +2929,10 @@
          offerId, pattern, price, productDetails, productHighlights,
          productTypes, promotionIds, salePrice, salePriceEffectiveDate,
          sellOnGoogleQuantity, shipping, shippingHeight, shippingLabel,
-         shippingLength, shippingWeight, shippingWidth, sizes, sizeSystem,
-         sizeType, source, subscriptionCost, targetCountry, taxCategory, taxes,
-         title, transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
+         shippingLength, shippingWeight, shippingWidth,
+         shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
+         subscriptionCost, targetCountry, taxCategory, taxes, title,
+         transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2925,6 +2955,7 @@
     @"productTypes" : [NSString class],
     @"promotionIds" : [NSString class],
     @"shipping" : [GTLRShoppingContent_ProductShipping class],
+    @"shoppingAdsExcludedCountries" : [NSString class],
     @"sizes" : [NSString class],
     @"taxes" : [GTLRShoppingContent_ProductTax class]
   };
@@ -3089,7 +3120,18 @@
 //
 
 @implementation GTLRShoppingContent_ProductStatusDestinationStatus
-@dynamic destination, status;
+@dynamic approvedCountries, destination, disapprovedCountries, pendingCountries,
+         status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"approvedCountries" : [NSString class],
+    @"disapprovedCountries" : [NSString class],
+    @"pendingCountries" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3186,11 +3228,18 @@
 //
 
 @implementation GTLRShoppingContent_ProductStatusItemLevelIssue
-@dynamic attributeName, code, descriptionProperty, destination, detail,
-         documentation, resolution, servability;
+@dynamic applicableCountries, attributeName, code, descriptionProperty,
+         destination, detail, documentation, resolution, servability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"applicableCountries" : [NSString class]
+  };
+  return map;
 }
 
 @end

@@ -197,6 +197,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL includeItemsFromAllDrives;
 
 /**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
+
+/**
  *  Whether to include changes indicating that items have been removed from the
  *  list of changes, for example by deletion or loss of access.
  *
@@ -321,6 +327,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL includeItemsFromAllDrives;
+
+/**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
 /**
  *  Whether to include changes indicating that items have been removed from the
@@ -937,6 +949,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL ignoreDefaultVisibility;
 
 /**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
+
+/**
  *  Whether to set the 'keepForever' field in the new head revision. This is
  *  only applicable to files with binary content in Google Drive. Only 200
  *  revisions for the file can be kept forever. If the limit is reached, try
@@ -1016,6 +1034,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL ignoreDefaultVisibility;
 
 /**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
+
+/**
  *  Whether to set the 'keepForever' field in the new head revision. This is
  *  only applicable to files with binary content in Google Drive. Only 200
  *  revisions for the file can be kept forever. If the limit is reached, try
@@ -1085,6 +1109,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 // Previous library name was
 //   +[GTLQueryDrive queryForFilesDeleteWithfileId:]
 
+/**
+ *  Set to true to opt in to API behavior that aims for all items to have
+ *  exactly one parent. This parameter will only take effect if the item is not
+ *  in a shared drive. If an item's last parent is deleted but the item itself
+ *  is not, the item will be placed under its owner's root.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceSingleParent;
+
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
@@ -1131,6 +1165,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_FilesEmptyTrash : GTLRDriveQuery
 // Previous library name was
 //   +[GTLQueryDrive queryForFilesEmptyTrash]
+
+/**
+ *  Set to true to opt in to API behavior that aims for all items to have
+ *  exactly one parent. This parameter will only take effect if the item is not
+ *  in a shared drive. If an item's last parent is deleted but the item itself
+ *  is not, the item will be placed under its owner's root.
+ *
+ *  @note If not set, the documented server-side default will be false.
+ */
+@property(nonatomic, assign) BOOL enforceSingleParent;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1254,6 +1298,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
+
+/**
  *  Whether the requesting application supports both My Drives and shared
  *  drives.
  *
@@ -1342,6 +1392,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL includeItemsFromAllDrives;
+
+/**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
 /**
  *  Deprecated use includeItemsFromAllDrives instead.
@@ -1461,6 +1517,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
+
+/**
  *  Whether to set the 'keepForever' field in the new head revision. This is
  *  only applicable to files with binary content in Google Drive. Only 200
  *  revisions for the file can be kept forever. If the limit is reached, try
@@ -1547,6 +1609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
 /**
  *  Whether the requesting application supports both My Drives and shared
@@ -1831,6 +1899,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Specifies which additional view's permissions to include in the response.
+ *  Only 'published' is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
 /**
  *  The maximum number of permissions to return per page. When not set for files

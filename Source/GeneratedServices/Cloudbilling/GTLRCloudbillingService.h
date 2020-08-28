@@ -5,8 +5,7 @@
 //   Cloud Billing API (cloudbilling/v1)
 // Description:
 //   Allows developers to manage billing for their Google Cloud Platform
-//   projects
-//   programmatically.
+//   projects programmatically.
 // Documentation:
 //   https://cloud.google.com/billing/
 
@@ -30,8 +29,21 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: View and manage your Google Cloud Platform billing
+ *  accounts
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-billing"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudbillingCloudBilling;
+/**
+ *  Authorization scope: View your Google Cloud Platform billing accounts
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-billing.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudbillingCloudBillingReadonly;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services

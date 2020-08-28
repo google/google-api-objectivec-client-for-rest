@@ -36,6 +36,13 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunA
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1beta1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
 
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.severity
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding.state
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Active = @"ACTIVE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_State_Inactive = @"INACTIVE";
@@ -295,7 +302,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding
 @dynamic category, createTime, eventTime, externalUri, name, parent,
-         resourceName, securityMarks, sourceProperties, state;
+         resourceName, securityMarks, severity, sourceProperties, state;
 @end
 
 

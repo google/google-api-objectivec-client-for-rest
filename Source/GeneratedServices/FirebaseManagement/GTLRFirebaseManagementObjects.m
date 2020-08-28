@@ -160,7 +160,12 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_FirebaseAppInfo
-@dynamic appId, displayName, name, platform;
+@dynamic appId, displayName, name, namespaceProperty, platform;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
+}
+
 @end
 
 
@@ -499,7 +504,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_StatusProto
-@dynamic canonicalCode, code, message, messageSet, payload, space;
+@dynamic canonicalCode, code, message, messageSet, space;
 @end
 
 
@@ -515,21 +520,11 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRFirebaseManagement_TypedMessage
-//
-
-@implementation GTLRFirebaseManagement_TypedMessage
-@dynamic message, typeId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRFirebaseManagement_WebApp
 //
 
 @implementation GTLRFirebaseManagement_WebApp
-@dynamic appId, appUrls, displayName, name, projectId;
+@dynamic appId, appUrls, displayName, name, projectId, webId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

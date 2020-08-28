@@ -129,9 +129,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A reference to the POSIX account to update. POSIX accounts are
- *  identified
- *  by the project ID they are associated with. A reference to the POSIX
- *  account is in format `users/{user}/projects/{project}`.
+ *  identified by the project ID they are associated with. A reference to the
+ *  POSIX account is in format `users/{user}/projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -141,9 +140,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a POSIX account.
  *
  *  @param name Required. A reference to the POSIX account to update. POSIX
- *    accounts are identified
- *    by the project ID they are associated with. A reference to the POSIX
- *    account is in format `users/{user}/projects/{project}`.
+ *    accounts are identified by the project ID they are associated with. A
+ *    reference to the POSIX account is in format
+ *    `users/{user}/projects/{project}`.
  *
  *  @return GTLRCloudOSLoginQuery_UsersProjectsDelete
  */
@@ -166,9 +165,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The fingerprint of the public key to update. Public keys are
- *  identified by
- *  their SHA-256 fingerprint. The fingerprint of the public key is in format
- *  `users/{user}/sshPublicKeys/{fingerprint}`.
+ *  identified by their SHA-256 fingerprint. The fingerprint of the public key
+ *  is in format `users/{user}/sshPublicKeys/{fingerprint}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -178,9 +176,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes an SSH public key.
  *
  *  @param name Required. The fingerprint of the public key to update. Public
- *    keys are identified by
- *    their SHA-256 fingerprint. The fingerprint of the public key is in format
- *    `users/{user}/sshPublicKeys/{fingerprint}`.
+ *    keys are identified by their SHA-256 fingerprint. The fingerprint of the
+ *    public key is in format `users/{user}/sshPublicKeys/{fingerprint}`.
  *
  *  @return GTLRCloudOSLoginQuery_UsersSshPublicKeysDelete
  */
@@ -203,9 +200,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The fingerprint of the public key to retrieve. Public keys are
- *  identified
- *  by their SHA-256 fingerprint. The fingerprint of the public key is in
- *  format `users/{user}/sshPublicKeys/{fingerprint}`.
+ *  identified by their SHA-256 fingerprint. The fingerprint of the public key
+ *  is in format `users/{user}/sshPublicKeys/{fingerprint}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -215,9 +211,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves an SSH public key.
  *
  *  @param name Required. The fingerprint of the public key to retrieve. Public
- *    keys are identified
- *    by their SHA-256 fingerprint. The fingerprint of the public key is in
- *    format `users/{user}/sshPublicKeys/{fingerprint}`.
+ *    keys are identified by their SHA-256 fingerprint. The fingerprint of the
+ *    public key is in format `users/{user}/sshPublicKeys/{fingerprint}`.
  *
  *  @return GTLRCloudOSLoginQuery_UsersSshPublicKeysGet
  */
@@ -241,9 +236,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The fingerprint of the public key to update. Public keys are
- *  identified by
- *  their SHA-256 fingerprint. The fingerprint of the public key is in format
- *  `users/{user}/sshPublicKeys/{fingerprint}`.
+ *  identified by their SHA-256 fingerprint. The fingerprint of the public key
+ *  is in format `users/{user}/sshPublicKeys/{fingerprint}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -262,9 +256,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudOSLogin_SshPublicKey to include in the query.
  *  @param name Required. The fingerprint of the public key to update. Public
- *    keys are identified by
- *    their SHA-256 fingerprint. The fingerprint of the public key is in format
- *    `users/{user}/sshPublicKeys/{fingerprint}`.
+ *    keys are identified by their SHA-256 fingerprint. The fingerprint of the
+ *    public key is in format `users/{user}/sshPublicKeys/{fingerprint}`.
  *
  *  @return GTLRCloudOSLoginQuery_UsersSshPublicKeysPatch
  */

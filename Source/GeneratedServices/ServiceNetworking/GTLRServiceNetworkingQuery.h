@@ -29,6 +29,7 @@
 @class GTLRServiceNetworking_Connection;
 @class GTLRServiceNetworking_DisableVpcServiceControlsRequest;
 @class GTLRServiceNetworking_EnableVpcServiceControlsRequest;
+@class GTLRServiceNetworking_PeeredDnsDomain;
 @class GTLRServiceNetworking_RemoveDnsRecordSetRequest;
 @class GTLRServiceNetworking_RemoveDnsZoneRequest;
 @class GTLRServiceNetworking_SearchRangeRequest;
@@ -54,15 +55,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: servicenetworking.operations.cancel
  *
@@ -81,15 +81,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceNetworking_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRServiceNetworking_CancelOperationRequest to include
  *    in the query.
@@ -172,14 +171,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: servicenetworking.operations.list
  *
@@ -207,14 +206,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceNetworking_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -231,8 +230,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  For service producers, provisions a new subnet in a peered service's shared
  *  VPC network in the requested region and with the requested size that's
- *  expressed as a CIDR range (number of leading bits of ipV4 network mask).
- *  The method checks against the assigned allocated ranges to find a
+ *  expressed as a CIDR range (number of leading bits of ipV4 network mask). The
+ *  method checks against the assigned allocated ranges to find a
  *  non-conflicting IP address range. The method will reuse a subnet if
  *  subsequent calls contain the same subnet name, region, and prefix length.
  *  This method will make producer's tenant project to be a shared VPC service
@@ -252,10 +251,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. A tenant project in the service producer organization, in the
  *  following format: services/{service}/{collection-id}/{resource-id}.
  *  {collection-id} is the cloud resource collection type that represents the
- *  tenant project. Only `projects` are supported.
- *  {resource-id} is the tenant project numeric id, such as
- *  `123456`. {service} the name of the peering service, such as
- *  `service-peering.example.com`. This service must already be
+ *  tenant project. Only `projects` are supported. {resource-id} is the tenant
+ *  project numeric id, such as `123456`. {service} the name of the peering
+ *  service, such as `service-peering.example.com`. This service must already be
  *  enabled in the service consumer's project.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -265,8 +263,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  For service producers, provisions a new subnet in a peered service's shared
  *  VPC network in the requested region and with the requested size that's
- *  expressed as a CIDR range (number of leading bits of ipV4 network mask).
- *  The method checks against the assigned allocated ranges to find a
+ *  expressed as a CIDR range (number of leading bits of ipV4 network mask). The
+ *  method checks against the assigned allocated ranges to find a
  *  non-conflicting IP address range. The method will reuse a subnet if
  *  subsequent calls contain the same subnet name, region, and prefix length.
  *  This method will make producer's tenant project to be a shared VPC service
@@ -275,14 +273,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceNetworking_AddSubnetworkRequest to include
  *    in the query.
  *  @param parent Required. A tenant project in the service producer
- *    organization, in the
- *    following format: services/{service}/{collection-id}/{resource-id}.
- *    {collection-id} is the cloud resource collection type that represents the
- *    tenant project. Only `projects` are supported.
- *    {resource-id} is the tenant project numeric id, such as
- *    `123456`. {service} the name of the peering service, such as
- *    `service-peering.example.com`. This service must already be
- *    enabled in the service consumer's project.
+ *    organization, in the following format:
+ *    services/{service}/{collection-id}/{resource-id}. {collection-id} is the
+ *    cloud resource collection type that represents the tenant project. Only
+ *    `projects` are supported. {resource-id} is the tenant project numeric id,
+ *    such as `123456`. {service} the name of the peering service, such as
+ *    `service-peering.example.com`. This service must already be enabled in the
+ *    service consumer's project.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesAddSubnetwork
  */
@@ -293,12 +290,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a private connection that establishes a VPC Network Peering
- *  connection to a VPC network in the service producer's organization.
- *  The administrator of the service consumer's VPC network invokes this
- *  method. The administrator must assign one or more allocated IP ranges for
- *  provisioning subnetworks in the service producer's VPC network. This
- *  connection is used for all supported services in the service producer's
- *  organization, so it only needs to be invoked once.
+ *  connection to a VPC network in the service producer's organization. The
+ *  administrator of the service consumer's VPC network invokes this method. The
+ *  administrator must assign one or more allocated IP ranges for provisioning
+ *  subnetworks in the service producer's VPC network. This connection is used
+ *  for all supported services in the service producer's organization, so it
+ *  only needs to be invoked once.
  *
  *  Method: servicenetworking.services.connections.create
  *
@@ -321,19 +318,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceNetworking_Operation.
  *
  *  Creates a private connection that establishes a VPC Network Peering
- *  connection to a VPC network in the service producer's organization.
- *  The administrator of the service consumer's VPC network invokes this
- *  method. The administrator must assign one or more allocated IP ranges for
- *  provisioning subnetworks in the service producer's VPC network. This
- *  connection is used for all supported services in the service producer's
- *  organization, so it only needs to be invoked once.
+ *  connection to a VPC network in the service producer's organization. The
+ *  administrator of the service consumer's VPC network invokes this method. The
+ *  administrator must assign one or more allocated IP ranges for provisioning
+ *  subnetworks in the service producer's VPC network. This connection is used
+ *  for all supported services in the service producer's organization, so it
+ *  only needs to be invoked once.
  *
  *  @param object The @c GTLRServiceNetworking_Connection to include in the
  *    query.
  *  @param parent The service that is managing peering connectivity for a
- *    service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesConnectionsCreate
  */
@@ -343,8 +339,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List the private connections that are configured in a service consumer's
- *  VPC network.
+ *  List the private connections that are configured in a service consumer's VPC
+ *  network.
  *
  *  Method: servicenetworking.services.connections.list
  *
@@ -359,33 +355,31 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The name of service consumer's VPC network that's connected with service
  *  producer network through a private connection. The network name must be in
- *  the following format:
- *  `projects/{project}/global/networks/{network}`. {project} is a
- *  project number, such as in `12345` that includes the VPC service
- *  consumer's VPC network. {network} is the name of the service consumer's VPC
- *  network.
+ *  the following format: `projects/{project}/global/networks/{network}`.
+ *  {project} is a project number, such as in `12345` that includes the VPC
+ *  service consumer's VPC network. {network} is the name of the service
+ *  consumer's VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
  *  The service that is managing peering connectivity for a service producer's
  *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
- *  If you specify `services/-` as the parameter value, all configured peering
- *  services are listed.
+ *  value is `services/servicenetworking.googleapis.com`. If you specify
+ *  `services/-` as the parameter value, all configured peering services are
+ *  listed.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceNetworking_ListConnectionsResponse.
  *
- *  List the private connections that are configured in a service consumer's
- *  VPC network.
+ *  List the private connections that are configured in a service consumer's VPC
+ *  network.
  *
  *  @param parent The service that is managing peering connectivity for a
- *    service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `services/servicenetworking.googleapis.com`.
  *    If you specify `services/-` as the parameter value, all configured peering
  *    services are listed.
  *
@@ -409,8 +403,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceNetworking queryForServicesConnectionsPatchWithObject:name:]
 
 /**
- *  If a previously defined allocated range is removed, force flag must be
- *  set to true.
+ *  If a previously defined allocated range is removed, force flag must be set
+ *  to true.
  */
 @property(nonatomic, assign) BOOL force;
 
@@ -418,15 +412,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  The private service connection that connects to a service producer
  *  organization. The name includes both the private service name and the VPC
  *  network peering name in the format of
- *  `services/{peering_service_name}/connections/{vpc_peering_name}`. For
- *  Google services that support this functionality, this is
+ *  `services/{peering_service_name}/connections/{vpc_peering_name}`. For Google
+ *  services that support this functionality, this is
  *  `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask. If this is omitted, it defaults to "*". You can only
- *  update the listed peering ranges.
+ *  The update mask. If this is omitted, it defaults to "*". You can only update
+ *  the listed peering ranges.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -440,9 +434,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceNetworking_Connection to include in the
  *    query.
  *  @param name The private service connection that connects to a service
- *    producer
- *    organization. The name includes both the private service name and the VPC
- *    network peering name in the format of
+ *    producer organization. The name includes both the private service name and
+ *    the VPC network peering name in the format of
  *    `services/{peering_service_name}/connections/{vpc_peering_name}`. For
  *    Google services that support this functionality, this is
  *    `services/servicenetworking.googleapis.com/connections/servicenetworking-googleapis-com`.
@@ -482,9 +475,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceNetworking_DisableVpcServiceControlsRequest
  *    to include in the query.
  *  @param parent The service that is managing peering connectivity for a
- *    service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesDisableVpcServiceControls
  */
@@ -509,9 +501,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The service that is managing peering connectivity for a service
- *  producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -524,9 +515,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceNetworking_AddDnsRecordSetRequest to include
  *    in the query.
  *  @param parent Required. The service that is managing peering connectivity
- *    for a service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesDnsRecordSetsAdd
  */
@@ -536,8 +527,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Service producers can use this method to remove DNS record sets from
- *  private DNS zones in the shared producer host project.
+ *  Service producers can use this method to remove DNS record sets from private
+ *  DNS zones in the shared producer host project.
  *
  *  Method: servicenetworking.services.dnsRecordSets.remove
  *
@@ -551,24 +542,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The service that is managing peering connectivity for a service
- *  producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceNetworking_Operation.
  *
- *  Service producers can use this method to remove DNS record sets from
- *  private DNS zones in the shared producer host project.
+ *  Service producers can use this method to remove DNS record sets from private
+ *  DNS zones in the shared producer host project.
  *
  *  @param object The @c GTLRServiceNetworking_RemoveDnsRecordSetRequest to
  *    include in the query.
  *  @param parent Required. The service that is managing peering connectivity
- *    for a service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesDnsRecordSetsRemove
  */
@@ -578,8 +568,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Service producers can use this method to update DNS record sets from
- *  private DNS zones in the shared producer host project.
+ *  Service producers can use this method to update DNS record sets from private
+ *  DNS zones in the shared producer host project.
  *
  *  Method: servicenetworking.services.dnsRecordSets.update
  *
@@ -593,24 +583,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The service that is managing peering connectivity for a service
- *  producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceNetworking_Operation.
  *
- *  Service producers can use this method to update DNS record sets from
- *  private DNS zones in the shared producer host project.
+ *  Service producers can use this method to update DNS record sets from private
+ *  DNS zones in the shared producer host project.
  *
  *  @param object The @c GTLRServiceNetworking_UpdateDnsRecordSetRequest to
  *    include in the query.
  *  @param parent Required. The service that is managing peering connectivity
- *    for a service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesDnsRecordSetsUpdate
  */
@@ -620,9 +609,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Service producers can use this method to add private DNS zones in the
- *  shared producer host project and matching peering zones in the consumer
- *  project.
+ *  Service producers can use this method to add private DNS zones in the shared
+ *  producer host project and matching peering zones in the consumer project.
  *
  *  Method: servicenetworking.services.dnsZones.add
  *
@@ -636,25 +624,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The service that is managing peering connectivity for a service
- *  producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRServiceNetworking_Operation.
  *
- *  Service producers can use this method to add private DNS zones in the
- *  shared producer host project and matching peering zones in the consumer
- *  project.
+ *  Service producers can use this method to add private DNS zones in the shared
+ *  producer host project and matching peering zones in the consumer project.
  *
  *  @param object The @c GTLRServiceNetworking_AddDnsZoneRequest to include in
  *    the query.
  *  @param parent Required. The service that is managing peering connectivity
- *    for a service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesDnsZonesAdd
  */
@@ -680,9 +666,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The service that is managing peering connectivity for a service
- *  producer's
- *  organization. For Google services that support this functionality, this
- *  value is `services/servicenetworking.googleapis.com`.
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `services/servicenetworking.googleapis.com`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -696,9 +681,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceNetworking_RemoveDnsZoneRequest to include
  *    in the query.
  *  @param parent Required. The service that is managing peering connectivity
- *    for a service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    for a service producer's organization. For Google services that support
+ *    this functionality, this value is
+ *    `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesDnsZonesRemove
  */
@@ -735,14 +720,158 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceNetworking_EnableVpcServiceControlsRequest
  *    to include in the query.
  *  @param parent The service that is managing peering connectivity for a
- *    service producer's
- *    organization. For Google services that support this functionality, this
- *    value is `services/servicenetworking.googleapis.com`.
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `services/servicenetworking.googleapis.com`.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesEnableVpcServiceControls
  */
 + (instancetype)queryWithObject:(GTLRServiceNetworking_EnableVpcServiceControlsRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a peered DNS domain which sends requests for records in given
+ *  namespace originating in the service producer VPC network to the consumer
+ *  VPC network to be resolved.
+ *
+ *  Method: servicenetworking.services.projects.global.networks.peeredDnsDomains.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsCreate : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksPeeredDnsDomainsCreateWithObject:parent:]
+
+/**
+ *  Required. Parent resource identifying the connection for which the peered
+ *  DNS domain will be created in the format:
+ *  `services/{service}/projects/{project}/global/networks/{network}` {service}
+ *  is the peering service that is managing connectivity for the service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *  is the number of the project that contains the service consumer's VPC
+ *  network e.g. `12345`. {network} is the name of the service consumer's VPC
+ *  network.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Creates a peered DNS domain which sends requests for records in given
+ *  namespace originating in the service producer VPC network to the consumer
+ *  VPC network to be resolved.
+ *
+ *  @param object The @c GTLRServiceNetworking_PeeredDnsDomain to include in the
+ *    query.
+ *  @param parent Required. Parent resource identifying the connection for which
+ *    the peered DNS domain will be created in the format:
+ *    `services/{service}/projects/{project}/global/networks/{network}`
+ *    {service} is the peering service that is managing connectivity for the
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *    is the number of the project that contains the service consumer's VPC
+ *    network e.g. `12345`. {network} is the name of the service consumer's VPC
+ *    network.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsCreate
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_PeeredDnsDomain *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a peered DNS domain.
+ *
+ *  Method: servicenetworking.services.projects.global.networks.peeredDnsDomains.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsDelete : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksPeeredDnsDomainsDeleteWithname:]
+
+/**
+ *  Required. The name of the peered DNS domain to delete in the format:
+ *  `services/{service}/projects/{project}/global/networks/{network}/peeredDnsDomains/{name}`.
+ *  {service} is the peering service that is managing connectivity for the
+ *  service producer's organization. For Google services that support this
+ *  functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *  is the number of the project that contains the service consumer's VPC
+ *  network e.g. `12345`. {network} is the name of the service consumer's VPC
+ *  network. {name} is the name of the peered DNS domain.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Deletes a peered DNS domain.
+ *
+ *  @param name Required. The name of the peered DNS domain to delete in the
+ *    format:
+ *    `services/{service}/projects/{project}/global/networks/{network}/peeredDnsDomains/{name}`.
+ *    {service} is the peering service that is managing connectivity for the
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *    is the number of the project that contains the service consumer's VPC
+ *    network e.g. `12345`. {network} is the name of the service consumer's VPC
+ *    network. {name} is the name of the peered DNS domain.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists peered DNS domains for a connection.
+ *
+ *  Method: servicenetworking.services.projects.global.networks.peeredDnsDomains.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsList : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksPeeredDnsDomainsListWithparent:]
+
+/**
+ *  Required. Parent resource identifying the connection which owns this
+ *  collection of peered DNS domains in the format:
+ *  `services/{service}/projects/{project}/global/networks/{network}`. {service}
+ *  is the peering service that is managing connectivity for the service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *  is a project number e.g. `12345` that contains the service consumer's VPC
+ *  network. {network} is the name of the service consumer's VPC network.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_ListPeeredDnsDomainsResponse.
+ *
+ *  Lists peered DNS domains for a connection.
+ *
+ *  @param parent Required. Parent resource identifying the connection which
+ *    owns this collection of peered DNS domains in the format:
+ *    `services/{service}/projects/{project}/global/networks/{network}`.
+ *    {service} is the peering service that is managing connectivity for the
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *    is a project number e.g. `12345` that contains the service consumer's VPC
+ *    network. {network} is the name of the service consumer's VPC network.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -764,8 +893,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. This is in a form services/{service} where {service} is the name
- *  of the
- *  private access management service. For example
+ *  of the private access management service. For example
  *  'service-peering.example.com'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -781,8 +909,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceNetworking_AddRolesRequest to include in the
  *    query.
  *  @param parent Required. This is in a form services/{service} where {service}
- *    is the name of the
- *    private access management service. For example
+ *    is the name of the private access management service. For example
  *    'service-peering.example.com'.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesRolesAdd
@@ -794,8 +921,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Service producers can use this method to find a currently unused range
- *  within consumer allocated ranges. This returned range is not reserved,
- *  and not guaranteed to remain unused. It will validate previously provided
+ *  within consumer allocated ranges. This returned range is not reserved, and
+ *  not guaranteed to remain unused. It will validate previously provided
  *  allocated ranges, find non-conflicting sub-range of requested size
  *  (expressed in number of leading bits of ipv4 network mask, as in CIDR range
  *  notation).
@@ -812,8 +939,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. This is in a form services/{service}. {service} the name of the
- *  private
- *  access management service, for example 'service-peering.example.com'.
+ *  private access management service, for example
+ *  'service-peering.example.com'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -821,8 +948,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceNetworking_Operation.
  *
  *  Service producers can use this method to find a currently unused range
- *  within consumer allocated ranges. This returned range is not reserved,
- *  and not guaranteed to remain unused. It will validate previously provided
+ *  within consumer allocated ranges. This returned range is not reserved, and
+ *  not guaranteed to remain unused. It will validate previously provided
  *  allocated ranges, find non-conflicting sub-range of requested size
  *  (expressed in number of leading bits of ipv4 network mask, as in CIDR range
  *  notation).
@@ -830,8 +957,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRServiceNetworking_SearchRangeRequest to include in
  *    the query.
  *  @param parent Required. This is in a form services/{service}. {service} the
- *    name of the private
- *    access management service, for example 'service-peering.example.com'.
+ *    name of the private access management service, for example
+ *    'service-peering.example.com'.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesSearchRange
  */
@@ -842,8 +969,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Service producers use this method to validate if the consumer provided
- *  network, project and requested range are valid. This allows them to use
- *  a fail-fast mechanism for consumer requests, and not have to wait for
+ *  network, project and requested range are valid. This allows them to use a
+ *  fail-fast mechanism for consumer requests, and not have to wait for
  *  AddSubnetwork operation completion to determine if user request is invalid.
  *
  *  Method: servicenetworking.services.validate
@@ -858,8 +985,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. This is in a form services/{service} where {service} is the name
- *  of the
- *  private access management service. For example
+ *  of the private access management service. For example
  *  'service-peering.example.com'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -868,15 +994,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRServiceNetworking_ValidateConsumerConfigResponse.
  *
  *  Service producers use this method to validate if the consumer provided
- *  network, project and requested range are valid. This allows them to use
- *  a fail-fast mechanism for consumer requests, and not have to wait for
+ *  network, project and requested range are valid. This allows them to use a
+ *  fail-fast mechanism for consumer requests, and not have to wait for
  *  AddSubnetwork operation completion to determine if user request is invalid.
  *
  *  @param object The @c GTLRServiceNetworking_ValidateConsumerConfigRequest to
  *    include in the query.
  *  @param parent Required. This is in a form services/{service} where {service}
- *    is the name of the
- *    private access management service. For example
+ *    is the name of the private access management service. For example
  *    'service-peering.example.com'.
  *
  *  @return GTLRServiceNetworkingQuery_ServicesValidate

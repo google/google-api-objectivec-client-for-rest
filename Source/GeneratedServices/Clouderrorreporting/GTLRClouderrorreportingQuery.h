@@ -38,41 +38,110 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // alignment
 
-/** Value: "ALIGNMENT_EQUAL_AT_END" */
+/**
+ *  The time periods shall be consecutive, have width equal to the requested
+ *  duration, and be aligned at the end of the requested time period. This can
+ *  result in a different size of the first time period.
+ *
+ *  Value: "ALIGNMENT_EQUAL_AT_END"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingAlignmentAlignmentEqualAtEnd;
-/** Value: "ALIGNMENT_EQUAL_ROUNDED" */
+/**
+ *  The time periods shall be consecutive, have width equal to the requested
+ *  duration, and be aligned at the `alignment_time` provided in the request.
+ *  The `alignment_time` does not have to be inside the query period but even if
+ *  it is outside, only time periods are returned which overlap with the query
+ *  period. A rounded alignment will typically result in a different size of the
+ *  first or the last time period.
+ *
+ *  Value: "ALIGNMENT_EQUAL_ROUNDED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingAlignmentAlignmentEqualRounded;
-/** Value: "ERROR_COUNT_ALIGNMENT_UNSPECIFIED" */
+/**
+ *  No alignment specified.
+ *
+ *  Value: "ERROR_COUNT_ALIGNMENT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingAlignmentErrorCountAlignmentUnspecified;
 
 // ----------------------------------------------------------------------------
 // order
 
-/** Value: "AFFECTED_USERS_DESC" */
+/**
+ *  Number of affected users in the given time window in descending order.
+ *
+ *  Value: "AFFECTED_USERS_DESC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderAffectedUsersDesc;
-/** Value: "COUNT_DESC" */
+/**
+ *  Total count of errors in the given time window in descending order.
+ *
+ *  Value: "COUNT_DESC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderCountDesc;
-/** Value: "CREATED_DESC" */
+/**
+ *  Timestamp when the group was created in descending order.
+ *
+ *  Value: "CREATED_DESC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderCreatedDesc;
-/** Value: "GROUP_ORDER_UNSPECIFIED" */
+/**
+ *  No group order specified.
+ *
+ *  Value: "GROUP_ORDER_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderGroupOrderUnspecified;
-/** Value: "LAST_SEEN_DESC" */
+/**
+ *  Timestamp when the group was last seen in the given time window in
+ *  descending order.
+ *
+ *  Value: "LAST_SEEN_DESC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingOrderLastSeenDesc;
 
 // ----------------------------------------------------------------------------
 // timeRangePeriod
 
-/** Value: "PERIOD_1_DAY" */
+/**
+ *  Retrieve data for the last day. Recommended minimum timed count duration: 1
+ *  hour.
+ *
+ *  Value: "PERIOD_1_DAY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Day;
-/** Value: "PERIOD_1_HOUR" */
+/**
+ *  Retrieve data for the last hour. Recommended minimum timed count duration: 1
+ *  min.
+ *
+ *  Value: "PERIOD_1_HOUR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Hour;
-/** Value: "PERIOD_1_WEEK" */
+/**
+ *  Retrieve data for the last week. Recommended minimum timed count duration: 6
+ *  hours.
+ *
+ *  Value: "PERIOD_1_WEEK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod1Week;
-/** Value: "PERIOD_30_DAYS" */
+/**
+ *  Retrieve data for the last 30 days. Recommended minimum timed count
+ *  duration: 1 day.
+ *
+ *  Value: "PERIOD_30_DAYS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod30Days;
-/** Value: "PERIOD_6_HOURS" */
+/**
+ *  Retrieve data for the last 6 hours. Recommended minimum timed count
+ *  duration: 10 min.
+ *
+ *  Value: "PERIOD_6_HOURS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod6Hours;
-/** Value: "PERIOD_UNSPECIFIED" */
+/**
+ *  Do not use.
+ *
+ *  Value: "PERIOD_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -102,11 +171,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 //   +[GTLQueryClouderrorreporting queryForProjectsDeleteEventsWithprojectName:]
 
 /**
- *  Required. The resource name of the Google Cloud Platform project. Written
- *  as `projects/{projectID}`, where `{projectID}` is the
- *  [Google Cloud Platform project
- *  ID](https://support.google.com/cloud/answer/6158840).
- *  Example: `projects/my-project-123`.
+ *  Required. The resource name of the Google Cloud Platform project. Written as
+ *  `projects/{projectID}`, where `{projectID}` is the [Google Cloud Platform
+ *  project ID](https://support.google.com/cloud/answer/6158840). Example:
+ *  `projects/my-project-123`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
@@ -116,11 +184,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Deletes all error events of a given project.
  *
  *  @param projectName Required. The resource name of the Google Cloud Platform
- *    project. Written
- *    as `projects/{projectID}`, where `{projectID}` is the
+ *    project. Written as `projects/{projectID}`, where `{projectID}` is the
  *    [Google Cloud Platform project
- *    ID](https://support.google.com/cloud/answer/6158840).
- *    Example: `projects/my-project-123`.
+ *    ID](https://support.google.com/cloud/answer/6158840). Example:
+ *    `projects/my-project-123`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsDeleteEvents
  */
@@ -150,11 +217,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the Google Cloud Platform project. Written
- *  as `projects/{projectID}`, where `{projectID}` is the
- *  [Google Cloud Platform project
- *  ID](https://support.google.com/cloud/answer/6158840).
- *  Example: `projects/my-project-123`.
+ *  Required. The resource name of the Google Cloud Platform project. Written as
+ *  `projects/{projectID}`, where `{projectID}` is the [Google Cloud Platform
+ *  project ID](https://support.google.com/cloud/answer/6158840). Example:
+ *  `projects/my-project-123`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
@@ -180,18 +246,23 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Restricts the query to the specified time range.
  *
  *  Likely values:
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified Value
- *        "PERIOD_UNSPECIFIED"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Hour Value
- *        "PERIOD_1_HOUR"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod6Hours Value
- *        "PERIOD_6_HOURS"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Day Value
- *        "PERIOD_1_DAY"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Week Value
- *        "PERIOD_1_WEEK"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod30Days Value
- *        "PERIOD_30_DAYS"
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified Do not
+ *        use. (Value: "PERIOD_UNSPECIFIED")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Hour Retrieve data
+ *        for the last hour. Recommended minimum timed count duration: 1 min.
+ *        (Value: "PERIOD_1_HOUR")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod6Hours Retrieve data
+ *        for the last 6 hours. Recommended minimum timed count duration: 10
+ *        min. (Value: "PERIOD_6_HOURS")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Day Retrieve data
+ *        for the last day. Recommended minimum timed count duration: 1 hour.
+ *        (Value: "PERIOD_1_DAY")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Week Retrieve data
+ *        for the last week. Recommended minimum timed count duration: 6 hours.
+ *        (Value: "PERIOD_1_WEEK")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod30Days Retrieve data
+ *        for the last 30 days. Recommended minimum timed count duration: 1 day.
+ *        (Value: "PERIOD_30_DAYS")
  */
 @property(nonatomic, copy, nullable) NSString *timeRangePeriod;
 
@@ -201,11 +272,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Lists the specified events.
  *
  *  @param projectName Required. The resource name of the Google Cloud Platform
- *    project. Written
- *    as `projects/{projectID}`, where `{projectID}` is the
+ *    project. Written as `projects/{projectID}`, where `{projectID}` is the
  *    [Google Cloud Platform project
- *    ID](https://support.google.com/cloud/answer/6158840).
- *    Example: `projects/my-project-123`.
+ *    ID](https://support.google.com/cloud/answer/6158840). Example:
+ *    `projects/my-project-123`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsEventsList
  *
@@ -218,12 +288,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @end
 
 /**
- *  Report an individual error event.
- *  This endpoint accepts **either** an OAuth token,
- *  **or** an [API key](https://support.google.com/cloud/answer/6158862)
+ *  Report an individual error event. This endpoint accepts **either** an OAuth
+ *  token, **or** an [API key](https://support.google.com/cloud/answer/6158862)
  *  for authentication. To use an API key, append it to the URL as the value of
- *  a `key` parameter. For example:
- *  `POST
+ *  a `key` parameter. For example: `POST
  *  https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
  *
  *  Method: clouderrorreporting.projects.events.report
@@ -236,33 +304,29 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 //   +[GTLQueryClouderrorreporting queryForProjectsEventsReportWithObject:projectName:]
 
 /**
- *  Required. The resource name of the Google Cloud Platform project. Written
- *  as `projects/{projectId}`, where `{projectId}` is the
- *  [Google Cloud Platform project
- *  ID](https://support.google.com/cloud/answer/6158840).
- *  Example: // `projects/my-project-123`.
+ *  Required. The resource name of the Google Cloud Platform project. Written as
+ *  `projects/{projectId}`, where `{projectId}` is the [Google Cloud Platform
+ *  project ID](https://support.google.com/cloud/answer/6158840). Example: //
+ *  `projects/my-project-123`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
 /**
  *  Fetches a @c GTLRClouderrorreporting_ReportErrorEventResponse.
  *
- *  Report an individual error event.
- *  This endpoint accepts **either** an OAuth token,
- *  **or** an [API key](https://support.google.com/cloud/answer/6158862)
+ *  Report an individual error event. This endpoint accepts **either** an OAuth
+ *  token, **or** an [API key](https://support.google.com/cloud/answer/6158862)
  *  for authentication. To use an API key, append it to the URL as the value of
- *  a `key` parameter. For example:
- *  `POST
+ *  a `key` parameter. For example: `POST
  *  https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
  *
  *  @param object The @c GTLRClouderrorreporting_ReportedErrorEvent to include
  *    in the query.
  *  @param projectName Required. The resource name of the Google Cloud Platform
- *    project. Written
- *    as `projects/{projectId}`, where `{projectId}` is the
+ *    project. Written as `projects/{projectId}`, where `{projectId}` is the
  *    [Google Cloud Platform project
- *    ID](https://support.google.com/cloud/answer/6158840).
- *    Example: // `projects/my-project-123`.
+ *    ID](https://support.google.com/cloud/answer/6158840). Example: //
+ *    `projects/my-project-123`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsEventsReport
  */
@@ -287,8 +351,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Required. The group resource name. Written as
  *  `projects/{projectID}/groups/{group_name}`. Call
  *  [`groupStats.list`](https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list)
- *  to return a list of groups belonging to this project.
- *  Example: `projects/my-project-123/groups/my-group`
+ *  to return a list of groups belonging to this project. Example:
+ *  `projects/my-project-123/groups/my-group`
  */
 @property(nonatomic, copy, nullable) NSString *groupName;
 
@@ -300,8 +364,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  @param groupName Required. The group resource name. Written as
  *    `projects/{projectID}/groups/{group_name}`. Call
  *    [`groupStats.list`](https://cloud.google.com/error-reporting/reference/rest/v1beta1/projects.groupStats/list)
- *    to return a list of groups belonging to this project.
- *    Example: `projects/my-project-123/groups/my-group`
+ *    to return a list of groups belonging to this project. Example:
+ *    `projects/my-project-123/groups/my-group`
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupsGet
  */
@@ -322,46 +386,60 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 //   +[GTLQueryClouderrorreporting queryForProjectsGroupStatsListWithprojectName:]
 
 /**
- *  Optional. The alignment of the timed counts to be returned.
- *  Default is `ALIGNMENT_EQUAL_AT_END`.
+ *  Optional. The alignment of the timed counts to be returned. Default is
+ *  `ALIGNMENT_EQUAL_AT_END`.
  *
  *  Likely values:
- *    @arg @c kGTLRClouderrorreportingAlignmentErrorCountAlignmentUnspecified
- *        Value "ERROR_COUNT_ALIGNMENT_UNSPECIFIED"
- *    @arg @c kGTLRClouderrorreportingAlignmentAlignmentEqualRounded Value
- *        "ALIGNMENT_EQUAL_ROUNDED"
- *    @arg @c kGTLRClouderrorreportingAlignmentAlignmentEqualAtEnd Value
- *        "ALIGNMENT_EQUAL_AT_END"
+ *    @arg @c kGTLRClouderrorreportingAlignmentErrorCountAlignmentUnspecified No
+ *        alignment specified. (Value: "ERROR_COUNT_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRClouderrorreportingAlignmentAlignmentEqualRounded The time
+ *        periods shall be consecutive, have width equal to the requested
+ *        duration, and be aligned at the `alignment_time` provided in the
+ *        request. The `alignment_time` does not have to be inside the query
+ *        period but even if it is outside, only time periods are returned which
+ *        overlap with the query period. A rounded alignment will typically
+ *        result in a different size of the first or the last time period.
+ *        (Value: "ALIGNMENT_EQUAL_ROUNDED")
+ *    @arg @c kGTLRClouderrorreportingAlignmentAlignmentEqualAtEnd The time
+ *        periods shall be consecutive, have width equal to the requested
+ *        duration, and be aligned at the end of the requested time period. This
+ *        can result in a different size of the first time period. (Value:
+ *        "ALIGNMENT_EQUAL_AT_END")
  */
 @property(nonatomic, copy, nullable) NSString *alignment;
 
 /**
- *  Optional. Time where the timed counts shall be aligned if rounded
- *  alignment is chosen. Default is 00:00 UTC.
+ *  Optional. Time where the timed counts shall be aligned if rounded alignment
+ *  is chosen. Default is 00:00 UTC.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *alignmentTime;
 
-/** Optional. List all <code>ErrorGroupStats</code> with these IDs. */
+/** Optional. List all ErrorGroupStats with these IDs. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *groupId;
 
 /**
- *  Optional. The sort order in which the results are returned.
- *  Default is `COUNT_DESC`.
+ *  Optional. The sort order in which the results are returned. Default is
+ *  `COUNT_DESC`.
  *
  *  Likely values:
- *    @arg @c kGTLRClouderrorreportingOrderGroupOrderUnspecified Value
- *        "GROUP_ORDER_UNSPECIFIED"
- *    @arg @c kGTLRClouderrorreportingOrderCountDesc Value "COUNT_DESC"
- *    @arg @c kGTLRClouderrorreportingOrderLastSeenDesc Value "LAST_SEEN_DESC"
- *    @arg @c kGTLRClouderrorreportingOrderCreatedDesc Value "CREATED_DESC"
- *    @arg @c kGTLRClouderrorreportingOrderAffectedUsersDesc Value
- *        "AFFECTED_USERS_DESC"
+ *    @arg @c kGTLRClouderrorreportingOrderGroupOrderUnspecified No group order
+ *        specified. (Value: "GROUP_ORDER_UNSPECIFIED")
+ *    @arg @c kGTLRClouderrorreportingOrderCountDesc Total count of errors in
+ *        the given time window in descending order. (Value: "COUNT_DESC")
+ *    @arg @c kGTLRClouderrorreportingOrderLastSeenDesc Timestamp when the group
+ *        was last seen in the given time window in descending order. (Value:
+ *        "LAST_SEEN_DESC")
+ *    @arg @c kGTLRClouderrorreportingOrderCreatedDesc Timestamp when the group
+ *        was created in descending order. (Value: "CREATED_DESC")
+ *    @arg @c kGTLRClouderrorreportingOrderAffectedUsersDesc Number of affected
+ *        users in the given time window in descending order. (Value:
+ *        "AFFECTED_USERS_DESC")
  */
 @property(nonatomic, copy, nullable) NSString *order;
 
 /**
- *  Optional. The maximum number of results to return per response.
- *  Default is 20.
+ *  Optional. The maximum number of results to return per response. Default is
+ *  20.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -373,11 +451,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the Google Cloud Platform project. Written
- *  as `projects/{projectID}`, where `{projectID}` is the
- *  [Google Cloud Platform project
- *  ID](https://support.google.com/cloud/answer/6158840).
- *  Example: `projects/my-project-123`.
+ *  Required. The resource name of the Google Cloud Platform project. Written as
+ *  `projects/{projectID}`, where `{projectID}` is the [Google Cloud Platform
+ *  project ID](https://support.google.com/cloud/answer/6158840). Example:
+ *  `projects/my-project-123`.
  */
 @property(nonatomic, copy, nullable) NSString *projectName;
 
@@ -400,8 +477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @property(nonatomic, copy, nullable) NSString *serviceFilterVersion;
 
 /**
- *  Optional. The preferred duration for a single returned `TimedCount`.
- *  If not set, no timed counts are returned.
+ *  Optional. The preferred duration for a single returned `TimedCount`. If not
+ *  set, no timed counts are returned.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timedCountDuration;
 
@@ -409,18 +486,23 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Restricts the query to the specified time range.
  *
  *  Likely values:
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified Value
- *        "PERIOD_UNSPECIFIED"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Hour Value
- *        "PERIOD_1_HOUR"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod6Hours Value
- *        "PERIOD_6_HOURS"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Day Value
- *        "PERIOD_1_DAY"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Week Value
- *        "PERIOD_1_WEEK"
- *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod30Days Value
- *        "PERIOD_30_DAYS"
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriodUnspecified Do not
+ *        use. (Value: "PERIOD_UNSPECIFIED")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Hour Retrieve data
+ *        for the last hour. Recommended minimum timed count duration: 1 min.
+ *        (Value: "PERIOD_1_HOUR")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod6Hours Retrieve data
+ *        for the last 6 hours. Recommended minimum timed count duration: 10
+ *        min. (Value: "PERIOD_6_HOURS")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Day Retrieve data
+ *        for the last day. Recommended minimum timed count duration: 1 hour.
+ *        (Value: "PERIOD_1_DAY")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod1Week Retrieve data
+ *        for the last week. Recommended minimum timed count duration: 6 hours.
+ *        (Value: "PERIOD_1_WEEK")
+ *    @arg @c kGTLRClouderrorreportingTimeRangePeriodPeriod30Days Retrieve data
+ *        for the last 30 days. Recommended minimum timed count duration: 1 day.
+ *        (Value: "PERIOD_30_DAYS")
  */
 @property(nonatomic, copy, nullable) NSString *timeRangePeriod;
 
@@ -430,11 +512,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  Lists the specified groups.
  *
  *  @param projectName Required. The resource name of the Google Cloud Platform
- *    project. Written
- *    as `projects/{projectID}`, where `{projectID}` is the
+ *    project. Written as `projects/{projectID}`, where `{projectID}` is the
  *    [Google Cloud Platform project
- *    ID](https://support.google.com/cloud/answer/6158840).
- *    Example: `projects/my-project-123`.
+ *    ID](https://support.google.com/cloud/answer/6158840). Example:
+ *    `projects/my-project-123`.
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupStatsList
  *
@@ -447,8 +528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 @end
 
 /**
- *  Replace the data for the specified group.
- *  Fails if the group does not exist.
+ *  Replace the data for the specified group. Fails if the group does not exist.
  *
  *  Method: clouderrorreporting.projects.groups.update
  *
@@ -460,21 +540,20 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
 //   +[GTLQueryClouderrorreporting queryForProjectsGroupsUpdateWithObject:name:]
 
 /**
- *  The group resource name.
- *  Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
+ *  The group resource name. Example:
+ *  projects/my-project-123/groups/CNSgkpnppqKCUw
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRClouderrorreporting_ErrorGroup.
  *
- *  Replace the data for the specified group.
- *  Fails if the group does not exist.
+ *  Replace the data for the specified group. Fails if the group does not exist.
  *
  *  @param object The @c GTLRClouderrorreporting_ErrorGroup to include in the
  *    query.
- *  @param name The group resource name.
- *    Example: <code>projects/my-project-123/groups/CNSgkpnppqKCUw</code>
+ *  @param name The group resource name. Example:
+ *    projects/my-project-123/groups/CNSgkpnppqKCUw
  *
  *  @return GTLRClouderrorreportingQuery_ProjectsGroupsUpdate
  */

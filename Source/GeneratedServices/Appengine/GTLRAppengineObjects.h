@@ -76,6 +76,7 @@
 @class GTLRAppengine_UrlMap;
 @class GTLRAppengine_Version;
 @class GTLRAppengine_Version_BetaSettings;
+@class GTLRAppengine_Version_BuildEnvVariables;
 @class GTLRAppengine_Version_EnvVariables;
 @class GTLRAppengine_Volume;
 @class GTLRAppengine_VpcAccessConnector;
@@ -601,23 +602,60 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_UrlMap_SecurityLevel_SecureUns
 // ----------------------------------------------------------------------------
 // GTLRAppengine_Version.inboundServices
 
-/** Value: "INBOUND_SERVICE_CHANNEL_PRESENCE" */
+/**
+ *  Registers an application for notifications when a client connects or
+ *  disconnects from a channel.
+ *
+ *  Value: "INBOUND_SERVICE_CHANNEL_PRESENCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceChannelPresence;
-/** Value: "INBOUND_SERVICE_MAIL" */
+/**
+ *  Allows an application to receive mail.
+ *
+ *  Value: "INBOUND_SERVICE_MAIL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceMail;
-/** Value: "INBOUND_SERVICE_MAIL_BOUNCE" */
+/**
+ *  Allows an application to receive email-bound notifications.
+ *
+ *  Value: "INBOUND_SERVICE_MAIL_BOUNCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceMailBounce;
-/** Value: "INBOUND_SERVICE_UNSPECIFIED" */
+/**
+ *  Not specified.
+ *
+ *  Value: "INBOUND_SERVICE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceUnspecified;
-/** Value: "INBOUND_SERVICE_WARMUP" */
+/**
+ *  Enables warmup requests.
+ *
+ *  Value: "INBOUND_SERVICE_WARMUP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceWarmup;
-/** Value: "INBOUND_SERVICE_XMPP_ERROR" */
+/**
+ *  Allows an application to receive error stanzas.
+ *
+ *  Value: "INBOUND_SERVICE_XMPP_ERROR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppError;
-/** Value: "INBOUND_SERVICE_XMPP_MESSAGE" */
+/**
+ *  Allows an application to receive instant messages.
+ *
+ *  Value: "INBOUND_SERVICE_XMPP_MESSAGE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppMessage;
-/** Value: "INBOUND_SERVICE_XMPP_PRESENCE" */
+/**
+ *  Allows an application to receive a user's chat presence.
+ *
+ *  Value: "INBOUND_SERVICE_XMPP_PRESENCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppPresence;
-/** Value: "INBOUND_SERVICE_XMPP_SUBSCRIBE" */
+/**
+ *  Allows an application to receive user subscription POSTs.
+ *
+ *  Value: "INBOUND_SERVICE_XMPP_SUBSCRIBE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_InboundServices_InboundServiceXmppSubscribe;
 
 // ----------------------------------------------------------------------------
@@ -1088,17 +1126,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  Unencrypted PEM encoded RSA private key. This field is set once on
  *  certificate creation and then encrypted. The key size must be 2048 bits or
- *  fewer. Must include the header and footer. Example: <pre> -----BEGIN RSA
- *  PRIVATE KEY----- <unencrypted_key_value> -----END RSA PRIVATE KEY-----
- *  </pre> \@InputOnly
+ *  fewer. Must include the header and footer. Example: -----BEGIN RSA PRIVATE
+ *  KEY----- -----END RSA PRIVATE KEY----- \@InputOnly
  */
 @property(nonatomic, copy, nullable) NSString *privateKey;
 
 /**
  *  PEM encoded x.509 public key certificate. This field is set once on
- *  certificate creation. Must include the header and footer. Example: <pre>
- *  -----BEGIN CERTIFICATE----- <certificate_value> -----END CERTIFICATE-----
- *  </pre>
+ *  certificate creation. Must include the header and footer. Example:
+ *  -----BEGIN CERTIFICATE----- -----END CERTIFICATE-----
  */
 @property(nonatomic, copy, nullable) NSString *publicCertificate;
 
@@ -1216,9 +1252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @interface GTLRAppengine_DebugInstanceRequest : GTLRObject
 
 /**
- *  Public SSH key to add to the instance. Examples:
- *  [USERNAME]:ssh-rsa [KEY_VALUE] [USERNAME]
- *  [USERNAME]:ssh-rsa [KEY_VALUE] google-ssh
+ *  Public SSH key to add to the instance. Examples: [USERNAME]:ssh-rsa
+ *  [KEY_VALUE] [USERNAME] [USERNAME]:ssh-rsa [KEY_VALUE] google-ssh
  *  {"userName":"[USERNAME]","expireOn":"[EXPIRE_TIME]"}For more information,
  *  see Adding and Removing SSH Keys
  *  (https://cloud.google.com/compute/docs/instances/adding-removing-ssh-keys).
@@ -1347,11 +1382,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for Empty is empty JSON object {}.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for Empty is empty JSON object {}.
  */
 @interface GTLRAppengine_Empty : GTLRObject
 @end
@@ -1504,8 +1537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  URL source to use to fetch this file. Must be a URL to a resource in Google
- *  Cloud Storage in the form
- *  'http(s)://storage.googleapis.com/<bucket>/<object>'.
+ *  Cloud Storage in the form 'http(s)://storage.googleapis.com//'.
  */
 @property(nonatomic, copy, nullable) NSString *sourceUrl;
 
@@ -1554,11 +1586,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  IP address or range, defined using CIDR notation, of requests that this rule
  *  applies to. You can use the wildcard character "*" to match all IPs
  *  equivalent to "0/0" and "::/0" together. Examples: 192.168.1.1 or
- *  192.168.0.0/16 or 2001:db8::/32 or
- *  2001:0db8:0000:0042:0000:8a2e:0370:7334.<p>Truncation will be silently
- *  performed on addresses which are not properly truncated. For example,
- *  1.2.3.4/24 is accepted as the same address as 1.2.3.0/24. Similarly, for
- *  IPv6, 2001:db8::1/32 is accepted as the same address as 2001:db8::/32.
+ *  192.168.0.0/16 or 2001:db8::/32 or 2001:0db8:0000:0042:0000:8a2e:0370:7334.
+ *  Truncation will be silently performed on addresses which are not properly
+ *  truncated. For example, 1.2.3.4/24 is accepted as the same address as
+ *  1.2.3.0/24. Similarly, for IPv6, 2001:db8::1/32 is accepted as the same
+ *  address as 2001:db8::/32.
  */
 @property(nonatomic, copy, nullable) NSString *sourceRange;
 
@@ -2228,18 +2260,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Google Cloud Platform sub-network where the virtual machines are created.
  *  Specify the short name, not the resource path.If a subnetwork name is
  *  specified, a network name will also be required unless it is for the default
- *  network.
- *  If the network that the instance is being created in is a Legacy network,
- *  then the IP address is allocated from the IPv4Range.
- *  If the network that the instance is being created in is an auto Subnet Mode
- *  Network, then only network name should be specified (not the
- *  subnetwork_name) and the IP address is created from the IPCidrRange of the
- *  subnetwork that exists in that zone for that network.
- *  If the network that the instance is being created in is a custom Subnet Mode
- *  Network, then the subnetwork_name must be specified and the IP address is
- *  created from the IPCidrRange of the subnetwork.If specified, the subnetwork
- *  must exist in the same region as the App Engine flexible environment
- *  application.
+ *  network. If the network that the instance is being created in is a Legacy
+ *  network, then the IP address is allocated from the IPv4Range. If the network
+ *  that the instance is being created in is an auto Subnet Mode Network, then
+ *  only network name should be specified (not the subnetwork_name) and the IP
+ *  address is created from the IPCidrRange of the subnetwork that exists in
+ *  that zone for that network. If the network that the instance is being
+ *  created in is a custom Subnet Mode Network, then the subnetwork_name must be
+ *  specified and the IP address is created from the IPCidrRange of the
+ *  subnetwork.If specified, the subnetwork must exist in the same region as the
+ *  App Engine flexible environment application.
  */
 @property(nonatomic, copy, nullable) NSString *subnetworkName;
 
@@ -2610,6 +2640,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *diskGb;
+
+/**
+ *  The name of the encryption key that is stored in Google Cloud KMS. Only
+ *  should be used by Cloud Composer to encrypt the vm disk
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyReference;
 
 /**
  *  Memory (GB) needed.
@@ -3102,6 +3138,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_Version_BetaSettings *betaSettings;
 
+/**
+ *  Environment variables available to the build environment.Only returned in
+ *  GET requests if view=FULL is set.
+ */
+@property(nonatomic, strong, nullable) GTLRAppengine_Version_BuildEnvVariables *buildEnvVariables;
+
 /** Email address of the user who created this version.\@OutputOnly */
 @property(nonatomic, copy, nullable) NSString *createdBy;
 
@@ -3188,9 +3230,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  Instance class that is used to run this version. Valid values are:
- *  AutomaticScaling: F1, F2, F4, F4_1G
- *  ManualScaling or BasicScaling: B1, B2, B4, B8, B4_1GDefaults to F1 for
- *  AutomaticScaling and B1 for ManualScaling or BasicScaling.
+ *  AutomaticScaling: F1, F2, F4, F4_1G ManualScaling or BasicScaling: B1, B2,
+ *  B4, B8, B4_1GDefaults to F1 for AutomaticScaling and B1 for ManualScaling or
+ *  BasicScaling.
  */
 @property(nonatomic, copy, nullable) NSString *instanceClass;
 
@@ -3251,7 +3293,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  The version of the API in the given runtime environment. Please see the
  *  app.yaml reference for valid values at
- *  https://cloud.google.com/appengine/docs/standard/<language>/config/appref
+ *  https://cloud.google.com/appengine/docs/standard//config/appref
  */
 @property(nonatomic, copy, nullable) NSString *runtimeApiVersion;
 
@@ -3327,6 +3369,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
+ *  Environment variables available to the build environment.Only returned in
+ *  GET requests if view=FULL is set.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAppengine_Version_BuildEnvVariables : GTLRObject
+@end
+
+
+/**
  *  Environment variables available to the application.Only returned in GET
  *  requests if view=FULL is set.
  *
@@ -3391,8 +3446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  URL of the zip file to deploy from. Must be a URL to a resource in Google
- *  Cloud Storage in the form
- *  'http(s)://storage.googleapis.com/<bucket>/<object>'.
+ *  Cloud Storage in the form 'http(s)://storage.googleapis.com//'.
  */
 @property(nonatomic, copy, nullable) NSString *sourceUrl;
 

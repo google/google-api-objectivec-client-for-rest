@@ -225,10 +225,14 @@
 @class GTLRCompute_InstanceGroupManagerAutoHealingPolicy;
 @class GTLRCompute_InstanceGroupManagerList_Warning;
 @class GTLRCompute_InstanceGroupManagerList_Warning_Data_Item;
+@class GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning;
+@class GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Data_Item;
 @class GTLRCompute_InstanceGroupManagersScopedList;
 @class GTLRCompute_InstanceGroupManagersScopedList_Warning;
 @class GTLRCompute_InstanceGroupManagersScopedList_Warning_Data_Item;
 @class GTLRCompute_InstanceGroupManagerStatus;
+@class GTLRCompute_InstanceGroupManagerStatusStateful;
+@class GTLRCompute_InstanceGroupManagerStatusStatefulPerInstanceConfigs;
 @class GTLRCompute_InstanceGroupManagerStatusVersionTarget;
 @class GTLRCompute_InstanceGroupManagerUpdatePolicy;
 @class GTLRCompute_InstanceGroupManagerVersion;
@@ -283,6 +287,7 @@
 @class GTLRCompute_InterconnectOutageNotification;
 @class GTLRCompute_License;
 @class GTLRCompute_LicenseCodeLicenseAlias;
+@class GTLRCompute_LicenseResourceCommitment;
 @class GTLRCompute_LicenseResourceRequirements;
 @class GTLRCompute_LicensesListResponse_Warning;
 @class GTLRCompute_LicensesListResponse_Warning_Data_Item;
@@ -321,6 +326,9 @@
 @class GTLRCompute_NetworkEndpointGroupAggregatedList_Items;
 @class GTLRCompute_NetworkEndpointGroupAggregatedList_Warning;
 @class GTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Data_Item;
+@class GTLRCompute_NetworkEndpointGroupAppEngine;
+@class GTLRCompute_NetworkEndpointGroupCloudFunction;
+@class GTLRCompute_NetworkEndpointGroupCloudRun;
 @class GTLRCompute_NetworkEndpointGroupList_Warning;
 @class GTLRCompute_NetworkEndpointGroupList_Warning_Data_Item;
 @class GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning;
@@ -405,6 +413,10 @@
 @class GTLRCompute_PerInstanceConfig;
 @class GTLRCompute_Policy;
 @class GTLRCompute_PreconfiguredWafSet;
+@class GTLRCompute_PreservedState;
+@class GTLRCompute_PreservedState_Disks;
+@class GTLRCompute_PreservedState_Metadata;
+@class GTLRCompute_PreservedStatePreservedDisk;
 @class GTLRCompute_Project;
 @class GTLRCompute_Quota;
 @class GTLRCompute_Reference;
@@ -417,6 +429,8 @@
 @class GTLRCompute_RegionInstanceGroupList_Warning_Data_Item;
 @class GTLRCompute_RegionInstanceGroupManagerList_Warning;
 @class GTLRCompute_RegionInstanceGroupManagerList_Warning_Data_Item;
+@class GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning;
+@class GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Data_Item;
 @class GTLRCompute_RegionInstanceGroupsListInstances_Warning;
 @class GTLRCompute_RegionInstanceGroupsListInstances_Warning_Data_Item;
 @class GTLRCompute_RegionList_Warning;
@@ -515,6 +529,10 @@
 @class GTLRCompute_SslPolicy;
 @class GTLRCompute_SslPolicy_Warnings_Item;
 @class GTLRCompute_SslPolicy_Warnings_Item_Data_Item;
+@class GTLRCompute_StatefulPolicy;
+@class GTLRCompute_StatefulPolicyPreservedState;
+@class GTLRCompute_StatefulPolicyPreservedState_Disks;
+@class GTLRCompute_StatefulPolicyPreservedStateDiskDevice;
 @class GTLRCompute_Subnetwork;
 @class GTLRCompute_SubnetworkAggregatedList_Items;
 @class GTLRCompute_SubnetworkAggregatedList_Warning;
@@ -848,6 +866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_DnsResolver;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_GceEndpoint;
 /** Value: "NAT_AUTO" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_NatAuto;
+/** Value: "SHARED_LOADBALANCER_VIP" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_SharedLoadbalancerVip;
 /** Value: "VPC_PEERING" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Address_Purpose_VpcPeering;
 
@@ -1588,6 +1608,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_Commitment.category
+
+/** Value: "CATEGORY_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Category_CategoryUnspecified;
+/** Value: "LICENSE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Category_License;
+/** Value: "MACHINE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Commitment_Category_Machine;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Commitment.plan
@@ -3374,6 +3404,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdate
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_InstanceGroupManagersScopedList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -4592,6 +4672,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndp
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetFqdnPort;
 /** Value: "INTERNET_IP_PORT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetIpPort;
+/** Value: "NON_GCP_PRIVATE_IP_PORT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_NonGcpPrivateIpPort;
+/** Value: "SERVERLESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_Serverless;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkEndpointGroupAggregatedList_Warning.code
@@ -5004,6 +5088,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_Undec
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_NodeGroupNode.cpuOvercommitType
+
+/** Value: "CPU_OVERCOMMIT_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupNode_CpuOvercommitType_CpuOvercommitTypeUnspecified;
+/** Value: "ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupNode_CpuOvercommitType_Enabled;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupNode_CpuOvercommitType_None;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_NodeGroupNode.status
 
 /** Value: "CREATING" */
@@ -5116,6 +5210,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_NodeTemplate.cpuOvercommitType
+
+/** Value: "CPU_OVERCOMMIT_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplate_CpuOvercommitType_CpuOvercommitTypeUnspecified;
+/** Value: "ENABLED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplate_CpuOvercommitType_Enabled;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplate_CpuOvercommitType_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NodeTemplate.status
@@ -5848,6 +5952,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_PerInstanceConfig.status
+
+/** Value: "APPLYING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_Applying;
+/** Value: "DELETING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_Deleting;
+/** Value: "EFFECTIVE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_Effective;
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_None;
+/** Value: "UNAPPLIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_Unapplied;
+/** Value: "UNAPPLIED_DELETION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PerInstanceConfig_Status_UnappliedDeletion;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_PreservedStatePreservedDisk.autoDelete
+
+/** Value: "NEVER" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PreservedStatePreservedDisk_AutoDelete_Never;
+/** Value: "ON_PERMANENT_INSTANCE_DELETION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PreservedStatePreservedDisk_AutoDelete_OnPermanentInstanceDeletion;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_PreservedStatePreservedDisk.mode
+
+/** Value: "READ_ONLY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PreservedStatePreservedDisk_Mode_ReadOnly;
+/** Value: "READ_WRITE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PreservedStatePreservedDisk_Mode_ReadWrite;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_Project.defaultNetworkTier
 
 /** Value: "PREMIUM" */
@@ -5924,6 +6060,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CpusAllRegions;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_DisksTotalGb;
 /** Value: "EXTERNAL_NETWORK_LB_FORWARDING_RULES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalNetworkLbForwardingRules;
+/** Value: "EXTERNAL_PROTOCOL_FORWARDING_RULES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalProtocolForwardingRules;
 /** Value: "EXTERNAL_VPN_GATEWAYS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ExternalVpnGateways;
 /** Value: "FIREWALLS" */
@@ -6316,6 +6454,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApply
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Replace;
 /** Value: "RESTART" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest_MostDisruptiveAllowedAction_Restart;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning.code
+
+/** Value: "CLEANUP_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_CleanupFailed;
+/** Value: "DEPRECATED_RESOURCE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_DeprecatedResourceUsed;
+/** Value: "DEPRECATED_TYPE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_DeprecatedTypeUsed;
+/** Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_DiskSizeLargerThanImageSize;
+/** Value: "EXPERIMENTAL_TYPE_USED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ExperimentalTypeUsed;
+/** Value: "EXTERNAL_API_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ExternalApiWarning;
+/** Value: "FIELD_VALUE_OVERRIDEN" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_FieldValueOverriden;
+/** Value: "INJECTED_KERNELS_DEPRECATED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "MISSING_TYPE_DEPENDENCY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_MissingTypeDependency;
+/** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopAddressNotAssigned;
+/** Value: "NEXT_HOP_CANNOT_IP_FORWARD" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopCannotIpForward;
+/** Value: "NEXT_HOP_INSTANCE_NOT_FOUND" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopInstanceNotFound;
+/** Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopInstanceNotOnNetwork;
+/** Value: "NEXT_HOP_NOT_RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopNotRunning;
+/** Value: "NO_RESULTS_ON_PAGE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NoResultsOnPage;
+/** Value: "NOT_CRITICAL_ERROR" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NotCriticalError;
+/** Value: "REQUIRED_TOS_AGREEMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_RequiredTosAgreement;
+/** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ResourceInUseByOtherResourceWarning;
+/** Value: "RESOURCE_NOT_DELETED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ResourceNotDeleted;
+/** Value: "SCHEMA_VALIDATION_IGNORED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_SchemaValidationIgnored;
+/** Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_SingleInstancePropertyTemplate;
+/** Value: "UNDECLARED_PROPERTIES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_UndeclaredProperties;
+/** Value: "UNREACHABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_RegionInstanceGroupsListInstances_Warning.code
@@ -7662,6 +7850,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Sin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_StatefulPolicyPreservedStateDiskDevice.autoDelete
+
+/** Value: "NEVER" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_StatefulPolicyPreservedStateDiskDevice_AutoDelete_Never;
+/** Value: "ON_PERMANENT_INSTANCE_DELETION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_StatefulPolicyPreservedStateDiskDevice_AutoDelete_OnPermanentInstanceDeletion;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Subnetwork.privateIpv6GoogleAccess
@@ -10222,6 +10418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Address_Purpose_DnsResolver Value "DNS_RESOLVER"
  *    @arg @c kGTLRCompute_Address_Purpose_GceEndpoint Value "GCE_ENDPOINT"
  *    @arg @c kGTLRCompute_Address_Purpose_NatAuto Value "NAT_AUTO"
+ *    @arg @c kGTLRCompute_Address_Purpose_SharedLoadbalancerVip Value
+ *        "SHARED_LOADBALANCER_VIP"
  *    @arg @c kGTLRCompute_Address_Purpose_VpcPeering Value "VPC_PEERING"
  */
 @property(nonatomic, copy, nullable) NSString *purpose;
@@ -12378,6 +12576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  If set to 0, the cookie is non-persistent and lasts only until the end of
  *  the browser session (or equivalent). The maximum allowed value is one day
  *  (86,400).
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12397,6 +12597,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
  *  - A global backend service with the load_balancing_scheme set to
  *  INTERNAL_SELF_MANAGED.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_CircuitBreakers *circuitBreakers;
 
@@ -12415,6 +12617,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
  *  - A global backend service with the load_balancing_scheme set to
  *  INTERNAL_SELF_MANAGED.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_ConsistentHashLoadBalancerSettings *consistentHash;
 
@@ -12465,10 +12669,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The list of URLs to the healthChecks, httpHealthChecks (legacy), or
  *  httpsHealthChecks (legacy) resource for health checking this backend
  *  service. Not all backend services support legacy health checks. See Load
- *  balancer guide. Currently at most one health check can be specified. Backend
- *  services with instance group or zonal NEG backends must have a health check.
- *  Backend services with internet NEG backends must not have a health check. A
- *  health check must
+ *  balancer guide. Currently, at most one health check can be specified for
+ *  each backend service. Backend services with instance group or zonal NEG
+ *  backends must have a health check. Backend services with internet or
+ *  serverless NEG backends must not have a health check.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *healthChecks;
 
@@ -12538,8 +12742,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
  *  - A global backend service with the load_balancing_scheme set to
  *  INTERNAL_SELF_MANAGED.
- *  If sessionAffinity is not NONE, and this field is not set to >MAGLEV or
+ *  If sessionAffinity is not NONE, and this field is not set to MAGLEV or
  *  RING_HASH, session affinity settings will not take effect.
+ *  Only the default ROUND_ROBIN policy is supported when the backend service is
+ *  referenced by a URL map that is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_LocalityLbPolicy_InvalidLbPolicy Value
@@ -12590,6 +12797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
  *  - A global backend service with the load_balancing_scheme set to
  *  INTERNAL_SELF_MANAGED.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_OutlierDetection *outlierDetection;
 
@@ -12617,10 +12826,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The protocol this BackendService uses to communicate with backends.
- *  Possible values are HTTP, HTTPS, HTTP2, TCP, SSL, or UDP. depending on the
- *  chosen load balancer or Traffic Director configuration. Refer to the
+ *  Possible values are HTTP, HTTPS, HTTP2, TCP, SSL, UDP or GRPC. depending on
+ *  the chosen load balancer or Traffic Director configuration. Refer to the
  *  documentation for the load balancer or for Traffic Director for more
  *  information.
+ *  Must be set to GRPC when the backend service is referenced by a URL map that
+ *  is bound to target gRPC proxy.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_Protocol_Grpc Value "GRPC"
@@ -12661,6 +12872,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  When the loadBalancingScheme is INTERNAL_SELF_MANAGED, or INTERNAL_MANAGED,
  *  possible values are NONE, CLIENT_IP, GENERATED_COOKIE, HEADER_FIELD, or
  *  HTTP_COOKIE.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_SessionAffinity_ClientIp Value
@@ -13450,6 +13663,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_Commitment : GTLRObject
 
+/**
+ *  The category of the commitment. Category MACHINE specifies commitments
+ *  composed of machine resources such as VCPU or MEMORY, listed in resources.
+ *  Category LICENSE specifies commitments composed of software licenses, listed
+ *  in licenseResources. Note that only MACHINE commitments should have a Type
+ *  specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_Commitment_Category_CategoryUnspecified Value
+ *        "CATEGORY_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_Commitment_Category_License Value "LICENSE"
+ *    @arg @c kGTLRCompute_Commitment_Category_Machine Value "MACHINE"
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -13479,6 +13707,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  commitments.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** The license specification required as part of a license commitment. */
+@property(nonatomic, strong, nullable) GTLRCompute_LicenseResourceCommitment *licenseResource;
 
 /**
  *  Name of the resource. Provided by the client when the resource is created.
@@ -14123,7 +14354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a customer-supplied encryption key
+ *  GTLRCompute_CustomerEncryptionKey
  */
 @interface GTLRCompute_CustomerEncryptionKey : GTLRObject
 
@@ -14367,12 +14598,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  Size of the persistent disk, specified in GB. You can specify this field
- *  when creating a persistent disk using the sourceImage or sourceSnapshot
- *  parameter, or specify it alone to create an empty persistent disk.
- *  If you specify this field along with sourceImage or sourceSnapshot, the
- *  value of sizeGb must not be less than the size of the sourceImage or the
- *  size of the snapshot. Acceptable values are 1 to 65536, inclusive.
+ *  Size, in GB, of the persistent disk. You can specify this field when
+ *  creating a persistent disk using the sourceImage, sourceSnapshot, or
+ *  sourceDisk parameter, or specify it alone to create an empty persistent
+ *  disk.
+ *  If you specify this field along with a source, the value of sizeGb must not
+ *  be less than the size of the source. Acceptable values are 1 to 65536,
+ *  inclusive.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16666,6 +16898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  of IP address that you can use. For detailed information, refer to [IP
  *  address
  *  specifications](/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
+ *  Must be set to `0.0.0.0` when the target is targetGrpcProxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, copy, nullable) NSString *IPAddress;
 
@@ -16755,15 +16989,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Opaque filter criteria used by Loadbalancer to restrict routing
  *  configuration to a limited set of xDS compliant clients. In their xDS
- *  requests to Loadbalancer, xDS clients present node metadata. If a match
- *  takes place, the relevant configuration is made available to those proxies.
+ *  requests to Loadbalancer, xDS clients present node metadata. When there is a
+ *  match, the relevant configuration is made available to those proxies.
  *  Otherwise, all the resources (e.g. TargetHttpProxy, UrlMap) referenced by
  *  the ForwardingRule will not be visible to those proxies.
  *  For each metadataFilter in this list, if its filterMatchCriteria is set to
  *  MATCH_ANY, at least one of the filterLabels must match the corresponding
  *  label provided in the metadata. If its filterMatchCriteria is set to
  *  MATCH_ALL, then all of its filterLabels must match with corresponding labels
- *  provided in the metadata.
+ *  provided in the metadata. If multiple metadataFilters are specified, all of
+ *  them need to be satisfied in order to be considered a match.
  *  metadataFilters specified here will be applifed before those specified in
  *  the UrlMap that this ForwardingRule references.
  *  metadataFilters only applies to Loadbalancers that have their
@@ -16810,7 +17045,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  that points to a target proxy or a target pool. Do not use with a forwarding
  *  rule that points to a backend service. This field is used along with the
  *  target field for TargetHttpProxy, TargetHttpsProxy, TargetSslProxy,
- *  TargetTcpProxy, TargetVpnGateway, TargetPool, TargetInstance.
+ *  TargetTcpProxy, TargetGrpcProxy, TargetVpnGateway, TargetPool,
+ *  TargetInstance.
  *  Applicable only when IPProtocol is TCP, UDP, or SCTP, only packets addressed
  *  to ports in the specified range will be forwarded to target. Forwarding
  *  rules with the same [IPAddress, IPProtocol] pair must have disjoint port
@@ -16818,6 +17054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Some types of forwarding target have constraints on the acceptable ports:
  *  - TargetHttpProxy: 80, 8080
  *  - TargetHttpsProxy: 443
+ *  - TargetGrpcProxy: Any ports
  *  - TargetTcpProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 1688,
  *  1883, 5222
  *  - TargetSslProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 1688,
@@ -16889,7 +17126,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  rule. For global forwarding rules, this target must be a global load
  *  balancing resource. The forwarded traffic must be of a type appropriate to
  *  the target object. For INTERNAL_SELF_MANAGED load balancing, only
- *  targetHttpProxy is valid, not targetHttpsProxy.
+ *  targetHttpProxy and targetGrpcProxy are valid, not targetHttpsProxy.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -18470,6 +18707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  optional port numbers in the format host:port. * matches any string of
  *  ([a-z0-9-.]*). In that case, * must be the first character and must be
  *  followed in the pattern by either - or ..
+ *  * based matching is not supported when the URL map is bound to target gRPC
+ *  proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *hosts;
 
@@ -19348,9 +19587,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The headerAction specified here are applied before the matching
  *  pathMatchers[].headerAction and after
  *  pathMatchers[].routeRules[].routeAction.weightedBackendService.backendServiceWeightAction[].headerAction
+ *  Note that headerAction is not supported for Loadbalancers that have their
+ *  loadBalancingScheme set to EXTERNAL.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
+/**
+ *  The list of criteria for matching attributes of a request to this routeRule.
+ *  This list has OR semantics: the request matches this routeRule when any of
+ *  the matchRules are satisfied. However predicates within a given matchRule
+ *  have AND semantics. All predicates within a matchRule must match for the
+ *  request to match the rule.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpRouteRuleMatch *> *matchRules;
 
 /**
@@ -19379,6 +19627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  set, routeAction cannot contain any weightedBackendServices.
  *  Only one of urlRedirect, service or routeAction.weightedBackendService must
  *  be set.
+ *  UrlMaps for external HTTP(S) load balancers support only the urlRewrite
+ *  action within a routeRule's routeAction.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *routeAction;
 
@@ -19439,14 +19689,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Opaque filter criteria used by Loadbalancer to restrict routing
  *  configuration to a limited set of xDS compliant clients. In their xDS
- *  requests to Loadbalancer, xDS clients present node metadata. If a match
- *  takes place, the relevant routing configuration is made available to those
+ *  requests to Loadbalancer, xDS clients present node metadata. When there is a
+ *  match, the relevant routing configuration is made available to those
  *  proxies.
  *  For each metadataFilter in this list, if its filterMatchCriteria is set to
  *  MATCH_ANY, at least one of the filterLabels must match the corresponding
  *  label provided in the metadata. If its filterMatchCriteria is set to
  *  MATCH_ALL, then all of its filterLabels must match with corresponding labels
- *  provided in the metadata.
+ *  provided in the metadata. If multiple metadataFilters are specified, all of
+ *  them need to be satisfied in order to be considered a match.
  *  metadataFilters specified here will be applied after those specified in
  *  ForwardingRule that refers to the UrlMap this HttpRouteRuleMatch belongs to.
  *  metadataFilters only applies to Loadbalancers that have their
@@ -21149,6 +21400,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** Stateful configuration for this Instanced Group Manager */
+@property(nonatomic, strong, nullable) GTLRCompute_StatefulPolicy *statefulPolicy;
+
 /** [Output Only] The status of this managed instance group. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerStatus *status;
 
@@ -21696,6 +21950,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  InstanceGroupManagers.deletePerInstanceConfigs
+ */
+@interface GTLRCompute_InstanceGroupManagersDeletePerInstanceConfigsReq : GTLRObject
+
+/**
+ *  The list of instance names for which we want to delete per-instance configs
+ *  on this managed instance group.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
  *  GTLRCompute_InstanceGroupManagersListErrorsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -21751,6 +22019,146 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  continue paging through the results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp : GTLRCollectionObject
+
+/**
+ *  [Output Only] The list of PerInstanceConfig.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *items;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Data_Item
+ */
+@interface GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  InstanceGroupManagers.patchPerInstanceConfigs
+ */
+@interface GTLRCompute_InstanceGroupManagersPatchPerInstanceConfigsReq : GTLRObject
+
+/**
+ *  The list of per-instance configs to insert or patch on this managed instance
+ *  group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *perInstanceConfigs;
 
 @end
 
@@ -21949,11 +22357,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *isStable;
 
+/** [Output Only] Stateful status of the given Instance Group Manager. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerStatusStateful *stateful;
+
 /**
  *  [Output Only] A status of consistency of Instances' versions with their
  *  target version specified by version field on Instance Group Manager.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerStatusVersionTarget *versionTarget;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceGroupManagerStatusStateful
+ */
+@interface GTLRCompute_InstanceGroupManagerStatusStateful : GTLRObject
+
+/**
+ *  [Output Only] A bit indicating whether the managed instance group has
+ *  stateful configuration, that is, if you have configured any items in a
+ *  stateful policy or in per-instance configs. The group might report that it
+ *  has no stateful config even when there is still some preserved state on a
+ *  managed instance, for example, if you have deleted all PICs but not yet
+ *  applied those deletions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasStatefulConfig;
+
+/** [Output Only] Status of per-instance configs on the instance. */
+@property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerStatusStatefulPerInstanceConfigs *perInstanceConfigs;
+
+@end
+
+
+/**
+ *  GTLRCompute_InstanceGroupManagerStatusStatefulPerInstanceConfigs
+ */
+@interface GTLRCompute_InstanceGroupManagerStatusStatefulPerInstanceConfigs : GTLRObject
+
+/**
+ *  A bit indicating if all of the group's per-instance configs (listed in the
+ *  output of a listPerInstanceConfigs API call) have status EFFECTIVE or there
+ *  are no per-instance-configs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allEffective;
 
 @end
 
@@ -21972,6 +22423,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isReached;
+
+@end
+
+
+/**
+ *  InstanceGroupManagers.updatePerInstanceConfigs
+ */
+@interface GTLRCompute_InstanceGroupManagersUpdatePerInstanceConfigsReq : GTLRObject
+
+/**
+ *  The list of per-instance configs to insert or patch on this managed instance
+ *  group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *perInstanceConfigs;
 
 @end
 
@@ -25299,6 +25764,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Commitment for a particular license resource.
+ */
+@interface GTLRCompute_LicenseResourceCommitment : GTLRObject
+
+/**
+ *  The number of licenses purchased.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *amount;
+
+/**
+ *  Specifies the core range of the instance for which this license applies.
+ */
+@property(nonatomic, copy, nullable) NSString *coresPerLicense;
+
+/** Any applicable license URI. */
+@property(nonatomic, copy, nullable) NSString *license;
+
+@end
+
+
+/**
  *  GTLRCompute_LicenseResourceRequirements
  */
 @interface GTLRCompute_LicenseResourceRequirements : GTLRObject
@@ -25585,7 +26073,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
-/** [Output Only] The deprecation status associated with this machine type. */
+/**
+ *  [Output Only] The deprecation status associated with this machine type. Only
+ *  applicable if the machine type is unavailable.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_DeprecationStatus *deprecated;
 
 /**
@@ -26212,6 +26703,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) GTLRCompute_ManagedInstanceLastAttempt *lastAttempt;
 
+/**
+ *  [Output Only] Preserved state applied from per-instance config for this
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_PreservedState *preservedStateFromConfig;
+
+/**
+ *  [Output Only] Preserved state generated based on stateful policy for this
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_PreservedState *preservedStateFromPolicy;
+
 /** [Output Only] Intended version of this instance. */
 @property(nonatomic, strong, nullable) GTLRCompute_ManagedInstanceVersion *version;
 
@@ -26623,15 +27126,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Represents a collection of network endpoints.
  *  A network endpoint group (NEG) defines how a set of endpoints should be
  *  reached, whether they are reachable, and where they are located. For more
- *  information about using NEGs, see Setting up internet NEGs or Setting up
- *  zonal NEGs. (== resource_for {$api_version}.networkEndpointGroups ==) (==
- *  resource_for {$api_version}.globalNetworkEndpointGroups ==) (== resource_for
+ *  information about using NEGs, see Setting up internet NEGs, Setting up zonal
+ *  NEGs, or Setting up serverless NEGs. (== resource_for
+ *  {$api_version}.networkEndpointGroups ==) (== resource_for
+ *  {$api_version}.globalNetworkEndpointGroups ==) (== resource_for
  *  {$api_version}.regionNetworkEndpointGroups ==)
  */
 @interface GTLRCompute_NetworkEndpointGroup : GTLRObject
 
 /** Metadata defined as annotations on the network endpoint group. */
 @property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroup_Annotations *annotations;
+
+/**
+ *  Only valid when networkEndpointType is "SERVERLESS". Only one of cloudRun,
+ *  appEngine or cloudFunction may be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroupAppEngine *appEngine;
+
+/**
+ *  Only valid when networkEndpointType is "SERVERLESS". Only one of cloudRun,
+ *  appEngine or cloudFunction may be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroupCloudFunction *cloudFunction;
+
+/**
+ *  Only valid when networkEndpointType is "SERVERLESS". Only one of cloudRun,
+ *  appEngine or cloudFunction may be set.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroupCloudRun *cloudRun;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -26686,7 +27208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Type of network endpoints in this network endpoint group.
+ *  Type of network endpoints in this network endpoint group. Can be one of
+ *  GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_FQDN_PORT,
+ *  INTERNET_IP_PORT, or SERVERLESS.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIpPort
@@ -26695,8 +27219,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "INTERNET_FQDN_PORT"
  *    @arg @c kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_InternetIpPort
  *        Value "INTERNET_IP_PORT"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_NonGcpPrivateIpPort
+ *        Value "NON_GCP_PRIVATE_IP_PORT"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_Serverless
+ *        Value "SERVERLESS"
  */
 @property(nonatomic, copy, nullable) NSString *networkEndpointType;
+
+/**
+ *  [Output Only] The URL of the region where the network endpoint group is
+ *  located.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -26879,6 +27413,112 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Configuration for an App Engine network endpoint group (NEG). The service is
+ *  optional, may be provided explicitly or in the URL mask. The version is
+ *  optional and can only be provided explicitly or in the URL mask when service
+ *  is present.
+ *  Note: App Engine service must be in the same project and located in the same
+ *  region as the Serverless NEG.
+ */
+@interface GTLRCompute_NetworkEndpointGroupAppEngine : GTLRObject
+
+/**
+ *  Optional serving service.
+ *  The service name must be 1-63 characters long, and comply with RFC1035.
+ *  Example value: "default", "my-service".
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  A template to parse service and version fields from a request URL. URL mask
+ *  allows for routing to multiple App Engine services without having to create
+ *  multiple Network Endpoint Groups and backend services.
+ *  For example, the request URLs "foo1-dot-appname.appspot.com/v1" and
+ *  "foo1-dot-appname.appspot.com/v2" can be backed by the same Serverless NEG
+ *  with URL mask "-dot-appname.appspot.com/". The URL mask will parse them to {
+ *  service = "foo1", version = "v1" } and { service = "foo1", version = "v2" }
+ *  respectively.
+ */
+@property(nonatomic, copy, nullable) NSString *urlMask;
+
+/**
+ *  Optional serving version.
+ *  The version must be 1-63 characters long, and comply with RFC1035.
+ *  Example value: "v1", "v2".
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for a Cloud Function network endpoint group (NEG). The
+ *  function must be provided explicitly or in the URL mask.
+ *  Note: Cloud Function must be in the same project and located in the same
+ *  region as the Serverless NEG.
+ */
+@interface GTLRCompute_NetworkEndpointGroupCloudFunction : GTLRObject
+
+/**
+ *  A user-defined name of the Cloud Function.
+ *  The function name is case-sensitive and must be 1-63 characters long.
+ *  Example value: "func1".
+ */
+@property(nonatomic, copy, nullable) NSString *function;
+
+/**
+ *  A template to parse function field from a request URL. URL mask allows for
+ *  routing to multiple Cloud Functions without having to create multiple
+ *  Network Endpoint Groups and backend services.
+ *  For example, request URLs "mydomain.com/function1" and
+ *  "mydomain.com/function2" can be backed by the same Serverless NEG with URL
+ *  mask "/". The URL mask will parse them to { function = "function1" } and {
+ *  function = "function2" } respectively.
+ */
+@property(nonatomic, copy, nullable) NSString *urlMask;
+
+@end
+
+
+/**
+ *  Configuration for a Cloud Run network endpoint group (NEG). The service must
+ *  be provided explicitly or in the URL mask. The tag is optional, may be
+ *  provided explicitly or in the URL mask.
+ *  Note: Cloud Run service must be in the same project and located in the same
+ *  region as the Serverless NEG.
+ */
+@interface GTLRCompute_NetworkEndpointGroupCloudRun : GTLRObject
+
+/**
+ *  Cloud Run service is the main resource of Cloud Run.
+ *  The service must be 1-63 characters long, and comply with RFC1035.
+ *  Example value: "run-service".
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Optional Cloud Run tag represents the "named-revision" to provide additional
+ *  fine-grained traffic routing information.
+ *  The tag must be 1-63 characters long, and comply with RFC1035.
+ *  Example value: "revision-0010".
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+/**
+ *  A template to parse service and tag fields from a request URL. URL mask
+ *  allows for routing to multiple Run services without having to create
+ *  multiple network endpoint groups and backend services.
+ *  For example, request URLs "foo1.domain.com/bar1" and "foo1.domain.com/bar2"
+ *  can be backed by the same Serverless Network Endpoint Group (NEG) with URL
+ *  mask ".domain.com/". The URL mask will parse them to { service="bar1",
+ *  tag="foo1" } and { service="bar2", tag="foo2" } respectively.
+ */
+@property(nonatomic, copy, nullable) NSString *urlMask;
 
 @end
 
@@ -27794,7 +28434,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Specifies how to handle instances when a node in the group undergoes
- *  maintenance.
+ *  maintenance. Set to one of: DEFAULT, RESTART_IN_PLACE, or
+ *  MIGRATE_WITHIN_NODE_GROUP. The default value is DEFAULT. For more
+ *  information, see Maintenance policies.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_NodeGroup_MaintenancePolicy_Default Value "DEFAULT"
@@ -28017,7 +28659,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *minNodes;
 
 /**
- *  The autoscaling mode.
+ *  The autoscaling mode. Set to one of: ON, OFF, or ONLY_SCALE_OUT. For more
+ *  information, see Autoscaler modes.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_NodeGroupAutoscalingPolicy_Mode_ModeUnspecified Value
@@ -28178,6 +28821,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  GTLRCompute_NodeGroupNode
  */
 @interface GTLRCompute_NodeGroupNode : GTLRObject
+
+/**
+ *  CPU overcommit.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NodeGroupNode_CpuOvercommitType_CpuOvercommitTypeUnspecified
+ *        Value "CPU_OVERCOMMIT_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_NodeGroupNode_CpuOvercommitType_Enabled Value
+ *        "ENABLED"
+ *    @arg @c kGTLRCompute_NodeGroupNode_CpuOvercommitType_None Value "NONE"
+ */
+@property(nonatomic, copy, nullable) NSString *cpuOvercommitType;
 
 /** Instances scheduled on this node. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
@@ -28509,6 +29164,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  {$api_version}.nodeTemplates ==)
  */
 @interface GTLRCompute_NodeTemplate : GTLRObject
+
+/**
+ *  CPU overcommit.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NodeTemplate_CpuOvercommitType_CpuOvercommitTypeUnspecified
+ *        Value "CPU_OVERCOMMIT_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_NodeTemplate_CpuOvercommitType_Enabled Value
+ *        "ENABLED"
+ *    @arg @c kGTLRCompute_NodeTemplate_CpuOvercommitType_None Value "NONE"
+ */
+@property(nonatomic, copy, nullable) NSString *cpuOvercommitType;
 
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
@@ -31206,6 +31873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Only one of defaultRouteAction or defaultUrlRedirect must be set.
  *  UrlMaps for external HTTP(S) load balancers support only the urlRewrite
  *  action within a pathMatcher's defaultRouteAction.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *defaultRouteAction;
 
@@ -31228,6 +31897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  on the specified resource default_service:
  *  - compute.backendBuckets.use
  *  - compute.backendServices.use
+ *  pathMatchers[].defaultService is the only option available when the URL map
+ *  is bound to target gRPC proxy that has validateForProxyless field set to
+ *  true.
  */
 @property(nonatomic, copy, nullable) NSString *defaultService;
 
@@ -31236,6 +31908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  redirected to a URL specified by defaultUrlRedirect.
  *  If defaultUrlRedirect is specified, defaultService or defaultRouteAction
  *  must not be set.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *defaultUrlRedirect;
 
@@ -31252,6 +31926,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  for the selected backendService.
  *  HeaderAction specified here are applied after the matching HttpRouteRule
  *  HeaderAction and before the HeaderAction in the UrlMap
+ *  Note that headerAction is not supported for Loadbalancers that have their
+ *  loadBalancingScheme set to EXTERNAL.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
@@ -31266,6 +31944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  For example: a pathRule with a path /a/b/c/ * will match before /a/b/ *
  *  irrespective of the order in which those paths appear in this list.
  *  Within a given pathMatcher, only one of pathRules or routeRules must be set.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PathRule *> *pathRules;
 
@@ -31274,6 +31954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  advanced route matching and routing actions are desired. routeRules are
  *  evaluated in order of priority, from the lowest to highest number.
  *  Within a given pathMatcher, you can set only one of pathRules or routeRules.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpRouteRule *> *routeRules;
 
@@ -31354,6 +32036,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  doesn't exist or is not part of the group will result in an error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The intended preserved state for the given instance. Does not contain
+ *  preserved state generated from a stateful policy.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_PreservedState *preservedState;
+
+/**
+ *  The status of applying this per-instance config on the corresponding managed
+ *  instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PerInstanceConfig_Status_Applying Value "APPLYING"
+ *    @arg @c kGTLRCompute_PerInstanceConfig_Status_Deleting Value "DELETING"
+ *    @arg @c kGTLRCompute_PerInstanceConfig_Status_Effective Value "EFFECTIVE"
+ *    @arg @c kGTLRCompute_PerInstanceConfig_Status_None Value "NONE"
+ *    @arg @c kGTLRCompute_PerInstanceConfig_Status_Unapplied Value "UNAPPLIED"
+ *    @arg @c kGTLRCompute_PerInstanceConfig_Status_UnappliedDeletion Value
+ *        "UNAPPLIED_DELETION"
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 @end
 
@@ -31481,6 +32184,90 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Preserved state for a given instance.
+ */
+@interface GTLRCompute_PreservedState : GTLRObject
+
+/**
+ *  Preserved disks defined for this instance. This map is keyed with the device
+ *  names of the disks.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_PreservedState_Disks *disks;
+
+/** Preserved metadata defined for this instance. */
+@property(nonatomic, strong, nullable) GTLRCompute_PreservedState_Metadata *metadata;
+
+@end
+
+
+/**
+ *  Preserved disks defined for this instance. This map is keyed with the device
+ *  names of the disks.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_PreservedStatePreservedDisk. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRCompute_PreservedState_Disks : GTLRObject
+@end
+
+
+/**
+ *  Preserved metadata defined for this instance.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_PreservedState_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRCompute_PreservedStatePreservedDisk
+ */
+@interface GTLRCompute_PreservedStatePreservedDisk : GTLRObject
+
+/**
+ *  These stateful disks will never be deleted during autohealing, update,
+ *  instance recreate operations. This flag is used to configure if the disk
+ *  should be deleted after it is no longer used by the group, e.g. when the
+ *  given instance or the whole MIG is deleted. Note: disks attached in
+ *  READ_ONLY mode cannot be auto-deleted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PreservedStatePreservedDisk_AutoDelete_Never Value
+ *        "NEVER"
+ *    @arg @c kGTLRCompute_PreservedStatePreservedDisk_AutoDelete_OnPermanentInstanceDeletion
+ *        Value "ON_PERMANENT_INSTANCE_DELETION"
+ */
+@property(nonatomic, copy, nullable) NSString *autoDelete;
+
+/**
+ *  The mode in which to attach this disk, either READ_WRITE or READ_ONLY. If
+ *  not specified, the default is to attach the disk in READ_WRITE mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PreservedStatePreservedDisk_Mode_ReadOnly Value
+ *        "READ_ONLY"
+ *    @arg @c kGTLRCompute_PreservedStatePreservedDisk_Mode_ReadWrite Value
+ *        "READ_WRITE"
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  The URL of the disk resource that is stateful and should be attached to the
+ *  VM instance.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
  *  Represents a Project resource.
  *  A project is used to organize resources in a Google Cloud Platform
  *  environment. For more information, read about the Resource Hierarchy. (==
@@ -31559,7 +32346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  [Output Only] The role this project has in a shared VPC configuration.
- *  Currently only HOST projects are differentiated.
+ *  Currently, only projects with the host role, which is specified by the value
+ *  HOST, are differentiated.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Project_XpnProjectStatus_Host Value "HOST"
@@ -31719,6 +32507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_DisksTotalGb Value "DISKS_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_ExternalNetworkLbForwardingRules Value
  *        "EXTERNAL_NETWORK_LB_FORWARDING_RULES"
+ *    @arg @c kGTLRCompute_Quota_Metric_ExternalProtocolForwardingRules Value
+ *        "EXTERNAL_PROTOCOL_FORWARDING_RULES"
  *    @arg @c kGTLRCompute_Quota_Metric_ExternalVpnGateways Value
  *        "EXTERNAL_VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_Firewalls Value "FIREWALLS"
@@ -32406,6 +33196,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  RegionInstanceGroupManagers.deletePerInstanceConfigs
+ */
+@interface GTLRCompute_RegionInstanceGroupManagerDeleteInstanceConfigReq : GTLRObject
+
+/**
+ *  The list of instance names for which we want to delete per-instance configs
+ *  on this managed instance group.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
  *  Contains a list of managed instance groups.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -32549,6 +33353,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  RegionInstanceGroupManagers.patchPerInstanceConfigs
+ */
+@interface GTLRCompute_RegionInstanceGroupManagerPatchInstanceConfigReq : GTLRObject
+
+/**
+ *  The list of per-instance configs to insert or patch on this managed instance
+ *  group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *perInstanceConfigs;
+
+@end
+
+
+/**
  *  GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest
  */
 @interface GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest : GTLRObject
@@ -32563,7 +33381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  InstanceGroupManagers.applyUpdatesToInstances
+ *  RegionInstanceGroupManagers.applyUpdatesToInstances
  */
 @interface GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest : GTLRObject
 
@@ -32677,6 +33495,132 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp : GTLRCollectionObject
+
+/**
+ *  [Output Only] The list of PerInstanceConfig.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *items;
+
+/**
+ *  [Output Only] This token allows you to get the next page of results for list
+ *  requests. If the number of results is larger than maxResults, use the
+ *  nextPageToken as a value for the query parameter pageToken in the next list
+ *  request. Subsequent list requests will have their own nextPageToken to
+ *  continue paging through the results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** [Output Only] Informational warning message. */
+@property(nonatomic, strong, nullable) GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning *warning;
+
+@end
+
+
+/**
+ *  [Output Only] Informational warning message.
+ */
+@interface GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning : GTLRObject
+
+/**
+ *  [Output Only] A warning code, if applicable. For example, Compute Engine
+ *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_CleanupFailed
+ *        Value "CLEANUP_FAILED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_DeprecatedResourceUsed
+ *        Value "DEPRECATED_RESOURCE_USED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_DeprecatedTypeUsed
+ *        Value "DEPRECATED_TYPE_USED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_DiskSizeLargerThanImageSize
+ *        Value "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ExperimentalTypeUsed
+ *        Value "EXPERIMENTAL_TYPE_USED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ExternalApiWarning
+ *        Value "EXTERNAL_API_WARNING"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_FieldValueOverriden
+ *        Value "FIELD_VALUE_OVERRIDEN"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated
+ *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_MissingTypeDependency
+ *        Value "MISSING_TYPE_DEPENDENCY"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopAddressNotAssigned
+ *        Value "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopCannotIpForward
+ *        Value "NEXT_HOP_CANNOT_IP_FORWARD"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopInstanceNotFound
+ *        Value "NEXT_HOP_INSTANCE_NOT_FOUND"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopInstanceNotOnNetwork
+ *        Value "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopNotRunning
+ *        Value "NEXT_HOP_NOT_RUNNING"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NoResultsOnPage
+ *        Value "NO_RESULTS_ON_PAGE"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NotCriticalError
+ *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_RequiredTosAgreement
+ *        Value "REQUIRED_TOS_AGREEMENT"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ResourceInUseByOtherResourceWarning
+ *        Value "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ResourceNotDeleted
+ *        Value "RESOURCE_NOT_DELETED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_SchemaValidationIgnored
+ *        Value "SCHEMA_VALIDATION_IGNORED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_SingleInstancePropertyTemplate
+ *        Value "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_UndeclaredProperties
+ *        Value "UNDECLARED_PROPERTIES"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_Unreachable
+ *        Value "UNREACHABLE"
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output Only] Metadata about this warning in key: value format. For example:
+ *  "data": [ { "key": "scope", "value": "zones/us-east1-d" }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Data_Item *> *data;
+
+/** [Output Only] A human-readable description of the warning code. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Data_Item
+ */
+@interface GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Data_Item : GTLRObject
+
+/**
+ *  [Output Only] A key that provides more detail on the warning being returned.
+ *  For example, for warnings where there are no results in a list request for a
+ *  particular zone, this key might be scope and the key value might be the zone
+ *  name. Other examples might be a key indicating a deprecated resource and a
+ *  suggested replacement, or a warning about invalid network settings (for
+ *  example, if an instance attempts to perform IP forwarding but is not enabled
+ *  for IP forwarding).
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** [Output Only] A warning data value corresponding to the key. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  GTLRCompute_RegionInstanceGroupManagersListInstancesResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -32755,6 +33699,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  created.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
+
+@end
+
+
+/**
+ *  RegionInstanceGroupManagers.updatePerInstanceConfigs
+ */
+@interface GTLRCompute_RegionInstanceGroupManagerUpdateInstanceConfigReq : GTLRObject
+
+/**
+ *  The list of per-instance configs to insert or patch on this managed instance
+ *  group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_PerInstanceConfig *> *perInstanceConfigs;
 
 @end
 
@@ -35959,6 +36917,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *automaticRestart;
 
 /**
+ *  The minimum number of virtual CPUs this instance will consume when running
+ *  on a sole-tenant node.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCpus;
+
+/**
  *  A set of node affinity and anti-affinity configurations. Refer to
  *  Configuring node affinity for more information. Overrides
  *  reservationAffinity.
@@ -36017,6 +36983,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** Corresponds to the label values of Node resource. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  An instance's screenshot.
+ */
+@interface GTLRCompute_Screenshot : GTLRObject
+
+/** [Output Only] The Base64-encoded screenshot data. */
+@property(nonatomic, copy, nullable) NSString *contents;
+
+/**
+ *  [Output Only] Type of the resource. Always compute#screenshot for the
+ *  screenshots.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -36357,7 +37340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_SecurityPolicyRuleMatcherConfig : GTLRObject
 
-/** CIDR IP address range. */
+/** CIDR IP address range. Maximum number of src_ip_ranges allowed is 10. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcIpRanges;
 
 @end
@@ -37911,6 +38894,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_StatefulPolicy
+ */
+@interface GTLRCompute_StatefulPolicy : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRCompute_StatefulPolicyPreservedState *preservedState;
+
+@end
+
+
+/**
+ *  Configuration of preserved resources.
+ */
+@interface GTLRCompute_StatefulPolicyPreservedState : GTLRObject
+
+/**
+ *  Disks created on the instances that will be preserved on instance delete,
+ *  update, etc. This map is keyed with the device names of the disks.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_StatefulPolicyPreservedState_Disks *disks;
+
+@end
+
+
+/**
+ *  Disks created on the instances that will be preserved on instance delete,
+ *  update, etc. This map is keyed with the device names of the disks.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCompute_StatefulPolicyPreservedStateDiskDevice. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCompute_StatefulPolicyPreservedState_Disks : GTLRObject
+@end
+
+
+/**
+ *  GTLRCompute_StatefulPolicyPreservedStateDiskDevice
+ */
+@interface GTLRCompute_StatefulPolicyPreservedStateDiskDevice : GTLRObject
+
+/**
+ *  These stateful disks will never be deleted during autohealing, update or VM
+ *  instance recreate operations. This flag is used to configure if the disk
+ *  should be deleted after it is no longer used by the group, e.g. when the
+ *  given instance or the whole group is deleted. Note: disks attached in
+ *  READ_ONLY mode cannot be auto-deleted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_StatefulPolicyPreservedStateDiskDevice_AutoDelete_Never
+ *        Value "NEVER"
+ *    @arg @c kGTLRCompute_StatefulPolicyPreservedStateDiskDevice_AutoDelete_OnPermanentInstanceDeletion
+ *        Value "ON_PERMANENT_INSTANCE_DELETION"
+ */
+@property(nonatomic, copy, nullable) NSString *autoDelete;
+
+@end
+
+
+/**
  *  Represents a Subnetwork resource.
  *  A subnetwork (also known as a subnet) is a logical partition of a Virtual
  *  Private Cloud network with one primary IP range and zero or more secondary
@@ -38668,7 +39712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  A target gRPC proxy is a component of load balancers intended for load
  *  balancing gRPC traffic. Global forwarding rules reference a target gRPC
  *  proxy. The Target gRPC Proxy references a URL map which specifies how
- *  traffic routes to gRPC backend services.
+ *  traffic routes to gRPC backend services. (== resource_for
+ *  {$api_version}.targetGrpcProxies ==)
  */
 @interface GTLRCompute_TargetGrpcProxy : GTLRObject
 
@@ -38740,12 +39785,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  If true, indicates that the BackendServices referenced by the urlMap may be
  *  accessed by gRPC applications without using a sidecar proxy. This will
  *  enable configuration checks on urlMap and its referenced BackendServices to
- *  not allow unsupported features. A gRPC application must use
- *  "xds-experimental:///" scheme in the target URI of the service it is
- *  connecting to. If false, indicates that the BackendServices referenced by
- *  the urlMap will be accessed by gRPC applications via a sidecar proxy. In
- *  this case, a gRPC application must not use "xds-experimental:///" scheme in
- *  the target URI of the service it is connecting to
+ *  not allow unsupported features. A gRPC application must use "xds:///" scheme
+ *  in the target URI of the service it is connecting to. If false, indicates
+ *  that the BackendServices referenced by the urlMap will be accessed by gRPC
+ *  applications via a sidecar proxy. In this case, a gRPC application must not
+ *  use "xds:///" scheme in the target URI of the service it is connecting to
  *
  *  Uses NSNumber of boolValue.
  */
@@ -40341,7 +41385,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The URL of the HttpHealthCheck resource. A member instance in this pool is
  *  considered healthy if and only if the health checks pass. An empty list
  *  means all member instances will be considered healthy at all times. Only
- *  HttpHealthChecks are supported. Only one health check may be specified.
+ *  legacy HttpHealthChecks are supported. Only one health check may be
+ *  specified.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *healthChecks;
 
@@ -42001,6 +43046,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Traffic Director.
  *  * urlMaps are used by external HTTP(S) load balancers and Traffic Director.
  *  * regionUrlMaps are used by internal HTTP(S) load balancers.
+ *  For a list of supported URL map features by load balancer type, see the Load
+ *  balancing features: Routing and traffic management table.
+ *  For a list of supported URL map features for Traffic Director, see the
+ *  Traffic Director features: Routing and traffic management table.
  *  This resource defines mappings from host names and URL paths to either a
  *  backend service or a backend bucket.
  *  To use the global urlMaps resource, the backend service must have a
@@ -42023,6 +43072,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Only one of defaultRouteAction or defaultUrlRedirect must be set.
  *  UrlMaps for external HTTP(S) load balancers support only the urlRewrite
  *  action within defaultRouteAction.
+ *  defaultRouteAction has no effect when the backend service is referenced by a
+ *  URL map that is bound to target gRPC proxy that has validateForProxyless
+ *  field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *defaultRouteAction;
 
@@ -42036,6 +43088,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  weightedBackendServices, service must not be specified.
  *  Only one of defaultService, defaultUrlRedirect or
  *  defaultRouteAction.weightedBackendService must be set.
+ *  defaultService has no effect when the backend service is referenced by a URL
+ *  map that is bound to target gRPC proxy that has validateForProxyless field
+ *  set to true.
  */
 @property(nonatomic, copy, nullable) NSString *defaultService;
 
@@ -42044,6 +43099,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  URL specified by defaultUrlRedirect.
  *  If defaultUrlRedirect is specified, defaultService or defaultRouteAction
  *  must not be set.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *defaultUrlRedirect;
 
@@ -42073,6 +43130,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  for the selected backendService.
  *  The headerAction specified here take effect after headerAction specified
  *  under pathMatcher.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
@@ -42123,6 +43182,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The list of expected URL mapping tests. Request to update this UrlMap will
  *  succeed only if all of the test cases pass. You can specify a maximum of 100
  *  tests per UrlMap.
+ *  Not supported when the backend service is referenced by a URL map that is
+ *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_UrlMapTest *> *tests;
 

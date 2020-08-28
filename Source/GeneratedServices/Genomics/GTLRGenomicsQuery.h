@@ -40,15 +40,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Starts asynchronous cancellation on a long-running operation.
- *  The server makes a best effort to cancel the operation, but success is not
- *  guaranteed. Clients may use Operations.GetOperation
- *  or Operations.ListOperations
- *  to check whether the cancellation succeeded or the operation completed
- *  despite cancellation.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `genomics.operations.cancel`
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  Clients may use Operations.GetOperation or Operations.ListOperations to
+ *  check whether the cancellation succeeded or the operation completed despite
+ *  cancellation. Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission: *
+ *  `genomics.operations.cancel`
  *
  *  Method: genomics.operations.cancel
  *
@@ -66,15 +64,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGenomics_Empty.
  *
- *  Starts asynchronous cancellation on a long-running operation.
- *  The server makes a best effort to cancel the operation, but success is not
- *  guaranteed. Clients may use Operations.GetOperation
- *  or Operations.ListOperations
- *  to check whether the cancellation succeeded or the operation completed
- *  despite cancellation.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `genomics.operations.cancel`
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  Clients may use Operations.GetOperation or Operations.ListOperations to
+ *  check whether the cancellation succeeded or the operation completed despite
+ *  cancellation. Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission: *
+ *  `genomics.operations.cancel`
  *
  *  @param object The @c GTLRGenomics_CancelOperationRequest to include in the
  *    query.
@@ -88,12 +84,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the latest state of a long-running operation.
- *  Clients can use this method to poll the operation result at intervals as
- *  recommended by the API service.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `genomics.operations.get`
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service. Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission: * `genomics.operations.get`
  *
  *  Method: genomics.operations.get
  *
@@ -111,12 +105,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGenomics_Operation.
  *
- *  Gets the latest state of a long-running operation.
- *  Clients can use this method to poll the operation result at intervals as
- *  recommended by the API service.
- *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `genomics.operations.get`
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service. Authorization requires the following [Google
+ *  IAM](https://cloud.google.com/iam) permission: * `genomics.operations.get`
  *
  *  @param name The name of the operation resource.
  *
@@ -129,8 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Lists operations that match the specified filter in the request.
  *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `genomics.operations.list`
+ *  IAM](https://cloud.google.com/iam) permission: * `genomics.operations.list`
  *
  *  Method: genomics.operations.list
  *
@@ -143,32 +134,24 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGenomics queryForOperationsListWithname:]
 
 /**
- *  A string for filtering Operations.
- *  In v2alpha1, the following filter fields are supported&#58;
- *  * createTime&#58; The time this job was created
- *  * events&#58; The set of event (names) that have occurred while running
- *  the pipeline. The &#58; operator can be used to determine if a
- *  particular event has occurred.
- *  * error&#58; If the pipeline is running, this value is NULL. Once the
- *  pipeline finishes, the value is the standard Google error code.
- *  * labels.key or labels."key with space" where key is a label key.
- *  * done&#58; If the pipeline is running, this value is false. Once the
- *  pipeline finishes, the value is true.
- *  In v1 and v1alpha2, the following filter fields are supported&#58;
- *  * projectId&#58; Required. Corresponds to
- *  OperationMetadata.projectId.
- *  * createTime&#58; The time this job was created, in seconds from the
+ *  A string for filtering Operations. In v2alpha1, the following filter fields
+ *  are supported: * createTime: The time this job was created * events: The set
+ *  of event (names) that have occurred while running the pipeline. The :
+ *  operator can be used to determine if a particular event has occurred. *
+ *  error: If the pipeline is running, this value is NULL. Once the pipeline
+ *  finishes, the value is the standard Google error code. * labels.key or
+ *  labels."key with space" where key is a label key. * done: If the pipeline is
+ *  running, this value is false. Once the pipeline finishes, the value is true.
+ *  In v1 and v1alpha2, the following filter fields are supported: * projectId:
+ *  Required. Corresponds to OperationMetadata.projectId. * createTime: The time
+ *  this job was created, in seconds from the
  *  [epoch](http://en.wikipedia.org/wiki/Unix_time). Can use `>=` and/or `<=`
- *  operators.
- *  * status&#58; Can be `RUNNING`, `SUCCESS`, `FAILURE`, or `CANCELED`. Only
- *  one status may be specified.
- *  * labels.key where key is a label key.
- *  Examples&#58;
- *  * `projectId = my-project AND createTime >= 1432140000`
- *  * `projectId = my-project AND createTime >= 1432140000 AND createTime <=
- *  1432150000 AND status = RUNNING`
- *  * `projectId = my-project AND labels.color = *`
- *  * `projectId = my-project AND labels.color = red`
+ *  operators. * status: Can be `RUNNING`, `SUCCESS`, `FAILURE`, or `CANCELED`.
+ *  Only one status may be specified. * labels.key where key is a label key.
+ *  Examples: * `projectId = my-project AND createTime >= 1432140000` *
+ *  `projectId = my-project AND createTime >= 1432140000 AND createTime <=
+ *  1432150000 AND status = RUNNING` * `projectId = my-project AND labels.color
+ *  = *` * `projectId = my-project AND labels.color = red`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -186,8 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists operations that match the specified filter in the request.
  *  Authorization requires the following [Google
- *  IAM](https://cloud.google.com/iam) permission&#58;
- *  * `genomics.operations.list`
+ *  IAM](https://cloud.google.com/iam) permission: * `genomics.operations.list`
  *
  *  @param name The name of the operation's parent resource.
  *

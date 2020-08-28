@@ -41,8 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Synthesizes speech synchronously: receive results after all text input
- *  has been processed.
+ *  Synthesizes speech synchronously: receive results after all text input has
+ *  been processed.
  *
  *  Method: texttospeech.text.synthesize
  *
@@ -56,8 +56,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTexttospeech_SynthesizeSpeechResponse.
  *
- *  Synthesizes speech synchronously: receive results after all text input
- *  has been processed.
+ *  Synthesizes speech synchronously: receive results after all text input has
+ *  been processed.
  *
  *  @param object The @c GTLRTexttospeech_SynthesizeSpeechRequest to include in
  *    the query.
@@ -85,10 +85,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag. If
  *  specified, the ListVoices call will only return voices that can be used to
  *  synthesize this language_code. E.g. when specifying "en-NZ", you will get
- *  supported "en-*" voices; when specifying "no", you will get supported
- *  "no-*" (Norwegian) and "nb-*" (Norwegian Bokmal) voices; specifying "zh"
- *  will also get supported "cmn-*" voices; specifying "zh-hk" will also get
- *  supported "yue-*" voices.
+ *  supported "en-\\*" voices; when specifying "no", you will get supported
+ *  "no-\\*" (Norwegian) and "nb-\\*" (Norwegian Bokmal) voices; specifying "zh"
+ *  will also get supported "cmn-\\*" voices; specifying "zh-hk" will also get
+ *  supported "yue-\\*" voices.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 

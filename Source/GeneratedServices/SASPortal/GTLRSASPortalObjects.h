@@ -68,8 +68,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Device_State_DeviceStateUnspec
  */
 FOUNDATION_EXTERN NSString * const kGTLRSASPortal_Device_State_Registered;
 /**
- *  Device created in the SAS Portal, however, not yet registered
- *  with SAS.
+ *  Device created in the SAS Portal, however, not yet registered with SAS.
  *
  *  Value: "RESERVED"
  */
@@ -213,12 +212,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_Assignment : GTLRObject
 
 /**
- *  The identities the role is assigned to. It can have the following
- *  values:
- *  * `{user_email}`: An email address that represents a specific
- *  Google account. For example: `alice\@gmail.com`.
- *  * `{group_email}`: An email address that represents a Google
- *  group. For example, `viewers\@gmail.com`.
+ *  The identities the role is assigned to. It can have the following values: *
+ *  `{user_email}`: An email address that represents a specific Google account.
+ *  For example: `alice\@gmail.com`. * `{group_email}`: An email address that
+ *  represents a Google group. For example, `viewers\@gmail.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -234,8 +231,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_BulkCreateDeviceRequest : GTLRObject
 
 /**
- *  Required. A csv with each row representing a [device]. Each row must
- *  conform to the regulations described on CreateDeviceRequest's device field.
+ *  Required. A csv with each row representing a [device]. Each row must conform
+ *  to the regulations described on CreateDeviceRequest's device field.
  */
 @property(nonatomic, copy, nullable) NSString *csv;
 
@@ -259,8 +256,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_CreateSignedDeviceRequest : GTLRObject
 
 /**
- *  Required. JSON Web Token signed using a CPI private key. Payload
- *  must be the JSON encoding of the [Device]. The user_id field must be set.
+ *  Required. JSON Web Token signed using a CPI private key. Payload must be the
+ *  JSON encoding of the [Device]. The user_id field must be set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -324,10 +321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 /** Configuration of the device, as specified via SAS Portal API. */
 @property(nonatomic, strong, nullable) GTLRSASPortal_DeviceConfig *preloadedConfig;
 
-/**
- *  A serial number assigned to the device by the device
- *  manufacturer.
- */
+/** A serial number assigned to the device by the device manufacturer. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
 /**
@@ -341,8 +335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *    @arg @c kGTLRSASPortal_Device_State_Registered Device registered with SAS.
  *        (Value: "REGISTERED")
  *    @arg @c kGTLRSASPortal_Device_State_Reserved Device created in the SAS
- *        Portal, however, not yet registered
- *        with SAS. (Value: "RESERVED")
+ *        Portal, however, not yet registered with SAS. (Value: "RESERVED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -381,8 +374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 /**
  *  This field is related to the radioTechnology field and provides the air
  *  interface specification that the CBSD is compliant with at the time of
- *  registration.
- *  Optional
+ *  registration. Optional
  */
 @property(nonatomic, copy, nullable) NSString *supportedSpec;
 
@@ -450,9 +442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
- *  Device grant. It is an authorization provided by the Spectrum
- *  Access System to a device to transmit using specified operating
- *  parameters after a successful heartbeat by the device.
+ *  Device grant. It is an authorization provided by the Spectrum Access System
+ *  to a device to transmit using specified operating parameters after a
+ *  successful heartbeat by the device.
  */
 @interface GTLRSASPortal_DeviceGrant : GTLRObject
 
@@ -475,11 +467,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 /** The transmission frequency range. */
 @property(nonatomic, strong, nullable) GTLRSASPortal_FrequencyRange *frequencyRange;
 
+/** Grant Id. */
+@property(nonatomic, copy, nullable) NSString *grantId;
+
 /**
- *  Maximum Equivalent Isotropically Radiated Power (EIRP) permitted
- *  by the grant. The maximum EIRP is in units of dBm/MHz. The
- *  value of maxEirp represents the average (RMS) EIRP that would be
- *  measured by the procedure defined in FCC part 96.41(e)(3).
+ *  Maximum Equivalent Isotropically Radiated Power (EIRP) permitted by the
+ *  grant. The maximum EIRP is in units of dBm/MHz. The value of maxEirp
+ *  represents the average (RMS) EIRP that would be measured by the procedure
+ *  defined in FCC part 96.41(e)(3).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -561,11 +556,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRSASPortal_Empty : GTLRObject
 @end
@@ -607,8 +600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_GenerateSecretResponse : GTLRObject
 
 /**
- *  The secret generated by the string and used by
- *  [ValidateInstaller] method.
+ *  The secret generated by the string and used by [ValidateInstaller] method.
  */
 @property(nonatomic, copy, nullable) NSString *secret;
 
@@ -632,49 +624,47 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_InstallationParams : GTLRObject
 
 /**
- *  Boresight direction of the horizontal plane of the antenna in
- *  degrees with respect to true north. The value of this parameter
- *  is an integer with a value between 0 and 359 inclusive. A value
- *  of 0 degrees means true north; a value of 90 degrees means
- *  east. This parameter is optional for Category A devices and
- *  conditional for Category B devices.
+ *  Boresight direction of the horizontal plane of the antenna in degrees with
+ *  respect to true north. The value of this parameter is an integer with a
+ *  value between 0 and 359 inclusive. A value of 0 degrees means true north; a
+ *  value of 90 degrees means east. This parameter is optional for Category A
+ *  devices and conditional for Category B devices.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *antennaAzimuth;
 
 /**
- *  3-dB antenna beamwidth of the antenna in the horizontal-plane in
- *  degrees. This parameter is an unsigned integer having a value
- *  between 0 and 360 (degrees) inclusive; it is optional for
- *  Category A devices and conditional for Category B devices.
+ *  3-dB antenna beamwidth of the antenna in the horizontal-plane in degrees.
+ *  This parameter is an unsigned integer having a value between 0 and 360
+ *  (degrees) inclusive; it is optional for Category A devices and conditional
+ *  for Category B devices.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *antennaBeamwidth;
 
 /**
- *  Antenna downtilt in degrees and is an integer with a value
- *  between -90 and +90 inclusive; a negative value means the antenna
- *  is tilted up (above horizontal). This parameter is optional for
- *  Category A devices and conditional for Category B devices.
+ *  Antenna downtilt in degrees and is an integer with a value between -90 and
+ *  +90 inclusive; a negative value means the antenna is tilted up (above
+ *  horizontal). This parameter is optional for Category A devices and
+ *  conditional for Category B devices.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *antennaDowntilt;
 
 /**
- *  Peak antenna gain in dBi. This parameter is an integer with a
- *  value between -127 and +128 (dBi) inclusive.
+ *  Peak antenna gain in dBi. This parameter is an integer with a value between
+ *  -127 and +128 (dBi) inclusive.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *antennaGain;
 
 /**
- *  If an external antenna is used, the antenna model is optionally
- *  provided in this field. The string has a maximum length of 128
- *  octets.
+ *  If an external antenna is used, the antenna model is optionally provided in
+ *  this field. The string has a maximum length of 128 octets.
  */
 @property(nonatomic, copy, nullable) NSString *antennaModel;
 
@@ -686,20 +676,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSNumber *cpeCbsdIndication;
 
 /**
- *  This parameter is the maximum device EIRP in units of dBm/10MHz
- *  and is an integer with a value between -127 and +47 (dBm/10 MHz)
- *  inclusive. If not included, SAS interprets it as maximum
- *  allowable EIRP in units of dBm/10MHz for device category.
+ *  This parameter is the maximum device EIRP in units of dBm/10MHz and is an
+ *  integer with a value between -127 and +47 (dBm/10 MHz) inclusive. If not
+ *  included, SAS interprets it as maximum allowable EIRP in units of dBm/10MHz
+ *  for device category.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *eirpCapability;
 
 /**
- *  Device antenna height in meters. When the heightType parameter
- *  value is "AGL", the antenna height should be given relative to
- *  ground level. When the heightType parameter value is "AMSL", it
- *  is given with respect to WGS84 datum.
+ *  Device antenna height in meters. When the heightType parameter value is
+ *  "AGL", the antenna height should be given relative to ground level. When the
+ *  heightType parameter value is "AMSL", it is given with respect to WGS84
+ *  datum.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -721,49 +711,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, copy, nullable) NSString *heightType;
 
 /**
- *  A positive number in meters to indicate accuracy of the device
- *  antenna horizontal location. This optional parameter should only
- *  be present if its value is less than the FCC requirement of 50
- *  meters.
+ *  A positive number in meters to indicate accuracy of the device antenna
+ *  horizontal location. This optional parameter should only be present if its
+ *  value is less than the FCC requirement of 50 meters.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *horizontalAccuracy;
 
 /**
- *  Whether the device antenna is indoor or not. True: indoor. False:
- *  outdoor.
+ *  Whether the device antenna is indoor or not. True: indoor. False: outdoor.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *indoorDeployment;
 
 /**
- *  Latitude of the device antenna location in degrees relative to
- *  the WGS 84 datum. The allowed range is from -90.000000 to
- *  +90.000000. Positive values represent latitudes north of the
- *  equator; negative values south of the equator.
+ *  Latitude of the device antenna location in degrees relative to the WGS 84
+ *  datum. The allowed range is from -90.000000 to +90.000000. Positive values
+ *  represent latitudes north of the equator; negative values south of the
+ *  equator.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
- *  Longitude of the device antenna location. in degrees relative to
- *  the WGS 84 datum. The allowed range is from -180.000000 to
- *  +180.000000. Positive values represent longitudes east of the
- *  prime meridian; negative values west of the prime
- *  meridian.
+ *  Longitude of the device antenna location. in degrees relative to the WGS 84
+ *  datum. The allowed range is from -180.000000 to +180.000000. Positive values
+ *  represent longitudes east of the prime meridian; negative values west of the
+ *  prime meridian.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *longitude;
 
 /**
- *  A positive number in meters to indicate accuracy of the device
- *  antenna vertical location. This optional parameter should only be
- *  present if its value is less than the FCC requirement of 3
- *  meters.
+ *  A positive number in meters to indicate accuracy of the device antenna
+ *  vertical location. This optional parameter should only be present if its
+ *  value is less than the FCC requirement of 3 meters.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -783,8 +769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_ListCustomersResponse : GTLRCollectionObject
 
 /**
- *  The list of customers that
- *  match the request.
+ *  The list of customers that match the request.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -793,9 +778,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 /**
  *  A pagination token returned from a previous call to ListCustomers method
- *  that indicates from
- *  where listing should continue. If the field is missing or empty, it means
- *  there are no more customers.
+ *  that indicates from where listing should continue. If the field is missing
+ *  or empty, it means there are no more customers.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -821,9 +805,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Device *> *devices;
 
 /**
- *  A pagination token returned from a previous call to ListDevices method
- *  that indicates from where listing should continue. If the field
- *  is missing or empty, it means there is no more devices.
+ *  A pagination token returned from a previous call to ListDevices method that
+ *  indicates from where listing should continue. If the field is missing or
+ *  empty, it means there is no more devices.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -841,10 +825,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_ListNodesResponse : GTLRCollectionObject
 
 /**
- *  A pagination token returned from a previous call to
- *  ListNodes method
- *  that indicates from where listing should continue. If the field is missing
- *  or empty, it means there is no more nodes.
+ *  A pagination token returned from a previous call to ListNodes method that
+ *  indicates from where listing should continue. If the field is missing or
+ *  empty, it means there is no more nodes.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -865,8 +848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_MoveDeviceRequest : GTLRObject
 
 /**
- *  Required. The name of the new parent resource (Node or Customer) to
- *  reparent the device under.
+ *  Required. The name of the new parent resource (Node or Customer) to reparent
+ *  the device under.
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
@@ -911,8 +894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -924,16 +907,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRSASPortal_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -942,10 +925,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRSASPortal_Operation_Response *response;
 
@@ -954,8 +936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -972,10 +954,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -994,16 +975,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_Assignment *> *assignments;
 
 /**
- *  The [etag] is used for optimistic concurrency control as a way to
- *  help prevent simultaneous updates of a policy from overwriting
- *  each other. It is strongly suggested that systems make use of
- *  the [etag] in the read-modify-write cycle to perform policy
- *  updates in order to avoid race conditions: An [etag] is returned
- *  in the response to [GetPolicy], and systems are expected to put
- *  that etag in the request to [SetPolicy] to ensure that their
- *  change will be applied to the same version of the policy.
- *  If no [etag] is provided in the call to [SetPolicy], then the
- *  existing policy is overwritten blindly.
+ *  The [etag] is used for optimistic concurrency control as a way to help
+ *  prevent simultaneous updates of a policy from overwriting each other. It is
+ *  strongly suggested that systems make use of the [etag] in the
+ *  read-modify-write cycle to perform policy updates in order to avoid race
+ *  conditions: An [etag] is returned in the response to [GetPolicy], and
+ *  systems are expected to put that etag in the request to [SetPolicy] to
+ *  ensure that their change will be applied to the same version of the policy.
+ *  If no [etag] is provided in the call to [SetPolicy], then the existing
+ *  policy is overwritten blindly.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1036,9 +1016,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_SignDeviceRequest : GTLRObject
 
 /**
- *  Required. The device to sign.
- *  The device fields name, fcc_id and serial_number must be set.
- *  The user_id field must be set.
+ *  Required. The device to sign. The device fields name, fcc_id and
+ *  serial_number must be set. The user_id field must be set.
  */
 @property(nonatomic, strong, nullable) GTLRSASPortal_Device *device;
 
@@ -1049,9 +1028,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRSASPortal_Status : GTLRObject
 
@@ -1121,9 +1100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_UpdateSignedDeviceRequest : GTLRObject
 
 /**
- *  Required. The JSON Web Token signed using a CPI private key. Payload
- *  must be the JSON encoding
- *  of the device. The user_id field must be set.
+ *  Required. The JSON Web Token signed using a CPI private key. Payload must be
+ *  the JSON encoding of the device. The user_id field must be set.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1145,14 +1123,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 @interface GTLRSASPortal_ValidateInstallerRequest : GTLRObject
 
 /**
- *  Required. JSON Web Token signed using a CPI private key. Payload
- *  must include a "secret" claim whose value is the secret.
+ *  Required. JSON Web Token signed using a CPI private key. Payload must
+ *  include a "secret" claim whose value is the secret.
  */
 @property(nonatomic, copy, nullable) NSString *encodedSecret;
 
 /**
- *  Required. Unique installer id (cpiId) from the Certified
- *  Professional Installers database.
+ *  Required. Unique installer id (cpiId) from the Certified Professional
+ *  Installers database.
  */
 @property(nonatomic, copy, nullable) NSString *installerId;
 

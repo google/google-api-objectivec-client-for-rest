@@ -3416,6 +3416,43 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_InstanceGroupManagersDeletePerInstanceConfigs
+
+@dynamic instanceGroupManager, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersDeletePerInstanceConfigsReq *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deletePerInstanceConfigs";
+  GTLRComputeQuery_InstanceGroupManagersDeletePerInstanceConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instanceGroupManagers.deletePerInstanceConfigs";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstanceGroupManagersGet
 
 @dynamic instanceGroupManager, project, zoneProperty;
@@ -3567,6 +3604,36 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_InstanceGroupManagersListPerInstanceConfigs
+
+@dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
+         zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+            instanceGroupManager:(NSString *)instanceGroupManager {
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listPerInstanceConfigs";
+  GTLRComputeQuery_InstanceGroupManagersListPerInstanceConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp class];
+  query.loggingName = @"compute.instanceGroupManagers.listPerInstanceConfigs";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstanceGroupManagersPatch
 
 @dynamic instanceGroupManager, project, requestId, zoneProperty;
@@ -3599,6 +3666,43 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.instanceGroupManager = instanceGroupManager;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.instanceGroupManagers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstanceGroupManagersPatchPerInstanceConfigs
+
+@dynamic instanceGroupManager, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersPatchPerInstanceConfigsReq *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/patchPerInstanceConfigs";
+  GTLRComputeQuery_InstanceGroupManagersPatchPerInstanceConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instanceGroupManagers.patchPerInstanceConfigs";
   return query;
 }
 
@@ -3741,6 +3845,43 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.instanceGroupManager = instanceGroupManager;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.instanceGroupManagers.setTargetPools";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstanceGroupManagersUpdatePerInstanceConfigs
+
+@dynamic instanceGroupManager, project, requestId, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagersUpdatePerInstanceConfigsReq *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updatePerInstanceConfigs";
+  GTLRComputeQuery_InstanceGroupManagersUpdatePerInstanceConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.instanceGroupManagers.updatePerInstanceConfigs";
   return query;
 }
 
@@ -4342,6 +4483,35 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.resource = resource;
   query.expectedObjectClass = [GTLRCompute_Policy class];
   query.loggingName = @"compute.instances.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_InstancesGetScreenshot
+
+@dynamic instance, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/screenshot";
+  GTLRComputeQuery_InstancesGetScreenshot *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRCompute_Screenshot class];
+  query.loggingName = @"compute.instances.getScreenshot";
   return query;
 }
 
@@ -9274,6 +9444,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionInstanceGroupManagersDeletePerInstanceConfigs
+
+@dynamic instanceGroupManager, project, region;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagerDeleteInstanceConfigReq *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deletePerInstanceConfigs";
+  GTLRComputeQuery_RegionInstanceGroupManagersDeletePerInstanceConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionInstanceGroupManagers.deletePerInstanceConfigs";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersGet
 
 @dynamic instanceGroupManager, project, region;
@@ -9405,6 +9608,32 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionInstanceGroupManagersListPerInstanceConfigs
+
+@dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
+         region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager {
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listPerInstanceConfigs";
+  GTLRComputeQuery_RegionInstanceGroupManagersListPerInstanceConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp class];
+  query.loggingName = @"compute.regionInstanceGroupManagers.listPerInstanceConfigs";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersPatch
 
 @dynamic instanceGroupManager, project, region, requestId;
@@ -9433,6 +9662,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.instanceGroupManager = instanceGroupManager;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionInstanceGroupManagers.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionInstanceGroupManagersPatchPerInstanceConfigs
+
+@dynamic instanceGroupManager, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagerPatchInstanceConfigReq *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/patchPerInstanceConfigs";
+  GTLRComputeQuery_RegionInstanceGroupManagersPatchPerInstanceConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionInstanceGroupManagers.patchPerInstanceConfigs";
   return query;
 }
 
@@ -9564,6 +9826,39 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_RegionInstanceGroupManagersUpdatePerInstanceConfigs
+
+@dynamic instanceGroupManager, project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupManagerUpdateInstanceConfigReq *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instanceGroupManager", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/updatePerInstanceConfigs";
+  GTLRComputeQuery_RegionInstanceGroupManagersUpdatePerInstanceConfigs *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.instanceGroupManager = instanceGroupManager;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionInstanceGroupManagers.updatePerInstanceConfigs";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_RegionInstanceGroupsGet
 
 @dynamic instanceGroup, project, region;
@@ -9673,6 +9968,110 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.instanceGroup = instanceGroup;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.regionInstanceGroups.setNamedPorts";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkEndpointGroupsDelete
+
+@dynamic networkEndpointGroup, project, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            networkEndpointGroup:(NSString *)networkEndpointGroup {
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}";
+  GTLRComputeQuery_RegionNetworkEndpointGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkEndpointGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkEndpointGroupsGet
+
+@dynamic networkEndpointGroup, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            networkEndpointGroup:(NSString *)networkEndpointGroup {
+  NSArray *pathParams = @[
+    @"networkEndpointGroup", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}";
+  GTLRComputeQuery_RegionNetworkEndpointGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.networkEndpointGroup = networkEndpointGroup;
+  query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroup class];
+  query.loggingName = @"compute.regionNetworkEndpointGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkEndpointGroupsInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_NetworkEndpointGroup *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/networkEndpointGroups";
+  GTLRComputeQuery_RegionNetworkEndpointGroupsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.regionNetworkEndpointGroups.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_RegionNetworkEndpointGroupsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"{project}/regions/{region}/networkEndpointGroups";
+  GTLRComputeQuery_RegionNetworkEndpointGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_NetworkEndpointGroupList class];
+  query.loggingName = @"compute.regionNetworkEndpointGroups.list";
   return query;
 }
 

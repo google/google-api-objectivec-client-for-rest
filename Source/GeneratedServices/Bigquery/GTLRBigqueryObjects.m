@@ -2397,9 +2397,9 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_TrainingOptions
-@dynamic autoArima, batchSize, dataFrequency, dataSplitColumn,
-         dataSplitEvalFraction, dataSplitMethod, distanceType, dropout,
-         earlyStop, feedbackType, hiddenUnits, holidayRegion, horizon,
+@dynamic autoArima, autoArimaMaxOrder, batchSize, dataFrequency,
+         dataSplitColumn, dataSplitEvalFraction, dataSplitMethod, distanceType,
+         dropout, earlyStop, feedbackType, hiddenUnits, holidayRegion, horizon,
          includeDrift, initialLearnRate, inputLabelColumns, itemColumn,
          kmeansInitializationColumn, kmeansInitializationMethod,
          l1Regularization, l2Regularization, labelClassWeights, learnRate,

@@ -226,7 +226,8 @@ NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 @implementation GTLRTPU_Node
 @dynamic acceleratorType, cidrBlock, createTime, descriptionProperty, health,
          healthDescription, ipAddress, labels, name, network, networkEndpoints,
-         port, schedulingConfig, serviceAccount, state, tensorflowVersion;
+         port, schedulingConfig, serviceAccount, state, tensorflowVersion,
+         useServiceNetworking;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

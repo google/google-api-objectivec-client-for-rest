@@ -37,17 +37,41 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // environmentType
 
-/** Value: "ANDROID" */
+/**
+ *  A device running a version of the Android OS.
+ *
+ *  Value: "ANDROID"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeAndroid;
-/** Value: "DEVICE_IP_BLOCKS" */
+/**
+ *  The IP blocks used by devices in the test environment.
+ *
+ *  Value: "DEVICE_IP_BLOCKS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeDeviceIpBlocks;
-/** Value: "ENVIRONMENT_TYPE_UNSPECIFIED" */
+/**
+ *  Do not use. For proto versioning only.
+ *
+ *  Value: "ENVIRONMENT_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified;
-/** Value: "IOS" */
+/**
+ *  A device running a version of iOS.
+ *
+ *  Value: "IOS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeIos;
-/** Value: "NETWORK_CONFIGURATION" */
+/**
+ *  A network configuration to use when running a test.
+ *
+ *  Value: "NETWORK_CONFIGURATION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeNetworkConfiguration;
-/** Value: "PROVIDED_SOFTWARE" */
+/**
+ *  The software environment provided by TestExecutionService.
+ *
+ *  Value: "PROVIDED_SOFTWARE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 
 // ----------------------------------------------------------------------------
@@ -90,12 +114,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @end
 
 /**
- *  Cancels unfinished test executions in a test matrix.
- *  This call returns immediately and cancellation proceeds asychronously.
- *  If the matrix is already final, this operation will have no effect.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
+ *  Cancels unfinished test executions in a test matrix. This call returns
+ *  immediately and cancellation proceeds asynchronously. If the matrix is
+ *  already final, this operation will have no effect. May return any of the
+ *  following canonical error codes: - PERMISSION_DENIED - if the user is not
+ *  authorized to read project - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the Test Matrix does not exist
  *
  *  Method: testing.projects.testMatrices.cancel
@@ -116,12 +139,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 /**
  *  Fetches a @c GTLRTesting_CancelTestMatrixResponse.
  *
- *  Cancels unfinished test executions in a test matrix.
- *  This call returns immediately and cancellation proceeds asychronously.
- *  If the matrix is already final, this operation will have no effect.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
+ *  Cancels unfinished test executions in a test matrix. This call returns
+ *  immediately and cancellation proceeds asynchronously. If the matrix is
+ *  already final, this operation will have no effect. May return any of the
+ *  following canonical error codes: - PERMISSION_DENIED - if the user is not
+ *  authorized to read project - INVALID_ARGUMENT - if the request is malformed
  *  - NOT_FOUND - if the Test Matrix does not exist
  *
  *  @param projectId Cloud project that owns the test.
@@ -136,12 +158,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 
 /**
  *  Creates and runs a matrix of tests according to the given specifications.
- *  Unsupported environments will be returned in the state UNSUPPORTED.
- *  Matrices are limited to at most 200 supported executions.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
- *  - INVALID_ARGUMENT - if the request is malformed or if the matrix expands
- *  to more than 200 supported executions
+ *  Unsupported environments will be returned in the state UNSUPPORTED. Matrices
+ *  are limited to at most 200 supported executions. May return any of the
+ *  following canonical error codes: - PERMISSION_DENIED - if the user is not
+ *  authorized to write to project - INVALID_ARGUMENT - if the request is
+ *  malformed or if the matrix expands to more than 200 supported executions
  *
  *  Method: testing.projects.testMatrices.create
  *
@@ -156,11 +177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  A string id used to detect duplicated requests.
- *  Ids are automatically scoped to a project, so
- *  users should ensure the ID is unique per-project.
- *  A UUID is recommended.
- *  Optional, but strongly recommended.
+ *  A string id used to detect duplicated requests. Ids are automatically scoped
+ *  to a project, so users should ensure the ID is unique per-project. A UUID is
+ *  recommended. Optional, but strongly recommended.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -168,12 +187,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *  Fetches a @c GTLRTesting_TestMatrix.
  *
  *  Creates and runs a matrix of tests according to the given specifications.
- *  Unsupported environments will be returned in the state UNSUPPORTED.
- *  Matrices are limited to at most 200 supported executions.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to write to project
- *  - INVALID_ARGUMENT - if the request is malformed or if the matrix expands
- *  to more than 200 supported executions
+ *  Unsupported environments will be returned in the state UNSUPPORTED. Matrices
+ *  are limited to at most 200 supported executions. May return any of the
+ *  following canonical error codes: - PERMISSION_DENIED - if the user is not
+ *  authorized to write to project - INVALID_ARGUMENT - if the request is
+ *  malformed or if the matrix expands to more than 200 supported executions
  *
  *  @param object The @c GTLRTesting_TestMatrix to include in the query.
  *  @param projectId The GCE project under which this job will run.
@@ -186,11 +204,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @end
 
 /**
- *  Checks the status of a test matrix.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the Test Matrix does not exist
+ *  Checks the status of a test matrix. May return any of the following
+ *  canonical error codes: - PERMISSION_DENIED - if the user is not authorized
+ *  to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND
+ *  - if the Test Matrix does not exist
  *
  *  Method: testing.projects.testMatrices.get
  *
@@ -211,11 +228,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 /**
  *  Fetches a @c GTLRTesting_TestMatrix.
  *
- *  Checks the status of a test matrix.
- *  May return any of the following canonical error codes:
- *  - PERMISSION_DENIED - if the user is not authorized to read project
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the Test Matrix does not exist
+ *  Checks the status of a test matrix. May return any of the following
+ *  canonical error codes: - PERMISSION_DENIED - if the user is not authorized
+ *  to read project - INVALID_ARGUMENT - if the request is malformed - NOT_FOUND
+ *  - if the Test Matrix does not exist
  *
  *  @param projectId Cloud project that owns the test matrix.
  *  @param testMatrixId Unique test matrix id which was assigned by the service.
@@ -228,11 +244,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 @end
 
 /**
- *  Gets the catalog of supported test environments.
- *  May return any of the following canonical error codes:
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the environment type does not exist
- *  - INTERNAL - if an internal error occurred
+ *  Gets the catalog of supported test environments. May return any of the
+ *  following canonical error codes: - INVALID_ARGUMENT - if the request is
+ *  malformed - NOT_FOUND - if the environment type does not exist - INTERNAL -
+ *  if an internal error occurred
  *
  *  Method: testing.testEnvironmentCatalog.get
  *
@@ -248,15 +263,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *  Required. The type of environment that should be listed.
  *
  *  Likely values:
- *    @arg @c kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified Value
- *        "ENVIRONMENT_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRTestingEnvironmentTypeAndroid Value "ANDROID"
- *    @arg @c kGTLRTestingEnvironmentTypeIos Value "IOS"
- *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration Value
- *        "NETWORK_CONFIGURATION"
- *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware Value
- *        "PROVIDED_SOFTWARE"
- *    @arg @c kGTLRTestingEnvironmentTypeDeviceIpBlocks Value "DEVICE_IP_BLOCKS"
+ *    @arg @c kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified Do not use.
+ *        For proto versioning only. (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRTestingEnvironmentTypeAndroid A device running a version of
+ *        the Android OS. (Value: "ANDROID")
+ *    @arg @c kGTLRTestingEnvironmentTypeIos A device running a version of iOS.
+ *        (Value: "IOS")
+ *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration A network
+ *        configuration to use when running a test. (Value:
+ *        "NETWORK_CONFIGURATION")
+ *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware The software
+ *        environment provided by TestExecutionService. (Value:
+ *        "PROVIDED_SOFTWARE")
+ *    @arg @c kGTLRTestingEnvironmentTypeDeviceIpBlocks The IP blocks used by
+ *        devices in the test environment. (Value: "DEVICE_IP_BLOCKS")
  */
 @property(nonatomic, copy, nullable) NSString *environmentType;
 
@@ -268,25 +288,29 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
 /**
  *  Fetches a @c GTLRTesting_TestEnvironmentCatalog.
  *
- *  Gets the catalog of supported test environments.
- *  May return any of the following canonical error codes:
- *  - INVALID_ARGUMENT - if the request is malformed
- *  - NOT_FOUND - if the environment type does not exist
- *  - INTERNAL - if an internal error occurred
+ *  Gets the catalog of supported test environments. May return any of the
+ *  following canonical error codes: - INVALID_ARGUMENT - if the request is
+ *  malformed - NOT_FOUND - if the environment type does not exist - INTERNAL -
+ *  if an internal error occurred
  *
  *  @param environmentType Required. The type of environment that should be
  *    listed.
  *
  *  Likely values for @c environmentType:
- *    @arg @c kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified Value
- *        "ENVIRONMENT_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRTestingEnvironmentTypeAndroid Value "ANDROID"
- *    @arg @c kGTLRTestingEnvironmentTypeIos Value "IOS"
- *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration Value
- *        "NETWORK_CONFIGURATION"
- *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware Value
- *        "PROVIDED_SOFTWARE"
- *    @arg @c kGTLRTestingEnvironmentTypeDeviceIpBlocks Value "DEVICE_IP_BLOCKS"
+ *    @arg @c kGTLRTestingEnvironmentTypeEnvironmentTypeUnspecified Do not use.
+ *        For proto versioning only. (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRTestingEnvironmentTypeAndroid A device running a version of
+ *        the Android OS. (Value: "ANDROID")
+ *    @arg @c kGTLRTestingEnvironmentTypeIos A device running a version of iOS.
+ *        (Value: "IOS")
+ *    @arg @c kGTLRTestingEnvironmentTypeNetworkConfiguration A network
+ *        configuration to use when running a test. (Value:
+ *        "NETWORK_CONFIGURATION")
+ *    @arg @c kGTLRTestingEnvironmentTypeProvidedSoftware The software
+ *        environment provided by TestExecutionService. (Value:
+ *        "PROVIDED_SOFTWARE")
+ *    @arg @c kGTLRTestingEnvironmentTypeDeviceIpBlocks The IP blocks used by
+ *        devices in the test environment. (Value: "DEVICE_IP_BLOCKS")
  *
  *  @return GTLRTestingQuery_TestEnvironmentCatalogGet
  */

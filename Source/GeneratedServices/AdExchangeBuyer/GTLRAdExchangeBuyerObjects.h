@@ -57,6 +57,7 @@
 @class GTLRAdExchangeBuyer_MarketplaceDealParty;
 @class GTLRAdExchangeBuyer_MarketplaceLabel;
 @class GTLRAdExchangeBuyer_MarketplaceNote;
+@class GTLRAdExchangeBuyer_MobileApplication;
 @class GTLRAdExchangeBuyer_PerformanceReport;
 @class GTLRAdExchangeBuyer_PretargetingConfig;
 @class GTLRAdExchangeBuyer_PretargetingConfig_Dimensions_Item;
@@ -455,8 +456,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *advertiserId;
 
 /**
- *  The name of the company being advertised in the creative. The value provided
- *  must exist in the advertisers.txt file.
+ *  The name of the company being advertised in the creative. A list of
+ *  advertisers is provided in the advertisers.txt file.
  */
 @property(nonatomic, copy, nullable) NSString *advertiserName;
 
@@ -1608,6 +1609,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *lastUpdateTimeMs;
 
+@property(nonatomic, copy, nullable) NSString *makegoodRequestedReason;
+
 /** The name of the deal. (updatable) */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1744,6 +1747,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *timestampMs;
+
+@end
+
+
+/**
+ *  GTLRAdExchangeBuyer_MobileApplication
+ */
+@interface GTLRAdExchangeBuyer_MobileApplication : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *appStore;
+@property(nonatomic, copy, nullable) NSString *externalAppId;
 
 @end
 
@@ -2649,6 +2663,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Programmatic contact for the publisher profile. */
 @property(nonatomic, copy, nullable) NSString *programmaticContact;
+
+/**
+ *  The list of app IDs represented in this pubisher profile. Empty if this is a
+ *  parent profile. Deprecated in favor of publisher_app.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *publisherAppIds;
+
+/**
+ *  The list of apps represented in this pubisher profile. Empty if this is a
+ *  parent profile.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MobileApplication *> *publisherApps;
 
 /**
  *  The list of domains represented in this publisher profile. Empty if this is

@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Reports API (admin/reports_v1)
+//   Admin SDK (admin/reports_v1)
 // Description:
-//   Fetches reports for the administrators of G Suite customers about the
-//   usage, collaboration, security, and risk for their users.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   /admin-sdk/reports/
+//   http://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -50,6 +51,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAccessTransparency
  *  Value: "admin"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAdmin;
+/** Value: "application_name_undefined" */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameApplicationNameUndefined;
+/** Value: "application_name_unspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameApplicationNameUnspecified;
 /**
  *  The G Suite Calendar application's activity reports return information about
  *  various Calendar activity events.
@@ -64,6 +69,20 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameCalendar;
  *  Value: "chat"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChat;
+/**
+ *  The Chrome activity reports return information about unsafe events reported
+ *  in the context of the WebProtect features of BeyondCorp.
+ *
+ *  Value: "chrome"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChrome;
+/**
+ *  The Context-aware access activity reports return information about users'
+ *  access denied events due to Context-aware access rules.
+ *
+ *  Value: "context_aware_access"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameContextAwareAccess;
 /**
  *  The Google Drive application's activity reports return information about
  *  various Google Drive activity events. The Drive activity report is only
@@ -174,10 +193,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyAll;
  *  Value: "entityKey"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyEntityKey;
+/** Value: "entityKeyUndefined" */
+FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyEntityKeyUndefined;
 
 // ----------------------------------------------------------------------------
 // entityType
 
+/** Value: "entity_type_undefined" */
+FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeEntityTypeUndefined;
 /**
  *  Returns a report on Google+ communities.
  *
@@ -229,6 +252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Application name for which the events are to be retrieved.
  *
  *  Likely values:
+ *    @arg @c kGTLRReportsApplicationNameApplicationNameUndefined Value
+ *        "application_name_undefined"
  *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
  *        Transparency activity reports return information about different types
  *        of Access Transparency activity events. (Value: "access_transparency")
@@ -281,6 +306,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        application's activity reports return account information about
  *        different types of User Accounts activity events. (Value:
  *        "user_accounts")
+ *    @arg @c kGTLRReportsApplicationNameContextAwareAccess The Context-aware
+ *        access activity reports return information about users' access denied
+ *        events due to Context-aware access rules. (Value:
+ *        "context_aware_access")
+ *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
+ *        return information about unsafe events reported in the context of the
+ *        WebProtect features of BeyondCorp. (Value: "chrome")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -291,18 +323,16 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Sets the end of the range of time shown in the report. The date is in the
  *  RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The default value is
  *  the approximate time of the API request. An API report has three basic time
- *  concepts:
- *  - Date of the API's request for a report: When the API created and retrieved
- *  the report.
- *  - Report's start time: The beginning of the timespan shown in the report.
- *  The startTime must be before the endTime (if specified) and the current time
- *  when the request is made, or the API returns an error.
- *  - Report's end time: The end of the timespan shown in the report. For
- *  example, the timespan of events summarized in a report can start in April
- *  and end in May. The report itself can be requested in August. If the endTime
- *  is not specified, the report returns all activities from the startTime until
- *  the current time or the most recent 180 days if the startTime is more than
- *  180 days in the past.
+ *  concepts: - *Date of the API's request for a report*: When the API created
+ *  and retrieved the report. - *Report's start time*: The beginning of the
+ *  timespan shown in the report. The startTime must be before the endTime (if
+ *  specified) and the current time when the request is made, or the API returns
+ *  an error. - *Report's end time*: The end of the timespan shown in the
+ *  report. For example, the timespan of events summarized in a report can start
+ *  in April and end in May. The report itself can be requested in August. If
+ *  the endTime is not specified, the report returns all activities from the
+ *  startTime until the current time or the most recent 180 days if the
+ *  startTime is more than 180 days in the past.
  */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
@@ -322,39 +352,34 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  The filters query string is a comma-separated list. The list is composed of
  *  event parameters that are manipulated by relational operators. Event
- *  parameters are in the form [parameter1 name][relational operator][parameter1
- *  value],[parameter2 name][relational operator][parameter2 value],...
- *  These event parameters are associated with a specific eventName. An empty
- *  report is returned if the filtered request's parameter does not belong to
- *  the eventName. For more information about eventName parameters, see the list
- *  of event names for various applications above in applicationName.
- *  In the following Admin Activity example, the <> operator is URL-encoded in
- *  the request's query string (%3C%3E):
- *  GET...&eventName=CHANGE_CALENDAR_SETTING
- *  &filters=NEW_VALUE%3C%3EREAD_ONLY_ACCESS
- *  In the following Drive example, the list can be a view or edit event's
- *  doc_id parameter with a value that is manipulated by an 'equal to' (==) or
- *  'not equal to' (<>) relational operator. In the first example, the report
- *  returns each edited document's doc_id. In the second example, the report
- *  returns each viewed document's doc_id that equals the value 12345 and does
- *  not return any viewed document's which have a doc_id value of 98765. The <>
+ *  parameters are in the form parameter1 name[parameter1 value],parameter2
+ *  name[parameter2 value],... These event parameters are associated with a
+ *  specific eventName. An empty report is returned if the filtered request's
+ *  parameter does not belong to the eventName. For more information about
+ *  eventName parameters, see the list of event names for various applications
+ *  above in applicationName. In the following Admin Activity example, the <>
  *  operator is URL-encoded in the request's query string (%3C%3E):
- *  GET...&eventName=edit&filters=doc_id
- *  GET...&eventName=view&filters=doc_id==12345,doc_id%3C%3E98765
- *  The relational operators include:
- *  - == - 'equal to'.
- *  - <> - 'not equal to'. It is URL-encoded (%3C%3E).
- *  - < - 'less than'. It is URL-encoded (%3C).
- *  - <= - 'less than or equal to'. It is URL-encoded (%3C=).
- *  - > - 'greater than'. It is URL-encoded (%3E).
- *  - >= - 'greater than or equal to'. It is URL-encoded (%3E=).
- *  Note: The API doesn't accept multiple values of a parameter. If a particular
- *  parameter is supplied more than once in the API request, the API only
- *  accepts the last value of that request parameter.
- *  In addition, if an invalid request parameter is supplied in the API request,
- *  the API ignores that request parameter and returns the response
- *  corresponding to the remaining valid request parameters. If no parameters
- *  are requested, all parameters are returned.
+ *  GET...&eventName=CHANGE_CALENDAR_SETTING
+ *  &filters=NEW_VALUE%3C%3EREAD_ONLY_ACCESS In the following Drive example, the
+ *  list can be a view or edit event's doc_id parameter with a value that is
+ *  manipulated by an 'equal to' (==) or 'not equal to' (<>) relational
+ *  operator. In the first example, the report returns each edited document's
+ *  doc_id. In the second example, the report returns each viewed document's
+ *  doc_id that equals the value 12345 and does not return any viewed document's
+ *  which have a doc_id value of 98765. The <> operator is URL-encoded in the
+ *  request's query string (%3C%3E): GET...&eventName=edit&filters=doc_id
+ *  GET...&eventName=view&filters=doc_id==12345,doc_id%3C%3E98765 The relational
+ *  operators include: - == - 'equal to'. - <> - 'not equal to'. It is
+ *  URL-encoded (%3C%3E). - < - 'less than'. It is URL-encoded (%3C). - <= -
+ *  'less than or equal to'. It is URL-encoded (%3C=). - > - 'greater than'. It
+ *  is URL-encoded (%3E). - >= - 'greater than or equal to'. It is URL-encoded
+ *  (%3E=). *Note:* The API doesn't accept multiple values of a parameter. If a
+ *  particular parameter is supplied more than once in the API request, the API
+ *  only accepts the last value of that request parameter. In addition, if an
+ *  invalid request parameter is supplied in the API request, the API ignores
+ *  that request parameter and returns the response corresponding to the
+ *  remaining valid request parameters. If no parameters are requested, all
+ *  parameters are returned.
  */
 @property(nonatomic, copy, nullable) NSString *filters;
 
@@ -417,6 +442,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    retrieved.
  *
  *  Likely values for @c applicationName:
+ *    @arg @c kGTLRReportsApplicationNameApplicationNameUndefined Value
+ *        "application_name_undefined"
  *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
  *        Transparency activity reports return information about different types
  *        of Access Transparency activity events. (Value: "access_transparency")
@@ -469,6 +496,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        application's activity reports return account information about
  *        different types of User Accounts activity events. (Value:
  *        "user_accounts")
+ *    @arg @c kGTLRReportsApplicationNameContextAwareAccess The Context-aware
+ *        access activity reports return information about users' access denied
+ *        events due to Context-aware access rules. (Value:
+ *        "context_aware_access")
+ *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
+ *        return information about unsafe events reported in the context of the
+ *        WebProtect features of BeyondCorp. (Value: "chrome")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *
@@ -508,6 +542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Application name for which the events are to be retrieved.
  *
  *  Likely values:
+ *    @arg @c kGTLRReportsApplicationNameApplicationNameUnspecified Value
+ *        "application_name_unspecified"
  *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
  *        Transparency activity reports return information about different types
  *        of Access Transparency activity events. (Value: "access_transparency")
@@ -560,6 +596,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        application's activity reports return account information about
  *        different types of User Accounts activity events. (Value:
  *        "user_accounts")
+ *    @arg @c kGTLRReportsApplicationNameContextAwareAccess The Context-aware
+ *        access activity reports return information about users' access denied
+ *        events due to Context-aware access rules. (Value:
+ *        "context_aware_access")
+ *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
+ *        return information about unsafe events reported in the context of the
+ *        WebProtect features of BeyondCorp. (Value: "chrome")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -570,18 +613,16 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Sets the end of the range of time shown in the report. The date is in the
  *  RFC 3339 format, for example 2010-10-28T10:26:35.000Z. The default value is
  *  the approximate time of the API request. An API report has three basic time
- *  concepts:
- *  - Date of the API's request for a report: When the API created and retrieved
- *  the report.
- *  - Report's start time: The beginning of the timespan shown in the report.
- *  The startTime must be before the endTime (if specified) and the current time
- *  when the request is made, or the API returns an error.
- *  - Report's end time: The end of the timespan shown in the report. For
- *  example, the timespan of events summarized in a report can start in April
- *  and end in May. The report itself can be requested in August. If the endTime
- *  is not specified, the report returns all activities from the startTime until
- *  the current time or the most recent 180 days if the startTime is more than
- *  180 days in the past.
+ *  concepts: - *Date of the API's request for a report*: When the API created
+ *  and retrieved the report. - *Report's start time*: The beginning of the
+ *  timespan shown in the report. The startTime must be before the endTime (if
+ *  specified) and the current time when the request is made, or the API returns
+ *  an error. - *Report's end time*: The end of the timespan shown in the
+ *  report. For example, the timespan of events summarized in a report can start
+ *  in April and end in May. The report itself can be requested in August. If
+ *  the endTime is not specified, the report returns all activities from the
+ *  startTime until the current time or the most recent 180 days if the
+ *  startTime is more than 180 days in the past.
  */
 @property(nonatomic, copy, nullable) NSString *endTime;
 
@@ -601,39 +642,34 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  The filters query string is a comma-separated list. The list is composed of
  *  event parameters that are manipulated by relational operators. Event
- *  parameters are in the form [parameter1 name][relational operator][parameter1
- *  value],[parameter2 name][relational operator][parameter2 value],...
- *  These event parameters are associated with a specific eventName. An empty
- *  report is returned if the filtered request's parameter does not belong to
- *  the eventName. For more information about eventName parameters, see the list
- *  of event names for various applications above in applicationName.
- *  In the following Admin Activity example, the <> operator is URL-encoded in
- *  the request's query string (%3C%3E):
- *  GET...&eventName=CHANGE_CALENDAR_SETTING
- *  &filters=NEW_VALUE%3C%3EREAD_ONLY_ACCESS
- *  In the following Drive example, the list can be a view or edit event's
- *  doc_id parameter with a value that is manipulated by an 'equal to' (==) or
- *  'not equal to' (<>) relational operator. In the first example, the report
- *  returns each edited document's doc_id. In the second example, the report
- *  returns each viewed document's doc_id that equals the value 12345 and does
- *  not return any viewed document's which have a doc_id value of 98765. The <>
+ *  parameters are in the form parameter1 name[parameter1 value],parameter2
+ *  name[parameter2 value],... These event parameters are associated with a
+ *  specific eventName. An empty report is returned if the filtered request's
+ *  parameter does not belong to the eventName. For more information about
+ *  eventName parameters, see the list of event names for various applications
+ *  above in applicationName. In the following Admin Activity example, the <>
  *  operator is URL-encoded in the request's query string (%3C%3E):
- *  GET...&eventName=edit&filters=doc_id
- *  GET...&eventName=view&filters=doc_id==12345,doc_id%3C%3E98765
- *  The relational operators include:
- *  - == - 'equal to'.
- *  - <> - 'not equal to'. It is URL-encoded (%3C%3E).
- *  - < - 'less than'. It is URL-encoded (%3C).
- *  - <= - 'less than or equal to'. It is URL-encoded (%3C=).
- *  - > - 'greater than'. It is URL-encoded (%3E).
- *  - >= - 'greater than or equal to'. It is URL-encoded (%3E=).
- *  Note: The API doesn't accept multiple values of a parameter. If a particular
- *  parameter is supplied more than once in the API request, the API only
- *  accepts the last value of that request parameter.
- *  In addition, if an invalid request parameter is supplied in the API request,
- *  the API ignores that request parameter and returns the response
- *  corresponding to the remaining valid request parameters. If no parameters
- *  are requested, all parameters are returned.
+ *  GET...&eventName=CHANGE_CALENDAR_SETTING
+ *  &filters=NEW_VALUE%3C%3EREAD_ONLY_ACCESS In the following Drive example, the
+ *  list can be a view or edit event's doc_id parameter with a value that is
+ *  manipulated by an 'equal to' (==) or 'not equal to' (<>) relational
+ *  operator. In the first example, the report returns each edited document's
+ *  doc_id. In the second example, the report returns each viewed document's
+ *  doc_id that equals the value 12345 and does not return any viewed document's
+ *  which have a doc_id value of 98765. The <> operator is URL-encoded in the
+ *  request's query string (%3C%3E): GET...&eventName=edit&filters=doc_id
+ *  GET...&eventName=view&filters=doc_id==12345,doc_id%3C%3E98765 The relational
+ *  operators include: - == - 'equal to'. - <> - 'not equal to'. It is
+ *  URL-encoded (%3C%3E). - < - 'less than'. It is URL-encoded (%3C). - <= -
+ *  'less than or equal to'. It is URL-encoded (%3C=). - > - 'greater than'. It
+ *  is URL-encoded (%3E). - >= - 'greater than or equal to'. It is URL-encoded
+ *  (%3E=). *Note:* The API doesn't accept multiple values of a parameter. If a
+ *  particular parameter is supplied more than once in the API request, the API
+ *  only accepts the last value of that request parameter. In addition, if an
+ *  invalid request parameter is supplied in the API request, the API ignores
+ *  that request parameter and returns the response corresponding to the
+ *  remaining valid request parameters. If no parameters are requested, all
+ *  parameters are returned.
  */
 @property(nonatomic, copy, nullable) NSString *filters;
 
@@ -694,6 +730,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    retrieved.
  *
  *  Likely values for @c applicationName:
+ *    @arg @c kGTLRReportsApplicationNameApplicationNameUnspecified Value
+ *        "application_name_unspecified"
  *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
  *        Transparency activity reports return information about different types
  *        of Access Transparency activity events. (Value: "access_transparency")
@@ -746,6 +784,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        application's activity reports return account information about
  *        different types of User Accounts activity events. (Value:
  *        "user_accounts")
+ *    @arg @c kGTLRReportsApplicationNameContextAwareAccess The Context-aware
+ *        access activity reports return information about users' access denied
+ *        events due to Context-aware access rules. (Value:
+ *        "context_aware_access")
+ *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
+ *        return information about unsafe events reported in the context of the
+ *        WebProtect features of BeyondCorp. (Value: "chrome")
  *
  *  @return GTLRReportsQuery_ActivitiesWatch
  */
@@ -756,7 +801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @end
 
 /**
- *  Stop watching resources through this channel
+ *  Stop watching resources through this channel.
  *
  *  Method: admin.channels.stop
  *
@@ -771,7 +816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Stop watching resources through this channel
+ *  Stop watching resources through this channel.
  *
  *  @param object The @c GTLRReports_Channel to include in the query.
  *
@@ -817,18 +862,16 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  that refine a report's results. The parameter is associated with a specific
  *  application. The application values for the Customers usage report include
  *  accounts, app_maker, apps_scripts, calendar, classroom, cros, docs, gmail,
- *  gplus, device_management, meet, and sites.
- *  A parameters query string is in the CSV form of app_name1:param_name1,
- *  app_name2:param_name2.
- *  Note: The API doesn't accept multiple values of a parameter. If a particular
- *  parameter is supplied more than once in the API request, the API only
- *  accepts the last value of that request parameter.
- *  In addition, if an invalid request parameter is supplied in the API request,
- *  the API ignores that request parameter and returns the response
- *  corresponding to the remaining valid request parameters.
- *  An example of an invalid request parameter is one that does not belong to
- *  the application. If no parameters are requested, all parameters are
- *  returned.
+ *  gplus, device_management, meet, and sites. A parameters query string is in
+ *  the CSV form of app_name1:param_name1, app_name2:param_name2. *Note:* The
+ *  API doesn't accept multiple values of a parameter. If a particular parameter
+ *  is supplied more than once in the API request, the API only accepts the last
+ *  value of that request parameter. In addition, if an invalid request
+ *  parameter is supplied in the API request, the API ignores that request
+ *  parameter and returns the response corresponding to the remaining valid
+ *  request parameters. An example of an invalid request parameter is one that
+ *  does not belong to the application. If no parameters are requested, all
+ *  parameters are returned.
  */
 @property(nonatomic, copy, nullable) NSString *parameters;
 
@@ -878,6 +921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Represents the key of the object to filter the data with.
  *
  *  Likely values:
+ *    @arg @c kGTLRReportsEntityKeyEntityKeyUndefined Value "entityKeyUndefined"
  *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
  *        (Value: "all")
  *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
@@ -891,6 +935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Represents the type of entity for the report.
  *
  *  Likely values:
+ *    @arg @c kGTLRReportsEntityTypeEntityTypeUndefined Value
+ *        "entity_type_undefined"
  *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
  *        communities. (Value: "gplus_communities")
  */
@@ -901,23 +947,18 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  parameters where the parameter's value is manipulated by a relational
  *  operator. The filters query string includes the name of the application
  *  whose usage is returned in the report. The application values for the
- *  Entities usage report include accounts, docs, and gmail.
- *  Filters are in the form [application name]:[parameter name][relational
- *  operator][parameter value],....
- *  In this example, the <> 'not equal to' operator is URL-encoded in the
- *  request's query string (%3C%3E):
- *  GET
+ *  Entities usage report include accounts, docs, and gmail. Filters are in the
+ *  form [application name]:parameter name[parameter value],.... In this
+ *  example, the <> 'not equal to' operator is URL-encoded in the request's
+ *  query string (%3C%3E): GET
  *  https://www.googleapis.com/admin/reports/v1/usage/gplus_communities/all/dates/2017-12-01
  *  ?parameters=gplus:community_name,gplus:num_total_members
- *  &filters=gplus:num_total_members>0
- *  The relational operators include:
- *  - == - 'equal to'.
- *  - <> - 'not equal to'. It is URL-encoded (%3C%3E).
- *  - < - 'less than'. It is URL-encoded (%3C).
- *  - <= - 'less than or equal to'. It is URL-encoded (%3C=).
- *  - > - 'greater than'. It is URL-encoded (%3E).
- *  - >= - 'greater than or equal to'. It is URL-encoded (%3E=). Filters can
- *  only be applied to numeric parameters.
+ *  &filters=gplus:num_total_members>0 The relational operators include: - == -
+ *  'equal to'. - <> - 'not equal to'. It is URL-encoded (%3C%3E). - < - 'less
+ *  than'. It is URL-encoded (%3C). - <= - 'less than or equal to'. It is
+ *  URL-encoded (%3C=). - > - 'greater than'. It is URL-encoded (%3E). - >= -
+ *  'greater than or equal to'. It is URL-encoded (%3E=). Filters can only be
+ *  applied to numeric parameters.
  */
 @property(nonatomic, copy, nullable) NSString *filters;
 
@@ -943,18 +984,16 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  The parameters query string is a comma-separated list of event parameters
  *  that refine a report's results. The parameter is associated with a specific
  *  application. The application values for the Entities usage report are only
- *  gplus.
- *  A parameter query string is in the CSV form of [app_name1:param_name1],
- *  [app_name2:param_name2]....
- *  Note: The API doesn't accept multiple values of a parameter. If a particular
- *  parameter is supplied more than once in the API request, the API only
- *  accepts the last value of that request parameter.
- *  In addition, if an invalid request parameter is supplied in the API request,
- *  the API ignores that request parameter and returns the response
- *  corresponding to the remaining valid request parameters.
- *  An example of an invalid request parameter is one that does not belong to
- *  the application. If no parameters are requested, all parameters are
- *  returned.
+ *  gplus. A parameter query string is in the CSV form of
+ *  [app_name1:param_name1], [app_name2:param_name2].... *Note:* The API doesn't
+ *  accept multiple values of a parameter. If a particular parameter is supplied
+ *  more than once in the API request, the API only accepts the last value of
+ *  that request parameter. In addition, if an invalid request parameter is
+ *  supplied in the API request, the API ignores that request parameter and
+ *  returns the response corresponding to the remaining valid request
+ *  parameters. An example of an invalid request parameter is one that does not
+ *  belong to the application. If no parameters are requested, all parameters
+ *  are returned.
  */
 @property(nonatomic, copy, nullable) NSString *parameters;
 
@@ -973,10 +1012,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    for this.
  *
  *  Likely values for @c entityType:
+ *    @arg @c kGTLRReportsEntityTypeEntityTypeUndefined Value
+ *        "entity_type_undefined"
  *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
  *        communities. (Value: "gplus_communities")
  *
  *  Likely values for @c entityKey:
+ *    @arg @c kGTLRReportsEntityKeyEntityKeyUndefined Value "entityKeyUndefined"
  *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
  *        (Value: "all")
  *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
@@ -1021,22 +1063,18 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  parameters where the parameter's value is manipulated by a relational
  *  operator. The filters query string includes the name of the application
  *  whose usage is returned in the report. The application values for the Users
- *  Usage Report include accounts, docs, and gmail.
- *  Filters are in the form [application name]:[parameter name][relational
- *  operator][parameter value],....
- *  In this example, the <> 'not equal to' operator is URL-encoded in the
- *  request's query string (%3C%3E):
- *  GET
+ *  Usage Report include accounts, docs, and gmail. Filters are in the form
+ *  [application name]:parameter name[parameter value],.... In this example, the
+ *  <> 'not equal to' operator is URL-encoded in the request's query string
+ *  (%3C%3E): GET
  *  https://www.googleapis.com/admin/reports/v1/usage/users/all/dates/2013-03-03
  *  ?parameters=accounts:last_login_time
- *  &filters=accounts:last_login_time>2010-10-28T10:26:35.000Z
- *  The relational operators include:
- *  - == - 'equal to'.
- *  - <> - 'not equal to'. It is URL-encoded (%3C%3E).
- *  - < - 'less than'. It is URL-encoded (%3C).
- *  - <= - 'less than or equal to'. It is URL-encoded (%3C=).
- *  - > - 'greater than'. It is URL-encoded (%3E).
- *  - >= - 'greater than or equal to'. It is URL-encoded (%3E=).
+ *  &filters=accounts:last_login_time>2010-10-28T10:26:35.000Z The relational
+ *  operators include: - == - 'equal to'. - <> - 'not equal to'. It is
+ *  URL-encoded (%3C%3E). - < - 'less than'. It is URL-encoded (%3C). - <= -
+ *  'less than or equal to'. It is URL-encoded (%3C=). - > - 'greater than'. It
+ *  is URL-encoded (%3E). - >= - 'greater than or equal to'. It is URL-encoded
+ *  (%3E=).
  */
 @property(nonatomic, copy, nullable) NSString *filters;
 
@@ -1044,8 +1082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Determines how many activity records are shown on each response page. For
  *  example, if the request sets maxResults=1 and the report has two activities,
  *  the report has two pages. The response's nextPageToken property has the
- *  token to the second page.
- *  The maxResults query string is optional.
+ *  token to the second page. The maxResults query string is optional.
  *
  *  @note If not set, the documented server-side default will be 1000 (from the
  *        range 1..1000).
@@ -1071,18 +1108,16 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  that refine a report's results. The parameter is associated with a specific
  *  application. The application values for the Customers usage report include
  *  accounts, app_maker, apps_scripts, calendar, classroom, cros, docs, gmail,
- *  gplus, device_management, meet, and sites.
- *  A parameters query string is in the CSV form of app_name1:param_name1,
- *  app_name2:param_name2.
- *  Note: The API doesn't accept multiple values of a parameter.
- *  If a particular parameter is supplied more than once in the API request, the
- *  API only accepts the last value of that request parameter. In addition, if
- *  an invalid request parameter is supplied in the API request, the API ignores
- *  that request parameter and returns the response corresponding to the
- *  remaining valid request parameters.
- *  An example of an invalid request parameter is one that does not belong to
- *  the application. If no parameters are requested, all parameters are
- *  returned.
+ *  gplus, device_management, meet, and sites. A parameters query string is in
+ *  the CSV form of app_name1:param_name1, app_name2:param_name2. *Note:* The
+ *  API doesn't accept multiple values of a parameter. If a particular parameter
+ *  is supplied more than once in the API request, the API only accepts the last
+ *  value of that request parameter. In addition, if an invalid request
+ *  parameter is supplied in the API request, the API ignores that request
+ *  parameter and returns the response corresponding to the remaining valid
+ *  request parameters. An example of an invalid request parameter is one that
+ *  does not belong to the application. If no parameters are requested, all
+ *  parameters are returned.
  */
 @property(nonatomic, copy, nullable) NSString *parameters;
 

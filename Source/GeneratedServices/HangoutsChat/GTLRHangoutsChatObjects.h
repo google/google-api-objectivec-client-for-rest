@@ -299,8 +299,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_KeyValue_Icon_VideoPlay;
 // GTLRHangoutsChat_Membership.state
 
 /**
- *  The user has been invited, is able to join the space, but currently has
- *  not joined.
+ *  The user has been invited, is able to join the space, but currently has not
+ *  joined.
  *
  *  Value: "INVITED"
  */
@@ -318,8 +318,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Joined;
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified;
 /**
- *  The user is not a member of the space, has not been invited and is not
- *  able to join the space.
+ *  The user is not a member of the space, has not been invited and is not able
+ *  to join the space.
  *
  *  Value: "NOT_A_MEMBER"
  */
@@ -329,8 +329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember
 // GTLRHangoutsChat_Space.type
 
 /**
- *  1:1 Direct Message between a human and a bot, where all messages are
- *  flat.
+ *  1:1 Direct Message between a human and a bot, where all messages are flat.
  *
  *  Value: "DM"
  */
@@ -389,10 +388,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Me
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified;
 
 /**
- *  List of string parameters to supply when the action method is invoked.
- *  For example, consider three snooze buttons: snooze now, snooze 1 day,
- *  snooze next week. You might use action method = snooze(), passing the
- *  snooze type and snooze time in the list of string parameters.
+ *  List of string parameters to supply when the action method is invoked. For
+ *  example, consider three snooze buttons: snooze now, snooze 1 day, snooze
+ *  next week. You might use action method = snooze(), passing the snooze type
+ *  and snooze time in the list of string parameters.
  */
 @interface GTLRHangoutsChat_ActionParameter : GTLRObject
 
@@ -435,27 +434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  Annotations associated with the plain-text body of the message.
- *  Example plain-text message body:
- *  ```
- *  Hello \@FooBot how are you!"
- *  ```
- *  The corresponding annotations metadata:
- *  ```
- *  "annotations":[{
- *  "type":"USER_MENTION",
- *  "startIndex":6,
- *  "length":7,
- *  "userMention": {
- *  "user": {
- *  "name":"users/107946847022116401880",
- *  "displayName":"FooBot",
- *  "avatarUrl":"https://goo.gl/aeDtrS",
- *  "type":"BOT"
- *  },
- *  "type":"MENTION"
- *  }
- *  }]
+ *  Annotations associated with the plain-text body of the message. Example
+ *  plain-text message body: ``` Hello \@FooBot how are you!" ``` The
+ *  corresponding annotations metadata: ``` "annotations":[{
+ *  "type":"USER_MENTION", "startIndex":6, "length":7, "userMention": { "user":
+ *  { "name":"users/107946847022116401880", "displayName":"FooBot",
+ *  "avatarUrl":"https://goo.gl/aeDtrS", "type":"BOT" }, "type":"MENTION" } }]
  *  ```
  */
 @interface GTLRHangoutsChat_Annotation : GTLRObject
@@ -513,8 +497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  Output only. The download URL which should be used to allow a human user to
- *  download the attachment. Bots should not use this URL to download
- *  attachment content.
+ *  download the attachment. Bots should not use this URL to download attachment
+ *  content.
  */
 @property(nonatomic, copy, nullable) NSString *downloadUri;
 
@@ -522,8 +506,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DriveDataRef *driveDataRef;
 
 /**
- *  Resource name of the attachment, in the form
- *  "spaces/ * /messages/ * /attachments/ *".
+ *  Resource name of the attachment, in the form "spaces/ * /messages/ *
+ *  /attachments/ *".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -555,8 +539,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_AttachmentDataRef : GTLRObject
 
 /**
- *  The resource name of the attachment data. This is used with the media API
- *  to download the attachment data.
+ *  The resource name of the attachment data. This is used with the media API to
+ *  download the attachment data.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -598,10 +582,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A card action is
- *  the action associated with the card. For an invoice card, a
- *  typical action would be: delete invoice, email invoice or open the
- *  invoice in browser.
+ *  A card action is the action associated with the card. For an invoice card, a
+ *  typical action would be: delete invoice, email invoice or open the invoice
+ *  in browser.
  */
 @interface GTLRHangoutsChat_CardAction : GTLRObject
 
@@ -639,9 +622,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *subtitle;
 
 /**
- *  The title must be specified. The header has a fixed height: if both a
- *  title and subtitle is specified, each will take up 1 line. If only the
- *  title is specified, it will take up both lines.
+ *  The title must be specified. The header has a fixed height: if both a title
+ *  and subtitle is specified, each will take up 1 line. If only the title is
+ *  specified, it will take up both lines.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -655,10 +638,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /**
  *  The form action data associated with an interactive card that was clicked.
- *  Only populated for
- *  CARD_CLICKED events.
- *  See the [Interactive Cards guide](/hangouts/chat/how-tos/cards-onclick) for
- *  more information.
+ *  Only populated for CARD_CLICKED events. See the [Interactive Cards
+ *  guide](/hangouts/chat/how-tos/cards-onclick) for more information.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_FormAction *action;
 
@@ -680,9 +661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Space *space;
 
 /**
- *  The bot-defined key for the thread related to the event. See the
- *  thread_key field of the
- *  `spaces.message.create` request for more information.
+ *  The bot-defined key for the thread related to the event. See the thread_key
+ *  field of the `spaces.message.create` request for more information.
  */
 @property(nonatomic, copy, nullable) NSString *threadKey;
 
@@ -731,27 +711,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRHangoutsChat_Empty : GTLRObject
 @end
 
 
 /**
- *  A form action describes the behavior when the form is submitted.
- *  For example, an Apps Script can be invoked to handle the form.
+ *  A form action describes the behavior when the form is submitted. For
+ *  example, an Apps Script can be invoked to handle the form.
  */
 @interface GTLRHangoutsChat_FormAction : GTLRObject
 
 /**
  *  The method name is used to identify which part of the form triggered the
- *  form submission. This information is echoed back to the bot as part of
- *  the card click event. The same method name can be used for several
- *  elements that trigger a common behavior if desired.
+ *  form submission. This information is echoed back to the bot as part of the
+ *  card click event. The same method name can be used for several elements that
+ *  trigger a common behavior if desired.
  */
 @property(nonatomic, copy, nullable) NSString *actionMethodName;
 
@@ -767,10 +745,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Image : GTLRObject
 
 /**
- *  The aspect ratio of this image (width/height). This field allows clients
- *  to reserve the right height for the image while waiting for it to load.
- *  It's not meant to override the native aspect ratio of the image.
- *  If unset, the server fills it by prefetching the image.
+ *  The aspect ratio of this image (width/height). This field allows clients to
+ *  reserve the right height for the image while waiting for it to load. It's
+ *  not meant to override the native aspect ratio of the image. If unset, the
+ *  server fills it by prefetching the image.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -791,8 +769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_ImageButton : GTLRObject
 
 /**
- *  The icon specified by an enum that indices to an icon provided by Chat
- *  API.
+ *  The icon specified by an enum that indices to an icon provided by Chat API.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_ImageButton_Icon_Airplane Value "AIRPLANE"
@@ -843,8 +820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
- *  The name of this image_button which will be used for accessibility.
- *  Default value will be provided if developers don't specify.
+ *  The name of this image_button which will be used for accessibility. Default
+ *  value will be provided if developers don't specify.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -855,8 +832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A UI element contains a key (label) and a value (content). And this
- *  element may also contain some actions such as onclick button.
+ *  A UI element contains a key (label) and a value (content). And this element
+ *  may also contain some actions such as onclick button.
  */
 @interface GTLRHangoutsChat_KeyValue : GTLRObject
 
@@ -877,8 +854,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *contentMultiline;
 
 /**
- *  An enum value that will be replaced by the Chat API with the
- *  corresponding icon image.
+ *  An enum value that will be replaced by the Chat API with the corresponding
+ *  icon image.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_KeyValue_Icon_Airplane Value "AIRPLANE"
@@ -927,8 +904,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *iconUrl;
 
 /**
- *  The onclick action. Only the top label, bottom label and content region
- *  are clickable.
+ *  The onclick action. Only the top label, bottom label and content region are
+ *  clickable.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_OnClick *onClick;
 
@@ -1029,15 +1006,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Membership_State_Invited The user has been
- *        invited, is able to join the space, but currently has
- *        not joined. (Value: "INVITED")
+ *        invited, is able to join the space, but currently has not joined.
+ *        (Value: "INVITED")
  *    @arg @c kGTLRHangoutsChat_Membership_State_Joined The user has joined the
  *        space. (Value: "JOINED")
  *    @arg @c kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified
  *        Default, do not use. (Value: "MEMBERSHIP_STATE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_Membership_State_NotAMember The user is not a
- *        member of the space, has not been invited and is not
- *        able to join the space. (Value: "NOT_A_MEMBER")
+ *        member of the space, has not been invited and is not able to join the
+ *        space. (Value: "NOT_A_MEMBER")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1084,8 +1061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *fallbackText;
 
 /**
- *  Resource name, in the form "spaces/ * /messages/ *".
- *  Example: spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  Resource name, in the form "spaces/ * /messages/ *". Example:
+ *  spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1137,10 +1114,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A section contains a collection of widgets that are rendered
- *  (vertically) in the order that they are specified. Across all platforms,
- *  cards have a narrow fixed width, so
- *  there is currently no need for layout properties (e.g. float).
+ *  A section contains a collection of widgets that are rendered (vertically) in
+ *  the order that they are specified. Across all platforms, cards have a narrow
+ *  fixed width, so there is currently no need for layout properties (e.g.
+ *  float).
  */
 @interface GTLRHangoutsChat_Section : GTLRObject
 
@@ -1159,15 +1136,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Space : GTLRObject
 
 /**
- *  Output only. The display name (only if the space is a room).
- *  Please note that this field might not be populated in direct messages
- *  between humans.
+ *  Output only. The display name (only if the space is a room). Please note
+ *  that this field might not be populated in direct messages between humans.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Resource name of the space, in the form "spaces/ *".
- *  Example: spaces/AAAAMpdlehYs
+ *  Resource name of the space, in the form "spaces/ *". Example:
+ *  spaces/AAAAMpdlehYs
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1186,13 +1162,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, strong, nullable) NSNumber *threaded;
 
 /**
- *  Output only. The type of a space.
- *  This is deprecated. Use `single_user_bot_dm` instead.
+ *  Output only. The type of a space. This is deprecated. Use
+ *  `single_user_bot_dm` instead.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_Space_Type_Dm 1:1 Direct Message between a human
- *        and a bot, where all messages are
- *        flat. (Value: "DM")
+ *        and a bot, where all messages are flat. (Value: "DM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_Room Multi-user spaces such as rooms
  *        and DMs between humans. (Value: "ROOM")
  *    @arg @c kGTLRHangoutsChat_Space_Type_TypeUnspecified Value
@@ -1233,8 +1208,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_Thread : GTLRObject
 
 /**
- *  Resource name, in the form "spaces/ * /threads/ *".
- *  Example: spaces/AAAAMpdlehY/threads/UMxbHmzDlr4
+ *  Resource name, in the form "spaces/ * /threads/ *". Example:
+ *  spaces/AAAAMpdlehY/threads/UMxbHmzDlr4
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1299,8 +1274,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @interface GTLRHangoutsChat_WidgetMarkup : GTLRObject
 
 /**
- *  A list of buttons. Buttons is also oneof data and only one of these
- *  fields should be set.
+ *  A list of buttons. Buttons is also oneof data and only one of these fields
+ *  should be set.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Button *> *buttons;
 

@@ -132,9 +132,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Build_Status_Working;
 // GTLRCloudBuild_BuildOptions.logging
 
 /**
- *  Only Cloud Logging is enabled. Note that logs for both the Cloud Console
- *  UI and Cloud SDK are based on Cloud Storage logs, so neither will provide
- *  logs if this option is chosen.
+ *  Only Cloud Logging is enabled. Note that logs for both the Cloud Console UI
+ *  and Cloud SDK are based on Cloud Storage logs, so neither will provide logs
+ *  if this option is chosen.
  *
  *  Value: "CLOUD_LOGGING_ONLY"
  */
@@ -159,8 +159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified;
 /**
- *  Turn off all logging. No build logs will be captured.
- *  Next ID: 6
+ *  Turn off all logging. No build logs will be captured. Next ID: 6
  *
  *  Value: "NONE"
  */
@@ -236,11 +235,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_RequestedVerifyO
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.sourceProvenanceHash
 
-/** Value: "MD5" */
+/**
+ *  Use a md5 hash.
+ *
+ *  Value: "MD5"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Md5;
-/** Value: "NONE" */
+/**
+ *  No hash requested.
+ *
+ *  Value: "NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_None;
-/** Value: "SHA256" */
+/**
+ *  Use a sha256 hash.
+ *
+ *  Value: "SHA256"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenanceHash_Sha256;
 
 // ----------------------------------------------------------------------------
@@ -253,8 +264,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SourceProvenance
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose;
 /**
- *  Fails the build if error in substitutions checks, like missing
- *  a substitution in the template or in the map.
+ *  Fails the build if error in substitutions checks, like missing a
+ *  substitution in the template or in the map.
  *
  *  Value: "MUST_MATCH"
  */
@@ -358,8 +369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled;
 
 /**
- *  Files in the workspace to upload to Cloud Storage upon successful
- *  completion of all build steps.
+ *  Files in the workspace to upload to Cloud Storage upon successful completion
+ *  of all build steps.
  */
 @interface GTLRCloudBuild_ArtifactObjects : GTLRObject
 
@@ -367,8 +378,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  Cloud Storage bucket and optional object path, in the form
  *  "gs://bucket/path/to/somewhere/". (see [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
- *  Files in the workspace matching any path pattern will be uploaded to
- *  Cloud Storage with this location as a prefix.
+ *  Files in the workspace matching any path pattern will be uploaded to Cloud
+ *  Storage with this location as a prefix.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -384,8 +395,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  An artifact that was uploaded during a build. This
- *  is a single record in the artifact manifest JSON file.
+ *  An artifact that was uploaded during a build. This is a single record in the
+ *  artifact manifest JSON file.
  */
 @interface GTLRCloudBuild_ArtifactResult : GTLRObject
 
@@ -403,30 +414,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  Artifacts produced by a build that should be uploaded upon
- *  successful completion of all build steps.
+ *  Artifacts produced by a build that should be uploaded upon successful
+ *  completion of all build steps.
  */
 @interface GTLRCloudBuild_Artifacts : GTLRObject
 
 /**
  *  A list of images to be pushed upon the successful completion of all build
- *  steps.
- *  The images will be pushed using the builder service account's credentials.
- *  The digests of the pushed images will be stored in the Build resource's
- *  results field.
- *  If any of the images fail to be pushed, the build is marked FAILURE.
+ *  steps. The images will be pushed using the builder service account's
+ *  credentials. The digests of the pushed images will be stored in the Build
+ *  resource's results field. If any of the images fail to be pushed, the build
+ *  is marked FAILURE.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *images;
 
 /**
- *  A list of objects to be uploaded to Cloud Storage upon successful
- *  completion of all build steps.
- *  Files in the workspace matching specified paths globs will be uploaded to
- *  the specified Cloud Storage location using the builder service account's
- *  credentials.
- *  The location and generation of the uploaded objects will be stored in the
- *  Build resource's results field.
- *  If any objects fail to be pushed, the build is marked FAILURE.
+ *  A list of objects to be uploaded to Cloud Storage upon successful completion
+ *  of all build steps. Files in the workspace matching specified paths globs
+ *  will be uploaded to the specified Cloud Storage location using the builder
+ *  service account's credentials. The location and generation of the uploaded
+ *  objects will be stored in the Build resource's results field. If any objects
+ *  fail to be pushed, the build is marked FAILURE.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_ArtifactObjects *objects;
 
@@ -434,26 +442,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  A build resource in the Cloud Build API.
- *  At a high level, a `Build` describes where to find source code, how to build
- *  it (for example, the builder image to run on the source), and where to store
- *  the built artifacts.
+ *  A build resource in the Cloud Build API. At a high level, a `Build`
+ *  describes where to find source code, how to build it (for example, the
+ *  builder image to run on the source), and where to store the built artifacts.
  *  Fields can include the following variables, which will be expanded when the
- *  build is created:
- *  - $PROJECT_ID: the project ID of the build.
- *  - $BUILD_ID: the autogenerated ID of the build.
- *  - $REPO_NAME: the source repository name specified by RepoSource.
- *  - $BRANCH_NAME: the branch name specified by RepoSource.
- *  - $TAG_NAME: the tag name specified by RepoSource.
- *  - $REVISION_ID or $COMMIT_SHA: the commit SHA specified by RepoSource or
- *  resolved from the specified branch or tag.
- *  - $SHORT_SHA: first 7 characters of $REVISION_ID or $COMMIT_SHA.
+ *  build is created: - $PROJECT_ID: the project ID of the build. - $BUILD_ID:
+ *  the autogenerated ID of the build. - $REPO_NAME: the source repository name
+ *  specified by RepoSource. - $BRANCH_NAME: the branch name specified by
+ *  RepoSource. - $TAG_NAME: the tag name specified by RepoSource. -
+ *  $REVISION_ID or $COMMIT_SHA: the commit SHA specified by RepoSource or
+ *  resolved from the specified branch or tag. - $SHORT_SHA: first 7 characters
+ *  of $REVISION_ID or $COMMIT_SHA.
  */
 @interface GTLRCloudBuild_Build : GTLRObject
 
 /**
- *  Artifacts produced by the build that should be uploaded upon
- *  successful completion of all build steps.
+ *  Artifacts produced by the build that should be uploaded upon successful
+ *  completion of all build steps.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Artifacts *artifacts;
 
@@ -469,9 +474,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. Time at which execution of the build was finished.
- *  The difference between finish_time and start_time is the duration of the
- *  build's execution.
+ *  Output only. Time at which execution of the build was finished. The
+ *  difference between finish_time and start_time is the duration of the build's
+ *  execution.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
 
@@ -484,18 +489,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  A list of images to be pushed upon the successful completion of all build
- *  steps.
- *  The images are pushed using the builder service account's credentials.
- *  The digests of the pushed images will be stored in the `Build` resource's
- *  results field.
- *  If any of the images fail to be pushed, the build status is marked
- *  `FAILURE`.
+ *  steps. The images are pushed using the builder service account's
+ *  credentials. The digests of the pushed images will be stored in the `Build`
+ *  resource's results field. If any of the images fail to be pushed, the build
+ *  status is marked `FAILURE`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *images;
 
 /**
- *  Google Cloud Storage bucket where logs should be written (see
- *  [Bucket Name
+ *  Google Cloud Storage bucket where logs should be written (see [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  *  Logs file names will be of the format `${logs_bucket}/log-${build_id}.txt`.
  */
@@ -513,8 +515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  TTL in queue for this build. If provided and the build is enqueued longer
  *  than this value, the build will expire and the build status will be
- *  `EXPIRED`.
- *  The TTL starts ticking from create_time.
+ *  `EXPIRED`. The TTL starts ticking from create_time.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *queueTtl;
 
@@ -523,6 +524,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /** Secrets to decrypt using Cloud Key Management Service. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Secret *> *secrets;
+
+/**
+ *  IAM service account whose credentials will be used at build runtime. Must be
+ *  of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. ACCOUNT can
+ *  be email address or uniqueId of the service account. This field is in alpha
+ *  and is not publicly available.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /** The location of the source files to build. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Source *source;
@@ -573,20 +582,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  Amount of time that this build should be allowed to run, to second
  *  granularity. If this amount of time elapses, work on the build will cease
- *  and the build status will be `TIMEOUT`.
- *  `timeout` starts ticking from `startTime`.
- *  Default time is ten minutes.
+ *  and the build status will be `TIMEOUT`. `timeout` starts ticking from
+ *  `startTime`. Default time is ten minutes.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
 /**
  *  Output only. Stores timing information for phases of the build. Valid keys
- *  are:
- *  * BUILD: time to execute all build steps
- *  * PUSH: time to push all specified images.
- *  * FETCHSOURCE: time to fetch source.
- *  If the build does not specify source or images,
- *  these keys will not be included.
+ *  are: * BUILD: time to execute all build steps * PUSH: time to push all
+ *  specified images. * FETCHSOURCE: time to fetch source. If the build does not
+ *  specify source or images, these keys will not be included.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Build_Timing *timing;
 
@@ -607,12 +612,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  Output only. Stores timing information for phases of the build. Valid keys
- *  are:
- *  * BUILD: time to execute all build steps
- *  * PUSH: time to push all specified images.
- *  * FETCHSOURCE: time to fetch source.
- *  If the build does not specify source or images,
- *  these keys will not be included.
+ *  are: * BUILD: time to execute all build steps * PUSH: time to push all
+ *  specified images. * FETCHSOURCE: time to fetch source. If the build does not
+ *  specify source or images, these keys will not be included.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudBuild_TimeSpan. Use @c -additionalJSONKeys and @c
@@ -652,10 +654,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
- *  Option to specify whether or not to apply bash style string
- *  operations to the substitutions.
- *  NOTE: this is always enabled for triggered builds and cannot be
- *  overridden in the build configuration file.
+ *  Option to specify whether or not to apply bash style string operations to
+ *  the substitutions. NOTE: this is always enabled for triggered builds and
+ *  cannot be overridden in the build configuration file.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -664,21 +665,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  A list of global environment variable definitions that will exist for all
  *  build steps in this build. If a variable is defined in both globally and in
- *  a build step, the variable will use the build step value.
- *  The elements are of the form "KEY=VALUE" for the environment variable "KEY"
- *  being given the value "VALUE".
+ *  a build step, the variable will use the build step value. The elements are
+ *  of the form "KEY=VALUE" for the environment variable "KEY" being given the
+ *  value "VALUE".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *env;
 
 /**
- *  Option to specify the logging mode, which determines if and where build
- *  logs are stored.
+ *  Option to specify the logging mode, which determines if and where build logs
+ *  are stored.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly Only Cloud
- *        Logging is enabled. Note that logs for both the Cloud Console
- *        UI and Cloud SDK are based on Cloud Storage logs, so neither will
- *        provide
+ *        Logging is enabled. Note that logs for both the Cloud Console UI and
+ *        Cloud SDK are based on Cloud Storage logs, so neither will provide
  *        logs if this option is chosen. (Value: "CLOUD_LOGGING_ONLY")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_GcsOnly Only Cloud Storage
  *        logging is enabled. (Value: "GCS_ONLY")
@@ -689,16 +689,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *        rely on the default logging behavior as it may change in the future.
  *        (Value: "LOGGING_UNSPECIFIED")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_None Turn off all logging. No
- *        build logs will be captured.
- *        Next ID: 6 (Value: "NONE")
+ *        build logs will be captured. Next ID: 6 (Value: "NONE")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly This option
  *        is the same as CLOUD_LOGGING_ONLY. (Value: "STACKDRIVER_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *logging;
 
 /**
- *  Option to define build log streaming behavior to Google Cloud
- *  Storage.
+ *  Option to define build log streaming behavior to Google Cloud Storage.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_LogStreamingOption_StreamDefault
@@ -739,8 +737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  A list of global environment variables, which are encrypted using a Cloud
  *  Key Management Service crypto key. These values must be specified in the
- *  build's `Secret`. These variables will be available to all build steps
- *  in this build.
+ *  build's `Secret`. These variables will be available to all build steps in
+ *  this build.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
 
@@ -749,35 +747,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  Option to specify behavior when there is an error in the substitution
- *  checks.
- *  NOTE: this is always set to ALLOW_LOOSE for triggered builds and cannot
- *  be overridden in the build configuration file.
+ *  checks. NOTE: this is always set to ALLOW_LOOSE for triggered builds and
+ *  cannot be overridden in the build configuration file.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildOptions_SubstitutionOption_AllowLoose Do not
  *        fail the build if error in substitutions checks. (Value:
  *        "ALLOW_LOOSE")
  *    @arg @c kGTLRCloudBuild_BuildOptions_SubstitutionOption_MustMatch Fails
- *        the build if error in substitutions checks, like missing
- *        a substitution in the template or in the map. (Value: "MUST_MATCH")
+ *        the build if error in substitutions checks, like missing a
+ *        substitution in the template or in the map. (Value: "MUST_MATCH")
  */
 @property(nonatomic, copy, nullable) NSString *substitutionOption;
 
 /**
- *  Global list of volumes to mount for ALL build steps
- *  Each volume is created as an empty volume prior to starting the build
- *  process. Upon completion of the build, volumes and their contents are
- *  discarded. Global volume names and paths cannot conflict with the volumes
- *  defined a build step.
- *  Using a global volume in a build with only one step is not valid as
- *  it is indicative of a build request with an incorrect configuration.
+ *  Global list of volumes to mount for ALL build steps Each volume is created
+ *  as an empty volume prior to starting the build process. Upon completion of
+ *  the build, volumes and their contents are discarded. Global volume names and
+ *  paths cannot conflict with the volumes defined a build step. Using a global
+ *  volume in a build with only one step is not valid as it is indicative of a
+ *  build request with an incorrect configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Volume *> *volumes;
 
 /**
- *  Option to specify a `WorkerPool` for the build.
- *  Format: projects/{project}/workerPools/{workerPool}
- *  This field is experimental.
+ *  Option to specify a `WorkerPool` for the build. Format:
+ *  projects/{project}/locations/{location}/workerPools/{workerPool} This field
+ *  is experimental.
  */
 @property(nonatomic, copy, nullable) NSString *workerPool;
 
@@ -792,21 +788,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  A list of arguments that will be presented to the step when it is started.
  *  If the image used to run the step's container has an entrypoint, the `args`
- *  are used as arguments to that entrypoint. If the image does not define
- *  an entrypoint, the first element in args is used as the entrypoint,
- *  and the remainder will be used as arguments.
+ *  are used as arguments to that entrypoint. If the image does not define an
+ *  entrypoint, the first element in args is used as the entrypoint, and the
+ *  remainder will be used as arguments.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
- *  Working directory to use when running this step's container.
- *  If this value is a relative path, it is relative to the build's working
- *  directory. If this value is absolute, it may be outside the build's working
- *  directory, in which case the contents of the path may not be persisted
- *  across build step executions, unless a `volume` for that path is specified.
- *  If the build specifies a `RepoSource` with `dir` and a step with a `dir`,
- *  which specifies an absolute path, the `RepoSource` `dir` is ignored for
- *  the step's execution.
+ *  Working directory to use when running this step's container. If this value
+ *  is a relative path, it is relative to the build's working directory. If this
+ *  value is absolute, it may be outside the build's working directory, in which
+ *  case the contents of the path may not be persisted across build step
+ *  executions, unless a `volume` for that path is specified. If the build
+ *  specifies a `RepoSource` with `dir` and a step with a `dir`, which specifies
+ *  an absolute path, the `RepoSource` `dir` is ignored for the step's
+ *  execution.
  */
 @property(nonatomic, copy, nullable) NSString *dir;
 
@@ -824,8 +820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) NSArray<NSString *> *env;
 
 /**
- *  Unique identifier for this build step, used in `wait_for` to
- *  reference this build step as a dependency.
+ *  Unique identifier for this build step, used in `wait_for` to reference this
+ *  build step as a dependency.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -833,39 +829,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  Required. The name of the container image that will run this particular
- *  build step.
- *  If the image is available in the host's Docker daemon's cache, it
- *  will be run directly. If not, the host will attempt to pull the image
- *  first, using the builder service account's credentials if necessary.
- *  The Docker daemon's cache will already have the latest versions of all of
- *  the officially supported build steps
+ *  build step. If the image is available in the host's Docker daemon's cache,
+ *  it will be run directly. If not, the host will attempt to pull the image
+ *  first, using the builder service account's credentials if necessary. The
+ *  Docker daemon's cache will already have the latest versions of all of the
+ *  officially supported build steps
  *  ([https://github.com/GoogleCloudPlatform/cloud-builders](https://github.com/GoogleCloudPlatform/cloud-builders)).
  *  The Docker daemon will also have cached many of the layers for some popular
  *  images, like "ubuntu", "debian", but they will be refreshed at the time you
- *  attempt to use them.
- *  If you built an image in a previous build step, it will be stored in the
- *  host's Docker daemon's cache and is available to use as the name for a
- *  later build step.
+ *  attempt to use them. If you built an image in a previous build step, it will
+ *  be stored in the host's Docker daemon's cache and is available to use as the
+ *  name for a later build step.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Stores timing information for pulling this build step's
- *  builder image only.
+ *  Output only. Stores timing information for pulling this build step's builder
+ *  image only.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *pullTiming;
 
 /**
  *  A list of environment variables which are encrypted using a Cloud Key
- *  Management Service crypto key. These values must be specified in the
- *  build's `Secret`.
+ *  Management Service crypto key. These values must be specified in the build's
+ *  `Secret`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *secretEnv;
 
 /**
  *  Output only. Status of the build step. At this time, build step status is
- *  only updated on build completion; step status is not updated in real-time
- *  as the build progresses.
+ *  only updated on build completion; step status is not updated in real-time as
+ *  the build progresses.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBuild_BuildStep_Status_Cancelled Build or step was
@@ -900,21 +894,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) GTLRCloudBuild_TimeSpan *timing;
 
 /**
- *  List of volumes to mount into the build step.
- *  Each volume is created as an empty volume prior to execution of the
- *  build step. Upon completion of the build, volumes and their contents are
- *  discarded.
- *  Using a named volume in only one step is not valid as it is indicative
- *  of a build request with an incorrect configuration.
+ *  List of volumes to mount into the build step. Each volume is created as an
+ *  empty volume prior to execution of the build step. Upon completion of the
+ *  build, volumes and their contents are discarded. Using a named volume in
+ *  only one step is not valid as it is indicative of a build request with an
+ *  incorrect configuration.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Volume *> *volumes;
 
 /**
- *  The ID(s) of the step(s) that this build step depends on.
- *  This build step will not start until all the build steps in `wait_for`
- *  have completed successfully. If `wait_for` is empty, this build step will
- *  start when all previous build steps in the `Build.Steps` list have
- *  completed successfully.
+ *  The ID(s) of the step(s) that this build step depends on. This build step
+ *  will not start until all the build steps in `wait_for` have completed
+ *  successfully. If `wait_for` is empty, this build step will start when all
+ *  previous build steps in the `Build.Steps` list have completed successfully.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *waitFor;
 
@@ -954,9 +946,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, copy, nullable) NSString *filename;
 
 /**
- *  GitHubEventsConfig describes the configuration of a trigger that creates
- *  a build whenever a GitHub event is received.
- *  Mutually exclusive with `trigger_template`.
+ *  GitHubEventsConfig describes the configuration of a trigger that creates a
+ *  build whenever a GitHub event is received. Mutually exclusive with
+ *  `trigger_template`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_GitHubEventsConfig *github;
 
@@ -970,38 +962,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  ignored_files and included_files are file glob matches using
  *  https://golang.org/pkg/path/filepath/#Match extended with support for "**".
- *  If ignored_files and changed files are both empty, then they are
- *  not used to determine whether or not to trigger a build.
- *  If ignored_files is not empty, then we ignore any files that match
- *  any of the ignored_file globs. If the change has no files that are
- *  outside of the ignored_files globs, then we do not trigger a build.
+ *  If ignored_files and changed files are both empty, then they are not used to
+ *  determine whether or not to trigger a build. If ignored_files is not empty,
+ *  then we ignore any files that match any of the ignored_file globs. If the
+ *  change has no files that are outside of the ignored_files globs, then we do
+ *  not trigger a build.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ignoredFiles;
 
 /**
- *  If any of the files altered in the commit pass the ignored_files
- *  filter and included_files is empty, then as far as this filter is
- *  concerned, we should trigger the build.
- *  If any of the files altered in the commit pass the ignored_files
- *  filter and included_files is not empty, then we make sure that at
- *  least one of those files matches a included_files glob. If not,
- *  then we do not trigger a build.
+ *  If any of the files altered in the commit pass the ignored_files filter and
+ *  included_files is empty, then as far as this filter is concerned, we should
+ *  trigger the build. If any of the files altered in the commit pass the
+ *  ignored_files filter and included_files is not empty, then we make sure that
+ *  at least one of those files matches a included_files glob. If not, then we
+ *  do not trigger a build.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedFiles;
 
 /**
  *  User-assigned name of the trigger. Must be unique within the project.
- *  Trigger names must meet the following requirements:
- *  + They must contain only alphanumeric characters and dashes.
- *  + They can be 1-64 characters long.
- *  + They must begin and end with an alphanumeric character.
+ *  Trigger names must meet the following requirements: + They must contain only
+ *  alphanumeric characters and dashes. + They can be 1-64 characters long. +
+ *  They must begin and end with an alphanumeric character.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Substitutions for Build resource. The keys must match the following
- *  regular expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the
- *  keys in bindings.
+ *  Substitutions for Build resource. The keys must match the following regular
+ *  expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the keys in
+ *  bindings.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_BuildTrigger_Substitutions *substitutions;
 
@@ -1009,11 +999,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 /**
- *  Template describing the types of source changes to trigger a build.
- *  Branch and tag names in trigger templates are interpreted as regular
- *  expressions. Any branch or tag change that matches that regular expression
- *  will trigger a build.
- *  Mutually exclusive with `github`.
+ *  Template describing the types of source changes to trigger a build. Branch
+ *  and tag names in trigger templates are interpreted as regular expressions.
+ *  Any branch or tag change that matches that regular expression will trigger a
+ *  build. Mutually exclusive with `github`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *triggerTemplate;
 
@@ -1021,9 +1010,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  Substitutions for Build resource. The keys must match the following
- *  regular expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the
- *  keys in bindings.
+ *  Substitutions for Build resource. The keys must match the following regular
+ *  expression: `^_[A-Z0-9_]+$`.The keys cannot conflict with the keys in
+ *  bindings.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1071,11 +1060,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudBuild_Empty : GTLRObject
 @end
@@ -1095,8 +1082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  GitHubEventsConfig describes the configuration of a trigger that creates a
- *  build whenever a GitHub event is received.
- *  This message is experimental.
+ *  build whenever a GitHub event is received. This message is experimental.
  */
 @interface GTLRCloudBuild_GitHubEventsConfig : GTLRObject
 
@@ -1222,9 +1208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_Notification : GTLRObject
 
 /**
- *  The filter string to use for notification filtering.
- *  Currently, this is assumed to be a CEL program.
- *  See https://opensource.google/projects/cel for more.
+ *  The filter string to use for notification filtering. Currently, this is
+ *  assumed to be a CEL program. See https://opensource.google/projects/cel for
+ *  more.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1277,21 +1263,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  NotifierMetadata contains the data which can be used to reference or
- *  describe
- *  this notifier.
+ *  describe this notifier.
  */
 @interface GTLRCloudBuild_NotifierMetadata : GTLRObject
 
 /**
- *  The human-readable and user-given name for the notifier.
- *  For example: "repo-merge-email-notifier".
+ *  The human-readable and user-given name for the notifier. For example:
+ *  "repo-merge-email-notifier".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The string representing the name and version of notifier to deploy.
- *  Expected to be of the form of "<registry-path>/<name>:<version>".
- *  For example: "gcr.io/my-project/notifiers/smtp:1.2.34".
+ *  The string representing the name and version of notifier to deploy. Expected
+ *  to be of the form of "/:". For example:
+ *  "gcr.io/my-project/notifiers/smtp:1.2.34".
  */
 @property(nonatomic, copy, nullable) NSString *notifier;
 
@@ -1312,8 +1297,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  Value is interpreted to be a resource path for fetching the actual
- *  (versioned) secret data for this secret. For example, this would be a
- *  Google Cloud Secret Manager secret version resource path like:
+ *  (versioned) secret data for this secret. For example, this would be a Google
+ *  Cloud Secret Manager secret version resource path like:
  *  "projects/my-project/secrets/my-secret/versions/latest".
  */
 @property(nonatomic, copy, nullable) NSString *value;
@@ -1357,8 +1342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1370,16 +1355,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1388,10 +1373,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Operation_Response *response;
 
@@ -1400,8 +1384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1418,10 +1402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1439,9 +1422,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_PullRequestFilter : GTLRObject
 
 /**
- *  Regex of branches to match.
- *  The syntax of the regular expressions accepted is the syntax accepted by
- *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ *  Regex of branches to match. The syntax of the regular expressions accepted
+ *  is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
  */
 @property(nonatomic, copy, nullable) NSString *branch;
 
@@ -1475,9 +1458,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_PushFilter : GTLRObject
 
 /**
- *  Regexes matching branches to build.
- *  The syntax of the regular expressions accepted is the syntax accepted by
- *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ *  Regexes matching branches to build. The syntax of the regular expressions
+ *  accepted is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
  */
 @property(nonatomic, copy, nullable) NSString *branch;
 
@@ -1490,9 +1473,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) NSNumber *invertRegex;
 
 /**
- *  Regexes matching tags to build.
- *  The syntax of the regular expressions accepted is the syntax accepted by
- *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ *  Regexes matching tags to build. The syntax of the regular expressions
+ *  accepted is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 
@@ -1505,9 +1488,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_RepoSource : GTLRObject
 
 /**
- *  Regex matching branches to build.
- *  The syntax of the regular expressions accepted is the syntax accepted by
- *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ *  Regex matching branches to build. The syntax of the regular expressions
+ *  accepted is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
  */
 @property(nonatomic, copy, nullable) NSString *branchName;
 
@@ -1515,9 +1498,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, copy, nullable) NSString *commitSha;
 
 /**
- *  Directory, relative to the source root, in which to run the build.
- *  This must be a relative path. If a step's `dir` is specified and is an
- *  absolute path, this value is ignored for that step's execution.
+ *  Directory, relative to the source root, in which to run the build. This must
+ *  be a relative path. If a step's `dir` is specified and is an absolute path,
+ *  this value is ignored for that step's execution.
  */
 @property(nonatomic, copy, nullable) NSString *dir;
 
@@ -1539,15 +1522,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, copy, nullable) NSString *repoName;
 
 /**
- *  Substitutions to use in a triggered build.
- *  Should only be used with RunBuildTrigger
+ *  Substitutions to use in a triggered build. Should only be used with
+ *  RunBuildTrigger
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource_Substitutions *substitutions;
 
 /**
- *  Regex matching tags to build.
- *  The syntax of the regular expressions accepted is the syntax accepted by
- *  RE2 and described at https://github.com/google/re2/wiki/Syntax
+ *  Regex matching tags to build. The syntax of the regular expressions accepted
+ *  is the syntax accepted by RE2 and described at
+ *  https://github.com/google/re2/wiki/Syntax
  */
 @property(nonatomic, copy, nullable) NSString *tagName;
 
@@ -1555,8 +1538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  Substitutions to use in a triggered build.
- *  Should only be used with RunBuildTrigger
+ *  Substitutions to use in a triggered build. Should only be used with
+ *  RunBuildTrigger
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1588,10 +1571,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  List of build step outputs, produced by builder images, in the order
- *  corresponding to build step indices.
- *  [Cloud Builders](https://cloud.google.com/cloud-build/docs/cloud-builders)
- *  can produce this output by writing to `$BUILDER_OUTPUT/output`.
- *  Only the first 4KB of data is stored.
+ *  corresponding to build step indices. [Cloud
+ *  Builders](https://cloud.google.com/cloud-build/docs/cloud-builders) can
+ *  produce this output by writing to `$BUILDER_OUTPUT/output`. Only the first
+ *  4KB of data is stored.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1619,8 +1602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  Pairs a set of secret environment variables containing encrypted
- *  values with the Cloud KMS key to use to decrypt the value.
+ *  Pairs a set of secret environment variables containing encrypted values with
+ *  the Cloud KMS key to use to decrypt the value.
  */
 @interface GTLRCloudBuild_Secret : GTLRObject
 
@@ -1628,11 +1611,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
- *  Map of environment variable name to its encrypted value.
- *  Secret environment variables must be unique across all of a build's
- *  secrets, and must be used by at least one build step. Values can be at most
- *  64 KB in size. There can be at most 100 secret values across all of a
- *  build's secrets.
+ *  Map of environment variable name to its encrypted value. Secret environment
+ *  variables must be unique across all of a build's secrets, and must be used
+ *  by at least one build step. Values can be at most 64 KB in size. There can
+ *  be at most 100 secret values across all of a build's secrets.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Secret_SecretEnv *secretEnv;
 
@@ -1640,11 +1622,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  Map of environment variable name to its encrypted value.
- *  Secret environment variables must be unique across all of a build's
- *  secrets, and must be used by at least one build step. Values can be at most
- *  64 KB in size. There can be at most 100 secret values across all of a
- *  build's secrets.
+ *  Map of environment variable name to its encrypted value. Secret environment
+ *  variables must be unique across all of a build's secrets, and must be used
+ *  by at least one build step. Values can be at most 64 KB in size. There can
+ *  be at most 100 secret values across all of a build's secrets.
  *
  *  @note This class is documented as having more properties of NSString
  *        (Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -1658,8 +1639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 /**
  *  SlackDelivery is the delivery configuration for delivering Slack messages
- *  via
- *  webhooks. See Slack webhook documentation at:
+ *  via webhooks. See Slack webhook documentation at:
  *  https://api.slack.com/messaging/webhooks.
  */
 @interface GTLRCloudBuild_SlackDelivery : GTLRObject
@@ -1679,8 +1659,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_SMTPDelivery : GTLRObject
 
 /**
- *  This is the SMTP account/email that appears in the `From:` of the email.
- *  If empty, it is assumed to be sender.
+ *  This is the SMTP account/email that appears in the `From:` of the email. If
+ *  empty, it is assumed to be sender.
  */
 @property(nonatomic, copy, nullable) NSString *fromAddress;
 
@@ -1711,8 +1691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_Source : GTLRObject
 
 /**
- *  If provided, get the source from this location in a Cloud Source
- *  Repository.
+ *  If provided, get the source from this location in a Cloud Source Repository.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *repoSource;
 
@@ -1732,17 +1711,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  Output only. Hash(es) of the build source, which can be used to verify that
  *  the original source integrity was maintained in the build. Note that
  *  `FileHashes` will only be populated if `BuildOptions` has requested a
- *  `SourceProvenanceHash`.
- *  The keys to this map are file paths used as build source and the values
- *  contain the hash values for those files.
- *  If the build source came in a single package such as a gzipped tarfile
- *  (`.tar.gz`), the `FileHash` will be for the single path to that file.
+ *  `SourceProvenanceHash`. The keys to this map are file paths used as build
+ *  source and the values contain the hash values for those files. If the build
+ *  source came in a single package such as a gzipped tarfile (`.tar.gz`), the
+ *  `FileHash` will be for the single path to that file.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_SourceProvenance_FileHashes *fileHashes;
 
 /**
- *  A copy of the build's `source.repo_source`, if exists, with any
- *  revisions resolved.
+ *  A copy of the build's `source.repo_source`, if exists, with any revisions
+ *  resolved.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_RepoSource *resolvedRepoSource;
 
@@ -1759,11 +1737,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  Output only. Hash(es) of the build source, which can be used to verify that
  *  the original source integrity was maintained in the build. Note that
  *  `FileHashes` will only be populated if `BuildOptions` has requested a
- *  `SourceProvenanceHash`.
- *  The keys to this map are file paths used as build source and the values
- *  contain the hash values for those files.
- *  If the build source came in a single package such as a gzipped tarfile
- *  (`.tar.gz`), the `FileHash` will be for the single path to that file.
+ *  `SourceProvenanceHash`. The keys to this map are file paths used as build
+ *  source and the values contain the hash values for those files. If the build
+ *  source came in a single package such as a gzipped tarfile (`.tar.gz`), the
+ *  `FileHash` will be for the single path to that file.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudBuild_FileHashes. Use @c -additionalJSONKeys and @c
@@ -1778,9 +1755,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudBuild_Status : GTLRObject
 
@@ -1825,8 +1802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_StorageSource : GTLRObject
 
 /**
- *  Google Cloud Storage bucket containing the source (see
- *  [Bucket Name
+ *  Google Cloud Storage bucket containing the source (see [Bucket Name
  *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1840,9 +1816,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, strong, nullable) NSNumber *generation;
 
 /**
- *  Google Cloud Storage object containing the source.
- *  This object must be a gzipped archive file (`.tar.gz`) containing source to
- *  build.
+ *  Google Cloud Storage object containing the source. This object must be a
+ *  gzipped archive file (`.tar.gz`) containing source to build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -1870,16 +1845,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @interface GTLRCloudBuild_Volume : GTLRObject
 
 /**
- *  Name of the volume to mount.
- *  Volume names must be unique per build step and must be valid names for
- *  Docker volumes. Each named volume must be used by at least two build steps.
+ *  Name of the volume to mount. Volume names must be unique per build step and
+ *  must be valid names for Docker volumes. Each named volume must be used by at
+ *  least two build steps.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Path at which to mount the volume.
- *  Paths must be absolute and cannot conflict with other volume paths on the
- *  same build step or with certain reserved volume paths.
+ *  Path at which to mount the volume. Paths must be absolute and cannot
+ *  conflict with other volume paths on the same build step or with certain
+ *  reserved volume paths.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 

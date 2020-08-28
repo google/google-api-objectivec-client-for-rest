@@ -37,15 +37,35 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // contentType
 
-/** Value: "ACCESS_POLICY" */
+/**
+ *  The Cloud Access context manager Policy set on an asset.
+ *
+ *  Value: "ACCESS_POLICY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeAccessPolicy;
-/** Value: "CONTENT_TYPE_UNSPECIFIED" */
+/**
+ *  Unspecified content type.
+ *
+ *  Value: "CONTENT_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeContentTypeUnspecified;
-/** Value: "IAM_POLICY" */
+/**
+ *  The actual IAM policy set on a resource.
+ *
+ *  Value: "IAM_POLICY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeIamPolicy;
-/** Value: "ORG_POLICY" */
+/**
+ *  The Cloud Organization Policy set on an asset.
+ *
+ *  Value: "ORG_POLICY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeOrgPolicy;
-/** Value: "RESOURCE" */
+/**
+ *  Resource metadata.
+ *
+ *  Value: "RESOURCE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 // ----------------------------------------------------------------------------
@@ -76,8 +96,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 //   +[GTLQueryCloudAsset queryForFeedsCreateWithObject:parent:]
 
 /**
- *  Required. The name of the project/folder/organization where this feed
- *  should be created in. It can only be an organization number (such as
+ *  Required. The name of the project/folder/organization where this feed should
+ *  be created in. It can only be an organization number (such as
  *  "organizations/123"), a folder number (such as "folders/123"), a project ID
  *  (such as "projects/my-project-id")", or a project number (such as
  *  "projects/12345").
@@ -93,12 +113,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  @param object The @c GTLRCloudAsset_CreateFeedRequest to include in the
  *    query.
  *  @param parent Required. The name of the project/folder/organization where
- *    this feed
- *    should be created in. It can only be an organization number (such as
- *    "organizations/123"), a folder number (such as "folders/123"), a project
- *    ID
- *    (such as "projects/my-project-id")", or a project number (such as
- *    "projects/12345").
+ *    this feed should be created in. It can only be an organization number
+ *    (such as "organizations/123"), a folder number (such as "folders/123"), a
+ *    project ID (such as "projects/my-project-id")", or a project number (such
+ *    as "projects/12345").
  *
  *  @return GTLRCloudAssetQuery_FeedsCreate
  */
@@ -121,8 +139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 /**
  *  Required. The name of the feed and it must be in the format of:
- *  projects/project_number/feeds/feed_id
- *  folders/folder_number/feeds/feed_id
+ *  projects/project_number/feeds/feed_id folders/folder_number/feeds/feed_id
  *  organizations/organization_number/feeds/feed_id
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -133,8 +150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  Deletes an asset feed.
  *
  *  @param name Required. The name of the feed and it must be in the format of:
- *    projects/project_number/feeds/feed_id
- *    folders/folder_number/feeds/feed_id
+ *    projects/project_number/feeds/feed_id folders/folder_number/feeds/feed_id
  *    organizations/organization_number/feeds/feed_id
  *
  *  @return GTLRCloudAssetQuery_FeedsDelete
@@ -157,8 +173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 /**
  *  Required. The name of the Feed and it must be in the format of:
- *  projects/project_number/feeds/feed_id
- *  folders/folder_number/feeds/feed_id
+ *  projects/project_number/feeds/feed_id folders/folder_number/feeds/feed_id
  *  organizations/organization_number/feeds/feed_id
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -169,8 +184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  Gets details about an asset feed.
  *
  *  @param name Required. The name of the Feed and it must be in the format of:
- *    projects/project_number/feeds/feed_id
- *    folders/folder_number/feeds/feed_id
+ *    projects/project_number/feeds/feed_id folders/folder_number/feeds/feed_id
  *    organizations/organization_number/feeds/feed_id
  *
  *  @return GTLRCloudAssetQuery_FeedsGet
@@ -204,9 +218,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  Lists all asset feeds in a parent project/folder/organization.
  *
  *  @param parent Required. The parent project/folder/organization whose feeds
- *    are to be
- *    listed. It can only be using project/folder/organization number (such as
- *    "folders/12345")", or a project ID (such as "projects/my-project-id").
+ *    are to be listed. It can only be using project/folder/organization number
+ *    (such as "folders/12345")", or a project ID (such as
+ *    "projects/my-project-id").
  *
  *  @return GTLRCloudAssetQuery_FeedsList
  */
@@ -290,13 +304,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @end
 
 /**
- *  Batch gets the update history of assets that overlap a time window.
- *  For IAM_POLICY content, this API outputs history when the asset and its
- *  attached IAM POLICY both exist. This can create gaps in the output history.
- *  Otherwise, this API outputs history with asset in both non-delete or
- *  deleted status.
- *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
- *  error.
+ *  Batch gets the update history of assets that overlap a time window. For
+ *  IAM_POLICY content, this API outputs history when the asset and its attached
+ *  IAM POLICY both exist. This can create gaps in the output history.
+ *  Otherwise, this API outputs history with asset in both non-delete or deleted
+ *  status. If a specified asset does not exist, this API returns an
+ *  INVALID_ARGUMENT error.
  *
  *  Method: cloudasset.batchGetAssetsHistory
  *
@@ -308,9 +321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 //   +[GTLQueryCloudAsset queryForBatchGetAssetsHistoryWithparent:]
 
 /**
- *  A list of the full names of the assets.
- *  See: https://cloud.google.com/asset-inventory/docs/resource-name-format
- *  Example:
+ *  A list of the full names of the assets. See:
+ *  https://cloud.google.com/asset-inventory/docs/resource-name-format Example:
  *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`.
  *  The request becomes a no-op if the asset name list is empty, and the max
  *  size of the asset name list is 100 in one request.
@@ -321,12 +333,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  Optional. The content type.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudAssetContentTypeContentTypeUnspecified Value
- *        "CONTENT_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRCloudAssetContentTypeResource Value "RESOURCE"
- *    @arg @c kGTLRCloudAssetContentTypeIamPolicy Value "IAM_POLICY"
- *    @arg @c kGTLRCloudAssetContentTypeOrgPolicy Value "ORG_POLICY"
- *    @arg @c kGTLRCloudAssetContentTypeAccessPolicy Value "ACCESS_POLICY"
+ *    @arg @c kGTLRCloudAssetContentTypeContentTypeUnspecified Unspecified
+ *        content type. (Value: "CONTENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAssetContentTypeResource Resource metadata. (Value:
+ *        "RESOURCE")
+ *    @arg @c kGTLRCloudAssetContentTypeIamPolicy The actual IAM policy set on a
+ *        resource. (Value: "IAM_POLICY")
+ *    @arg @c kGTLRCloudAssetContentTypeOrgPolicy The Cloud Organization Policy
+ *        set on an asset. (Value: "ORG_POLICY")
+ *    @arg @c kGTLRCloudAssetContentTypeAccessPolicy The Cloud Access context
+ *        manager Policy set on an asset. (Value: "ACCESS_POLICY")
  */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
@@ -349,18 +365,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 /**
  *  Fetches a @c GTLRCloudAsset_BatchGetAssetsHistoryResponse.
  *
- *  Batch gets the update history of assets that overlap a time window.
- *  For IAM_POLICY content, this API outputs history when the asset and its
- *  attached IAM POLICY both exist. This can create gaps in the output history.
- *  Otherwise, this API outputs history with asset in both non-delete or
- *  deleted status.
- *  If a specified asset does not exist, this API returns an INVALID_ARGUMENT
- *  error.
+ *  Batch gets the update history of assets that overlap a time window. For
+ *  IAM_POLICY content, this API outputs history when the asset and its attached
+ *  IAM POLICY both exist. This can create gaps in the output history.
+ *  Otherwise, this API outputs history with asset in both non-delete or deleted
+ *  status. If a specified asset does not exist, this API returns an
+ *  INVALID_ARGUMENT error.
  *
  *  @param parent Required. The relative name of the root asset. It can only be
- *    an
- *    organization number (such as "organizations/123"), a project ID (such as
- *    "projects/my-project-id")", or a project number (such as
+ *    an organization number (such as "organizations/123"), a project ID (such
+ *    as "projects/my-project-id")", or a project number (such as
  *    "projects/12345").
  *
  *  @return GTLRCloudAssetQuery_V1BatchGetAssetsHistory
@@ -371,15 +385,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 /**
  *  Exports assets with time and resource types to a given Cloud Storage
- *  location/BigQuery table. For Cloud Storage location destinations, the
- *  output format is newline-delimited JSON. Each line represents a
+ *  location/BigQuery table. For Cloud Storage location destinations, the output
+ *  format is newline-delimited JSON. Each line represents a
  *  google.cloud.asset.v1.Asset in the JSON format; for BigQuery table
  *  destinations, the output table stores the fields in asset proto as columns.
- *  This API implements the google.longrunning.Operation API
- *  , which allows you to keep track of the export. We recommend intervals of
- *  at least 2 seconds with exponential retry to poll the export operation
- *  result. For regular-size resource parent, the export operation usually
- *  finishes within 5 minutes.
+ *  This API implements the google.longrunning.Operation API , which allows you
+ *  to keep track of the export. We recommend intervals of at least 2 seconds
+ *  with exponential retry to poll the export operation result. For regular-size
+ *  resource parent, the export operation usually finishes within 5 minutes.
  *
  *  Method: cloudasset.exportAssets
  *
@@ -402,23 +415,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  Fetches a @c GTLRCloudAsset_Operation.
  *
  *  Exports assets with time and resource types to a given Cloud Storage
- *  location/BigQuery table. For Cloud Storage location destinations, the
- *  output format is newline-delimited JSON. Each line represents a
+ *  location/BigQuery table. For Cloud Storage location destinations, the output
+ *  format is newline-delimited JSON. Each line represents a
  *  google.cloud.asset.v1.Asset in the JSON format; for BigQuery table
  *  destinations, the output table stores the fields in asset proto as columns.
- *  This API implements the google.longrunning.Operation API
- *  , which allows you to keep track of the export. We recommend intervals of
- *  at least 2 seconds with exponential retry to poll the export operation
- *  result. For regular-size resource parent, the export operation usually
- *  finishes within 5 minutes.
+ *  This API implements the google.longrunning.Operation API , which allows you
+ *  to keep track of the export. We recommend intervals of at least 2 seconds
+ *  with exponential retry to poll the export operation result. For regular-size
+ *  resource parent, the export operation usually finishes within 5 minutes.
  *
  *  @param object The @c GTLRCloudAsset_ExportAssetsRequest to include in the
  *    query.
  *  @param parent Required. The relative name of the root asset. This can only
- *    be an
- *    organization number (such as "organizations/123"), a project ID (such as
- *    "projects/my-project-id"), or a project number (such as "projects/12345"),
- *    or a folder number (such as "folders/123").
+ *    be an organization number (such as "organizations/123"), a project ID
+ *    (such as "projects/my-project-id"), or a project number (such as
+ *    "projects/12345"), or a folder number (such as "folders/123").
  *
  *  @return GTLRCloudAssetQuery_V1ExportAssets
  */
@@ -444,62 +455,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 /**
  *  Optional. The page size for search result pagination. Page size is capped at
- *  500 even
- *  if a larger value is given. If set to zero, server will pick an appropriate
- *  default. Returned results may be fewer than requested. When this happens,
- *  there could be more results as long as `next_page_token` is returned.
+ *  500 even if a larger value is given. If set to zero, server will pick an
+ *  appropriate default. Returned results may be fewer than requested. When this
+ *  happens, there could be more results as long as `next_page_token` is
+ *  returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. If present, retrieve the next batch of results from the preceding
- *  call to
- *  this method. `page_token` must be the value of `next_page_token` from the
- *  previous response. The values of all other method parameters must be
- *  identical to those in the previous call.
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of all other method parameters must
+ *  be identical to those in the previous call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Optional. The query statement. See [how to construct a
  *  query](https://cloud.google.com/asset-inventory/docs/searching-iam-policies#how_to_construct_a_query)
- *  for more information. If not specified or empty, it will search all the
- *  IAM policies within the specified `scope`.
- *  Examples:
- *  * `policy : "amy\@gmail.com"` to find IAM policy bindings that specify user
- *  "amy\@gmail.com".
- *  * `policy : "roles/compute.admin"` to find IAM policy bindings that specify
- *  the Compute Admin role.
- *  * `policy.role.permissions : "storage.buckets.update"` to find IAM policy
- *  bindings that specify a role containing "storage.buckets.update"
- *  permission. Note that if callers don't have `iam.roles.get` access to a
- *  role's included permissions, policy bindings that specify this role will
- *  be dropped from the search results.
- *  * `resource : "organizations/123456"` to find IAM policy bindings
- *  that are set on "organizations/123456".
- *  * `"Important"` to find IAM policy bindings that contain "Important" as a
- *  word in any of the searchable fields (except for the included
- *  permissions).
- *  * `"*por*"` to find IAM policy bindings which contain "por" as a substring
- *  in any of the searchable fields (except for the included permissions).
- *  * `(resource : ("instance1" OR "instance2") AND policy : "amy")` to find
- *  IAM policy bindings that are set on resources "instance1" or
+ *  for more information. If not specified or empty, it will search all the IAM
+ *  policies within the specified `scope`. Examples: * `policy:amy\@gmail.com`
+ *  to find IAM policy bindings that specify user "amy\@gmail.com". *
+ *  `policy:roles/compute.admin` to find IAM policy bindings that specify the
+ *  Compute Admin role. * `policy.role.permissions:storage.buckets.update` to
+ *  find IAM policy bindings that specify a role containing
+ *  "storage.buckets.update" permission. Note that if callers don't have
+ *  `iam.roles.get` access to a role's included permissions, policy bindings
+ *  that specify this role will be dropped from the search results. *
+ *  `resource:organizations/123456` to find IAM policy bindings that are set on
+ *  "organizations/123456". * `Important` to find IAM policy bindings that
+ *  contain "Important" as a word in any of the searchable fields (except for
+ *  the included permissions). * `*por*` to find IAM policy bindings that
+ *  contain "por" as a substring in any of the searchable fields (except for the
+ *  included permissions). * `resource:(instance1 OR instance2) policy:amy` to
+ *  find IAM policy bindings that are set on resources "instance1" or
  *  "instance2" and also specify user "amy".
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Required. A scope can be a project, a folder, or an organization. The search
- *  is
- *  limited to the IAM policies within the `scope`. The caller must be granted
- *  the
+ *  is limited to the IAM policies within the `scope`. The caller must be
+ *  granted the
  *  [`cloudasset.assets.searchAllIamPolicies`](http://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
- *  permission on the desired scope.
- *  The allowed values are:
- *  * projects/{PROJECT_ID} (e.g., "projects/foo-bar")
- *  * projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
- *  * folders/{FOLDER_NUMBER} (e.g., "folders/1234567")
- *  * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
+ *  permission on the desired scope. The allowed values are: *
+ *  projects/{PROJECT_ID} (e.g., "projects/foo-bar") * projects/{PROJECT_NUMBER}
+ *  (e.g., "projects/12345678") * folders/{FOLDER_NUMBER} (e.g.,
+ *  "folders/1234567") * organizations/{ORGANIZATION_NUMBER} (e.g.,
+ *  "organizations/123456")
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -512,16 +515,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  otherwise the request will be rejected.
  *
  *  @param scope Required. A scope can be a project, a folder, or an
- *    organization. The search is
- *    limited to the IAM policies within the `scope`. The caller must be granted
- *    the
+ *    organization. The search is limited to the IAM policies within the
+ *    `scope`. The caller must be granted the
  *    [`cloudasset.assets.searchAllIamPolicies`](http://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
- *    permission on the desired scope.
- *    The allowed values are:
- *    * projects/{PROJECT_ID} (e.g., "projects/foo-bar")
- *    * projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
- *    * folders/{FOLDER_NUMBER} (e.g., "folders/1234567")
- *    * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
+ *    permission on the desired scope. The allowed values are: *
+ *    projects/{PROJECT_ID} (e.g., "projects/foo-bar") *
+ *    projects/{PROJECT_NUMBER} (e.g., "projects/12345678") *
+ *    folders/{FOLDER_NUMBER} (e.g., "folders/1234567") *
+ *    organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
  *
  *  @return GTLRCloudAssetQuery_V1SearchAllIamPolicies
  *
@@ -550,40 +551,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 /**
  *  Optional. A list of asset types that this request searches for. If empty, it
- *  will
- *  search all the [searchable asset
+ *  will search all the [searchable asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
 
 /**
  *  Optional. A comma separated list of fields specifying the sorting order of
- *  the
- *  results. The default order is ascending. Add " DESC" after the field name
- *  to indicate descending order. Redundant space characters are ignored.
+ *  the results. The default order is ascending. Add " DESC" after the field
+ *  name to indicate descending order. Redundant space characters are ignored.
  *  Example: "location DESC, name". Only string fields in the response are
  *  sortable, including `name`, `displayName`, `description`, `location`. All
- *  the other fields such as repeated fields (e.g., `networkTags`), map
- *  fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
- *  are not supported.
+ *  the other fields such as repeated fields (e.g., `networkTags`), map fields
+ *  (e.g., `labels`) and struct fields (e.g., `additionalAttributes`) are not
+ *  supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. The page size for search result pagination. Page size is capped at
- *  500 even
- *  if a larger value is given. If set to zero, server will pick an appropriate
- *  default. Returned results may be fewer than requested. When this happens,
- *  there could be more results as long as `next_page_token` is returned.
+ *  500 even if a larger value is given. If set to zero, server will pick an
+ *  appropriate default. Returned results may be fewer than requested. When this
+ *  happens, there could be more results as long as `next_page_token` is
+ *  returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  Optional. If present, then retrieve the next batch of results from the
- *  preceding call
- *  to this method. `page_token` must be the value of `next_page_token` from
- *  the previous response. The values of all other method parameters, must be
- *  identical to those in the previous call.
+ *  preceding call to this method. `page_token` must be the value of
+ *  `next_page_token` from the previous response. The values of all other method
+ *  parameters, must be identical to those in the previous call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -596,45 +594,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
  *  contain the bindings that match your query. To learn more about the IAM
  *  policy structure, see [IAM policy
- *  doc](https://cloud.google.com/iam/docs/policies#structure).
- *  Examples:
- *  * `name : "Important"` to find Cloud resources whose name contains
- *  "Important" as a word.
- *  * `displayName : "Impor*"` to find Cloud resources whose display name
- *  contains "Impor" as a prefix.
- *  * `description : "*por*"` to find Cloud resources whose description
- *  contains "por" as a substring.
- *  * `location : "us-west*"` to find Cloud resources whose location is
- *  prefixed with "us-west".
- *  * `labels : "prod"` to find Cloud resources whose labels contain "prod" as
- *  a key or value.
- *  * `labels.env : "prod"` to find Cloud resources which have a label "env"
- *  and its value is "prod".
- *  * `labels.env : *` to find Cloud resources which have a label "env".
- *  * `"Important"` to find Cloud resources which contain "Important" as a word
- *  in any of the searchable fields.
- *  * `"Impor*"` to find Cloud resources which contain "Impor" as a prefix
- *  in any of the searchable fields.
- *  * `"*por*"` to find Cloud resources which contain "por" as a substring in
- *  any of the searchable fields.
- *  * `("Important" AND location : ("us-west1" OR "global"))` to find Cloud
- *  resources which contain "Important" as a word in any of the searchable
- *  fields and are also located in the "us-west1" region or the "global"
- *  location.
+ *  doc](https://cloud.google.com/iam/docs/policies#structure). Examples: *
+ *  `name:Important` to find Cloud resources whose name contains "Important" as
+ *  a word. * `displayName:Impor*` to find Cloud resources whose display name
+ *  contains "Impor" as a prefix. * `description:*por*` to find Cloud resources
+ *  whose description contains "por" as a substring. * `location:us-west*` to
+ *  find Cloud resources whose location is prefixed with "us-west". *
+ *  `labels:prod` to find Cloud resources whose labels contain "prod" as a key
+ *  or value. * `labels.env:prod` to find Cloud resources that have a label
+ *  "env" and its value is "prod". * `labels.env:*` to find Cloud resources that
+ *  have a label "env". * `Important` to find Cloud resources that contain
+ *  "Important" as a word in any of the searchable fields. * `Impor*` to find
+ *  Cloud resources that contain "Impor" as a prefix in any of the searchable
+ *  fields. * `*por*` to find Cloud resources that contain "por" as a substring
+ *  in any of the searchable fields. * `Important location:(us-west1 OR global)`
+ *  to find Cloud resources that contain "Important" as a word in any of the
+ *  searchable fields and are also located in the "us-west1" region or the
+ *  "global" location.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
  *  Required. A scope can be a project, a folder, or an organization. The search
- *  is
- *  limited to the resources within the `scope`. The caller must be granted the
+ *  is limited to the resources within the `scope`. The caller must be granted
+ *  the
  *  [`cloudasset.assets.searchAllResources`](http://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
- *  permission on the desired scope.
- *  The allowed values are:
- *  * projects/{PROJECT_ID} (e.g., "projects/foo-bar")
- *  * projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
- *  * folders/{FOLDER_NUMBER} (e.g., "folders/1234567")
- *  * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
+ *  permission on the desired scope. The allowed values are: *
+ *  projects/{PROJECT_ID} (e.g., "projects/foo-bar") * projects/{PROJECT_NUMBER}
+ *  (e.g., "projects/12345678") * folders/{FOLDER_NUMBER} (e.g.,
+ *  "folders/1234567") * organizations/{ORGANIZATION_NUMBER} (e.g.,
+ *  "organizations/123456")
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -647,16 +636,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  otherwise the request will be rejected.
  *
  *  @param scope Required. A scope can be a project, a folder, or an
- *    organization. The search is
- *    limited to the resources within the `scope`. The caller must be granted
- *    the
+ *    organization. The search is limited to the resources within the `scope`.
+ *    The caller must be granted the
  *    [`cloudasset.assets.searchAllResources`](http://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
- *    permission on the desired scope.
- *    The allowed values are:
- *    * projects/{PROJECT_ID} (e.g., "projects/foo-bar")
- *    * projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
- *    * folders/{FOLDER_NUMBER} (e.g., "folders/1234567")
- *    * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
+ *    permission on the desired scope. The allowed values are: *
+ *    projects/{PROJECT_ID} (e.g., "projects/foo-bar") *
+ *    projects/{PROJECT_NUMBER} (e.g., "projects/12345678") *
+ *    folders/{FOLDER_NUMBER} (e.g., "folders/1234567") *
+ *    organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/123456")
  *
  *  @return GTLRCloudAssetQuery_V1SearchAllResources
  *

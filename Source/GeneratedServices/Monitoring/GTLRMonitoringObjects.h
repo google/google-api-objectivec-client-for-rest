@@ -1399,15 +1399,37 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Type_Syntax_SyntaxProto3;
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_UptimeCheckConfig.selectedRegions
 
-/** Value: "ASIA_PACIFIC" */
+/**
+ *  Allows checks to run from locations within the Asia Pacific area (ex:
+ *  Singapore).
+ *
+ *  Value: "ASIA_PACIFIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_AsiaPacific;
-/** Value: "EUROPE" */
+/**
+ *  Allows checks to run from locations within the continent of Europe.
+ *
+ *  Value: "EUROPE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Europe;
-/** Value: "REGION_UNSPECIFIED" */
+/**
+ *  Default value if no region is specified. Will result in Uptime checks
+ *  running from all regions.
+ *
+ *  Value: "REGION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_RegionUnspecified;
-/** Value: "SOUTH_AMERICA" */
+/**
+ *  Allows checks to run from locations within the continent of South America.
+ *
+ *  Value: "SOUTH_AMERICA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_SouthAmerica;
-/** Value: "USA" */
+/**
+ *  Allows checks to run from locations within the United States of America.
+ *
+ *  Value: "USA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_UptimeCheckConfig_SelectedRegions_Usa;
 
 // ----------------------------------------------------------------------------
@@ -1893,8 +1915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  Required if the policy exists. The resource name for this policy. The format
- *  is:
- *  projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
+ *  is: projects/[PROJECT_ID_OR_NUMBER]/alertPolicies/[ALERT_POLICY_ID]
  *  [ALERT_POLICY_ID] is assigned by Stackdriver Monitoring when the policy is
  *  created. When calling the alertPolicies.create method, do not include the
  *  name field in the alerting policy passed as part of the request.
@@ -2295,9 +2316,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  Optional. Used to perform content matching. This allows matching based on
  *  substrings and regular expressions, together with their negations. Only the
- *  first 4&nbsp;MB of an HTTP or HTTPS check's response (and the first
- *  1&nbsp;MB of a TCP check's response) are examined for purposes of content
- *  matching.
+ *  first 4 MB of an HTTP or HTTPS check's response (and the first 1 MB of a TCP
+ *  check's response) are examined for purposes of content matching.
  */
 @interface GTLRMonitoring_ContentMatcher : GTLRObject
 
@@ -2503,11 +2523,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The sum of squared deviations from the mean of the values in the population.
- *  For values x_i this is:
- *  Sum[i=1..n]((x_i - mean)^2)
- *  Knuth, "The Art of Computer Programming", Vol. 2, page 323, 3rd edition
- *  describes Welford's method for accumulating this sum in one pass.If count is
- *  zero then this field must be zero.
+ *  For values x_i this is: Sum[i=1..n]((x_i - mean)^2) Knuth, "The Art of
+ *  Computer Programming", Vol. 2, page 232, 3rd edition describes Welford's
+ *  method for accumulating this sum in one pass.If count is zero then this
+ *  field must be zero.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -2600,11 +2619,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for Empty is empty JSON object {}.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for Empty is empty JSON object {}.
  */
 @interface GTLRMonitoring_Empty : GTLRObject
 @end
@@ -2948,17 +2965,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  Output only. The name of this group. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
- *  When creating a group, this field is ignored and a new name is created
- *  consisting of the project specified in the call to CreateGroup and a unique
- *  [GROUP_ID] that is generated automatically.
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] When creating a group,
+ *  this field is ignored and a new name is created consisting of the project
+ *  specified in the call to CreateGroup and a unique [GROUP_ID] that is
+ *  generated automatically.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  The name of the group's parent, if it has one. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID]
- *  For groups with no parent, parent_name is the empty string, "".
+ *  projects/[PROJECT_ID_OR_NUMBER]/groups/[GROUP_ID] For groups with no parent,
+ *  parent_name is the empty string, "".
  */
 @property(nonatomic, copy, nullable) NSString *parentName;
 
@@ -3176,11 +3193,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The key for this label. The key must meet the following criteria:
- *  Does not exceed 100 characters.
- *  Matches the following regular expression: [a-zA-Z][a-zA-Z0-9_]*
- *  The first character must be an upper- or lower-case letter.
- *  The remaining characters must be letters, digits, or underscores.
+ *  The key for this label. The key must meet the following criteria: Does not
+ *  exceed 100 characters. Matches the following regular expression:
+ *  [a-zA-Z][a-zA-Z0-9_]* The first character must be an upper- or lower-case
+ *  letter. The remaining characters must be letters, digits, or underscores.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -3769,15 +3785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  Defines a metric type and its schema. Once a metric descriptor is created,
  *  deleting or altering it stops data collection and makes the metric type's
- *  existing data unusable.The following are specific rules for service defined
- *  Monitoring metric descriptors:
- *  type, metric_kind, value_type and description fields are all required. The
- *  unit field must be specified if the value_type is any of DOUBLE, INT64,
- *  DISTRIBUTION.
- *  Maximum of default 500 metric descriptors per service is allowed.
- *  Maximum of default 10 labels per metric descriptor is allowed.The default
- *  maximum limit can be overridden. Please follow
- *  https://cloud.google.com/monitoring/quotas
+ *  existing data unusable.
  */
 @interface GTLRMonitoring_MetricDescriptor : GTLRObject
 
@@ -3798,10 +3806,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The set of labels that can be used to describe a specific instance of this
- *  metric type.The label key name must follow:
- *  Only upper and lower-case letters, digits and underscores (_) are allowed.
- *  Label name must start with a letter or digit.
- *  The maximum length of a label name is 100 characters.For example, the
+ *  metric type. For example, the
  *  appengine.googleapis.com/http/server/response_latencies metric type has a
  *  label for the HTTP response code, response_code, so you can look at
  *  latencies for successful responses or just for responses that failed.
@@ -3889,18 +3894,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The metric type, including its DNS name prefix. The type is not
- *  URL-encoded.All service defined metrics must be prefixed with the service
- *  name, in the format of {service name}/{relative metric name}, such as
- *  cloudsql.googleapis.com/database/cpu/utilization. The relative metric name
- *  must follow:
- *  Only upper and lower-case letters, digits, '/' and underscores '_' are
- *  allowed.
- *  The maximum number of characters allowed for the relative_metric_name is
- *  100.All user-defined metric types have the DNS name custom.googleapis.com,
- *  external.googleapis.com, or logging.googleapis.com/user/.Metric types should
- *  use a natural hierarchical grouping. For example:
- *  "custom.googleapis.com/invoice/paid/amount"
+ *  The metric type, including its DNS name prefix. The type is not URL-encoded.
+ *  All user-defined metric types have the DNS name custom.googleapis.com or
+ *  external.googleapis.com. Metric types should use a natural hierarchical
+ *  grouping. For example: "custom.googleapis.com/invoice/paid/amount"
  *  "external.googleapis.com/prometheus/up"
  *  "appengine.googleapis.com/http/server/response_latencies"
  */
@@ -3922,66 +3919,36 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use
  *  Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a
  *  subset of The Unified Code for Units of Measure
- *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT)
- *  bit bit
- *  By byte
- *  s second
- *  min minute
- *  h hour
- *  d day
- *  1 dimensionlessPrefixes (PREFIX)
- *  k kilo (10^3)
- *  M mega (10^6)
- *  G giga (10^9)
- *  T tera (10^12)
- *  P peta (10^15)
- *  E exa (10^18)
- *  Z zetta (10^21)
- *  Y yotta (10^24)
- *  m milli (10^-3)
- *  u micro (10^-6)
- *  n nano (10^-9)
- *  p pico (10^-12)
- *  f femto (10^-15)
- *  a atto (10^-18)
- *  z zepto (10^-21)
- *  y yocto (10^-24)
- *  Ki kibi (2^10)
- *  Mi mebi (2^20)
- *  Gi gibi (2^30)
- *  Ti tebi (2^40)
- *  Pi pebi (2^50)GrammarThe grammar also includes these connectors:
+ *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By
+ *  byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k
+ *  kilo (10^3) M mega (10^6) G giga (10^9) T tera (10^12) P peta (10^15) E exa
+ *  (10^18) Z zetta (10^21) Y yotta (10^24) m milli (10^-3) u micro (10^-6) n
+ *  nano (10^-9) p pico (10^-12) f femto (10^-15) a atto (10^-18) z zepto
+ *  (10^-21) y yocto (10^-24) Ki kibi (2^10) Mi mebi (2^20) Gi gibi (2^30) Ti
+ *  tebi (2^40) Pi pebi (2^50)GrammarThe grammar also includes these connectors:
  *  / division or ratio (as an infix operator). For examples, kBy/{email} or
  *  MiBy/10ms (although you should almost never have /s in a metric unit; rates
  *  should always be computed at query time from the underlying cumulative or
- *  delta value).
- *  . multiplication or composition (as an infix operator). For examples, GBy.d
- *  or k{watt}.h.The grammar for a unit is as follows:
- *  Expression = Component { "." Component } { "/" Component } ;
- *  Component = ( [ PREFIX ] UNIT | "%" ) [ Annotation ]
- *  | Annotation
- *  | "1"
- *  ;
- *  Annotation = "{" NAME "}" ;
- *  Notes:
- *  Annotation is just a comment if it follows a UNIT. If the annotation is used
- *  alone, then the unit is equivalent to 1. For examples, {request}/s == 1/s,
- *  By{transmitted}/s == By/s.
- *  NAME is a sequence of non-blank printable ASCII characters not containing {
- *  or }.
- *  1 represents a unitary dimensionless unit
+ *  delta value). . multiplication or composition (as an infix operator). For
+ *  examples, GBy.d or k{watt}.h.The grammar for a unit is as follows:
+ *  Expression = Component { "." Component } { "/" Component } ; Component = ( [
+ *  PREFIX ] UNIT | "%" ) [ Annotation ] | Annotation | "1" ; Annotation = "{"
+ *  NAME "}" ; Notes: Annotation is just a comment if it follows a UNIT. If the
+ *  annotation is used alone, then the unit is equivalent to 1. For examples,
+ *  {request}/s == 1/s, By{transmitted}/s == By/s. NAME is a sequence of
+ *  non-blank printable ASCII characters not containing { or }. 1 represents a
+ *  unitary dimensionless unit
  *  (https://en.wikipedia.org/wiki/Dimensionless_quantity) of 1, such as in 1/s.
  *  It is typically used when none of the basic units are appropriate. For
  *  example, "new users per day" can be represented as 1/d or {new-users}/d (and
  *  a metric value 5 would mean "5 new users). Alternatively, "thousands of page
  *  views per day" would be represented as 1000/d or k1/d or k{page_views}/d
- *  (and a metric value of 5.3 would mean "5300 page views per day").
- *  % represents dimensionless value of 1/100, and annotates values giving a
+ *  (and a metric value of 5.3 would mean "5300 page views per day"). %
+ *  represents dimensionless value of 1/100, and annotates values giving a
  *  percentage (so the metric values are typically in the range of 0..100, and a
- *  metric value 3 means "3 percent").
- *  10^2.% indicates a metric contains a ratio, typically in the range 0..1,
- *  that will be multiplied by 100 and displayed as a percentage (so a metric
- *  value 0.03 means "3 percent").
+ *  metric value 3 means "3 percent"). 10^2.% indicates a metric contains a
+ *  ratio, typically in the range 0..1, that will be multiplied by 100 and
+ *  displayed as a percentage (so a metric value 0.03 means "3 percent").
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -4229,10 +4196,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  attributes according to the schema. For example, a particular Compute Engine
  *  VM instance could be represented by the following object, because the
  *  MonitoredResourceDescriptor for "gce_instance" has labels "instance_id" and
- *  "zone":
- *  { "type": "gce_instance",
- *  "labels": { "instance_id": "12345678901234",
- *  "zone": "us-central1-a" }}
+ *  "zone": { "type": "gce_instance", "labels": { "instance_id":
+ *  "12345678901234", "zone": "us-central1-a" }}
  */
 @interface GTLRMonitoring_MonitoredResource : GTLRObject
 
@@ -4273,20 +4238,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  type name and a set of labels. For example, the monitored resource
  *  descriptor for Google Compute Engine VM instances has a type of
  *  "gce_instance" and specifies the use of the labels "instance_id" and "zone"
- *  to identify particular VM instances.Different services can support different
- *  monitored resource types.The following are specific rules to service defined
- *  monitored resources for Monitoring and Logging:
- *  The type, display_name, description, labels and launch_stage fields are all
- *  required.
- *  The first label of the monitored resource descriptor must be
- *  resource_container. There are legacy monitored resource descritptors start
- *  with project_id.
- *  It must include a location label.
- *  Maximum of default 5 service defined monitored resource descriptors is
- *  allowed per service.
- *  Maximum of default 10 labels per monitored resource is allowed.The default
- *  maximum limit can be overridden. Please follow
- *  https://cloud.google.com/monitoring/quotas
+ *  to identify particular VM instances.Different APIs can support different
+ *  monitored resource types. APIs generally provide a list method that returns
+ *  the monitored resource descriptors used by the API.
  */
 @interface GTLRMonitoring_MonitoredResourceDescriptor : GTLRObject
 
@@ -4308,12 +4262,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  Required. A set of labels used to describe instances of this monitored
- *  resource type. The label key name must follow:
- *  Only upper and lower-case letters, digits and underscores (_) are allowed.
- *  Label name must start with a letter or digit.
- *  The maximum length of a label name is 100 characters.For example, an
- *  individual Google Cloud SQL database is identified by values for the labels
- *  database_id and location.
+ *  resource type. For example, an individual Google Cloud SQL database is
+ *  identified by values for the labels "database_id" and "zone".
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_LabelDescriptor *> *labels;
 
@@ -4376,16 +4326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  cloudsql_database represents databases in Google Cloud SQL.All service
- *  defined monitored resource types must be prefixed with the service name, in
- *  the format of {service name}/{relative resource name}. The relative resource
- *  name must follow:
- *  Only upper and lower-case letters and digits are allowed.
- *  It must start with upper case character and is recommended to use Upper
- *  Camel Case style.
- *  The maximum number of characters allowed for the relative_resource_name is
- *  100.Note there are legacy service monitored resources not following this
- *  rule.
+ *  "cloudsql_database" represents databases in Google Cloud SQL.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4405,10 +4346,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Output only. Values for predefined system metadata labels. System labels are
  *  a kind of metadata extracted by Google, including "machine_image", "vpc",
  *  "subnet_id", "security_group", "name", etc. System label values can be only
- *  strings, Boolean values, or a list of strings. For example:
- *  { "name": "my-test-instance",
- *  "security_group": ["a", "b", "c"],
- *  "spot_instance": false }
+ *  strings, Boolean values, or a list of strings. For example: { "name":
+ *  "my-test-instance", "security_group": ["a", "b", "c"], "spot_instance":
+ *  false }
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceMetadata_SystemLabels *systemLabels;
 
@@ -4422,10 +4362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  Output only. Values for predefined system metadata labels. System labels are
  *  a kind of metadata extracted by Google, including "machine_image", "vpc",
  *  "subnet_id", "security_group", "name", etc. System label values can be only
- *  strings, Boolean values, or a list of strings. For example:
- *  { "name": "my-test-instance",
- *  "security_group": ["a", "b", "c"],
- *  "spot_instance": false }
+ *  strings, Boolean values, or a list of strings. For example: { "name":
+ *  "my-test-instance", "security_group": ["a", "b", "c"], "spot_instance":
+ *  false }
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4510,8 +4449,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The full REST resource name for this channel. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID]
- *  The [CHANNEL_ID] is automatically assigned by the server on creation.
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannels/[CHANNEL_ID] The
+ *  [CHANNEL_ID] is automatically assigned by the server on creation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4678,8 +4617,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The full REST resource name for this descriptor. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[TYPE]
- *  In the above, [TYPE] is the value of the type field.
+ *  projects/[PROJECT_ID_OR_NUMBER]/notificationChannelDescriptors/[TYPE] In the
+ *  above, [TYPE] is the value of the type field.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5010,9 +4949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @interface GTLRMonitoring_ServiceLevelObjective : GTLRObject
 
 /**
- *  A calendar period, semantically "since the start of the current
- *  <calendar_period>". At this time, only DAY, WEEK, FORTNIGHT, and MONTH are
- *  supported.
+ *  A calendar period, semantically "since the start of the current ". At this
+ *  time, only DAY, WEEK, FORTNIGHT, and MONTH are supported.
  *
  *  Likely values:
  *    @arg @c kGTLRMonitoring_ServiceLevelObjective_CalendarPeriod_CalendarPeriodUnspecified
@@ -5057,8 +4995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A rolling time period, semantically "in the past <rolling_period>". Must be
- *  an integer multiple of 1 day no larger than 30 days.
+ *  A rolling time period, semantically "in the past ". Must be an integer
+ *  multiple of 1 day no larger than 30 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *rollingPeriod;
 
@@ -5096,11 +5034,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The resource name of the span. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID]
- *  [TRACE_ID] is a unique identifier for a trace within a project; it is a
- *  32-character hexadecimal encoding of a 16-byte array.[SPAN_ID] is a unique
- *  identifier for a span within a trace; it is a 16-character hexadecimal
- *  encoding of an 8-byte array.
+ *  projects/[PROJECT_ID_OR_NUMBER]/traces/[TRACE_ID]/spans/[SPAN_ID] [TRACE_ID]
+ *  is a unique identifier for a trace within a project; it is a 32-character
+ *  hexadecimal encoding of a 16-byte array.[SPAN_ID] is a unique identifier for
+ *  a span within a trace; it is a 16-character hexadecimal encoding of an
+ *  8-byte array.
  */
 @property(nonatomic, copy, nullable) NSString *spanName;
 
@@ -5187,28 +5125,26 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  A closed time interval. It extends from the start time to the end time, and
  *  includes both: [startTime, endTime]. Valid time intervals depend on the
  *  MetricKind of the metric value. In no case can the end time be earlier than
- *  the start time.
- *  For GAUGE metrics, the startTime value is technically optional; if no value
- *  is specified, the start time defaults to the value of the end time, and the
- *  interval represents a single point in time. If both start and end times are
- *  specified, they must be identical. Such an interval is valid only for GAUGE
- *  metrics, which are point-in-time measurements. The end time of a new
- *  interval must be at least a millisecond after the end time of the previous
- *  interval.
- *  For DELTA metrics, the start time and end time must specify a non-zero
- *  interval, with subsequent points specifying contiguous and non-overlapping
- *  intervals. For DELTA metrics, the start time of the next interval must be at
- *  least a millisecond after the end time of the previous interval.
- *  For CUMULATIVE metrics, the start time and end time must specify a a
- *  non-zero interval, with subsequent points specifying the same start time and
- *  increasing end times, until an event resets the cumulative value to zero and
- *  sets a new start time for the following points. The new start time must be
- *  at least a millisecond after the end time of the previous interval.
- *  The start time of a new interval must be at least a millisecond after the
- *  end time of the previous interval because intervals are closed. If the start
- *  time of a new interval is the same as the end time of the previous interval,
- *  then data written at the new start time could overwrite data written at the
- *  previous end time.
+ *  the start time. For GAUGE metrics, the startTime value is technically
+ *  optional; if no value is specified, the start time defaults to the value of
+ *  the end time, and the interval represents a single point in time. If both
+ *  start and end times are specified, they must be identical. Such an interval
+ *  is valid only for GAUGE metrics, which are point-in-time measurements. The
+ *  end time of a new interval must be at least a millisecond after the end time
+ *  of the previous interval. For DELTA metrics, the start time and end time
+ *  must specify a non-zero interval, with subsequent points specifying
+ *  contiguous and non-overlapping intervals. For DELTA metrics, the start time
+ *  of the next interval must be at least a millisecond after the end time of
+ *  the previous interval. For CUMULATIVE metrics, the start time and end time
+ *  must specify a a non-zero interval, with subsequent points specifying the
+ *  same start time and increasing end times, until an event resets the
+ *  cumulative value to zero and sets a new start time for the following points.
+ *  The new start time must be at least a millisecond after the end time of the
+ *  previous interval. The start time of a new interval must be at least a
+ *  millisecond after the end time of the previous interval because intervals
+ *  are closed. If the start time of a new interval is the same as the end time
+ *  of the previous interval, then data written at the new start time could
+ *  overwrite data written at the previous end time.
  */
 @interface GTLRMonitoring_TimeInterval : GTLRObject
 
@@ -5360,10 +5296,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  A TimeSeriesRatio specifies two TimeSeries to use for computing the
  *  good_service / total_service ratio. The specified TimeSeries must have
- *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind =
- *  DELTA or MetricKind = CUMULATIVE. The TimeSeriesRatio must specify exactly
- *  two of good, bad, and total, and the relationship good_service +
- *  bad_service = total_service will be assumed.
+ *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind = DELTA or
+ *  MetricKind = CUMULATIVE. The TimeSeriesRatio must specify exactly two of
+ *  good, bad, and total, and the relationship good_service + bad_service =
+ *  total_service will be assumed.
  */
 @interface GTLRMonitoring_TimeSeriesRatio : GTLRObject
 
@@ -5379,16 +5315,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters)
  *  specifying a TimeSeries quantifying good service provided. Must have
- *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind =
- *  DELTA or MetricKind = CUMULATIVE.
+ *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind = DELTA or
+ *  MetricKind = CUMULATIVE.
  */
 @property(nonatomic, copy, nullable) NSString *goodServiceFilter;
 
 /**
  *  A monitoring filter (https://cloud.google.com/monitoring/api/v3/filters)
  *  specifying a TimeSeries quantifying total demanded service. Must have
- *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind =
- *  DELTA or MetricKind = CUMULATIVE.
+ *  ValueType = DOUBLE or ValueType = INT64 and must have MetricKind = DELTA or
+ *  MetricKind = CUMULATIVE.
  */
 @property(nonatomic, copy, nullable) NSString *totalServiceFilter;
 
@@ -5471,15 +5407,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  A 64-bit double-precision floating-point number. Its magnitude is
- *  approximately &plusmn;10<sup>&plusmn;300</sup> and it has 16 significant
- *  digits of precision.
+ *  approximately ±10±300 and it has 16 significant digits of precision.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
- *  A 64-bit integer. Its range is approximately &plusmn;9.2x10<sup>18</sup>.
+ *  A 64-bit integer. Its range is approximately ±9.2x1018.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5544,9 +5479,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  A unique resource name for this Uptime check configuration. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
- *  This field should be omitted when creating the Uptime check configuration;
- *  on create, the resource name is assigned by the server and included in the
+ *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This
+ *  field should be omitted when creating the Uptime check configuration; on
+ *  create, the resource name is assigned by the server and included in the
  *  response.
  */
 @property(nonatomic, copy, nullable) NSString *name;

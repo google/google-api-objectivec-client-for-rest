@@ -866,9 +866,10 @@
          creativeSafeFrameCompatibility, dealId, dealServingMetadata,
          deliveryControl, externalDealId, flightEndTimeMs, flightStartTimeMs,
          inventoryDescription, isRfpTemplate, isSetupComplete, kind,
-         lastUpdateTimeMs, name, productId, productRevisionNumber,
-         programmaticCreativeSource, proposalId, sellerContacts,
-         sharedTargetings, syndicationProduct, terms, webPropertyCode;
+         lastUpdateTimeMs, makegoodRequestedReason, name, productId,
+         productRevisionNumber, programmaticCreativeSource, proposalId,
+         sellerContacts, sharedTargetings, syndicationProduct, terms,
+         webPropertyCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -909,6 +910,16 @@
 @implementation GTLRAdExchangeBuyer_MarketplaceNote
 @dynamic creatorRole, dealId, kind, note, noteId, proposalId,
          proposalRevisionNumber, timestampMs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyer_MobileApplication
+//
+
+@implementation GTLRAdExchangeBuyer_MobileApplication
+@dynamic appStore, externalAppId;
 @end
 
 
@@ -1147,12 +1158,14 @@
 @implementation GTLRAdExchangeBuyer_PublisherProfileApiProto
 @dynamic audience, buyerPitchStatement, directContact, exchange, googlePlusLink,
          isParent, isPublished, kind, logoUrl, mediaKitLink, name, overview,
-         profileId, programmaticContact, publisherDomains, publisherProfileId,
-         publisherProvidedForecast, rateCardInfoLink, samplePageLink, seller,
-         state, topHeadlines;
+         profileId, programmaticContact, publisherAppIds, publisherApps,
+         publisherDomains, publisherProfileId, publisherProvidedForecast,
+         rateCardInfoLink, samplePageLink, seller, state, topHeadlines;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"publisherAppIds" : [NSNumber class],
+    @"publisherApps" : [GTLRAdExchangeBuyer_MobileApplication class],
     @"publisherDomains" : [NSString class],
     @"topHeadlines" : [NSString class]
   };

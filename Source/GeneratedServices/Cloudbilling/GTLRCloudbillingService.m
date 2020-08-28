@@ -5,17 +5,18 @@
 //   Cloud Billing API (cloudbilling/v1)
 // Description:
 //   Allows developers to manage billing for their Google Cloud Platform
-//   projects
-//   programmatically.
+//   projects programmatically.
 // Documentation:
 //   https://cloud.google.com/billing/
 
 #import "GTLRCloudbilling.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeCloudbillingCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudbillingCloudBilling        = @"https://www.googleapis.com/auth/cloud-billing";
+NSString * const kGTLRAuthScopeCloudbillingCloudBillingReadonly = @"https://www.googleapis.com/auth/cloud-billing.readonly";
+NSString * const kGTLRAuthScopeCloudbillingCloudPlatform       = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudbillingService

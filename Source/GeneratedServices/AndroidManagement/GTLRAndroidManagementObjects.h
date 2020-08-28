@@ -78,6 +78,7 @@
 @class GTLRAndroidManagement_Status_Details_Item;
 @class GTLRAndroidManagement_StatusReportingSettings;
 @class GTLRAndroidManagement_SystemUpdate;
+@class GTLRAndroidManagement_SystemUpdateInfo;
 @class GTLRAndroidManagement_TermsAndConditions;
 @class GTLRAndroidManagement_User;
 @class GTLRAndroidManagement_UserFacingMessage;
@@ -184,6 +185,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_Event
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.connectedWorkAndPersonalApp
+
+/**
+ *  Allows the app to communicate across profiles after receiving user consent.
+ *
+ *  Value: "CONNECTED_WORK_AND_PERSONAL_APP_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppAllowed;
+/**
+ *  Default. Prevents the app from communicating cross-profile.
+ *
+ *  Value: "CONNECTED_WORK_AND_PERSONAL_APP_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppDisallowed;
+/**
+ *  Unspecified. Defaults to CONNECTED_WORK_AND_PERSONAL_APPS_DISALLOWED.
+ *
+ *  Value: "CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.defaultPermissionPolicy
 
 /**
@@ -215,19 +238,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Defa
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.delegatedScopes
 
-/** Value: "BLOCK_UNINSTALL" */
+/**
+ *  Grants access to blocking uninstallation.
+ *
+ *  Value: "BLOCK_UNINSTALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_BlockUninstall;
-/** Value: "CERT_INSTALL" */
+/**
+ *  Grants access to certificate installation and management.
+ *
+ *  Value: "CERT_INSTALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_CertInstall;
-/** Value: "DELEGATED_SCOPE_UNSPECIFIED" */
+/**
+ *  No delegation scope specified.
+ *
+ *  Value: "DELEGATED_SCOPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_DelegatedScopeUnspecified;
-/** Value: "ENABLE_SYSTEM_APP" */
+/**
+ *  Grants access for enabling system apps.
+ *
+ *  Value: "ENABLE_SYSTEM_APP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_EnableSystemApp;
-/** Value: "MANAGED_CONFIGURATIONS" */
+/**
+ *  Grants access to managed configurations management.
+ *
+ *  Value: "MANAGED_CONFIGURATIONS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_ManagedConfigurations;
-/** Value: "PACKAGE_ACCESS" */
+/**
+ *  Grants access to package access state.
+ *
+ *  Value: "PACKAGE_ACCESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PackageAccess;
-/** Value: "PERMISSION_GRANT" */
+/**
+ *  Grants access to permission policy and permission grant state.
+ *
+ *  Value: "PERMISSION_GRANT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_DelegatedScopes_PermissionGrant;
 
 // ----------------------------------------------------------------------------
@@ -402,13 +453,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ErrorCode_Unsu
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Command.resetPasswordFlags
 
-/** Value: "DO_NOT_ASK_CREDENTIALS_ON_BOOT" */
+/**
+ *  Don't ask for user credentials on device boot.
+ *
+ *  Value: "DO_NOT_ASK_CREDENTIALS_ON_BOOT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_DoNotAskCredentialsOnBoot;
-/** Value: "LOCK_NOW" */
+/**
+ *  Lock the device after password reset.
+ *
+ *  Value: "LOCK_NOW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_LockNow;
-/** Value: "REQUIRE_ENTRY" */
+/**
+ *  Don't allow other admins to change the password again until the user has
+ *  entered it.
+ *
+ *  Value: "REQUIRE_ENTRY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_RequireEntry;
-/** Value: "RESET_PASSWORD_FLAG_UNSPECIFIED" */
+/**
+ *  This value is ignored.
+ *
+ *  Value: "RESET_PASSWORD_FLAG_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_ResetPasswordFlagUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -663,15 +731,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_EnrollmentToken_AllowP
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Enterprise.enabledNotificationTypes
 
-/** Value: "COMMAND" */
+/**
+ *  A notification sent when a device command has completed.
+ *
+ *  Value: "COMMAND"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Command;
-/** Value: "COMPLIANCE_REPORT" */
+/**
+ *  Deprecated.
+ *
+ *  Value: "COMPLIANCE_REPORT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_ComplianceReport;
-/** Value: "ENROLLMENT" */
+/**
+ *  A notification sent when a device enrolls.
+ *
+ *  Value: "ENROLLMENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_Enrollment;
-/** Value: "NOTIFICATION_TYPE_UNSPECIFIED" */
+/**
+ *  This value is ignored.
+ *
+ *  Value: "NOTIFICATION_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_NotificationTypeUnspecified;
-/** Value: "STATUS_REPORT" */
+/**
+ *  A notification sent when a device issues a status report.
+ *
+ *  Value: "STATUS_REPORT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Enterprise_EnabledNotificationTypes_StatusReport;
 
 // ----------------------------------------------------------------------------
@@ -976,8 +1064,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_In
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotCompatibleWithDevice;
 /**
- *  The enterprise is no longer enrolled with managed Play or the admin has not
- *  accepted the latest managed Play terms of service.
+ *  The enterprise is no longer enrolled with Managed Google Play or the admin
+ *  has not accepted the latest Managed Google Play Terms of Service.
  *
  *  Value: "NOT_ENROLLED"
  */
@@ -1325,11 +1413,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.androidDevicePolicyTracks
 
-/** Value: "APP_TRACK_UNSPECIFIED" */
+/**
+ *  This value is ignored.
+ *
+ *  Value: "APP_TRACK_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_AppTrackUnspecified;
-/** Value: "BETA" */
+/**
+ *  The beta track, which provides the latest beta release.
+ *
+ *  Value: "BETA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Beta;
-/** Value: "PRODUCTION" */
+/**
+ *  The production track, which provides the latest stable release.
+ *
+ *  Value: "PRODUCTION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AndroidDevicePolicyTracks_Production;
 
 // ----------------------------------------------------------------------------
@@ -1420,27 +1520,71 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolic
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.keyguardDisabledFeatures
 
-/** Value: "ALL_FEATURES" */
+/**
+ *  Disable all current and future keyguard customizations.
+ *
+ *  Value: "ALL_FEATURES"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_AllFeatures;
-/** Value: "BIOMETRICS" */
+/**
+ *  Disable all biometric authentication on secure keyguard screens.
+ *
+ *  Value: "BIOMETRICS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Biometrics;
-/** Value: "CAMERA" */
+/**
+ *  Disable the camera on secure keyguard screens (e.g. PIN).
+ *
+ *  Value: "CAMERA"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Camera;
-/** Value: "DISABLE_FINGERPRINT" */
+/**
+ *  Disable fingerprint sensor on secure keyguard screens.
+ *
+ *  Value: "DISABLE_FINGERPRINT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableFingerprint;
-/** Value: "DISABLE_REMOTE_INPUT" */
+/**
+ *  Disable text entry into notifications on secure keyguard screens.
+ *
+ *  Value: "DISABLE_REMOTE_INPUT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_DisableRemoteInput;
-/** Value: "FACE" */
+/**
+ *  Disable face authentication on secure keyguard screens.
+ *
+ *  Value: "FACE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Face;
-/** Value: "IRIS" */
+/**
+ *  Disable iris authentication on secure keyguard screens.
+ *
+ *  Value: "IRIS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Iris;
-/** Value: "KEYGUARD_DISABLED_FEATURE_UNSPECIFIED" */
+/**
+ *  This value is ignored.
+ *
+ *  Value: "KEYGUARD_DISABLED_FEATURE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_KeyguardDisabledFeatureUnspecified;
-/** Value: "NOTIFICATIONS" */
+/**
+ *  Disable showing all notifications on secure keyguard screens.
+ *
+ *  Value: "NOTIFICATIONS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Notifications;
-/** Value: "TRUST_AGENTS" */
+/**
+ *  Ignore trust agent state on secure keyguard screens.
+ *
+ *  Value: "TRUST_AGENTS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_TrustAgents;
-/** Value: "UNREDACTED_NOTIFICATIONS" */
+/**
+ *  Disable unredacted notifications on secure keyguard screens.
+ *
+ *  Value: "UNREDACTED_NOTIFICATIONS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_UnredactedNotifications;
 
 // ----------------------------------------------------------------------------
@@ -1505,13 +1649,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_PlayStoreMode_W
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.stayOnPluggedModes
 
-/** Value: "AC" */
+/**
+ *  Power source is an AC charger.
+ *
+ *  Value: "AC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Ac;
-/** Value: "BATTERY_PLUGGED_MODE_UNSPECIFIED" */
+/**
+ *  This value is ignored.
+ *
+ *  Value: "BATTERY_PLUGGED_MODE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_BatteryPluggedModeUnspecified;
-/** Value: "USB" */
+/**
+ *  Power source is a USB port.
+ *
+ *  Value: "USB"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Usb;
-/** Value: "WIRELESS" */
+/**
+ *  Power source is wireless.
+ *
+ *  Value: "WIRELESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_StayOnPluggedModes_Wireless;
 
 // ----------------------------------------------------------------------------
@@ -1675,6 +1835,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Syst
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Windowed;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_SystemUpdateInfo.updateStatus
+
+/**
+ *  There is a pending OS update available.
+ *
+ *  Value: "OS_UPDATE_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_OsUpdateAvailable;
+/**
+ *  There is a pending security update available.
+ *
+ *  Value: "SECURITY_UPDATE_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_SecurityUpdateAvailable;
+/**
+ *  There is a pending system update available, but its type is not known.
+ *
+ *  Value: "UNKNOWN_UPDATE_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UnknownUpdateAvailable;
+/**
+ *  It is unknown whether there is a pending system update. This happens when,
+ *  for example, the device API level is less than 26, or if the version of
+ *  Android Device Policy is outdated.
+ *
+ *  Value: "UPDATE_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpdateStatusUnknown;
+/**
+ *  There is no pending system update available on the device.
+ *
+ *  Value: "UP_TO_DATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebApp.displayMode
 
 /**
@@ -1710,25 +1906,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebApp_DisplayMode_Sta
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebToken.enabledFeatures
 
-/** Value: "FEATURE_UNSPECIFIED" */
+/**
+ *  Unspecified feature.
+ *
+ *  Value: "FEATURE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_FeatureUnspecified;
-/** Value: "MANAGED_CONFIGURATIONS" */
+/**
+ *  The managed configurations page
+ *  (https://developers.google.com/android/management/managed-configurations-iframe).
+ *
+ *  Value: "MANAGED_CONFIGURATIONS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ManagedConfigurations;
-/** Value: "PLAY_SEARCH" */
+/**
+ *  The Managed Play search apps page
+ *  (https://developers.google.com/android/management/apps#search-apps).
+ *
+ *  Value: "PLAY_SEARCH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PlaySearch;
-/** Value: "PRIVATE_APPS" */
+/**
+ *  The private apps page
+ *  (https://developers.google.com/android/management/apps#private-apps).
+ *
+ *  Value: "PRIVATE_APPS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PrivateApps;
-/** Value: "STORE_BUILDER" */
+/**
+ *  The organize apps page
+ *  (https://developers.google.com/android/management/apps#organize-apps).
+ *
+ *  Value: "STORE_BUILDER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_StoreBuilder;
-/** Value: "WEB_APPS" */
+/**
+ *  The Web Apps page
+ *  (https://developers.google.com/android/management/apps#web-apps).
+ *
+ *  Value: "WEB_APPS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebToken.permissions
 
-/** Value: "APPROVE_APPS" */
+/**
+ *  The permission to approve apps for the enterprise.
+ *
+ *  Value: "APPROVE_APPS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps;
-/** Value: "WEB_TOKEN_PERMISSION_UNSPECIFIED" */
+/**
+ *  This value is ignored.
+ *
+ *  Value: "WEB_TOKEN_PERMISSION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionUnspecified;
 
 /**
@@ -1903,6 +2136,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleTrackIds;
 
 /**
+ *  Controls whether the app can communicate with itself across a device’s work
+ *  and personal profiles, subject to user consent.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppAllowed
+ *        Allows the app to communicate across profiles after receiving user
+ *        consent. (Value: "CONNECTED_WORK_AND_PERSONAL_APP_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppDisallowed
+ *        Default. Prevents the app from communicating cross-profile. (Value:
+ *        "CONNECTED_WORK_AND_PERSONAL_APP_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppUnspecified
+ *        Unspecified. Defaults to CONNECTED_WORK_AND_PERSONAL_APPS_DISALLOWED.
+ *        (Value: "CONNECTED_WORK_AND_PERSONAL_APP_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *connectedWorkAndPersonalApp;
+
+/**
  *  The default policy for all permissions requested by the app. If specified,
  *  this overrides the policy-level default_permission_policy which applies to
  *  all apps. It does not override the permission_grants which applies to all
@@ -1978,13 +2228,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  is dictated by the ManagedProperty values supported by the app. Each field
  *  name in the managed configuration must match the key field of the
  *  ManagedProperty. The field value must be compatible with the type of the
- *  ManagedProperty: <table> <tr><td><i>type</i></td><td><i>JSON
- *  value</i></td></tr> <tr><td>BOOL</td><td>true or false</td></tr>
- *  <tr><td>STRING</td><td>string</td></tr>
- *  <tr><td>INTEGER</td><td>number</td></tr>
- *  <tr><td>CHOICE</td><td>string</td></tr> <tr><td>MULTISELECT</td><td>array of
- *  strings</td></tr> <tr><td>HIDDEN</td><td>string</td></tr>
- *  <tr><td>BUNDLE_ARRAY</td><td>array of objects</td></tr> </table>
+ *  ManagedProperty: *type* *JSON value* BOOL true or false STRING string
+ *  INTEGER number CHOICE string MULTISELECT array of strings HIDDEN string
+ *  BUNDLE_ARRAY array of objects
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration *managedConfiguration;
 
@@ -2027,13 +2273,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  is dictated by the ManagedProperty values supported by the app. Each field
  *  name in the managed configuration must match the key field of the
  *  ManagedProperty. The field value must be compatible with the type of the
- *  ManagedProperty: <table> <tr><td><i>type</i></td><td><i>JSON
- *  value</i></td></tr> <tr><td>BOOL</td><td>true or false</td></tr>
- *  <tr><td>STRING</td><td>string</td></tr>
- *  <tr><td>INTEGER</td><td>number</td></tr>
- *  <tr><td>CHOICE</td><td>string</td></tr> <tr><td>MULTISELECT</td><td>array of
- *  strings</td></tr> <tr><td>HIDDEN</td><td>string</td></tr>
- *  <tr><td>BUNDLE_ARRAY</td><td>array of objects</td></tr> </table>
+ *  ManagedProperty: *type* *JSON value* BOOL true or false STRING string
+ *  INTEGER number CHOICE string MULTISELECT array of strings HIDDEN string
+ *  BUNDLE_ARRAY array of objects
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -2342,12 +2584,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  Represents a whole or partial calendar date, e.g. a birthday. The time of
  *  day and time zone are either specified elsewhere or are not significant. The
- *  date is relative to the Proleptic Gregorian Calendar. This can represent:
- *  A full date, with non-zero year, month and day values
- *  A month and day value, with a zero year, e.g. an anniversary
- *  A year on its own, with zero month and day values
- *  A year and month value, with a zero day, e.g. a credit card expiration
- *  dateRelated types are google.type.TimeOfDay and google.protobuf.Timestamp.
+ *  date is relative to the Proleptic Gregorian Calendar. This can represent: A
+ *  full date, with non-zero year, month and day values A month and day value,
+ *  with a zero year, e.g. an anniversary A year on its own, with zero month and
+ *  day values A year and month value, with a zero day, e.g. a credit card
+ *  expiration dateRelated types are google.type.TimeOfDay and
+ *  google.protobuf.Timestamp.
  */
 @interface GTLRAndroidManagement_Date : GTLRObject
 
@@ -2779,11 +3021,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for Empty is empty JSON object {}.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for Empty is empty JSON object {}.
  */
 @interface GTLRAndroidManagement_Empty : GTLRObject
 @end
@@ -2804,7 +3044,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *additionalData;
 
 /**
- *  Controls personal usage on devices provisioned using this enrollment token.
+ *  Controls whether personal usage is allowed on a device provisioned with this
+ *  enrollment token.For company-owned devices: Enabling personal usage allows
+ *  the user to set up a work profile on the device. Disabling personal usage
+ *  requires the user provision the device as a fully managed device.For
+ *  personally-owned devices: Enabling personal usage allows the user to set up
+ *  a work profile on the device. Disabling personal usage will prevent the
+ *  device from provisioning. Personal usage cannot be disabled on
+ *  personally-owned device.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_EnrollmentToken_AllowPersonalUsage_AllowPersonalUsageUnspecified
@@ -3405,8 +3652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @interface GTLRAndroidManagement_ManagedConfigurationTemplate : GTLRObject
 
 /**
- *  Optional, a map containing <key, value> configuration variables defined for
- *  the configuration.
+ *  Optional, a map containing configuration variables defined for the
+ *  configuration.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ManagedConfigurationTemplate_ConfigurationVariables *configurationVariables;
 
@@ -3417,8 +3664,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Optional, a map containing <key, value> configuration variables defined for
- *  the configuration.
+ *  Optional, a map containing configuration variables defined for the
+ *  configuration.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3654,9 +3901,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        The app is incompatible with the device. (Value:
  *        "NOT_COMPATIBLE_WITH_DEVICE")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotEnrolled
- *        The enterprise is no longer enrolled with managed Play or the admin
- *        has not accepted the latest managed Play terms of service. (Value:
- *        "NOT_ENROLLED")
+ *        The enterprise is no longer enrolled with Managed Google Play or the
+ *        admin has not accepted the latest Managed Google Play Terms of
+ *        Service. (Value: "NOT_ENROLLED")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_NotFound
  *        The app was not found in Play. (Value: "NOT_FOUND")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_InstallationFailureReason_PermissionsNotAccepted
@@ -4095,8 +4342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Policies for apps on the personal profile of a Corporate Owned Personally
- *  Enabled device.
+ *  Policies for apps on the personal profile of a company-owned device with a
+ *  work profile.
  */
 @interface GTLRAndroidManagement_PersonalApplicationPolicy : GTLRObject
 
@@ -4119,8 +4366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Policies controlling personal usage on a Corporate Owned Personally Enabled
- *  device.
+ *  Policies controlling personal usage on a company-owned device with a work
+ *  profile.
  */
 @interface GTLRAndroidManagement_PersonalUsagePolicies : GTLRObject
 
@@ -4995,15 +5242,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Controls whether personal usage is allowed on a device provisioned with this
- *  enrollment token.For company-owned devices:
- *  Enabling personal usage allows the user to set up a work profile on the
- *  device.
- *  Disabling personal usage requires the user provision the device as a fully
- *  managed device.For personally-owned devices:
- *  Enabling personal usage allows the user to set up a work profile on the
- *  device.
- *  Disabling personal usage will prevent the device from provisioning. Personal
- *  usage cannot be disabled on personally-owned device.
+ *  enrollment token.For company-owned devices: Enabling personal usage allows
+ *  the user to set up a work profile on the device. Disabling personal usage
+ *  requires the user provision the device as a fully managed device.For
+ *  personally-owned devices: Enabling personal usage allows the user to set up
+ *  a work profile on the device. Disabling personal usage will prevent the
+ *  device from provisioning. Personal usage cannot be disabled on
+ *  personally-owned device.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_SigninDetail_AllowPersonalUsage_AllowPersonalUsageUnspecified
@@ -5034,10 +5279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  Sign-in URL for authentication when device is provisioned with a sign-in
  *  enrollment token. The sign-in endpoint should finish authentication flow
- *  with a URL in the form of
- *  https://enterprise.google.com/android/enroll?et=<token> for a successful
- *  login, or https://enterprise.google.com/android/enroll/invalid for a failed
- *  login.
+ *  with a URL in the form of https://enterprise.google.com/android/enroll?et=
+ *  for a successful login, or
+ *  https://enterprise.google.com/android/enroll/invalid for a failed login.
  */
 @property(nonatomic, copy, nullable) NSString *signinUrl;
 
@@ -5110,6 +5354,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /** Security patch level, e.g. 2016-05-01. */
 @property(nonatomic, copy, nullable) NSString *securityPatchLevel;
+
+/** Information about a potential pending system update. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_SystemUpdateInfo *systemUpdateInfo;
 
 @end
 
@@ -5298,6 +5545,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  Information about a potential pending system update.
+ */
+@interface GTLRAndroidManagement_SystemUpdateInfo : GTLRObject
+
+/**
+ *  The time when the update was first available. A zero value indicates that
+ *  this field is not set. This field is set only if an update is available
+ *  (that is, updateStatus is neither UPDATE_STATUS_UNKNOWN nor UP_TO_DATE).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateReceivedTime;
+
+/**
+ *  The status of an update: whether an update exists and what type it is.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_OsUpdateAvailable
+ *        There is a pending OS update available. (Value: "OS_UPDATE_AVAILABLE")
+ *    @arg @c kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_SecurityUpdateAvailable
+ *        There is a pending security update available. (Value:
+ *        "SECURITY_UPDATE_AVAILABLE")
+ *    @arg @c kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UnknownUpdateAvailable
+ *        There is a pending system update available, but its type is not known.
+ *        (Value: "UNKNOWN_UPDATE_AVAILABLE")
+ *    @arg @c kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpdateStatusUnknown
+ *        It is unknown whether there is a pending system update. This happens
+ *        when, for example, the device API level is less than 26, or if the
+ *        version of Android Device Policy is outdated. (Value:
+ *        "UPDATE_STATUS_UNKNOWN")
+ *    @arg @c kGTLRAndroidManagement_SystemUpdateInfo_UpdateStatus_UpToDate
+ *        There is no pending system update available on the device. (Value:
+ *        "UP_TO_DATE")
+ */
+@property(nonatomic, copy, nullable) NSString *updateStatus;
+
+@end
+
+
+/**
  *  A terms and conditions page to be accepted during provisioning.
  */
 @interface GTLRAndroidManagement_TermsAndConditions : GTLRObject
@@ -5345,9 +5630,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *defaultMessage;
 
 /**
- *  A map containing <locale, message> pairs, where locale is a well-formed BCP
- *  47 language (https://www.w3.org/International/articles/language-tags/) code,
- *  such as en-US, es-ES, or fr.
+ *  A map containing pairs, where locale is a well-formed BCP 47 language
+ *  (https://www.w3.org/International/articles/language-tags/) code, such as
+ *  en-US, es-ES, or fr.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_UserFacingMessage_LocalizedMessages *localizedMessages;
 
@@ -5355,9 +5640,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  A map containing <locale, message> pairs, where locale is a well-formed BCP
- *  47 language (https://www.w3.org/International/articles/language-tags/) code,
- *  such as en-US, es-ES, or fr.
+ *  A map containing pairs, where locale is a well-formed BCP 47 language
+ *  (https://www.w3.org/International/articles/language-tags/) code, such as
+ *  en-US, es-ES, or fr.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5434,9 +5719,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  The actual bytes of the image in a base64url encoded string (c.f. RFC4648,
- *  section 5 "Base 64 Encoding with URL and Filename Safe Alphabet"). <ul>
- *  <li>The image type can be png or jpg. <li>The image should ideally be
- *  square. <li>The image should ideally have a size of 512x512. </ul>
+ *  section 5 "Base 64 Encoding with URL and Filename Safe Alphabet"). - The
+ *  image type can be png or jpg. - The image should ideally be square. - The
+ *  image should ideally have a size of 512x512.
  */
 @property(nonatomic, copy, nullable) NSString *imageData;
 
@@ -5451,10 +5736,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  The features to enable. Use this if you want to control exactly which
  *  feature(s) will be activated; leave empty to allow all features.Restrictions
- *  / things to note: <ul> <li> If no features are listed here, all features are
- *  enabled — this is the default behavior where you give access to all features
- *  to your admins. <li> This must not contain any FEATURE_UNSPECIFIED values.
- *  <li> Repeated values are ignored </ul>
+ *  / things to note: - If no features are listed here, all features are enabled
+ *  — this is the default behavior where you give access to all features to your
+ *  admins. - This must not contain any FEATURE_UNSPECIFIED values. - Repeated
+ *  values are ignored
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledFeatures;
 

@@ -56,8 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The acknowledgment ID for the messages being acknowledged that was
- *  returned
- *  by the Pub/Sub system in the `Pull` response. Must not be empty.
+ *  returned by the Pub/Sub system in the `Pull` response. Must not be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ackIds;
 
@@ -70,56 +69,51 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -131,22 +125,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPubsub_CreateSnapshotRequest : GTLRObject
 
-/**
- *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
- *  managing labels</a>.
- */
+/** See Creating and managing labels. */
 @property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Labels *labels;
 
 /**
- *  Required. The subscription whose backlog the snapshot retains.
- *  Specifically, the created snapshot is guaranteed to retain:
- *  (a) The existing backlog on the subscription. More precisely, this is
- *  defined as the messages in the subscription's backlog that are
- *  unacknowledged upon the successful completion of the
- *  `CreateSnapshot` request; as well as:
- *  (b) Any messages published to the subscription's topic following the
- *  successful completion of the CreateSnapshot request.
- *  Format is `projects/{project}/subscriptions/{sub}`.
+ *  Required. The subscription whose backlog the snapshot retains. Specifically,
+ *  the created snapshot is guaranteed to retain: (a) The existing backlog on
+ *  the subscription. More precisely, this is defined as the messages in the
+ *  subscription's backlog that are unacknowledged upon the successful
+ *  completion of the `CreateSnapshot` request; as well as: (b) Any messages
+ *  published to the subscription's topic following the successful completion of
+ *  the CreateSnapshot request. Format is
+ *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
@@ -154,8 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
- *  managing labels</a>.
+ *  See Creating and managing labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -168,9 +157,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Dead lettering is done on a best effort basis. The same message might be
- *  dead lettered multiple times.
- *  If validation on any of the fields fails at subscription creation/updation,
- *  the create/update subscription request will fail.
+ *  dead lettered multiple times. If validation on any of the fields fails at
+ *  subscription creation/updation, the create/update subscription request will
+ *  fail.
  */
 @interface GTLRPubsub_DeadLetterPolicy : GTLRObject
 
@@ -179,23 +168,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  Format is `projects/{project}/topics/{topic}`.The Cloud Pub/Sub service
  *  account associated with the enclosing subscription's parent project (i.e.,
  *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com) must have
- *  permission to Publish() to this topic.
- *  The operation will fail if the topic does not exist.
- *  Users should ensure that there is a subscription attached to this topic
- *  since messages published to a topic with no subscriptions are lost.
+ *  permission to Publish() to this topic. The operation will fail if the topic
+ *  does not exist. Users should ensure that there is a subscription attached to
+ *  this topic since messages published to a topic with no subscriptions are
+ *  lost.
  */
 @property(nonatomic, copy, nullable) NSString *deadLetterTopic;
 
 /**
  *  The maximum number of delivery attempts for any message. The value must be
- *  between 5 and 100.
- *  The number of delivery attempts is defined as 1 + (the sum of number of
- *  NACKs and number of times the acknowledgement deadline has been exceeded
- *  for the message).
- *  A NACK is any call to ModifyAckDeadline with a 0 deadline. Note that
- *  client libraries may automatically extend ack_deadlines.
- *  This field will be honored on a best effort basis.
- *  If this parameter is 0, a default value of 5 is used.
+ *  between 5 and 100. The number of delivery attempts is defined as 1 + (the
+ *  sum of number of NACKs and number of times the acknowledgement deadline has
+ *  been exceeded for the message). A NACK is any call to ModifyAckDeadline with
+ *  a 0 deadline. Note that client libraries may automatically extend
+ *  ack_deadlines. This field will be honored on a best effort basis. If this
+ *  parameter is 0, a default value of 5 is used.
  *
  *  Uses NSNumber of intValue.
  */
@@ -205,8 +192,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Response for the DetachSubscription method.
- *  Reserved for future use.
+ *  Response for the DetachSubscription method. Reserved for future use.
  */
 @interface GTLRPubsub_DetachSubscriptionResponse : GTLRObject
 @end
@@ -215,11 +201,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRPubsub_Empty : GTLRObject
 @end
@@ -247,27 +231,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRPubsub_Expr : GTLRObject
 
@@ -292,9 +269,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -339,9 +315,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_ListSubscriptionsResponse : GTLRCollectionObject
 
 /**
- *  If not empty, indicates that there may be more subscriptions that match
- *  the request; this value should be passed in a new
- *  `ListSubscriptionsRequest` to get more subscriptions.
+ *  If not empty, indicates that there may be more subscriptions that match the
+ *  request; this value should be passed in a new `ListSubscriptionsRequest` to
+ *  get more subscriptions.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -362,9 +338,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_ListTopicSnapshotsResponse : GTLRObject
 
 /**
- *  If not empty, indicates that there may be more snapshots that match
- *  the request; this value should be passed in a new
- *  `ListTopicSnapshotsRequest` to get more snapshots.
+ *  If not empty, indicates that there may be more snapshots that match the
+ *  request; this value should be passed in a new `ListTopicSnapshotsRequest` to
+ *  get more snapshots.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -407,8 +383,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_ListTopicSubscriptionsResponse : GTLRObject
 
 /**
- *  If not empty, indicates that there may be more subscriptions that match
- *  the request; this value should be passed in a new
+ *  If not empty, indicates that there may be more subscriptions that match the
+ *  request; this value should be passed in a new
  *  `ListTopicSubscriptionsRequest` to get more subscriptions.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -424,8 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A message that is published by publishers and consumed by subscribers. The
  *  message must contain either a non-empty data field or at least one
- *  attribute.
- *  Note that client libraries represent this object differently
+ *  attribute. Note that client libraries represent this object differently
  *  depending on the language. See the corresponding [client library
  *  documentation](https://cloud.google.com/pubsub/docs/reference/libraries) for
  *  more information. See [quotas and limits]
@@ -442,8 +417,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_Message_Attributes *attributes;
 
 /**
- *  The message data field. If this field is empty, the message must contain
- *  at least one attribute.
+ *  The message data field. If this field is empty, the message must contain at
+ *  least one attribute.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -469,9 +444,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *orderingKey;
 
 /**
- *  The time at which the message was published, populated by the server when
- *  it receives the `Publish` call. It must not be populated by the
- *  publisher in a `Publish` call.
+ *  The time at which the message was published, populated by the server when it
+ *  receives the `Publish` call. It must not be populated by the publisher in a
+ *  `Publish` call.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
 
@@ -516,14 +491,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The new ack deadline with respect to the time this request was
- *  sent to
- *  the Pub/Sub system. For example, if the value is 10, the new
- *  ack deadline will expire 10 seconds after the `ModifyAckDeadline` call
- *  was made. Specifying zero might immediately make the message available for
- *  delivery to another subscriber client. This typically results in an
- *  increase in the rate of message redeliveries (that is, duplicates).
- *  The minimum deadline you can specify is 0 seconds.
- *  The maximum deadline you can specify is 600 seconds (10 minutes).
+ *  sent to the Pub/Sub system. For example, if the value is 10, the new ack
+ *  deadline will expire 10 seconds after the `ModifyAckDeadline` call was made.
+ *  Specifying zero might immediately make the message available for delivery to
+ *  another subscriber client. This typically results in an increase in the rate
+ *  of message redeliveries (that is, duplicates). The minimum deadline you can
+ *  specify is 0 seconds. The maximum deadline you can specify is 600 seconds
+ *  (10 minutes).
  *
  *  Uses NSNumber of intValue.
  */
@@ -541,11 +515,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_ModifyPushConfigRequest : GTLRObject
 
 /**
- *  Required. The push configuration for future deliveries.
- *  An empty `pushConfig` indicates that the Pub/Sub system should
- *  stop pushing messages from the given subscription and allow
- *  messages to be pulled and acknowledged - effectively pausing
- *  the subscription if `Pull` or `StreamingPull` is not called.
+ *  Required. The push configuration for future deliveries. An empty
+ *  `pushConfig` indicates that the Pub/Sub system should stop pushing messages
+ *  from the given subscription and allow messages to be pulled and acknowledged
+ *  - effectively pausing the subscription if `Pull` or `StreamingPull` is not
+ *  called.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_PushConfig *pushConfig;
 
@@ -553,28 +527,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Contains information needed for generating an
- *  [OpenID Connect
+ *  Contains information needed for generating an [OpenID Connect
  *  token](https://developers.google.com/identity/protocols/OpenIDConnect).
  */
 @interface GTLRPubsub_OidcToken : GTLRObject
 
 /**
  *  Audience to be used when generating OIDC token. The audience claim
- *  identifies the recipients that the JWT is intended for. The audience
- *  value is a single case-sensitive string. Having multiple values (array)
- *  for the audience field is not supported. More info about the OIDC JWT
- *  token audience here: https://tools.ietf.org/html/rfc7519#section-4.1.3
- *  Note: if not specified, the Push endpoint URL will be used.
+ *  identifies the recipients that the JWT is intended for. The audience value
+ *  is a single case-sensitive string. Having multiple values (array) for the
+ *  audience field is not supported. More info about the OIDC JWT token audience
+ *  here: https://tools.ietf.org/html/rfc7519#section-4.1.3 Note: if not
+ *  specified, the Push endpoint URL will be used.
  */
 @property(nonatomic, copy, nullable) NSString *audience;
 
 /**
- *  [Service account
- *  email](https://cloud.google.com/iam/docs/service-accounts)
+ *  [Service account email](https://cloud.google.com/iam/docs/service-accounts)
  *  to be used for generating the OIDC token. The caller (for
- *  CreateSubscription, UpdateSubscription, and ModifyPushConfig RPCs) must
- *  have the iam.serviceAccounts.actAs permission for the service account.
+ *  CreateSubscription, UpdateSubscription, and ModifyPushConfig RPCs) must have
+ *  the iam.serviceAccounts.actAs permission for the service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
@@ -583,88 +555,56 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRPubsub_Policy : GTLRObject
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -672,24 +612,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -716,9 +652,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_PublishResponse : GTLRObject
 
 /**
- *  The server-assigned ID of each published message, in the same order as
- *  the messages in the request. IDs are guaranteed to be unique within
- *  the topic.
+ *  The server-assigned ID of each published message, in the same order as the
+ *  messages in the request. IDs are guaranteed to be unique within the topic.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *messageIds;
 
@@ -732,8 +667,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The maximum number of messages to return for this request. Must be
- *  a
- *  positive integer. The Pub/Sub system may return fewer than the number
+ *  a positive integer. The Pub/Sub system may return fewer than the number
  *  specified.
  *
  *  Uses NSNumber of intValue.
@@ -742,13 +676,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. If this field set to true, the system will respond immediately
- *  even if
- *  it there are no messages available to return in the `Pull` response.
- *  Otherwise, the system may wait (for a bounded amount of time) until at
- *  least one message is available, rather than returning no messages. Warning:
- *  setting this field to `true` is discouraged because it adversely impacts
- *  the performance of `Pull` operations. We recommend that users do not set
- *  this field.
+ *  even if it there are no messages available to return in the `Pull` response.
+ *  Otherwise, the system may wait (for a bounded amount of time) until at least
+ *  one message is available, rather than returning no messages. Warning:
+ *  setting this field to `true` is discouraged because it adversely impacts the
+ *  performance of `Pull` operations. We recommend that users do not set this
+ *  field.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -780,21 +713,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Endpoint configuration attributes that can be used to control different
- *  aspects of the message delivery.
- *  The only currently supported attribute is `x-goog-version`, which you can
- *  use to change the format of the pushed message. This attribute
- *  indicates the version of the data expected by the endpoint. This
- *  controls the shape of the pushed message (i.e., its fields and metadata).
- *  If not present during the `CreateSubscription` call, it will default to
- *  the version of the Pub/Sub API used to make such call. If not present in a
- *  `ModifyPushConfig` call, its value will not be changed. `GetSubscription`
- *  calls will always return a valid version, even if the subscription was
- *  created without this attribute.
- *  The only supported values for the `x-goog-version` attribute are:
- *  * `v1beta1`: uses the push format defined in the v1beta1 Pub/Sub API.
- *  * `v1` or `v1beta2`: uses the push format defined in the v1 Pub/Sub API.
- *  For example:
- *  <pre><code>attributes { "x-goog-version": "v1" } </code></pre>
+ *  aspects of the message delivery. The only currently supported attribute is
+ *  `x-goog-version`, which you can use to change the format of the pushed
+ *  message. This attribute indicates the version of the data expected by the
+ *  endpoint. This controls the shape of the pushed message (i.e., its fields
+ *  and metadata). If not present during the `CreateSubscription` call, it will
+ *  default to the version of the Pub/Sub API used to make such call. If not
+ *  present in a `ModifyPushConfig` call, its value will not be changed.
+ *  `GetSubscription` calls will always return a valid version, even if the
+ *  subscription was created without this attribute. The only supported values
+ *  for the `x-goog-version` attribute are: * `v1beta1`: uses the push format
+ *  defined in the v1beta1 Pub/Sub API. * `v1` or `v1beta2`: uses the push
+ *  format defined in the v1 Pub/Sub API. For example: attributes {
+ *  "x-goog-version": "v1" }
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_PushConfig_Attributes *attributes;
 
@@ -805,8 +736,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_OidcToken *oidcToken;
 
 /**
- *  A URL locating the endpoint to which messages should be pushed.
- *  For example, a Webhook endpoint might use `https://example.com/push`.
+ *  A URL locating the endpoint to which messages should be pushed. For example,
+ *  a Webhook endpoint might use `https://example.com/push`.
  */
 @property(nonatomic, copy, nullable) NSString *pushEndpoint;
 
@@ -815,21 +746,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Endpoint configuration attributes that can be used to control different
- *  aspects of the message delivery.
- *  The only currently supported attribute is `x-goog-version`, which you can
- *  use to change the format of the pushed message. This attribute
- *  indicates the version of the data expected by the endpoint. This
- *  controls the shape of the pushed message (i.e., its fields and metadata).
- *  If not present during the `CreateSubscription` call, it will default to
- *  the version of the Pub/Sub API used to make such call. If not present in a
- *  `ModifyPushConfig` call, its value will not be changed. `GetSubscription`
- *  calls will always return a valid version, even if the subscription was
- *  created without this attribute.
- *  The only supported values for the `x-goog-version` attribute are:
- *  * `v1beta1`: uses the push format defined in the v1beta1 Pub/Sub API.
- *  * `v1` or `v1beta2`: uses the push format defined in the v1 Pub/Sub API.
- *  For example:
- *  <pre><code>attributes { "x-goog-version": "v1" } </code></pre>
+ *  aspects of the message delivery. The only currently supported attribute is
+ *  `x-goog-version`, which you can use to change the format of the pushed
+ *  message. This attribute indicates the version of the data expected by the
+ *  endpoint. This controls the shape of the pushed message (i.e., its fields
+ *  and metadata). If not present during the `CreateSubscription` call, it will
+ *  default to the version of the Pub/Sub API used to make such call. If not
+ *  present in a `ModifyPushConfig` call, its value will not be changed.
+ *  `GetSubscription` calls will always return a valid version, even if the
+ *  subscription was created without this attribute. The only supported values
+ *  for the `x-goog-version` attribute are: * `v1beta1`: uses the push format
+ *  defined in the v1beta1 Pub/Sub API. * `v1` or `v1beta2`: uses the push
+ *  format defined in the v1 Pub/Sub API. For example: attributes {
+ *  "x-goog-version": "v1" }
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -850,17 +779,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The approximate number of times that Cloud Pub/Sub has attempted to deliver
- *  the associated message to a subscriber.
- *  More precisely, this is 1 + (number of NACKs) +
- *  (number of ack_deadline exceeds) for this message.
- *  A NACK is any call to ModifyAckDeadline with a 0 deadline. An ack_deadline
- *  exceeds event is whenever a message is not acknowledged within
- *  ack_deadline. Note that ack_deadline is initially
- *  Subscription.ackDeadlineSeconds, but may get extended automatically by
- *  the client library.
- *  Upon the first delivery of a given message, `delivery_attempt` will have a
- *  value of 1. The value is calculated at best effort and is approximate.
- *  If a DeadLetterPolicy is not set on the subscription, this will be 0.
+ *  the associated message to a subscriber. More precisely, this is 1 + (number
+ *  of NACKs) + (number of ack_deadline exceeds) for this message. A NACK is any
+ *  call to ModifyAckDeadline with a 0 deadline. An ack_deadline exceeds event
+ *  is whenever a message is not acknowledged within ack_deadline. Note that
+ *  ack_deadline is initially Subscription.ackDeadlineSeconds, but may get
+ *  extended automatically by the client library. Upon the first delivery of a
+ *  given message, `delivery_attempt` will have a value of 1. The value is
+ *  calculated at best effort and is approximate. If a DeadLetterPolicy is not
+ *  set on the subscription, this will be 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -873,26 +800,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A policy that specifies how Cloud Pub/Sub retries message delivery.
- *  Retry delay will be exponential based on provided minimum and maximum
- *  backoffs. https://en.wikipedia.org/wiki/Exponential_backoff.
- *  RetryPolicy will be triggered on NACKs or acknowledgement deadline exceeded
- *  events for a given message.
- *  Retry Policy is implemented on a best effort basis. At times, the delay
- *  between consecutive deliveries may not match the configuration. That is,
- *  delay can be more or less than configured backoff.
+ *  A policy that specifies how Cloud Pub/Sub retries message delivery. Retry
+ *  delay will be exponential based on provided minimum and maximum backoffs.
+ *  https://en.wikipedia.org/wiki/Exponential_backoff. RetryPolicy will be
+ *  triggered on NACKs or acknowledgement deadline exceeded events for a given
+ *  message. Retry Policy is implemented on a best effort basis. At times, the
+ *  delay between consecutive deliveries may not match the configuration. That
+ *  is, delay can be more or less than configured backoff.
  */
 @interface GTLRPubsub_RetryPolicy : GTLRObject
 
 /**
- *  The maximum delay between consecutive deliveries of a given message.
- *  Value should be between 0 and 600 seconds. Defaults to 600 seconds.
+ *  The maximum delay between consecutive deliveries of a given message. Value
+ *  should be between 0 and 600 seconds. Defaults to 600 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maximumBackoff;
 
 /**
- *  The minimum delay between consecutive deliveries of a given message.
- *  Value should be between 0 and 600 seconds. Defaults to 10 seconds.
+ *  The minimum delay between consecutive deliveries of a given message. Value
+ *  should be between 0 and 600 seconds. Defaults to 10 seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *minimumBackoff;
 
@@ -906,23 +832,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The snapshot to seek to. The snapshot's topic must be the same as that of
- *  the provided subscription.
- *  Format is `projects/{project}/snapshots/{snap}`.
+ *  the provided subscription. Format is `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
 
 /**
- *  The time to seek to.
- *  Messages retained in the subscription that were published before this
- *  time are marked as acknowledged, and messages retained in the
- *  subscription that were published after this time are marked as
+ *  The time to seek to. Messages retained in the subscription that were
+ *  published before this time are marked as acknowledged, and messages retained
+ *  in the subscription that were published after this time are marked as
  *  unacknowledged. Note that this operation affects only those messages
  *  retained in the subscription (configured by the combination of
- *  `message_retention_duration` and `retain_acked_messages`). For example,
- *  if `time` corresponds to a point before the message retention
- *  window (or to a point before the system's notion of the subscription
- *  creation time), only retained messages will be marked as unacknowledged,
- *  and already-expunged messages will not be restored.
+ *  `message_retention_duration` and `retain_acked_messages`). For example, if
+ *  `time` corresponds to a point before the message retention window (or to a
+ *  point before the system's notion of the subscription creation time), only
+ *  retained messages will be marked as unacknowledged, and already-expunged
+ *  messages will not be restored.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
 
@@ -943,9 +867,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Policy *policy;
 
@@ -954,24 +877,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A snapshot resource. Snapshots are used in
- *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview)
- *  operations, which allow you to manage message acknowledgments in bulk. That
- *  is, you can set the acknowledgment state of messages in an existing
- *  subscription to the state captured by a snapshot.
+ *  [Seek](https://cloud.google.com/pubsub/docs/replay-overview) operations,
+ *  which allow you to manage message acknowledgments in bulk. That is, you can
+ *  set the acknowledgment state of messages in an existing subscription to the
+ *  state captured by a snapshot.
  */
 @interface GTLRPubsub_Snapshot : GTLRObject
 
 /**
- *  The snapshot is guaranteed to exist up until this time.
- *  A newly-created snapshot expires no later than 7 days from the time of its
- *  creation. Its exact lifetime is determined at creation by the existing
- *  backlog in the source subscription. Specifically, the lifetime of the
- *  snapshot is `7 days - (age of oldest unacked message in the subscription)`.
- *  For example, consider a subscription whose oldest unacked message is 3 days
- *  old. If a snapshot is created from this subscription, the snapshot -- which
- *  will always capture this 3-day-old backlog as long as the snapshot
- *  exists -- will expire in 4 days. The service will refuse to create a
- *  snapshot that would expire in less than 1 hour after creation.
+ *  The snapshot is guaranteed to exist up until this time. A newly-created
+ *  snapshot expires no later than 7 days from the time of its creation. Its
+ *  exact lifetime is determined at creation by the existing backlog in the
+ *  source subscription. Specifically, the lifetime of the snapshot is `7 days -
+ *  (age of oldest unacked message in the subscription)`. For example, consider
+ *  a subscription whose oldest unacked message is 3 days old. If a snapshot is
+ *  created from this subscription, the snapshot -- which will always capture
+ *  this 3-day-old backlog as long as the snapshot exists -- will expire in 4
+ *  days. The service will refuse to create a snapshot that would expire in less
+ *  than 1 hour after creation.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
@@ -1011,30 +934,27 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The approximate amount of time (on a best-effort basis) Pub/Sub waits for
  *  the subscriber to acknowledge receipt before resending the message. In the
- *  interval after the message is delivered and before it is acknowledged, it
- *  is considered to be <i>outstanding</i>. During that time period, the
- *  message will not be redelivered (on a best-effort basis).
- *  For pull subscriptions, this value is used as the initial value for the ack
- *  deadline. To override this value for a given message, call
- *  `ModifyAckDeadline` with the corresponding `ack_id` if using
- *  non-streaming pull or send the `ack_id` in a
- *  `StreamingModifyAckDeadlineRequest` if using streaming pull.
- *  The minimum custom deadline you can specify is 10 seconds.
- *  The maximum custom deadline you can specify is 600 seconds (10 minutes).
- *  If this parameter is 0, a default value of 10 seconds is used.
- *  For push delivery, this value is also used to set the request timeout for
- *  the call to the push endpoint.
- *  If the subscriber never acknowledges the message, the Pub/Sub
- *  system will eventually redeliver the message.
+ *  interval after the message is delivered and before it is acknowledged, it is
+ *  considered to be *outstanding*. During that time period, the message will
+ *  not be redelivered (on a best-effort basis). For pull subscriptions, this
+ *  value is used as the initial value for the ack deadline. To override this
+ *  value for a given message, call `ModifyAckDeadline` with the corresponding
+ *  `ack_id` if using non-streaming pull or send the `ack_id` in a
+ *  `StreamingModifyAckDeadlineRequest` if using streaming pull. The minimum
+ *  custom deadline you can specify is 10 seconds. The maximum custom deadline
+ *  you can specify is 600 seconds (10 minutes). If this parameter is 0, a
+ *  default value of 10 seconds is used. For push delivery, this value is also
+ *  used to set the request timeout for the call to the push endpoint. If the
+ *  subscriber never acknowledges the message, the Pub/Sub system will
+ *  eventually redeliver the message.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ackDeadlineSeconds;
 
 /**
- *  A policy that specifies the conditions for dead lettering messages in
- *  this subscription. If dead_letter_policy is not set, dead lettering
- *  is disabled.
+ *  A policy that specifies the conditions for dead lettering messages in this
+ *  subscription. If dead_letter_policy is not set, dead lettering is disabled.
  *  The Cloud Pub/Sub service account associated with this subscriptions's
  *  parent project (i.e.,
  *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com) must have
@@ -1043,18 +963,28 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_DeadLetterPolicy *deadLetterPolicy;
 
 /**
+ *  Indicates whether the subscription is detached from its topic. Detached
+ *  subscriptions don't receive messages from their topic and don't retain any
+ *  backlog. `Pull` and `StreamingPull` requests will return
+ *  FAILED_PRECONDITION. If the subscription is a push subscription, pushes to
+ *  the endpoint will not be made.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detached;
+
+/**
  *  If true, messages published with the same `ordering_key` in `PubsubMessage`
- *  will be delivered to the subscribers in the order in which they
- *  are received by the Pub/Sub system. Otherwise, they may be delivered in
- *  any order.
+ *  will be delivered to the subscribers in the order in which they are received
+ *  by the Pub/Sub system. Otherwise, they may be delivered in any order.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableMessageOrdering;
 
 /**
- *  A policy that specifies the conditions for this subscription's expiration.
- *  A subscription is considered active as long as any connected subscriber is
+ *  A policy that specifies the conditions for this subscription's expiration. A
+ *  subscription is considered active as long as any connected subscriber is
  *  successfully consuming messages from the subscription or is issuing
  *  operations on the subscription. If `expiration_policy` is not set, a
  *  *default policy* with `ttl` of 31 days will be used. The minimum allowed
@@ -1066,24 +996,19 @@ NS_ASSUME_NONNULL_BEGIN
  *  An expression written in the Pub/Sub [filter
  *  language](https://cloud.google.com/pubsub/docs/filtering). If non-empty,
  *  then only `PubsubMessage`s whose `attributes` field matches the filter are
- *  delivered on this subscription. If empty, then no messages are filtered
- *  out.
+ *  delivered on this subscription. If empty, then no messages are filtered out.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
- *  managing labels</a>.
- */
+/** See Creating and managing labels. */
 @property(nonatomic, strong, nullable) GTLRPubsub_Subscription_Labels *labels;
 
 /**
  *  How long to retain unacknowledged messages in the subscription's backlog,
- *  from the moment a message is published.
- *  If `retain_acked_messages` is true, then this also configures the retention
- *  of acknowledged messages, and thus configures how far back in time a `Seek`
- *  can be done. Defaults to 7 days. Cannot be more than 7 days or less than 10
- *  minutes.
+ *  from the moment a message is published. If `retain_acked_messages` is true,
+ *  then this also configures the retention of acknowledged messages, and thus
+ *  configures how far back in time a `Seek` can be done. Defaults to 7 days.
+ *  Cannot be more than 7 days or less than 10 minutes.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *messageRetentionDuration;
 
@@ -1098,15 +1023,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If push delivery is used with this subscription, this field is
- *  used to configure it. An empty `pushConfig` signifies that the subscriber
- *  will pull and ack messages using API methods.
+ *  If push delivery is used with this subscription, this field is used to
+ *  configure it. An empty `pushConfig` signifies that the subscriber will pull
+ *  and ack messages using API methods.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_PushConfig *pushConfig;
 
 /**
- *  Indicates whether to retain acknowledged messages. If true, then
- *  messages are not expunged from the subscription's backlog, even if they are
+ *  Indicates whether to retain acknowledged messages. If true, then messages
+ *  are not expunged from the subscription's backlog, even if they are
  *  acknowledged, until they fall out of the `message_retention_duration`
  *  window. This must be true if you would like to [Seek to a timestamp]
  *  (https://cloud.google.com/pubsub/docs/replay-overview#seek_to_a_time).
@@ -1117,20 +1042,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A policy that specifies how Pub/Sub retries message delivery for this
- *  subscription.
- *  If not set, the default retry policy is applied. This generally implies
- *  that messages will be retried as soon as possible for healthy subscribers.
- *  RetryPolicy will be triggered on NACKs or acknowledgement deadline
- *  exceeded events for a given message.
+ *  subscription. If not set, the default retry policy is applied. This
+ *  generally implies that messages will be retried as soon as possible for
+ *  healthy subscribers. RetryPolicy will be triggered on NACKs or
+ *  acknowledgement deadline exceeded events for a given message.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_RetryPolicy *retryPolicy;
 
 /**
  *  Required. The name of the topic from which this subscription is receiving
- *  messages.
- *  Format is `projects/{project}/topics/{topic}`.
- *  The value of this field will be `_deleted-topic_` if the topic has been
- *  deleted.
+ *  messages. Format is `projects/{project}/topics/{topic}`. The value of this
+ *  field will be `_deleted-topic_` if the topic has been deleted.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -1138,8 +1060,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  See <a href="https://cloud.google.com/pubsub/docs/labels"> Creating and
- *  managing labels</a>.
+ *  See Creating and managing labels.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1157,9 +1078,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -1172,8 +1092,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -1186,10 +1105,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPubsub_Topic : GTLRObject
 
 /**
- *  The resource name of the Cloud KMS CryptoKey to be used to protect access
- *  to messages published on this topic.
- *  The expected format is `projects/ * /locations/ * /keyRings/ * /cryptoKeys/
- *  *`.
+ *  The resource name of the Cloud KMS CryptoKey to be used to protect access to
+ *  messages published on this topic. The expected format is `projects/ *
+ *  /locations/ * /keyRings/ * /cryptoKeys/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -1210,9 +1128,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
- *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
- *  signs (`%`). It must be between 3 and 255 characters in length, and it
- *  must not start with `"goog"`.
+ *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs
+ *  (`%`). It must be between 3 and 255 characters in length, and it must not
+ *  start with `"goog"`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1241,8 +1159,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRPubsub_Snapshot *snapshot;
 
 /**
- *  Required. Indicates which fields in the provided snapshot to update.
- *  Must be specified and non-empty.
+ *  Required. Indicates which fields in the provided snapshot to update. Must be
+ *  specified and non-empty.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1280,11 +1198,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Indicates which fields in the provided topic to update. Must be
- *  specified
- *  and non-empty. Note that if `update_mask` contains
- *  "message_storage_policy" but the `message_storage_policy` is not set in
- *  the `topic` provided above, then the updated value is determined by the
- *  policy configured at the project or organization level.
+ *  specified and non-empty. Note that if `update_mask` contains
+ *  "message_storage_policy" but the `message_storage_policy` is not set in the
+ *  `topic` provided above, then the updated value is determined by the policy
+ *  configured at the project or organization level.
  *
  *  String format is a comma-separated list of fields.
  */

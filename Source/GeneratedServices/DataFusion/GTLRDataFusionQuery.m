@@ -2,16 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Data Fusion API (datafusion/v1beta1)
+//   Cloud Data Fusion API (datafusion/v1)
 // Description:
 //   Cloud Data Fusion is a fully-managed, cloud native, enterprise data
-//   integration service for
-//   quickly building and managing data pipelines. It provides a graphical
-//   interface to increase
-//   time efficiency and reduce complexity, and allows business users,
-//   developers, and data
-//   scientists to easily and reliably build scalable data integration solutions
-//   to cleanse,
+//   integration service for quickly building and managing data pipelines. It
+//   provides a graphical interface to increase time efficiency and reduce
+//   complexity, and allows business users, developers, and data scientists to
+//   easily and reliably build scalable data integration solutions to cleanse,
 //   prepare, blend, transfer and transform data without having to wrestle with
 //   infrastructure.
 // Documentation:
@@ -33,7 +30,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataFusionQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -59,7 +56,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/instances";
+  NSString *pathURITemplate = @"v1/{+parent}/instances";
   GTLRDataFusionQuery_ProjectsLocationsInstancesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -79,7 +76,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataFusionQuery_ProjectsLocationsInstancesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -98,7 +95,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataFusionQuery_ProjectsLocationsInstancesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -121,7 +118,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataFusionQuery_ProjectsLocationsInstancesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -140,7 +137,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/instances";
+  NSString *pathURITemplate = @"v1/{+parent}/instances";
   GTLRDataFusionQuery_ProjectsLocationsInstancesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -166,7 +163,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataFusionQuery_ProjectsLocationsInstancesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -193,7 +190,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:restart";
+  NSString *pathURITemplate = @"v1/{+name}:restart";
   GTLRDataFusionQuery_ProjectsLocationsInstancesRestart *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -220,7 +217,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDataFusionQuery_ProjectsLocationsInstancesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -247,7 +244,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDataFusionQuery_ProjectsLocationsInstancesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -261,40 +258,13 @@
 
 @end
 
-@implementation GTLRDataFusionQuery_ProjectsLocationsInstancesUpgrade
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRDataFusion_UpgradeInstanceRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:upgrade";
-  GTLRDataFusionQuery_ProjectsLocationsInstancesUpgrade *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRDataFusion_Operation class];
-  query.loggingName = @"datafusion.projects.locations.instances.upgrade";
-  return query;
-}
-
-@end
-
 @implementation GTLRDataFusionQuery_ProjectsLocationsList
 
 @dynamic filter, includeUnrevealedLocations, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRDataFusionQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -320,7 +290,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRDataFusionQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -340,7 +310,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataFusionQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -359,7 +329,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataFusionQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -378,7 +348,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRDataFusionQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -397,7 +367,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/versions";
+  NSString *pathURITemplate = @"v1/{+parent}/versions";
   GTLRDataFusionQuery_ProjectsLocationsVersionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

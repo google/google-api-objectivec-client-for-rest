@@ -99,13 +99,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Filte
 // ----------------------------------------------------------------------------
 // GTLRAdExperienceReport_PlatformSummary.region
 
-/** Value: "REGION_A" */
+/**
+ *  Region A.
+ *
+ *  Value: "REGION_A"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionA;
-/** Value: "REGION_B" */
+/**
+ *  Region B.
+ *
+ *  Value: "REGION_B"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionB;
-/** Value: "REGION_C" */
+/**
+ *  Region C.
+ *
+ *  Value: "REGION_C"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionC;
-/** Value: "REGION_UNKNOWN" */
+/**
+ *  Ad standard not yet defined for your region.
+ *
+ *  Value: "REGION_UNKNOWN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Region_RegionUnknown;
 
 /**
@@ -131,10 +147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Regio
 /**
  *  The time at which
  *  [enforcement](https://support.google.com/webtools/answer/7308033) against
- *  the site began or will begin on this platform.
- *  Not set when the
- *  filter_status
- *  is OFF.
+ *  the site began or will begin on this platform. Not set when the
+ *  filter_status is OFF.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *enforcementTime;
 
@@ -161,17 +175,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExperienceReport_PlatformSummary_Regio
 @property(nonatomic, strong, nullable) GTLRDateTime *lastChangeTime;
 
 /**
- *  The site's regions on this platform.
- *  No longer populated, because there is no longer any semantic difference
- *  between sites in different regions.
+ *  The site's regions on this platform. No longer populated, because there is
+ *  no longer any semantic difference between sites in different regions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *region;
 
 /**
- *  A link to the full Ad Experience Report for the site on this platform..
- *  Not set in
- *  ViolatingSitesResponse.
- *  Note that you must complete the [Search Console verification
+ *  A link to the full Ad Experience Report for the site on this platform.. Not
+ *  set in ViolatingSitesResponse. Note that you must complete the [Search
+ *  Console verification
  *  process](https://support.google.com/webmasters/answer/9008080) for the site
  *  before you can access the full report.
  */

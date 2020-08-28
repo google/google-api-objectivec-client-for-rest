@@ -110,10 +110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryRespo
 /**
  *  The time at which
  *  [enforcement](https://support.google.com/webtools/answer/7538608) against
- *  the site began or will begin.
- *  Not set when the
- *  filter_status
- *  is OFF.
+ *  the site began or will begin. Not set when the filter_status is OFF.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *enforcementTime;
 
@@ -139,12 +136,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAbusiveExperienceReport_SiteSummaryRespo
 @property(nonatomic, strong, nullable) GTLRDateTime *lastChangeTime;
 
 /**
- *  A link to the full Abusive Experience Report for the site.
- *  Not set in
- *  ViolatingSitesResponse.
- *  Note that you must complete the [Search Console verification
- *  process](https://support.google.com/webmasters/answer/9008080) for the site
- *  before you can access the full report.
+ *  A link to the full Abusive Experience Report for the site. Not set in
+ *  ViolatingSitesResponse. Note that you must complete the [Search Console
+ *  verification process](https://support.google.com/webmasters/answer/9008080)
+ *  for the site before you can access the full report.
  */
 @property(nonatomic, copy, nullable) NSString *reportUrl;
 

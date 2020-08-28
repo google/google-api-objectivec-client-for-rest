@@ -67,14 +67,14 @@ FOUNDATION_EXTERN NSString * const kGTLRIndexing_UrlNotification_Type_UrlUpdated
 
 
 /**
- *  `UrlNotification` is the resource used in all Indexing API calls.
- *  It describes one event in the life cycle of a Web Document.
+ *  `UrlNotification` is the resource used in all Indexing API calls. It
+ *  describes one event in the life cycle of a Web Document.
  */
 @interface GTLRIndexing_UrlNotification : GTLRObject
 
 /**
- *  Creation timestamp for this notification.
- *  Users should _not_ specify it, the field is ignored at the request time.
+ *  Creation timestamp for this notification. Users should _not_ specify it, the
+ *  field is ignored at the request time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *notifyTime;
 
@@ -92,9 +92,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIndexing_UrlNotification_Type_UrlUpdated
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  The object of this notification. The URL must be owned by the publisher
- *  of this notification and, in case of `URL_UPDATED` notifications, it _must_
- *  be crawlable by Google.
+ *  The object of this notification. The URL must be owned by the publisher of
+ *  this notification and, in case of `URL_UPDATED` notifications, it _must_ be
+ *  crawlable by Google.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 

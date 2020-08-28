@@ -42,11 +42,25 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // accessLevelFormat
 
-/** Value: "AS_DEFINED" */
+/**
+ *  Uses the format the resource was defined in. BasicLevels are returned as
+ *  BasicLevels, CustomLevels are returned as CustomLevels.
+ *
+ *  Value: "AS_DEFINED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatAsDefined;
-/** Value: "CEL" */
+/**
+ *  Use Cloud Common Expression Language when returning the resource. Both
+ *  BasicLevels and CustomLevels are returned as CustomLevels.
+ *
+ *  Value: "CEL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatCel;
-/** Value: "LEVEL_FORMAT_UNSPECIFIED" */
+/**
+ *  The format was not specified.
+ *
+ *  Value: "LEVEL_FORMAT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -64,11 +78,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Create an Access Level. The longrunning
- *  operation from this RPC will have a successful status once the Access
- *  Level has
- *  propagated to long-lasting storage. Access Levels containing
- *  errors will result in an error response for the first error encountered.
+ *  Create an Access Level. The longrunning operation from this RPC will have a
+ *  successful status once the Access Level has propagated to long-lasting
+ *  storage. Access Levels containing errors will result in an error response
+ *  for the first error encountered.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.create
  *
@@ -80,8 +93,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsCreateWithObject:parent:]
 
 /**
- *  Required. Resource name for the access policy which owns this Access
- *  Level.
+ *  Required. Resource name for the access policy which owns this Access Level.
  *  Format: `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -89,18 +101,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Create an Access Level. The longrunning
- *  operation from this RPC will have a successful status once the Access
- *  Level has
- *  propagated to long-lasting storage. Access Levels containing
- *  errors will result in an error response for the first error encountered.
+ *  Create an Access Level. The longrunning operation from this RPC will have a
+ *  successful status once the Access Level has propagated to long-lasting
+ *  storage. Access Levels containing errors will result in an error response
+ *  for the first error encountered.
  *
  *  @param object The @c GTLRAccessContextManager_AccessLevel to include in the
  *    query.
  *  @param parent Required. Resource name for the access policy which owns this
- *    Access
- *    Level.
- *    Format: `accessPolicies/{policy_id}`
+ *    Access Level. Format: `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsCreate
  */
@@ -110,9 +119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Delete an Access Level by resource
- *  name. The longrunning operation from this RPC will have a successful status
- *  once the Access Level has been removed
+ *  Delete an Access Level by resource name. The longrunning operation from this
+ *  RPC will have a successful status once the Access Level has been removed
  *  from long-lasting storage.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.delete
@@ -125,8 +133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsDeleteWithname:]
 
 /**
- *  Required. Resource name for the Access Level.
- *  Format:
+ *  Required. Resource name for the Access Level. Format:
  *  `accessPolicies/{policy_id}/accessLevels/{access_level_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -134,13 +141,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Delete an Access Level by resource
- *  name. The longrunning operation from this RPC will have a successful status
- *  once the Access Level has been removed
+ *  Delete an Access Level by resource name. The longrunning operation from this
+ *  RPC will have a successful status once the Access Level has been removed
  *  from long-lasting storage.
  *
- *  @param name Required. Resource name for the Access Level.
- *    Format:
+ *  @param name Required. Resource name for the Access Level. Format:
  *    `accessPolicies/{policy_id}/accessLevels/{access_level_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsDelete
@@ -150,8 +155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Get an Access Level by resource
- *  name.
+ *  Get an Access Level by resource name.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.get
  *
@@ -163,26 +167,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsGetWithname:]
 
 /**
- *  Whether to return `BasicLevels` in the Cloud Common Expression
- *  Language rather than as `BasicLevels`. Defaults to AS_DEFINED, where
- *  Access Levels
+ *  Whether to return `BasicLevels` in the Cloud Common Expression Language
+ *  rather than as `BasicLevels`. Defaults to AS_DEFINED, where Access Levels
  *  are returned as `BasicLevels` or `CustomLevels` based on how they were
- *  created. If set to CEL, all Access Levels are returned as
- *  `CustomLevels`. In the CEL case, `BasicLevels` are translated to equivalent
- *  `CustomLevels`.
+ *  created. If set to CEL, all Access Levels are returned as `CustomLevels`. In
+ *  the CEL case, `BasicLevels` are translated to equivalent `CustomLevels`.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified
- *        Value "LEVEL_FORMAT_UNSPECIFIED"
- *    @arg @c kGTLRAccessContextManagerAccessLevelFormatAsDefined Value
- *        "AS_DEFINED"
- *    @arg @c kGTLRAccessContextManagerAccessLevelFormatCel Value "CEL"
+ *        The format was not specified. (Value: "LEVEL_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRAccessContextManagerAccessLevelFormatAsDefined Uses the
+ *        format the resource was defined in. BasicLevels are returned as
+ *        BasicLevels, CustomLevels are returned as CustomLevels. (Value:
+ *        "AS_DEFINED")
+ *    @arg @c kGTLRAccessContextManagerAccessLevelFormatCel Use Cloud Common
+ *        Expression Language when returning the resource. Both BasicLevels and
+ *        CustomLevels are returned as CustomLevels. (Value: "CEL")
  */
 @property(nonatomic, copy, nullable) NSString *accessLevelFormat;
 
 /**
- *  Required. Resource name for the Access Level.
- *  Format:
+ *  Required. Resource name for the Access Level. Format:
  *  `accessPolicies/{policy_id}/accessLevels/{access_level_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -190,11 +195,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_AccessLevel.
  *
- *  Get an Access Level by resource
- *  name.
+ *  Get an Access Level by resource name.
  *
- *  @param name Required. Resource name for the Access Level.
- *    Format:
+ *  @param name Required. Resource name for the Access Level. Format:
  *    `accessPolicies/{policy_id}/accessLevels/{access_level_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsGet
@@ -204,8 +207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  List all Access Levels for an access
- *  policy.
+ *  List all Access Levels for an access policy.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.list
  *
@@ -223,42 +225,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecified
- *        Value "LEVEL_FORMAT_UNSPECIFIED"
- *    @arg @c kGTLRAccessContextManagerAccessLevelFormatAsDefined Value
- *        "AS_DEFINED"
- *    @arg @c kGTLRAccessContextManagerAccessLevelFormatCel Value "CEL"
+ *        The format was not specified. (Value: "LEVEL_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRAccessContextManagerAccessLevelFormatAsDefined Uses the
+ *        format the resource was defined in. BasicLevels are returned as
+ *        BasicLevels, CustomLevels are returned as CustomLevels. (Value:
+ *        "AS_DEFINED")
+ *    @arg @c kGTLRAccessContextManagerAccessLevelFormatCel Use Cloud Common
+ *        Expression Language when returning the resource. Both BasicLevels and
+ *        CustomLevels are returned as CustomLevels. (Value: "CEL")
  */
 @property(nonatomic, copy, nullable) NSString *accessLevelFormat;
 
-/**
- *  Number of Access Levels to include in
- *  the list. Default 100.
- */
+/** Number of Access Levels to include in the list. Default 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Next page token for the next batch of Access Level instances.
- *  Defaults to the first page of results.
+ *  Next page token for the next batch of Access Level instances. Defaults to
+ *  the first page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. Resource name for the access policy to list Access Levels from.
- *  Format:
- *  `accessPolicies/{policy_id}`
+ *  Format: `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_ListAccessLevelsResponse.
  *
- *  List all Access Levels for an access
- *  policy.
+ *  List all Access Levels for an access policy.
  *
  *  @param parent Required. Resource name for the access policy to list Access
- *    Levels from.
- *    Format:
- *    `accessPolicies/{policy_id}`
+ *    Levels from. Format: `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsList
  *
@@ -271,11 +270,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Update an Access Level. The longrunning
- *  operation from this RPC will have a successful status once the changes to
- *  the Access Level have propagated
- *  to long-lasting storage. Access Levels containing
- *  errors will result in an error response for the first error encountered.
+ *  Update an Access Level. The longrunning operation from this RPC will have a
+ *  successful status once the changes to the Access Level have propagated to
+ *  long-lasting storage. Access Levels containing errors will result in an
+ *  error response for the first error encountered.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.patch
  *
@@ -304,19 +302,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Update an Access Level. The longrunning
- *  operation from this RPC will have a successful status once the changes to
- *  the Access Level have propagated
- *  to long-lasting storage. Access Levels containing
- *  errors will result in an error response for the first error encountered.
+ *  Update an Access Level. The longrunning operation from this RPC will have a
+ *  successful status once the changes to the Access Level have propagated to
+ *  long-lasting storage. Access Levels containing errors will result in an
+ *  error response for the first error encountered.
  *
  *  @param object The @c GTLRAccessContextManager_AccessLevel to include in the
  *    query.
  *  @param name Required. Resource name for the Access Level. The `short_name`
- *    component
- *    must begin with a letter and only include alphanumeric and '_'. Format:
- *    `accessPolicies/{policy_id}/accessLevels/{short_name}`. The maximum length
- *    of the `short_name` component is 50 characters.
+ *    component must begin with a letter and only include alphanumeric and '_'.
+ *    Format: `accessPolicies/{policy_id}/accessLevels/{short_name}`. The
+ *    maximum length of the `short_name` component is 50 characters.
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsPatch
  */
@@ -326,18 +322,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Replace all existing Access Levels in an Access
- *  Policy with
- *  the Access Levels provided. This
- *  is done atomically. The longrunning operation from this RPC will have a
- *  successful status once all replacements have propagated to long-lasting
- *  storage. Replacements containing errors will result in an error response
- *  for the first error encountered. Replacement will be cancelled on error,
- *  existing Access Levels will not be
- *  affected. Operation.response field will contain
- *  ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
- *  Service Perimeters will result in
- *  error.
+ *  Replace all existing Access Levels in an Access Policy with the Access
+ *  Levels provided. This is done atomically. The longrunning operation from
+ *  this RPC will have a successful status once all replacements have propagated
+ *  to long-lasting storage. Replacements containing errors will result in an
+ *  error response for the first error encountered. Replacement will be
+ *  cancelled on error, existing Access Levels will not be affected.
+ *  Operation.response field will contain ReplaceAccessLevelsResponse. Removing
+ *  Access Levels contained in existing Service Perimeters will result in error.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.replaceAll
  *
@@ -349,33 +341,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesAccessLevelsReplaceAllWithObject:parent:]
 
 /**
- *  Required. Resource name for the access policy which owns these
- *  Access Levels.
- *  Format: `accessPolicies/{policy_id}`
+ *  Required. Resource name for the access policy which owns these Access
+ *  Levels. Format: `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Replace all existing Access Levels in an Access
- *  Policy with
- *  the Access Levels provided. This
- *  is done atomically. The longrunning operation from this RPC will have a
- *  successful status once all replacements have propagated to long-lasting
- *  storage. Replacements containing errors will result in an error response
- *  for the first error encountered. Replacement will be cancelled on error,
- *  existing Access Levels will not be
- *  affected. Operation.response field will contain
- *  ReplaceAccessLevelsResponse. Removing Access Levels contained in existing
- *  Service Perimeters will result in
- *  error.
+ *  Replace all existing Access Levels in an Access Policy with the Access
+ *  Levels provided. This is done atomically. The longrunning operation from
+ *  this RPC will have a successful status once all replacements have propagated
+ *  to long-lasting storage. Replacements containing errors will result in an
+ *  error response for the first error encountered. Replacement will be
+ *  cancelled on error, existing Access Levels will not be affected.
+ *  Operation.response field will contain ReplaceAccessLevelsResponse. Removing
+ *  Access Levels contained in existing Service Perimeters will result in error.
  *
  *  @param object The @c GTLRAccessContextManager_ReplaceAccessLevelsRequest to
  *    include in the query.
  *  @param parent Required. Resource name for the access policy which owns these
- *    Access Levels.
- *    Format: `accessPolicies/{policy_id}`
+ *    Access Levels. Format: `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesAccessLevelsReplaceAll
  */
@@ -386,10 +372,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 /**
  *  Create an `AccessPolicy`. Fails if this organization already has a
- *  `AccessPolicy`. The longrunning Operation will have a successful status
- *  once the `AccessPolicy` has propagated to long-lasting storage.
- *  Syntactic and basic semantic errors will be returned in `metadata` as a
- *  BadRequest proto.
+ *  `AccessPolicy`. The longrunning Operation will have a successful status once
+ *  the `AccessPolicy` has propagated to long-lasting storage. Syntactic and
+ *  basic semantic errors will be returned in `metadata` as a BadRequest proto.
  *
  *  Method: accesscontextmanager.accessPolicies.create
  *
@@ -404,10 +389,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
  *  Create an `AccessPolicy`. Fails if this organization already has a
- *  `AccessPolicy`. The longrunning Operation will have a successful status
- *  once the `AccessPolicy` has propagated to long-lasting storage.
- *  Syntactic and basic semantic errors will be returned in `metadata` as a
- *  BadRequest proto.
+ *  `AccessPolicy`. The longrunning Operation will have a successful status once
+ *  the `AccessPolicy` has propagated to long-lasting storage. Syntactic and
+ *  basic semantic errors will be returned in `metadata` as a BadRequest proto.
  *
  *  @param object The @c GTLRAccessContextManager_AccessPolicy to include in the
  *    query.
@@ -419,10 +403,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Delete an AccessPolicy by resource
- *  name. The longrunning Operation will have a successful status once the
- *  AccessPolicy
- *  has been removed from long-lasting storage.
+ *  Delete an AccessPolicy by resource name. The longrunning Operation will have
+ *  a successful status once the AccessPolicy has been removed from long-lasting
+ *  storage.
  *
  *  Method: accesscontextmanager.accessPolicies.delete
  *
@@ -434,21 +417,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesDeleteWithname:]
 
 /**
- *  Required. Resource name for the access policy to delete.
- *  Format `accessPolicies/{policy_id}`
+ *  Required. Resource name for the access policy to delete. Format
+ *  `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Delete an AccessPolicy by resource
- *  name. The longrunning Operation will have a successful status once the
- *  AccessPolicy
- *  has been removed from long-lasting storage.
+ *  Delete an AccessPolicy by resource name. The longrunning Operation will have
+ *  a successful status once the AccessPolicy has been removed from long-lasting
+ *  storage.
  *
- *  @param name Required. Resource name for the access policy to delete.
- *    Format `accessPolicies/{policy_id}`
+ *  @param name Required. Resource name for the access policy to delete. Format
+ *    `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesDelete
  */
@@ -469,8 +451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesGetWithname:]
 
 /**
- *  Required. Resource name for the access policy to get.
- *  Format `accessPolicies/{policy_id}`
+ *  Required. Resource name for the access policy to get. Format
+ *  `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -479,8 +461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  Get an AccessPolicy by name.
  *
- *  @param name Required. Resource name for the access policy to get.
- *    Format `accessPolicies/{policy_id}`
+ *  @param name Required. Resource name for the access policy to get. Format
+ *    `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesGet
  */
@@ -489,8 +471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  List all AccessPolicies under a
- *  container.
+ *  List all AccessPolicies under a container.
  *
  *  Method: accesscontextmanager.accessPolicies.list
  *
@@ -512,17 +493,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 /**
  *  Required. Resource name for the container to list AccessPolicy instances
- *  from.
- *  Format:
- *  `organizations/{org_id}`
+ *  from. Format: `organizations/{org_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_ListAccessPoliciesResponse.
  *
- *  List all AccessPolicies under a
- *  container.
+ *  List all AccessPolicies under a container.
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesList
  *
@@ -535,11 +513,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Update an AccessPolicy. The
- *  longrunning Operation from this RPC will have a successful status once the
- *  changes to the AccessPolicy have propagated
- *  to long-lasting storage. Syntactic and basic semantic errors will be
- *  returned in `metadata` as a BadRequest proto.
+ *  Update an AccessPolicy. The longrunning Operation from this RPC will have a
+ *  successful status once the changes to the AccessPolicy have propagated to
+ *  long-lasting storage. Syntactic and basic semantic errors will be returned
+ *  in `metadata` as a BadRequest proto.
  *
  *  Method: accesscontextmanager.accessPolicies.patch
  *
@@ -566,11 +543,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Update an AccessPolicy. The
- *  longrunning Operation from this RPC will have a successful status once the
- *  changes to the AccessPolicy have propagated
- *  to long-lasting storage. Syntactic and basic semantic errors will be
- *  returned in `metadata` as a BadRequest proto.
+ *  Update an AccessPolicy. The longrunning Operation from this RPC will have a
+ *  successful status once the changes to the AccessPolicy have propagated to
+ *  long-lasting storage. Syntactic and basic semantic errors will be returned
+ *  in `metadata` as a BadRequest proto.
  *
  *  @param object The @c GTLRAccessContextManager_AccessPolicy to include in the
  *    query.
@@ -585,8 +561,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Commit the dry-run spec for all the Service Perimeters in an
- *  Access Policy.
+ *  Commit the dry-run spec for all the Service Perimeters in an Access Policy.
  *  A commit operation on a Service Perimeter involves copying its `spec` field
  *  to that Service Perimeter's `status` field. Only Service Perimeters with
  *  `use_explicit_dry_run_spec` field set to true are affected by a commit
@@ -595,8 +570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  committed. If a commit fails, it will cause the longrunning operation to
  *  return an error response and the entire commit operation will be cancelled.
  *  When successful, Operation.response field will contain
- *  CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
- *  be cleared after a successful commit operation.
+ *  CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be
+ *  cleared after a successful commit operation.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.commit
  *
@@ -608,18 +583,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersCommitWithObject:parent:]
 
 /**
- *  Required. Resource name for the parent Access Policy which owns all
- *  Service Perimeters in scope for
- *  the commit operation.
- *  Format: `accessPolicies/{policy_id}`
+ *  Required. Resource name for the parent Access Policy which owns all Service
+ *  Perimeters in scope for the commit operation. Format:
+ *  `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Commit the dry-run spec for all the Service Perimeters in an
- *  Access Policy.
+ *  Commit the dry-run spec for all the Service Perimeters in an Access Policy.
  *  A commit operation on a Service Perimeter involves copying its `spec` field
  *  to that Service Perimeter's `status` field. Only Service Perimeters with
  *  `use_explicit_dry_run_spec` field set to true are affected by a commit
@@ -628,16 +601,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  committed. If a commit fails, it will cause the longrunning operation to
  *  return an error response and the entire commit operation will be cancelled.
  *  When successful, Operation.response field will contain
- *  CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will
- *  be cleared after a successful commit operation.
+ *  CommitServicePerimetersResponse. The `dry_run` and the `spec` fields will be
+ *  cleared after a successful commit operation.
  *
  *  @param object The @c GTLRAccessContextManager_CommitServicePerimetersRequest
  *    to include in the query.
  *  @param parent Required. Resource name for the parent Access Policy which
- *    owns all
- *    Service Perimeters in scope for
- *    the commit operation.
- *    Format: `accessPolicies/{policy_id}`
+ *    owns all Service Perimeters in scope for the commit operation. Format:
+ *    `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCommit
  */
@@ -647,11 +618,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Create a Service Perimeter. The
- *  longrunning operation from this RPC will have a successful status once the
- *  Service Perimeter has
- *  propagated to long-lasting storage. Service Perimeters containing
- *  errors will result in an error response for the first error encountered.
+ *  Create a Service Perimeter. The longrunning operation from this RPC will
+ *  have a successful status once the Service Perimeter has propagated to
+ *  long-lasting storage. Service Perimeters containing errors will result in an
+ *  error response for the first error encountered.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.create
  *
@@ -664,26 +634,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 /**
  *  Required. Resource name for the access policy which owns this Service
- *  Perimeter.
- *  Format: `accessPolicies/{policy_id}`
+ *  Perimeter. Format: `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Create a Service Perimeter. The
- *  longrunning operation from this RPC will have a successful status once the
- *  Service Perimeter has
- *  propagated to long-lasting storage. Service Perimeters containing
- *  errors will result in an error response for the first error encountered.
+ *  Create a Service Perimeter. The longrunning operation from this RPC will
+ *  have a successful status once the Service Perimeter has propagated to
+ *  long-lasting storage. Service Perimeters containing errors will result in an
+ *  error response for the first error encountered.
  *
  *  @param object The @c GTLRAccessContextManager_ServicePerimeter to include in
  *    the query.
  *  @param parent Required. Resource name for the access policy which owns this
- *    Service
- *    Perimeter.
- *    Format: `accessPolicies/{policy_id}`
+ *    Service Perimeter. Format: `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersCreate
  */
@@ -693,9 +659,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Delete a Service Perimeter by resource
- *  name. The longrunning operation from this RPC will have a successful status
- *  once the Service Perimeter has been
+ *  Delete a Service Perimeter by resource name. The longrunning operation from
+ *  this RPC will have a successful status once the Service Perimeter has been
  *  removed from long-lasting storage.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.delete
@@ -708,8 +673,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersDeleteWithname:]
 
 /**
- *  Required. Resource name for the Service Perimeter.
- *  Format:
+ *  Required. Resource name for the Service Perimeter. Format:
  *  `accessPolicies/{policy_id}/servicePerimeters/{service_perimeter_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -717,13 +681,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Delete a Service Perimeter by resource
- *  name. The longrunning operation from this RPC will have a successful status
- *  once the Service Perimeter has been
+ *  Delete a Service Perimeter by resource name. The longrunning operation from
+ *  this RPC will have a successful status once the Service Perimeter has been
  *  removed from long-lasting storage.
  *
- *  @param name Required. Resource name for the Service Perimeter.
- *    Format:
+ *  @param name Required. Resource name for the Service Perimeter. Format:
  *    `accessPolicies/{policy_id}/servicePerimeters/{service_perimeter_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersDelete
@@ -733,8 +695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Get a Service Perimeter by resource
- *  name.
+ *  Get a Service Perimeter by resource name.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.get
  *
@@ -746,8 +707,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersGetWithname:]
 
 /**
- *  Required. Resource name for the Service Perimeter.
- *  Format:
+ *  Required. Resource name for the Service Perimeter. Format:
  *  `accessPolicies/{policy_id}/servicePerimeters/{service_perimeters_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -755,11 +715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_ServicePerimeter.
  *
- *  Get a Service Perimeter by resource
- *  name.
+ *  Get a Service Perimeter by resource name.
  *
- *  @param name Required. Resource name for the Service Perimeter.
- *    Format:
+ *  @param name Required. Resource name for the Service Perimeter. Format:
  *    `accessPolicies/{policy_id}/servicePerimeters/{service_perimeters_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersGet
@@ -769,8 +727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  List all Service Perimeters for an
- *  access policy.
+ *  List all Service Perimeters for an access policy.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.list
  *
@@ -781,36 +738,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 // Previous library name was
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersListWithparent:]
 
-/**
- *  Number of Service Perimeters to include
- *  in the list. Default 100.
- */
+/** Number of Service Perimeters to include in the list. Default 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Next page token for the next batch of Service Perimeter instances.
- *  Defaults to the first page of results.
+ *  Next page token for the next batch of Service Perimeter instances. Defaults
+ *  to the first page of results.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. Resource name for the access policy to list Service Perimeters
- *  from.
- *  Format:
- *  `accessPolicies/{policy_id}`
+ *  from. Format: `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_ListServicePerimetersResponse.
  *
- *  List all Service Perimeters for an
- *  access policy.
+ *  List all Service Perimeters for an access policy.
  *
  *  @param parent Required. Resource name for the access policy to list Service
- *    Perimeters from.
- *    Format:
- *    `accessPolicies/{policy_id}`
+ *    Perimeters from. Format: `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersList
  *
@@ -823,11 +772,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Update a Service Perimeter. The
- *  longrunning operation from this RPC will have a successful status once the
- *  changes to the Service Perimeter have
- *  propagated to long-lasting storage. Service Perimeter containing
- *  errors will result in an error response for the first error encountered.
+ *  Update a Service Perimeter. The longrunning operation from this RPC will
+ *  have a successful status once the changes to the Service Perimeter have
+ *  propagated to long-lasting storage. Service Perimeter containing errors will
+ *  result in an error response for the first error encountered.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.patch
  *
@@ -839,9 +787,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersPatchWithObject:name:]
 
 /**
- *  Required. Resource name for the ServicePerimeter. The `short_name`
- *  component must begin with a letter and only include alphanumeric and '_'.
- *  Format: `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ *  Required. Resource name for the ServicePerimeter. The `short_name` component
+ *  must begin with a letter and only include alphanumeric and '_'. Format:
+ *  `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -855,18 +803,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Update a Service Perimeter. The
- *  longrunning operation from this RPC will have a successful status once the
- *  changes to the Service Perimeter have
- *  propagated to long-lasting storage. Service Perimeter containing
- *  errors will result in an error response for the first error encountered.
+ *  Update a Service Perimeter. The longrunning operation from this RPC will
+ *  have a successful status once the changes to the Service Perimeter have
+ *  propagated to long-lasting storage. Service Perimeter containing errors will
+ *  result in an error response for the first error encountered.
  *
  *  @param object The @c GTLRAccessContextManager_ServicePerimeter to include in
  *    the query.
  *  @param name Required. Resource name for the ServicePerimeter. The
- *    `short_name`
- *    component must begin with a letter and only include alphanumeric and '_'.
- *    Format: `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ *    `short_name` component must begin with a letter and only include
+ *    alphanumeric and '_'. Format:
+ *    `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersPatch
  */
@@ -876,16 +823,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Replace all existing Service Perimeters in an
- *  Access Policy
- *  with the Service Perimeters provided.
- *  This is done atomically. The longrunning operation from this
- *  RPC will have a successful status once all replacements have propagated to
- *  long-lasting storage. Replacements containing errors will result in an
+ *  Replace all existing Service Perimeters in an Access Policy with the Service
+ *  Perimeters provided. This is done atomically. The longrunning operation from
+ *  this RPC will have a successful status once all replacements have propagated
+ *  to long-lasting storage. Replacements containing errors will result in an
  *  error response for the first error encountered. Replacement will be
- *  cancelled on error, existing Service Perimeters will not be
- *  affected. Operation.response field will contain
- *  ReplaceServicePerimetersResponse.
+ *  cancelled on error, existing Service Perimeters will not be affected.
+ *  Operation.response field will contain ReplaceServicePerimetersResponse.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.replaceAll
  *
@@ -897,32 +841,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 //   +[GTLQueryAccessContextManager queryForAccessPoliciesServicePerimetersReplaceAllWithObject:parent:]
 
 /**
- *  Required. Resource name for the access policy which owns these
- *  Service Perimeters.
- *  Format: `accessPolicies/{policy_id}`
+ *  Required. Resource name for the access policy which owns these Service
+ *  Perimeters. Format: `accessPolicies/{policy_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_Operation.
  *
- *  Replace all existing Service Perimeters in an
- *  Access Policy
- *  with the Service Perimeters provided.
- *  This is done atomically. The longrunning operation from this
- *  RPC will have a successful status once all replacements have propagated to
- *  long-lasting storage. Replacements containing errors will result in an
+ *  Replace all existing Service Perimeters in an Access Policy with the Service
+ *  Perimeters provided. This is done atomically. The longrunning operation from
+ *  this RPC will have a successful status once all replacements have propagated
+ *  to long-lasting storage. Replacements containing errors will result in an
  *  error response for the first error encountered. Replacement will be
- *  cancelled on error, existing Service Perimeters will not be
- *  affected. Operation.response field will contain
- *  ReplaceServicePerimetersResponse.
+ *  cancelled on error, existing Service Perimeters will not be affected.
+ *  Operation.response field will contain ReplaceServicePerimetersResponse.
  *
  *  @param object The @c
  *    GTLRAccessContextManager_ReplaceServicePerimetersRequest to include in the
  *    query.
  *  @param parent Required. Resource name for the access policy which owns these
- *    Service Perimeters.
- *    Format: `accessPolicies/{policy_id}`
+ *    Service Perimeters. Format: `accessPolicies/{policy_id}`
  *
  *  @return GTLRAccessContextManagerQuery_AccessPoliciesServicePerimetersReplaceAll
  */
@@ -933,15 +872,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: accesscontextmanager.operations.cancel
  *
@@ -959,15 +897,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  Fetches a @c GTLRAccessContextManager_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRAccessContextManager_CancelOperationRequest to
  *    include in the query.
@@ -1048,14 +985,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: accesscontextmanager.operations.list
  *
@@ -1082,14 +1019,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  Fetches a @c GTLRAccessContextManager_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *

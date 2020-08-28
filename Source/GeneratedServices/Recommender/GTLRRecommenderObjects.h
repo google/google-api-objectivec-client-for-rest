@@ -123,11 +123,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insi
 // GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo.state
 
 /**
- *  Some action has been taken based on this insight. Insights become
- *  accepted when a recommendation derived from the insight has been marked
- *  CLAIMED, SUCCEEDED, or FAILED. ACTIVE insights can also be marked
- *  ACCEPTED explicitly. Content for ACCEPTED insights is immutable. ACCEPTED
- *  insights can only be marked ACCEPTED (which may update state metadata).
+ *  Some action has been taken based on this insight. Insights become accepted
+ *  when a recommendation derived from the insight has been marked CLAIMED,
+ *  SUCCEEDED, or FAILED. ACTIVE insights can also be marked ACCEPTED
+ *  explicitly. Content for ACCEPTED insights is immutable. ACCEPTED insights
+ *  can only be marked ACCEPTED (which may update state metadata).
  *
  *  Value: "ACCEPTED"
  */
@@ -157,33 +157,32 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insi
 // GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo.state
 
 /**
- *  Recommendation is active and can be applied. Recommendations content can
- *  be updated by Google.
- *  ACTIVE recommendations can be marked as CLAIMED, SUCCEEDED, or FAILED.
+ *  Recommendation is active and can be applied. Recommendations content can be
+ *  updated by Google. ACTIVE recommendations can be marked as CLAIMED,
+ *  SUCCEEDED, or FAILED.
  *
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Active;
 /**
- *  Recommendation is in claimed state. Recommendations content is
- *  immutable and cannot be updated by Google.
- *  CLAIMED recommendations can be marked as CLAIMED, SUCCEEDED, or FAILED.
+ *  Recommendation is in claimed state. Recommendations content is immutable and
+ *  cannot be updated by Google. CLAIMED recommendations can be marked as
+ *  CLAIMED, SUCCEEDED, or FAILED.
  *
  *  Value: "CLAIMED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Claimed;
 /**
- *  Recommendation is in dismissed state. Recommendation content can be
- *  updated by Google.
- *  DISMISSED recommendations can be marked as ACTIVE.
+ *  Recommendation is in dismissed state. Recommendation content can be updated
+ *  by Google. DISMISSED recommendations can be marked as ACTIVE.
  *
  *  Value: "DISMISSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Dismissed;
 /**
- *  Recommendation is in failed state. Recommendations content is immutable
- *  and cannot be updated by Google.
- *  FAILED recommendations can be marked as SUCCEEDED, or FAILED.
+ *  Recommendation is in failed state. Recommendations content is immutable and
+ *  cannot be updated by Google. FAILED recommendations can be marked as
+ *  SUCCEEDED, or FAILED.
  *
  *  Value: "FAILED"
  */
@@ -195,9 +194,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_StateUnspecified;
 /**
- *  Recommendation is in succeeded state. Recommendations content is
- *  immutable and cannot be updated by Google.
- *  SUCCEEDED recommendations can be marked as SUCCEEDED, or FAILED.
+ *  Recommendation is in succeeded state. Recommendations content is immutable
+ *  and cannot be updated by Google. SUCCEEDED recommendations can be marked as
+ *  SUCCEEDED, or FAILED.
  *
  *  Value: "SUCCEEDED"
  */
@@ -210,8 +209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  An approximate projection on amount saved or amount incurred. Negative cost
- *  units indicate cost savings and positive cost units indicate increase.
- *  See google.type.Money documentation for positive/negative units.
+ *  units indicate cost savings and positive cost units indicate increase. See
+ *  google.type.Money documentation for positive/negative units.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleTypeMoney *cost;
 
@@ -255,8 +254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  An insight along with the information used to derive the insight. The
- *  insight
- *  may have associated recomendations as well.
+ *  insight may have associated recomendations as well.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1Insight : GTLRObject
 
@@ -281,8 +279,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 @property(nonatomic, copy, nullable) NSString *category;
 
 /**
- *  A struct of custom fields to explain the insight.
- *  Example: "grantedPermissionsCount": "1000"
+ *  A struct of custom fields to explain the insight. Example:
+ *  "grantedPermissionsCount": "1000"
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1Insight_Content *content;
 
@@ -312,9 +310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Observation period that led to the insight. The source data used to
- *  generate the insight ends at last_refresh_time and begins at
- *  (last_refresh_time - observation_period).
+ *  Observation period that led to the insight. The source data used to generate
+ *  the insight ends at last_refresh_time and begins at (last_refresh_time -
+ *  observation_period).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *observationPeriod;
 
@@ -328,8 +326,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 
 /**
- *  A struct of custom fields to explain the insight.
- *  Example: "grantedPermissionsCount": "1000"
+ *  A struct of custom fields to explain the insight. Example:
+ *  "grantedPermissionsCount": "1000"
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -366,16 +364,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Accepted
  *        Some action has been taken based on this insight. Insights become
  *        accepted when a recommendation derived from the insight has been
- *        marked
- *        CLAIMED, SUCCEEDED, or FAILED. ACTIVE insights can also be marked
- *        ACCEPTED explicitly. Content for ACCEPTED insights is immutable.
- *        ACCEPTED
- *        insights can only be marked ACCEPTED (which may update state
- *        metadata). (Value: "ACCEPTED")
+ *        marked CLAIMED, SUCCEEDED, or FAILED. ACTIVE insights can also be
+ *        marked ACCEPTED explicitly. Content for ACCEPTED insights is
+ *        immutable. ACCEPTED insights can only be marked ACCEPTED (which may
+ *        update state metadata). (Value: "ACCEPTED")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Active
  *        Insight is active. Content for ACTIVE insights can be updated by
- *        Google.
- *        ACTIVE insights can be marked DISMISSED OR ACCEPTED. (Value: "ACTIVE")
+ *        Google. ACTIVE insights can be marked DISMISSED OR ACCEPTED. (Value:
+ *        "ACTIVE")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_Dismissed
  *        Insight is dismissed. Content for DISMISSED insights can be updated by
  *        Google. DISMISSED insights can be marked as ACTIVE. (Value:
@@ -469,8 +465,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  Optional. State properties user wish to include with this state. Full
- *  replace of the
- *  current state_metadata.
+ *  replace of the current state_metadata.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest_StateMetadata *stateMetadata;
 
@@ -479,8 +474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  Optional. State properties user wish to include with this state. Full
- *  replace of the
- *  current state_metadata.
+ *  replace of the current state_metadata.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -503,9 +497,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`.
- *  Keys must match the regex /^a-z0-9{0,62}$/.
- *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
+ *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest_StateMetadata *stateMetadata;
 
@@ -514,9 +507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`.
- *  Keys must match the regex /^a-z0-9{0,62}$/.
- *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
+ *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -539,9 +531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`.
- *  Keys must match the regex /^a-z0-9{0,62}$/.
- *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
+ *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest_StateMetadata *stateMetadata;
 
@@ -550,9 +541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`.
- *  Keys must match the regex /^a-z0-9{0,62}$/.
- *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
+ *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -575,9 +565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`.
- *  Keys must match the regex /^a-z0-9{0,62}$/.
- *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
+ *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest_StateMetadata *stateMetadata;
 
@@ -586,9 +575,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  State properties to include with this state. Overwrites any existing
- *  `state_metadata`.
- *  Keys must match the regex /^a-z0-9{0,62}$/.
- *  Values must match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
+ *  `state_metadata`. Keys must match the regex /^a-z0-9{0,62}$/. Values must
+ *  match the regex /^[a-zA-Z0-9_./-]{0,255}$/.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -601,13 +589,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  Contains an operation for a resource loosely based on the JSON-PATCH format
- *  with support for:
- *  * Custom filters for describing partial array patch.
- *  * Extended path values for describing nested arrays.
- *  * Custom fields for describing the resource for which the operation is being
- *  described.
- *  * Allows extension to custom operations not natively supported by RFC6902.
- *  See https://tools.ietf.org/html/rfc6902 for details on the original RFC.
+ *  with support for: * Custom filters for describing partial array patch. *
+ *  Extended path values for describing nested arrays. * Custom fields for
+ *  describing the resource for which the operation is being described. * Allows
+ *  extension to custom operations not natively supported by RFC6902. See
+ *  https://tools.ietf.org/html/rfc6902 for details on the original RFC.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1Operation : GTLRObject
 
@@ -627,32 +613,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 /**
  *  Set of filters to apply if `path` refers to array elements or nested array
  *  elements in order to narrow down to a single unique element that is being
- *  tested/modified.
- *  This is intended to be an exact match per filter. To perform advanced
- *  matching, use path_value_matchers.
- *  * Example: {
- *  "/versions/ * /name" : "it-123"
- *  "/versions/ * /targetSize/percent": 20
- *  }
- *  * Example: {
- *  "/bindings/ * /role": "roles/admin"
- *  "/bindings/ * /condition" : null
- *  }
- *  * Example: {
- *  "/bindings/ * /role": "roles/admin"
- *  "/bindings/ * /members/ *" : ["x\@google.com", "y\@google.com"]
- *  }
- *  When both path_filters and path_value_matchers are set, an implicit AND
- *  must be performed.
+ *  tested/modified. This is intended to be an exact match per filter. To
+ *  perform advanced matching, use path_value_matchers. * Example: { "/versions/
+ *  * /name" : "it-123" "/versions/ * /targetSize/percent": 20 } * Example: {
+ *  "/bindings/ * /role": "roles/admin" "/bindings/ * /condition" : null } *
+ *  Example: { "/bindings/ * /role": "roles/admin" "/bindings/ * /members/ *" :
+ *  ["x\@google.com", "y\@google.com"] } When both path_filters and
+ *  path_value_matchers are set, an implicit AND must be performed.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1Operation_PathFilters *pathFilters;
 
 /**
  *  Similar to path_filters, this contains set of filters to apply if `path`
  *  field referes to array elements. This is meant to support value matching
- *  beyond exact match. To perform exact match, use path_filters.
- *  When both path_filters and path_value_matchers are set, an implicit AND
- *  must be performed.
+ *  beyond exact match. To perform exact match, use path_filters. When both
+ *  path_filters and path_value_matchers are set, an implicit AND must be
+ *  performed.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1Operation_PathValueMatchers *pathValueMatchers;
 
@@ -677,25 +653,24 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  Can be set with action 'copy' to copy resource configuration across
- *  different resources of the same type. Example: A resource clone can be
- *  done via action = 'copy', path = "/", from = "/",
- *  source_resource = <source> and resource_name = <target>.
- *  This field is empty for all other values of `action`.
+ *  different resources of the same type. Example: A resource clone can be done
+ *  via action = 'copy', path = "/", from = "/", source_resource = and
+ *  resource_name = . This field is empty for all other values of `action`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceResource;
 
 /**
- *  Value for the `path` field. Will be set for actions:'add'/'replace'.
- *  Maybe set for action: 'test'. Either this or `value_matcher` will be set
- *  for 'test' operation. An exact match must be performed.
+ *  Value for the `path` field. Will be set for actions:'add'/'replace'. Maybe
+ *  set for action: 'test'. Either this or `value_matcher` will be set for
+ *  'test' operation. An exact match must be performed.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id value;
 
 /**
- *  Can be set for action 'test' for advanced matching for the value of
- *  'path' field. Either this or `value` will be set for 'test' operation.
+ *  Can be set for action 'test' for advanced matching for the value of 'path'
+ *  field. Either this or `value` will be set for 'test' operation.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1ValueMatcher *valueMatcher;
 
@@ -705,23 +680,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 /**
  *  Set of filters to apply if `path` refers to array elements or nested array
  *  elements in order to narrow down to a single unique element that is being
- *  tested/modified.
- *  This is intended to be an exact match per filter. To perform advanced
- *  matching, use path_value_matchers.
- *  * Example: {
- *  "/versions/ * /name" : "it-123"
- *  "/versions/ * /targetSize/percent": 20
- *  }
- *  * Example: {
- *  "/bindings/ * /role": "roles/admin"
- *  "/bindings/ * /condition" : null
- *  }
- *  * Example: {
- *  "/bindings/ * /role": "roles/admin"
- *  "/bindings/ * /members/ *" : ["x\@google.com", "y\@google.com"]
- *  }
- *  When both path_filters and path_value_matchers are set, an implicit AND
- *  must be performed.
+ *  tested/modified. This is intended to be an exact match per filter. To
+ *  perform advanced matching, use path_value_matchers. * Example: { "/versions/
+ *  * /name" : "it-123" "/versions/ * /targetSize/percent": 20 } * Example: {
+ *  "/bindings/ * /role": "roles/admin" "/bindings/ * /condition" : null } *
+ *  Example: { "/bindings/ * /role": "roles/admin" "/bindings/ * /members/ *" :
+ *  ["x\@google.com", "y\@google.com"] } When both path_filters and
+ *  path_value_matchers are set, an implicit AND must be performed.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -735,9 +700,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 /**
  *  Similar to path_filters, this contains set of filters to apply if `path`
  *  field referes to array elements. This is meant to support value matching
- *  beyond exact match. To perform exact match, use path_filters.
- *  When both path_filters and path_value_matchers are set, an implicit AND
- *  must be performed.
+ *  beyond exact match. To perform exact match, use path_filters. When both
+ *  path_filters and path_value_matchers are set, an implicit AND must be
+ *  performed.
  *
  *  @note This class is documented as having more properties of
  *        GTLRRecommender_GoogleCloudRecommenderV1ValueMatcher. Use @c
@@ -771,8 +736,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  Optional set of additional impact that this recommendation may have when
- *  trying to optimize for the primary category. These may be positive
- *  or negative.
+ *  trying to optimize for the primary category. These may be positive or
+ *  negative.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1Impact *> *additionalImpact;
 
@@ -793,14 +758,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Fingerprint of the Recommendation. Provides optimistic locking when
- *  updating states.
+ *  Fingerprint of the Recommendation. Provides optimistic locking when updating
+ *  states.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Last time this recommendation was refreshed by the system that created it
- *  in the first place.
+ *  Last time this recommendation was refreshed by the system that created it in
+ *  the first place.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
@@ -815,13 +780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  Contains an identifier for a subtype of recommendations produced for the
- *  same recommender. Subtype is a function of content and impact, meaning a
- *  new subtype might be added when significant changes to `content` or
- *  `primary_impact.category` are introduced. See the Recommenders section
- *  to see a list of subtypes for a given Recommender.
- *  Examples:
- *  For recommender = "google.iam.policy.Recommender",
- *  recommender_subtype can be one of "REMOVE_ROLE"/"REPLACE_ROLE"
+ *  same recommender. Subtype is a function of content and impact, meaning a new
+ *  subtype might be added when significant changes to `content` or
+ *  `primary_impact.category` are introduced. See the Recommenders section to
+ *  see a list of subtypes for a given Recommender. Examples: For recommender =
+ *  "google.iam.policy.Recommender", recommender_subtype can be one of
+ *  "REMOVE_ROLE"/"REPLACE_ROLE"
  */
 @property(nonatomic, copy, nullable) NSString *recommenderSubtype;
 
@@ -837,9 +801,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 @interface GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent : GTLRObject
 
 /**
- *  Operations to one or more Google Cloud resources grouped in such a way
- *  that, all operations within one group are expected to be performed
- *  atomically and in an order.
+ *  Operations to one or more Google Cloud resources grouped in such a way that,
+ *  all operations within one group are expected to be performed atomically and
+ *  in an order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1OperationGroup *> *operationGroups;
 
@@ -871,33 +835,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  Likely values:
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Active
  *        Recommendation is active and can be applied. Recommendations content
- *        can
- *        be updated by Google.
- *        ACTIVE recommendations can be marked as CLAIMED, SUCCEEDED, or FAILED.
- *        (Value: "ACTIVE")
+ *        can be updated by Google. ACTIVE recommendations can be marked as
+ *        CLAIMED, SUCCEEDED, or FAILED. (Value: "ACTIVE")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Claimed
  *        Recommendation is in claimed state. Recommendations content is
- *        immutable and cannot be updated by Google.
- *        CLAIMED recommendations can be marked as CLAIMED, SUCCEEDED, or
- *        FAILED. (Value: "CLAIMED")
+ *        immutable and cannot be updated by Google. CLAIMED recommendations can
+ *        be marked as CLAIMED, SUCCEEDED, or FAILED. (Value: "CLAIMED")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Dismissed
  *        Recommendation is in dismissed state. Recommendation content can be
- *        updated by Google.
- *        DISMISSED recommendations can be marked as ACTIVE. (Value:
- *        "DISMISSED")
+ *        updated by Google. DISMISSED recommendations can be marked as ACTIVE.
+ *        (Value: "DISMISSED")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Failed
  *        Recommendation is in failed state. Recommendations content is
- *        immutable
- *        and cannot be updated by Google.
- *        FAILED recommendations can be marked as SUCCEEDED, or FAILED. (Value:
- *        "FAILED")
+ *        immutable and cannot be updated by Google. FAILED recommendations can
+ *        be marked as SUCCEEDED, or FAILED. (Value: "FAILED")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_StateUnspecified
  *        Default state. Don't use directly. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_State_Succeeded
  *        Recommendation is in succeeded state. Recommendations content is
- *        immutable and cannot be updated by Google.
- *        SUCCEEDED recommendations can be marked as SUCCEEDED, or FAILED.
- *        (Value: "SUCCEEDED")
+ *        immutable and cannot be updated by Google. SUCCEEDED recommendations
+ *        can be marked as SUCCEEDED, or FAILED. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -928,8 +885,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /**
  *  To be used for full regex matching. The regular expression is using the
- *  Google RE2 syntax (https://github.com/google/re2/wiki/Syntax), so to be
- *  used with RE2::FullMatch
+ *  Google RE2 syntax (https://github.com/google/re2/wiki/Syntax), so to be used
+ *  with RE2::FullMatch
  */
 @property(nonatomic, copy, nullable) NSString *matchesPattern;
 
@@ -945,20 +902,19 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Number of nano (10^-9) units of the amount.
- *  The value must be between -999,999,999 and +999,999,999 inclusive.
- *  If `units` is positive, `nanos` must be positive or zero.
- *  If `units` is zero, `nanos` can be positive, zero, or negative.
- *  If `units` is negative, `nanos` must be negative or zero.
- *  For example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *  Number of nano (10^-9) units of the amount. The value must be between
+ *  -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos`
+ *  must be positive or zero. If `units` is zero, `nanos` can be positive, zero,
+ *  or negative. If `units` is negative, `nanos` must be negative or zero. For
+ *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  The whole units of the amount.
- *  For example if `currencyCode` is `"USD"`, then 1 unit is one US dollar.
+ *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
+ *  then 1 unit is one US dollar.
  *
  *  Uses NSNumber of longLongValue.
  */

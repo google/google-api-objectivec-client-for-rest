@@ -2053,6 +2053,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBrea
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason;
 /**
+ *  Indicates that the detail ID refers to a policy topic.
+ *
+ *  Value: "POLICY_TOPIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_PolicyTopic;
+/**
  *  Indicates that the detail ID refers to a product category; see
  *  [ad-product-categories](https://developers.google.com/authorized-buyers/rtb/downloads/ad-product-categories).
  *
@@ -4186,7 +4192,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_MetricValue *bidCount;
 
 /**
- *  The ID of the detail. The associated value can be looked up in the
+ *  The ID of the detail, can be numeric or text. The associated value can be
+ *  looked up in the dictionary file corresponding to the DetailType in the
+ *  response message.
+ */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Note: this field will be deprecated, use "detail" field instead. When
+ *  "detail" field represents an integer value, this field is populated as the
+ *  same integer value "detail" field represents, otherwise this field will be
+ *  0. The ID of the detail. The associated value can be looked up in the
  *  dictionary file corresponding to the DetailType in the response message.
  *
  *  Uses NSNumber of intValue.
@@ -4816,6 +4832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        DisapprovalReason enum in
  *        [snippet-status-report-proto](https://developers.google.com/authorized-buyers/rtb/downloads/snippet-status-report-proto).
  *        (Value: "DISAPPROVAL_REASON")
+ *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_PolicyTopic
+ *        Indicates that the detail ID refers to a policy topic. (Value:
+ *        "POLICY_TOPIC")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory
  *        Indicates that the detail ID refers to a product category; see
  *        [ad-product-categories](https://developers.google.com/authorized-buyers/rtb/downloads/ad-product-categories).
@@ -5781,7 +5800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 /**
  *  Note: this resource requires whitelisting for access. Please contact your
  *  account manager for access to Marketplace resources. Represents a publisher
- *  profile (https://support.google.com/admanager/answer/6035806?hl=en) in
+ *  profile (https://support.google.com/admanager/answer/6035806) in
  *  Marketplace. All fields are read only. All string fields are free-form text
  *  entered by the publisher unless noted otherwise.
  */
@@ -5824,7 +5843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  have only one parent publisher profile, and can have multiple child
  *  profiles. Publisher profiles for the same seller will have same value of
  *  field google.ads.adexchange.buyer.v2beta1.PublisherProfile.seller. See
- *  https://support.google.com/admanager/answer/6035806?hl=en for details.
+ *  https://support.google.com/admanager/answer/6035806 for details.
  *
  *  Uses NSNumber of boolValue.
  */

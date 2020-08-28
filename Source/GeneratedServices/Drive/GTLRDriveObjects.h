@@ -1458,9 +1458,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canMoveChildrenOutOfTeamDrive;
 
 /**
- *  Whether the current user can move children of this folder within the shared
- *  drive. This is false when the item is not a folder. Only populated for items
- *  in shared drives.
+ *  Whether the current user can move children of this folder within this drive.
+ *  This is false when the item is not a folder. Note that a request to move the
+ *  child may still fail depending on the current user's access to the child and
+ *  to the destination folder.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1497,10 +1498,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *canMoveItemOutOfTeamDrive;
 
 /**
- *  Whether the current user can move this item within this shared drive. Note
- *  that a request to change the parent of the item may still fail depending on
- *  the new parent that is being added. Only populated for items in shared
- *  drives.
+ *  Whether the current user can move this item within this drive. Note that a
+ *  request to change the parent of the item may still fail depending on the new
+ *  parent that is being added and the parent that is being removed.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2026,6 +2026,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  provide a domain. There isn't extra information required for a anyone type.
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Indicates the view for this permission. Only populated for permissions that
+ *  belong to a view. published is the only supported value.
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 @end
 

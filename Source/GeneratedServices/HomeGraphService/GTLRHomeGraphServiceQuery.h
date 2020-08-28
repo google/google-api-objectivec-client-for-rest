@@ -41,15 +41,13 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Unlinks the given third-party user from your smart home Action.
- *  All data related to this user will be deleted.
- *  For more details on how users link their accounts, see
- *  [fulfillment and
+ *  Unlinks the given third-party user from your smart home Action. All data
+ *  related to this user will be deleted. For more details on how users link
+ *  their accounts, see [fulfillment and
  *  authentication](https://developers.google.com/assistant/smarthome/concepts/fulfillment-authentication).
- *  The third-party user's identity is passed in via the `agent_user_id`
- *  (see DeleteAgentUserRequest).
- *  This request must be authorized using service account credentials from your
- *  Actions console project.
+ *  The third-party user's identity is passed in via the `agent_user_id` (see
+ *  DeleteAgentUserRequest). This request must be authorized using service
+ *  account credentials from your Actions console project.
  *
  *  Method: homegraph.agentUsers.delete
  */
@@ -66,15 +64,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHomeGraphService_Empty.
  *
- *  Unlinks the given third-party user from your smart home Action.
- *  All data related to this user will be deleted.
- *  For more details on how users link their accounts, see
- *  [fulfillment and
+ *  Unlinks the given third-party user from your smart home Action. All data
+ *  related to this user will be deleted. For more details on how users link
+ *  their accounts, see [fulfillment and
  *  authentication](https://developers.google.com/assistant/smarthome/concepts/fulfillment-authentication).
- *  The third-party user's identity is passed in via the `agent_user_id`
- *  (see DeleteAgentUserRequest).
- *  This request must be authorized using service account credentials from your
- *  Actions console project.
+ *  The third-party user's identity is passed in via the `agent_user_id` (see
+ *  DeleteAgentUserRequest). This request must be authorized using service
+ *  account credentials from your Actions console project.
  *
  *  @param agentUserId Required. Third-party user ID.
  *
@@ -86,11 +82,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets the current states in Home Graph for the given set of the third-party
- *  user's devices.
- *  The third-party user's identity is passed in via the `agent_user_id`
- *  (see QueryRequest).
- *  This request must be authorized using service account credentials from your
- *  Actions console project.
+ *  user's devices. The third-party user's identity is passed in via the
+ *  `agent_user_id` (see QueryRequest). This request must be authorized using
+ *  service account credentials from your Actions console project.
  *
  *  Method: homegraph.devices.query
  */
@@ -102,11 +96,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRHomeGraphService_QueryResponse.
  *
  *  Gets the current states in Home Graph for the given set of the third-party
- *  user's devices.
- *  The third-party user's identity is passed in via the `agent_user_id`
- *  (see QueryRequest).
- *  This request must be authorized using service account credentials from your
- *  Actions console project.
+ *  user's devices. The third-party user's identity is passed in via the
+ *  `agent_user_id` (see QueryRequest). This request must be authorized using
+ *  service account credentials from your Actions console project.
  *
  *  @param object The @c GTLRHomeGraphService_QueryRequest to include in the
  *    query.
@@ -118,19 +110,17 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Reports device state and optionally sends device notifications.
- *  Called by your smart home Action when the state of a third-party device
- *  changes or you need to send a notification about the device.
- *  See [Implement Report
+ *  Reports device state and optionally sends device notifications. Called by
+ *  your smart home Action when the state of a third-party device changes or you
+ *  need to send a notification about the device. See [Implement Report
  *  State](https://developers.google.com/assistant/smarthome/develop/report-state)
- *  for more information.
- *  This method updates the device state according to its declared
+ *  for more information. This method updates the device state according to its
+ *  declared
  *  [traits](https://developers.google.com/assistant/smarthome/concepts/devices-traits).
  *  Publishing a new state value outside of these traits will result in an
- *  `INVALID_ARGUMENT` error response.
- *  The third-party user's identity is passed in via the `agent_user_id`
- *  (see ReportStateAndNotificationRequest).
- *  This request must be authorized using service account credentials from your
+ *  `INVALID_ARGUMENT` error response. The third-party user's identity is passed
+ *  in via the `agent_user_id` (see ReportStateAndNotificationRequest). This
+ *  request must be authorized using service account credentials from your
  *  Actions console project.
  *
  *  Method: homegraph.devices.reportStateAndNotification
@@ -142,19 +132,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHomeGraphService_ReportStateAndNotificationResponse.
  *
- *  Reports device state and optionally sends device notifications.
- *  Called by your smart home Action when the state of a third-party device
- *  changes or you need to send a notification about the device.
- *  See [Implement Report
+ *  Reports device state and optionally sends device notifications. Called by
+ *  your smart home Action when the state of a third-party device changes or you
+ *  need to send a notification about the device. See [Implement Report
  *  State](https://developers.google.com/assistant/smarthome/develop/report-state)
- *  for more information.
- *  This method updates the device state according to its declared
+ *  for more information. This method updates the device state according to its
+ *  declared
  *  [traits](https://developers.google.com/assistant/smarthome/concepts/devices-traits).
  *  Publishing a new state value outside of these traits will result in an
- *  `INVALID_ARGUMENT` error response.
- *  The third-party user's identity is passed in via the `agent_user_id`
- *  (see ReportStateAndNotificationRequest).
- *  This request must be authorized using service account credentials from your
+ *  `INVALID_ARGUMENT` error response. The third-party user's identity is passed
+ *  in via the `agent_user_id` (see ReportStateAndNotificationRequest). This
+ *  request must be authorized using service account credentials from your
  *  Actions console project.
  *
  *  @param object The @c GTLRHomeGraphService_ReportStateAndNotificationRequest
@@ -169,11 +157,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Requests Google to send an `action.devices.SYNC`
  *  [intent](https://developers.google.com/assistant/smarthome/reference/intent/sync)
- *  to your smart home Action to update device metadata for the given user.
- *  The third-party user's identity is passed via the `agent_user_id`
- *  (see RequestSyncDevicesRequest).
- *  This request must be authorized using service account credentials from your
- *  Actions console project.
+ *  to your smart home Action to update device metadata for the given user. The
+ *  third-party user's identity is passed via the `agent_user_id` (see
+ *  RequestSyncDevicesRequest). This request must be authorized using service
+ *  account credentials from your Actions console project.
  *
  *  Method: homegraph.devices.requestSync
  */
@@ -186,11 +173,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Requests Google to send an `action.devices.SYNC`
  *  [intent](https://developers.google.com/assistant/smarthome/reference/intent/sync)
- *  to your smart home Action to update device metadata for the given user.
- *  The third-party user's identity is passed via the `agent_user_id`
- *  (see RequestSyncDevicesRequest).
- *  This request must be authorized using service account credentials from your
- *  Actions console project.
+ *  to your smart home Action to update device metadata for the given user. The
+ *  third-party user's identity is passed via the `agent_user_id` (see
+ *  RequestSyncDevicesRequest). This request must be authorized using service
+ *  account credentials from your Actions console project.
  *
  *  @param object The @c GTLRHomeGraphService_RequestSyncDevicesRequest to
  *    include in the query.
@@ -202,11 +188,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets all the devices associated with the given third-party user.
- *  The third-party user's identity is passed in via the `agent_user_id`
- *  (see SyncRequest).
- *  This request must be authorized using service account credentials from your
- *  Actions console project.
+ *  Gets all the devices associated with the given third-party user. The
+ *  third-party user's identity is passed in via the `agent_user_id` (see
+ *  SyncRequest). This request must be authorized using service account
+ *  credentials from your Actions console project.
  *
  *  Method: homegraph.devices.sync
  */
@@ -217,11 +202,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRHomeGraphService_SyncResponse.
  *
- *  Gets all the devices associated with the given third-party user.
- *  The third-party user's identity is passed in via the `agent_user_id`
- *  (see SyncRequest).
- *  This request must be authorized using service account credentials from your
- *  Actions console project.
+ *  Gets all the devices associated with the given third-party user. The
+ *  third-party user's identity is passed in via the `agent_user_id` (see
+ *  SyncRequest). This request must be authorized using service account
+ *  credentials from your Actions console project.
  *
  *  @param object The @c GTLRHomeGraphService_SyncRequest to include in the
  *    query.

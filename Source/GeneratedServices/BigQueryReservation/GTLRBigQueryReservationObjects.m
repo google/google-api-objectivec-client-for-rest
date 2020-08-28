@@ -254,7 +254,7 @@ NSString * const kGTLRBigQueryReservation_CapacityCommitment_State_StateUnspecif
 //
 
 @implementation GTLRBigQueryReservation_Reservation
-@dynamic ignoreIdleSlots, name, slotCapacity;
+@dynamic creationTime, ignoreIdleSlots, name, slotCapacity, updateTime;
 @end
 
 

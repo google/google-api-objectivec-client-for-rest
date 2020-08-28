@@ -73,17 +73,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new Connectivity Test.
- *  After you create a test, the reachability analysis is performed as part
- *  of the long running operation, which completes when the analysis completes.
- *  If the endpoint specifications in `ConnectivityTest` are invalid
- *  (for example, containing non-existent resources in the network, or you
- *  don't have read permissions to the network configurations of listed
- *  projects), then the reachability result returns a value of `UNKNOWN`.
- *  If the endpoint specifications in `ConnectivityTest` are
- *  incomplete, the reachability result returns a value of
- *  <code>AMBIGUOUS</code>. For more information,
- *  see the Connectivity Test documentation.
+ *  Creates a new Connectivity Test. After you create a test, the reachability
+ *  analysis is performed as part of the long running operation, which completes
+ *  when the analysis completes. If the endpoint specifications in
+ *  `ConnectivityTest` are invalid (for example, containing non-existent
+ *  resources in the network, or you don't have read permissions to the network
+ *  configurations of listed projects), then the reachability result returns a
+ *  value of `UNKNOWN`. If the endpoint specifications in `ConnectivityTest` are
+ *  incomplete, the reachability result returns a value of AMBIGUOUS. For more
+ *  information, see the Connectivity Test documentation.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.create
  *
@@ -101,36 +99,31 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. The logical name of the Connectivity Test in your project
- *  with the following restrictions:
- *  * Must contain only lowercase letters, numbers, and hyphens.
- *  * Must start with a letter.
- *  * Must be between 1-40 characters.
- *  * Must end with a number or a letter.
- *  * Must be unique within the customer project
+ *  Required. The logical name of the Connectivity Test in your project with the
+ *  following restrictions: * Must contain only lowercase letters, numbers, and
+ *  hyphens. * Must start with a letter. * Must be between 1-40 characters. *
+ *  Must end with a number or a letter. * Must be unique within the customer
+ *  project
  */
 @property(nonatomic, copy, nullable) NSString *testId;
 
 /**
  *  Fetches a @c GTLRNetworkManagement_Operation.
  *
- *  Creates a new Connectivity Test.
- *  After you create a test, the reachability analysis is performed as part
- *  of the long running operation, which completes when the analysis completes.
- *  If the endpoint specifications in `ConnectivityTest` are invalid
- *  (for example, containing non-existent resources in the network, or you
- *  don't have read permissions to the network configurations of listed
- *  projects), then the reachability result returns a value of `UNKNOWN`.
- *  If the endpoint specifications in `ConnectivityTest` are
- *  incomplete, the reachability result returns a value of
- *  <code>AMBIGUOUS</code>. For more information,
- *  see the Connectivity Test documentation.
+ *  Creates a new Connectivity Test. After you create a test, the reachability
+ *  analysis is performed as part of the long running operation, which completes
+ *  when the analysis completes. If the endpoint specifications in
+ *  `ConnectivityTest` are invalid (for example, containing non-existent
+ *  resources in the network, or you don't have read permissions to the network
+ *  configurations of listed projects), then the reachability result returns a
+ *  value of `UNKNOWN`. If the endpoint specifications in `ConnectivityTest` are
+ *  incomplete, the reachability result returns a value of AMBIGUOUS. For more
+ *  information, see the Connectivity Test documentation.
  *
  *  @param object The @c GTLRNetworkManagement_ConnectivityTest to include in
  *    the query.
  *  @param parent Required. The parent resource of the Connectivity Test to
- *    create:
- *    `projects/{project_id}/locations/global`
+ *    create: `projects/{project_id}/locations/global`
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsCreate
  */
@@ -204,9 +197,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.getIamPolicy
  *
@@ -218,34 +210,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRNetworkManagement_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsGetIamPolicy
  */
@@ -267,21 +256,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists the `ConnectivityTests` that match the filter expression. A filter
- *  expression filters the resources listed in the response. The expression
- *  must be of the form `<field> <operator> <value>` where operators: `<`, `>`,
- *  `<=`,
- *  `>=`,
- *  `!=`, `=`, `:` are supported (colon `:` represents a HAS operator which is
- *  roughly synonymous with equality). <field> can refer to a proto or JSON
- *  field, or a synthetic field. Field names can be camelCase or snake_case.
- *  Examples:
- *  - Filter by name:
- *  name = "projects/proj-1/locations/global/connectivityTests/test-1
- *  - Filter by labels:
- *  - Resources that have a key called `foo`
- *  labels.foo:*
- *  - Resources that have a key called `foo` whose value is `bar`
- *  labels.foo = bar
+ *  expression filters the resources listed in the response. The expression must
+ *  be of the form ` ` where operators: `<`, `>`, `<=`, `>=`, `!=`, `=`, `:` are
+ *  supported (colon `:` represents a HAS operator which is roughly synonymous
+ *  with equality). can refer to a proto or JSON field, or a synthetic field.
+ *  Field names can be camelCase or snake_case. Examples: - Filter by name: name
+ *  = "projects/proj-1/locations/global/connectivityTests/test-1 - Filter by
+ *  labels: - Resources that have a key called `foo` labels.foo:* - Resources
+ *  that have a key called `foo` whose value is `bar` labels.foo = bar
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -319,18 +301,17 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates the configuration of an existing `ConnectivityTest`.
- *  After you update a test, the reachability analysis is performed as part
- *  of the long running operation, which completes when the analysis completes.
- *  The Reachability state in the test resource is updated with the new result.
- *  If the endpoint specifications in `ConnectivityTest` are invalid
- *  (for example, they contain non-existent resources in the network, or the
- *  user does not have read permissions to the network configurations of
- *  listed projects), then the reachability result returns a value of
- *  <code>UNKNOWN</code>.
- *  If the endpoint specifications in `ConnectivityTest` are incomplete, the
- *  reachability result returns a value of `AMBIGUOUS`. See the documentation
- *  in `ConnectivityTest` for for more details.
+ *  Updates the configuration of an existing `ConnectivityTest`. After you
+ *  update a test, the reachability analysis is performed as part of the long
+ *  running operation, which completes when the analysis completes. The
+ *  Reachability state in the test resource is updated with the new result. If
+ *  the endpoint specifications in `ConnectivityTest` are invalid (for example,
+ *  they contain non-existent resources in the network, or the user does not
+ *  have read permissions to the network configurations of listed projects),
+ *  then the reachability result returns a value of UNKNOWN. If the endpoint
+ *  specifications in `ConnectivityTest` are incomplete, the reachability result
+ *  returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest`
+ *  for for more details.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.patch
  *
@@ -358,18 +339,17 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkManagement_Operation.
  *
- *  Updates the configuration of an existing `ConnectivityTest`.
- *  After you update a test, the reachability analysis is performed as part
- *  of the long running operation, which completes when the analysis completes.
- *  The Reachability state in the test resource is updated with the new result.
- *  If the endpoint specifications in `ConnectivityTest` are invalid
- *  (for example, they contain non-existent resources in the network, or the
- *  user does not have read permissions to the network configurations of
- *  listed projects), then the reachability result returns a value of
- *  <code>UNKNOWN</code>.
- *  If the endpoint specifications in `ConnectivityTest` are incomplete, the
- *  reachability result returns a value of `AMBIGUOUS`. See the documentation
- *  in `ConnectivityTest` for for more details.
+ *  Updates the configuration of an existing `ConnectivityTest`. After you
+ *  update a test, the reachability analysis is performed as part of the long
+ *  running operation, which completes when the analysis completes. The
+ *  Reachability state in the test resource is updated with the new result. If
+ *  the endpoint specifications in `ConnectivityTest` are invalid (for example,
+ *  they contain non-existent resources in the network, or the user does not
+ *  have read permissions to the network configurations of listed projects),
+ *  then the reachability result returns a value of UNKNOWN. If the endpoint
+ *  specifications in `ConnectivityTest` are incomplete, the reachability result
+ *  returns a value of `AMBIGUOUS`. See the documentation in `ConnectivityTest`
+ *  for for more details.
  *
  *  @param object The @c GTLRNetworkManagement_ConnectivityTest to include in
  *    the query.
@@ -384,16 +364,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Rerun an existing `ConnectivityTest`.
- *  After the user triggers the rerun, the reachability analysis is performed
- *  as part of the long running operation, which completes when the analysis
- *  completes.
- *  Even though the test configuration remains the same, the reachability
- *  result may change due to underlying network configuration changes.
- *  If the endpoint specifications in `ConnectivityTest` become invalid (for
- *  example, specified resources are deleted in the network, or you lost
- *  read permissions to the network configurations of listed projects), then
- *  the reachability result returns a value of `UNKNOWN`.
+ *  Rerun an existing `ConnectivityTest`. After the user triggers the rerun, the
+ *  reachability analysis is performed as part of the long running operation,
+ *  which completes when the analysis completes. Even though the test
+ *  configuration remains the same, the reachability result may change due to
+ *  underlying network configuration changes. If the endpoint specifications in
+ *  `ConnectivityTest` become invalid (for example, specified resources are
+ *  deleted in the network, or you lost read permissions to the network
+ *  configurations of listed projects), then the reachability result returns a
+ *  value of `UNKNOWN`.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.rerun
  *
@@ -413,16 +392,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkManagement_Operation.
  *
- *  Rerun an existing `ConnectivityTest`.
- *  After the user triggers the rerun, the reachability analysis is performed
- *  as part of the long running operation, which completes when the analysis
- *  completes.
- *  Even though the test configuration remains the same, the reachability
- *  result may change due to underlying network configuration changes.
- *  If the endpoint specifications in `ConnectivityTest` become invalid (for
- *  example, specified resources are deleted in the network, or you lost
- *  read permissions to the network configurations of listed projects), then
- *  the reachability result returns a value of `UNKNOWN`.
+ *  Rerun an existing `ConnectivityTest`. After the user triggers the rerun, the
+ *  reachability analysis is performed as part of the long running operation,
+ *  which completes when the analysis completes. Even though the test
+ *  configuration remains the same, the reachability result may change due to
+ *  underlying network configuration changes. If the endpoint specifications in
+ *  `ConnectivityTest` become invalid (for example, specified resources are
+ *  deleted in the network, or you lost read permissions to the network
+ *  configurations of listed projects), then the reachability result returns a
+ *  value of `UNKNOWN`.
  *
  *  @param object The @c GTLRNetworkManagement_RerunConnectivityTestRequest to
  *    include in the query.
@@ -438,8 +416,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.setIamPolicy
  *
@@ -451,8 +429,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -460,14 +438,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRNetworkManagement_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRNetworkManagement_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsSetIamPolicy
  */
@@ -477,12 +455,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: networkmanagement.projects.locations.global.connectivityTests.testIamPermissions
  *
@@ -494,26 +471,25 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRNetworkManagement_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRNetworkManagement_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsTestIamPermissions
  */
@@ -524,15 +500,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: networkmanagement.projects.locations.global.operations.cancel
  *
@@ -550,15 +525,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRNetworkManagement_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRNetworkManagement_CancelOperationRequest to include
  *    in the query.
@@ -639,14 +613,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: networkmanagement.projects.locations.global.operations.list
  *
@@ -673,14 +647,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRNetworkManagement_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *

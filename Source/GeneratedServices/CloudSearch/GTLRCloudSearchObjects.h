@@ -84,6 +84,7 @@
 @class GTLRCloudSearch_ObjectOptions;
 @class GTLRCloudSearch_ObjectPropertyOptions;
 @class GTLRCloudSearch_ObjectValues;
+@class GTLRCloudSearch_Operation;
 @class GTLRCloudSearch_Operation_Metadata;
 @class GTLRCloudSearch_Operation_Response;
 @class GTLRCloudSearch_PeopleSuggestion;
@@ -258,15 +259,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_DriveTimeSpanRestrict_Type_Y
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Ascending;
 /**
- *  This property is ranked in descending order. Lower values indicate
- *  higher ranking.
+ *  This property is ranked in descending order. Lower values indicate higher
+ *  ranking.
  *
  *  Value: "DESCENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Descending;
 /**
- *  There is no ranking order for the property. Results aren't adjusted
- *  by this property's value.
+ *  There is no ranking order for the property. Results aren't adjusted by this
+ *  property's value.
  *
  *  Value: "NO_ORDER"
  */
@@ -276,8 +277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_EnumPropertyOptions_OrderedR
 // GTLRCloudSearch_IndexItemRequest.mode
 
 /**
- *  For changes that are executed after the response is sent back to the
- *  caller.
+ *  For changes that are executed after the response is sent back to the caller.
  *
  *  Value: "ASYNCHRONOUS"
  */
@@ -289,8 +289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Asynch
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Synchronous;
 /**
- *  Priority is not specified in the update request.
- *  Leaving priority unspecified results in an update failure.
+ *  Priority is not specified in the update request. Leaving priority
+ *  unspecified results in an update failure.
  *
  *  Value: "UNSPECIFIED"
  */
@@ -307,15 +307,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IndexItemRequest_Mode_Unspec
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Ascending;
 /**
- *  This property is ranked in descending order. Lower values indicate
- *  higher ranking.
+ *  This property is ranked in descending order. Lower values indicate higher
+ *  ranking.
  *
  *  Value: "DESCENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Descending;
 /**
- *  There is no ranking order for the property. Results are not adjusted
- *  by this property's value.
+ *  There is no ranking order for the property. Results are not adjusted by this
+ *  property's value.
  *
  *  Value: "NO_ORDER"
  */
@@ -347,18 +347,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Interaction_Type_View;
 // GTLRCloudSearch_Item.itemType
 
 /**
- *  An item that gets indexed and whose purpose is to supply other items
- *  with ACLs and/or contain other items.
+ *  An item that gets indexed and whose purpose is to supply other items with
+ *  ACLs and/or contain other items.
  *
  *  Value: "CONTAINER_ITEM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_ContainerItem;
 /**
- *  An item that is indexed for the only purpose of serving information.
- *  These items cannot be referred in
- *  containerName
- *  or inheritAclFrom
- *  fields.
+ *  An item that is indexed for the only purpose of serving information. These
+ *  items cannot be referred in containerName or inheritAclFrom fields.
  *
  *  Value: "CONTENT_ITEM"
  */
@@ -366,8 +363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_ContentItem;
 /** Value: "UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_Unspecified;
 /**
- *  An item that does not get indexed, but otherwise has the same purpose
- *  as CONTAINER_ITEM.
+ *  An item that does not get indexed, but otherwise has the same purpose as
+ *  CONTAINER_ITEM.
  *
  *  Value: "VIRTUAL_CONTAINER_ITEM"
  */
@@ -377,36 +374,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Item_ItemType_VirtualContain
 // GTLRCloudSearch_ItemAcl.aclInheritanceType
 
 /**
- *  Access is granted only if this item and the parent item specified in
- *  the inheritAclFrom
- *  field both permit read access.
+ *  Access is granted only if this item and the parent item specified in the
+ *  inheritAclFrom field both permit read access.
  *
  *  Value: "BOTH_PERMIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_BothPermit;
 /**
- *  During an authorization conflict, the ACL of the child item determines
- *  its read access.
+ *  During an authorization conflict, the ACL of the child item determines its
+ *  read access.
  *
  *  Value: "CHILD_OVERRIDE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_ChildOverride;
 /**
- *  The default value when this item does not inherit an ACL.
- *  Use NOT_APPLICABLE when
- *  inheritAclFrom
- *  is empty. An item without ACL inheritance can still have ACLs supplied
- *  by its own readers and
- *  deniedReaders fields.
+ *  The default value when this item does not inherit an ACL. Use NOT_APPLICABLE
+ *  when inheritAclFrom is empty. An item without ACL inheritance can still have
+ *  ACLs supplied by its own readers and deniedReaders fields.
  *
  *  Value: "NOT_APPLICABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemAcl_AclInheritanceType_NotApplicable;
 /**
- *  During an authorization conflict, the ACL of the parent item
- *  specified in the
- *  inheritAclFrom
- *  field determines read access.
+ *  During an authorization conflict, the ACL of the parent item specified in
+ *  the inheritAclFrom field determines read access.
  *
  *  Value: "PARENT_OVERRIDE"
  */
@@ -450,35 +441,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemContent_ContentFormat_Un
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Accepted;
 /**
- *  Input-only value. Used with
- *  Items.list
- *  to list all items in the queue, regardless of status.
+ *  Input-only value. Used with Items.list to list all items in the queue,
+ *  regardless of status.
  *
  *  Value: "CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_CodeUnspecified;
 /**
- *  Error encountered by Cloud Search while processing this item.
- *  Details of the error are in
- *  repositoryError.
+ *  Error encountered by Cloud Search while processing this item. Details of the
+ *  error are in repositoryError.
  *
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Error;
 /**
- *  Item has been modified in the repository, and is out of date with
- *  the version previously accepted into Cloud Search.
+ *  Item has been modified in the repository, and is out of date with the
+ *  version previously accepted into Cloud Search.
  *
  *  Value: "MODIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode_Modified;
 /**
- *  Item is known to exist in the repository, but is not yet accepted by
- *  Cloud Search.
- *  An item can be in this state when
- *  Items.push
- *  has been called for
- *  an item of this name that did not exist previously.
+ *  Item is known to exist in the repository, but is not yet accepted by Cloud
+ *  Search. An item can be in this state when Items.push has been called for an
+ *  item of this name that did not exist previously.
  *
  *  Value: "NEW_ITEM"
  */
@@ -494,35 +480,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemCountByStatus_StatusCode
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Accepted;
 /**
- *  Input-only value. Used with
- *  Items.list
- *  to list all items in the queue, regardless of status.
+ *  Input-only value. Used with Items.list to list all items in the queue,
+ *  regardless of status.
  *
  *  Value: "CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_CodeUnspecified;
 /**
- *  Error encountered by Cloud Search while processing this item.
- *  Details of the error are in
- *  repositoryError.
+ *  Error encountered by Cloud Search while processing this item. Details of the
+ *  error are in repositoryError.
  *
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Error;
 /**
- *  Item has been modified in the repository, and is out of date with
- *  the version previously accepted into Cloud Search.
+ *  Item has been modified in the repository, and is out of date with the
+ *  version previously accepted into Cloud Search.
  *
  *  Value: "MODIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_Modified;
 /**
- *  Item is known to exist in the repository, but is not yet accepted by
- *  Cloud Search.
- *  An item can be in this state when
- *  Items.push
- *  has been called for
- *  an item of this name that did not exist previously.
+ *  Item is known to exist in the repository, but is not yet accepted by Cloud
+ *  Search. An item can be in this state when Items.push has been called for an
+ *  item of this name that did not exist previously.
  *
  *  Value: "NEW_ITEM"
  */
@@ -531,15 +512,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ItemStatus_Code_NewItem;
 // ----------------------------------------------------------------------------
 // GTLRCloudSearch_PollItemsRequest.statusCodes
 
-/** Value: "ACCEPTED" */
+/**
+ *  API has accepted the up-to-date data of this item.
+ *
+ *  Value: "ACCEPTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Accepted;
-/** Value: "CODE_UNSPECIFIED" */
+/**
+ *  Input-only value. Used with Items.list to list all items in the queue,
+ *  regardless of status.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_CodeUnspecified;
-/** Value: "ERROR" */
+/**
+ *  Error encountered by Cloud Search while processing this item. Details of the
+ *  error are in repositoryError.
+ *
+ *  Value: "ERROR"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Error;
-/** Value: "MODIFIED" */
+/**
+ *  Item has been modified in the repository, and is out of date with the
+ *  version previously accepted into Cloud Search.
+ *
+ *  Value: "MODIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_Modified;
-/** Value: "NEW_ITEM" */
+/**
+ *  Item is known to exist in the repository, but is not yet accepted by Cloud
+ *  Search. An item can be in this state when Items.push has been called for an
+ *  item of this name that did not exist previously.
+ *
+ *  Value: "NEW_ITEM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes_NewItem;
 
 // ----------------------------------------------------------------------------
@@ -552,8 +558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PollItemsRequest_StatusCodes
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_AclCycle;
 /**
- *  Items with incomplete ACL information due to inheriting other
- *  items with broken ACL or having groups with unmapped descendants.
+ *  Items with incomplete ACL information due to inheriting other items with
+ *  broken ACL or having groups with unmapped descendants.
  *
  *  Value: "INDIRECT_BROKEN_ACL"
  */
@@ -583,39 +589,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_ProcessingError_Code_Unsuppo
 
 /**
  *  Indicates that the repository document has been modified or updated since
- *  the previous
- *  update
- *  call. This changes status to
- *  MODIFIED state for
- *  an existing item. If this is called on a non existing item, the status is
- *  changed to
- *  NEW_ITEM.
+ *  the previous update call. This changes status to MODIFIED state for an
+ *  existing item. If this is called on a non existing item, the status is
+ *  changed to NEW_ITEM.
  *
  *  Value: "MODIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Modified;
 /**
- *  Item in the repository has not been modified since the last update
- *  call. This push operation will set status to
- *  ACCEPTED state.
+ *  Item in the repository has not been modified since the last update call.
+ *  This push operation will set status to ACCEPTED state.
  *
  *  Value: "NOT_MODIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_NotModified;
 /**
- *  Connector is facing a repository error regarding this item. Change
- *  status to
- *  REPOSITORY_ERROR
- *  state. Item is unreserved and rescheduled at a future time determined by
- *  exponential backoff.
+ *  Connector is facing a repository error regarding this item. Change status to
+ *  REPOSITORY_ERROR state. Item is unreserved and rescheduled at a future time
+ *  determined by exponential backoff.
  *
  *  Value: "REPOSITORY_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_RepositoryError;
 /**
- *  Call push with REQUEUE only for items that have been reserved.
- *  This action unreserves the item and resets its available time to the
- *  wall clock time.
+ *  Call push with REQUEUE only for items that have been reserved. This action
+ *  unreserves the item and resets its available time to the wall clock time.
  *
  *  Value: "REQUEUE"
  */
@@ -632,9 +630,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_PushItem_Type_Unspecified;
 // GTLRCloudSearch_QueryInterpretation.interpretationType
 
 /**
- *  The results from original query are blended with other results. The
- *  reason for blending these other results with the results from original
- *  query is populated in the 'Reason' field below.
+ *  The results from original query are blended with other results. The reason
+ *  for blending these other results with the results from original query is
+ *  populated in the 'Reason' field below.
  *
  *  Value: "BLEND"
  */
@@ -647,8 +645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Interpre
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_InterpretationType_None;
 /**
- *  The results from original query are replaced. The reason for replacing
- *  the results from original query is populated in the 'Reason' field below.
+ *  The results from original query are replaced. The reason for replacing the
+ *  results from original query is populated in the 'Reason' field below.
  *
  *  Value: "REPLACE"
  */
@@ -658,10 +656,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryInterpretation_Interpre
 // GTLRCloudSearch_QueryInterpretation.reason
 
 /**
- *  Query and document terms similarity is used to selectively broaden the
- *  query to retrieve additional search results since enough results were not
- *  found for the user query.
- *  Interpreted query will be empty for this case.
+ *  Query and document terms similarity is used to selectively broaden the query
+ *  to retrieve additional search results since enough results were not found
+ *  for the user query. Interpreted query will be empty for this case.
  *
  *  Value: "NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY"
  */
@@ -718,8 +715,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_Authent
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthorizationError;
 /**
- *  Client-related error, such as an invalid request from the connector to
- *  the repository server.
+ *  Client-related error, such as an invalid request from the connector to the
+ *  repository server.
  *
  *  Value: "CLIENT_ERROR"
  */
@@ -795,9 +792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importan
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_RetrievalImportance_Importance_Low;
 /**
- *  Do not match against this field during retrieval. The property can still
- *  be used for operator matching, faceting, and suggest if
- *  desired.
+ *  Do not match against this field during retrieval. The property can still be
+ *  used for operator matching, faceting, and suggest if desired.
  *
  *  Value: "NONE"
  */
@@ -829,15 +825,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_Goog
 /** Value: "NONE" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_None;
 /**
- *  Suggests people in the organization. Only valid when used
- *  with the suggest API. Results in an error when used in the query API.
+ *  Suggests people in the organization. Only valid when used with the suggest
+ *  API. Results in an error when used in the query API.
  *
  *  Value: "PERSON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_Source_PredefinedSource_Person;
 /**
- *  Suggests queries issued by the user in the past. Only valid when used
- *  with the suggest API. Ignored when used in the query API.
+ *  Suggests queries issued by the user in the past. Only valid when used with
+ *  the suggest API. Ignored when used in the query API.
  *
  *  Value: "QUERY_HISTORY"
  */
@@ -857,15 +853,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_SourceScoringConfig_SourceIm
 // GTLRCloudSearch_UnmappedIdentity.resolutionStatusCode
 
 /**
- *  Input-only value. Used to list all unmapped identities regardless of
- *  status.
+ *  Input-only value. Used to list all unmapped identities regardless of status.
  *
  *  Value: "CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_CodeUnspecified;
 /**
- *  IDaaS does not understand the identity source, probably because the
- *  schema was modified in a non compatible way.
+ *  IDaaS does not understand the identity source, probably because the schema
+ *  was modified in a non compatible way.
  *
  *  Value: "IDENTITY_SOURCE_MISCONFIGURED"
  */
@@ -898,23 +893,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound;
 
 /**
- *  Used to provide a search operator for boolean properties. This is
- *  optional. Search operators let users restrict the query to specific fields
- *  relevant to the type of item being searched.
+ *  Used to provide a search operator for boolean properties. This is optional.
+ *  Search operators let users restrict the query to specific fields relevant to
+ *  the type of item being searched.
  */
 @interface GTLRCloudSearch_BooleanOperatorOptions : GTLRObject
 
 /**
  *  Indicates the operator name required in the query in order to isolate the
  *  boolean property. For example, if operatorName is *closed* and the
- *  property's name is *isClosed*, then queries like
- *  *closed:&lt;value&gt;* show results only where the value of the
- *  property named *isClosed* matches *&lt;value&gt;*. By contrast, a
- *  search that uses the same *&lt;value&gt;* without an operator returns
- *  all items where *&lt;value&gt;* matches the value of any
- *  String properties or text within the content field for the item.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  property's name is *isClosed*, then queries like *closed:<value>* show
+ *  results only where the value of the property named *isClosed* matches
+ *  *<value>*. By contrast, a search that uses the same *<value>* without an
+ *  operator returns all items where *<value>* matches the value of any String
+ *  properties or text within the content field for the item. The operator name
+ *  can only contain lowercase letters (a-z). The maximum length is 32
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
@@ -990,8 +984,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_CustomerQueryStats : GTLRObject
 
 /**
- *  Date for which query stats were calculated. Stats calculated on the next
- *  day close to midnight are returned.
+ *  Date for which query stats were calculated. Stats calculated on the next day
+ *  close to midnight are returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -1057,17 +1051,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Datasource is a logical namespace for items to be indexed.
- *  All items must belong to a datasource. This is the prerequisite before
- *  items can be indexed into Cloud Search.
+ *  Datasource is a logical namespace for items to be indexed. All items must
+ *  belong to a datasource. This is the prerequisite before items can be indexed
+ *  into Cloud Search.
  */
 @interface GTLRCloudSearch_DataSource : GTLRObject
 
 /**
- *  If true, Indexing API rejects any modification calls to this datasource
- *  such as create, update, and delete.
- *  Disabling this does not imply halting process of previously
- *  accepted data.
+ *  If true, Indexing API rejects any modification calls to this datasource such
+ *  as create, update, and delete. Disabling this does not imply halting process
+ *  of previously accepted data.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1081,8 +1074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSNumber *disableServing;
 
 /**
- *  Required. Display name of the datasource
- *  The maximum length is 300 characters.
+ *  Required. Display name of the datasource The maximum length is 300
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1092,35 +1085,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 /**
  *  This field restricts visibility to items at the datasource level. Items
  *  within the datasource are restricted to the union of users and groups
- *  included in this field. Note that, this does not ensure access to a
- *  specific item, as users need to have ACL permissions on the contained
- *  items. This ensures a high level access on the entire datasource, and
- *  that the individual items are not shared outside this visibility.
+ *  included in this field. Note that, this does not ensure access to a specific
+ *  item, as users need to have ACL permissions on the contained items. This
+ *  ensures a high level access on the entire datasource, and that the
+ *  individual items are not shared outside this visibility.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_GSuitePrincipal *> *itemsVisibility;
 
 /**
- *  Name of the datasource resource.
- *  Format: datasources/{source_id}.
- *  <br />The name is ignored when creating a datasource.
+ *  Name of the datasource resource. Format: datasources/{source_id}. The name
+ *  is ignored when creating a datasource.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  IDs of the Long Running Operations (LROs) currently running for this
- *  schema.
+ *  IDs of the Long Running Operations (LROs) currently running for this schema.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;
 
 /**
  *  A short name or alias for the source. This value will be used to match the
- *  'source' operator. For example, if the short name is *&lt;value&gt;* then
- *  queries like *source:&lt;value&gt;* will only return results for this
- *  source. The value must be unique across all datasources. The value must
- *  only contain alphanumeric characters (a-zA-Z0-9). The value cannot start
- *  with 'google' and cannot be one of the following: mail, gmail, docs, drive,
- *  groups, sites, calendar, hangouts, gplus, keep, people, teams.
- *  Its maximum length is 32 characters.
+ *  'source' operator. For example, if the short name is *<value>* then queries
+ *  like *source:<value>* will only return results for this source. The value
+ *  must be unique across all datasources. The value must only contain
+ *  alphanumeric characters (a-zA-Z0-9). The value cannot start with 'google'
+ *  and cannot be one of the following: mail, gmail, docs, drive, groups, sites,
+ *  calendar, hangouts, gplus, keep, people, teams. Its maximum length is 32
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *shortName;
 
@@ -1152,14 +1143,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_DataSourceRestriction : GTLRObject
 
 /**
- *  Filter options restricting the results. If multiple filters
- *  are present, they are grouped by object type before joining.
- *  Filters with the same object type are joined conjunctively, then
- *  the resulting expressions are joined disjunctively.
- *  The maximum number of elements is 20.
- *  NOTE: Suggest API supports only few filters at the moment:
- *  "objecttype", "type" and "mimetype".
- *  For now, schema specific filters cannot be used to filter suggestions.
+ *  Filter options restricting the results. If multiple filters are present,
+ *  they are grouped by object type before joining. Filters with the same object
+ *  type are joined conjunctively, then the resulting expressions are joined
+ *  disjunctively. The maximum number of elements is 20. NOTE: Suggest API
+ *  supports only few filters at the moment: "objecttype", "type" and
+ *  "mimetype". For now, schema specific filters cannot be used to filter
+ *  suggestions.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_FilterOptions *> *filterOptions;
 
@@ -1203,9 +1193,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Optional. Provides a search operator for date properties.
- *  Search operators let users restrict the query to specific fields relevant
- *  to the type of item being searched.
+ *  Optional. Provides a search operator for date properties. Search operators
+ *  let users restrict the query to specific fields relevant to the type of item
+ *  being searched.
  */
 @interface GTLRCloudSearch_DateOperatorOptions : GTLRObject
 
@@ -1213,11 +1203,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Indicates the operator name required in the query in order to isolate the
  *  date property using the greater-than operator. For example, if
  *  greaterThanOperatorName is *closedafter* and the property's name is
- *  *closeDate*, then queries like *closedafter:&lt;value&gt;*
- *  show results only where the value of the property named *closeDate* is
- *  later than *&lt;value&gt;*.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  *closeDate*, then queries like *closedafter:<value>* show results only where
+ *  the value of the property named *closeDate* is later than *<value>*. The
+ *  operator name can only contain lowercase letters (a-z). The maximum length
+ *  is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *greaterThanOperatorName;
 
@@ -1225,26 +1214,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Indicates the operator name required in the query in order to isolate the
  *  date property using the less-than operator. For example, if
  *  lessThanOperatorName is *closedbefore* and the property's name is
- *  *closeDate*, then queries like *closedbefore:&lt;value&gt;*
- *  show results only where the value of the property named *closeDate* is
- *  earlier than *&lt;value&gt;*.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  *closeDate*, then queries like *closedbefore:<value>* show results only
+ *  where the value of the property named *closeDate* is earlier than *<value>*.
+ *  The operator name can only contain lowercase letters (a-z). The maximum
+ *  length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *lessThanOperatorName;
 
 /**
  *  Indicates the actual string required in the query in order to isolate the
- *  date property. For example, suppose an issue tracking schema object
- *  has a property named *closeDate* that specifies an operator with an
- *  operatorName of *closedon*. For searches on that data, queries like
- *  *closedon:&lt;value&gt;* show results only where the value of the
- *  *closeDate* property matches *&lt;value&gt;*. By contrast, a
- *  search that uses the same *&lt;value&gt;* without an operator returns
- *  all items where *&lt;value&gt;* matches the value of any String
- *  properties or text within the content field for the indexed datasource.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  date property. For example, suppose an issue tracking schema object has a
+ *  property named *closeDate* that specifies an operator with an operatorName
+ *  of *closedon*. For searches on that data, queries like *closedon:<value>*
+ *  show results only where the value of the *closeDate* property matches
+ *  *<value>*. By contrast, a search that uses the same *<value>* without an
+ *  operator returns all items where *<value>* matches the value of any String
+ *  properties or text within the content field for the indexed datasource. The
+ *  operator name can only contain lowercase letters (a-z). The maximum length
+ *  is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
@@ -1294,8 +1281,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_DeleteQueueItemsRequest : GTLRObject
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -1311,17 +1298,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 /**
  *  A reference to a top-level property within the object that should be
  *  displayed in search results. The values of the chosen properties is
- *  displayed in the search results along with the
- *  display label
- *  for that property if one is specified. If a display label is not specified,
- *  only the values is shown.
+ *  displayed in the search results along with the display label for that
+ *  property if one is specified. If a display label is not specified, only the
+ *  values is shown.
  */
 @interface GTLRCloudSearch_DisplayedProperty : GTLRObject
 
 /**
- *  The name of the top-level property as defined in a property definition
- *  for the object. If the name is not a defined property in the schema, an
- *  error is given when attempting to update the schema.
+ *  The name of the top-level property as defined in a property definition for
+ *  the object. If the name is not a defined property in the schema, an error is
+ *  given when attempting to update the schema.
  */
 @property(nonatomic, copy, nullable) NSString *propertyName;
 
@@ -1329,17 +1315,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Used to provide a search operator for double properties. This is
- *  optional. Search operators let users restrict the query to specific fields
- *  relevant to the type of item being searched.
+ *  Used to provide a search operator for double properties. This is optional.
+ *  Search operators let users restrict the query to specific fields relevant to
+ *  the type of item being searched.
  */
 @interface GTLRCloudSearch_DoubleOperatorOptions : GTLRObject
 
 /**
- *  Indicates the operator name required in the query in order to use the
- *  double property in sorting or as a facet.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  Indicates the operator name required in the query in order to use the double
+ *  property in sorting or as a facet. The operator name can only contain
+ *  lowercase letters (a-z). The maximum length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
@@ -1488,30 +1473,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Used to provide a search operator for enum properties. This is
- *  optional. Search operators let users restrict the query to specific fields
- *  relevant to the type of item being searched. For example, if you provide no
- *  operator for a *priority* enum property with possible values *p0* and *p1*,
- *  a query that contains the term *p0* returns items that have *p0* as the
- *  value of the *priority* property, as well as any items that contain the
- *  string *p0* in other fields. If you provide an operator name for the enum,
- *  such as *priority*, then search users can use that operator to refine
- *  results to only items that have *p0* as this property's value, with the
- *  query *priority:p0*.
+ *  Used to provide a search operator for enum properties. This is optional.
+ *  Search operators let users restrict the query to specific fields relevant to
+ *  the type of item being searched. For example, if you provide no operator for
+ *  a *priority* enum property with possible values *p0* and *p1*, a query that
+ *  contains the term *p0* returns items that have *p0* as the value of the
+ *  *priority* property, as well as any items that contain the string *p0* in
+ *  other fields. If you provide an operator name for the enum, such as
+ *  *priority*, then search users can use that operator to refine results to
+ *  only items that have *p0* as this property's value, with the query
+ *  *priority:p0*.
  */
 @interface GTLRCloudSearch_EnumOperatorOptions : GTLRObject
 
 /**
  *  Indicates the operator name required in the query in order to isolate the
- *  enum property. For example, if operatorName is *priority* and the
- *  property's name is *priorityVal*, then queries like
- *  *priority:&lt;value&gt;* show results only where the value of the
- *  property named *priorityVal* matches *&lt;value&gt;*. By contrast, a
- *  search that uses the same *&lt;value&gt;* without an operator returns
- *  all items where *&lt;value&gt;* matches the value of any String
- *  properties or text within the content field for the item.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  enum property. For example, if operatorName is *priority* and the property's
+ *  name is *priorityVal*, then queries like *priority:<value>* show results
+ *  only where the value of the property named *priorityVal* matches *<value>*.
+ *  By contrast, a search that uses the same *<value>* without an operator
+ *  returns all items where *<value>* matches the value of any String properties
+ *  or text within the content field for the item. The operator name can only
+ *  contain lowercase letters (a-z). The maximum length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
@@ -1523,12 +1506,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  strings to match user queries, set rankings for those string values, and
  *  define an operator name to be paired with those strings so that users can
  *  narrow results to only items with a specific value. For example, for items
- *  in
- *  a request tracking system with priority information, you could define *p0*
- *  as
- *  an allowable enum value and tie this enum to the operator name *priority* so
- *  that search users could add *priority:p0* to their query to restrict the set
- *  of results to only those items indexed with the value *p0*.
+ *  in a request tracking system with priority information, you could define
+ *  *p0* as an allowable enum value and tie this enum to the operator name
+ *  *priority* so that search users could add *priority:p0* to their query to
+ *  restrict the set of results to only those items indexed with the value *p0*.
  */
 @interface GTLRCloudSearch_EnumPropertyOptions : GTLRObject
 
@@ -1540,8 +1521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  the integer values provided in the possible EnumValuePairs are used to rank
  *  results. If specified, integer values must be provided for all possible
  *  EnumValuePair values given for this property. Can only be used if
- *  isRepeatable
- *  is false.
+ *  isRepeatable is false.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_Ascending This
@@ -1551,21 +1531,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *        This property is ranked in descending order. Lower values indicate
  *        higher ranking. (Value: "DESCENDING")
  *    @arg @c kGTLRCloudSearch_EnumPropertyOptions_OrderedRanking_NoOrder There
- *        is no ranking order for the property. Results aren't adjusted
- *        by this property's value. (Value: "NO_ORDER")
+ *        is no ranking order for the property. Results aren't adjusted by this
+ *        property's value. (Value: "NO_ORDER")
  */
 @property(nonatomic, copy, nullable) NSString *orderedRanking;
 
 /**
- *  The list of possible values for the enumeration property. All
- *  EnumValuePairs must provide a string value. If you specify an integer value
- *  for one EnumValuePair, then all possible EnumValuePairs must provide an
- *  integer value. Both the string value and integer value must be unique over
- *  all possible values. Once set, possible values cannot be removed or
- *  modified. If you supply an ordered ranking and think you might insert
- *  additional enum values in the future, leave gaps in the initial integer
- *  values to allow adding a value in between previously registered values.
- *  The maximum number of elements is 100.
+ *  The list of possible values for the enumeration property. All EnumValuePairs
+ *  must provide a string value. If you specify an integer value for one
+ *  EnumValuePair, then all possible EnumValuePairs must provide an integer
+ *  value. Both the string value and integer value must be unique over all
+ *  possible values. Once set, possible values cannot be removed or modified. If
+ *  you supply an ordered ranking and think you might insert additional enum
+ *  values in the future, leave gaps in the initial integer values to allow
+ *  adding a value in between previously registered values. The maximum number
+ *  of elements is 100.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_EnumValuePair *> *possibleValues;
 
@@ -1574,33 +1554,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  The enumeration value pair defines two things: a required string value and
- *  an optional integer value. The string value defines the necessary query
- *  term required to retrieve that item, such as *p0* for a priority item.
- *  The integer value determines the ranking of that string value relative
- *  to other enumerated values for the same property. For example, you might
- *  associate *p0* with *0* and define another enum pair such as *p1* and *1*.
- *  You must use the integer value in combination with
- *  ordered
- *  ranking to
- *  set the ranking of a given value relative to other enumerated values for
- *  the same property name. Here, a ranking order of DESCENDING for *priority*
- *  properties results in a ranking boost for items indexed with a value of
- *  *p0* compared to items indexed with a value of *p1*. Without a specified
- *  ranking order, the integer value has no effect on item ranking.
+ *  an optional integer value. The string value defines the necessary query term
+ *  required to retrieve that item, such as *p0* for a priority item. The
+ *  integer value determines the ranking of that string value relative to other
+ *  enumerated values for the same property. For example, you might associate
+ *  *p0* with *0* and define another enum pair such as *p1* and *1*. You must
+ *  use the integer value in combination with ordered ranking to set the ranking
+ *  of a given value relative to other enumerated values for the same property
+ *  name. Here, a ranking order of DESCENDING for *priority* properties results
+ *  in a ranking boost for items indexed with a value of *p0* compared to items
+ *  indexed with a value of *p1*. Without a specified ranking order, the integer
+ *  value has no effect on item ranking.
  */
 @interface GTLRCloudSearch_EnumValuePair : GTLRObject
 
 /**
- *  The integer value of the EnumValuePair which must be non-negative.
- *  Optional.
+ *  The integer value of the EnumValuePair which must be non-negative. Optional.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *integerValue;
 
 /**
- *  The string value of the EnumValuePair.
- *  The maximum length is 32 characters.
+ *  The string value of the EnumValuePair. The maximum length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
@@ -1641,15 +1617,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  A bucket in a facet is the basic unit of operation. A bucket can comprise
- *  either a single value OR a contiguous range of values, depending on the
- *  type of the field bucketed.
- *  FacetBucket is currently used only for returning the response object.
+ *  either a single value OR a contiguous range of values, depending on the type
+ *  of the field bucketed. FacetBucket is currently used only for returning the
+ *  response object.
  */
 @interface GTLRCloudSearch_FacetBucket : GTLRObject
 
 /**
- *  Number of results that match the bucket value. Counts are only returned
- *  for searches when count accuracy is ensured. Can be empty.
+ *  Number of results that match the bucket value. Counts are only returned for
+ *  searches when count accuracy is ensured. Can be empty.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1659,9 +1635,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Percent of results that match the bucket value. The returned value is
  *  between (0-100], and is rounded down to an integer if fractional. If the
  *  value is not explicitly returned, it represents a percentage value that
- *  rounds to 0. Percentages are returned for all searches, but are an
- *  estimate. Because percentages are always returned, you should render
- *  percentages instead of counts.
+ *  rounds to 0. Percentages are returned for all searches, but are an estimate.
+ *  Because percentages are always returned, you should render percentages
+ *  instead of counts.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1680,8 +1656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Maximum number of facet buckets that should be returned for this facet.
- *  Defaults to 10.
- *  Maximum value is 100.
+ *  Defaults to 10. Maximum value is 100.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1700,8 +1675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
 /**
- *  Source name to facet on. Format: datasources/{source_id}
- *  If empty, all data sources will be used.
+ *  Source name to facet on. Format: datasources/{source_id} If empty, all data
+ *  sources will be used.
  */
 @property(nonatomic, copy, nullable) NSString *sourceName;
 
@@ -1753,17 +1728,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  A generic way of expressing filters in a query, which supports two
- *  approaches: <br/><br/>
- *  **1. Setting a ValueFilter.** The name must match an operator_name defined
- *  in
- *  the schema for your data source.
- *  <br/>
- *  **2. Setting a CompositeFilter.** The filters are evaluated
- *  using the logical operator. The top-level operators can only be either an
- *  AND
- *  or a NOT. AND can appear only at the top-most level. OR can appear only
- *  under
- *  a top-level AND.
+ *  approaches: **1. Setting a ValueFilter.** The name must match an
+ *  operator_name defined in the schema for your data source. **2. Setting a
+ *  CompositeFilter.** The filters are evaluated using the logical operator. The
+ *  top-level operators can only be either an AND or a NOT. AND can appear only
+ *  at the top-most level. OR can appear only under a top-level AND.
  */
 @interface GTLRCloudSearch_Filter : GTLRObject
 
@@ -1795,33 +1764,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Indicates which freshness property to use when adjusting search ranking for
  *  an item. Fresher, more recent dates indicate higher quality. Use the
  *  freshness option property that best works with your data. For fileshare
- *  documents, last modified time is most relevant. For calendar event data,
- *  the time when the event occurs is a more relevant freshness indicator. In
- *  this way, calendar events that occur closer to the time of the search query
- *  are considered higher quality and ranked accordingly.
+ *  documents, last modified time is most relevant. For calendar event data, the
+ *  time when the event occurs is a more relevant freshness indicator. In this
+ *  way, calendar events that occur closer to the time of the search query are
+ *  considered higher quality and ranked accordingly.
  */
 @interface GTLRCloudSearch_FreshnessOptions : GTLRObject
 
 /**
- *  The duration after which an object should be considered
- *  stale. The default value is 180 days (in seconds).
+ *  The duration after which an object should be considered stale. The default
+ *  value is 180 days (in seconds).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *freshnessDuration;
 
 /**
- *  This property indicates the freshness level of the object in the index.
- *  If set, this property must be a top-level property within the
- *  property definitions
- *  and it must be a
- *  timestamp type
- *  or
- *  date type.
- *  Otherwise, the Indexing API uses
- *  updateTime
- *  as the freshness indicator.
- *  The maximum length is 256 characters.
- *  When a property is used to calculate freshness, the value defaults
- *  to 2 years from the current time.
+ *  This property indicates the freshness level of the object in the index. If
+ *  set, this property must be a top-level property within the property
+ *  definitions and it must be a timestamp type or date type. Otherwise, the
+ *  Indexing API uses updateTime as the freshness indicator. The maximum length
+ *  is 256 characters. When a property is used to calculate freshness, the value
+ *  defaults to 2 years from the current time.
  */
 @property(nonatomic, copy, nullable) NSString *freshnessProperty;
 
@@ -1920,8 +1882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_GSuitePrincipal : GTLRObject
 
 /**
- *  This principal represents all users of the G Suite domain of the
- *  customer.
+ *  This principal represents all users of the G Suite domain of the customer.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1938,22 +1899,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Used to provide a search operator for html properties. This is optional.
- *  Search operators let users restrict the query to specific fields relevant
- *  to the type of item being searched.
+ *  Search operators let users restrict the query to specific fields relevant to
+ *  the type of item being searched.
  */
 @interface GTLRCloudSearch_HtmlOperatorOptions : GTLRObject
 
 /**
  *  Indicates the operator name required in the query in order to isolate the
- *  html property. For example, if operatorName is *subject* and the
- *  property's name is *subjectLine*, then queries like
- *  *subject:&lt;value&gt;* show results only where the value of the
- *  property named *subjectLine* matches *&lt;value&gt;*. By contrast, a
- *  search that uses the same *&lt;value&gt;* without an operator return
- *  all items where *&lt;value&gt;* matches the value of any
- *  html properties or text within the content field for the item.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  html property. For example, if operatorName is *subject* and the property's
+ *  name is *subjectLine*, then queries like *subject:<value>* show results only
+ *  where the value of the property named *subjectLine* matches *<value>*. By
+ *  contrast, a search that uses the same *<value>* without an operator return
+ *  all items where *<value>* matches the value of any html properties or text
+ *  within the content field for the item. The operator name can only contain
+ *  lowercase letters (a-z). The maximum length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
@@ -1969,8 +1928,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_HtmlOperatorOptions *operatorOptions;
 
 /**
- *  Indicates the search quality importance of the tokens within the
- *  field when used for retrieval. Can only be set to DEFAULT or NONE.
+ *  Indicates the search quality importance of the tokens within the field when
+ *  used for retrieval. Can only be set to DEFAULT or NONE.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_RetrievalImportance *retrievalImportance;
 
@@ -2010,8 +1969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_IndexItemRequest : GTLRObject
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -2020,10 +1979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_IndexItemOptions *indexItemOptions;
 
-/**
- *  Name of the item. Format:
- *  datasources/{source_id}/items/{item_id}
- */
+/** Name of the item. Format: datasources/{source_id}/items/{item_id} */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Item *item;
 
 /**
@@ -2031,14 +1987,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_IndexItemRequest_Mode_Asynchronous For changes
- *        that are executed after the response is sent back to the
- *        caller. (Value: "ASYNCHRONOUS")
+ *        that are executed after the response is sent back to the caller.
+ *        (Value: "ASYNCHRONOUS")
  *    @arg @c kGTLRCloudSearch_IndexItemRequest_Mode_Synchronous For real-time
  *        updates. (Value: "SYNCHRONOUS")
  *    @arg @c kGTLRCloudSearch_IndexItemRequest_Mode_Unspecified Priority is not
- *        specified in the update request.
- *        Leaving priority unspecified results in an update failure. (Value:
- *        "UNSPECIFIED")
+ *        specified in the update request. Leaving priority unspecified results
+ *        in an update failure. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -2046,9 +2001,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Used to provide a search operator for integer properties. This is
- *  optional. Search operators let users restrict the query to specific fields
- *  relevant to the type of item being searched.
+ *  Used to provide a search operator for integer properties. This is optional.
+ *  Search operators let users restrict the query to specific fields relevant to
+ *  the type of item being searched.
  */
 @interface GTLRCloudSearch_IntegerOperatorOptions : GTLRObject
 
@@ -2056,11 +2011,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Indicates the operator name required in the query in order to isolate the
  *  integer property using the greater-than operator. For example, if
  *  greaterThanOperatorName is *priorityabove* and the property's name is
- *  *priorityVal*, then queries like *priorityabove:&lt;value&gt;*
- *  show results only where the value of the property named *priorityVal* is
- *  greater than *&lt;value&gt;*.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  *priorityVal*, then queries like *priorityabove:<value>* show results only
+ *  where the value of the property named *priorityVal* is greater than
+ *  *<value>*. The operator name can only contain lowercase letters (a-z). The
+ *  maximum length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *greaterThanOperatorName;
 
@@ -2068,25 +2022,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Indicates the operator name required in the query in order to isolate the
  *  integer property using the less-than operator. For example, if
  *  lessThanOperatorName is *prioritybelow* and the property's name is
- *  *priorityVal*, then queries like *prioritybelow:&lt;value&gt;*
- *  show results only where the value of the property named *priorityVal* is
- *  less than *&lt;value&gt;*.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  *priorityVal*, then queries like *prioritybelow:<value>* show results only
+ *  where the value of the property named *priorityVal* is less than *<value>*.
+ *  The operator name can only contain lowercase letters (a-z). The maximum
+ *  length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *lessThanOperatorName;
 
 /**
  *  Indicates the operator name required in the query in order to isolate the
  *  integer property. For example, if operatorName is *priority* and the
- *  property's name is *priorityVal*, then queries like
- *  *priority:&lt;value&gt;* show results only where the value of the
- *  property named *priorityVal* matches *&lt;value&gt;*. By contrast, a
- *  search that uses the same *&lt;value&gt;* without an operator returns
- *  all items where *&lt;value&gt;* matches the value of any String
- *  properties or text within the content field for the item.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  property's name is *priorityVal*, then queries like *priority:<value>* show
+ *  results only where the value of the property named *priorityVal* matches
+ *  *<value>*. By contrast, a search that uses the same *<value>* without an
+ *  operator returns all items where *<value>* matches the value of any String
+ *  properties or text within the content field for the item. The operator name
+ *  can only contain lowercase letters (a-z). The maximum length is 32
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
@@ -2100,10 +2052,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  The maximum value of the property. The minimum and maximum values for the
- *  property are used to rank results according to the
- *  ordered ranking.
- *  Indexing requests with values greater than the maximum are accepted and
- *  ranked with the same weight as items indexed with the maximum value.
+ *  property are used to rank results according to the ordered ranking. Indexing
+ *  requests with values greater than the maximum are accepted and ranked with
+ *  the same weight as items indexed with the maximum value.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2111,10 +2062,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  The minimum value of the property. The minimum and maximum values for the
- *  property are used to rank results according to the
- *  ordered ranking.
- *  Indexing requests with values less than the minimum are accepted and
- *  ranked with the same weight as items indexed with the minimum value.
+ *  property are used to rank results according to the ordered ranking. Indexing
+ *  requests with values less than the minimum are accepted and ranked with the
+ *  same weight as items indexed with the minimum value.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2125,14 +2075,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Used to specify the ordered ranking for the integer. Can only be used if
- *  isRepeatable
- *  is false.
+ *  isRepeatable is false.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Ascending
  *        This property is ranked in ascending order. Lower values indicate
- *        lower
- *        ranking. (Value: "ASCENDING")
+ *        lower ranking. (Value: "ASCENDING")
  *    @arg @c kGTLRCloudSearch_IntegerPropertyOptions_OrderedRanking_Descending
  *        This property is ranked in descending order. Lower values indicate
  *        higher ranking. (Value: "DESCENDING")
@@ -2207,18 +2155,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_Item_ItemType_ContainerItem An item that gets
- *        indexed and whose purpose is to supply other items
- *        with ACLs and/or contain other items. (Value: "CONTAINER_ITEM")
+ *        indexed and whose purpose is to supply other items with ACLs and/or
+ *        contain other items. (Value: "CONTAINER_ITEM")
  *    @arg @c kGTLRCloudSearch_Item_ItemType_ContentItem An item that is indexed
- *        for the only purpose of serving information.
- *        These items cannot be referred in
- *        containerName
- *        or inheritAclFrom
- *        fields. (Value: "CONTENT_ITEM")
+ *        for the only purpose of serving information. These items cannot be
+ *        referred in containerName or inheritAclFrom fields. (Value:
+ *        "CONTENT_ITEM")
  *    @arg @c kGTLRCloudSearch_Item_ItemType_Unspecified Value "UNSPECIFIED"
  *    @arg @c kGTLRCloudSearch_Item_ItemType_VirtualContainerItem An item that
- *        does not get indexed, but otherwise has the same purpose
- *        as CONTAINER_ITEM. (Value: "VIRTUAL_CONTAINER_ITEM")
+ *        does not get indexed, but otherwise has the same purpose as
+ *        CONTAINER_ITEM. (Value: "VIRTUAL_CONTAINER_ITEM")
  */
 @property(nonatomic, copy, nullable) NSString *itemType;
 
@@ -2226,49 +2172,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ItemMetadata *metadata;
 
 /**
- *  Name of the Item. Format:
- *  datasources/{source_id}/items/{item_id}
- *  <br />This is a required field.
- *  The maximum length is 1536 characters.
+ *  Name of the Item. Format: datasources/{source_id}/items/{item_id} This is a
+ *  required field. The maximum length is 1536 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Additional state connector can store for this item.
- *  The maximum length is 10000 bytes.
+ *  Additional state connector can store for this item. The maximum length is
+ *  10000 bytes.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *payload;
 
-/**
- *  Queue this item belongs to.
- *  The maximum length is 100 characters.
- */
+/** Queue this item belongs to. The maximum length is 100 characters. */
 @property(nonatomic, copy, nullable) NSString *queue;
 
-/**
- *  Status of the item.
- *  Output only field.
- */
+/** Status of the item. Output only field. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ItemStatus *status;
 
 /**
- *  The structured data for the item that should conform to a registered
- *  object definition in the schema for the data source.
+ *  The structured data for the item that should conform to a registered object
+ *  definition in the schema for the data source.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ItemStructuredData *structuredData;
 
 /**
  *  Required. The indexing system stores the version from the datasource as a
- *  byte string and compares the Item version in the index
- *  to the version of the queued Item using lexical ordering.
- *  <br /><br />
- *  Cloud Search Indexing won't index or delete any queued item with
- *  a version value that is less than or equal to the version of the
- *  currently indexed item.
- *  The maximum length for this field is 1024 bytes.
+ *  byte string and compares the Item version in the index to the version of the
+ *  queued Item using lexical ordering. Cloud Search Indexing won't index or
+ *  delete any queued item with a version value that is less than or equal to
+ *  the version of the currently indexed item. The maximum length for this field
+ *  is 1024 bytes.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2279,82 +2215,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Access control list information for the item. For more information see
- *  [Map ACLs](/cloud-search/docs/guides/acls).
+ *  Access control list information for the item. For more information see [Map
+ *  ACLs](/cloud-search/docs/guides/acls).
  */
 @interface GTLRCloudSearch_ItemAcl : GTLRObject
 
 /**
  *  Sets the type of access rules to apply when an item inherits its ACL from a
- *  parent. This should always be set in tandem with the
- *  inheritAclFrom
- *  field. Also, when the
- *  inheritAclFrom field
- *  is set, this field should be set to a valid AclInheritanceType.
+ *  parent. This should always be set in tandem with the inheritAclFrom field.
+ *  Also, when the inheritAclFrom field is set, this field should be set to a
+ *  valid AclInheritanceType.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_ItemAcl_AclInheritanceType_BothPermit Access is
- *        granted only if this item and the parent item specified in
- *        the inheritAclFrom
- *        field both permit read access. (Value: "BOTH_PERMIT")
+ *        granted only if this item and the parent item specified in the
+ *        inheritAclFrom field both permit read access. (Value: "BOTH_PERMIT")
  *    @arg @c kGTLRCloudSearch_ItemAcl_AclInheritanceType_ChildOverride During
- *        an authorization conflict, the ACL of the child item determines
- *        its read access. (Value: "CHILD_OVERRIDE")
+ *        an authorization conflict, the ACL of the child item determines its
+ *        read access. (Value: "CHILD_OVERRIDE")
  *    @arg @c kGTLRCloudSearch_ItemAcl_AclInheritanceType_NotApplicable The
- *        default value when this item does not inherit an ACL.
- *        Use NOT_APPLICABLE when
- *        inheritAclFrom
- *        is empty. An item without ACL inheritance can still have ACLs supplied
- *        by its own readers and
+ *        default value when this item does not inherit an ACL. Use
+ *        NOT_APPLICABLE when inheritAclFrom is empty. An item without ACL
+ *        inheritance can still have ACLs supplied by its own readers and
  *        deniedReaders fields. (Value: "NOT_APPLICABLE")
  *    @arg @c kGTLRCloudSearch_ItemAcl_AclInheritanceType_ParentOverride During
- *        an authorization conflict, the ACL of the parent item
- *        specified in the
- *        inheritAclFrom
- *        field determines read access. (Value: "PARENT_OVERRIDE")
+ *        an authorization conflict, the ACL of the parent item specified in the
+ *        inheritAclFrom field determines read access. (Value:
+ *        "PARENT_OVERRIDE")
  */
 @property(nonatomic, copy, nullable) NSString *aclInheritanceType;
 
 /**
  *  List of principals who are explicitly denied access to the item in search
  *  results. While principals are denied access by default, use denied readers
- *  to handle exceptions and override the list allowed readers.
- *  The maximum number of elements is 100.
+ *  to handle exceptions and override the list allowed readers. The maximum
+ *  number of elements is 100.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Principal *> *deniedReaders;
 
 /**
- *  Name of the item to inherit the Access Permission List (ACL) from.
- *  Note: ACL inheritance *only* provides access permissions
- *  to child items and does not define structural relationships, nor does it
- *  provide convenient ways to delete large groups of items.
- *  Deleting an ACL parent from the index only alters the access permissions of
- *  child items that reference the parent in the
- *  inheritAclFrom
- *  field. The item is still in the index, but may not
- *  visible in search results. By contrast, deletion of a container item
- *  also deletes all items that reference the container via the
- *  containerName
- *  field.
+ *  Name of the item to inherit the Access Permission List (ACL) from. Note: ACL
+ *  inheritance *only* provides access permissions to child items and does not
+ *  define structural relationships, nor does it provide convenient ways to
+ *  delete large groups of items. Deleting an ACL parent from the index only
+ *  alters the access permissions of child items that reference the parent in
+ *  the inheritAclFrom field. The item is still in the index, but may not
+ *  visible in search results. By contrast, deletion of a container item also
+ *  deletes all items that reference the container via the containerName field.
  *  The maximum length for this field is 1536 characters.
  */
 @property(nonatomic, copy, nullable) NSString *inheritAclFrom;
 
 /**
- *  Optional. List of owners for the item. This field has no bearing on
- *  document access permissions. It does, however, offer
- *  a slight ranking boosts items where the querying user is an owner.
- *  The maximum number of elements is 5.
+ *  Optional. List of owners for the item. This field has no bearing on document
+ *  access permissions. It does, however, offer a slight ranking boosts items
+ *  where the querying user is an owner. The maximum number of elements is 5.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Principal *> *owners;
 
 /**
  *  List of principals who are allowed to see the item in search results.
- *  Optional if inheriting permissions from another item or if the item
- *  is not intended to be visible, such as
- *  virtual
- *  containers.
- *  The maximum number of elements is 1000.
+ *  Optional if inheriting permissions from another item or if the item is not
+ *  intended to be visible, such as virtual containers. The maximum number of
+ *  elements is 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Principal *> *readers;
 
@@ -2385,17 +2308,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, copy, nullable) NSString *contentFormat;
 
 /**
- *  Hashing info calculated and provided by the API client for content.
- *  Can be used with the items.push method to calculate modified state.
- *  The maximum length is 2048 characters.
+ *  Hashing info calculated and provided by the API client for content. Can be
+ *  used with the items.push method to calculate modified state. The maximum
+ *  length is 2048 characters.
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
  */
 @property(nonatomic, copy, nullable) NSString *hashProperty;
 
 /**
- *  Content that is supplied inlined within the update method.
- *  The maximum length is 102400 bytes (100 KiB).
+ *  Content that is supplied inlined within the update method. The maximum
+ *  length is 102400 bytes (100 KiB).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -2424,24 +2347,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *    @arg @c kGTLRCloudSearch_ItemCountByStatus_StatusCode_Accepted API has
  *        accepted the up-to-date data of this item. (Value: "ACCEPTED")
  *    @arg @c kGTLRCloudSearch_ItemCountByStatus_StatusCode_CodeUnspecified
- *        Input-only value. Used with
- *        Items.list
- *        to list all items in the queue, regardless of status. (Value:
- *        "CODE_UNSPECIFIED")
+ *        Input-only value. Used with Items.list to list all items in the queue,
+ *        regardless of status. (Value: "CODE_UNSPECIFIED")
  *    @arg @c kGTLRCloudSearch_ItemCountByStatus_StatusCode_Error Error
- *        encountered by Cloud Search while processing this item.
- *        Details of the error are in
- *        repositoryError. (Value: "ERROR")
+ *        encountered by Cloud Search while processing this item. Details of the
+ *        error are in repositoryError. (Value: "ERROR")
  *    @arg @c kGTLRCloudSearch_ItemCountByStatus_StatusCode_Modified Item has
- *        been modified in the repository, and is out of date with
- *        the version previously accepted into Cloud Search. (Value: "MODIFIED")
+ *        been modified in the repository, and is out of date with the version
+ *        previously accepted into Cloud Search. (Value: "MODIFIED")
  *    @arg @c kGTLRCloudSearch_ItemCountByStatus_StatusCode_NewItem Item is
- *        known to exist in the repository, but is not yet accepted by
- *        Cloud Search.
- *        An item can be in this state when
- *        Items.push
- *        has been called for
- *        an item of this name that did not exist previously. (Value:
+ *        known to exist in the repository, but is not yet accepted by Cloud
+ *        Search. An item can be in this state when Items.push has been called
+ *        for an item of this name that did not exist previously. (Value:
  *        "NEW_ITEM")
  */
 @property(nonatomic, copy, nullable) NSString *statusCode;
@@ -2455,20 +2372,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_ItemMetadata : GTLRObject
 
 /**
- *  The name of the container for this item.
- *  Deletion of the container item leads to automatic deletion of this
- *  item. Note: ACLs are not inherited from a container item.
- *  To provide ACL inheritance for an item, use the
- *  inheritAclFrom
- *  field. The maximum length is 1536 characters.
+ *  The name of the container for this item. Deletion of the container item
+ *  leads to automatic deletion of this item. Note: ACLs are not inherited from
+ *  a container item. To provide ACL inheritance for an item, use the
+ *  inheritAclFrom field. The maximum length is 1536 characters.
  */
 @property(nonatomic, copy, nullable) NSString *containerName;
 
 /**
  *  The BCP-47 language code for the item, such as "en-US" or "sr-Latn". For
  *  more information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
- *  The maximum length is 32 characters.
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. The maximum
+ *  length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *contentLanguage;
 
@@ -2476,46 +2391,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Hashing value provided by the API caller.
- *  This can be used with the
- *  items.push
- *  method to calculate modified state.
- *  The maximum length is 2048 characters.
+ *  Hashing value provided by the API caller. This can be used with the
+ *  items.push method to calculate modified state. The maximum length is 2048
+ *  characters.
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
  */
 @property(nonatomic, copy, nullable) NSString *hashProperty;
 
 /**
- *  A list of interactions for the item. Interactions are used to improve
- *  Search quality, but are not exposed to end users.
- *  The maximum number of elements is 1000.
+ *  A list of interactions for the item. Interactions are used to improve Search
+ *  quality, but are not exposed to end users. The maximum number of elements is
+ *  1000.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Interaction *> *interactions;
 
 /**
- *  Additional keywords or phrases that should match the item.
- *  Used internally for user generated content.
- *  The maximum number of elements is 100.
- *  The maximum length is 8192 characters.
+ *  Additional keywords or phrases that should match the item. Used internally
+ *  for user generated content. The maximum number of elements is 100. The
+ *  maximum length is 8192 characters.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *keywords;
 
 /**
- *  The original mime-type of
- *  ItemContent.content
- *  in the source repository.
- *  The maximum length is 256 characters.
+ *  The original mime-type of ItemContent.content in the source repository. The
+ *  maximum length is 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
  *  The type of the item. This should correspond to the name of an object
- *  definition in the schema registered for the data source. For example, if
- *  the schema for the data source contains an object definition with name
+ *  definition in the schema registered for the data source. For example, if the
+ *  schema for the data source contains an object definition with name
  *  'document', then item indexing requests for objects of that type should set
- *  objectType to 'document'.
- *  The maximum length is 256 characters.
+ *  objectType to 'document'. The maximum length is 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *objectType;
 
@@ -2523,18 +2432,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_SearchQualityMetadata *searchQualityMetadata;
 
 /**
- *  Link to the source repository serving the data. &#83;earch results apply
- *  this link to the title.
- *  Whitespace or special characters may cause Cloud &#83;earch result links to
- *  trigger a redirect notice; to avoid this, encode the URL.
+ *  Link to the source repository serving the data. Search results apply this
+ *  link to the title. Whitespace or special characters may cause Cloud Search
+ *  result links to trigger a redirect notice; to avoid this, encode the URL.
  *  The maximum length is 2048 characters.
  */
 @property(nonatomic, copy, nullable) NSString *sourceRepositoryUrl;
 
 /**
  *  The title of the item. If given, this will be the displayed title of the
- *  Search result.
- *  The maximum length is 2048 characters.
+ *  Search result. The maximum length is 2048 characters.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -2556,25 +2463,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *    @arg @c kGTLRCloudSearch_ItemStatus_Code_Accepted API has accepted the
  *        up-to-date data of this item. (Value: "ACCEPTED")
  *    @arg @c kGTLRCloudSearch_ItemStatus_Code_CodeUnspecified Input-only value.
- *        Used with
- *        Items.list
- *        to list all items in the queue, regardless of status. (Value:
- *        "CODE_UNSPECIFIED")
+ *        Used with Items.list to list all items in the queue, regardless of
+ *        status. (Value: "CODE_UNSPECIFIED")
  *    @arg @c kGTLRCloudSearch_ItemStatus_Code_Error Error encountered by Cloud
- *        Search while processing this item.
- *        Details of the error are in
+ *        Search while processing this item. Details of the error are in
  *        repositoryError. (Value: "ERROR")
  *    @arg @c kGTLRCloudSearch_ItemStatus_Code_Modified Item has been modified
- *        in the repository, and is out of date with
- *        the version previously accepted into Cloud Search. (Value: "MODIFIED")
+ *        in the repository, and is out of date with the version previously
+ *        accepted into Cloud Search. (Value: "MODIFIED")
  *    @arg @c kGTLRCloudSearch_ItemStatus_Code_NewItem Item is known to exist in
- *        the repository, but is not yet accepted by
- *        Cloud Search.
- *        An item can be in this state when
- *        Items.push
- *        has been called for
- *        an item of this name that did not exist previously. (Value:
- *        "NEW_ITEM")
+ *        the repository, but is not yet accepted by Cloud Search. An item can
+ *        be in this state when Items.push has been called for an item of this
+ *        name that did not exist previously. (Value: "NEW_ITEM")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -2593,11 +2493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_ItemStructuredData : GTLRObject
 
 /**
- *  Hashing value provided by the API caller.
- *  This can be used with the
- *  items.push
- *  method to calculate modified state.
- *  The maximum length is 2048 characters.
+ *  Hashing value provided by the API caller. This can be used with the
+ *  items.push method to calculate modified state. The maximum length is 2048
+ *  characters.
  *
  *  Remapped to 'hashProperty' to avoid NSObject's 'hash'.
  */
@@ -2623,8 +2521,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_ListDataSourceResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2647,8 +2545,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSArray<NSString *> *itemNames;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2674,10 +2572,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Item *> *items;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudSearch_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Operation *> *operations;
 
 @end
 
@@ -2716,8 +2638,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_ListSearchApplicationsResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2743,8 +2665,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_ListUnmappedIdentitiesResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2821,10 +2743,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Source *source;
 
 /**
- *  The last modified date for the object in the search result. If not
- *  set in the item, the value returned here is empty. When
- *  `updateTime` is used for calculating freshness and is not set, this
- *  value defaults to 2 years from the current time.
+ *  The last modified date for the object in the search result. If not set in
+ *  the item, the value returned here is empty. When `updateTime` is used for
+ *  calculating freshness and is not set, this value defaults to 2 years from
+ *  the current time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -2853,7 +2775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  The read-only display name formatted according to the locale specified by
- *  the viewer's account or the <code>Accept-Language</code> HTTP header.
+ *  the viewer's account or the Accept-Language HTTP header.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2861,8 +2783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  A typed name-value pair for structured data. The type of the value should
- *  be the same as the registered type for the `name` property in the object
+ *  A typed name-value pair for structured data. The type of the value should be
+ *  the same as the registered type for the `name` property in the object
  *  definition of `objectType`.
  */
 @interface GTLRCloudSearch_NamedProperty : GTLRObject
@@ -2882,8 +2804,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  The name of the property. This name should correspond to the name of the
- *  property that was registered for object definition in the schema.
- *  The maximum allowable length for this property is 256 characters.
+ *  property that was registered for object definition in the schema. The
+ *  maximum allowable length for this property is 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2901,15 +2823,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Name for the object, which then defines its type. Item indexing requests
- *  should set the
- *  objectType field
- *  equal to this value. For example, if *name* is *Document*, then indexing
- *  requests for items of type Document should set
- *  objectType equal to
- *  *Document*. Each object definition must be uniquely named within a schema.
- *  The name must start with a letter and can only contain letters (A-Z, a-z)
- *  or numbers (0-9).
- *  The maximum length is 256 characters.
+ *  should set the objectType field equal to this value. For example, if *name*
+ *  is *Document*, then indexing requests for items of type Document should set
+ *  objectType equal to *Document*. Each object definition must be uniquely
+ *  named within a schema. The name must start with a letter and can only
+ *  contain letters (A-Z, a-z) or numbers (0-9). The maximum length is 256
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2917,8 +2836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ObjectOptions *options;
 
 /**
- *  The property definitions for the object.
- *  The maximum number of elements is 1000.
+ *  The property definitions for the object. The maximum number of elements is
+ *  1000.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_PropertyDefinition *> *propertyDefinitions;
 
@@ -2931,22 +2850,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_ObjectDisplayOptions : GTLRObject
 
 /**
- *  Defines the properties that are displayed in the metalines of the
- *  search results. The property values are displayed in the order given
- *  here. If a property holds multiple values, all of the values are
- *  displayed before the next properties. For this reason, it is a good
- *  practice to specify singular properties before repeated properties in this
- *  list. All of the properties must set
- *  is_returnable
- *  to true. The maximum number of metalines is 3.
+ *  Defines the properties that are displayed in the metalines of the search
+ *  results. The property values are displayed in the order given here. If a
+ *  property holds multiple values, all of the values are displayed before the
+ *  next properties. For this reason, it is a good practice to specify singular
+ *  properties before repeated properties in this list. All of the properties
+ *  must set is_returnable to true. The maximum number of metalines is 3.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Metaline *> *metalines;
 
 /**
- *  The user friendly label to display in the search result to indicate the
- *  type of the item. This is OPTIONAL; if not provided, an object label isn't
- *  displayed on the context line of the search results. The maximum length
- *  is 64 characters.
+ *  The user friendly label to display in the search result to indicate the type
+ *  of the item. This is OPTIONAL; if not provided, an object label isn't
+ *  displayed on the context line of the search results. The maximum length is
+ *  64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *objectDisplayLabel;
 
@@ -2978,8 +2895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 /**
  *  The properties of the sub-object. These properties represent a nested
  *  object. For example, if this property represents a postal address, the
- *  subobjectProperties might be named *street*, *city*, and *state*.
- *  The maximum number of elements is 1000.
+ *  subobjectProperties might be named *street*, *city*, and *state*. The
+ *  maximum number of elements is 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_PropertyDefinition *> *subobjectProperties;
 
@@ -3003,8 +2920,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -3016,16 +2933,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3034,10 +2951,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Operation_Response *response;
 
@@ -3046,8 +2962,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -3064,10 +2980,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3100,9 +3015,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_EmailAddress *> *emailAddresses;
 
 /**
- *  The resource name of the person to provide information about.
- *  See <a href="https://developers.google.com/people/api/rest/v1/people/get">
- *  People.get</a> from Google People API.
+ *  The resource name of the person to provide information about. See People.get
+ *  from Google People API.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3138,8 +3052,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_PollItemsRequest : GTLRObject
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -3147,17 +3061,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DebugOptions *debugOptions;
 
 /**
- *  Maximum number of items to return.
- *  <br />The maximum value is 100 and the default value is 20.
+ *  Maximum number of items to return. The maximum value is 100 and the default
+ *  value is 20.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *limit;
 
 /**
- *  Queue name to fetch items from. If unspecified, PollItems will
- *  fetch from 'default' queue.
- *  The maximum length is 100 characters.
+ *  Queue name to fetch items from. If unspecified, PollItems will fetch from
+ *  'default' queue. The maximum length is 100 characters.
  */
 @property(nonatomic, copy, nullable) NSString *queue;
 
@@ -3176,15 +3089,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_PollItemsResponse : GTLRCollectionObject
 
 /**
- *  Set of items from the queue available for connector to process.
- *  <br />These items have the following subset of fields populated: <br />
- *  <br />version
- *  <br />metadata.hash
- *  <br />structured_data.hash
- *  <br />content.hash
- *  <br />payload
- *  <br />status
- *  <br />queue
+ *  Set of items from the queue available for connector to process. These items
+ *  have the following subset of fields populated: version metadata.hash
+ *  structured_data.hash content.hash payload status queue
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3200,8 +3107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_Principal : GTLRObject
 
 /**
- *  This principal is a group identified using an external identity.
- *  The name field must specify the group resource name with this format:
+ *  This principal is a group identified using an external identity. The name
+ *  field must specify the group resource name with this format:
  *  identitysources/{source_id}/groups/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *groupResourceName;
@@ -3210,8 +3117,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_GSuitePrincipal *gsuitePrincipal;
 
 /**
- *  This principal is a user identified using an external identity.
- *  The name field must specify the user resource name with this format:
+ *  This principal is a user identified using an external identity. The name
+ *  field must specify the user resource name with this format:
  *  identitysources/{source_id}/users/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *userResourceName;
@@ -3231,12 +3138,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *    @arg @c kGTLRCloudSearch_ProcessingError_Code_AclCycle ACL inheritance
  *        graph formed a cycle. (Value: "ACL_CYCLE")
  *    @arg @c kGTLRCloudSearch_ProcessingError_Code_IndirectBrokenAcl Items with
- *        incomplete ACL information due to inheriting other
- *        items with broken ACL or having groups with unmapped descendants.
- *        (Value: "INDIRECT_BROKEN_ACL")
+ *        incomplete ACL information due to inheriting other items with broken
+ *        ACL or having groups with unmapped descendants. (Value:
+ *        "INDIRECT_BROKEN_ACL")
  *    @arg @c kGTLRCloudSearch_ProcessingError_Code_MalformedRequest Item's ACL,
- *        metadata, or content is malformed or in invalid state.
- *        FieldViolations contains more details on where the problem is. (Value:
+ *        metadata, or content is malformed or in invalid state. FieldViolations
+ *        contains more details on where the problem is. (Value:
  *        "MALFORMED_REQUEST")
  *    @arg @c kGTLRCloudSearch_ProcessingError_Code_ProcessingErrorCodeUnspecified
  *        Input only value. Use this value in Items. (Value:
@@ -3250,8 +3157,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  In case the item fields are invalid, this field contains the details
- *  about the validation errors.
+ *  In case the item fields are invalid, this field contains the details about
+ *  the validation errors.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_FieldViolation *> *fieldViolations;
 
@@ -3268,9 +3175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Options that determine how the property is displayed in the Cloud Search
- *  results page if it is specified to be displayed in the object's
- *  display options
- *  .
+ *  results page if it is specified to be displayed in the object's display
+ *  options .
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_PropertyDisplayOptions *displayOptions;
 
@@ -3282,8 +3188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 /**
  *  Indicates that the property can be used for generating facets. Cannot be
  *  true for properties whose type is object. IsReturnable must be true to set
- *  this option.
- *  Only supported for Boolean, Enum, and Text properties.
+ *  this option. Only supported for Boolean, Enum, and Text properties.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3292,9 +3197,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 /**
  *  Indicates that multiple values are allowed for the property. For example, a
  *  document only has one description but can have multiple comments. Cannot be
- *  true for properties whose type is a boolean.
- *  If set to false, properties that contain more than one value cause the
- *  indexing request for that item to be rejected.
+ *  true for properties whose type is a boolean. If set to false, properties
+ *  that contain more than one value cause the indexing request for that item to
+ *  be rejected.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3302,12 +3207,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Indicates that the property identifies data that should be returned in
- *  search results via the Query API. If set to *true*, indicates that Query
- *  API users can use matching property fields in results. However, storing
- *  fields requires more space allocation and uses more bandwidth for search
- *  queries, which impacts performance over large datasets. Set to *true* here
- *  only if the field is needed for search results. Cannot be true for
- *  properties whose type is an object.
+ *  search results via the Query API. If set to *true*, indicates that Query API
+ *  users can use matching property fields in results. However, storing fields
+ *  requires more space allocation and uses more bandwidth for search queries,
+ *  which impacts performance over large datasets. Set to *true* here only if
+ *  the field is needed for search results. Cannot be true for properties whose
+ *  type is an object.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3315,10 +3220,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Indicates that the property can be used for sorting. Cannot be true for
- *  properties that are repeatable. Cannot be true for properties whose type
- *  is object or user identifier. IsReturnable must be true to set this option.
- *  Only supported for Boolean, Date, Double, Integer, and Timestamp
- *  properties.
+ *  properties that are repeatable. Cannot be true for properties whose type is
+ *  object or user identifier. IsReturnable must be true to set this option.
+ *  Only supported for Boolean, Date, Double, Integer, and Timestamp properties.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3332,10 +3236,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSNumber *isSuggestable;
 
 /**
- *  Indicates that users can perform wildcard search for this
- *  property. Only supported for Text properties. IsReturnable must be true to
- *  set this option. In a given datasource maximum of 5 properties can be
- *  marked as is_wildcard_searchable.
+ *  Indicates that users can perform wildcard search for this property. Only
+ *  supported for Text properties. IsReturnable must be true to set this option.
+ *  In a given datasource maximum of 5 properties can be marked as
+ *  is_wildcard_searchable.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3343,16 +3247,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  The name of the property. Item indexing requests sent to the Indexing API
- *  should set the property name
- *  equal to this value. For example, if name is *subject_line*, then indexing
- *  requests for document items with subject fields should set the
- *  name for that field equal to
- *  *subject_line*. Use the name as the identifier for the object property.
- *  Once registered as a property for an object, you cannot re-use this name
- *  for another property within that object.
- *  The name must start with a letter and can only contain letters (A-Z, a-z)
- *  or numbers (0-9).
- *  The maximum length is 256 characters.
+ *  should set the property name equal to this value. For example, if name is
+ *  *subject_line*, then indexing requests for document items with subject
+ *  fields should set the name for that field equal to *subject_line*. Use the
+ *  name as the identifier for the object property. Once registered as a
+ *  property for an object, you cannot re-use this name for another property
+ *  within that object. The name must start with a letter and can only contain
+ *  letters (A-Z, a-z) or numbers (0-9). The maximum length is 256 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3369,15 +3270,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_PropertyDisplayOptions : GTLRObject
 
 /**
- *  The user friendly label for the property that is used if the property
- *  is specified to be displayed in ObjectDisplayOptions. If provided, the
- *  display label is shown in front of the property values when the property is
- *  part of the object display options. For example, if the property value is
- *  '1', the value by itself may not be useful context for the user. If the
- *  display name given was 'priority', then the user sees 'priority : 1' in
- *  the search results which provides clear context to search users. This is
- *  OPTIONAL; if not given, only the property values are displayed.
- *  The maximum length is 64 characters.
+ *  The user friendly label for the property that is used if the property is
+ *  specified to be displayed in ObjectDisplayOptions. If provided, the display
+ *  label is shown in front of the property values when the property is part of
+ *  the object display options. For example, if the property value is '1', the
+ *  value by itself may not be useful context for the user. If the display name
+ *  given was 'priority', then the user sees 'priority : 1' in the search
+ *  results which provides clear context to search users. This is OPTIONAL; if
+ *  not given, only the property values are displayed. The maximum length is 64
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayLabel;
 
@@ -3391,28 +3292,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Content hash of the item according to the repository. If specified, this is
- *  used to determine how to modify this
- *  item's status. Setting this field and the
- *  type field results in argument
- *  error.
- *  The maximum length is 2048 characters.
+ *  used to determine how to modify this item's status. Setting this field and
+ *  the type field results in argument error. The maximum length is 2048
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *contentHash;
 
 /**
- *  Metadata hash of the item according to the repository. If specified, this
- *  is used to determine how to modify this
- *  item's status. Setting this field and the
- *  type field results in argument
- *  error.
- *  The maximum length is 2048 characters.
+ *  Metadata hash of the item according to the repository. If specified, this is
+ *  used to determine how to modify this item's status. Setting this field and
+ *  the type field results in argument error. The maximum length is 2048
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *metadataHash;
 
 /**
- *  Provides additional document state information for the connector,
- *  such as an alternate repository ID and other metadata.
- *  The maximum length is 8192 bytes.
+ *  Provides additional document state information for the connector, such as an
+ *  alternate repository ID and other metadata. The maximum length is 8192
+ *  bytes.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -3420,27 +3317,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, copy, nullable) NSString *payload;
 
 /**
- *  Queue to which this item belongs to. The <code>default</code> queue is
- *  chosen if this field is not specified. The maximum length is
- *  512 characters.
+ *  Queue to which this item belongs to. The default queue is chosen if this
+ *  field is not specified. The maximum length is 512 characters.
  */
 @property(nonatomic, copy, nullable) NSString *queue;
 
 /**
- *  Populate this field to store Connector or repository error details.
- *  This information is displayed in the Admin Console.
- *  This field may only be populated when the
- *  Type is
- *  REPOSITORY_ERROR.
+ *  Populate this field to store Connector or repository error details. This
+ *  information is displayed in the Admin Console. This field may only be
+ *  populated when the Type is REPOSITORY_ERROR.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_RepositoryError *repositoryError;
 
 /**
  *  Structured data hash of the item according to the repository. If specified,
  *  this is used to determine how to modify this item's status. Setting this
- *  field and the type field
- *  results in argument error.
- *  The maximum length is 2048 characters.
+ *  field and the type field results in argument error. The maximum length is
+ *  2048 characters.
  */
 @property(nonatomic, copy, nullable) NSString *structuredDataHash;
 
@@ -3449,33 +3342,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_PushItem_Type_Modified Indicates that the
- *        repository document has been modified or updated since
- *        the previous
- *        update
- *        call. This changes status to
- *        MODIFIED state for
- *        an existing item. If this is called on a non existing item, the status
- *        is
- *        changed to
- *        NEW_ITEM. (Value: "MODIFIED")
+ *        repository document has been modified or updated since the previous
+ *        update call. This changes status to MODIFIED state for an existing
+ *        item. If this is called on a non existing item, the status is changed
+ *        to NEW_ITEM. (Value: "MODIFIED")
  *    @arg @c kGTLRCloudSearch_PushItem_Type_NotModified Item in the repository
- *        has not been modified since the last update
- *        call. This push operation will set status to
- *        ACCEPTED state. (Value: "NOT_MODIFIED")
+ *        has not been modified since the last update call. This push operation
+ *        will set status to ACCEPTED state. (Value: "NOT_MODIFIED")
  *    @arg @c kGTLRCloudSearch_PushItem_Type_RepositoryError Connector is facing
- *        a repository error regarding this item. Change
- *        status to
- *        REPOSITORY_ERROR
- *        state. Item is unreserved and rescheduled at a future time determined
- *        by
- *        exponential backoff. (Value: "REPOSITORY_ERROR")
+ *        a repository error regarding this item. Change status to
+ *        REPOSITORY_ERROR state. Item is unreserved and rescheduled at a future
+ *        time determined by exponential backoff. (Value: "REPOSITORY_ERROR")
  *    @arg @c kGTLRCloudSearch_PushItem_Type_Requeue Call push with REQUEUE only
- *        for items that have been reserved.
- *        This action unreserves the item and resets its available time to the
- *        wall clock time. (Value: "REQUEUE")
+ *        for items that have been reserved. This action unreserves the item and
+ *        resets its available time to the wall clock time. (Value: "REQUEUE")
  *    @arg @c kGTLRCloudSearch_PushItem_Type_Unspecified Default UNSPECIFIED.
- *        Specifies that the push operation should not modify
- *        ItemStatus (Value: "UNSPECIFIED")
+ *        Specifies that the push operation should not modify ItemStatus (Value:
+ *        "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3488,8 +3371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_PushItemRequest : GTLRObject
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -3534,13 +3417,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_InterpretationType_Blend The
- *        results from original query are blended with other results. The
- *        reason for blending these other results with the results from original
- *        query is populated in the 'Reason' field below. (Value: "BLEND")
+ *        results from original query are blended with other results. The reason
+ *        for blending these other results with the results from original query
+ *        is populated in the 'Reason' field below. (Value: "BLEND")
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_InterpretationType_None
  *        Neither the natural language interpretation, nor a broader version of
- *        the
- *        query is used to fetch the search results. (Value: "NONE")
+ *        the query is used to fetch the search results. (Value: "NONE")
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_InterpretationType_Replace
  *        The results from original query are replaced. The reason for replacing
  *        the results from original query is populated in the 'Reason' field
@@ -3564,14 +3446,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_NotEnoughResultsFoundForUserQuery
  *        Query and document terms similarity is used to selectively broaden the
  *        query to retrieve additional search results since enough results were
- *        not
- *        found for the user query.
- *        Interpreted query will be empty for this case. (Value:
- *        "NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY")
+ *        not found for the user query. Interpreted query will be empty for this
+ *        case. (Value: "NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY")
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_QueryHasNaturalLanguageIntent
  *        Natural language interpretation of the query is used to fetch the
- *        search
- *        results. (Value: "QUERY_HAS_NATURAL_LANGUAGE_INTENT")
+ *        search results. (Value: "QUERY_HAS_NATURAL_LANGUAGE_INTENT")
  *    @arg @c kGTLRCloudSearch_QueryInterpretation_Reason_Unspecified Value
  *        "UNSPECIFIED"
  */
@@ -3596,9 +3475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Enable this flag to turn off all internal optimizations like natural
- *  language (NL) interpretation of queries, supplemental result retrieval,
- *  and usage of synonyms including custom ones.
- *  Nl interpretation will be disabled if either one of the two flags is true.
+ *  language (NL) interpretation of queries, supplemental result retrieval, and
+ *  usage of synonyms including custom ones. Nl interpretation will be disabled
+ *  if either one of the two flags is true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3750,8 +3629,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_RepositoryError : GTLRObject
 
 /**
- *  Message that describes the error. The maximum allowable length
- *  of the message is 8192 characters.
+ *  Message that describes the error. The maximum allowable length of the
+ *  message is 8192 characters.
  */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
@@ -3773,8 +3652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *        account is not authorized for the repository. (Value:
  *        "AUTHORIZATION_ERROR")
  *    @arg @c kGTLRCloudSearch_RepositoryError_Type_ClientError Client-related
- *        error, such as an invalid request from the connector to
- *        the repository server. (Value: "CLIENT_ERROR")
+ *        error, such as an invalid request from the connector to the repository
+ *        server. (Value: "CLIENT_ERROR")
  *    @arg @c kGTLRCloudSearch_RepositoryError_Type_ConnectionError Cannot
  *        connect to the repository server. (Value: "CONNECTION_ERROR")
  *    @arg @c kGTLRCloudSearch_RepositoryError_Type_DnsError DNS problem, such
@@ -3804,34 +3683,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DebugOptions *debugOptions;
 
 /**
- *  The BCP-47 language code, such as "en-US" or "sr-Latn".
- *  For more information, see
- *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier.
- *  For translations.
- *  Set this field using the language set in browser or for the page. In the
- *  event that the user's language preference is known, set this field to the
- *  known user language.
- *  When specified, the documents in search results are biased towards the
- *  specified language.
- *  The suggest API does not use this parameter. Instead, suggest autocompletes
- *  only based on characters in the query.
+ *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see
+ *  http://www.unicode.org/reports/tr35/#Unicode_locale_identifier. For
+ *  translations. Set this field using the language set in browser or for the
+ *  page. In the event that the user's language preference is known, set this
+ *  field to the known user language. When specified, the documents in search
+ *  results are biased towards the specified language. The suggest API does not
+ *  use this parameter. Instead, suggest autocompletes only based on characters
+ *  in the query.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  The ID generated when you create a search application using the
- *  [admin console](https://support.google.com/a/answer/9043922).
+ *  The ID generated when you create a search application using the [admin
+ *  console](https://support.google.com/a/answer/9043922).
  */
 @property(nonatomic, copy, nullable) NSString *searchApplicationId;
 
 /**
  *  Current user's time zone id, such as "America/Los_Angeles" or
- *  "Australia/Sydney". These IDs are defined by
- *  [Unicode Common Locale Data Repository (CLDR)](http://cldr.unicode.org/)
- *  project, and currently available in the file
+ *  "Australia/Sydney". These IDs are defined by [Unicode Common Locale Data
+ *  Repository (CLDR)](http://cldr.unicode.org/) project, and currently
+ *  available in the file
  *  [timezone.xml](http://unicode.org/repos/cldr/trunk/common/bcp47/timezone.xml).
- *  This field is used to correctly interpret date and time queries.
- *  If this field is not specified, the default time zone (UTC) is used.
+ *  This field is used to correctly interpret date and time queries. If this
+ *  field is not specified, the default time zone (UTC) is used.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -3861,8 +3738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Information relevant only to a restrict entry.
- *  NextId: 12
+ *  Information relevant only to a restrict entry. NextId: 12
  */
 @interface GTLRCloudSearch_RestrictItem : GTLRObject
 
@@ -3873,10 +3749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveLocationRestrict *driveLocationRestrict;
 
-/**
- *  LINT.IfChange
- *  Drive Types.
- */
+/** LINT.IfChange Drive Types. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveMimeTypeRestrict *driveMimeTypeRestrict;
 
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DriveTimeSpanRestrict *driveTimeSpanRestrict;
@@ -3956,9 +3829,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_RetrievalImportance : GTLRObject
 
 /**
- *  Indicates the ranking importance given to property when it is matched
- *  during retrieval. Once set, the token importance of a property cannot be
- *  changed.
+ *  Indicates the ranking importance given to property when it is matched during
+ *  retrieval. Once set, the token importance of a property cannot be changed.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudSearch_RetrievalImportance_Importance_Default Treat the
@@ -3970,9 +3842,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *    @arg @c kGTLRCloudSearch_RetrievalImportance_Importance_Low Treat the
  *        match with lower importance than body text. (Value: "LOW")
  *    @arg @c kGTLRCloudSearch_RetrievalImportance_Importance_None Do not match
- *        against this field during retrieval. The property can still
- *        be used for operator matching, faceting, and suggest if
- *        desired. (Value: "NONE")
+ *        against this field during retrieval. The property can still be used
+ *        for operator matching, faceting, and suggest if desired. (Value:
+ *        "NONE")
  */
 @property(nonatomic, copy, nullable) NSString *importance;
 
@@ -3985,15 +3857,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_Schema : GTLRObject
 
 /**
- *  The list of top-level objects for the data source.
- *  The maximum number of elements is 10.
+ *  The list of top-level objects for the data source. The maximum number of
+ *  elements is 10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_ObjectDefinition *> *objectDefinitions;
 
 /**
- *  IDs of the Long Running Operations (LROs) currently running for this
- *  schema. After modifying the schema, wait for operations to complete
- *  before indexing additional content.
+ *  IDs of the Long Running Operations (LROs) currently running for this schema.
+ *  After modifying the schema, wait for operations to complete before indexing
+ *  additional content.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;
 
@@ -4001,9 +3873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Scoring configurations for a source while processing a
- *  Search or
- *  Suggest request.
+ *  Scoring configurations for a source while processing a Search or Suggest
+ *  request.
  */
 @interface GTLRCloudSearch_ScoringConfig : GTLRObject
 
@@ -4017,8 +3888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSNumber *disableFreshness;
 
 /**
- *  Whether to personalize the results. By default, personal signals will
- *  be used to boost results.
+ *  Whether to personalize the results. By default, personal signals will be
+ *  used to boost results.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4033,16 +3904,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SearchApplication : GTLRObject
 
 /**
- *  Retrictions applied to the configurations.
- *  The maximum number of elements is 10.
+ *  Retrictions applied to the configurations. The maximum number of elements is
+ *  10.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DataSourceRestriction *> *dataSourceRestrictions;
 
 /**
- *  The default fields for returning facet results.
- *  The sources specified here also have been included in
- *  data_source_restrictions
- *  above.
+ *  The default fields for returning facet results. The sources specified here
+ *  also have been included in data_source_restrictions above.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_FacetOptions *> *defaultFacetOptions;
 
@@ -4050,21 +3919,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_SortOptions *defaultSortOptions;
 
 /**
- *  Display name of the Search Application.
- *  The maximum length is 300 characters.
+ *  Display name of the Search Application. The maximum length is 300
+ *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Name of the Search Application.
- *  <br />Format: searchapplications/{application_id}.
+ *  Name of the Search Application. Format: searchapplications/{application_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Output only. IDs of the Long Running Operations (LROs) currently running for
- *  this
- *  schema. Output only field.
+ *  this schema. Output only field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;
 
@@ -4083,8 +3950,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SearchApplicationQueryStats : GTLRObject
 
 /**
- *  Date for which query stats were calculated. Stats calculated on the next
- *  day close to midnight are returned.
+ *  Date for which query stats were calculated. Stats calculated on the next day
+ *  close to midnight are returned.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Date *date;
 
@@ -4161,8 +4028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specify the full view URL to find the corresponding item.
- *  The maximum length is 2048 characters.
+ *  Specify the full view URL to find the corresponding item. The maximum length
+ *  is 2048 characters.
  */
 @property(nonatomic, copy, nullable) NSString *viewUrl;
 
@@ -4188,8 +4055,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Item *> *items;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -4219,27 +4086,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SearchRequest : GTLRObject
 
 /**
- *  The sources to use for querying. If not specified, all data sources
- *  from the current search application are used.
+ *  The sources to use for querying. If not specified, all data sources from the
+ *  current search application are used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DataSourceRestriction *> *dataSourceRestrictions;
 
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_FacetOptions *> *facetOptions;
 
 /**
- *  Maximum number of search results to return in one page.
- *  Valid values are between 1 and 100, inclusive.
- *  Default value is 10.
+ *  Maximum number of search results to return in one page. Valid values are
+ *  between 1 and 100, inclusive. Default value is 10.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  The raw query string.
- *  See supported search operators in the [Cloud search
- *  Cheat
- *  Sheet](https://support.google.com/a/users/answer/9299929)
+ *  The raw query string. See supported search operators in the [Cloud search
+ *  Cheat Sheet](https://support.google.com/a/users/answer/9299929)
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -4284,8 +4148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSNumber *hasMoreResults;
 
 /**
- *  Query interpretation result for user query. Empty if query interpretation
- *  is disabled.
+ *  Query interpretation result for user query. Empty if query interpretation is
+ *  disabled.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_QueryInterpretation *queryInterpretation;
 
@@ -4313,8 +4177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_SpellResult *> *spellResults;
 
 /**
- *  Structured results for the user query. These results are not counted
- *  against the page_size.
+ *  Structured results for the user query. These results are not counted against
+ *  the page_size.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_StructuredResult *> *structuredResults;
 
@@ -4366,9 +4230,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_MatchRange *> *matchRanges;
 
 /**
- *  The snippet of the document.
- *  The snippet of the document. May contain escaped HTML character that
- *  should be unescaped prior to rendering.
+ *  The snippet of the document. The snippet of the document. May contain
+ *  escaped HTML character that should be unescaped prior to rendering.
  */
 @property(nonatomic, copy, nullable) NSString *snippet;
 
@@ -4381,9 +4244,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SortOptions : GTLRObject
 
 /**
- *  Name of the operator corresponding to the field to sort on.
- *  The corresponding property must be marked as
- *  sortable.
+ *  Name of the operator corresponding to the field to sort on. The
+ *  corresponding property must be marked as sortable.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
@@ -4405,10 +4267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  */
 @interface GTLRCloudSearch_Source : GTLRObject
 
-/**
- *  Source name for content indexed by the
- *  Indexing API.
- */
+/** Source name for content indexed by the Indexing API. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4429,12 +4288,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *        "GOOGLE_SITES"
  *    @arg @c kGTLRCloudSearch_Source_PredefinedSource_None Value "NONE"
  *    @arg @c kGTLRCloudSearch_Source_PredefinedSource_Person Suggests people in
- *        the organization. Only valid when used
- *        with the suggest API. Results in an error when used in the query API.
- *        (Value: "PERSON")
+ *        the organization. Only valid when used with the suggest API. Results
+ *        in an error when used in the query API. (Value: "PERSON")
  *    @arg @c kGTLRCloudSearch_Source_PredefinedSource_QueryHistory Suggests
- *        queries issued by the user in the past. Only valid when used
- *        with the suggest API. Ignored when used in the query API. (Value:
+ *        queries issued by the user in the past. Only valid when used with the
+ *        suggest API. Ignored when used in the query API. (Value:
  *        "QUERY_HISTORY")
  */
 @property(nonatomic, copy, nullable) NSString *predefinedSource;
@@ -4443,9 +4301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Configurations for a source while processing a
- *  Search or
- *  Suggest request.
+ *  Configurations for a source while processing a Search or Suggest request.
  */
 @interface GTLRCloudSearch_SourceConfig : GTLRObject
 
@@ -4471,16 +4327,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SourceCrowdingConfig : GTLRObject
 
 /**
- *  Maximum number of results allowed from a source.
- *  No limits will be set on results if this value is less than or equal to 0.
+ *  Maximum number of results allowed from a source. No limits will be set on
+ *  results if this value is less than or equal to 0.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numResults;
 
 /**
- *  Maximum number of suggestions allowed from a source.
- *  No limits will be set on results if this value is less than or equal to 0.
+ *  Maximum number of suggestions allowed from a source. No limits will be set
+ *  on results if this value is less than or equal to 0.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4560,8 +4416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_StartUploadItemRequest : GTLRObject
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -4575,9 +4431,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRCloudSearch_Status : GTLRObject
 
@@ -4621,10 +4477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  */
 @interface GTLRCloudSearch_StructuredDataObject : GTLRObject
 
-/**
- *  The properties for the object.
- *  The maximum number of elements is 1000.
- */
+/** The properties for the object. The maximum number of elements is 1000. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_NamedProperty *> *properties;
 
 @end
@@ -4647,17 +4500,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SuggestRequest : GTLRObject
 
 /**
- *  The sources to use for suggestions. If not specified, the data sources
- *  are taken from the current search application.
- *  NOTE: Suggestions are supported only for third party data sources and
- *  people (i.e. PredefinedSource.PERSON).
+ *  The sources to use for suggestions. If not specified, the data sources are
+ *  taken from the current search application. NOTE: Suggestions are supported
+ *  only for third party data sources and people (i.e. PredefinedSource.PERSON).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_DataSourceRestriction *> *dataSourceRestrictions;
 
 /**
- *  Partial query for which autocomplete suggestions will be shown.
- *  For example, if the query is "sea", then the server might return
- *  "season", "search", "seagull" and so on.
+ *  Partial query for which autocomplete suggestions will be shown. For example,
+ *  if the query is "sea", then the server might return "season", "search",
+ *  "seagull" and so on.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -4684,9 +4536,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_SuggestResult : GTLRObject
 
 /**
- *  This is present when the suggestion indicates a person. It
- *  contains more information about the person - like their email ID,
- *  name etc.
+ *  This is present when the suggestion indicates a person. It contains more
+ *  information about the person - like their email ID, name etc.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_PeopleSuggestion *peopleSuggestion;
 
@@ -4700,8 +4551,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Source *source;
 
 /**
- *  The suggested query that will be used for search, when the user
- *  clicks on the suggestion
+ *  The suggested query that will be used for search, when the user clicks on
+ *  the suggestion
  */
 @property(nonatomic, copy, nullable) NSString *suggestedQuery;
 
@@ -4710,21 +4561,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Used to provide a search operator for text properties. This is optional.
- *  Search operators let users restrict the query to specific fields relevant
- *  to the type of item being searched.
+ *  Search operators let users restrict the query to specific fields relevant to
+ *  the type of item being searched.
  */
 @interface GTLRCloudSearch_TextOperatorOptions : GTLRObject
 
 /**
- *  If true, the text value is tokenized as one atomic value in
- *  operator searches and facet matches. For example, if the operator name is
- *  "genre" and the value is "science-fiction" the query restrictions
- *  "genre:science" and "genre:fiction" doesn't match the item;
- *  "genre:science-fiction" does. Value matching is case-sensitive
- *  and does not remove special characters.
- *  If false, the text is tokenized. For example, if the value is
- *  "science-fiction" the queries "genre:science" and "genre:fiction"
- *  matches the item.
+ *  If true, the text value is tokenized as one atomic value in operator
+ *  searches and facet matches. For example, if the operator name is "genre" and
+ *  the value is "science-fiction" the query restrictions "genre:science" and
+ *  "genre:fiction" doesn't match the item; "genre:science-fiction" does. Value
+ *  matching is case-sensitive and does not remove special characters. If false,
+ *  the text is tokenized. For example, if the value is "science-fiction" the
+ *  queries "genre:science" and "genre:fiction" matches the item.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4732,15 +4581,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Indicates the operator name required in the query in order to isolate the
- *  text property. For example, if operatorName is *subject* and the
- *  property's name is *subjectLine*, then queries like
- *  *subject:&lt;value&gt;* show results only where the value of the
- *  property named *subjectLine* matches *&lt;value&gt;*. By contrast, a
- *  search that uses the same *&lt;value&gt;* without an operator returns
- *  all items where *&lt;value&gt;* matches the value of any
- *  text properties or text within the content field for the item.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  text property. For example, if operatorName is *subject* and the property's
+ *  name is *subjectLine*, then queries like *subject:<value>* show results only
+ *  where the value of the property named *subjectLine* matches *<value>*. By
+ *  contrast, a search that uses the same *<value>* without an operator returns
+ *  all items where *<value>* matches the value of any text properties or text
+ *  within the content field for the item. The operator name can only contain
+ *  lowercase letters (a-z). The maximum length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 
@@ -4756,8 +4603,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_TextOperatorOptions *operatorOptions;
 
 /**
- *  Indicates the search quality importance of the tokens within the
- *  field when used for retrieval.
+ *  Indicates the search quality importance of the tokens within the field when
+ *  used for retrieval.
  */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_RetrievalImportance *retrievalImportance;
 
@@ -4786,11 +4633,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Indicates the operator name required in the query in order to isolate the
  *  timestamp property using the greater-than operator. For example, if
  *  greaterThanOperatorName is *closedafter* and the property's name is
- *  *closeDate*, then queries like *closedafter:&lt;value&gt;*
- *  show results only where the value of the property named *closeDate* is
- *  later than *&lt;value&gt;*.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  *closeDate*, then queries like *closedafter:<value>* show results only where
+ *  the value of the property named *closeDate* is later than *<value>*. The
+ *  operator name can only contain lowercase letters (a-z). The maximum length
+ *  is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *greaterThanOperatorName;
 
@@ -4798,24 +4644,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Indicates the operator name required in the query in order to isolate the
  *  timestamp property using the less-than operator. For example, if
  *  lessThanOperatorName is *closedbefore* and the property's name is
- *  *closeDate*, then queries like *closedbefore:&lt;value&gt;*
- *  show results only where the value of the property named *closeDate* is
- *  earlier than *&lt;value&gt;*.
- *  The operator name can only contain lowercase letters (a-z).
- *  The maximum length is 32 characters.
+ *  *closeDate*, then queries like *closedbefore:<value>* show results only
+ *  where the value of the property named *closeDate* is earlier than *<value>*.
+ *  The operator name can only contain lowercase letters (a-z). The maximum
+ *  length is 32 characters.
  */
 @property(nonatomic, copy, nullable) NSString *lessThanOperatorName;
 
 /**
  *  Indicates the operator name required in the query in order to isolate the
  *  timestamp property. For example, if operatorName is *closedon* and the
- *  property's name is *closeDate*, then queries like
- *  *closedon:&lt;value&gt;* show results only where the value of the
- *  property named *closeDate* matches *&lt;value&gt;*. By contrast, a
- *  search that uses the same *&lt;value&gt;* without an operator returns
- *  all items where *&lt;value&gt;* matches the value of any String
- *  properties or text within the content field for the item. The operator
- *  name can only contain lowercase letters (a-z). The maximum length is 32
+ *  property's name is *closeDate*, then queries like *closedon:<value>* show
+ *  results only where the value of the property named *closeDate* matches
+ *  *<value>*. By contrast, a search that uses the same *<value>* without an
+ *  operator returns all items where *<value>* matches the value of any String
+ *  properties or text within the content field for the item. The operator name
+ *  can only contain lowercase letters (a-z). The maximum length is 32
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
@@ -4867,14 +4711,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *        "IDENTITY_SOURCE_MISCONFIGURED")
  *    @arg @c kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_IdentitySourceNotFound
  *        The identity source associated with the identity was either not found
- *        or
- *        deleted. (Value: "IDENTITY_SOURCE_NOT_FOUND")
+ *        or deleted. (Value: "IDENTITY_SOURCE_NOT_FOUND")
  *    @arg @c kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_InternalError
  *        Internal error. (Value: "INTERNAL_ERROR")
  *    @arg @c kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_NotFound
  *        The unmapped identity was not found in IDaaS, and needs to be provided
- *        by
- *        the user. (Value: "NOT_FOUND")
+ *        by the user. (Value: "NOT_FOUND")
  *    @arg @c kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyMappingsFound
  *        The number of users associated with the external identity is too
  *        large. (Value: "TOO_MANY_MAPPINGS_FOUND")
@@ -4890,8 +4732,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_UnreserveItemsRequest : GTLRObject
 
 /**
- *  Name of connector making this call.
- *  <br />Format: datasources/{source_id}/connectors/{ID}
+ *  Name of connector making this call. Format:
+ *  datasources/{source_id}/connectors/{ID}
  */
 @property(nonatomic, copy, nullable) NSString *connectorName;
 
@@ -4929,8 +4771,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Schema *schema;
 
 /**
- *  If true, the schema will be checked for validity,
- *  but will not be registered with the data source, even if valid.
+ *  If true, the schema will be checked for validity, but will not be registered
+ *  with the data source, even if valid.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4940,18 +4782,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Represents an upload session reference.
- *  This reference is created via upload
- *  method.
- *  Updating of item content may refer to this uploaded content via
+ *  Represents an upload session reference. This reference is created via upload
+ *  method. Updating of item content may refer to this uploaded content via
  *  contentDataRef.
  */
 @interface GTLRCloudSearch_UploadItemRef : GTLRObject
 
-/**
- *  Name of the content reference.
- *  The maximum length is 2048 characters.
- */
+/** Name of the content reference. The maximum length is 2048 characters. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -4997,16 +4834,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 @interface GTLRCloudSearch_ValueFilter : GTLRObject
 
 /**
- *  The `operator_name` applied to the query, such as *price_greater_than*.
- *  The filter can work against both types of filters defined in the schema
- *  for your data source:
- *  <br/><br/>
- *  1. `operator_name`, where the query filters results by the property
- *  that matches the value.
- *  <br/>
- *  2. `greater_than_operator_name` or `less_than_operator_name` in your
- *  schema. The query filters the results for the property values that are
- *  greater than or less than the supplied value in the query.
+ *  The `operator_name` applied to the query, such as *price_greater_than*. The
+ *  filter can work against both types of filters defined in the schema for your
+ *  data source: 1. `operator_name`, where the query filters results by the
+ *  property that matches the value. 2. `greater_than_operator_name` or
+ *  `less_than_operator_name` in your schema. The query filters the results for
+ *  the property values that are greater than or less than the supplied value in
+ *  the query.
  */
 @property(nonatomic, copy, nullable) NSString *operatorName;
 

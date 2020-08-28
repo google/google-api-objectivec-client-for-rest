@@ -1137,6 +1137,7 @@ NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_EntityStatusScheduledFo
 NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_EntityStatusUnspecified = @"ENTITY_STATUS_UNSPECIFIED";
 
 // GTLRDisplayVideo_LineItem.lineItemType
+NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeAudioDefault = @"LINE_ITEM_TYPE_AUDIO_DEFAULT";
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayDefault = @"LINE_ITEM_TYPE_DISPLAY_DEFAULT";
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayMobileAppInstall = @"LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL";
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayMobileAppInventory = @"LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY";
@@ -1787,7 +1788,9 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_AuditAdvertiserResponse
-@dynamic usedCampaignsCount, usedInsertionOrdersCount, usedLineItemsCount;
+@dynamic adGroupCriteriaCount, campaignCriteriaCount, channelsCount,
+         negativeKeywordListsCount, negativelyTargetedChannelsCount,
+         usedCampaignsCount, usedInsertionOrdersCount, usedLineItemsCount;
 @end
 
 

@@ -54,8 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  The maximum age of the returned search results, in days.
- *  Age is determined by either claim date or review date, whichever is newer.
+ *  The maximum age of the returned search results, in days. Age is determined
+ *  by either claim date or review date, whichever is newer.
  */
 @property(nonatomic, assign) NSInteger maxAgeDays;
 
@@ -68,8 +68,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger offset;
 
 /**
- *  The pagination size. We will return up to that many results. Defaults to
- *  10 if not set.
+ *  The pagination size. We will return up to that many results. Defaults to 10
+ *  if not set.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -208,9 +208,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  An integer that specifies the current offset (that is, starting result
  *  location) in search results. This field is only considered if `page_token`
- *  is unset, and if the request is not for a specific URL. For example, 0
- *  means to return results starting from the first matching result, and 10
- *  means to return from the 11th result.
+ *  is unset, and if the request is not for a specific URL. For example, 0 means
+ *  to return results starting from the first matching result, and 10 means to
+ *  return from the 11th result.
  */
 @property(nonatomic, assign) NSInteger offset;
 
@@ -221,8 +221,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *organization;
 
 /**
- *  The pagination size. We will return up to that many results. Defaults to
- *  10 if not set. Has no effect if a URL is requested.
+ *  The pagination size. We will return up to that many results. Defaults to 10
+ *  if not set. Has no effect if a URL is requested.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -236,8 +236,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The URL from which to get `ClaimReview` markup. There will be at most one
  *  result. If markup is associated with a more canonical version of the URL
- *  provided, we will return that URL instead. Cannot be specified along with
- *  an organization.
+ *  provided, we will return that URL instead. Cannot be specified along with an
+ *  organization.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -259,11 +259,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update for all `ClaimReview` markup on a page
- *  Note that this is a full update. To retain the existing `ClaimReview`
- *  markup on a page, first perform a Get operation, then modify the returned
- *  markup, and finally call Update with the entire `ClaimReview` markup as the
- *  body.
+ *  Update for all `ClaimReview` markup on a page Note that this is a full
+ *  update. To retain the existing `ClaimReview` markup on a page, first perform
+ *  a Get operation, then modify the returned markup, and finally call Update
+ *  with the entire `ClaimReview` markup as the body.
  *
  *  Method: factchecktools.pages.update
  *
@@ -276,8 +275,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of this `ClaimReview` markup page resource, in the form of
- *  `pages/{page_id}`. Except for update requests, this field is output-only
- *  and should not be set by the user.
+ *  `pages/{page_id}`. Except for update requests, this field is output-only and
+ *  should not be set by the user.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -285,19 +284,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage.
  *
- *  Update for all `ClaimReview` markup on a page
- *  Note that this is a full update. To retain the existing `ClaimReview`
- *  markup on a page, first perform a Get operation, then modify the returned
- *  markup, and finally call Update with the entire `ClaimReview` markup as the
- *  body.
+ *  Update for all `ClaimReview` markup on a page Note that this is a full
+ *  update. To retain the existing `ClaimReview` markup on a page, first perform
+ *  a Get operation, then modify the returned markup, and finally call Update
+ *  with the entire `ClaimReview` markup as the body.
  *
  *  @param object The @c
  *    GTLRFactCheckTools_GoogleFactcheckingFactchecktoolsV1alpha1ClaimReviewMarkupPage
  *    to include in the query.
  *  @param name The name of this `ClaimReview` markup page resource, in the form
- *    of
- *    `pages/{page_id}`. Except for update requests, this field is output-only
- *    and should not be set by the user.
+ *    of `pages/{page_id}`. Except for update requests, this field is
+ *    output-only and should not be set by the user.
  *
  *  @return GTLRFactCheckToolsQuery_PagesUpdate
  */

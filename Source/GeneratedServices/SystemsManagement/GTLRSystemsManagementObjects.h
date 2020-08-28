@@ -22,13 +22,24 @@
 #endif
 
 @class GTLRSystemsManagement_AptSettings;
+@class GTLRSystemsManagement_ExecResourceExec;
 @class GTLRSystemsManagement_ExecStep;
 @class GTLRSystemsManagement_ExecStepConfig;
+@class GTLRSystemsManagement_File;
+@class GTLRSystemsManagement_FileGcs;
+@class GTLRSystemsManagement_FileRemote;
 @class GTLRSystemsManagement_FixedOrPercent;
 @class GTLRSystemsManagement_GcsObject;
 @class GTLRSystemsManagement_GooSettings;
 @class GTLRSystemsManagement_MonthlySchedule;
 @class GTLRSystemsManagement_OneTimeSchedule;
+@class GTLRSystemsManagement_PackageResourceAPT;
+@class GTLRSystemsManagement_PackageResourceDeb;
+@class GTLRSystemsManagement_PackageResourceGooGet;
+@class GTLRSystemsManagement_PackageResourceMSI;
+@class GTLRSystemsManagement_PackageResourceRPM;
+@class GTLRSystemsManagement_PackageResourceYUM;
+@class GTLRSystemsManagement_PackageResourceZypper;
 @class GTLRSystemsManagement_PatchConfig;
 @class GTLRSystemsManagement_PatchDeployment;
 @class GTLRSystemsManagement_PatchInstanceFilter;
@@ -39,6 +50,10 @@
 @class GTLRSystemsManagement_PatchJobInstanceDetailsSummary;
 @class GTLRSystemsManagement_PatchRollout;
 @class GTLRSystemsManagement_RecurringSchedule;
+@class GTLRSystemsManagement_RepositoryResourceAptRepository;
+@class GTLRSystemsManagement_RepositoryResourceGooRepository;
+@class GTLRSystemsManagement_RepositoryResourceYumRepository;
+@class GTLRSystemsManagement_RepositoryResourceZypperRepository;
 @class GTLRSystemsManagement_TimeOfDay;
 @class GTLRSystemsManagement_TimeZone;
 @class GTLRSystemsManagement_WeekDayOfMonth;
@@ -80,6 +95,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_TypeU
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_Upgrade;
 
 // ----------------------------------------------------------------------------
+// GTLRSystemsManagement_ExecResourceExec.interpreter
+
+/**
+ *  Defaults to NONE.
+ *
+ *  Value: "INTERPRETER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecResourceExec_Interpreter_InterpreterUnspecified;
+/**
+ *  If no interpreter is specified the source will be executed directly, which
+ *  will likely only succeed for executables and scripts with shebang lines.
+ *  [Wikipedia shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)).
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecResourceExec_Interpreter_None;
+/**
+ *  Indicates that the script will be run with powershell.
+ *
+ *  Value: "POWERSHELL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecResourceExec_Interpreter_Powershell;
+/**
+ *  Indicates that the script will be run with /bin/sh on Linux and cmd.exe on
+ *  windows.
+ *
+ *  Value: "SHELL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecResourceExec_Interpreter_Shell;
+
+// ----------------------------------------------------------------------------
 // GTLRSystemsManagement_ExecStepConfig.interpreter
 
 /**
@@ -91,19 +137,117 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_AptSettings_Type_Upgra
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_InterpreterUnspecified;
 /**
- *  Indicates that the file is run with PowerShell flags
- *  `-NonInteractive`, `-NoProfile`, and `-ExecutionPolicy Bypass`.
+ *  Indicates that the file is run with PowerShell flags `-NonInteractive`,
+ *  `-NoProfile`, and `-ExecutionPolicy Bypass`.
  *
  *  Value: "POWERSHELL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_Powershell;
 /**
- *  Indicates that the script is run with `/bin/sh` on Linux and `cmd`
- *  on Windows.
+ *  Indicates that the script is run with `/bin/sh` on Linux and `cmd` on
+ *  Windows.
  *
  *  Value: "SHELL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_Shell;
+
+// ----------------------------------------------------------------------------
+// GTLRSystemsManagement_ExtractArchiveResource.type
+
+/**
+ *  Unspecified is invalid.
+ *
+ *  Value: "ARCHIVE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_ArchiveTypeUnspecified;
+/**
+ *  Indicates that the archive is a tar archive with no encryption.
+ *
+ *  Value: "TAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_Tar;
+/**
+ *  Indicates that the archive is a tar archive with bzip encryption.
+ *
+ *  Value: "TAR_BZIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_TarBzip;
+/**
+ *  Indicates that the archive is a tar archive with gzip encryption.
+ *
+ *  Value: "TAR_GZIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_TarGzip;
+/**
+ *  Indicates that the archive is a tar archive with lzma encryption.
+ *
+ *  Value: "TAR_LZMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_TarLzma;
+/**
+ *  Indicates that the archive is a tar archive with xz encryption.
+ *
+ *  Value: "TAR_XZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_TarXz;
+/**
+ *  Indicates that the archive is a zip archive.
+ *
+ *  Value: "ZIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_Zip;
+
+// ----------------------------------------------------------------------------
+// GTLRSystemsManagement_FileResource.state
+
+/**
+ *  Ensure file at path is absent.
+ *
+ *  Value: "ABSENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_FileResource_State_Absent;
+/**
+ *  Ensure the contents of the file at path matches. If the file does not exist
+ *  it will be created.
+ *
+ *  Value: "CONTENTS_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_FileResource_State_ContentsMatch;
+/**
+ *  Unspecified is invalid.
+ *
+ *  Value: "DESIRED_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_FileResource_State_DesiredStateUnspecified;
+/**
+ *  Ensure file at path is present.
+ *
+ *  Value: "PRESENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_FileResource_State_Present;
+
+// ----------------------------------------------------------------------------
+// GTLRSystemsManagement_PackageResource.desiredState
+
+/**
+ *  Unspecified is invalid.
+ *
+ *  Value: "DESIRED_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PackageResource_DesiredState_DesiredStateUnspecified;
+/**
+ *  Ensure that the package is installed.
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PackageResource_DesiredState_Installed;
+/**
+ *  The agent will ensure that the package is not installed and uninstall it if
+ *  detected.
+ *
+ *  Value: "REMOVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PackageResource_DesiredState_Removed;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_PatchConfig.rebootConfig
@@ -116,9 +260,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpr
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Always;
 /**
  *  The agent decides if a reboot is necessary by checking signals such as
- *  registry keys on Windows or `/var/run/reboot-required` on APT based
- *  systems. On RPM based systems, a set of core system package install times
- *  are compared with system boot time.
+ *  registry keys on Windows or `/var/run/reboot-required` on APT based systems.
+ *  On RPM based systems, a set of core system package install times are
+ *  compared with system boot time.
  *
  *  Value: "DEFAULT"
  */
@@ -222,9 +366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetail
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchJobInstanceDetails_State_Inactive;
 /**
- *  The service could not detect the presence of the agent. Check to ensure
- *  that the agent is installed, running, and able to communicate with the
- *  service.
+ *  The service could not detect the presence of the agent. Check to ensure that
+ *  the agent is installed, running, and able to communicate with the service.
  *
  *  Value: "NO_AGENT_DETECTED"
  */
@@ -306,12 +449,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchRollout_Mode_Conc
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchRollout_Mode_ModeUnspecified;
 /**
- *  Patches are applied one zone at a time. The patch job begins in the
- *  region with the lowest number of targeted VMs. Within the region,
- *  patching begins in the zone with the lowest number of targeted VMs. If
- *  multiple regions (or zones within a region) have the same number of
- *  targeted VMs, a tie-breaker is achieved by sorting the regions or zones
- *  in alphabetical order.
+ *  Patches are applied one zone at a time. The patch job begins in the region
+ *  with the lowest number of targeted VMs. Within the region, patching begins
+ *  in the zone with the lowest number of targeted VMs. If multiple regions (or
+ *  zones within a region) have the same number of targeted VMs, a tie-breaker
+ *  is achieved by sorting the regions or zones in alphabetical order.
  *
  *  Value: "ZONE_BY_ZONE"
  */
@@ -327,19 +469,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_PatchRollout_Mode_Zone
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_FrequencyUnspecified;
 /**
- *  Indicates that the frequency should be expressed in terms of
- *  months.
+ *  Indicates that the frequency should be expressed in terms of months.
  *
  *  Value: "MONTHLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Monthly;
 /**
- *  Indicates that the frequency should be expressed in terms of
- *  weeks.
+ *  Indicates that the frequency should be expressed in terms of weeks.
  *
  *  Value: "WEEKLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRSystemsManagement_RepositoryResourceAptRepository.archiveType
+
+/**
+ *  Unspecified is invalid.
+ *
+ *  Value: "ARCHIVE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_ArchiveTypeUnspecified;
+/**
+ *  Deb indicates that the archive contains binary files.
+ *
+ *  Value: "DEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_Deb;
+/**
+ *  Deb-src indicates that the archive contains source files.
+ *
+ *  Value: "DEB_SRC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_DebSrc;
 
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_WeekDayOfMonth.dayOfWeek
@@ -448,30 +610,87 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WeeklySchedule_DayOfWe
 // ----------------------------------------------------------------------------
 // GTLRSystemsManagement_WindowsUpdateSettings.classifications
 
-/** Value: "CLASSIFICATION_UNSPECIFIED" */
+/**
+ *  Invalid. If classifications are included, they must be specified.
+ *
+ *  Value: "CLASSIFICATION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_ClassificationUnspecified;
-/** Value: "CRITICAL" */
+/**
+ *  "A widely released fix for a specific problem that addresses a critical,
+ *  non-security-related bug." [1]
+ *
+ *  Value: "CRITICAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Critical;
-/** Value: "DEFINITION" */
+/**
+ *  "A widely released and frequent software update that contains additions to a
+ *  product's definition database. Definition databases are often used to detect
+ *  objects that have specific attributes, such as malicious code, phishing
+ *  websites, or junk mail." [1]
+ *
+ *  Value: "DEFINITION"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Definition;
-/** Value: "DRIVER" */
+/**
+ *  "Software that controls the input and output of a device." [1]
+ *
+ *  Value: "DRIVER"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Driver;
-/** Value: "FEATURE_PACK" */
+/**
+ *  "New product functionality that is first distributed outside the context of
+ *  a product release and that is typically included in the next full product
+ *  release." [1]
+ *
+ *  Value: "FEATURE_PACK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_FeaturePack;
-/** Value: "SECURITY" */
+/**
+ *  "A widely released fix for a product-specific, security-related
+ *  vulnerability. Security vulnerabilities are rated by their severity. The
+ *  severity rating is indicated in the Microsoft security bulletin as critical,
+ *  important, moderate, or low." [1]
+ *
+ *  Value: "SECURITY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Security;
-/** Value: "SERVICE_PACK" */
+/**
+ *  "A tested, cumulative set of all hotfixes, security updates, critical
+ *  updates, and updates. Additionally, service packs may contain additional
+ *  fixes for problems that are found internally since the release of the
+ *  product. Service packs my also contain a limited number of
+ *  customer-requested design changes or features." [1]
+ *
+ *  Value: "SERVICE_PACK"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_ServicePack;
-/** Value: "TOOL" */
+/**
+ *  "A utility or feature that helps complete a task or set of tasks." [1]
+ *
+ *  Value: "TOOL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Tool;
-/** Value: "UPDATE" */
+/**
+ *  "A widely released fix for a specific problem. An update addresses a
+ *  noncritical, non-security-related bug." [1]
+ *
+ *  Value: "UPDATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Update;
-/** Value: "UPDATE_ROLLUP" */
+/**
+ *  "A tested, cumulative set of hotfixes, security updates, critical updates,
+ *  and updates that are packaged together for easy deployment. A rollup
+ *  generally targets a specific area, such as security, or a component of a
+ *  product, such as Internet Information Services (IIS)." [1]
+ *
+ *  Value: "UPDATE_ROLLUP"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_UpdateRollup;
 
 /**
- *  Apt patching is completed by executing `apt-get update && apt-get
- *  upgrade`. Additional options can be set to control how this is executed.
+ *  Apt patching is completed by executing `apt-get update && apt-get upgrade`.
+ *  Additional options can be set to control how this is executed.
  */
 @interface GTLRSystemsManagement_AptSettings : GTLRObject
 
@@ -489,8 +708,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exclusivePackages;
 
 /**
- *  By changing the type to DIST, the patching is performed
- *  using `apt-get dist-upgrade` instead.
+ *  By changing the type to DIST, the patching is performed using `apt-get
+ *  dist-upgrade` instead.
  *
  *  Likely values:
  *    @arg @c kGTLRSystemsManagement_AptSettings_Type_Dist Runs `apt-get
@@ -515,13 +734,76 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRSystemsManagement_Empty : GTLRObject
+@end
+
+
+/**
+ *  A resource that contains custom validation and enforcement steps.
+ */
+@interface GTLRSystemsManagement_ExecResource : GTLRObject
+
+/**
+ *  What to run to bring this resource into the desired state. Optional if
+ *  policy is in validate only mode.
+ */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_ExecResourceExec *enforce;
+
+/**
+ *  What to run to validate this resource is in the desired state. A successful
+ *  exit code indicates resource is in the desired state.
+ */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_ExecResourceExec *validate;
+
+@end
+
+
+/**
+ *  A file or script to execute.
+ */
+@interface GTLRSystemsManagement_ExecResourceExec : GTLRObject
+
+/**
+ *  Exit codes that indicate success.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *allowedSuccessCodes;
+
+/** Arguments to use. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/** A remote or local file. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_File *file;
+
+/**
+ *  The script interpreter to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSystemsManagement_ExecResourceExec_Interpreter_InterpreterUnspecified
+ *        Defaults to NONE. (Value: "INTERPRETER_UNSPECIFIED")
+ *    @arg @c kGTLRSystemsManagement_ExecResourceExec_Interpreter_None If no
+ *        interpreter is specified the source will be executed directly, which
+ *        will likely only succeed for executables and scripts with shebang
+ *        lines. [Wikipedia
+ *        shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)). (Value:
+ *        "NONE")
+ *    @arg @c kGTLRSystemsManagement_ExecResourceExec_Interpreter_Powershell
+ *        Indicates that the script will be run with powershell. (Value:
+ *        "POWERSHELL")
+ *    @arg @c kGTLRSystemsManagement_ExecResourceExec_Interpreter_Shell
+ *        Indicates that the script will be run with /bin/sh on Linux and
+ *        cmd.exe on windows. (Value: "SHELL")
+ */
+@property(nonatomic, copy, nullable) NSString *interpreter;
+
+/** An inline script. */
+@property(nonatomic, copy, nullable) NSString *script;
+
 @end
 
 
@@ -545,8 +827,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @interface GTLRSystemsManagement_ExecStepConfig : GTLRObject
 
 /**
- *  Defaults to [0]. A list of possible return values that the
- *  execution can return to indicate a success.
+ *  Defaults to [0]. A list of possible return values that the execution can
+ *  return to indicate a success.
  *
  *  Uses NSNumber of intValue.
  */
@@ -557,8 +839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  The script interpreter to use to run the script. If no interpreter is
- *  specified the script will be executed directly, which will likely
- *  only succeed for scripts with [shebang lines]
+ *  specified the script will be executed directly, which will likely only
+ *  succeed for scripts with [shebang lines]
  *  (https://en.wikipedia.org/wiki/Shebang_\\(Unix\\)).
  *
  *  Likely values:
@@ -571,8 +853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *        `-NonInteractive`, `-NoProfile`, and `-ExecutionPolicy Bypass`.
  *        (Value: "POWERSHELL")
  *    @arg @c kGTLRSystemsManagement_ExecStepConfig_Interpreter_Shell Indicates
- *        that the script is run with `/bin/sh` on Linux and `cmd`
- *        on Windows. (Value: "SHELL")
+ *        that the script is run with `/bin/sh` on Linux and `cmd` on Windows.
+ *        (Value: "SHELL")
  */
 @property(nonatomic, copy, nullable) NSString *interpreter;
 
@@ -583,14 +865,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  A request message to initiate patching across Compute Engine
- *  instances.
+ *  A request message to initiate patching across Compute Engine instances.
  */
 @interface GTLRSystemsManagement_ExecutePatchJobRequest : GTLRObject
 
 /**
- *  Description of the patch job. Length of the description is limited
- *  to 1024 characters.
+ *  Description of the patch job. Length of the description is limited to 1024
+ *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -600,34 +881,196 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  If this patch is a dry-run only, instances are contacted but
- *  will do nothing.
+ *  If this patch is a dry-run only, instances are contacted but will do
+ *  nothing.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dryRun;
 
 /**
- *  Duration of the patch job. After the duration ends, the patch job
- *  times out.
+ *  Duration of the patch job. After the duration ends, the patch job times out.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
  *  Required. Instances to patch, either explicitly or filtered by some criteria
- *  such
- *  as zone or labels.
+ *  such as zone or labels.
  */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchInstanceFilter *instanceFilter;
 
 /**
- *  Patch configuration being applied. If omitted, instances are
- *  patched using the default configurations.
+ *  Patch configuration being applied. If omitted, instances are patched using
+ *  the default configurations.
  */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchConfig *patchConfig;
 
 /** Rollout strategy of the patch job. */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchRollout *rollout;
+
+@end
+
+
+/**
+ *  A resource that extracts an archive
+ */
+@interface GTLRSystemsManagement_ExtractArchiveResource : GTLRObject
+
+/**
+ *  Local file path that signals this resource is in the desired state. The
+ *  absence of this file will indicate whether the archive needs to be
+ *  extracted.
+ */
+@property(nonatomic, copy, nullable) NSString *creates;
+
+/** Directory to extract archive to. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  Whether to overwrite existing files during extraction. If this is set to
+ *  true, any existing files in the destination location will be overwritten by
+ *  the extraction.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *overwrite;
+
+/** The source archive to extract. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_File *source;
+
+/**
+ *  The type of the archive to extract.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSystemsManagement_ExtractArchiveResource_Type_ArchiveTypeUnspecified
+ *        Unspecified is invalid. (Value: "ARCHIVE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSystemsManagement_ExtractArchiveResource_Type_Tar Indicates
+ *        that the archive is a tar archive with no encryption. (Value: "TAR")
+ *    @arg @c kGTLRSystemsManagement_ExtractArchiveResource_Type_TarBzip
+ *        Indicates that the archive is a tar archive with bzip encryption.
+ *        (Value: "TAR_BZIP")
+ *    @arg @c kGTLRSystemsManagement_ExtractArchiveResource_Type_TarGzip
+ *        Indicates that the archive is a tar archive with gzip encryption.
+ *        (Value: "TAR_GZIP")
+ *    @arg @c kGTLRSystemsManagement_ExtractArchiveResource_Type_TarLzma
+ *        Indicates that the archive is a tar archive with lzma encryption.
+ *        (Value: "TAR_LZMA")
+ *    @arg @c kGTLRSystemsManagement_ExtractArchiveResource_Type_TarXz Indicates
+ *        that the archive is a tar archive with xz encryption. (Value:
+ *        "TAR_XZ")
+ *    @arg @c kGTLRSystemsManagement_ExtractArchiveResource_Type_Zip Indicates
+ *        that the archive is a zip archive. (Value: "ZIP")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A remote or local file.
+ */
+@interface GTLRSystemsManagement_File : GTLRObject
+
+/**
+ *  Defaults to false. When false, files will be subject to validations based on
+ *  the file type: Remote: A checksum must be specified. GCS: An object
+ *  generation number must be specified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowInsecure;
+
+/** A GCS object. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_FileGcs *gcs;
+
+/** A local path to use. */
+@property(nonatomic, copy, nullable) NSString *localPath;
+
+/** A generic remote file. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_FileRemote *remote;
+
+@end
+
+
+/**
+ *  Specifies a file available as a GCS Object.
+ */
+@interface GTLRSystemsManagement_FileGcs : GTLRObject
+
+/** Bucket of the GCS object. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Generation number of the GCS object.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/** Name of the GCS object. */
+@property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
+ *  Specifies a file available via some URI.
+ */
+@interface GTLRSystemsManagement_FileRemote : GTLRObject
+
+/** SHA256 checksum of the remote file. */
+@property(nonatomic, copy, nullable) NSString *sha256Checksum;
+
+/**
+ *  URI from which to fetch the object. It should contain both the protocol and
+ *  path following the format {protocol}://{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A resource that manages the state of a file.
+ */
+@interface GTLRSystemsManagement_FileResource : GTLRObject
+
+/** A a file with this content. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** A remote or local source. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_File *file;
+
+/** The absolute path of the file. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Consists of three octal digits which represent, in order, the permissions of
+ *  the owner, group, and other users for the file (similarly to the numeric
+ *  mode used in the linux chmod utility). Each digit represents a three bit
+ *  number with the 4 bit corresponding to the read permissions, the 2 bit
+ *  corresponds to the write bit, and the one bit corresponds to the execute
+ *  permission. Default behavior is 755. Below are some examples of permissions
+ *  and their associated values: read, write, and execute: 7 read and execute: 5
+ *  read and write: 6 read only: 4
+ */
+@property(nonatomic, copy, nullable) NSString *permissions;
+
+/**
+ *  Desired state of the file.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSystemsManagement_FileResource_State_Absent Ensure file at
+ *        path is absent. (Value: "ABSENT")
+ *    @arg @c kGTLRSystemsManagement_FileResource_State_ContentsMatch Ensure the
+ *        contents of the file at path matches. If the file does not exist it
+ *        will be created. (Value: "CONTENTS_MATCH")
+ *    @arg @c kGTLRSystemsManagement_FileResource_State_DesiredStateUnspecified
+ *        Unspecified is invalid. (Value: "DESIRED_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSystemsManagement_FileResource_State_Present Ensure file at
+ *        path is present. (Value: "PRESENT")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -761,16 +1204,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  Represents a monthly schedule. An example of a valid monthly schedule is
- *  "on the third Tuesday of the month" or "on the 15th of the month".
+ *  Represents a monthly schedule. An example of a valid monthly schedule is "on
+ *  the third Tuesday of the month" or "on the 15th of the month".
  */
 @interface GTLRSystemsManagement_MonthlySchedule : GTLRObject
 
 /**
  *  Required. One day of the month. 1-31 indicates the 1st to the 31st day. -1
- *  indicates the last day of the month.
- *  Months without the target day will be skipped. For example, a schedule to
- *  run "every month on the 31st" will not run in February, April, June, etc.
+ *  indicates the last day of the month. Months without the target day will be
+ *  skipped. For example, a schedule to run "every month on the 31st" will not
+ *  run in February, April, June, etc.
  *
  *  Uses NSNumber of intValue.
  */
@@ -790,6 +1233,164 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /** Required. The desired patch job execution time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *executeTime;
+
+@end
+
+
+/**
+ *  A resource that manages a system package.
+ */
+@interface GTLRSystemsManagement_PackageResource : GTLRObject
+
+/** A package managed by Apt. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PackageResourceAPT *apt;
+
+/** A deb package file. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PackageResourceDeb *deb;
+
+/**
+ *  The desired_state the agent should maintain for this package. The default is
+ *  to ensure the package is installed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSystemsManagement_PackageResource_DesiredState_DesiredStateUnspecified
+ *        Unspecified is invalid. (Value: "DESIRED_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSystemsManagement_PackageResource_DesiredState_Installed
+ *        Ensure that the package is installed. (Value: "INSTALLED")
+ *    @arg @c kGTLRSystemsManagement_PackageResource_DesiredState_Removed The
+ *        agent will ensure that the package is not installed and uninstall it
+ *        if detected. (Value: "REMOVED")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredState;
+
+/** A package managed by GooGet. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PackageResourceGooGet *googet;
+
+/** An MSI package. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PackageResourceMSI *msi;
+
+/** An rpm package file. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PackageResourceRPM *rpm;
+
+/** A package managed by YUM. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PackageResourceYUM *yum;
+
+/** A package managed by Zypper. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_PackageResourceZypper *zypper;
+
+@end
+
+
+/**
+ *  A package managed by APT. install: `apt-get update && apt-get -y install
+ *  [name]` remove: `apt-get -y remove [name]`
+ */
+@interface GTLRSystemsManagement_PackageResourceAPT : GTLRObject
+
+/** Package name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A deb package file. dpkg packages only support INSTALLED state.
+ */
+@interface GTLRSystemsManagement_PackageResourceDeb : GTLRObject
+
+/**
+ *  Whether dependencies should also be installed. install when false: `dpkg -i
+ *  package` install when true: `apt-get update && apt-get -y install
+ *  package.deb`
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pullDeps;
+
+/** A deb package. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_File *source;
+
+@end
+
+
+/**
+ *  A package managed by GooGet. install: `googet -noconfirm install package`
+ *  remove: `googet -noconfirm remove package`
+ */
+@interface GTLRSystemsManagement_PackageResourceGooGet : GTLRObject
+
+/** Package name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  An MSI package. MSI packages only support INSTALLED state. Install msiexec
+ *  /i /qn /norestart
+ */
+@interface GTLRSystemsManagement_PackageResourceMSI : GTLRObject
+
+/**
+ *  Return codes that indicate that the software installed or updated
+ *  successfully. Behaviour defaults to [0]
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *allowedSuccessCodes;
+
+/**
+ *  Flags to use during package install. Appended to the defalts of "/i /qn
+ *  /norestart"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *flags;
+
+/** The MSI package. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_File *source;
+
+@end
+
+
+/**
+ *  An RPM package file. RPM packages only support INSTALLED state.
+ */
+@interface GTLRSystemsManagement_PackageResourceRPM : GTLRObject
+
+/**
+ *  Whether dependencies should also be installed. install when false: `rpm
+ *  --upgrade --replacepkgs package.rpm` install when true: `yum -y install
+ *  package.rpm` or `zypper -y install package.rpm`
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pullDeps;
+
+/** An rpm package. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_File *source;
+
+@end
+
+
+/**
+ *  A package managed by YUM. install: `yum -y install package` remove: `yum -y
+ *  remove package`
+ */
+@interface GTLRSystemsManagement_PackageResourceYUM : GTLRObject
+
+/** Package name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A package managed by Zypper. install: `zypper -y install package` remove:
+ *  `zypper -y rm package`
+ */
+@interface GTLRSystemsManagement_PackageResourceZypper : GTLRObject
+
+/** Package name. */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -825,11 +1426,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *    @arg @c kGTLRSystemsManagement_PatchConfig_RebootConfig_Always Always
  *        reboot the machine after the update completes. (Value: "ALWAYS")
  *    @arg @c kGTLRSystemsManagement_PatchConfig_RebootConfig_Default The agent
- *        decides if a reboot is necessary by checking signals such as
- *        registry keys on Windows or `/var/run/reboot-required` on APT based
- *        systems. On RPM based systems, a set of core system package install
- *        times
- *        are compared with system boot time. (Value: "DEFAULT")
+ *        decides if a reboot is necessary by checking signals such as registry
+ *        keys on Windows or `/var/run/reboot-required` on APT based systems. On
+ *        RPM based systems, a set of core system package install times are
+ *        compared with system boot time. (Value: "DEFAULT")
  *    @arg @c kGTLRSystemsManagement_PatchConfig_RebootConfig_Never Never reboot
  *        the machine after the update completes. (Value: "NEVER")
  *    @arg @c kGTLRSystemsManagement_PatchConfig_RebootConfig_RebootConfigUnspecified
@@ -874,8 +1474,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Optional. Description of the patch deployment. Length of the description is
- *  limited
- *  to 1024 characters.
+ *  limited to 1024 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -892,16 +1491,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Output only. The last time a patch job was started by this deployment.
- *  Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text
- *  format.
+ *  Timestamp is in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastExecuteTime;
 
 /**
  *  Unique name for the patch deployment resource in a project. The patch
  *  deployment name is in the form:
- *  `projects/{project_id}/patchDeployments/{patch_deployment_id}`.
- *  This field is ignored when you create a new patch deployment.
+ *  `projects/{project_id}/patchDeployments/{patch_deployment_id}`. This field
+ *  is ignored when you create a new patch deployment.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -927,10 +1525,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  A filter to target VM instances for patching. The targeted
- *  VMs must meet all criteria specified. So if both labels and zones are
- *  specified, the patch job targets only VMs with those labels and in those
- *  zones.
+ *  A filter to target VM instances for patching. The targeted VMs must meet all
+ *  criteria specified. So if both labels and zones are specified, the patch job
+ *  targets only VMs with those labels and in those zones.
  */
 @interface GTLRSystemsManagement_PatchInstanceFilter : GTLRObject
 
@@ -949,9 +1546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) NSArray<GTLRSystemsManagement_PatchInstanceFilterGroupLabel *> *groupLabels;
 
 /**
- *  Targets VMs whose name starts with one of these prefixes. Similar to
- *  labels, this is another way to group VMs when targeting configs, for
- *  example prefix="prod-".
+ *  Targets VMs whose name starts with one of these prefixes. Similar to labels,
+ *  this is another way to group VMs when targeting configs, for example
+ *  prefix="prod-".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instanceNamePrefixes;
 
@@ -975,17 +1572,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 /**
  *  Targets a group of VM instances by using their [assigned
  *  labels](https://cloud.google.com/compute/docs/labeling-resources). Labels
- *  are key-value pairs. A `GroupLabel` is a combination of labels
- *  that is used to target VMs for a patch job.
- *  For example, a patch job can target VMs that have the following
- *  `GroupLabel`: `{"env":"test", "app":"web"}`. This means that the patch job
- *  is applied to VMs that have both the labels `env=test` and `app=web`.
+ *  are key-value pairs. A `GroupLabel` is a combination of labels that is used
+ *  to target VMs for a patch job. For example, a patch job can target VMs that
+ *  have the following `GroupLabel`: `{"env":"test", "app":"web"}`. This means
+ *  that the patch job is applied to VMs that have both the labels `env=test`
+ *  and `app=web`.
  */
 @interface GTLRSystemsManagement_PatchInstanceFilterGroupLabel : GTLRObject
 
 /**
- *  Compute Engine instance labels that must be present for a VM
- *  instance to be targeted by this filter.
+ *  Compute Engine instance labels that must be present for a VM instance to be
+ *  targeted by this filter.
  */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchInstanceFilterGroupLabel_Labels *labels;
 
@@ -993,8 +1590,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  Compute Engine instance labels that must be present for a VM
- *  instance to be targeted by this filter.
+ *  Compute Engine instance labels that must be present for a VM instance to be
+ *  targeted by this filter.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1006,12 +1603,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  A high level representation of a patch job that is either in progress
- *  or has completed.
- *  Instance details are not included in the job. To paginate through instance
- *  details, use ListPatchJobInstanceDetails.
- *  For more information about patch jobs, see
- *  [Creating patch
+ *  A high level representation of a patch job that is either in progress or has
+ *  completed. Instance details are not included in the job. To paginate through
+ *  instance details, use ListPatchJobInstanceDetails. For more information
+ *  about patch jobs, see [Creating patch
  *  jobs](https://cloud.google.com/compute/docs/os-patch-management/create-patch-job).
  */
 @interface GTLRSystemsManagement_PatchJob : GTLRObject
@@ -1020,8 +1615,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Description of the patch job. Length of the description is limited
- *  to 1024 characters.
+ *  Description of the patch job. Length of the description is limited to 1024
+ *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1031,16 +1626,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  If this patch job is a dry run, the agent reports that it has
- *  finished without running any updates on the VM instance.
+ *  If this patch job is a dry run, the agent reports that it has finished
+ *  without running any updates on the VM instance.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dryRun;
 
 /**
- *  Duration of the patch job. After the duration ends, the
- *  patch job times out.
+ *  Duration of the patch job. After the duration ends, the patch job times out.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -1057,8 +1651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_PatchInstanceFilter *instanceFilter;
 
 /**
- *  Unique identifier for this patch job in the form
- *  `projects/ * /patchJobs/ *`
+ *  Unique identifier for this patch job in the form `projects/ * /patchJobs/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1069,8 +1662,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, copy, nullable) NSString *patchDeployment;
 
 /**
- *  Reflects the overall progress of the patch job in the range of
- *  0.0 being no progress to 100.0 being complete.
+ *  Reflects the overall progress of the patch job in the range of 0.0 being no
+ *  progress to 100.0 being complete.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1111,8 +1704,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Patch details for a VM instance. For more information about reviewing VM
- *  instance details, see
- *  [Listing all VM instance details for a specific patch
+ *  instance details, see [Listing all VM instance details for a specific patch
  *  job](https://cloud.google.com/compute/docs/os-patch-management/manage-patch-jobs#list-instance-details).
  */
 @interface GTLRSystemsManagement_PatchJobInstanceDetails : GTLRObject
@@ -1128,8 +1720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, copy, nullable) NSString *failureReason;
 
 /**
- *  The unique identifier for the instance. This identifier is
- *  defined by the server.
+ *  The unique identifier for the instance. This identifier is defined by the
+ *  server.
  */
 @property(nonatomic, copy, nullable) NSString *instanceSystemId;
 
@@ -1153,9 +1745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *        Instance is inactive and cannot be patched. (Value: "INACTIVE")
  *    @arg @c kGTLRSystemsManagement_PatchJobInstanceDetails_State_NoAgentDetected
  *        The service could not detect the presence of the agent. Check to
- *        ensure
- *        that the agent is installed, running, and able to communicate with the
- *        service. (Value: "NO_AGENT_DETECTED")
+ *        ensure that the agent is installed, running, and able to communicate
+ *        with the service. (Value: "NO_AGENT_DETECTED")
  *    @arg @c kGTLRSystemsManagement_PatchJobInstanceDetails_State_Notified The
  *        instance is notified that it should be patched. (Value: "NOTIFIED")
  *    @arg @c kGTLRSystemsManagement_PatchJobInstanceDetails_State_PatchStateUnspecified
@@ -1313,23 +1904,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 /**
  *  The maximum number (or percentage) of VMs per zone to disrupt at any given
  *  moment. The number of VMs calculated from multiplying the percentage by the
- *  total number of VMs in a zone is rounded up.
- *  During patching, a VM is considered disrupted from the time the agent is
- *  notified to begin until patching has completed. This disruption time
- *  includes the time to complete reboot and any post-patch steps.
- *  A VM contributes to the disruption budget if its patching operation fails
- *  either when applying the patches, running pre or post patch steps, or if it
- *  fails to respond with a success notification before timing out. VMs that
- *  are not running or do not have an active agent do not count toward this
- *  disruption budget.
- *  For zone-by-zone rollouts, if the disruption budget in a zone is exceeded,
- *  the patch job stops, because continuing to the next zone requires
- *  completion of the patch process in the previous zone.
- *  For example, if the disruption budget has a fixed value of `10`, and 8 VMs
- *  fail to patch in the current zone, the patch job continues to patch 2 VMs
- *  at a time until the zone is completed. When that zone is completed
- *  successfully, patching begins with 10 VMs at a time in the next zone. If 10
- *  VMs in the next zone fail to patch, the patch job stops.
+ *  total number of VMs in a zone is rounded up. During patching, a VM is
+ *  considered disrupted from the time the agent is notified to begin until
+ *  patching has completed. This disruption time includes the time to complete
+ *  reboot and any post-patch steps. A VM contributes to the disruption budget
+ *  if its patching operation fails either when applying the patches, running
+ *  pre or post patch steps, or if it fails to respond with a success
+ *  notification before timing out. VMs that are not running or do not have an
+ *  active agent do not count toward this disruption budget. For zone-by-zone
+ *  rollouts, if the disruption budget in a zone is exceeded, the patch job
+ *  stops, because continuing to the next zone requires completion of the patch
+ *  process in the previous zone. For example, if the disruption budget has a
+ *  fixed value of `10`, and 8 VMs fail to patch in the current zone, the patch
+ *  job continues to patch 2 VMs at a time until the zone is completed. When
+ *  that zone is completed successfully, patching begins with 10 VMs at a time
+ *  in the next zone. If 10 VMs in the next zone fail to patch, the patch job
+ *  stops.
  */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_FixedOrPercent *disruptionBudget;
 
@@ -1343,13 +1933,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *    @arg @c kGTLRSystemsManagement_PatchRollout_Mode_ModeUnspecified Mode must
  *        be specified. (Value: "MODE_UNSPECIFIED")
  *    @arg @c kGTLRSystemsManagement_PatchRollout_Mode_ZoneByZone Patches are
- *        applied one zone at a time. The patch job begins in the
- *        region with the lowest number of targeted VMs. Within the region,
- *        patching begins in the zone with the lowest number of targeted VMs. If
- *        multiple regions (or zones within a region) have the same number of
- *        targeted VMs, a tie-breaker is achieved by sorting the regions or
- *        zones
- *        in alphabetical order. (Value: "ZONE_BY_ZONE")
+ *        applied one zone at a time. The patch job begins in the region with
+ *        the lowest number of targeted VMs. Within the region, patching begins
+ *        in the zone with the lowest number of targeted VMs. If multiple
+ *        regions (or zones within a region) have the same number of targeted
+ *        VMs, a tie-breaker is achieved by sorting the regions or zones in
+ *        alphabetical order. (Value: "ZONE_BY_ZONE")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
@@ -1363,8 +1952,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Optional. The end time at which a recurring patch deployment schedule is no
- *  longer
- *  active.
+ *  longer active.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -1376,11 +1964,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
  *        Invalid. A frequency must be specified. (Value:
  *        "FREQUENCY_UNSPECIFIED")
  *    @arg @c kGTLRSystemsManagement_RecurringSchedule_Frequency_Monthly
- *        Indicates that the frequency should be expressed in terms of
- *        months. (Value: "MONTHLY")
+ *        Indicates that the frequency should be expressed in terms of months.
+ *        (Value: "MONTHLY")
  *    @arg @c kGTLRSystemsManagement_RecurringSchedule_Frequency_Weekly
- *        Indicates that the frequency should be expressed in terms of
- *        weeks. (Value: "WEEKLY")
+ *        Indicates that the frequency should be expressed in terms of weeks.
+ *        (Value: "WEEKLY")
  */
 @property(nonatomic, copy, nullable) NSString *frequency;
 
@@ -1394,8 +1982,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) GTLRDateTime *nextExecuteTime;
 
 /**
- *  Optional. The time that the recurring schedule becomes effective.
- *  Defaults to `create_time` of the patch deployment.
+ *  Optional. The time that the recurring schedule becomes effective. Defaults
+ *  to `create_time` of the patch deployment.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -1403,14 +1991,150 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_TimeOfDay *timeOfDay;
 
 /**
- *  Required. Defines the time zone that `time_of_day` is relative to.
- *  The rules for daylight saving time are determined by the chosen time zone.
+ *  Required. Defines the time zone that `time_of_day` is relative to. The rules
+ *  for daylight saving time are determined by the chosen time zone.
  */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_TimeZone *timeZone;
 
 /** Required. Schedule with weekly executions. */
 @property(nonatomic, strong, nullable) GTLRSystemsManagement_WeeklySchedule *weekly;
 
+@end
+
+
+/**
+ *  A resource that manages a package repository.
+ */
+@interface GTLRSystemsManagement_RepositoryResource : GTLRObject
+
+/** An Apt Repository. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_RepositoryResourceAptRepository *apt;
+
+/** A Goo Repository. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_RepositoryResourceGooRepository *goo;
+
+/** A Yum Repository. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_RepositoryResourceYumRepository *yum;
+
+/** A Zypper Repository. */
+@property(nonatomic, strong, nullable) GTLRSystemsManagement_RepositoryResourceZypperRepository *zypper;
+
+@end
+
+
+/**
+ *  Represents a single apt package repository. These will be added to a repo
+ *  file that will be managed at /etc/apt/sources.list.d/google_osconfig.list.
+ */
+@interface GTLRSystemsManagement_RepositoryResourceAptRepository : GTLRObject
+
+/**
+ *  Type of archive files in this repository. The default behavior is DEB.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_ArchiveTypeUnspecified
+ *        Unspecified is invalid. (Value: "ARCHIVE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_Deb
+ *        Deb indicates that the archive contains binary files. (Value: "DEB")
+ *    @arg @c kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_DebSrc
+ *        Deb-src indicates that the archive contains source files. (Value:
+ *        "DEB_SRC")
+ */
+@property(nonatomic, copy, nullable) NSString *archiveType;
+
+/** List of components for this repository. Must contain at least one item. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *components;
+
+/** Distribution of this repository. */
+@property(nonatomic, copy, nullable) NSString *distribution;
+
+/**
+ *  URI of the key file for this repository. The agent will maintain a keyring
+ *  at /etc/apt/trusted.gpg.d/osconfig_agent_managed.gpg.
+ */
+@property(nonatomic, copy, nullable) NSString *gpgKey;
+
+/** URI for this repository. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents a Goo package repository. These will be added to a repo file that
+ *  will be managed at C:/ProgramData/GooGet/repos/google_osconfig.repo.
+ */
+@interface GTLRSystemsManagement_RepositoryResourceGooRepository : GTLRObject
+
+/** The name of the repository. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The url of the repository. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  Represents a single yum package repository. These will be added to a repo
+ *  file that will be managed at /etc/yum.repos.d/google_osconfig.repo.
+ */
+@interface GTLRSystemsManagement_RepositoryResourceYumRepository : GTLRObject
+
+/** The location of the repository directory. */
+@property(nonatomic, copy, nullable) NSString *baseUrl;
+
+/** The display name of the repository. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** URIs of GPG keys. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gpgKeys;
+
+/**
+ *  A one word, unique name for this repository. This will be the `repo id` in
+ *  the yum config file and also the `display_name` if `display_name` is
+ *  omitted. This id is also used as the unique identifier when checking for
+ *  resource conflicts.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  Represents a single zypper package repository. These will be added to a repo
+ *  file that will be managed at /etc/zypp/repos.d/google_osconfig.repo.
+ */
+@interface GTLRSystemsManagement_RepositoryResourceZypperRepository : GTLRObject
+
+/** The location of the repository directory. */
+@property(nonatomic, copy, nullable) NSString *baseUrl;
+
+/** The display name of the repository. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** URIs of GPG keys. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gpgKeys;
+
+/**
+ *  A one word, unique name for this repository. This will be the `repo id` in
+ *  the zypper config file and also the `display_name` if `display_name` is
+ *  omitted. This id is also used as the unique identifier when checking for
+ *  GuestPolicy conflicts.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  A resource that manages a system service.
+ */
+@interface GTLRSystemsManagement_ServiceResource : GTLRObject
 @end
 
 
@@ -1422,8 +2146,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @interface GTLRSystemsManagement_TimeOfDay : GTLRObject
 
 /**
- *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose
- *  to allow the value "24:00:00" for scenarios like business closing time.
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
+ *  allow the value "24:00:00" for scenarios like business closing time.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1455,8 +2179,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  Represents a time zone from the
- *  [IANA Time Zone Database](https://www.iana.org/time-zones).
+ *  Represents a time zone from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones).
  */
 @interface GTLRSystemsManagement_TimeZone : GTLRObject
 
@@ -1503,8 +2227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 /**
  *  Required. Week number in a month. 1-4 indicates the 1st to 4th week of the
- *  month. -1
- *  indicates the last week of the month.
+ *  month. -1 indicates the last week of the month.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1559,9 +2282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludes;
 
 /**
- *  An exclusive list of kbs to be updated. These are the only patches
- *  that will be updated. This field must not be used with other
- *  patch configurations.
+ *  An exclusive list of kbs to be updated. These are the only patches that will
+ *  be updated. This field must not be used with other patch configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exclusivePatches;
 
@@ -1569,9 +2291,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  Yum patching is performed by executing `yum update`. Additional options
- *  can be set to control how this is executed.
- *  Note that not all settings are supported on all platforms.
+ *  Yum patching is performed by executing `yum update`. Additional options can
+ *  be set to control how this is executed. Note that not all settings are
+ *  supported on all platforms.
  */
 @interface GTLRSystemsManagement_YumSettings : GTLRObject
 
@@ -1584,8 +2306,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 /**
  *  An exclusive list of packages to be updated. These are the only packages
  *  that will be updated. If these packages are not installed, they will be
- *  ignored. This field must not be specified with any other patch
- *  configuration fields.
+ *  ignored. This field must not be specified with any other patch configuration
+ *  fields.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exclusivePackages;
 
@@ -1597,8 +2319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) NSNumber *minimal;
 
 /**
- *  Adds the `--security` flag to `yum update`. Not supported on
- *  all platforms.
+ *  Adds the `--security` flag to `yum update`. Not supported on all platforms.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1608,14 +2329,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 
 
 /**
- *  Zypper patching is performed by running `zypper patch`.
- *  See also https://en.opensuse.org/SDB:Zypper_manual.
+ *  Zypper patching is performed by running `zypper patch`. See also
+ *  https://en.opensuse.org/SDB:Zypper_manual.
  */
 @interface GTLRSystemsManagement_ZypperSettings : GTLRObject
 
 /**
- *  Install only patches with these categories.
- *  Common categories include security, recommended, and feature.
+ *  Install only patches with these categories. Common categories include
+ *  security, recommended, and feature.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
 
@@ -1623,15 +2344,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludes;
 
 /**
- *  An exclusive list of patches to be updated. These are the only patches
- *  that will be installed using 'zypper patch patch:<patch_name>' command.
- *  This field must not be used with any other patch configuration fields.
+ *  An exclusive list of patches to be updated. These are the only patches that
+ *  will be installed using 'zypper patch patch:' command. This field must not
+ *  be used with any other patch configuration fields.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exclusivePatches;
 
 /**
- *  Install only patches with these severities.
- *  Common severities include critical, important, moderate, and low.
+ *  Install only patches with these severities. Common severities include
+ *  critical, important, moderate, and low.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *severities;
 

@@ -74,9 +74,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Fixed;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Movable;
 /**
- *  OTHER is used to specify non-standard aliases, those not of the kinds
- *  above. For example, if a Git repo has a ref named "refs/foo/bar", it
- *  is considered to be of kind OTHER.
+ *  OTHER is used to specify non-standard aliases, those not of the kinds above.
+ *  For example, if a Git repo has a ref named "refs/foo/bar", it is considered
+ *  to be of kind OTHER.
  *
  *  Value: "OTHER"
  */
@@ -86,16 +86,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_AliasContext_Kind_Other;
 // GTLRCloudDebugger_Breakpoint.action
 
 /**
- *  Capture stack frame and variables and update the breakpoint.
- *  The data is only captured once. After that the breakpoint is set
- *  in a final state.
+ *  Capture stack frame and variables and update the breakpoint. The data is
+ *  only captured once. After that the breakpoint is set in a final state.
  *
  *  Value: "CAPTURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Breakpoint_Action_Capture;
 /**
- *  Log each breakpoint hit. The breakpoint remains active until
- *  deleted or expired.
+ *  Log each breakpoint hit. The breakpoint remains active until deleted or
+ *  expired.
  *
  *  Value: "LOG"
  */
@@ -175,23 +174,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_Canary
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysEnabled;
 /**
- *  Depends on the breakpoint's canary option. Disable canary by default if
- *  the breakpoint's canary option is not specified.
+ *  Depends on the breakpoint's canary option. Disable canary by default if the
+ *  breakpoint's canary option is not specified.
  *
  *  Value: "CANARY_MODE_DEFAULT_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultDisabled;
 /**
- *  Depends on the breakpoint's canary option. Enable canary by default if
- *  the breakpoint's canary option is not specified.
+ *  Depends on the breakpoint's canary option. Enable canary by default if the
+ *  breakpoint's canary option is not specified.
  *
  *  Value: "CANARY_MODE_DEFAULT_ENABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultEnabled;
 /**
- *  CANARY_MODE_UNSPECIFIED is equivalent to CANARY_MODE_ALWAYS_DISABLED so
- *  that if the debuggee is not configured to use the canary feature, the
- *  feature will be disabled.
+ *  CANARY_MODE_UNSPECIFIED is equivalent to CANARY_MODE_ALWAYS_DISABLED so that
+ *  if the debuggee is not configured to use the canary feature, the feature
+ *  will be disabled.
  *
  *  Value: "CANARY_MODE_UNSPECIFIED"
  */
@@ -266,9 +265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
  *    @arg @c kGTLRCloudDebugger_AliasContext_Kind_Movable Git branch (Value:
  *        "MOVABLE")
  *    @arg @c kGTLRCloudDebugger_AliasContext_Kind_Other OTHER is used to
- *        specify non-standard aliases, those not of the kinds
- *        above. For example, if a Git repo has a ref named "refs/foo/bar", it
- *        is considered to be of kind OTHER. (Value: "OTHER")
+ *        specify non-standard aliases, those not of the kinds above. For
+ *        example, if a Git repo has a ref named "refs/foo/bar", it is
+ *        considered to be of kind OTHER. (Value: "OTHER")
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -280,36 +279,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 /**
  *  ------------------------------------------------------------------------------
- *  ## Breakpoint (the resource)
- *  Represents the breakpoint specification, status and results.
+ *  ## Breakpoint (the resource) Represents the breakpoint specification, status
+ *  and results.
  */
 @interface GTLRCloudDebugger_Breakpoint : GTLRObject
 
 /**
- *  Action that the agent should perform when the code at the
- *  breakpoint location is hit.
+ *  Action that the agent should perform when the code at the breakpoint
+ *  location is hit.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDebugger_Breakpoint_Action_Capture Capture stack frame
- *        and variables and update the breakpoint.
- *        The data is only captured once. After that the breakpoint is set
- *        in a final state. (Value: "CAPTURE")
+ *        and variables and update the breakpoint. The data is only captured
+ *        once. After that the breakpoint is set in a final state. (Value:
+ *        "CAPTURE")
  *    @arg @c kGTLRCloudDebugger_Breakpoint_Action_Log Log each breakpoint hit.
- *        The breakpoint remains active until
- *        deleted or expired. (Value: "LOG")
+ *        The breakpoint remains active until deleted or expired. (Value: "LOG")
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  The deadline for the breakpoint to stay in CANARY_ACTIVE state. The value
- *  is meaningless when the breakpoint is not in CANARY_ACTIVE state.
+ *  The deadline for the breakpoint to stay in CANARY_ACTIVE state. The value is
+ *  meaningless when the breakpoint is not in CANARY_ACTIVE state.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *canaryExpireTime;
 
 /**
- *  Condition that triggers the breakpoint.
- *  The condition is a compound boolean expression composed using expressions
- *  in a programming language at the source location.
+ *  Condition that triggers the breakpoint. The condition is a compound boolean
+ *  expression composed using expressions in a programming language at the
+ *  source location.
  */
 @property(nonatomic, copy, nullable) NSString *condition;
 
@@ -317,20 +315,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Values of evaluated expressions at breakpoint time.
- *  The evaluated expressions appear in exactly the same order they
- *  are listed in the `expressions` field.
- *  The `name` field holds the original expression text, the `value` or
- *  `members` field holds the result of the evaluated expression.
+ *  Values of evaluated expressions at breakpoint time. The evaluated
+ *  expressions appear in exactly the same order they are listed in the
+ *  `expressions` field. The `name` field holds the original expression text,
+ *  the `value` or `members` field holds the result of the evaluated expression.
  *  If the expression cannot be evaluated, the `status` inside the `Variable`
  *  will indicate an error and contain the error text.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *evaluatedExpressions;
 
 /**
- *  List of read-only expressions to evaluate at the breakpoint location.
- *  The expressions are composed using expressions in the programming language
- *  at the source location. If the breakpoint action is `LOG`, the evaluated
+ *  List of read-only expressions to evaluate at the breakpoint location. The
+ *  expressions are composed using expressions in the programming language at
+ *  the source location. If the breakpoint action is `LOG`, the evaluated
  *  expressions are included in log statements.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *expressions;
@@ -349,8 +346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  When true, indicates that this is a final result and the
- *  breakpoint state will not change from here on.
+ *  When true, indicates that this is a final result and the breakpoint state
+ *  will not change from here on.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -379,12 +376,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, copy, nullable) NSString *logLevel;
 
 /**
- *  Only relevant when action is `LOG`. Defines the message to log when
- *  the breakpoint hits. The message may include parameter placeholders `$0`,
- *  `$1`, etc. These placeholders are replaced with the evaluated value
- *  of the appropriate expression. Expressions not referenced in
- *  `log_message_format` are not logged.
- *  Example: `Message received, id = $0, count = $1` with
+ *  Only relevant when action is `LOG`. Defines the message to log when the
+ *  breakpoint hits. The message may include parameter placeholders `$0`, `$1`,
+ *  etc. These placeholders are replaced with the evaluated value of the
+ *  appropriate expression. Expressions not referenced in `log_message_format`
+ *  are not logged. Example: `Message received, id = $0, count = $1` with
  *  `expressions` = `[ message.id, message.count ]`.
  */
 @property(nonatomic, copy, nullable) NSString *logMessageFormat;
@@ -415,16 +411,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Breakpoint status.
- *  The status includes an error flag and a human readable message.
- *  This field is usually unset. The message can be either
- *  informational or an error message. Regardless, clients should always
- *  display the text message back to the user.
- *  Error status indicates complete failure of the breakpoint.
- *  Example (non-final state): `Still loading symbols...`
- *  Examples (final state):
- *  * `Invalid line number` referring to location
- *  * `Field f not found in class C` referring to condition
+ *  Breakpoint status. The status includes an error flag and a human readable
+ *  message. This field is usually unset. The message can be either
+ *  informational or an error message. Regardless, clients should always display
+ *  the text message back to the user. Error status indicates complete failure
+ *  of the breakpoint. Example (non-final state): `Still loading symbols...`
+ *  Examples (final state): * `Invalid line number` referring to location *
+ *  `Field f not found in class C` referring to condition
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_StatusMessage *status;
 
@@ -433,16 +426,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 /**
  *  The `variable_table` exists to aid with computation, memory and network
- *  traffic optimization. It enables storing a variable once and reference
- *  it from multiple variables, including variables stored in the
- *  `variable_table` itself.
- *  For example, the same `this` object, which may appear at many levels of
- *  the stack, can have all of its data stored once in this table. The
- *  stack frame variables then would hold only a reference to it.
- *  The variable `var_table_index` field is an index into this repeated field.
- *  The stored objects are nameless and get their name from the referencing
- *  variable. The effective variable is a merge of the referencing variable
- *  and the referenced variable.
+ *  traffic optimization. It enables storing a variable once and reference it
+ *  from multiple variables, including variables stored in the `variable_table`
+ *  itself. For example, the same `this` object, which may appear at many levels
+ *  of the stack, can have all of its data stored once in this table. The stack
+ *  frame variables then would hold only a reference to it. The variable
+ *  `var_table_index` field is an index into this repeated field. The stored
+ *  objects are nameless and get their name from the referencing variable. The
+ *  effective variable is a merge of the referencing variable and the referenced
+ *  variable.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *variableTable;
 
@@ -463,8 +455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 
 /**
- *  A CloudRepoSourceContext denotes a particular revision in a cloud
- *  repo (a repo hosted by the Google Cloud Platform).
+ *  A CloudRepoSourceContext denotes a particular revision in a cloud repo (a
+ *  repo hosted by the Google Cloud Platform).
  */
 @interface GTLRCloudDebugger_CloudRepoSourceContext : GTLRObject
 
@@ -484,15 +476,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 
 /**
- *  A CloudWorkspaceId is a unique identifier for a cloud workspace.
- *  A cloud workspace is a place associated with a repo where modified files
- *  can be stored before they are committed.
+ *  A CloudWorkspaceId is a unique identifier for a cloud workspace. A cloud
+ *  workspace is a place associated with a repo where modified files can be
+ *  stored before they are committed.
  */
 @interface GTLRCloudDebugger_CloudWorkspaceId : GTLRObject
 
 /**
- *  The unique name of the workspace within the repo. This is the name
- *  chosen by the client in the Source API's CreateWorkspace method.
+ *  The unique name of the workspace within the repo. This is the name chosen by
+ *  the client in the Source API's CreateWorkspace method.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -508,8 +500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_CloudWorkspaceSourceContext : GTLRObject
 
 /**
- *  The ID of the snapshot.
- *  An empty snapshot_id refers to the most recent snapshot.
+ *  The ID of the snapshot. An empty snapshot_id refers to the most recent
+ *  snapshot.
  */
 @property(nonatomic, copy, nullable) NSString *snapshotId;
 
@@ -522,16 +514,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 /**
  *  Represents the debugged application. The application may include one or more
  *  replicated processes executing the same code. Each of these processes is
- *  attached with a debugger agent, carrying out the debugging commands.
- *  Agents attached to the same debuggee identify themselves as such by using
- *  exactly the same Debuggee message value when registering.
+ *  attached with a debugger agent, carrying out the debugging commands. Agents
+ *  attached to the same debuggee identify themselves as such by using exactly
+ *  the same Debuggee message value when registering.
  */
 @interface GTLRCloudDebugger_Debuggee : GTLRObject
 
 /**
- *  Version ID of the agent.
- *  Schema: `domain/language-platform/vmajor.minor` (for example
- *  `google.com/java-gcp/v1.1`).
+ *  Version ID of the agent. Schema: `domain/language-platform/vmajor.minor`
+ *  (for example `google.com/java-gcp/v1.1`).
  */
 @property(nonatomic, copy, nullable) NSString *agentVersion;
 
@@ -541,16 +532,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
  *  Likely values:
  *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysDisabled
  *        Always disable breakpoint canary regardless of the value of
- *        breakpoint's
- *        canary option. (Value: "CANARY_MODE_ALWAYS_DISABLED")
+ *        breakpoint's canary option. (Value: "CANARY_MODE_ALWAYS_DISABLED")
  *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeAlwaysEnabled
  *        Always enable breakpoint canary regardless of the value of
- *        breakpoint's
- *        canary option. (Value: "CANARY_MODE_ALWAYS_ENABLED")
+ *        breakpoint's canary option. (Value: "CANARY_MODE_ALWAYS_ENABLED")
  *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultDisabled
  *        Depends on the breakpoint's canary option. Disable canary by default
- *        if
- *        the breakpoint's canary option is not specified. (Value:
+ *        if the breakpoint's canary option is not specified. (Value:
  *        "CANARY_MODE_DEFAULT_DISABLED")
  *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeDefaultEnabled
  *        Depends on the breakpoint's canary option. Enable canary by default if
@@ -558,16 +546,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
  *        "CANARY_MODE_DEFAULT_ENABLED")
  *    @arg @c kGTLRCloudDebugger_Debuggee_CanaryMode_CanaryModeUnspecified
  *        CANARY_MODE_UNSPECIFIED is equivalent to CANARY_MODE_ALWAYS_DISABLED
- *        so
- *        that if the debuggee is not configured to use the canary feature, the
- *        feature will be disabled. (Value: "CANARY_MODE_UNSPECIFIED")
+ *        so that if the debuggee is not configured to use the canary feature,
+ *        the feature will be disabled. (Value: "CANARY_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *canaryMode;
 
 /**
- *  Human readable description of the debuggee.
- *  Including a human-readable project name, environment name and version
- *  information is recommended.
+ *  Human readable description of the debuggee. Including a human-readable
+ *  project name, environment name and version information is recommended.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -587,8 +573,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  If set to `true`, indicates that the agent should disable itself and
- *  detach from the debuggee.
+ *  If set to `true`, indicates that the agent should disable itself and detach
+ *  from the debuggee.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -603,14 +589,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, strong, nullable) NSNumber *isInactive;
 
 /**
- *  A set of custom debuggee properties, populated by the agent, to be
- *  displayed to the user.
+ *  A set of custom debuggee properties, populated by the agent, to be displayed
+ *  to the user.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Debuggee_Labels *labels;
 
 /**
- *  Project the debuggee is associated with.
- *  Use project number or id when registering a Google Cloud Platform project.
+ *  Project the debuggee is associated with. Use project number or id when
+ *  registering a Google Cloud Platform project.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -628,12 +614,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_StatusMessage *status;
 
 /**
- *  Uniquifier to further distinguish the application.
- *  It is possible that different applications might have identical values in
- *  the debuggee message, thus, incorrectly identified as a single application
- *  by the Controller service. This field adds salt to further distinguish the
- *  application. Agents should consider seeding this field with value that
- *  identifies the code, binary, configuration and environment.
+ *  Uniquifier to further distinguish the application. It is possible that
+ *  different applications might have identical values in the debuggee message,
+ *  thus, incorrectly identified as a single application by the Controller
+ *  service. This field adds salt to further distinguish the application. Agents
+ *  should consider seeding this field with value that identifies the code,
+ *  binary, configuration and environment.
  */
 @property(nonatomic, copy, nullable) NSString *uniquifier;
 
@@ -641,8 +627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 
 /**
- *  A set of custom debuggee properties, populated by the agent, to be
- *  displayed to the user.
+ *  A set of custom debuggee properties, populated by the agent, to be displayed
+ *  to the user.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -656,19 +642,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudDebugger_Empty : GTLRObject
 @end
 
 
 /**
- *  An ExtendedSourceContext is a SourceContext combined with additional
- *  details describing the context.
+ *  An ExtendedSourceContext is a SourceContext combined with additional details
+ *  describing the context.
  */
 @interface GTLRCloudDebugger_ExtendedSourceContext : GTLRObject
 
@@ -699,13 +683,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_FormatMessage : GTLRObject
 
 /**
- *  Format template for the message. The `format` uses placeholders `$0`,
- *  `$1`, etc. to reference parameters. `$$` can be used to denote the `$`
- *  character.
- *  Examples:
- *  * `Failed to load '$0' which helps debug $1 the first time it
- *  is loaded. Again, $0 is very important.`
- *  * `Please pay $$10 to use $0 instead of $1.`
+ *  Format template for the message. The `format` uses placeholders `$0`, `$1`,
+ *  etc. to reference parameters. `$$` can be used to denote the `$` character.
+ *  Examples: * `Failed to load '$0' which helps debug $1 the first time it is
+ *  loaded. Again, $0 is very important.` * `Please pay $$10 to use $0 instead
+ *  of $1.`
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
@@ -728,8 +710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 /**
  *  The full project name within the host. Projects may be nested, so
- *  "project/subproject" is a valid project name.
- *  The "repo name" is hostURI/project.
+ *  "project/subproject" is a valid project name. The "repo name" is
+ *  hostURI/project.
  */
 @property(nonatomic, copy, nullable) NSString *gerritProject;
 
@@ -748,8 +730,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_GetBreakpointResponse : GTLRObject
 
 /**
- *  Complete breakpoint state.
- *  The fields `id` and `location` are guaranteed to be set.
+ *  Complete breakpoint state. The fields `id` and `location` are guaranteed to
+ *  be set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 
@@ -762,10 +744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
  */
 @interface GTLRCloudDebugger_GitSourceContext : GTLRObject
 
-/**
- *  Git commit hash.
- *  required.
- */
+/** Git commit hash. required. */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 /** Git repository URL. */
@@ -780,21 +759,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_ListActiveBreakpointsResponse : GTLRObject
 
 /**
- *  List of all active breakpoints.
- *  The fields `id` and `location` are guaranteed to be set on each breakpoint.
+ *  List of all active breakpoints. The fields `id` and `location` are
+ *  guaranteed to be set on each breakpoint.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Breakpoint *> *breakpoints;
 
 /**
- *  A token that can be used in the next method call to block until
- *  the list of breakpoints changes.
+ *  A token that can be used in the next method call to block until the list of
+ *  breakpoints changes.
  */
 @property(nonatomic, copy, nullable) NSString *nextWaitToken;
 
 /**
- *  If set to `true`, indicates that there is no change to the
- *  list of active breakpoints and the server-selected timeout has expired.
- *  The `breakpoints` field would be empty and should be ignored.
+ *  If set to `true`, indicates that there is no change to the list of active
+ *  breakpoints and the server-selected timeout has expired. The `breakpoints`
+ *  field would be empty and should be ignored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -809,10 +788,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_ListBreakpointsResponse : GTLRObject
 
 /**
- *  List of breakpoints matching the request.
- *  The fields `id` and `location` are guaranteed to be set on each breakpoint.
- *  The fields: `stack_frames`, `evaluated_expressions` and `variable_table`
- *  are cleared on each breakpoint regardless of its status.
+ *  List of breakpoints matching the request. The fields `id` and `location` are
+ *  guaranteed to be set on each breakpoint. The fields: `stack_frames`,
+ *  `evaluated_expressions` and `variable_table` are cleared on each breakpoint
+ *  regardless of its status.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Breakpoint *> *breakpoints;
 
@@ -831,10 +810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_ListDebuggeesResponse : GTLRObject
 
 /**
- *  List of debuggees accessible to the calling user.
- *  The fields `debuggee.id` and `description` are guaranteed to be set.
- *  The `description` field is a human readable field provided by agents and
- *  can be displayed to users.
+ *  List of debuggees accessible to the calling user. The fields `debuggee.id`
+ *  and `description` are guaranteed to be set. The `description` field is a
+ *  human readable field provided by agents and can be displayed to users.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Debuggee *> *debuggees;
 
@@ -842,8 +820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 
 /**
- *  Selects a repo using a Google Cloud Platform project ID
- *  (e.g. winged-cargo-31) and a repo name within that project.
+ *  Selects a repo using a Google Cloud Platform project ID (e.g.
+ *  winged-cargo-31) and a repo name within that project.
  */
 @interface GTLRCloudDebugger_ProjectRepoId : GTLRObject
 
@@ -862,9 +840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_RegisterDebuggeeRequest : GTLRObject
 
 /**
- *  Required. Debuggee information to register.
- *  The fields `project`, `uniquifier`, `description` and `agent_version`
- *  of the debuggee must be set.
+ *  Required. Debuggee information to register. The fields `project`,
+ *  `uniquifier`, `description` and `agent_version` of the debuggee must be set.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Debuggee *debuggee;
 
@@ -877,17 +854,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_RegisterDebuggeeResponse : GTLRObject
 
 /**
- *  A unique ID generated for the agent.
- *  Each RegisterDebuggee request will generate a new agent ID.
+ *  A unique ID generated for the agent. Each RegisterDebuggee request will
+ *  generate a new agent ID.
  */
 @property(nonatomic, copy, nullable) NSString *agentId;
 
 /**
- *  Debuggee resource.
- *  The field `id` is guaranteed to be set (in addition to the echoed fields).
- *  If the field `is_disabled` is set to `true`, the agent should disable
- *  itself by removing all breakpoints and detaching from the application.
- *  It should however continue to poll `RegisterDebuggee` until reenabled.
+ *  Debuggee resource. The field `id` is guaranteed to be set (in addition to
+ *  the echoed fields). If the field `is_disabled` is set to `true`, the agent
+ *  should disable itself by removing all breakpoints and detaching from the
+ *  application. It should however continue to poll `RegisterDebuggee` until
+ *  reenabled.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Debuggee *debuggee;
 
@@ -914,8 +891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_SetBreakpointResponse : GTLRObject
 
 /**
- *  Breakpoint resource.
- *  The field `id` is guaranteed to be set (in addition to the echoed fields).
+ *  Breakpoint resource. The field `id` is guaranteed to be set (in addition to
+ *  the echoed fields).
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 
@@ -949,9 +926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_SourceLocation : GTLRObject
 
 /**
- *  Column within a line. The first column in a line as the value `1`.
- *  Agents that do not support setting breakpoints on specific columns ignore
- *  this field.
+ *  Column within a line. The first column in a line as the value `1`. Agents
+ *  that do not support setting breakpoints on specific columns ignore this
+ *  field.
  *
  *  Uses NSNumber of intValue.
  */
@@ -976,8 +953,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_StackFrame : GTLRObject
 
 /**
- *  Set of arguments passed to this function.
- *  Note that this might not be populated for all stack frames.
+ *  Set of arguments passed to this function. Note that this might not be
+ *  populated for all stack frames.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *arguments;
 
@@ -985,8 +962,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, copy, nullable) NSString *function;
 
 /**
- *  Set of local variables at the stack frame location.
- *  Note that this might not be populated for all stack frames.
+ *  Set of local variables at the stack frame location. Note that this might not
+ *  be populated for all stack frames.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDebugger_Variable *> *locals;
 
@@ -997,9 +974,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 
 /**
- *  Represents a contextual status message.
- *  The message can indicate an error or informational status, and refer to
- *  specific parts of the containing object.
+ *  Represents a contextual status message. The message can indicate an error or
+ *  informational status, and refer to specific parts of the containing object.
  *  For example, the `Breakpoint.status` field can indicate an error referring
  *  to the `BREAKPOINT_SOURCE_LOCATION` with the message `Location not found`.
  */
@@ -1028,8 +1004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
  *        "BREAKPOINT_AGE")
  *    @arg @c kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCanaryFailed
  *        Status applies to the breakpoint when the breakpoint failed to exit
- *        the
- *        canary state. (Value: "BREAKPOINT_CANARY_FAILED")
+ *        the canary state. (Value: "BREAKPOINT_CANARY_FAILED")
  *    @arg @c kGTLRCloudDebugger_StatusMessage_RefersTo_BreakpointCondition
  *        Status applies to the breakpoint and is related to its condition.
  *        (Value: "BREAKPOINT_CONDITION")
@@ -1058,9 +1033,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @interface GTLRCloudDebugger_UpdateActiveBreakpointRequest : GTLRObject
 
 /**
- *  Required. Updated breakpoint information.
- *  The field `id` must be set.
- *  The agent must echo all Breakpoint specification fields in the update.
+ *  Required. Updated breakpoint information. The field `id` must be set. The
+ *  agent must echo all Breakpoint specification fields in the update.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_Breakpoint *breakpoint;
 
@@ -1068,8 +1042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 
 /**
- *  Response for updating an active breakpoint.
- *  The message is defined to allow future extensions.
+ *  Response for updating an active breakpoint. The message is defined to allow
+ *  future extensions.
  */
 @interface GTLRCloudDebugger_UpdateActiveBreakpointResponse : GTLRObject
 @end
@@ -1077,87 +1051,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 
 /**
  *  Represents a variable or an argument possibly of a compound object type.
- *  Note how the following variables are represented:
- *  1) A simple variable:
- *  int x = 5
- *  { name: "x", value: "5", type: "int" } // Captured variable
- *  2) A compound object:
- *  struct T {
- *  int m1;
- *  int m2;
- *  };
- *  T x = { 3, 7 };
- *  { // Captured variable
- *  name: "x",
- *  type: "T",
- *  members { name: "m1", value: "3", type: "int" },
- *  members { name: "m2", value: "7", type: "int" }
- *  }
- *  3) A pointer where the pointee was captured:
- *  T x = { 3, 7 };
- *  T* p = &x;
- *  { // Captured variable
- *  name: "p",
- *  type: "T*",
- *  value: "0x00500500",
- *  members { name: "m1", value: "3", type: "int" },
- *  members { name: "m2", value: "7", type: "int" }
- *  }
- *  4) A pointer where the pointee was not captured:
- *  T* p = new T;
- *  { // Captured variable
- *  name: "p",
- *  type: "T*",
- *  value: "0x00400400"
- *  status { is_error: true, description { format: "unavailable" } }
- *  }
- *  The status should describe the reason for the missing value,
- *  such as `<optimized out>`, `<inaccessible>`, `<pointers limit reached>`.
- *  Note that a null pointer should not have members.
- *  5) An unnamed value:
- *  int* p = new int(7);
- *  { // Captured variable
- *  name: "p",
- *  value: "0x00500500",
- *  type: "int*",
- *  members { value: "7", type: "int" } }
- *  6) An unnamed pointer where the pointee was not captured:
- *  int* p = new int(7);
- *  int** pp = &p;
- *  { // Captured variable
- *  name: "pp",
- *  value: "0x00500500",
- *  type: "int**",
- *  members {
- *  value: "0x00400400",
- *  type: "int*"
- *  status {
- *  is_error: true,
- *  description: { format: "unavailable" } }
- *  }
- *  }
- *  }
- *  To optimize computation, memory and network traffic, variables that
- *  repeat in the output multiple times can be stored once in a shared
- *  variable table and be referenced using the `var_table_index` field. The
- *  variables stored in the shared table are nameless and are essentially
- *  a partition of the complete variable. To reconstruct the complete
- *  variable, merge the referencing variable with the referenced variable.
- *  When using the shared variable table, the following variables:
- *  T x = { 3, 7 };
- *  T* p = &x;
- *  T& r = x;
- *  { name: "x", var_table_index: 3, type: "T" } // Captured variables
- *  { name: "p", value "0x00500500", type="T*", var_table_index: 3 }
- *  { name: "r", type="T&", var_table_index: 3 }
- *  { // Shared variable table entry #3:
- *  members { name: "m1", value: "3", type: "int" },
- *  members { name: "m2", value: "7", type: "int" }
- *  }
- *  Note that the pointer address is stored with the referencing variable
- *  and not with the referenced variable. This allows the referenced variable
- *  to be shared between pointers and references.
- *  The type field is optional. The debugger agent may or may not support it.
+ *  Note how the following variables are represented: 1) A simple variable: int
+ *  x = 5 { name: "x", value: "5", type: "int" } // Captured variable 2) A
+ *  compound object: struct T { int m1; int m2; }; T x = { 3, 7 }; { // Captured
+ *  variable name: "x", type: "T", members { name: "m1", value: "3", type: "int"
+ *  }, members { name: "m2", value: "7", type: "int" } } 3) A pointer where the
+ *  pointee was captured: T x = { 3, 7 }; T* p = &x; { // Captured variable
+ *  name: "p", type: "T*", value: "0x00500500", members { name: "m1", value:
+ *  "3", type: "int" }, members { name: "m2", value: "7", type: "int" } } 4) A
+ *  pointer where the pointee was not captured: T* p = new T; { // Captured
+ *  variable name: "p", type: "T*", value: "0x00400400" status { is_error: true,
+ *  description { format: "unavailable" } } } The status should describe the
+ *  reason for the missing value, such as ``, ``, ``. Note that a null pointer
+ *  should not have members. 5) An unnamed value: int* p = new int(7); { //
+ *  Captured variable name: "p", value: "0x00500500", type: "int*", members {
+ *  value: "7", type: "int" } } 6) An unnamed pointer where the pointee was not
+ *  captured: int* p = new int(7); int** pp = &p; { // Captured variable name:
+ *  "pp", value: "0x00500500", type: "int**", members { value: "0x00400400",
+ *  type: "int*" status { is_error: true, description: { format: "unavailable" }
+ *  } } } } To optimize computation, memory and network traffic, variables that
+ *  repeat in the output multiple times can be stored once in a shared variable
+ *  table and be referenced using the `var_table_index` field. The variables
+ *  stored in the shared table are nameless and are essentially a partition of
+ *  the complete variable. To reconstruct the complete variable, merge the
+ *  referencing variable with the referenced variable. When using the shared
+ *  variable table, the following variables: T x = { 3, 7 }; T* p = &x; T& r =
+ *  x; { name: "x", var_table_index: 3, type: "T" } // Captured variables {
+ *  name: "p", value "0x00500500", type="T*", var_table_index: 3 } { name: "r",
+ *  type="T&", var_table_index: 3 } { // Shared variable table entry #3: members
+ *  { name: "m1", value: "3", type: "int" }, members { name: "m2", value: "7",
+ *  type: "int" } } Note that the pointer address is stored with the referencing
+ *  variable and not with the referenced variable. This allows the referenced
+ *  variable to be shared between pointers and references. The type field is
+ *  optional. The debugger agent may or may not support it.
  */
 @interface GTLRCloudDebugger_Variable : GTLRObject
 
@@ -1168,28 +1094,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Status associated with the variable. This field will usually stay
- *  unset. A status of a single variable only applies to that variable or
- *  expression. The rest of breakpoint data still remains valid. Variables
- *  might be reported in error state even when breakpoint is not in final
- *  state.
- *  The message may refer to variable name with `refers_to` set to
- *  `VARIABLE_NAME`. Alternatively `refers_to` will be set to `VARIABLE_VALUE`.
- *  In either case variable value and members will be unset.
- *  Example of error message applied to name: `Invalid expression syntax`.
- *  Example of information message applied to value: `Not captured`.
- *  Examples of error message applied to value:
- *  * `Malformed string`,
- *  * `Field f not found in class C`
- *  * `Null pointer dereference`
+ *  Status associated with the variable. This field will usually stay unset. A
+ *  status of a single variable only applies to that variable or expression. The
+ *  rest of breakpoint data still remains valid. Variables might be reported in
+ *  error state even when breakpoint is not in final state. The message may
+ *  refer to variable name with `refers_to` set to `VARIABLE_NAME`.
+ *  Alternatively `refers_to` will be set to `VARIABLE_VALUE`. In either case
+ *  variable value and members will be unset. Example of error message applied
+ *  to name: `Invalid expression syntax`. Example of information message applied
+ *  to value: `Not captured`. Examples of error message applied to value: *
+ *  `Malformed string`, * `Field f not found in class C` * `Null pointer
+ *  dereference`
  */
 @property(nonatomic, strong, nullable) GTLRCloudDebugger_StatusMessage *status;
 
 /**
  *  Variable type (e.g. `MyClass`). If the variable is split with
- *  `var_table_index`, `type` goes next to `value`. The interpretation of
- *  a type is agent specific. It is recommended to include the dynamic type
- *  rather than a static type of an object.
+ *  `var_table_index`, `type` goes next to `value`. The interpretation of a type
+ *  is agent specific. It is recommended to include the dynamic type rather than
+ *  a static type of an object.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1197,9 +1120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebugger_StatusMessage_RefersTo_Var
 @property(nonatomic, copy, nullable) NSString *value;
 
 /**
- *  Reference to a variable in the shared variable table. More than
- *  one variable can reference the same variable in the table. The
- *  `var_table_index` field is an index into `variable_table` in Breakpoint.
+ *  Reference to a variable in the shared variable table. More than one variable
+ *  can reference the same variable in the table. The `var_table_index` field is
+ *  an index into `variable_table` in Breakpoint.
  *
  *  Uses NSNumber of intValue.
  */

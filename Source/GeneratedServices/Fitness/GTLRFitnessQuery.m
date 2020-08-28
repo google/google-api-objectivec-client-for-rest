@@ -31,7 +31,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataset:aggregate";
+  NSString *pathURITemplate = @"{userId}/dataset:aggregate";
   GTLRFitnessQuery_UsersDatasetAggregate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -58,7 +58,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources";
+  NSString *pathURITemplate = @"{userId}/dataSources";
   GTLRFitnessQuery_UsersDataSourcesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -81,7 +81,7 @@
   NSArray *pathParams = @[
     @"dataSourceId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources/{dataSourceId}/dataPointChanges";
+  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}/dataPointChanges";
   GTLRFitnessQuery_UsersDataSourcesDataPointChangesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -105,7 +105,7 @@
   NSArray *pathParams = @[
     @"datasetId", @"dataSourceId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId}";
+  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}/datasets/{datasetId}";
   GTLRFitnessQuery_UsersDataSourcesDatasetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -129,7 +129,7 @@
   NSArray *pathParams = @[
     @"datasetId", @"dataSourceId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId}";
+  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}/datasets/{datasetId}";
   GTLRFitnessQuery_UsersDataSourcesDatasetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -161,7 +161,7 @@
   NSArray *pathParams = @[
     @"datasetId", @"dataSourceId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources/{dataSourceId}/datasets/{datasetId}";
+  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}/datasets/{datasetId}";
   GTLRFitnessQuery_UsersDataSourcesDatasetsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -186,7 +186,7 @@
   NSArray *pathParams = @[
     @"dataSourceId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources/{dataSourceId}";
+  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}";
   GTLRFitnessQuery_UsersDataSourcesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -209,7 +209,7 @@
   NSArray *pathParams = @[
     @"dataSourceId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources/{dataSourceId}";
+  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}";
   GTLRFitnessQuery_UsersDataSourcesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -236,7 +236,7 @@
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources";
+  NSString *pathURITemplate = @"{userId}/dataSources";
   GTLRFitnessQuery_UsersDataSourcesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -265,7 +265,7 @@
   NSArray *pathParams = @[
     @"dataSourceId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/dataSources/{dataSourceId}";
+  NSString *pathURITemplate = @"{userId}/dataSources/{dataSourceId}";
   GTLRFitnessQuery_UsersDataSourcesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -289,7 +289,7 @@
   NSArray *pathParams = @[
     @"sessionId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/sessions/{sessionId}";
+  NSString *pathURITemplate = @"{userId}/sessions/{sessionId}";
   GTLRFitnessQuery_UsersSessionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -315,7 +315,7 @@
 
 + (instancetype)queryWithUserId:(NSString *)userId {
   NSArray *pathParams = @[ @"userId" ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/sessions";
+  NSString *pathURITemplate = @"{userId}/sessions";
   GTLRFitnessQuery_UsersSessionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -344,7 +344,7 @@
   NSArray *pathParams = @[
     @"sessionId", @"userId"
   ];
-  NSString *pathURITemplate = @"fitness/v1/users/{userId}/sessions/{sessionId}";
+  NSString *pathURITemplate = @"{userId}/sessions/{sessionId}";
   GTLRFitnessQuery_UsersSessionsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

@@ -2,16 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Data Fusion API (datafusion/v1beta1)
+//   Cloud Data Fusion API (datafusion/v1)
 // Description:
 //   Cloud Data Fusion is a fully-managed, cloud native, enterprise data
-//   integration service for
-//   quickly building and managing data pipelines. It provides a graphical
-//   interface to increase
-//   time efficiency and reduce complexity, and allows business users,
-//   developers, and data
-//   scientists to easily and reliably build scalable data integration solutions
-//   to cleanse,
+//   integration service for quickly building and managing data pipelines. It
+//   provides a graphical interface to increase time efficiency and reduce
+//   complexity, and allows business users, developers, and data scientists to
+//   easily and reliably build scalable data integration solutions to cleanse,
 //   prepare, blend, transfer and transform data without having to wrestle with
 //   infrastructure.
 // Documentation:
@@ -34,7 +31,6 @@
 @class GTLRDataFusion_RestartInstanceRequest;
 @class GTLRDataFusion_SetIamPolicyRequest;
 @class GTLRDataFusion_TestIamPermissionsRequest;
-@class GTLRDataFusion_UpgradeInstanceRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -183,9 +179,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  Method: datafusion.projects.locations.instances.getIamPolicy
  *
@@ -197,34 +192,31 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataFusion queryForProjectsLocationsInstancesGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataFusion_Policy.
  *
- *  Gets the access control policy for a resource.
- *  Returns an empty policy if the resource exists and does not have a policy
- *  set.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesGetIamPolicy
  */
@@ -256,16 +248,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value to use if there are additional
- *  results to retrieve for this list request.
+ *  The next_page_token value to use if there are additional results to retrieve
+ *  for this list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The project and location for which to retrieve instance information
- *  in the format projects/{project}/locations/{location}. If the location is
- *  specified as '-' (wildcard), then all regions available to the project
- *  are queried, and the results are aggregated.
+ *  The project and location for which to retrieve instance information in the
+ *  format projects/{project}/locations/{location}. If the location is specified
+ *  as '-' (wildcard), then all regions available to the project are queried,
+ *  and the results are aggregated.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -275,10 +267,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists Data Fusion instances in the specified project and location.
  *
  *  @param parent The project and location for which to retrieve instance
- *    information
- *    in the format projects/{project}/locations/{location}. If the location is
- *    specified as '-' (wildcard), then all regions available to the project
- *    are queried, and the results are aggregated.
+ *    information in the format projects/{project}/locations/{location}. If the
+ *    location is specified as '-' (wildcard), then all regions available to the
+ *    project are queried, and the results are aggregated.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesList
  *
@@ -309,12 +300,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Field mask is used to specify the fields that the update will overwrite
- *  in an instance resource. The fields specified in the update_mask are
- *  relative to the resource, not the full request.
- *  A field will be overwritten if it is in the mask.
- *  If the user does not provide a mask, all the supported fields (labels and
- *  options currently) will be overwritten.
+ *  Field mask is used to specify the fields that the update will overwrite in
+ *  an instance resource. The fields specified in the update_mask are relative
+ *  to the resource, not the full request. A field will be overwritten if it is
+ *  in the mask. If the user does not provide a mask, all the supported fields
+ *  (labels, options, and version currently) will be overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -337,8 +327,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Restart a single Data Fusion instance.
- *  At the end of an operation instance is fully restarted.
+ *  Restart a single Data Fusion instance. At the end of an operation instance
+ *  is fully restarted.
  *
  *  Method: datafusion.projects.locations.instances.restart
  *
@@ -358,14 +348,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataFusion_Operation.
  *
- *  Restart a single Data Fusion instance.
- *  At the end of an operation instance is fully restarted.
+ *  Restart a single Data Fusion instance. At the end of an operation instance
+ *  is fully restarted.
  *
  *  @param object The @c GTLRDataFusion_RestartInstanceRequest to include in the
  *    query.
  *  @param name Name of the Data Fusion instance which need to be restarted in
- *    the form of
- *    projects/{project}/locations/{location}/instances/{instance}
+ *    the form of projects/{project}/locations/{location}/instances/{instance}
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesRestart
  */
@@ -376,8 +365,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  Method: datafusion.projects.locations.instances.setIamPolicy
  *
@@ -389,8 +378,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataFusion queryForProjectsLocationsInstancesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -398,14 +387,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataFusion_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.
- *  Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and `PERMISSION_DENIED` errors.
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
  *
  *  @param object The @c GTLRDataFusion_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesSetIamPolicy
  */
@@ -415,12 +404,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  Method: datafusion.projects.locations.instances.testIamPermissions
  *
@@ -432,73 +420,30 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataFusion queryForProjectsLocationsInstancesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRDataFusion_TestIamPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource.
- *  If the resource does not exist, this will return an empty set of
- *  permissions, not a `NOT_FOUND` error.
- *  Note: This operation is designed to be used for building permission-aware
- *  UIs and command-line tools, not for authorization checking. This operation
- *  may "fail open" without warning.
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
  *
  *  @param object The @c GTLRDataFusion_TestIamPermissionsRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRDataFusion_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
-
-@end
-
-/**
- *  Upgrade a single Data Fusion instance.
- *  At the end of an operation instance is fully upgraded.
- *
- *  Method: datafusion.projects.locations.instances.upgrade
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDataFusionCloudPlatform
- */
-@interface GTLRDataFusionQuery_ProjectsLocationsInstancesUpgrade : GTLRDataFusionQuery
-// Previous library name was
-//   +[GTLQueryDataFusion queryForProjectsLocationsInstancesUpgradeWithObject:name:]
-
-/**
- *  Name of the Data Fusion instance which need to be upgraded in the form of
- *  projects/{project}/locations/{location}/instances/{instance}
- *  Instance will be upgraded with the latest stable version of the Data
- *  Fusion.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRDataFusion_Operation.
- *
- *  Upgrade a single Data Fusion instance.
- *  At the end of an operation instance is fully upgraded.
- *
- *  @param object The @c GTLRDataFusion_UpgradeInstanceRequest to include in the
- *    query.
- *  @param name Name of the Data Fusion instance which need to be upgraded in
- *    the form of
- *    projects/{project}/locations/{location}/instances/{instance}
- *    Instance will be upgraded with the latest stable version of the Data
- *    Fusion.
- *
- *  @return GTLRDataFusionQuery_ProjectsLocationsInstancesUpgrade
- */
-+ (instancetype)queryWithObject:(GTLRDataFusion_UpgradeInstanceRequest *)object
-                           name:(NSString *)name;
 
 @end
 
@@ -551,15 +496,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: datafusion.projects.locations.operations.cancel
  *
@@ -577,15 +521,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataFusion_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param object The @c GTLRDataFusion_CancelOperationRequest to include in the
  *    query.
@@ -666,14 +609,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: datafusion.projects.locations.operations.list
  *
@@ -700,14 +643,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataFusion_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -745,15 +688,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The next_page_token value to use if there are additional
- *  results to retrieve for this list request.
+ *  The next_page_token value to use if there are additional results to retrieve
+ *  for this list request.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The project and location for which to retrieve instance
- *  information
- *  in the format projects/{project}/locations/{location}.
+ *  information in the format projects/{project}/locations/{location}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -764,8 +706,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  and location.
  *
  *  @param parent Required. The project and location for which to retrieve
- *    instance information
- *    in the format projects/{project}/locations/{location}.
+ *    instance information in the format
+ *    projects/{project}/locations/{location}.
  *
  *  @return GTLRDataFusionQuery_ProjectsLocationsVersionsList
  *

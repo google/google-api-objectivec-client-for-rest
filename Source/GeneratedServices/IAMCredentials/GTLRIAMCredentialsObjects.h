@@ -5,6 +5,8 @@
 //   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
 //   Creates short-lived credentials for impersonating IAM service accounts.
+//   *Note:* This API is tied to the IAM API (iam.googleapis.com). Enabling or
+//   disabling this API will also enable or disable the IAM API.
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
@@ -33,32 +35,33 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIAMCredentials_GenerateAccessTokenRequest : GTLRObject
 
 /**
- *  The sequence of service accounts in a delegation chain. Each service
- *  account must be granted the `roles/iam.serviceAccountTokenCreator` role
- *  on its next service account in the chain. The last service account in the
- *  chain must be granted the `roles/iam.serviceAccountTokenCreator` role
- *  on the service account that is specified in the `name` field of the
- *  request.
- *  The delegates must have the following format:
+ *  The sequence of service accounts in a delegation chain. Each service account
+ *  must be granted the `roles/iam.serviceAccountTokenCreator` role on its next
+ *  service account in the chain. The last service account in the chain must be
+ *  granted the `roles/iam.serviceAccountTokenCreator` role on the service
+ *  account that is specified in the `name` field of the request. The delegates
+ *  must have the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegates;
 
 /**
- *  The desired lifetime duration of the access token in seconds.
- *  Must be set to a value less than or equal to 3600 (1 hour). If a value is
- *  not specified, the token's lifetime will be set to a default value of one
- *  hour.
+ *  The desired lifetime duration of the access token in seconds. By default,
+ *  the maximum allowed value is 1 hour. To set a lifetime of up to 12 hours,
+ *  you can add the service account as an allowed value in an Organization
+ *  Policy that enforces the
+ *  `constraints/iam.allowServiceAccountCredentialLifetimeExtension` constraint.
+ *  See detailed instructions at
+ *  https://cloud.google.com/iam/help/credentials/lifetime If a value is not
+ *  specified, the token's lifetime will be set to a default value of 1 hour.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *lifetime;
 
 /**
  *  Required. Code to identify the scopes to be included in the OAuth 2.0 access
- *  token.
- *  See https://developers.google.com/identity/protocols/googlescopes for more
- *  information.
- *  At least one value required.
+ *  token. See https://developers.google.com/identity/protocols/googlescopes for
+ *  more information. At least one value required.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scope;
 
@@ -73,10 +76,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The OAuth 2.0 access token. */
 @property(nonatomic, copy, nullable) NSString *accessToken;
 
-/**
- *  Token expiration time.
- *  The expiration time is always set.
- */
+/** Token expiration time. The expiration time is always set. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 @end
@@ -89,27 +89,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The audience for the token, such as the API or account that this
- *  token
- *  grants access to.
+ *  token grants access to.
  */
 @property(nonatomic, copy, nullable) NSString *audience;
 
 /**
- *  The sequence of service accounts in a delegation chain. Each service
- *  account must be granted the `roles/iam.serviceAccountTokenCreator` role
- *  on its next service account in the chain. The last service account in the
- *  chain must be granted the `roles/iam.serviceAccountTokenCreator` role
- *  on the service account that is specified in the `name` field of the
- *  request.
- *  The delegates must have the following format:
+ *  The sequence of service accounts in a delegation chain. Each service account
+ *  must be granted the `roles/iam.serviceAccountTokenCreator` role on its next
+ *  service account in the chain. The last service account in the chain must be
+ *  granted the `roles/iam.serviceAccountTokenCreator` role on the service
+ *  account that is specified in the `name` field of the request. The delegates
+ *  must have the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *  character is required; replacing it with a project ID is invalid.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *delegates;
 
 /**
- *  Include the service account email in the token. If set to `true`, the
- *  token will contain `email` and `email_verified` claims.
+ *  Include the service account email in the token. If set to `true`, the token
+ *  will contain `email` and `email_verified` claims.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -135,13 +133,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIAMCredentials_SignBlobRequest : GTLRObject
 
 /**
- *  The sequence of service accounts in a delegation chain. Each service
- *  account must be granted the `roles/iam.serviceAccountTokenCreator` role
- *  on its next service account in the chain. The last service account in the
- *  chain must be granted the `roles/iam.serviceAccountTokenCreator` role
- *  on the service account that is specified in the `name` field of the
- *  request.
- *  The delegates must have the following format:
+ *  The sequence of service accounts in a delegation chain. Each service account
+ *  must be granted the `roles/iam.serviceAccountTokenCreator` role on its next
+ *  service account in the chain. The last service account in the chain must be
+ *  granted the `roles/iam.serviceAccountTokenCreator` role on the service
+ *  account that is specified in the `name` field of the request. The delegates
+ *  must have the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *  character is required; replacing it with a project ID is invalid.
  */
@@ -167,8 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The ID of the key used to sign the blob. The key used for signing will
  *  remain valid for at least 12 hours after the blob is signed. To verify the
  *  signature, you can retrieve the public key in several formats from the
- *  following endpoints:
- *  - RSA public key wrapped in an X.509 v3 certificate:
+ *  following endpoints: - RSA public key wrapped in an X.509 v3 certificate:
  *  `https://www.googleapis.com/service_accounts/v1/metadata/x509/{ACCOUNT_EMAIL}`
  *  - Raw key in JSON format:
  *  `https://www.googleapis.com/service_accounts/v1/metadata/raw/{ACCOUNT_EMAIL}`
@@ -178,10 +174,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *keyId;
 
 /**
- *  The signature for the blob. Does not include the original blob.
- *  After the key pair referenced by the `key_id` response field expires,
- *  Google no longer exposes the public key that can be used to verify the
- *  blob. As a result, the receiver can no longer verify the signature.
+ *  The signature for the blob. Does not include the original blob. After the
+ *  key pair referenced by the `key_id` response field expires, Google no longer
+ *  exposes the public key that can be used to verify the blob. As a result, the
+ *  receiver can no longer verify the signature.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -197,13 +193,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIAMCredentials_SignJwtRequest : GTLRObject
 
 /**
- *  The sequence of service accounts in a delegation chain. Each service
- *  account must be granted the `roles/iam.serviceAccountTokenCreator` role
- *  on its next service account in the chain. The last service account in the
- *  chain must be granted the `roles/iam.serviceAccountTokenCreator` role
- *  on the service account that is specified in the `name` field of the
- *  request.
- *  The delegates must have the following format:
+ *  The sequence of service accounts in a delegation chain. Each service account
+ *  must be granted the `roles/iam.serviceAccountTokenCreator` role on its next
+ *  service account in the chain. The last service account in the chain must be
+ *  granted the `roles/iam.serviceAccountTokenCreator` role on the service
+ *  account that is specified in the `name` field of the request. The delegates
+ *  must have the following format:
  *  `projects/-/serviceAccounts/{ACCOUNT_EMAIL_OR_UNIQUEID}`. The `-` wildcard
  *  character is required; replacing it with a project ID is invalid.
  */
@@ -211,11 +206,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The JWT payload to sign. Must be a serialized JSON object that
- *  contains a
- *  JWT Claims Set. For example: `{"sub": "user\@example.com", "iat": 313435}`
- *  If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
- *  an integer timestamp that is not in the past and no more than 12 hours in
- *  the future.
+ *  contains a JWT Claims Set. For example: `{"sub": "user\@example.com", "iat":
+ *  313435}` If the JWT Claims Set contains an expiration time (`exp`) claim, it
+ *  must be an integer timestamp that is not in the past and no more than 12
+ *  hours in the future.
  */
 @property(nonatomic, copy, nullable) NSString *payload;
 
@@ -228,11 +222,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIAMCredentials_SignJwtResponse : GTLRObject
 
 /**
- *  The ID of the key used to sign the JWT. The key used for signing will
- *  remain valid for at least 12 hours after the JWT is signed. To verify the
+ *  The ID of the key used to sign the JWT. The key used for signing will remain
+ *  valid for at least 12 hours after the JWT is signed. To verify the
  *  signature, you can retrieve the public key in several formats from the
- *  following endpoints:
- *  - RSA public key wrapped in an X.509 v3 certificate:
+ *  following endpoints: - RSA public key wrapped in an X.509 v3 certificate:
  *  `https://www.googleapis.com/service_accounts/v1/metadata/x509/{ACCOUNT_EMAIL}`
  *  - Raw key in JSON format:
  *  `https://www.googleapis.com/service_accounts/v1/metadata/raw/{ACCOUNT_EMAIL}`
@@ -243,11 +236,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The signed JWT. Contains the automatically generated header; the
- *  client-supplied payload; and the signature, which is generated using the
- *  key referenced by the `kid` field in the header.
- *  After the key pair referenced by the `key_id` response field expires,
- *  Google no longer exposes the public key that can be used to verify the JWT.
- *  As a result, the receiver can no longer verify the signature.
+ *  client-supplied payload; and the signature, which is generated using the key
+ *  referenced by the `kid` field in the header. After the key pair referenced
+ *  by the `key_id` response field expires, Google no longer exposes the public
+ *  key that can be used to verify the JWT. As a result, the receiver can no
+ *  longer verify the signature.
  */
 @property(nonatomic, copy, nullable) NSString *signedJwt;
 

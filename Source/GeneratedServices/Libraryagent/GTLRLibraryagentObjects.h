@@ -39,9 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *author;
 
 /**
- *  The resource name of the book.
- *  Book names have the form `shelves/{shelf_id}/books/{book_id}`.
- *  The name is ignored when creating a book.
+ *  The resource name of the book. Book names have the form
+ *  `shelves/{shelf_id}/books/{book_id}`. The name is ignored when creating a
+ *  book.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -77,11 +77,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRLibraryagent_GoogleExampleLibraryagentV1Book *> *books;
 
 /**
- *  A token to retrieve next page of results.
- *  Pass this value in the
- *  ListBooksRequest.page_token
- *  field in the subsequent call to `ListBooks` method to retrieve the next
- *  page of results.
+ *  A token to retrieve next page of results. Pass this value in the
+ *  ListBooksRequest.page_token field in the subsequent call to `ListBooks`
+ *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -99,11 +97,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLibraryagent_GoogleExampleLibraryagentV1ListShelvesResponse : GTLRCollectionObject
 
 /**
- *  A token to retrieve next page of results.
- *  Pass this value in the
- *  ListShelvesRequest.page_token
- *  field in the subsequent call to `ListShelves` method to retrieve the next
- *  page of results.
+ *  A token to retrieve next page of results. Pass this value in the
+ *  ListShelvesRequest.page_token field in the subsequent call to `ListShelves`
+ *  method to retrieve the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -124,9 +120,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLibraryagent_GoogleExampleLibraryagentV1Shelf : GTLRObject
 
 /**
- *  Output only. The resource name of the shelf.
- *  Shelf names have the form `shelves/{shelf_id}`.
- *  The name is ignored when creating a shelf.
+ *  Output only. The resource name of the shelf. Shelf names have the form
+ *  `shelves/{shelf_id}`. The name is ignored when creating a shelf.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

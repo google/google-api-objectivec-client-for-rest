@@ -292,10 +292,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Organizer;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_Permission_Role_Owner;
 /**
- *  A role granting the ability to view content only after it has been
- *  published to the web. This role is sometimes also known as "published
- *  reader". See https://support.google.com/sites/answer/6372880 for more
- *  information.
+ *  A role granting the ability to view content only after it has been published
+ *  to the web. This role is sometimes also known as "published reader". See
+ *  https://support.google.com/sites/answer/6372880 for more information.
  *
  *  Value: "PUBLISHED_VIEWER"
  */
@@ -398,15 +397,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_FeatureUnspecified;
 /**
- *  When restricted, this prevents actions like copy, download, and print
- *  that might result in uncontrolled duplicates of items.
+ *  When restricted, this prevents actions like copy, download, and print that
+ *  might result in uncontrolled duplicates of items.
  *
  *  Value: "ITEM_DUPLICATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication;
 /**
- *  When restricted, this prevents items from being shared outside the
- *  domain.
+ *  When restricted, this prevents items from being shared outside the domain.
  *
  *  Value: "SHARING_OUTSIDE_DOMAIN"
  */
@@ -711,10 +709,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 /**
  *  How the individual activities are consolidated. A set of activities may be
  *  consolidated into one combined activity if they are related in some way,
- *  such
- *  as one actor performing the same action on multiple targets, or multiple
- *  actors performing the same action on a single target. The strategy defines
- *  the rules for which activities are related.
+ *  such as one actor performing the same action on multiple targets, or
+ *  multiple actors performing the same action on a single target. The strategy
+ *  defines the rules for which activities are related.
  */
 @interface GTLRDriveActivity_ConsolidationStrategy : GTLRObject
 
@@ -760,8 +757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_New *newProperty NS_RETURNS_NOT_RETAINED;
 
 /**
- *  If present, indicates the object originated externally and was uploaded
- *  to Drive.
+ *  If present, indicates the object originated externally and was uploaded to
+ *  Drive.
  */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_Upload *upload;
 
@@ -840,8 +837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The resource name of the shared drive. The format is
- *  "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection
- *  ID for this resource name.
+ *  "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection ID
+ *  for this resource name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -855,12 +852,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 
 /**
- *  A single Drive activity comprising one or more Actions by one or more
- *  Actors on one or more Targets. Some Action groupings occur spontaneously,
- *  such as moving an item into a shared folder triggering a permission change.
- *  Other groupings of related Actions, such as multiple Actors editing one item
- *  or moving multiple files into a new folder, are controlled by the selection
- *  of a ConsolidationStrategy in the QueryDriveActivityRequest.
+ *  A single Drive activity comprising one or more Actions by one or more Actors
+ *  on one or more Targets. Some Action groupings occur spontaneously, such as
+ *  moving an item into a shared folder triggering a permission change. Other
+ *  groupings of related Actions, such as multiple Actors editing one item or
+ *  moving multiple files into a new folder, are controlled by the selection of
+ *  a ConsolidationStrategy in the QueryDriveActivityRequest.
  */
 @interface GTLRDriveActivity_DriveActivity : GTLRObject
 
@@ -932,8 +929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFile *driveFile;
 
 /**
- *  The Drive item is a folder. Includes information about the type of
- *  folder.
+ *  The Drive item is a folder. Includes information about the type of folder.
  */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFolder *driveFolder;
 
@@ -970,8 +966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFile *driveFile;
 
 /**
- *  The Drive item is a folder. Includes information about the type of
- *  folder.
+ *  The Drive item is a folder. Includes information about the type of folder.
  */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_DriveFolder *driveFolder;
 
@@ -997,8 +992,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The resource name of the shared drive. The format is
- *  "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection
- *  ID for this resource name.
+ *  "COLLECTION_ID/DRIVE_ID". Clients should not assume a specific collection ID
+ *  for this resource name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1036,8 +1031,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The discussion thread to which the comment was added. This identifier is an
- *  opaque string compatible with the Drive API and references the first
- *  comment in a discussion; see
+ *  opaque string compatible with the Drive API and references the first comment
+ *  in a discussion; see
  *  https://developers.google.com/drive/v3/reference/comments/get
  */
 @property(nonatomic, copy, nullable) NSString *legacyDiscussionId;
@@ -1211,17 +1206,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) GTLRDriveActivity_Group *group;
 
 /**
- *  Indicates the
- *  <a href="/drive/web/manage-sharing#roles">Google Drive permissions
- *  role</a>. The role determines a user's ability to read, write, and
- *  comment on items.
+ *  Indicates the Google Drive permissions role. The role determines a user's
+ *  ability to read, write, and comment on items.
  *
  *  Likely values:
  *    @arg @c kGTLRDriveActivity_Permission_Role_Commenter A role granting the
  *        ability to view and comment on content. (Value: "COMMENTER")
  *    @arg @c kGTLRDriveActivity_Permission_Role_Editor A role granting the
- *        ability to contribute content. This role is sometimes
- *        also known as "writer". (Value: "EDITOR")
+ *        ability to contribute content. This role is sometimes also known as
+ *        "writer". (Value: "EDITOR")
  *    @arg @c kGTLRDriveActivity_Permission_Role_FileOrganizer A role granting
  *        the ability to contribute and manage content. (Value:
  *        "FILE_ORGANIZER")
@@ -1230,15 +1223,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  *    @arg @c kGTLRDriveActivity_Permission_Role_Owner A role granting full
  *        access. (Value: "OWNER")
  *    @arg @c kGTLRDriveActivity_Permission_Role_PublishedViewer A role granting
- *        the ability to view content only after it has been
- *        published to the web. This role is sometimes also known as "published
- *        reader". See https://support.google.com/sites/answer/6372880 for more
- *        information. (Value: "PUBLISHED_VIEWER")
+ *        the ability to view content only after it has been published to the
+ *        web. This role is sometimes also known as "published reader". See
+ *        https://support.google.com/sites/answer/6372880 for more information.
+ *        (Value: "PUBLISHED_VIEWER")
  *    @arg @c kGTLRDriveActivity_Permission_Role_RoleUnspecified The role is not
  *        available. (Value: "ROLE_UNSPECIFIED")
  *    @arg @c kGTLRDriveActivity_Permission_Role_Viewer A role granting the
- *        ability to view content. This role is sometimes also
- *        known as "reader". (Value: "VIEWER")
+ *        ability to view content. This role is sometimes also known as
+ *        "reader". (Value: "VIEWER")
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1311,27 +1304,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 /**
  *  The filtering for items returned from this query request. The format of the
  *  filter string is a sequence of expressions, joined by an optional "AND",
- *  where each expression is of the form "field operator value".
- *  Supported fields:
- *  - <tt>time</tt>: Uses numerical operators on date values either in
- *  terms of milliseconds since Jan 1, 1970 or in RFC 3339 format.
- *  Examples:
- *  - <tt>time > 1452409200000 AND time <= 1492812924310</tt>
- *  - <tt>time >= "2016-01-10T01:02:03-05:00"</tt>
- *  - <tt>detail.action_detail_case</tt>: Uses the "has" operator (:) and
- *  either a singular value or a list of allowed action types enclosed in
- *  parentheses.
- *  Examples:
- *  - <tt>detail.action_detail_case: RENAME</tt>
- *  - <tt>detail.action_detail_case:(CREATE EDIT)</tt>
- *  - <tt>-detail.action_detail_case:MOVE</tt>
+ *  where each expression is of the form "field operator value". Supported
+ *  fields: - time: Uses numerical operators on date values either in terms of
+ *  milliseconds since Jan 1, 1970 or in RFC 3339 format. Examples: - time >
+ *  1452409200000 AND time <= 1492812924310 - time >=
+ *  "2016-01-10T01:02:03-05:00" - detail.action_detail_case: Uses the "has"
+ *  operator (:) and either a singular value or a list of allowed action types
+ *  enclosed in parentheses. Examples: - detail.action_detail_case: RENAME -
+ *  detail.action_detail_case:(CREATE EDIT) - -detail.action_detail_case:MOVE
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/**
- *  Return activities for this Drive item. The format is
- *  "items/ITEM_ID".
- */
+/** Return activities for this Drive item. The format is "items/ITEM_ID". */
 @property(nonatomic, copy, nullable) NSString *itemName;
 
 /**
@@ -1346,9 +1330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 
 /**
  *  The token identifying which page of results to return. Set this to the
- *  next_page_token value returned from a previous query to obtain the
- *  following page of results. If not set, the first page of results will be
- *  returned.
+ *  next_page_token value returned from a previous query to obtain the following
+ *  page of results. If not set, the first page of results will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1374,8 +1357,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
 @property(nonatomic, strong, nullable) NSArray<GTLRDriveActivity_DriveActivity *> *activities;
 
 /**
- *  Token to retrieve the next page of results, or
- *  empty if there are no more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1434,8 +1417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  *        The feature which changed restriction settings was not available.
  *        (Value: "FEATURE_UNSPECIFIED")
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_ItemDuplication When
- *        restricted, this prevents actions like copy, download, and print
- *        that might result in uncontrolled duplicates of items. (Value:
+ *        restricted, this prevents actions like copy, download, and print that
+ *        might result in uncontrolled duplicates of items. (Value:
  *        "ITEM_DUPLICATION")
  *    @arg @c kGTLRDriveActivity_RestrictionChange_Feature_SharingOutsideDomain
  *        When restricted, this prevents items from being shared outside the

@@ -43,31 +43,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Customer made a request or raised an issue that required the principal to
- *  access customer data. `detail` is of the form ("#####" is the issue ID):
- *  <ol>
- *  <li>"Feedback Report: #####"</li>
- *  <li>"Case Number: #####"</li>
- *  <li>"Case ID: #####"</li>
- *  <li>"E-PIN Reference: #####"</li>
- *  <li>"Google-#####"</li>
- *  <li>"T-#####"</li>
- *  </ol>
+ *  access customer data. `detail` is of the form ("#####" is the issue ID): 1.
+ *  "Feedback Report: #####" 2. "Case Number: #####" 3. "Case ID: #####" 4.
+ *  "E-PIN Reference: #####" 5. "Google-#####" 6. "T-#####"
  *
  *  Value: "CUSTOMER_INITIATED_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport;
 /**
- *  Google initiated service for security, fraud, abuse, or compliance
- *  purposes.
+ *  Google initiated service for security, fraud, abuse, or compliance purposes.
  *
  *  Value: "GOOGLE_INITIATED_REVIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview;
 /**
  *  The principal accessed customer data in order to diagnose or resolve a
- *  suspected issue in services or a known outage. Often this access is used
- *  to confirm that customers are not affected by a suspected service issue
- *  or to remediate a reversible system issue.
+ *  suspected issue in services or a known outage. Often this access is used to
+ *  confirm that customers are not affected by a suspected service issue or to
+ *  remediate a reversible system issue.
  *
  *  Value: "GOOGLE_INITIATED_SERVICE"
  */
@@ -101,40 +94,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 @interface GTLRAccessApproval_AccessLocations : GTLRObject
 
 /**
- *  The "home office" location of the principal. A two-letter country code
- *  (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or a region code. In some
+ *  The "home office" location of the principal. A two-letter country code (ISO
+ *  3166-1 alpha-2), such as "US", "DE" or "GB" or a region code. In some
  *  limited situations Google systems may refer refer to a region code instead
- *  of a country code.
- *  Possible Region Codes:
- *  <ol>
- *  <li>ASI: Asia</li>
- *  <li>EUR: Europe</li>
- *  <li>OCE: Oceania</li>
- *  <li>AFR: Africa</li>
- *  <li>NAM: North America</li>
- *  <li>SAM: South America</li>
- *  <li>ANT: Antarctica</li>
- *  <li>ANY: Any location</li>
- *  </ol>
+ *  of a country code. Possible Region Codes: 1. ASI: Asia 2. EUR: Europe 3.
+ *  OCE: Oceania 4. AFR: Africa 5. NAM: North America 6. SAM: South America 7.
+ *  ANT: Antarctica 8. ANY: Any location
  */
 @property(nonatomic, copy, nullable) NSString *principalOfficeCountry;
 
 /**
- *  Physical location of the principal at the time of the access. A
- *  two-letter country code (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or
- *  a region code. In some limited situations Google systems may refer refer to
- *  a region code instead of a country code.
- *  Possible Region Codes:
- *  <ol>
- *  <li>ASI: Asia</li>
- *  <li>EUR: Europe</li>
- *  <li>OCE: Oceania</li>
- *  <li>AFR: Africa</li>
- *  <li>NAM: North America</li>
- *  <li>SAM: South America</li>
- *  <li>ANT: Antarctica</li>
- *  <li>ANY: Any location</li>
- *  </ol>
+ *  Physical location of the principal at the time of the access. A two-letter
+ *  country code (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or a region
+ *  code. In some limited situations Google systems may refer refer to a region
+ *  code instead of a country code. Possible Region Codes: 1. ASI: Asia 2. EUR:
+ *  Europe 3. OCE: Oceania 4. AFR: Africa 5. NAM: North America 6. SAM: South
+ *  America 7. ANT: Antarctica 8. ANY: Any location
  */
 @property(nonatomic, copy, nullable) NSString *principalPhysicalLocationCountry;
 
@@ -157,27 +132,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  Likely values:
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport
  *        Customer made a request or raised an issue that required the principal
- *        to
- *        access customer data. `detail` is of the form ("#####" is the issue
- *        ID):
- *        <ol>
- *        <li>"Feedback Report: #####"</li>
- *        <li>"Case Number: #####"</li>
- *        <li>"Case ID: #####"</li>
- *        <li>"E-PIN Reference: #####"</li>
- *        <li>"Google-#####"</li>
- *        <li>"T-#####"</li>
- *        </ol> (Value: "CUSTOMER_INITIATED_SUPPORT")
+ *        to access customer data. `detail` is of the form ("#####" is the issue
+ *        ID): 1. "Feedback Report: #####" 2. "Case Number: #####" 3. "Case ID:
+ *        #####" 4. "E-PIN Reference: #####" 5. "Google-#####" 6. "T-#####"
+ *        (Value: "CUSTOMER_INITIATED_SUPPORT")
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview Google
- *        initiated service for security, fraud, abuse, or compliance
- *        purposes. (Value: "GOOGLE_INITIATED_REVIEW")
+ *        initiated service for security, fraud, abuse, or compliance purposes.
+ *        (Value: "GOOGLE_INITIATED_REVIEW")
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedService The
  *        principal accessed customer data in order to diagnose or resolve a
  *        suspected issue in services or a known outage. Often this access is
- *        used
- *        to confirm that customers are not affected by a suspected service
- *        issue
- *        or to remediate a reversible system issue. (Value:
+ *        used to confirm that customers are not affected by a suspected service
+ *        issue or to remediate a reversible system issue. (Value:
  *        "GOOGLE_INITIATED_SERVICE")
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_TypeUnspecified Default
  *        value for proto, shouldn't be used. (Value: "TYPE_UNSPECIFIED")
@@ -280,8 +246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 
 /**
  *  This field will be true if the ApprovalRequest was implcitly dismissed due
- *  to inaction by the access approval approvers (the request is not acted
- *  on by the approvers before the exiration time).
+ *  to inaction by the access approval approvers (the request is not acted on by
+ *  the approvers before the exiration time).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -293,11 +259,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRAccessApproval_Empty : GTLRObject
 @end
@@ -310,19 +274,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 
 /**
  *  The product for which Access Approval will be enrolled. Allowed values are
- *  listed below (case-sensitive):
- *  <ol>
- *  <li>all</li>
- *  <li>appengine.googleapis.com</li>
- *  <li>bigquery.googleapis.com</li>
- *  <li>bigtable.googleapis.com</li>
- *  <li>cloudkms.googleapis.com</li>
- *  <li>compute.googleapis.com</li>
- *  <li>dataflow.googleapis.com</li>
- *  <li>iam.googleapis.com</li>
- *  <li>pubsub.googleapis.com</li>
- *  <li>storage.googleapis.com</li>
- *  <ol>
+ *  listed below (case-sensitive): 1. all 2. appengine.googleapis.com 3.
+ *  bigquery.googleapis.com 4. bigtable.googleapis.com 5.
+ *  cloudkms.googleapis.com 6. compute.googleapis.com 7. dataflow.googleapis.com
+ *  8. iam.googleapis.com 9. pubsub.googleapis.com 10. storage.googleapis.com
  */
 @property(nonatomic, copy, nullable) NSString *cloudProduct;
 
@@ -393,8 +348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  Output only. This field is read only (not settable via
  *  UpdateAccessAccessApprovalSettings method). If the field is true, that
  *  indicates that at least one service is enrolled for Access Approval in one
- *  or more ancestors of the Project or Folder (this field will always be
- *  unset for the organization since organizations do not have ancestors).
+ *  or more ancestors of the Project or Folder (this field will always be unset
+ *  for the organization since organizations do not have ancestors).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -406,21 +361,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  any of these services contained here will be required to have explicit
  *  approval. If name refers to an organization, enrollment can be done for
  *  individual services. If name refers to a folder or project, enrollment can
- *  only be done on an all or nothing basis.
- *  If a cloud_product is repeated in this list, the first entry will be
- *  honored and all following entries will be discarded. A maximum of 10
- *  enrolled services will be enforced, to be expanded as the set of supported
- *  services is expanded.
+ *  only be done on an all or nothing basis. If a cloud_product is repeated in
+ *  this list, the first entry will be honored and all following entries will be
+ *  discarded. A maximum of 10 enrolled services will be enforced, to be
+ *  expanded as the set of supported services is expanded.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessApproval_EnrolledService *> *enrolledServices;
 
 /**
- *  The resource name of the settings. Format is one of:
- *  <ol>
- *  <li>"projects/{project_id}/accessApprovalSettings"</li>
- *  <li>"folders/{folder_id}/accessApprovalSettings"</li>
- *  <li>"organizations/{organization_id}/accessApprovalSettings"</li>
- *  <ol>
+ *  The resource name of the settings. Format is one of: 1.
+ *  "projects/{project_id}/accessApprovalSettings" 2.
+ *  "folders/{folder_id}/accessApprovalSettings" 3.
+ *  "organizations/{organization_id}/accessApprovalSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

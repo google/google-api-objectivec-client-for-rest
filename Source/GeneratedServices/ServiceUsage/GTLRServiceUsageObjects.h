@@ -2172,6 +2172,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Endpoint *> *endpoints;
 
 /**
+ *  Defines the monitored resources used by this service. This is required by
+ *  the Service.monitoring and Service.logging configurations.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_MonitoredResourceDescriptor *> *monitoredResources;
+
+/**
+ *  Monitoring configuration. This should not include the
+ *  'producer_destinations' field.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_Monitoring *monitoring;
+
+/**
  *  The DNS address at which this service is available. An example DNS address
  *  would be: `calendar.googleapis.com`.
  */
@@ -2705,13 +2717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /**
  *  Defines a metric type and its schema. Once a metric descriptor is created,
  *  deleting or altering it stops data collection and makes the metric type's
- *  existing data unusable. The following are specific rules for service defined
- *  Monitoring metric descriptors: * `type`, `metric_kind`, `value_type` and
- *  `description` fields are all required. The `unit` field must be specified if
- *  the `value_type` is any of DOUBLE, INT64, DISTRIBUTION. * Maximum of default
- *  500 metric descriptors per service is allowed. * Maximum of default 10
- *  labels per metric descriptor is allowed. The default maximum limit can be
- *  overridden. Please follow https://cloud.google.com/monitoring/quotas
+ *  existing data unusable.
  */
 @interface GTLRServiceUsage_MetricDescriptor : GTLRObject
 
@@ -2732,10 +2738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  The set of labels that can be used to describe a specific instance of this
- *  metric type. The label key name must follow: * Only upper and lower-case
- *  letters, digits and underscores (_) are allowed. * Label name must start
- *  with a letter or digit. * The maximum length of a label name is 100
- *  characters. For example, the
+ *  metric type. For example, the
  *  `appengine.googleapis.com/http/server/response_latencies` metric type has a
  *  label for the HTTP response code, `response_code`, so you can look at
  *  latencies for successful responses or just for responses that failed.
@@ -2824,16 +2827,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  The metric type, including its DNS name prefix. The type is not URL-encoded.
- *  All service defined metrics must be prefixed with the service name, in the
- *  format of `{service name}/{relative metric name}`, such as
- *  `cloudsql.googleapis.com/database/cpu/utilization`. The relative metric name
- *  must follow: * Only upper and lower-case letters, digits, '/' and
- *  underscores '_' are allowed. * The maximum number of characters allowed for
- *  the relative_metric_name is 100. All user-defined metric types have the DNS
- *  name `custom.googleapis.com`, `external.googleapis.com`, or
- *  `logging.googleapis.com/user/`. Metric types should use a natural
- *  hierarchical grouping. For example:
- *  "custom.googleapis.com/invoice/paid/amount"
+ *  All user-defined metric types have the DNS name `custom.googleapis.com` or
+ *  `external.googleapis.com`. Metric types should use a natural hierarchical
+ *  grouping. For example: "custom.googleapis.com/invoice/paid/amount"
  *  "external.googleapis.com/prometheus/up"
  *  "appengine.googleapis.com/http/server/response_latencies"
  */
@@ -3046,7 +3042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  name: google.acl.v1.AccessControl The mixin construct implies that all
  *  methods in `AccessControl` are also declared with same name and
  *  request/response types in `Storage`. A documentation generator or annotation
- *  processor will see the effective `Storage.GetAcl` method after inherting
+ *  processor will see the effective `Storage.GetAcl` method after inheriting
  *  documentation and annotations as follows: service Storage { // Get the
  *  underlying ACL object. rpc GetAcl(GetAclRequest) returns (Acl) { option
  *  (google.api.http).get = "/v2/{resource=**}:getAcl"; } ... } Note how the
@@ -3076,17 +3072,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  type name and a set of labels. For example, the monitored resource
  *  descriptor for Google Compute Engine VM instances has a type of
  *  `"gce_instance"` and specifies the use of the labels `"instance_id"` and
- *  `"zone"` to identify particular VM instances. Different services can support
- *  different monitored resource types. The following are specific rules to
- *  service defined monitored resources for Monitoring and Logging: * The
- *  `type`, `display_name`, `description`, `labels` and `launch_stage` fields
- *  are all required. * The first label of the monitored resource descriptor
- *  must be `resource_container`. There are legacy monitored resource
- *  descritptors start with `project_id`. * It must include a `location` label.
- *  * Maximum of default 5 service defined monitored resource descriptors is
- *  allowed per service. * Maximum of default 10 labels per monitored resource
- *  is allowed. The default maximum limit can be overridden. Please follow
- *  https://cloud.google.com/monitoring/quotas
+ *  `"zone"` to identify particular VM instances. Different APIs can support
+ *  different monitored resource types. APIs generally provide a `list` method
+ *  that returns the monitored resource descriptors used by the API.
  */
 @interface GTLRServiceUsage_MonitoredResourceDescriptor : GTLRObject
 
@@ -3108,11 +3096,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Required. A set of labels used to describe instances of this monitored
- *  resource type. The label key name must follow: * Only upper and lower-case
- *  letters, digits and underscores (_) are allowed. * Label name must start
- *  with a letter or digit. * The maximum length of a label name is 100
- *  characters. For example, an individual Google Cloud SQL database is
- *  identified by values for the labels `database_id` and `location`.
+ *  resource type. For example, an individual Google Cloud SQL database is
+ *  identified by values for the labels `"database_id"` and `"zone"`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_LabelDescriptor *> *labels;
 
@@ -3175,14 +3160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  `cloudsql_database` represents databases in Google Cloud SQL. All service
- *  defined monitored resource types must be prefixed with the service name, in
- *  the format of `{service name}/{relative resource name}`. The relative
- *  resource name must follow: * Only upper and lower-case letters and digits
- *  are allowed. * It must start with upper case character and is recommended to
- *  use Upper Camel Case style. * The maximum number of characters allowed for
- *  the relative_resource_name is 100. Note there are legacy service monitored
- *  resources not following this rule.
+ *  `"cloudsql_database"` represents databases in Google Cloud SQL.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

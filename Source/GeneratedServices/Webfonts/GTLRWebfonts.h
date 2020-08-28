@@ -5,8 +5,7 @@
 //   Web Fonts Developer API (webfonts/v1)
 // Description:
 //   The Google Web Fonts Developer API lets you retrieve information about web
-//   fonts served
-//   by Google.
+//   fonts served by Google.
 // Documentation:
 //   https://developers.google.com/fonts/docs/developer_api
 

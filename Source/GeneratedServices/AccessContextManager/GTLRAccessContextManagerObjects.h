@@ -67,25 +67,60 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_BasicLevel_Combinin
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_DevicePolicy.allowedDeviceManagementLevels
 
-/** Value: "BASIC" */
+/**
+ *  Basic management is enabled, which is generally limited to monitoring and
+ *  wiping the corporate account.
+ *
+ *  Value: "BASIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_Basic;
-/** Value: "COMPLETE" */
+/**
+ *  Complete device management. This includes more thorough monitoring and the
+ *  ability to directly manage the device (such as remote wiping). This can be
+ *  enabled through the Android Enterprise Platform.
+ *
+ *  Value: "COMPLETE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_Complete;
-/** Value: "MANAGEMENT_UNSPECIFIED" */
+/**
+ *  The device's management level is not specified or not known.
+ *
+ *  Value: "MANAGEMENT_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_ManagementUnspecified;
-/** Value: "NONE" */
+/**
+ *  The device is not managed.
+ *
+ *  Value: "NONE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedDeviceManagementLevels_None;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_DevicePolicy.allowedEncryptionStatuses
 
-/** Value: "ENCRYPTED" */
+/**
+ *  The device is encrypted.
+ *
+ *  Value: "ENCRYPTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Encrypted;
-/** Value: "ENCRYPTION_UNSPECIFIED" */
+/**
+ *  The encryption status of the device is not specified or not known.
+ *
+ *  Value: "ENCRYPTION_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_EncryptionUnspecified;
-/** Value: "ENCRYPTION_UNSUPPORTED" */
+/**
+ *  The device does not support encryption.
+ *
+ *  Value: "ENCRYPTION_UNSUPPORTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported;
-/** Value: "UNENCRYPTED" */
+/**
+ *  The device supports encryption, but is currently unencrypted.
+ *
+ *  Value: "UNENCRYPTED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Unencrypted;
 
 // ----------------------------------------------------------------------------
@@ -208,9 +243,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The parent of this `AccessPolicy` in the Cloud Resource
- *  Hierarchy. Currently immutable once created. Format:
- *  `organizations/{organization_id}`
+ *  Required. The parent of this `AccessPolicy` in the Cloud Resource Hierarchy.
+ *  Currently immutable once created. Format: `organizations/{organization_id}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -227,9 +261,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /**
  *  How the `conditions` list should be combined to determine if a request is
- *  granted this `AccessLevel`. If AND is used, each `Condition` in
- *  `conditions` must be satisfied for the `AccessLevel` to be applied. If OR
- *  is used, at least one `Condition` in `conditions` must be satisfied for the
+ *  granted this `AccessLevel`. If AND is used, each `Condition` in `conditions`
+ *  must be satisfied for the `AccessLevel` to be applied. If OR is used, at
+ *  least one `Condition` in `conditions` must be satisfied for the
  *  `AccessLevel` to be applied. Default behavior is AND.
  *
  *  Likely values:
@@ -256,18 +290,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
- *  A request to commit dry-run specs in all Service Perimeters belonging to
- *  an Access Policy.
+ *  A request to commit dry-run specs in all Service Perimeters belonging to an
+ *  Access Policy.
  */
 @interface GTLRAccessContextManager_CommitServicePerimetersRequest : GTLRObject
 
 /**
- *  Optional. The etag for the version of the Access Policy that this
- *  commit operation is to be performed on. If, at the time of commit, the
- *  etag for the Access Policy stored in Access Context Manager is different
- *  from the specified etag, then the commit operation will not be performed
- *  and the call will fail. This field is not required. If etag is not
- *  provided, the operation will be performed as if a valid etag is provided.
+ *  Optional. The etag for the version of the Access Policy that this commit
+ *  operation is to be performed on. If, at the time of commit, the etag for the
+ *  Access Policy stored in Access Context Manager is different from the
+ *  specified etag, then the commit operation will not be performed and the call
+ *  will fail. This field is not required. If etag is not provided, the
+ *  operation will be performed as if a valid etag is provided.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -280,10 +314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  */
 @interface GTLRAccessContextManager_CommitServicePerimetersResponse : GTLRObject
 
-/**
- *  List of all the Service Perimeter instances in
- *  the Access Policy.
- */
+/** List of all the Service Perimeter instances in the Access Policy. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePerimeter *> *servicePerimeters;
 
 @end
@@ -291,24 +322,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /**
  *  A condition necessary for an `AccessLevel` to be granted. The Condition is
- *  an
- *  AND over its fields. So a Condition is true if: 1) the request IP is from
- *  one
- *  of the listed subnetworks AND 2) the originating device complies with the
- *  listed device policy AND 3) all listed access levels are granted AND 4) the
- *  request was sent at a time allowed by the DateTimeRestriction.
+ *  an AND over its fields. So a Condition is true if: 1) the request IP is from
+ *  one of the listed subnetworks AND 2) the originating device complies with
+ *  the listed device policy AND 3) all listed access levels are granted AND 4)
+ *  the request was sent at a time allowed by the DateTimeRestriction.
  */
 @interface GTLRAccessContextManager_Condition : GTLRObject
 
 /**
- *  Device specific restrictions, all restrictions must hold for the
- *  Condition to be true. If not specified, all devices are allowed.
+ *  Device specific restrictions, all restrictions must hold for the Condition
+ *  to be true. If not specified, all devices are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_DevicePolicy *devicePolicy;
 
 /**
- *  CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for
- *  a CIDR IP address block, the specified IP address portion must be properly
+ *  CIDR block IP subnetwork specification. May be IPv4 or IPv6. Note that for a
+ *  CIDR IP address block, the specified IP address portion must be properly
  *  truncated (i.e. all the host bits must be zero) or the input is considered
  *  malformed. For example, "192.0.2.0/24" is accepted but "192.0.2.1/24" is
  *  not. Similarly, for IPv6, "2001:db8::/32" is accepted whereas
@@ -319,12 +348,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipSubnetworks;
 
 /**
- *  The request must be made by one of the provided user or service
- *  accounts. Groups are not supported.
- *  Syntax:
- *  `user:{emailid}`
- *  `serviceAccount:{emailid}`
- *  If not specified, a request may come from any user.
+ *  The request must be made by one of the provided user or service accounts.
+ *  Groups are not supported. Syntax: `user:{emailid}`
+ *  `serviceAccount:{emailid}` If not specified, a request may come from any
+ *  user.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -338,17 +365,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, strong, nullable) NSNumber *negate;
 
 /**
- *  The request must originate from one of the provided countries/regions.
- *  Must be valid ISO 3166-1 alpha-2 codes.
+ *  The request must originate from one of the provided countries/regions. Must
+ *  be valid ISO 3166-1 alpha-2 codes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
 
 /**
  *  A list of other access levels defined in the same `Policy`, referenced by
  *  resource name. Referencing an `AccessLevel` which does not exist is an
- *  error. All access levels listed must be granted for the Condition
- *  to be true. Example:
- *  "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
+ *  error. All access levels listed must be granted for the Condition to be
+ *  true. Example: "`accessPolicies/MY_POLICY/accessLevels/LEVEL_NAME"`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requiredAccessLevels;
 
@@ -371,11 +397,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 /**
  *  `DevicePolicy` specifies device specific restrictions necessary to acquire a
  *  given access level. A `DevicePolicy` specifies requirements for requests
- *  from
- *  devices to be granted access levels, it does not do any enforcement on the
- *  device. `DevicePolicy` acts as an AND over all specified fields, and each
- *  repeated field is an OR over its elements. Any unset fields are ignored. For
- *  example, if the proto is { os_type : DESKTOP_WINDOWS, os_type :
+ *  from devices to be granted access levels, it does not do any enforcement on
+ *  the device. `DevicePolicy` acts as an AND over all specified fields, and
+ *  each repeated field is an OR over its elements. Any unset fields are
+ *  ignored. For example, if the proto is { os_type : DESKTOP_WINDOWS, os_type :
  *  DESKTOP_LINUX, encryption_status: ENCRYPTED}, then the DevicePolicy will be
  *  true for requests originating from encrypted Linux desktops and encrypted
  *  Windows desktops.
@@ -422,11 +447,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRAccessContextManager_Empty : GTLRObject
 @end
@@ -435,27 +458,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRAccessContextManager_Expr : GTLRObject
 
@@ -480,9 +496,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -601,8 +616,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @interface GTLRAccessContextManager_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -614,16 +629,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -632,10 +647,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_Operation_Response *response;
 
@@ -644,8 +658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -662,10 +676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -682,9 +695,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @interface GTLRAccessContextManager_OsConstraint : GTLRObject
 
 /**
- *  The minimum allowed OS version. If not set, any version of this OS
- *  satisfies the constraint. Format: `"major.minor.patch"`.
- *  Examples: `"10.5.301"`, `"9.2.1"`.
+ *  The minimum allowed OS version. If not set, any version of this OS satisfies
+ *  the constraint. Format: `"major.minor.patch"`. Examples: `"10.5.301"`,
+ *  `"9.2.1"`.
  */
 @property(nonatomic, copy, nullable) NSString *minimumVersion;
 
@@ -711,10 +724,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *osType;
 
 /**
- *  Only allows requests from devices with a verified Chrome OS.
- *  Verifications includes requirements that the device is enterprise-managed,
- *  conformant to domain policies, and the caller has permission to call
- *  the API targeted by the request.
+ *  Only allows requests from devices with a verified Chrome OS. Verifications
+ *  includes requirements that the device is enterprise-managed, conformant to
+ *  domain policies, and the caller has permission to call the API targeted by
+ *  the request.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -724,25 +737,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
- *  A request to replace all existing Access Levels in an Access Policy with
- *  the Access Levels provided. This is done atomically.
+ *  A request to replace all existing Access Levels in an Access Policy with the
+ *  Access Levels provided. This is done atomically.
  */
 @interface GTLRAccessContextManager_ReplaceAccessLevelsRequest : GTLRObject
 
 /**
- *  Required. The desired Access Levels that should
- *  replace all existing Access Levels in the
- *  Access Policy.
+ *  Required. The desired Access Levels that should replace all existing Access
+ *  Levels in the Access Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_AccessLevel *> *accessLevels;
 
 /**
- *  Optional. The etag for the version of the Access Policy that this
- *  replace operation is to be performed on. If, at the time of replace, the
- *  etag for the Access Policy stored in Access Context Manager is different
- *  from the specified etag, then the replace operation will not be performed
- *  and the call will fail. This field is not required. If etag is not
- *  provided, the operation will be performed as if a valid etag is provided.
+ *  Optional. The etag for the version of the Access Policy that this replace
+ *  operation is to be performed on. If, at the time of replace, the etag for
+ *  the Access Policy stored in Access Context Manager is different from the
+ *  specified etag, then the replace operation will not be performed and the
+ *  call will fail. This field is not required. If etag is not provided, the
+ *  operation will be performed as if a valid etag is provided.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -768,19 +780,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @interface GTLRAccessContextManager_ReplaceServicePerimetersRequest : GTLRObject
 
 /**
- *  Optional. The etag for the version of the Access Policy that this
- *  replace operation is to be performed on. If, at the time of replace, the
- *  etag for the Access Policy stored in Access Context Manager is different
- *  from the specified etag, then the replace operation will not be performed
- *  and the call will fail. This field is not required. If etag is not
- *  provided, the operation will be performed as if a valid etag is provided.
+ *  Optional. The etag for the version of the Access Policy that this replace
+ *  operation is to be performed on. If, at the time of replace, the etag for
+ *  the Access Policy stored in Access Context Manager is different from the
+ *  specified etag, then the replace operation will not be performed and the
+ *  call will fail. This field is not required. If etag is not provided, the
+ *  operation will be performed as if a valid etag is provided.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. The desired Service Perimeters that should
- *  replace all existing Service Perimeters in the
- *  Access Policy.
+ *  Required. The desired Service Perimeters that should replace all existing
+ *  Service Perimeters in the Access Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePerimeter *> *servicePerimeters;
 
@@ -801,42 +812,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /**
  *  `ServicePerimeter` describes a set of Google Cloud resources which can
- *  freely
- *  import and export data amongst themselves, but not export outside of the
- *  `ServicePerimeter`. If a request with a source within this
- *  `ServicePerimeter`
- *  has a target outside of the `ServicePerimeter`, the request will be blocked.
- *  Otherwise the request is allowed. There are two types of Service Perimeter -
- *  Regular and Bridge. Regular Service Perimeters cannot overlap, a single
- *  Google Cloud project can only belong to a single regular Service Perimeter.
- *  Service Perimeter Bridges can contain only Google Cloud projects as members,
- *  a single Google Cloud project may belong to multiple Service Perimeter
- *  Bridges.
+ *  freely import and export data amongst themselves, but not export outside of
+ *  the `ServicePerimeter`. If a request with a source within this
+ *  `ServicePerimeter` has a target outside of the `ServicePerimeter`, the
+ *  request will be blocked. Otherwise the request is allowed. There are two
+ *  types of Service Perimeter - Regular and Bridge. Regular Service Perimeters
+ *  cannot overlap, a single Google Cloud project can only belong to a single
+ *  regular Service Perimeter. Service Perimeter Bridges can contain only Google
+ *  Cloud projects as members, a single Google Cloud project may belong to
+ *  multiple Service Perimeter Bridges.
  */
 @interface GTLRAccessContextManager_ServicePerimeter : GTLRObject
 
 /**
- *  Description of the `ServicePerimeter` and its use. Does not affect
- *  behavior.
+ *  Description of the `ServicePerimeter` and its use. Does not affect behavior.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Resource name for the ServicePerimeter. The `short_name`
- *  component must begin with a letter and only include alphanumeric and '_'.
- *  Format: `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ *  Required. Resource name for the ServicePerimeter. The `short_name` component
+ *  must begin with a letter and only include alphanumeric and '_'. Format:
+ *  `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Perimeter type indicator. A single project is
- *  allowed to be a member of single regular perimeter, but multiple service
- *  perimeter bridges. A project cannot be a included in a perimeter bridge
- *  without being included in regular perimeter. For perimeter bridges,
- *  the restricted service list as well as access level lists must be
- *  empty.
+ *  Perimeter type indicator. A single project is allowed to be a member of
+ *  single regular perimeter, but multiple service perimeter bridges. A project
+ *  cannot be a included in a perimeter bridge without being included in regular
+ *  perimeter. For perimeter bridges, the restricted service list as well as
+ *  access level lists must be empty.
  *
  *  Likely values:
  *    @arg @c kGTLRAccessContextManager_ServicePerimeter_PerimeterType_PerimeterTypeBridge
@@ -856,8 +863,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /**
  *  Current ServicePerimeter configuration. Specifies sets of resources,
- *  restricted services and access levels that determine perimeter
- *  content and boundaries.
+ *  restricted services and access levels that determine perimeter content and
+ *  boundaries.
  */
 @property(nonatomic, strong, nullable) GTLRAccessContextManager_ServicePerimeterConfig *status;
 
@@ -865,16 +872,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly
- *  exists for all Service Perimeters, and that spec is identical to the
- *  status for those Service Perimeters. When this flag is set, it inhibits the
- *  generation of the implicit spec, thereby allowing the user to explicitly
- *  provide a configuration ("spec") to use in a dry-run version of the Service
- *  Perimeter. This allows the user to test changes to the enforced config
- *  ("status") without actually enforcing them. This testing is done through
- *  analyzing the differences between currently enforced and suggested
- *  restrictions. use_explicit_dry_run_spec must bet set to True if any of the
- *  fields in the spec are set to non-default values.
+ *  Use explicit dry run spec flag. Ordinarily, a dry-run spec implicitly exists
+ *  for all Service Perimeters, and that spec is identical to the status for
+ *  those Service Perimeters. When this flag is set, it inhibits the generation
+ *  of the implicit spec, thereby allowing the user to explicitly provide a
+ *  configuration ("spec") to use in a dry-run version of the Service Perimeter.
+ *  This allows the user to test changes to the enforced config ("status")
+ *  without actually enforcing them. This testing is done through analyzing the
+ *  differences between currently enforced and suggested restrictions.
+ *  use_explicit_dry_run_spec must bet set to True if any of the fields in the
+ *  spec are set to non-default values.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -894,10 +901,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  `ServicePerimeter` to be accessed from the internet. `AccessLevels` listed
  *  must be in the same policy as this `ServicePerimeter`. Referencing a
  *  nonexistent `AccessLevel` is a syntax error. If no `AccessLevel` names are
- *  listed, resources within the perimeter can only be accessed via Google
- *  Cloud calls with request origins within the perimeter. Example:
- *  `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`.
- *  For Service Perimeter Bridge, must be empty.
+ *  listed, resources within the perimeter can only be accessed via Google Cloud
+ *  calls with request origins within the perimeter. Example:
+ *  `"accessPolicies/MY_POLICY/accessLevels/MY_LEVEL"`. For Service Perimeter
+ *  Bridge, must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
 
@@ -910,8 +917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 /**
  *  Google Cloud services that are subject to the Service Perimeter
  *  restrictions. For example, if `storage.googleapis.com` is specified, access
- *  to the storage buckets inside the perimeter must meet the perimeter's
- *  access restrictions.
+ *  to the storage buckets inside the perimeter must meet the perimeter's access
+ *  restrictions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedServices;
 
@@ -925,9 +932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRAccessContextManager_Status : GTLRObject
 
@@ -967,14 +974,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
- *  Specifies how APIs are allowed to communicate within the Service
- *  Perimeter.
+ *  Specifies how APIs are allowed to communicate within the Service Perimeter.
  */
 @interface GTLRAccessContextManager_VpcAccessibleServices : GTLRObject
 
 /**
- *  The list of APIs usable within the Service Perimeter. Must be empty
- *  unless 'enable_restriction' is True.
+ *  The list of APIs usable within the Service Perimeter. Must be empty unless
+ *  'enable_restriction' is True. You can specify a list of individual services,
+ *  as well as include the 'RESTRICTED-SERVICES' value, which automatically
+ *  includes all of the services protected by the perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedServices;
 

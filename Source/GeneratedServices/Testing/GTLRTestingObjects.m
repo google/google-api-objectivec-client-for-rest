@@ -685,7 +685,15 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosTestSetup
-@dynamic networkProfile;
+@dynamic additionalIpas, networkProfile;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalIpas" : [GTLRTesting_FileReference class]
+  };
+  return map;
+}
+
 @end
 
 

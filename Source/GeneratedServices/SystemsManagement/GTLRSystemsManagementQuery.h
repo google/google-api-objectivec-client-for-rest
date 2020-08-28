@@ -62,13 +62,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. A name for the patch deployment in the project. When creating a
- *  name
- *  the following rules apply:
- *  * Must contain only lowercase letters, numbers, and hyphens.
- *  * Must start with a letter.
- *  * Must be between 1-63 characters.
- *  * Must end with a number or a letter.
- *  * Must be unique within the project.
+ *  name the following rules apply: * Must contain only lowercase letters,
+ *  numbers, and hyphens. * Must start with a letter. * Must be between 1-63
+ *  characters. * Must end with a number or a letter. * Must be unique within
+ *  the project.
  */
 @property(nonatomic, copy, nullable) NSString *patchDeploymentId;
 
@@ -102,8 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySystemsManagement queryForProjectsPatchDeploymentsDeleteWithname:]
 
 /**
- *  Required. The resource name of the patch deployment in the form
- *  `projects/ * /patchDeployments/ *`.
+ *  Required. The resource name of the patch deployment in the form `projects/ *
+ *  /patchDeployments/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -134,8 +131,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySystemsManagement queryForProjectsPatchDeploymentsGetWithname:]
 
 /**
- *  Required. The resource name of the patch deployment in the form
- *  `projects/ * /patchDeployments/ *`.
+ *  Required. The resource name of the patch deployment in the form `projects/ *
+ *  /patchDeployments/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -172,8 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A pagination token returned from a previous call to
- *  ListPatchDeployments
- *  that indicates where this listing should continue from.
+ *  ListPatchDeployments that indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -199,8 +195,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Cancel a patch job. The patch job must be active. Canceled patch jobs
- *  cannot be restarted.
+ *  Cancel a patch job. The patch job must be active. Canceled patch jobs cannot
+ *  be restarted.
  *
  *  Method: osconfig.projects.patchJobs.cancel
  *
@@ -217,8 +213,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSystemsManagement_PatchJob.
  *
- *  Cancel a patch job. The patch job must be active. Canceled patch jobs
- *  cannot be restarted.
+ *  Cancel a patch job. The patch job must be active. Canceled patch jobs cannot
+ *  be restarted.
  *
  *  @param object The @c GTLRSystemsManagement_CancelPatchJobRequest to include
  *    in the query.
@@ -267,8 +263,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the patch job. This can be used to track the progress of an
- *  ongoing patch job or review the details of completed jobs.
+ *  Get the patch job. This can be used to track the progress of an ongoing
+ *  patch job or review the details of completed jobs.
  *
  *  Method: osconfig.projects.patchJobs.get
  *
@@ -285,8 +281,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSystemsManagement_PatchJob.
  *
- *  Get the patch job. This can be used to track the progress of an
- *  ongoing patch job or review the details of completed jobs.
+ *  Get the patch job. This can be used to track the progress of an ongoing
+ *  patch job or review the details of completed jobs.
  *
  *  @param name Required. Name of the patch in the form `projects/ * /patchJobs/
  *    *`
@@ -310,8 +306,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQuerySystemsManagement queryForProjectsPatchJobsInstanceDetailsListWithparent:]
 
 /**
- *  A filter expression that filters results listed in the response. This
- *  field supports filtering results by instance zone, name, state, or
+ *  A filter expression that filters results listed in the response. This field
+ *  supports filtering results by instance zone, name, state, or
  *  `failure_reason`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -322,8 +318,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call that indicates where this
+ *  listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -365,8 +361,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  If provided, this field specifies the criteria that must be met by patch
- *  jobs to be included in the response.
- *  Currently, filtering is only available on the patch_deployment field.
+ *  jobs to be included in the response. Currently, filtering is only available
+ *  on the patch_deployment field.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -374,8 +370,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call that indicates where this
+ *  listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

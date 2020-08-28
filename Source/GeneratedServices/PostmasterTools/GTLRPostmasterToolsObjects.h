@@ -4,7 +4,7 @@
 // API:
 //   Gmail Postmaster Tools API (gmailpostmastertools/v1beta1)
 // Description:
-//   The Gmail Postmaster API is a RESTful API that provides programmatic access
+//   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
 //   available through the Gmail Postmaster Tools UI currently.
 // Documentation:
@@ -76,8 +76,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_BadDmarcPolicy;
 /**
- *  The sending IP is missing a
- *  [PTR record](https://support.google.com/domains/answer/3251147#ptr).
+ *  The sending IP is missing a [PTR
+ *  record](https://support.google.com/domains/answer/3251147#ptr).
  *
  *  Value: "BAD_PTR_RECORD"
  */
@@ -95,17 +95,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_DeliveryErrorTypeUnspecified;
 /**
- *  The Domain is listed in one or more public
- *  [Real-time Blackhole Lists](http://en.wikipedia.org/wiki/DNSBL). Work with
- *  the RBL to get your domain delisted.
+ *  The Domain is listed in one or more public [Real-time Blackhole
+ *  Lists](http://en.wikipedia.org/wiki/DNSBL). Work with the RBL to get your
+ *  domain delisted.
  *
  *  Value: "DOMAIN_IN_RBL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_DomainInRbl;
 /**
- *  The IP is listed in one or more public
- *  [Real-time Blackhole Lists](http://en.wikipedia.org/wiki/DNSBL). Work with
- *  the RBL to get your IP delisted.
+ *  The IP is listed in one or more public [Real-time Blackhole
+ *  Lists](http://en.wikipedia.org/wiki/DNSBL). Work with the RBL to get your IP
+ *  delisted.
  *
  *  Value: "IP_IN_RBL"
  */
@@ -124,8 +124,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_LowIpReputation;
 /**
  *  The Domain or IP is sending traffic at a suspiciously high rate, due to
- *  which temporary rate limits have been imposed. The limit will be lifted
- *  when Gmail is confident enough of the nature of the traffic.
+ *  which temporary rate limits have been imposed. The limit will be lifted when
+ *  Gmail is confident enough of the nature of the traffic.
  *
  *  Value: "RATE_LIMIT_EXCEEDED"
  */
@@ -194,15 +194,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_IpReputation_Reputation_
 /**
  *  Known to send good mail, but is prone to sending a low volume of spam
  *  intermittently. Most of the email from this entity will have a fair
- *  deliverability rate, except when there is a notable increase in spam
- *  levels.
+ *  deliverability rate, except when there is a notable increase in spam levels.
  *
  *  Value: "MEDIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_IpReputation_Reputation_Medium;
 /**
- *  The default value which should never be used explicitly. This represents
- *  the state where no reputation information is available.
+ *  The default value which should never be used explicitly. This represents the
+ *  state where no reputation information is available.
  *
  *  Value: "REPUTATION_CATEGORY_UNSPECIFIED"
  */
@@ -235,15 +234,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
 /**
  *  Known to send good mail, but is prone to sending a low volume of spam
  *  intermittently. Most of the email from this entity will have a fair
- *  deliverability rate, except when there is a notable increase in spam
- *  levels.
+ *  deliverability rate, except when there is a notable increase in spam levels.
  *
  *  Value: "MEDIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_Medium;
 /**
- *  The default value which should never be used explicitly. This represents
- *  the state where no reputation information is available.
+ *  The default value which should never be used explicitly. This represents the
+ *  state where no reputation information is available.
  *
  *  Value: "REPUTATION_CATEGORY_UNSPECIFIED"
  */
@@ -270,8 +268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
 @property(nonatomic, copy, nullable) NSString *errorClass;
 
 /**
- *  The ratio of messages where the error occurred vs all authenticated
- *  traffic.
+ *  The ratio of messages where the error occurred vs all authenticated traffic.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -287,8 +284,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *        sender domain has set up a DMARC rejection policy. (Value:
  *        "BAD_DMARC_POLICY")
  *    @arg @c kGTLRPostmasterTools_DeliveryError_ErrorType_BadPtrRecord The
- *        sending IP is missing a
- *        [PTR record](https://support.google.com/domains/answer/3251147#ptr).
+ *        sending IP is missing a [PTR
+ *        record](https://support.google.com/domains/answer/3251147#ptr).
  *        (Value: "BAD_PTR_RECORD")
  *    @arg @c kGTLRPostmasterTools_DeliveryError_ErrorType_ContentSpammy The
  *        traffic is suspected to be spammy, specific to the content. (Value:
@@ -297,15 +294,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *        The default value which should never be used explicitly. (Value:
  *        "DELIVERY_ERROR_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRPostmasterTools_DeliveryError_ErrorType_DomainInRbl The
- *        Domain is listed in one or more public
- *        [Real-time Blackhole Lists](http://en.wikipedia.org/wiki/DNSBL). Work
- *        with
- *        the RBL to get your domain delisted. (Value: "DOMAIN_IN_RBL")
+ *        Domain is listed in one or more public [Real-time Blackhole
+ *        Lists](http://en.wikipedia.org/wiki/DNSBL). Work with the RBL to get
+ *        your domain delisted. (Value: "DOMAIN_IN_RBL")
  *    @arg @c kGTLRPostmasterTools_DeliveryError_ErrorType_IpInRbl The IP is
- *        listed in one or more public
- *        [Real-time Blackhole Lists](http://en.wikipedia.org/wiki/DNSBL). Work
- *        with
- *        the RBL to get your IP delisted. (Value: "IP_IN_RBL")
+ *        listed in one or more public [Real-time Blackhole
+ *        Lists](http://en.wikipedia.org/wiki/DNSBL). Work with the RBL to get
+ *        your IP delisted. (Value: "IP_IN_RBL")
  *    @arg @c kGTLRPostmasterTools_DeliveryError_ErrorType_LowDomainReputation
  *        The Domain reputation of the sending domain is very low. (Value:
  *        "LOW_DOMAIN_REPUTATION")
@@ -315,9 +310,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *    @arg @c kGTLRPostmasterTools_DeliveryError_ErrorType_RateLimitExceeded The
  *        Domain or IP is sending traffic at a suspiciously high rate, due to
  *        which temporary rate limits have been imposed. The limit will be
- *        lifted
- *        when Gmail is confident enough of the nature of the traffic. (Value:
- *        "RATE_LIMIT_EXCEEDED")
+ *        lifted when Gmail is confident enough of the nature of the traffic.
+ *        (Value: "RATE_LIMIT_EXCEEDED")
  *    @arg @c kGTLRPostmasterTools_DeliveryError_ErrorType_SuspectedSpam The
  *        traffic is suspected to be spam, by Gmail, for various reasons.
  *        (Value: "SUSPECTED_SPAM")
@@ -332,16 +326,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  */
 @interface GTLRPostmasterTools_Domain : GTLRObject
 
-/**
- *  Timestamp when the user registered this domain. Assigned by
- *  the server.
- */
+/** Timestamp when the user registered this domain. Assigned by the server. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The resource name of the Domain.
- *  Domain names have the form `domains/{domain_name}`, where domain_name
- *  is the fully qualified domain name (i.e., mymail.mydomain.com).
+ *  The resource name of the Domain. Domain names have the form
+ *  `domains/{domain_name}`, where domain_name is the fully qualified domain
+ *  name (i.e., mymail.mydomain.com).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -350,10 +341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *
  *  Likely values:
  *    @arg @c kGTLRPostmasterTools_Domain_Permission_None User doesn't have
- *        permission to access information about the domain. User
- *        did not verify ownership of domain nor was access granted by other
- *        domain
- *        owners. (Value: "NONE")
+ *        permission to access information about the domain. User did not verify
+ *        ownership of domain nor was access granted by other domain owners.
+ *        (Value: "NONE")
  *    @arg @c kGTLRPostmasterTools_Domain_Permission_Owner User has read access
  *        to the domain and can share access with others. (Value: "OWNER")
  *    @arg @c kGTLRPostmasterTools_Domain_Permission_PermissionUnspecified The
@@ -415,12 +405,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *        entity will almost always be rejected at SMTP level or marked as spam.
  *        (Value: "BAD")
  *    @arg @c kGTLRPostmasterTools_IpReputation_Reputation_High Has a good track
- *        record of a very low spam rate, and complies with Gmail's
- *        sender guidelines. Mail will rarely be marked by the spam filter.
- *        (Value: "HIGH")
+ *        record of a very low spam rate, and complies with Gmail's sender
+ *        guidelines. Mail will rarely be marked by the spam filter. (Value:
+ *        "HIGH")
  *    @arg @c kGTLRPostmasterTools_IpReputation_Reputation_Low Known to send a
- *        considerable volume of spam regularly, and mail from this
- *        sender will likely be marked as spam. (Value: "LOW")
+ *        considerable volume of spam regularly, and mail from this sender will
+ *        likely be marked as spam. (Value: "LOW")
  *    @arg @c kGTLRPostmasterTools_IpReputation_Reputation_Medium Known to send
  *        good mail, but is prone to sending a low volume of spam
  *        intermittently. Most of the email from this entity will have a fair
@@ -428,9 +418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *        levels. (Value: "MEDIUM")
  *    @arg @c kGTLRPostmasterTools_IpReputation_Reputation_ReputationCategoryUnspecified
  *        The default value which should never be used explicitly. This
- *        represents
- *        the state where no reputation information is available. (Value:
- *        "REPUTATION_CATEGORY_UNSPECIFIED")
+ *        represents the state where no reputation information is available.
+ *        (Value: "REPUTATION_CATEGORY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *reputation;
 
@@ -459,8 +448,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
 @property(nonatomic, strong, nullable) NSArray<GTLRPostmasterTools_Domain *> *domains;
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -478,8 +467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
 @interface GTLRPostmasterTools_ListTrafficStatsResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -532,9 +521,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *        entity will almost always be rejected at SMTP level or marked as spam.
  *        (Value: "BAD")
  *    @arg @c kGTLRPostmasterTools_TrafficStats_DomainReputation_High Has a good
- *        track record of a very low spam rate, and complies with Gmail's
- *        sender guidelines. Mail will rarely be marked by the spam filter.
- *        (Value: "HIGH")
+ *        track record of a very low spam rate, and complies with Gmail's sender
+ *        guidelines. Mail will rarely be marked by the spam filter. (Value:
+ *        "HIGH")
  *    @arg @c kGTLRPostmasterTools_TrafficStats_DomainReputation_Low Known to
  *        send a considerable volume of spam regularly, and mail from this
  *        sender will likely be marked as spam. (Value: "LOW")
@@ -545,15 +534,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *        levels. (Value: "MEDIUM")
  *    @arg @c kGTLRPostmasterTools_TrafficStats_DomainReputation_ReputationCategoryUnspecified
  *        The default value which should never be used explicitly. This
- *        represents
- *        the state where no reputation information is available. (Value:
- *        "REPUTATION_CATEGORY_UNSPECIFIED")
+ *        represents the state where no reputation information is available.
+ *        (Value: "REPUTATION_CATEGORY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *domainReputation;
 
 /**
- *  The ratio of incoming mail (to Gmail), that passed secure transport (TLS)
- *  vs all mail received from that domain. This metric only pertains to traffic
+ *  The ratio of incoming mail (to Gmail), that passed secure transport (TLS) vs
+ *  all mail received from that domain. This metric only pertains to traffic
  *  that passed [SPF](http://www.openspf.org/) or [DKIM](http://www.dkim.org/).
  *
  *  Uses NSNumber of doubleValue.
@@ -563,18 +551,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
 /**
  *  Reputation information pertaining to the IP addresses of the email servers
  *  for the domain. There is exactly one entry for each reputation category
- *  except
- *  REPUTATION_CATEGORY_UNSPECIFIED.
+ *  except REPUTATION_CATEGORY_UNSPECIFIED.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPostmasterTools_IpReputation *> *ipReputations;
 
 /**
  *  The resource name of the traffic statistics. Traffic statistic names have
- *  the form `domains/{domain}/trafficStats/{date}`, where
- *  domain_name is the fully qualified domain name (i.e., mymail.mydomain.com)
- *  of the domain this traffic statistics pertains to and date is the date in
- *  yyyymmdd format that these statistics corresponds to.
- *  For example: domains/mymail.mydomain.com/trafficStats/20160807
+ *  the form `domains/{domain}/trafficStats/{date}`, where domain_name is the
+ *  fully qualified domain name (i.e., mymail.mydomain.com) of the domain this
+ *  traffic statistics pertains to and date is the date in yyyymmdd format that
+ *  these statistics corresponds to. For example:
+ *  domains/mymail.mydomain.com/trafficStats/20160807
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -595,9 +582,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
 @property(nonatomic, strong, nullable) NSArray<GTLRPostmasterTools_FeedbackLoop *> *spammyFeedbackLoops;
 
 /**
- *  The ratio of mail that successfully authenticated with SPF vs. all mail
- *  that attempted to authenticate with [SPF](http://www.openspf.org/). Spoofed
- *  mail is excluded.
+ *  The ratio of mail that successfully authenticated with SPF vs. all mail that
+ *  attempted to authenticate with [SPF](http://www.openspf.org/). Spoofed mail
+ *  is excluded.
  *
  *  Uses NSNumber of doubleValue.
  */

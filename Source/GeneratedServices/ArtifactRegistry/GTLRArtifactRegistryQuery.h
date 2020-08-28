@@ -39,11 +39,23 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "BASIC" */
+/**
+ *  Includes basic information about the version, but not any related tags.
+ *
+ *  Value: "BASIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewBasic;
-/** Value: "FULL" */
+/**
+ *  Include everything.
+ *
+ *  Value: "FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewFull;
-/** Value: "VERSION_VIEW_UNSPECIFIED" */
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "VERSION_VIEW_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -166,14 +178,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: artifactregistry.projects.locations.operations.list
  *
@@ -201,14 +213,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  Fetches a @c GTLRArtifactRegistry_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -223,8 +235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
- *  Creates a repository. The returned Operation will finish once the
- *  repository has been created. Its response will be the created Repository.
+ *  Creates a repository. The returned Operation will finish once the repository
+ *  has been created. Its response will be the created Repository.
  *
  *  Method: artifactregistry.projects.locations.repositories.create
  *
@@ -244,8 +256,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 /**
  *  Fetches a @c GTLRArtifactRegistry_Operation.
  *
- *  Creates a repository. The returned Operation will finish once the
- *  repository has been created. Its response will be the created Repository.
+ *  Creates a repository. The returned Operation will finish once the repository
+ *  has been created. Its response will be the created Repository.
  *
  *  @param object The @c GTLRArtifactRegistry_Repository to include in the
  *    query.
@@ -335,17 +347,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 
 /**
  *  An expression for filtering the results of the request. Filter rules are
- *  case insensitive. The fields eligible for filtering are:
- *  * `name`
- *  * `owner`
- *  An example of using a filter:
- *  * `name="projects/p1/locations/us-central1/repositories/repo1/files/a/b/ *"`
- *  --> Files with an
- *  ID starting with "a/b/".
- *  *
+ *  case insensitive. The fields eligible for filtering are: * `name` * `owner`
+ *  An example of using a filter: *
+ *  `name="projects/p1/locations/us-central1/repositories/repo1/files/a/b/ *"`
+ *  --> Files with an ID starting with "a/b/". *
  *  `owner="projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0"`
- *  -->
- *  Files owned by the version `1.0` in package `pkg1`.
+ *  --> Files owned by the version `1.0` in package `pkg1`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -420,21 +427,19 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 //   +[GTLQueryArtifactRegistry queryForProjectsLocationsRepositoriesGetIamPolicyWithresource:]
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -444,8 +449,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  Gets the IAM policy for a given resource.
  *
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGetIamPolicy
  */
@@ -700,10 +705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 
 /**
  *  An expression for filtering the results of the request. Filter rules are
- *  case insensitive. The fields eligible for filtering are:
- *  * `version`
- *  An example of using a filter:
- *  *
+ *  case insensitive. The fields eligible for filtering are: * `version` An
+ *  example of using a filter: *
  *  `version="projects/p1/locations/us-central1/repositories/repo1/packages/pkg1/versions/1.0"`
  *  --> Tags that are applied to the version `1.0` in package `pkg1`.
  */
@@ -756,8 +759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition,
- *  see
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
@@ -836,10 +838,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  The view that should be returned in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRArtifactRegistryViewVersionViewUnspecified Value
- *        "VERSION_VIEW_UNSPECIFIED"
- *    @arg @c kGTLRArtifactRegistryViewBasic Value "BASIC"
- *    @arg @c kGTLRArtifactRegistryViewFull Value "FULL"
+ *    @arg @c kGTLRArtifactRegistryViewVersionViewUnspecified The default /
+ *        unset value. The API will default to the BASIC view. (Value:
+ *        "VERSION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistryViewBasic Includes basic information about
+ *        the version, but not any related tags. (Value: "BASIC")
+ *    @arg @c kGTLRArtifactRegistryViewFull Include everything. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -884,10 +888,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  The view that should be returned in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRArtifactRegistryViewVersionViewUnspecified Value
- *        "VERSION_VIEW_UNSPECIFIED"
- *    @arg @c kGTLRArtifactRegistryViewBasic Value "BASIC"
- *    @arg @c kGTLRArtifactRegistryViewFull Value "FULL"
+ *    @arg @c kGTLRArtifactRegistryViewVersionViewUnspecified The default /
+ *        unset value. The API will default to the BASIC view. (Value:
+ *        "VERSION_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistryViewBasic Includes basic information about
+ *        the version, but not any related tags. (Value: "BASIC")
+ *    @arg @c kGTLRArtifactRegistryViewFull Include everything. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -927,8 +933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition,
- *  see
+ *  The update mask applies to the resource. For the `FieldMask` definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
@@ -965,8 +970,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 //   +[GTLQueryArtifactRegistry queryForProjectsLocationsRepositoriesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -978,8 +983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param object The @c GTLRArtifactRegistry_SetIamPolicyRequest to include in
  *    the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesSetIamPolicy
  */
@@ -1002,8 +1007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 //   +[GTLQueryArtifactRegistry queryForProjectsLocationsRepositoriesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1015,8 +1020,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  @param object The @c GTLRArtifactRegistry_TestIamPermissionsRequest to
  *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesTestIamPermissions
  */

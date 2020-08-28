@@ -337,24 +337,6 @@ NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1Us
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1GetCatalogItemsWithItemGroupIdResponse
-//
-
-@implementation GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1GetCatalogItemsWithItemGroupIdResponse
-@dynamic canonicalCatalogItem, catalogItems;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"catalogItems" : [GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1Image
 //
 

@@ -100,9 +100,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConf
  */
 FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_NumberFormatTypeUnspecified;
 /**
- *  Numbers are formatted to have no digits or fixed number of digits after
- *  the decimal point according to locale. An optional custom unit can be
- *  added.
+ *  Numbers are formatted to have no digits or fixed number of digits after the
+ *  decimal point according to locale. An optional custom unit can be added.
  *
  *  Value: "NUMERIC"
  */
@@ -332,8 +331,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfigurat
 @property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *two;
 
 /**
- *  When the language requires special treatment of the number 0 (as in
- *  Arabic).
+ *  When the language requires special treatment of the number 0 (as in Arabic).
  */
 @property(nonatomic, strong, nullable) GTLRGamesConfiguration_LocalizedStringBundle *zero;
 
@@ -360,9 +358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfigurat
  *        "NUMBER_FORMAT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_Numeric
  *        Numbers are formatted to have no digits or fixed number of digits
- *        after
- *        the decimal point according to locale. An optional custom unit can be
- *        added. (Value: "NUMERIC")
+ *        after the decimal point according to locale. An optional custom unit
+ *        can be added. (Value: "NUMERIC")
  *    @arg @c kGTLRGamesConfiguration_GamesNumberFormatConfiguration_NumberFormatType_TimeDuration
  *        Numbers are formatted to hours, minutes and seconds. (Value:
  *        "TIME_DURATION")
@@ -378,9 +375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfigurat
 
 /**
  *  An optional suffix for the NUMERIC format type. These strings follow the
- *  same
- *  <a href="http://developer.android.com/guide/topics/resources/string-resource.html#Plurals">
- *  plural rules</a> as all Android string resources.
+ *  same plural rules as all Android string resources.
  */
 @property(nonatomic, strong, nullable) GTLRGamesConfiguration_GamesNumberAffixConfiguration *suffix;
 
@@ -529,8 +524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfiguration_LeaderboardConfigurat
 
 /**
  *  Uniquely identifies the type of this resource. Value is always the fixed
- *  string
- *  `gamesConfiguration#leaderboardConfigurationListResponse`.
+ *  string `gamesConfiguration#leaderboardConfigurationListResponse`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
