@@ -2735,7 +2735,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** A list of errors defined if, and only if, the request failed. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
-/** The the list of accessible GMB accounts. */
+/** The list of accessible GMB accounts. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_GmbAccounts *gmbAccounts;
 
 /**

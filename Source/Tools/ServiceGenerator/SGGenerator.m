@@ -1724,7 +1724,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   return result;
 }
 
-// Generates the the actual interface/implementation of a query classes for the
+// Generates the actual interface/implementation of a query classes for the
 // given service resource.
 - (NSString *)generateQueryClassesForMode:(GeneratorMode)mode {
   NSMutableArray *parts = [NSMutableArray array];
