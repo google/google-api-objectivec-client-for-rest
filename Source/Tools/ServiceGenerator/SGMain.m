@@ -122,7 +122,7 @@ static ArgInfo optionalFlags[] = {
     " the googleapis.com root instead."
   },
   { "--messageFilter PATH",
-    "A json file containing the the expected messages that should be suppressed"
+    "A json file containing the expected messages that should be suppressed"
     " during generation. The content is a dictionary with keys 'INFO' and "
     " 'WARNING'; their values are lists of string with the message to filter"
     " away (exactly as it is reported during a run). Error message can not be"

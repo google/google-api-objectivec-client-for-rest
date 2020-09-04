@@ -9421,7 +9421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  Age-restricted trailers. For redband trailers and adult-rated video-games.
- *  Only users aged 18+ can view the content. The the field is true the content
+ *  Only users aged 18+ can view the content. The field is true the content
  *  is restricted to viewers aged 18+. Otherwise The field won't be present.
  *
  *  Uses NSNumber of boolValue.
@@ -10083,7 +10083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  This value indicates whether the video processing engine has generated
- *  suggestions that might improve YouTube's ability to process the the video,
+ *  suggestions that might improve YouTube's ability to process the video,
  *  warnings that explain video processing problems, or errors that cause video
  *  processing problems. You can retrieve these suggestions by requesting the
  *  suggestions part in your videos.list() request.
