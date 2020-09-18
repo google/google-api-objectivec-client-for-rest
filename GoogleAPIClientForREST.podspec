@@ -528,10 +528,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/NetworkManagement/*.{h,m}'
   end
-  s.subspec 'Oauth2' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Oauth2/*.{h,m}'
-  end
   s.subspec 'PagespeedInsights' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PagespeedInsights/*.{h,m}'
@@ -547,10 +543,6 @@ Pod::Spec.new do |s|
   s.subspec 'Playcustomapp' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Playcustomapp/*.{h,m}'
-  end
-  s.subspec 'Plus' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Plus/*.{h,m}'
   end
   s.subspec 'PolicyTroubleshooter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

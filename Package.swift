@@ -514,10 +514,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_NetworkManagement"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_Oauth2",
-            targets: ["GoogleAPIClientForREST_Oauth2"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_PagespeedInsights",
             targets: ["GoogleAPIClientForREST_PagespeedInsights"]
         ),
@@ -532,10 +528,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Playcustomapp",
             targets: ["GoogleAPIClientForREST_Playcustomapp"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_Plus",
-            targets: ["GoogleAPIClientForREST_Plus"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PolicyTroubleshooter",
@@ -1532,12 +1524,6 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
-            name: "GoogleAPIClientForREST_Oauth2",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/Oauth2",
-            publicHeadersPath: "."
-        ),
-        .target(
             name: "GoogleAPIClientForREST_PagespeedInsights",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/PagespeedInsights",
@@ -1559,12 +1545,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Playcustomapp",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Playcustomapp",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_Plus",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/Plus",
             publicHeadersPath: "."
         ),
         .target(
