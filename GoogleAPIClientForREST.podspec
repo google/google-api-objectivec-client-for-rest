@@ -596,10 +596,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/SQLAdmin/*.{h,m}'
   end
-  s.subspec 'SafeBrowsing' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/SafeBrowsing/*.{h,m}'
-  end
   s.subspec 'Script' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Script/*.{h,m}'

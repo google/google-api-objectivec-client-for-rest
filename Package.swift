@@ -582,10 +582,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_SQLAdmin"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_SafeBrowsing",
-            targets: ["GoogleAPIClientForREST_SafeBrowsing"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_Script",
             targets: ["GoogleAPIClientForREST_Script"]
         ),
@@ -1623,12 +1619,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_SQLAdmin",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/SQLAdmin",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_SafeBrowsing",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/SafeBrowsing",
             publicHeadersPath: "."
         ),
         .target(
