@@ -290,10 +290,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Clouderrorreporting"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_CommentAnalyzer",
-            targets: ["GoogleAPIClientForREST_CommentAnalyzer"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_Compute",
             targets: ["GoogleAPIClientForREST_Compute"]
         ),
@@ -304,10 +300,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_ContainerAnalysis",
             targets: ["GoogleAPIClientForREST_ContainerAnalysis"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_CustomSearch",
-            targets: ["GoogleAPIClientForREST_CustomSearch"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CustomSearchAPI",
@@ -1220,12 +1212,6 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
-            name: "GoogleAPIClientForREST_CommentAnalyzer",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/CommentAnalyzer",
-            publicHeadersPath: "."
-        ),
-        .target(
             name: "GoogleAPIClientForREST_Compute",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Compute",
@@ -1241,12 +1227,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_ContainerAnalysis",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/ContainerAnalysis",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_CustomSearch",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/CustomSearch",
             publicHeadersPath: "."
         ),
         .target(

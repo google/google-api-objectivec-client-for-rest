@@ -304,10 +304,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Clouderrorreporting/*.{h,m}'
   end
-  s.subspec 'CommentAnalyzer' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CommentAnalyzer/*.{h,m}'
-  end
   s.subspec 'Compute' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Compute/*.{h,m}'
@@ -319,10 +315,6 @@ Pod::Spec.new do |s|
   s.subspec 'ContainerAnalysis' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ContainerAnalysis/*.{h,m}'
-  end
-  s.subspec 'CustomSearch' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CustomSearch/*.{h,m}'
   end
   s.subspec 'CustomSearchAPI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
