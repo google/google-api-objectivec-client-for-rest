@@ -127,7 +127,7 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRGameServices_Binding
-@dynamic condition, members, role;
+@dynamic bindingId, condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

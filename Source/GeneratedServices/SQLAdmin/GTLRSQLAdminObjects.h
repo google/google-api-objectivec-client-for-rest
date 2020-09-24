@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sql/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -48,6 +48,7 @@
 @class GTLRSQLAdmin_IpConfiguration;
 @class GTLRSQLAdmin_IpMapping;
 @class GTLRSQLAdmin_LocationPreference;
+@class GTLRSQLAdmin_MaintenanceDenyPeriod;
 @class GTLRSQLAdmin_MaintenanceWindow;
 @class GTLRSQLAdmin_MySqlReplicaConfiguration;
 @class GTLRSQLAdmin_OnPremisesConfiguration;
@@ -637,9 +638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ImportContext_FileType_SqlFileT
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpMapping_Type_Migrated1stGen;
 /**
  *  Source IP address of the connection a read replica establishes to its
- *  external master. This IP address can be allowlisted by the customer in case
- *  it has a firewall that filters incoming connection to its on premises
- *  master.
+ *  external primary instance. This IP address can be allowlisted by the
+ *  customer in case it has a firewall that filters incoming connection to its
+ *  on premises primary instance.
  *
  *  Value: "OUTGOING"
  */
@@ -847,7 +848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_Snapsho
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecified;
 /**
- *  Starts external sync of a Cloud SQL EM replica to an external master.
+ *  Starts external sync of a Cloud SQL EM replica to an external primary
+ *  instance.
  *
  *  Value: "START_EXTERNAL_SYNC"
  */
@@ -1099,13 +1101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Value: "INSUFFICIENT_PRIVILEGE" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege;
 /**
- *  The master database parameter setup doesn't allow EM sync.
+ *  The primary instance database parameter setup doesn't allow EM sync.
  *
  *  Value: "INVALID_DB_PARAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidDbParam;
 /**
- *  The master logging setup doesn't allow EM sync.
+ *  The primary instance logging setup doesn't allow EM sync.
  *
  *  Value: "INVALID_LOGGING_SETUP"
  */
@@ -1567,7 +1569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  A Cloud SQL instance resource. Next field: 35
+ *  A Cloud SQL instance resource. Next field: 36
  */
 @interface GTLRSQLAdmin_DatabaseInstance : GTLRObject
 
@@ -1680,7 +1682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The instance type. This can be one of the following. *CLOUD_SQL_INSTANCE*: A
- *  Cloud SQL instance that is not replicating from a master.
+ *  Cloud SQL instance that is not replicating from a primary instance.
  *  *ON_PREMISES_INSTANCE*: An instance running on the customer's premises.
  *  *READ_REPLICA_INSTANCE*: A Cloud SQL instance configured as a read-replica.
  *
@@ -1712,7 +1714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the instance which will act as master in the replication setup.
+ *  The name of the instance which will act as primary in the replication setup.
  */
 @property(nonatomic, copy, nullable) NSString *masterInstanceName;
 
@@ -1812,8 +1814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The availability status of the failover replica. A false status indicates
- *  that the failover replica is out of sync. The master can only failover to
- *  the failover replica when the status is true.
+ *  that the failover replica is out of sync. The primary instance can only
+ *  failover to the failover replica when the status is true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1852,7 +1854,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Read-replica configuration for connecting to the on-premises master.
+ *  Read-replica configuration for connecting to the on-premises primary
+ *  instance.
  */
 @interface GTLRSQLAdmin_DemoteMasterConfiguration : GTLRObject
 
@@ -1861,11 +1864,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  MySQL specific configuration when replicating from a MySQL on-premises
- *  master. Replication configuration information such as the username,
- *  password, certificates, and keys are not stored in the instance metadata.
- *  The configuration information is used only to set up the replication
- *  connection and is stored by MySQL in a file named *master.info* in the data
- *  directory.
+ *  primary instance. Replication configuration information such as the
+ *  username, password, certificates, and keys are not stored in the instance
+ *  metadata. The configuration information is used only to set up the
+ *  replication connection and is stored by MySQL in a file named *master.info*
+ *  in the data directory.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration *mysqlReplicaConfiguration;
 
@@ -1873,7 +1876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Database instance demote master context.
+ *  Database instance demote primary instance context.
  */
 @interface GTLRSQLAdmin_DemoteMasterContext : GTLRObject
 
@@ -1881,24 +1884,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The name of the instance which will act as on-premises master in the
- *  replication setup.
+ *  The name of the instance which will act as on-premises primary instance in
+ *  the replication setup.
  */
 @property(nonatomic, copy, nullable) NSString *masterInstanceName;
 
 /**
  *  Configuration specific to read-replicas replicating from the on-premises
- *  master.
+ *  primary instance.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterConfiguration *replicaConfiguration;
 
 /**
  *  Verify GTID consistency for demote operation. Default value: *True*. Second
  *  Generation instances only. Setting this flag to false enables you to bypass
- *  GTID consistency check between on-premises master and Cloud SQL instance
- *  during the demotion operation but also exposes you to the risk of future
- *  replication failures. Change the value only if you know the reason for the
- *  GTID divergence and are confident that doing so will not cause any
+ *  GTID consistency check between on-premises primary instance and Cloud SQL
+ *  instance during the demotion operation but also exposes you to the risk of
+ *  future replication failures. Change the value only if you know the reason
+ *  for the GTID divergence and are confident that doing so will not cause any
  *  replication issues.
  *
  *  Uses NSNumber of boolValue.
@@ -2326,7 +2329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Database demote master request.
+ *  Database demote primary instance request.
  */
 @interface GTLRSQLAdmin_InstancesDemoteMasterRequest : GTLRObject
 
@@ -2515,10 +2518,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        migration is complete. Note: V1 instances with V1 ip addresses will be
  *        counted as PRIMARY. (Value: "MIGRATED_1ST_GEN")
  *    @arg @c kGTLRSQLAdmin_IpMapping_Type_Outgoing Source IP address of the
- *        connection a read replica establishes to its external master. This IP
- *        address can be allowlisted by the customer in case it has a firewall
- *        that filters incoming connection to its on premises master. (Value:
- *        "OUTGOING")
+ *        connection a read replica establishes to its external primary
+ *        instance. This IP address can be allowlisted by the customer in case
+ *        it has a firewall that filters incoming connection to its on premises
+ *        primary instance. (Value: "OUTGOING")
  *    @arg @c kGTLRSQLAdmin_IpMapping_Type_Primary IP address the customer is
  *        supposed to connect to. Usually this is the load balancer's IP address
  *        (Value: "PRIMARY")
@@ -2557,6 +2560,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  Maintenance Deny Periods. This specifies a date range during when all CSA
+ *  rollout will be denied.
+ */
+@interface GTLRSQLAdmin_MaintenanceDenyPeriod : GTLRObject
+
+/**
+ *  "maintenance deny period" end date. If the year of the end date is empty,
+ *  the year of the start date also must be empty. In this case, it means the no
+ *  maintenance interval recurs every year. The date is in format yyyy-mm-dd
+ *  i.e., 2020-11-01, or mm-dd, i.e., 11-01
+ */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/**
+ *  "maintenance deny period" start date. If the year of the start date is
+ *  empty, the year of the end date also must be empty. In this case, it means
+ *  the no maintenance interval recurs every year. The date is in format
+ *  yyyy-mm-dd i.e., 2020-11-01, or mm-dd, i.e., 11-01
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+/**
+ *  Time in UTC when the "no maintenance interval" starts on start_date and ends
+ *  on end_date. The time is in format: HH:mm:SS, i.e., 00:00:00
+ */
+@property(nonatomic, copy, nullable) NSString *time;
 
 @end
 
@@ -2659,8 +2693,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *username;
 
 /**
- *  Whether or not to check the master's Common Name value in the certificate
- *  that it sends during the SSL handshake.
+ *  Whether or not to check the primary instance's Common Name value in the
+ *  certificate that it sends during the SSL handshake.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2810,8 +2844,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_SqlOperationTypeUnspecified
  *        Unknown operation type. (Value: "SQL_OPERATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_StartExternalSync Starts
- *        external sync of a Cloud SQL EM replica to an external master. (Value:
- *        "START_EXTERNAL_SYNC")
+ *        external sync of a Cloud SQL EM replica to an external primary
+ *        instance. (Value: "START_EXTERNAL_SYNC")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_StartReplica Starts
  *        replication on a Cloud SQL read replica instance. (Value:
  *        "START_REPLICA")
@@ -2931,16 +2965,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Read-replica configuration for connecting to the master.
+ *  Read-replica configuration for connecting to the primary instance.
  */
 @interface GTLRSQLAdmin_ReplicaConfiguration : GTLRObject
 
 /**
  *  Specifies if the replica is the failover target. If the field is set to
  *  *true* the replica will be designated as a failover replica. In case the
- *  master instance fails, the replica instance will be promoted as the new
- *  master instance. Only one replica can be specified as failover target, and
- *  the replica has to be in different zone with the master instance.
+ *  primary instance fails, the replica instance will be promoted as the new
+ *  primary instance. Only one replica can be specified as failover target, and
+ *  the replica has to be in different zone with the primary instance.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2951,11 +2985,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  MySQL specific configuration when replicating from a MySQL on-premises
- *  master. Replication configuration information such as the username,
- *  password, certificates, and keys are not stored in the instance metadata.
- *  The configuration information is used only to set up the replication
- *  connection and is stored by MySQL in a file named *master.info* in the data
- *  directory.
+ *  primary instance. Replication configuration information such as the
+ *  username, password, certificates, and keys are not stored in the instance
+ *  metadata. The configuration information is used only to set up the
+ *  replication connection and is stored by MySQL in a file named *master.info*
+ *  in the data directory.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlReplicaConfiguration *mysqlReplicaConfiguration;
 
@@ -3153,6 +3187,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_LocationPreference *locationPreference;
 
+/** Maintenance deny periods */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_MaintenanceDenyPeriod *> *maintenanceDenyPeriods;
+
 /**
  *  The maintenance window for this instance. This specifies when the instance
  *  can be restarted for maintenance purposes.
@@ -3249,7 +3286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  External master migration setting error.
+ *  External primary instance migration setting error.
  */
 @interface GTLRSQLAdmin_SqlExternalSyncSettingError : GTLRObject
 
@@ -3281,10 +3318,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InsufficientPrivilege
  *        Value "INSUFFICIENT_PRIVILEGE"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidDbParam The
- *        master database parameter setup doesn't allow EM sync. (Value:
- *        "INVALID_DB_PARAM")
+ *        primary instance database parameter setup doesn't allow EM sync.
+ *        (Value: "INVALID_DB_PARAM")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidLoggingSetup
- *        The master logging setup doesn't allow EM sync. (Value:
+ *        The primary instance logging setup doesn't allow EM sync. (Value:
  *        "INVALID_LOGGING_SETUP")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidRdsLogicalReplication
  *        The value of parameter rds.logical_replication is not set to 1.

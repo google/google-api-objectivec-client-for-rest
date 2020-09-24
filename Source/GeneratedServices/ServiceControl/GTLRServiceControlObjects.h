@@ -433,15 +433,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The email address of the authenticated user (or service account on behalf of
- *  third party principal) making the request. For privacy reasons, the
- *  principal email address is redacted for all read-only operations that fail
- *  with a "permission denied" error.
+ *  third party principal) making the request. For third party identity callers,
+ *  the `principal_subject` field is populated instead of this field. For
+ *  privacy reasons, the principal email address is sometimes redacted. For more
+ *  information, see [Caller identities in audit
+ *  logs](https://cloud.google.com/logging/docs/audit#user-id).
  */
 @property(nonatomic, copy, nullable) NSString *principalEmail;
 
 /**
  *  String representation of identity of requesting party. Populated for both
- *  first and third party identities.
+ *  first and third party identities. Only present for APIs that support
+ *  third-party identities.
  */
 @property(nonatomic, copy, nullable) NSString *principalSubject;
 

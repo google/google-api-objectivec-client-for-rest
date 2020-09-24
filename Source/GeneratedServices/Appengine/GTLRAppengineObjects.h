@@ -54,6 +54,7 @@
 @class GTLRAppengine_ManagedCertificate;
 @class GTLRAppengine_ManualScaling;
 @class GTLRAppengine_Network;
+@class GTLRAppengine_NetworkSettings;
 @class GTLRAppengine_NetworkUtilization;
 @class GTLRAppengine_Operation;
 @class GTLRAppengine_Operation_Metadata;
@@ -383,6 +384,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Ok;
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending;
+
+// ----------------------------------------------------------------------------
+// GTLRAppengine_NetworkSettings.ingressTrafficAllowed
+
+/**
+ *  Allow HTTP traffic from public and private sources.
+ *
+ *  Value: "INGRESS_TRAFFIC_ALLOWED_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedAll;
+/**
+ *  Allow HTTP traffic from private VPC sources and through load balancers.
+ *
+ *  Value: "INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedInternalAndLb;
+/**
+ *  Allow HTTP traffic from only private VPC sources.
+ *
+ *  Value: "INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedInternalOnly;
+/**
+ *  Unspecified
+ *
+ *  Value: "INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppengine_ResourceRecord.type
@@ -1686,11 +1715,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  */
 @interface GTLRAppengine_Instance : GTLRObject
 
-/** App Engine release this instance is running on.\@OutputOnly */
+/** Output only. App Engine release this instance is running on. */
 @property(nonatomic, copy, nullable) NSString *appEngineRelease;
 
 /**
- *  Availability of the instance.\@OutputOnly
+ *  Output only. Availability of the instance.
  *
  *  Likely values:
  *    @arg @c kGTLRAppengine_Instance_Availability_Dynamic Value "DYNAMIC"
@@ -1701,92 +1730,92 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *availability;
 
 /**
- *  Average latency (ms) over the last minute.\@OutputOnly
+ *  Output only. Average latency (ms) over the last minute.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *averageLatency;
 
 /**
- *  Number of errors since this instance was started.\@OutputOnly
+ *  Output only. Number of errors since this instance was started.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *errors;
 
 /**
- *  Relative name of the instance within the version. Example:
- *  instance-1.\@OutputOnly
+ *  Output only. Relative name of the instance within the version. Example:
+ *  instance-1.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Total memory in use (bytes).\@OutputOnly
+ *  Output only. Total memory in use (bytes).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *memoryUsage;
 
 /**
- *  Full path to the Instance resource in the API. Example:
- *  apps/myapp/services/default/versions/v1/instances/instance-1.\@OutputOnly
+ *  Output only. Full path to the Instance resource in the API. Example:
+ *  apps/myapp/services/default/versions/v1/instances/instance-1.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Average queries per second (QPS) over the last minute.\@OutputOnly
+ *  Output only. Average queries per second (QPS) over the last minute.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *qps;
 
 /**
- *  Number of requests since this instance was started.\@OutputOnly
+ *  Output only. Number of requests since this instance was started.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *requests;
 
-/** Time that this instance was started.\@OutputOnly */
+/** Output only. Time that this instance was started.\@OutputOnly */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Whether this instance is in debug mode. Only applicable for instances in App
- *  Engine flexible environment.\@OutputOnly
+ *  Output only. Whether this instance is in debug mode. Only applicable for
+ *  instances in App Engine flexible environment.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *vmDebugEnabled;
 
 /**
- *  Virtual machine ID of this instance. Only applicable for instances in App
- *  Engine flexible environment.\@OutputOnly
+ *  Output only. Virtual machine ID of this instance. Only applicable for
+ *  instances in App Engine flexible environment.
  */
 @property(nonatomic, copy, nullable) NSString *vmId;
 
 /**
- *  The IP address of this instance. Only applicable for instances in App Engine
- *  flexible environment.\@OutputOnly
+ *  Output only. The IP address of this instance. Only applicable for instances
+ *  in App Engine flexible environment.
  */
 @property(nonatomic, copy, nullable) NSString *vmIp;
 
 /**
- *  Name of the virtual machine where this instance lives. Only applicable for
- *  instances in App Engine flexible environment.\@OutputOnly
+ *  Output only. Name of the virtual machine where this instance lives. Only
+ *  applicable for instances in App Engine flexible environment.
  */
 @property(nonatomic, copy, nullable) NSString *vmName;
 
 /**
- *  Status of the virtual machine where this instance lives. Only applicable for
- *  instances in App Engine flexible environment.\@OutputOnly
+ *  Output only. Status of the virtual machine where this instance lives. Only
+ *  applicable for instances in App Engine flexible environment.
  */
 @property(nonatomic, copy, nullable) NSString *vmStatus;
 
 /**
- *  Zone where the virtual machine is located. Only applicable for instances in
- *  App Engine flexible environment.\@OutputOnly
+ *  Output only. Zone where the virtual machine is located. Only applicable for
+ *  instances in App Engine flexible environment.
  */
 @property(nonatomic, copy, nullable) NSString *vmZoneName;
 
@@ -2277,6 +2306,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
+ *  A NetworkSettings resource is a container for ingress settings for a version
+ *  or service.
+ */
+@interface GTLRAppengine_NetworkSettings : GTLRObject
+
+/**
+ *  The ingress settings for version or service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedAll
+ *        Allow HTTP traffic from public and private sources. (Value:
+ *        "INGRESS_TRAFFIC_ALLOWED_ALL")
+ *    @arg @c kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedInternalAndLb
+ *        Allow HTTP traffic from private VPC sources and through load
+ *        balancers. (Value: "INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB")
+ *    @arg @c kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedInternalOnly
+ *        Allow HTTP traffic from only private VPC sources. (Value:
+ *        "INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY")
+ *    @arg @c kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedUnspecified
+ *        Unspecified (Value: "INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ingressTrafficAllowed;
+
+@end
+
+
+/**
  *  Target scaling by network usage. Only applicable in the App Engine flexible
  *  environment.
  */
@@ -2694,6 +2750,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  apps/myapp/services/default.\@OutputOnly
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Ingress settings for this service. Will apply to all versions. */
+@property(nonatomic, strong, nullable) GTLRAppengine_NetworkSettings *networkSettings;
 
 /**
  *  Mapping that defines fractional HTTP traffic diversion to different versions
@@ -3120,7 +3179,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 /**
  *  Automatic scaling is based on request rate, response latencies, and other
- *  application metrics.
+ *  application metrics. Instances are dynamically created and destroyed as
+ *  needed in order to handle traffic.
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_AutomaticScaling *automaticScaling;
 
@@ -3252,6 +3312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 /**
  *  A service with manual scaling runs continuously, allowing you to perform
  *  complex initialization and rely on the state of its memory over time.
+ *  Manually scaled versions are sometimes referred to as "backends".
  */
 @property(nonatomic, strong, nullable) GTLRAppengine_ManualScaling *manualScaling;
 

@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   YouTube Data API (youtube/v3)
+//   YouTube Data API v3 (youtube/v3)
 // Description:
-//   Supports core YouTube features, such as uploading videos, creating and
-//   managing playlists, searching for content, and much more.
+//   The YouTube Data API v3 is an API that provides access to YouTube data,
+//   such as videos, playlists, and channels.
 // Documentation:
-//   https://developers.google.com/youtube/v3
+//   https://developers.google.com/youtube/
 
 #import "GTLRYouTubeObjects.h"
 #import "GTLRYouTubeQuery.h"

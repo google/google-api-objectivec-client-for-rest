@@ -3240,8 +3240,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: . -
- *  `advertiserId` . - `displayName` - `entityStatus` Examples: * All active
+ *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
+ *  `advertiserId` - `displayName` - `entityStatus` Examples: * All active
  *  advertisers under a partner: `entityStatus="ENTITY_STATUS_ACTIVE"` The
  *  length of this field should be no more than 500 characters.
  */

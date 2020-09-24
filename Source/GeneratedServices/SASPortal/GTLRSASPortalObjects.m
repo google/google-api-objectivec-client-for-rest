@@ -361,6 +361,16 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSASPortal_MoveDeploymentRequest
+//
+
+@implementation GTLRSASPortal_MoveDeploymentRequest
+@dynamic destination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSASPortal_MoveDeviceRequest
 //
 

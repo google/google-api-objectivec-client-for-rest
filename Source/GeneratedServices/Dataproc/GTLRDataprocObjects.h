@@ -212,6 +212,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealth
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataproc_GceClusterConfig.privateIpv6GoogleAccess
+
+/**
+ *  Enables bidirectional private IPv6 access between Google Services and
+ *  Dataproc cluster
+ *
+ *  Value: "BIDIRECTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Bidirectional;
+/**
+ *  Private access to or from Google Services configuration inherited from
+ *  subnetowrk configuration
+ *
+ *  Value: "INHERIT_FROM_SUBNETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork;
+/**
+ *  Enables outbound private IPv6 access to Google Services from Dataproc
+ *  cluster
+ *
+ *  Value: "OUTBOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound;
+/**
+ *  Default value. Same as INHERIT_FROM_SUBNETWORK
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataproc_InstanceGroupConfig.preemptibility
 
 /**
@@ -434,6 +465,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified;
 /**
+ *  Docker
+ *
+ *  Value: "DOCKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Docker;
+/**
+ *  Flink
+ *
+ *  Value: "FLINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Flink;
+/**
  *  The Hive Web HCatalog (the REST service for accessing HCatalog).
  *
  *  Value: "HIVE_WEBHCAT"
@@ -451,6 +494,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  *  Value: "PRESTO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto;
+/**
+ *  The Ranger service.
+ *
+ *  Value: "RANGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Ranger;
+/**
+ *  The Solr service.
+ *
+ *  Value: "SOLR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Solr;
 /**
  *  The Zeppelin notebook.
  *
@@ -768,6 +823,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Associates members with a role.
  */
 @interface GTLRDataproc_Binding : GTLRObject
+
+/**
+ *  A client-specified ID for this binding. Expected to be globally unique to
+ *  support the internal bindings-by-ID API.
+ */
+@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding.If the condition
@@ -1379,7 +1440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Common config settings for resources of Compute Engine cluster instances,
- *  applicable to all instances in the cluster.
+ *  applicable to all instances in the cluster. NEXT ID: 14
  */
 @interface GTLRDataproc_GceClusterConfig : GTLRObject
 
@@ -1413,6 +1474,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  projects/[project_id]/regions/global/default default
  */
 @property(nonatomic, copy, nullable) NSString *networkUri;
+
+/**
+ *  Optional. The type of IPv6 access for a cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Bidirectional
+ *        Enables bidirectional private IPv6 access between Google Services and
+ *        Dataproc cluster (Value: "BIDIRECTIONAL")
+ *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork
+ *        Private access to or from Google Services configuration inherited from
+ *        subnetowrk configuration (Value: "INHERIT_FROM_SUBNETWORK")
+ *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound
+ *        Enables outbound private IPv6 access to Google Services from Dataproc
+ *        cluster (Value: "OUTBOUND")
+ *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified
+ *        Default value. Same as INHERIT_FROM_SUBNETWORK (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
 
 /** Optional. Reservation Affinity for consuming Zonal reservation. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ReservationAffinity *reservationAffinity;
@@ -1840,7 +1920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Map from parameter names to values that should be used for those
- *  parameters. Values may not exceed 100 characters.
+ *  parameters. Values may not exceed 1000 characters.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstantiateWorkflowTemplateRequest_Parameters *parameters;
 
@@ -1869,7 +1949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Map from parameter names to values that should be used for those
- *  parameters. Values may not exceed 100 characters.
+ *  parameters. Values may not exceed 1000 characters.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2065,9 +2145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Maximum number of times per hour a driver may be restarted as a
- *  result of driver terminating with non-zero code before job is reported
- *  failed.A job may be reported as thrashing if driver exits with non-zero code
- *  4 times within 10 minute window.Maximum value is 10.
+ *  result of driver exiting with non-zero code before job is reported failed.A
+ *  job may be reported as thrashing if driver exits with non-zero code 4 times
+ *  within 10 minute window.Maximum value is 10.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3006,11 +3086,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_QueryList : GTLRObject
 
 /**
- *  Required. The queries to execute. You do not need to terminate a query with
- *  a semicolon. Multiple queries can be specified in one string by separating
- *  each with a semicolon. Here is an example of an Cloud Dataproc API snippet
- *  that uses a QueryList to specify a HiveJob: "hiveJob": { "queryList": {
- *  "queries": [ "query1", "query2", "query3;query4", ] } }
+ *  Required. The queries to execute. You do not need to end a query expression
+ *  with a semicolon. Multiple queries can be specified in one string by
+ *  separating each with a semicolon. Here is an example of a Dataproc API
+ *  snippet that uses a QueryList to specify a HiveJob: "hiveJob": {
+ *  "queryList": { "queries": [ "query1", "query2", "query3;query4", ] } }
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *queries;
 

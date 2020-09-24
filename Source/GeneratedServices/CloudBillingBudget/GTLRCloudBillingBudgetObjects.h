@@ -90,9 +90,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1AllUpdatesRule : GTLRObject
 
 /**
+ *  Optional. When set to true, disables default notifications sent when a
+ *  threshold is exceeded. Default notifications are sent to those with Billing
+ *  Account Administrator and Billing Account User IAM roles for the target
+ *  account.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableDefaultIamRecipients;
+
+/**
  *  Optional. Targets to send notifications to when a threshold is exceeded.
- *  This is in addition to default recipients who have billing account roles.
- *  The value is the full REST resource name of a monitoring notification
+ *  This is in addition to default recipients who have billing account IAM
+ *  roles. The value is the full REST resource name of a monitoring notification
  *  channel with the form
  *  `projects/{project_id}/notificationChannels/{channel_id}`. A maximum of 5
  *  channels are allowed. See

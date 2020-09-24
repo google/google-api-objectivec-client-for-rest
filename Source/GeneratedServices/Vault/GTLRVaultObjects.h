@@ -342,8 +342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Account;
 /**
- *  Will search for all accounts in the organization.
- *  No need to set account_info or org_unit_info.
+ *  Will search for all accounts in the organization. No need to set
+ *  account_info or org_unit_info.
  *
  *  Value: "ENTIRE_ORG"
  */
@@ -355,15 +355,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_EntireOrg;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_OrgUnit;
 /**
- *  Will search in the Room specified in
- *  hangout_chats_info. (read-only)
+ *  Will search in the Room specified in hangout_chats_info. (read-only)
  *
  *  Value: "ROOM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Room;
 /**
- *  A search method must be specified. If a request does not specify a
- *  search method, it will be rejected.
+ *  A search method must be specified. If a request does not specify a search
+ *  method, it will be rejected.
  *
  *  Value: "SEARCH_METHOD_UNSPECIFIED"
  */
@@ -376,8 +375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SearchMethodUnspecifi
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_SharedDrive;
 /**
- *  Will search for all accounts in the Team Drive specified in
- *  team_drive_info.
+ *  Will search for all accounts in the Team Drive specified in team_drive_info.
  *
  *  Value: "TEAM_DRIVE"
  */
@@ -393,8 +391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Account;
 /**
- *  Will search for all accounts in the organization.
- *  No need to set account_info or org_unit_info.
+ *  Will search for all accounts in the organization. No need to set
+ *  account_info or org_unit_info.
  *
  *  Value: "ENTIRE_ORG"
  */
@@ -406,15 +404,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_EntireOrg;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_OrgUnit;
 /**
- *  Will search in the Room specified in
- *  hangout_chats_info. (read-only)
+ *  Will search in the Room specified in hangout_chats_info. (read-only)
  *
  *  Value: "ROOM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Room;
 /**
- *  A search method must be specified. If a request does not specify a
- *  search method, it will be rejected.
+ *  A search method must be specified. If a request does not specify a search
+ *  method, it will be rejected.
  *
  *  Value: "SEARCH_METHOD_UNSPECIFIED"
  */
@@ -427,8 +424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUns
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SharedDrive;
 /**
- *  Will search for all accounts in the Team Drive specified in
- *  team_drive_info.
+ *  Will search for all accounts in the Team Drive specified in team_drive_info.
  *
  *  Value: "TEAM_DRIVE"
  */
@@ -446,8 +442,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 
 /**
- *  A status detailing the status of each account creation, and the
- *  HeldAccount, if successful.
+ *  A status detailing the status of each account creation, and the HeldAccount,
+ *  if successful.
  */
 @interface GTLRVault_AddHeldAccountResult : GTLRObject
 
@@ -492,16 +488,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 
 /**
- *  Add an account with the permission specified. The role cannot be owner.
- *  If an account already has a role in the matter, it will be
- *  overwritten.
+ *  Add an account with the permission specified. The role cannot be owner. If
+ *  an account already has a role in the matter, it will be overwritten.
  */
 @interface GTLRVault_AddMatterPermissionsRequest : GTLRObject
 
 /**
- *  Only relevant if send_emails is true.
- *  True to CC requestor in the email message.
- *  False to not CC requestor.
+ *  Only relevant if send_emails is true. True to CC requestor in the email
+ *  message. False to not CC requestor.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -511,8 +505,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, strong, nullable) GTLRVault_MatterPermission *matterPermission;
 
 /**
- *  True to send notification email to the added account.
- *  False to not send notification email.
+ *  True to send notification email to the added account. False to not send
+ *  notification email.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -545,11 +539,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_CloudStorageFile : GTLRObject
 
 /**
- *  The cloud storage bucket name of this export file.
- *  Can be used in cloud storage JSON/XML API, but not to list the bucket
- *  contents. Instead, you can
- *  <a href="https://cloud.google.com/storage/docs/json_api/v1/objects/get">
- *  get individual export files</a> by object name.
+ *  The cloud storage bucket name of this export file. Can be used in cloud
+ *  storage JSON/XML API, but not to list the bucket contents. Instead, you can
+ *  get individual export files by object name.
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
 
@@ -557,8 +549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, copy, nullable) NSString *md5Hash;
 
 /**
- *  The cloud storage object name of this export file.
- *  Can be used in cloud storage JSON/XML API.
+ *  The cloud storage object name of this export file. Can be used in cloud
+ *  storage JSON/XML API.
  */
 @property(nonatomic, copy, nullable) NSString *objectName;
 
@@ -595,8 +587,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, strong, nullable) GTLRVault_HeldGroupsQuery *groupsQuery;
 
 /**
- *  Details pertaining to Hangouts Chat holds. If set, corpus must be
- *  Hangouts Chat.
+ *  Details pertaining to Hangouts Chat holds. If set, corpus must be Hangouts
+ *  Chat.
  */
 @property(nonatomic, strong, nullable) GTLRVault_HeldHangoutsChatQuery *hangoutsChatQuery;
 
@@ -612,10 +604,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_DriveExportOptions : GTLRObject
 
 /**
- *  Set to true to include access level information for users
- *  with
- *  <a href="https://support.google.com/vault/answer/6099459#metadata">indirect
- *  access</a> to files.
+ *  Set to true to include access level information for users with indirect
+ *  access to files.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -644,9 +634,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, strong, nullable) NSNumber *includeTeamDrives;
 
 /**
- *  Search the versions of the Drive file
- *  as of the reference date. These timestamps are in GMT and
- *  rounded down to the given date.
+ *  Search the versions of the Drive file as of the reference date. These
+ *  timestamps are in GMT and rounded down to the given date.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *versionDate;
 
@@ -656,11 +645,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRVault_Empty : GTLRObject
 @end
@@ -857,10 +844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @interface GTLRVault_HeldAccount : GTLRObject
 
-/**
- *  The account's ID as provided by the
- *  <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
- */
+/** The account's ID as provided by the Admin SDK. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
@@ -965,8 +949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 
 /**
- *  A organizational unit being held in a particular hold.
- *  This structure is immutable.
+ *  A organizational unit being held in a particular hold. This structure is
+ *  immutable.
  */
 @interface GTLRVault_HeldOrgUnit : GTLRObject
 
@@ -980,10 +964,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 
 /**
- *  Represents a hold within Vault. A hold restricts purging of
- *  artifacts based on the combination of the query and accounts restrictions.
- *  A hold can be configured to either apply to an explicitly configured set
- *  of accounts, or can be applied to all members of an organizational unit.
+ *  Represents a hold within Vault. A hold restricts purging of artifacts based
+ *  on the combination of the query and accounts restrictions. A hold can be
+ *  configured to either apply to an explicitly configured set of accounts, or
+ *  can be applied to all members of an organizational unit.
  */
 @interface GTLRVault_Hold : GTLRObject
 
@@ -1015,14 +999,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  If set, the hold applies to all members of the organizational unit and
- *  accounts must be empty. This property is mutable. For groups holds,
- *  set the accounts field.
+ *  accounts must be empty. This property is mutable. For groups holds, set the
+ *  accounts field.
  */
 @property(nonatomic, strong, nullable) GTLRVault_HeldOrgUnit *orgUnit;
 
 /**
- *  The corpus-specific query. If set, the corpusQuery must match corpus
- *  type.
+ *  The corpus-specific query. If set, the corpusQuery must match corpus type.
  */
 @property(nonatomic, strong, nullable) GTLRVault_CorpusQuery *query;
 
@@ -1086,8 +1069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, strong, nullable) NSArray<GTLRVault_Hold *> *holds;
 
 /**
- *  Page token to retrieve the next page of results in the list.
- *  If this is empty, then there are no more holds to list.
+ *  Page token to retrieve the next page of results in the list. If this is
+ *  empty, then there are no more holds to list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1129,8 +1112,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_ListSavedQueriesResponse : GTLRCollectionObject
 
 /**
- *  Page token to retrieve the next page of results in the list.
- *  If this is empty, then there are no more saved queries to list.
+ *  Page token to retrieve the next page of results in the list. If this is
+ *  empty, then there are no more saved queries to list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1201,8 +1184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The matter ID which is generated by the server.
- *  Should be blank when creating a new matter.
+ *  The matter ID which is generated by the server. Should be blank when
+ *  creating a new matter.
  */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
@@ -1239,10 +1222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @interface GTLRVault_MatterPermission : GTLRObject
 
-/**
- *  The account ID, as provided by
- *  <a href="https://developers.google.com/admin-sdk/">Admin SDK</a>.
- */
+/** The account ID, as provided by Admin SDK. */
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
@@ -1266,11 +1246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @interface GTLRVault_OrgUnitInfo : GTLRObject
 
-/**
- *  Org unit to search, as provided by the
- *  <a href="https://developers.google.com/admin-sdk/directory/">Admin SDK
- *  Directory API</a>.
- */
+/** Org unit to search, as provided by the Admin SDK Directory API. */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
 @end
@@ -1282,8 +1258,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_Query : GTLRObject
 
 /**
- *  When 'ACCOUNT' is chosen as search method,
- *  account_info needs to be specified.
+ *  When 'ACCOUNT' is chosen as search method, account_info needs to be
+ *  specified.
  */
 @property(nonatomic, strong, nullable) GTLRVault_AccountInfo *accountInfo;
 
@@ -1341,36 +1317,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /**
  *  The search method to use. This field is similar to the search_method field
- *  but is introduced to support shared drives. It supports all
- *  search method types. In case the search_method is TEAM_DRIVE the response
- *  of this field will be SHARED_DRIVE only.
+ *  but is introduced to support shared drives. It supports all search method
+ *  types. In case the search_method is TEAM_DRIVE the response of this field
+ *  will be SHARED_DRIVE only.
  *
  *  Likely values:
  *    @arg @c kGTLRVault_Query_Method_Account Will search all accounts provided
  *        in account_info. (Value: "ACCOUNT")
  *    @arg @c kGTLRVault_Query_Method_EntireOrg Will search for all accounts in
- *        the organization.
- *        No need to set account_info or org_unit_info. (Value: "ENTIRE_ORG")
+ *        the organization. No need to set account_info or org_unit_info.
+ *        (Value: "ENTIRE_ORG")
  *    @arg @c kGTLRVault_Query_Method_OrgUnit Will search all accounts in the OU
  *        specified in org_unit_info. (Value: "ORG_UNIT")
  *    @arg @c kGTLRVault_Query_Method_Room Will search in the Room specified in
  *        hangout_chats_info. (read-only) (Value: "ROOM")
  *    @arg @c kGTLRVault_Query_Method_SearchMethodUnspecified A search method
- *        must be specified. If a request does not specify a
- *        search method, it will be rejected. (Value:
- *        "SEARCH_METHOD_UNSPECIFIED")
+ *        must be specified. If a request does not specify a search method, it
+ *        will be rejected. (Value: "SEARCH_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_Method_SharedDrive Will search for all accounts
- *        in the shared drive specified in
- *        shared_drive_info. (Value: "SHARED_DRIVE")
+ *        in the shared drive specified in shared_drive_info. (Value:
+ *        "SHARED_DRIVE")
  *    @arg @c kGTLRVault_Query_Method_TeamDrive Will search for all accounts in
- *        the Team Drive specified in
- *        team_drive_info. (Value: "TEAM_DRIVE")
+ *        the Team Drive specified in team_drive_info. (Value: "TEAM_DRIVE")
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
 /**
- *  When 'ORG_UNIT' is chosen as as search method, org_unit_info needs
- *  to be specified.
+ *  When 'ORG_UNIT' is chosen as as search method, org_unit_info needs to be
+ *  specified.
  */
 @property(nonatomic, strong, nullable) GTLRVault_OrgUnitInfo *orgUnitInfo;
 
@@ -1381,29 +1355,27 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *    @arg @c kGTLRVault_Query_SearchMethod_Account Will search all accounts
  *        provided in account_info. (Value: "ACCOUNT")
  *    @arg @c kGTLRVault_Query_SearchMethod_EntireOrg Will search for all
- *        accounts in the organization.
- *        No need to set account_info or org_unit_info. (Value: "ENTIRE_ORG")
+ *        accounts in the organization. No need to set account_info or
+ *        org_unit_info. (Value: "ENTIRE_ORG")
  *    @arg @c kGTLRVault_Query_SearchMethod_OrgUnit Will search all accounts in
  *        the OU specified in org_unit_info. (Value: "ORG_UNIT")
  *    @arg @c kGTLRVault_Query_SearchMethod_Room Will search in the Room
- *        specified in
- *        hangout_chats_info. (read-only) (Value: "ROOM")
+ *        specified in hangout_chats_info. (read-only) (Value: "ROOM")
  *    @arg @c kGTLRVault_Query_SearchMethod_SearchMethodUnspecified A search
- *        method must be specified. If a request does not specify a
- *        search method, it will be rejected. (Value:
- *        "SEARCH_METHOD_UNSPECIFIED")
+ *        method must be specified. If a request does not specify a search
+ *        method, it will be rejected. (Value: "SEARCH_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRVault_Query_SearchMethod_SharedDrive Will search for all
- *        accounts in the shared drive specified in
- *        shared_drive_info. (Value: "SHARED_DRIVE")
+ *        accounts in the shared drive specified in shared_drive_info. (Value:
+ *        "SHARED_DRIVE")
  *    @arg @c kGTLRVault_Query_SearchMethod_TeamDrive Will search for all
- *        accounts in the Team Drive specified in
- *        team_drive_info. (Value: "TEAM_DRIVE")
+ *        accounts in the Team Drive specified in team_drive_info. (Value:
+ *        "TEAM_DRIVE")
  */
 @property(nonatomic, copy, nullable) NSString *searchMethod;
 
 /**
- *  When 'SHARED_DRIVE' is chosen as search method, shared_drive_info needs
- *  to be specified.
+ *  When 'SHARED_DRIVE' is chosen as search method, shared_drive_info needs to
+ *  be specified.
  */
 @property(nonatomic, strong, nullable) GTLRVault_SharedDriveInfo *sharedDriveInfo;
 
@@ -1419,19 +1391,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @property(nonatomic, strong, nullable) GTLRVault_TeamDriveInfo *teamDriveInfo;
 
-/**
- *  The corpus-specific
- *  <a href="https://support.google.com/vault/answer/2474474">search
- *  operators</a> used to generate search results.
- */
+/** The corpus-specific search operators used to generate search results. */
 @property(nonatomic, copy, nullable) NSString *terms;
 
 /**
- *  The time zone name.
- *  It should be an IANA TZ name, such as "America/Los_Angeles".
- *  For more information, see
- *  <a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Time
- *  Zone</a>.
+ *  The time zone name. It should be an IANA TZ name, such as
+ *  "America/Los_Angeles". For more information, see Time Zone.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -1455,8 +1420,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @interface GTLRVault_RemoveHeldAccountsResponse : GTLRObject
 
 /**
- *  A list of statuses for deleted accounts. Results have the
- *  same order as the request.
+ *  A list of statuses for deleted accounts. Results have the same order as the
+ *  request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRVault_Status *> *statuses;
 
@@ -1507,9 +1472,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. The matter ID of the associated matter.
- *  The server does not look at this field during create and always uses matter
- *  id in the URL.
+ *  Output only. The matter ID of the associated matter. The server does not
+ *  look at this field during create and always uses matter id in the URL.
  */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
@@ -1530,10 +1494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @interface GTLRVault_SharedDriveInfo : GTLRObject
 
-/**
- *  List of Shared drive IDs, as provided by
- *  <a href="https://developers.google.com/drive">Drive API</a>.
- */
+/** List of Shared drive IDs, as provided by Drive API. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sharedDriveIds;
 
 @end
@@ -1543,9 +1504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRVault_Status : GTLRObject
 
@@ -1589,10 +1550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  */
 @interface GTLRVault_TeamDriveInfo : GTLRObject
 
-/**
- *  List of Team Drive IDs, as provided by
- *  <a href="https://developers.google.com/drive">Drive API</a>.
- */
+/** List of Team Drive IDs, as provided by Drive API. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *teamDriveIds;
 
 @end

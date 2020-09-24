@@ -1005,7 +1005,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Adds one or more trials to a study, with parameter values suggested by AI
- *  Platform Optimizer. Returns a long-running operation associated with the
+ *  Platform Vizier. Returns a long-running operation associated with the
  *  generation of trial suggestions. When this long-running operation succeeds,
  *  it will contain a SuggestTrialsResponse.
  *
@@ -1025,7 +1025,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudMachineLearningEngine_GoogleLongrunningOperation.
  *
  *  Adds one or more trials to a study, with parameter values suggested by AI
- *  Platform Optimizer. Returns a long-running operation associated with the
+ *  Platform Vizier. Returns a long-running operation associated with the
  *  generation of trial suggestions. When this long-running operation succeeds,
  *  it will contain a SuggestTrialsResponse.
  *

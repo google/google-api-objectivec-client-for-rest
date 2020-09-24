@@ -489,6 +489,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Value: "LINUX_ISOLATION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_LinuxIsolationUnspecified;
+/**
+ *  Use stardard Linux runtime. This has the same behaviour as unspecified, but
+ *  it can be used to revert back from gVisor.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_Off;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature.policy
@@ -2407,6 +2414,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_LinuxIsolationUnspecified
  *        Default value. Will be using Linux default runtime. (Value:
  *        "LINUX_ISOLATION_UNSPECIFIED")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy_LinuxIsolation_Off
+ *        Use stardard Linux runtime. This has the same behaviour as
+ *        unspecified, but it can be used to revert back from gVisor. (Value:
+ *        "OFF")
  */
 @property(nonatomic, copy, nullable) NSString *linuxIsolation;
 

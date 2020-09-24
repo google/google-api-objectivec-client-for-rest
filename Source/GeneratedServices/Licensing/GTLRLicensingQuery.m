@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Licensing API (licensing/v1)
+//   Enterprise License Manager API (licensing/v1)
 // Description:
-//   Licensing API to view and manage licenses for your domain
+//   The Google Enterprise License Manager API's allows you to license apps for
+//   all the users of a domain managed by you.
 // Documentation:
 //   https://developers.google.com/admin-sdk/licensing/
 
@@ -28,7 +29,7 @@
   NSArray *pathParams = @[
     @"productId", @"skuId", @"userId"
   ];
-  NSString *pathURITemplate = @"{productId}/sku/{skuId}/user/{userId}";
+  NSString *pathURITemplate = @"apps/licensing/v1/product/{productId}/sku/{skuId}/user/{userId}";
   GTLRLicensingQuery_LicenseAssignmentsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -52,7 +53,7 @@
   NSArray *pathParams = @[
     @"productId", @"skuId", @"userId"
   ];
-  NSString *pathURITemplate = @"{productId}/sku/{skuId}/user/{userId}";
+  NSString *pathURITemplate = @"apps/licensing/v1/product/{productId}/sku/{skuId}/user/{userId}";
   GTLRLicensingQuery_LicenseAssignmentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -83,7 +84,7 @@
   NSArray *pathParams = @[
     @"productId", @"skuId"
   ];
-  NSString *pathURITemplate = @"{productId}/sku/{skuId}/user";
+  NSString *pathURITemplate = @"apps/licensing/v1/product/{productId}/sku/{skuId}/user";
   GTLRLicensingQuery_LicenseAssignmentsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -105,7 +106,7 @@
 + (instancetype)queryWithProductId:(NSString *)productId
                         customerId:(NSString *)customerId {
   NSArray *pathParams = @[ @"productId" ];
-  NSString *pathURITemplate = @"{productId}/users";
+  NSString *pathURITemplate = @"apps/licensing/v1/product/{productId}/users";
   GTLRLicensingQuery_LicenseAssignmentsListForProduct *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -129,7 +130,7 @@
   NSArray *pathParams = @[
     @"productId", @"skuId"
   ];
-  NSString *pathURITemplate = @"{productId}/sku/{skuId}/users";
+  NSString *pathURITemplate = @"apps/licensing/v1/product/{productId}/sku/{skuId}/users";
   GTLRLicensingQuery_LicenseAssignmentsListForProductAndSku *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -161,7 +162,7 @@
   NSArray *pathParams = @[
     @"productId", @"skuId", @"userId"
   ];
-  NSString *pathURITemplate = @"{productId}/sku/{skuId}/user/{userId}";
+  NSString *pathURITemplate = @"apps/licensing/v1/product/{productId}/sku/{skuId}/user/{userId}";
   GTLRLicensingQuery_LicenseAssignmentsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -194,7 +195,7 @@
   NSArray *pathParams = @[
     @"productId", @"skuId", @"userId"
   ];
-  NSString *pathURITemplate = @"{productId}/sku/{skuId}/user/{userId}";
+  NSString *pathURITemplate = @"apps/licensing/v1/product/{productId}/sku/{skuId}/user/{userId}";
   GTLRLicensingQuery_LicenseAssignmentsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

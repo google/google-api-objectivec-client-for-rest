@@ -308,6 +308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @interface GTLRDataFusion_Binding : GTLRObject
 
 /**
+ *  A client-specified ID for this binding. Expected to be globally unique to
+ *  support the internal bindings-by-ID API.
+ */
+@property(nonatomic, copy, nullable) NSString *bindingId;
+
+/**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
@@ -445,6 +451,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 
 /** Output only. The time the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  User-managed service account to set on Dataproc when Cloud Data Fusion
+ *  creates Dataproc to run data processing pipelines. This allows users to have
+ *  fine-grained access control on Dataproc's accesses to cloud resources.
+ */
+@property(nonatomic, copy, nullable) NSString *dataprocServiceAccount;
 
 /**
  *  A description of this instance.

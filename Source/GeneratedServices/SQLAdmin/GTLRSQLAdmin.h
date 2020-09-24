@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sql/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:

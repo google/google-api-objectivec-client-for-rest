@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Developer API (androidpublisher/v3)
+//   Google Play Android Developer API (androidpublisher/v3)
 // Description:
-//   Accesses Android application developers' Google Play accounts.
+//   Lets Android application developers access their Google Play accounts.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
@@ -24,7 +24,6 @@
 @class GTLRAndroidPublisher_ApkBinary;
 @class GTLRAndroidPublisher_Bundle;
 @class GTLRAndroidPublisher_Comment;
-@class GTLRAndroidPublisher_Control;
 @class GTLRAndroidPublisher_CountryTargeting;
 @class GTLRAndroidPublisher_DeobfuscationFile;
 @class GTLRAndroidPublisher_DeveloperComment;
@@ -32,7 +31,6 @@
 @class GTLRAndroidPublisher_DeviceSpec;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
-@class GTLRAndroidPublisher_ExternallyHostedApkUsesPermission;
 @class GTLRAndroidPublisher_Image;
 @class GTLRAndroidPublisher_InAppProduct;
 @class GTLRAndroidPublisher_InAppProduct_Listings;
@@ -41,14 +39,10 @@
 @class GTLRAndroidPublisher_IntroductoryPriceInfo;
 @class GTLRAndroidPublisher_Listing;
 @class GTLRAndroidPublisher_LocalizedText;
-@class GTLRAndroidPublisher_ModRange;
 @class GTLRAndroidPublisher_PageInfo;
 @class GTLRAndroidPublisher_Price;
 @class GTLRAndroidPublisher_Review;
 @class GTLRAndroidPublisher_ReviewReplyResult;
-@class GTLRAndroidPublisher_Sampling;
-@class GTLRAndroidPublisher_StratifiedSampling;
-@class GTLRAndroidPublisher_Stratum;
 @class GTLRAndroidPublisher_SubscriptionCancelSurveyResult;
 @class GTLRAndroidPublisher_SubscriptionDeferralInfo;
 @class GTLRAndroidPublisher_SubscriptionPriceChange;
@@ -56,10 +50,8 @@
 @class GTLRAndroidPublisher_TokenPagination;
 @class GTLRAndroidPublisher_Track;
 @class GTLRAndroidPublisher_TrackRelease;
-@class GTLRAndroidPublisher_TrackReleasePin;
-@class GTLRAndroidPublisher_TrackReleasePinPinTargeting;
-@class GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin;
 @class GTLRAndroidPublisher_UserComment;
+@class GTLRAndroidPublisher_UsesPermission;
 @class GTLRAndroidPublisher_Variant;
 @class GTLRAndroidPublisher_VoidedPurchase;
 
@@ -70,18 +62,122 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_DeobfuscationFile.symbolType
+
 /**
- *  GTLRAndroidPublisher_Apk
+ *  Unspecified deobfuscation file type.
+ *
+ *  Value: "deobfuscationFileTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_DeobfuscationFileTypeUnspecified;
+/**
+ *  Native debugging symbols file type.
+ *
+ *  Value: "nativeCode"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_NativeCode;
+/**
+ *  Proguard deobfuscation file type.
+ *
+ *  Value: "proguard"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_InAppProduct.purchaseType
+
+/**
+ *  The default product type - one time purchase.
+ *
+ *  Value: "managedUser"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_ManagedUser;
+/**
+ *  Unspecified purchase type.
+ *
+ *  Value: "purchaseTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_PurchaseTypeUnspecified;
+/**
+ *  In-app product with a recurring period.
+ *
+ *  Value: "subscription"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_Subscription;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_InAppProduct.status
+
+/**
+ *  The product is published and active in the store.
+ *
+ *  Value: "active"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_Status_Active;
+/**
+ *  The product is not published and therefore inactive in the store.
+ *
+ *  Value: "inactive"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_Status_Inactive;
+/**
+ *  Unspecified status.
+ *
+ *  Value: "statusUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InAppProduct_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_TrackRelease.status
+
+/**
+ *  The release will have no further changes. Its APKs are being served to all
+ *  users, unless they are eligible to APKs of a more recent release.
+ *
+ *  Value: "completed"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Completed;
+/**
+ *  The release's APKs are not being served to users.
+ *
+ *  Value: "draft"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Draft;
+/**
+ *  The release's APKs will no longer be served to users. Users who already have
+ *  these APKs are unaffected.
+ *
+ *  Value: "halted"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Halted;
+/**
+ *  The release's APKs are being served to a fraction of users, determined by
+ *  'user_fraction'.
+ *
+ *  Value: "inProgress"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InProgress;
+/**
+ *  Unspecified status.
+ *
+ *  Value: "statusUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified;
+
+/**
+ *  Information about an APK. The resource for ApksService.
  */
 @interface GTLRAndroidPublisher_Apk : GTLRObject
 
 /** Information about the binary payload of this APK. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ApkBinary *binary;
 
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ApkBinary *testBinary;
-
 /**
- *  The version code of the APK, as specified in the APK's manifest file.
+ *  The version code of the APK, as specified in the manifest file.
  *
  *  Uses NSNumber of intValue.
  */
@@ -111,7 +207,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ApksAddExternallyHostedRequest
+ *  Request to create a new externally hosted APK.
  */
 @interface GTLRAndroidPublisher_ApksAddExternallyHostedRequest : GTLRObject
 
@@ -122,7 +218,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ApksAddExternallyHostedResponse
+ *  Response for creating a new externally hosted APK.
  */
 @interface GTLRAndroidPublisher_ApksAddExternallyHostedResponse : GTLRObject
 
@@ -133,23 +229,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ApksListResponse
+ *  Response listing all APKs.
  */
 @interface GTLRAndroidPublisher_ApksListResponse : GTLRObject
 
+/** All APKs. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Apk *> *apks;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidpublisher#apksListResponse".
- */
+/** The kind of this response ("androidpublisher#apksListResponse"). */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_AppDetails
+ *  The app details. The resource for DetailsService.
  */
 @interface GTLRAndroidPublisher_AppDetails : GTLRObject
 
@@ -169,19 +263,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Represents an edit of an app. An edit allows clients to make multiple
- *  changes before committing them in one operation.
+ *  An app edit. The resource for EditsService.
  */
 @interface GTLRAndroidPublisher_AppEdit : GTLRObject
 
 /**
- *  The time at which the edit will expire and will be no longer valid for use
- *  in any subsequent API calls (encoded as seconds since the Epoch).
+ *  Output only. The time (as seconds since Epoch) at which the edit will expire
+ *  and will be no longer valid for use.
  */
 @property(nonatomic, copy, nullable) NSString *expiryTimeSeconds;
 
 /**
- *  The ID of the edit that can be used in subsequent API calls.
+ *  Output only. Identifier of the edit. Can be used in subsequent API calls.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -191,7 +284,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_Bundle
+ *  Information about a bundle. The resource for BundlesService.
  */
 @interface GTLRAndroidPublisher_Bundle : GTLRObject
 
@@ -208,7 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *sha256;
 
 /**
- *  The version code of the Android App Bundle. As specified in the Android App
+ *  The version code of the Android App Bundle, as specified in the Android App
  *  Bundle's base module APK manifest file.
  *
  *  Uses NSNumber of intValue.
@@ -219,23 +312,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_BundlesListResponse
+ *  Response listing all bundles.
  */
 @interface GTLRAndroidPublisher_BundlesListResponse : GTLRObject
 
+/** All bundles. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Bundle *> *bundles;
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidpublisher#bundlesListResponse".
- */
+/** The kind of this response ("androidpublisher#bundlesListResponse"). */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_Comment
+ *  An entry of conversation between user and developer.
  */
 @interface GTLRAndroidPublisher_Comment : GTLRObject
 
@@ -249,32 +340,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_Control
- */
-@interface GTLRAndroidPublisher_Control : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_StratifiedSampling *> *stratifiedSamplings;
-
-/**
- *  versionCodes
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *versionCodes;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_CountryTargeting
+ *  Country targeting specification.
  */
 @interface GTLRAndroidPublisher_CountryTargeting : GTLRObject
 
+/**
+ *  Countries to target, specified as two letter [CLDR
+ *  codes](https://unicode.org/cldr/charts/latest/supplemental/territory_containment_un_m_49.html).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *countries;
 
 /**
- *  includeRestOfWorld
+ *  Include "rest of world" as well as explicitly targeted countries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -288,24 +365,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAndroidPublisher_DeobfuscationFile : GTLRObject
 
-/** The type of the deobfuscation file. */
+/**
+ *  The type of the deobfuscation file.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_DeobfuscationFileTypeUnspecified
+ *        Unspecified deobfuscation file type. (Value:
+ *        "deobfuscationFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_NativeCode
+ *        Native debugging symbols file type. (Value: "nativeCode")
+ *    @arg @c kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard
+ *        Proguard deobfuscation file type. (Value: "proguard")
+ */
 @property(nonatomic, copy, nullable) NSString *symbolType;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_DeobfuscationFilesUploadResponse
+ *  Responses for the upload.
  */
 @interface GTLRAndroidPublisher_DeobfuscationFilesUploadResponse : GTLRObject
 
+/** The uploaded Deobfuscation File configuration. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeobfuscationFile *deobfuscationFile;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_DeveloperComment
+ *  Developer entry from conversation between user and developer.
  */
 @interface GTLRAndroidPublisher_DeveloperComment : GTLRObject
 
@@ -319,14 +408,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_DeviceMetadata
+ *  Characteristics of the user's device.
  */
 @interface GTLRAndroidPublisher_DeviceMetadata : GTLRObject
 
-/** Device CPU make e.g. "Qualcomm" */
+/** Device CPU make, e.g. "Qualcomm" */
 @property(nonatomic, copy, nullable) NSString *cpuMake;
 
-/** Device CPU model e.g. "MSM8974" */
+/** Device CPU model, e.g. "MSM8974" */
 @property(nonatomic, copy, nullable) NSString *cpuModel;
 
 /** Device class (e.g. tablet) */
@@ -349,7 +438,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *productName;
 
 /**
- *  Device RAM in Megabytes e.g. "2048"
+ *  Device RAM in Megabytes, e.g. "2048"
  *
  *  Uses NSNumber of intValue.
  */
@@ -380,39 +469,45 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_DeviceSpec
+ *  The device spec used to generate a system APK.
  */
 @interface GTLRAndroidPublisher_DeviceSpec : GTLRObject
 
 /**
- *  screenDensity
+ *  Screen dpi.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *screenDensity;
 
+/**
+ *  Supported ABI architectures in the order of preference. The values should be
+ *  the string as reported by the platform, e.g. "armeabi-v7a", "x86_64".
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedAbis;
+
+/** All installed locales represented as BCP-47 strings, e.g. "en-US". */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedLocales;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_ExpansionFile
+ *  An expansion file. The resource for ExpansionFilesService.
  */
 @interface GTLRAndroidPublisher_ExpansionFile : GTLRObject
 
 /**
- *  If set this field indicates that this APK has an Expansion File uploaded to
- *  it: this APK does not reference another APK's Expansion File. The field's
- *  value is the size of the uploaded Expansion File in bytes.
+ *  If set, this field indicates that this APK has an expansion file uploaded to
+ *  it: this APK does not reference another APK's expansion file. The field's
+ *  value is the size of the uploaded expansion file in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fileSize;
 
 /**
- *  If set this APK's Expansion File references another APK's Expansion File.
+ *  If set, this APK's expansion file references another APK's expansion file.
  *  The file_size field will not be set.
  *
  *  Uses NSNumber of intValue.
@@ -423,10 +518,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ExpansionFilesUploadResponse
+ *  Response for uploading an expansion file.
  */
 @interface GTLRAndroidPublisher_ExpansionFilesUploadResponse : GTLRObject
 
+/** The uploaded expansion file configuration. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExpansionFile *expansionFile;
 
 @end
@@ -434,9 +530,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Defines an APK available for this application that is hosted externally and
- *  not uploaded to Google Play. This function is only available to enterprises
- *  who are using Google Play for Work, and whos application is restricted to
- *  the enterprise private channel
+ *  not uploaded to Google Play. This function is only available to
+ *  organizations using Managed Play whose application is configured to restrict
+ *  distribution to the organizations.
  */
 @interface GTLRAndroidPublisher_ExternallyHostedApk : GTLRObject
 
@@ -445,7 +541,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A certificate (or array of certificates if a certificate-chain is used) used
- *  to signed this APK, represented as a base64 encoded byte array.
+ *  to sign this APK, represented as a base64 encoded byte array.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *certificateBase64s;
 
@@ -453,12 +549,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *externallyHostedUrl;
 
 /**
- *  The SHA1 checksum of this APK, represented as a base64 encoded byte array.
+ *  The sha1 checksum of this APK, represented as a base64 encoded byte array.
  */
 @property(nonatomic, copy, nullable) NSString *fileSha1Base64;
 
 /**
- *  The SHA256 checksum of this APK, represented as a base64 encoded byte array.
+ *  The sha256 checksum of this APK, represented as a base64 encoded byte array.
  */
 @property(nonatomic, copy, nullable) NSString *fileSha256Base64;
 
@@ -496,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *usesFeatures;
 
 /** The permissions requested by this APK. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ExternallyHostedApkUsesPermission *> *usesPermissions;
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_UsesPermission *> *usesPermissions;
 
 /**
  *  The version code of this APK.
@@ -512,25 +608,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A permission used by this APK.
- */
-@interface GTLRAndroidPublisher_ExternallyHostedApkUsesPermission : GTLRObject
-
-/**
- *  Optionally, the maximum SDK version for which the permission is required.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxSdkVersion;
-
-/** The name of the permission requested. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_Image
+ *  An uploaded image. The resource for ImagesService.
  */
 @interface GTLRAndroidPublisher_Image : GTLRObject
 
@@ -541,10 +619,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** A sha1 hash of the image that was uploaded. */
+/** A sha1 hash of the image. */
 @property(nonatomic, copy, nullable) NSString *sha1;
 
-/** A sha256 hash of the image that was uploaded. */
+/** A sha256 hash of the image. */
 @property(nonatomic, copy, nullable) NSString *sha256;
 
 /** A URL that will serve a preview of the image. */
@@ -554,91 +632,116 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ImagesDeleteAllResponse
+ *  Response for deleting all images.
  */
 @interface GTLRAndroidPublisher_ImagesDeleteAllResponse : GTLRObject
 
+/** The deleted images. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Image *> *deleted;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_ImagesListResponse
+ *  Response listing all images.
  */
 @interface GTLRAndroidPublisher_ImagesListResponse : GTLRObject
 
+/** All listed Images. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Image *> *images;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_ImagesUploadResponse
+ *  Response for uploading an image.
  */
 @interface GTLRAndroidPublisher_ImagesUploadResponse : GTLRObject
 
+/** The uploaded image. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Image *image;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_InAppProduct
+ *  An in-app product. The resource for InappproductsService.
  */
 @interface GTLRAndroidPublisher_InAppProduct : GTLRObject
 
 /**
- *  The default language of the localized data, as defined by BCP 47. e.g.
- *  "en-US", "en-GB".
+ *  Default language of the localized data, as defined by BCP-47. e.g. "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /**
- *  Default price cannot be zero. In-app products can never be free. Default
- *  price is always in the developer's Checkout merchant currency.
+ *  Default price. Cannot be zero, as in-app products are never free. Always in
+ *  the developer's Checkout merchant currency.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *defaultPrice;
 
 /**
- *  Grace period of the subscription, specified in ISO 8601 format. It will
- *  allow developers to give their subscribers a grace period when the payment
- *  for the new recurrence period is declined. Acceptable values = "P3D" (three
- *  days), "P7D" (seven days), "P14D" (fourteen days), and "P30D" (thirty days)
+ *  Grace period of the subscription, specified in ISO 8601 format. Allows
+ *  developers to give their subscribers a grace period when the payment for the
+ *  new recurrence period is declined. Acceptable values are P0D (zero days),
+ *  P3D (three days), P7D (seven days), P14D (14 days), and P30D (30 days).
  */
 @property(nonatomic, copy, nullable) NSString *gracePeriod;
 
-/** List of localized title and description data. */
+/**
+ *  List of localized title and description data. Map key is the language of the
+ *  localized data, as defined by BCP-47, e.g. "en-US".
+ */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct_Listings *listings;
 
-/** The package name of the parent app. */
+/** Package name of the parent app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
- *  Prices per buyer region. None of these prices should be zero. In-app
- *  products can never be free.
+ *  Prices per buyer region. None of these can be zero, as in-app products are
+ *  never free. Map key is region code, as defined by ISO 3166-2.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_InAppProduct_Prices *prices;
 
-/** Purchase type enum value. Unmodifiable after creation. */
+/**
+ *  The type of the product, e.g. a recurring subscription.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_InAppProduct_PurchaseType_ManagedUser The
+ *        default product type - one time purchase. (Value: "managedUser")
+ *    @arg @c kGTLRAndroidPublisher_InAppProduct_PurchaseType_PurchaseTypeUnspecified
+ *        Unspecified purchase type. (Value: "purchaseTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisher_InAppProduct_PurchaseType_Subscription
+ *        In-app product with a recurring period. (Value: "subscription")
+ */
 @property(nonatomic, copy, nullable) NSString *purchaseType;
 
-/** The stock-keeping-unit (SKU) of the product, unique within an app. */
+/** Stock-keeping-unit (SKU) of the product, unique within an app. */
 @property(nonatomic, copy, nullable) NSString *sku;
 
+/**
+ *  The status of the product, e.g. whether it's active.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_InAppProduct_Status_Active The product is
+ *        published and active in the store. (Value: "active")
+ *    @arg @c kGTLRAndroidPublisher_InAppProduct_Status_Inactive The product is
+ *        not published and therefore inactive in the store. (Value: "inactive")
+ *    @arg @c kGTLRAndroidPublisher_InAppProduct_Status_StatusUnspecified
+ *        Unspecified status. (Value: "statusUnspecified")
+ */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  Subscription period, specified in ISO 8601 format. Acceptable values are
- *  "P1W" (one week), "P1M" (one month), "P3M" (three months), "P6M" (six
- *  months), and "P1Y" (one year).
+ *  Subscription period, specified in ISO 8601 format. Acceptable values are P1W
+ *  (one week), P1M (one month), P3M (three months), P6M (six months), and P1Y
+ *  (one year).
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionPeriod;
 
 /**
  *  Trial period, specified in ISO 8601 format. Acceptable values are anything
- *  between "P7D" (seven days) and "P999D" (999 days). Seasonal subscriptions
- *  cannot have a trial period.
+ *  between P7D (seven days) and P999D (999 days).
  */
 @property(nonatomic, copy, nullable) NSString *trialPeriod;
 
@@ -646,7 +749,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  List of localized title and description data.
+ *  List of localized title and description data. Map key is the language of the
+ *  localized data, as defined by BCP-47, e.g. "en-US".
  *
  *  @note This class is documented as having more properties of
  *        GTLRAndroidPublisher_InAppProductListing. Use @c -additionalJSONKeys
@@ -659,8 +763,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Prices per buyer region. None of these prices should be zero. In-app
- *  products can never be free.
+ *  Prices per buyer region. None of these can be zero, as in-app products are
+ *  never free. Map key is region code, as defined by ISO 3166-2.
  *
  *  @note This class is documented as having more properties of
  *        GTLRAndroidPublisher_Price. Use @c -additionalJSONKeys and @c
@@ -672,36 +776,43 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_InAppProductListing
+ *  Store listing of a single in-app product.
  */
 @interface GTLRAndroidPublisher_InAppProductListing : GTLRObject
 
+/** Localized entitlement benefits for a subscription. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *benefits;
+
 /**
- *  descriptionProperty
+ *  Description for the store listing.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Title for the store listing. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_InappproductsListResponse
+ *  Response listing all in-app products.
  */
 @interface GTLRAndroidPublisher_InappproductsListResponse : GTLRObject
 
+/** All in-app products. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_InAppProduct *> *inappproduct;
 
 /**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidpublisher#inappproductsListResponse".
+ *  The kind of this response ("androidpublisher#inappproductsListResponse").
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Information about the current page. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
+
+/** Pagination token, to handle a number of products that is over one page. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;
 
 @end
@@ -714,7 +825,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidPublisher_InternalAppSharingArtifact : GTLRObject
 
 /**
- *  The SHA256 fingerprint of the certificate used to signed the generated
+ *  The sha256 fingerprint of the certificate used to sign the generated
  *  artifact.
  */
 @property(nonatomic, copy, nullable) NSString *certificateFingerprint;
@@ -727,7 +838,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *downloadUrl;
 
 /**
- *  The SHA-256 hash of the artifact represented as a lowercase hexadecimal
+ *  The sha256 hash of the artifact represented as a lowercase hexadecimal
  *  number, matching the output of the sha256sum command.
  */
 @property(nonatomic, copy, nullable) NSString *sha256;
@@ -775,25 +886,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_Listing
+ *  A localized store listing. The resource for ListingsService.
  */
 @interface GTLRAndroidPublisher_Listing : GTLRObject
 
-/**
- *  Full description of the app; this may be up to 4000 characters in length.
- */
+/** Full description of the app. */
 @property(nonatomic, copy, nullable) NSString *fullDescription;
 
-/** Language localization code (for example, "de-AT" for Austrian German). */
+/**
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German).
+ */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Short description of the app (previously known as promo text); this may be
- *  up to 80 characters in length.
- */
+/** Short description of the app. */
 @property(nonatomic, copy, nullable) NSString *shortDescription;
 
-/** App's localized title. */
+/** Localized title of the app. */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /** URL of a promotional YouTube video for the app. */
@@ -803,78 +912,61 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ListingsListResponse
+ *  Response listing all localized listings.
  */
 @interface GTLRAndroidPublisher_ListingsListResponse : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidpublisher#listingsListResponse".
- */
+/** The kind of this response ("androidpublisher#listingsListResponse"). */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** All localized listings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Listing *> *listings;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_LocalizedText
+ *  Release notes specification, i.e. language and text.
  */
 @interface GTLRAndroidPublisher_LocalizedText : GTLRObject
 
-/** The language code, in BCP 47 format (eg "en-US"). */
+/**
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German).
+ */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/** The text in the given `language`. */
+/** The text in the given language. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_ModRange
- */
-@interface GTLRAndroidPublisher_ModRange : GTLRObject
-
-/**
- *  end
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *end;
-
-/**
- *  start
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *start;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_PageInfo
+ *  Information about the current page. List operations that supports paging
+ *  return only one "page" of results. This protocol buffer message describes
+ *  the page that has been returned.
  */
 @interface GTLRAndroidPublisher_PageInfo : GTLRObject
 
 /**
- *  resultPerPage
+ *  Maximum number of results returned in one page. ! The number of results
+ *  included in the API response.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resultPerPage;
 
 /**
- *  startIndex
+ *  Index of the first result returned in the current page.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startIndex;
 
 /**
- *  totalResults
+ *  Total number of results available on the backend ! The total number of
+ *  results in the result set.
  *
  *  Uses NSNumber of intValue.
  */
@@ -884,16 +976,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_Price
+ *  Definition of a price, i.e. currency and units.
  */
 @interface GTLRAndroidPublisher_Price : GTLRObject
 
-/** 3 letter Currency code, as defined by ISO 4217. */
+/**
+ *  3 letter Currency code, as defined by ISO 4217. See
+ *  java/com/google/common/money/CurrencyCode.java
+ */
 @property(nonatomic, copy, nullable) NSString *currency;
 
-/**
- *  The price in millionths of the currency base unit represented as a string.
- */
+/** Price in 1/million of the currency base unit, represented as a string. */
 @property(nonatomic, copy, nullable) NSString *priceMicros;
 
 @end
@@ -906,18 +999,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAndroidPublisher_ProductPurchase : GTLRObject
 
 /**
- *  The acknowledgement state of the inapp product. Possible values are:
- *  - Yet to be acknowledged
- *  - Acknowledged
+ *  The acknowledgement state of the inapp product. Possible values are: 0. Yet
+ *  to be acknowledged 1. Acknowledged
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *acknowledgementState;
 
 /**
- *  The consumption state of the inapp product. Possible values are:
- *  - Yet to be consumed
- *  - Consumed
+ *  The consumption state of the inapp product. Possible values are: 0. Yet to
+ *  be consumed 1. Consumed
  *
  *  Uses NSNumber of intValue.
  */
@@ -935,6 +1026,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/**
+ *  An obfuscated version of the id that is uniquely associated with the user's
+ *  account in your app. Only present if specified using
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid
+ *  when the purchase was made.
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedExternalAccountId;
+
+/**
+ *  An obfuscated version of the id that is uniquely associated with the user's
+ *  profile in your app. Only present if specified using
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedprofileid
+ *  when the purchase was made.
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedExternalProfileId;
+
 /** The order id associated with the purchase of the inapp product. */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
@@ -942,10 +1049,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  The purchase state of the order. Possible values are:
- *  - Purchased
- *  - Canceled
- *  - Pending
+ *  The purchase state of the order. Possible values are: 0. Purchased 1.
+ *  Canceled 2. Pending
  *
  *  Uses NSNumber of intValue.
  */
@@ -965,10 +1070,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The type of purchase of the inapp product. This field is only set if this
  *  purchase was not made using the standard in-app billing flow. Possible
- *  values are:
- *  - Test (i.e. purchased from a license testing account)
- *  - Promo (i.e. purchased using a promo code)
- *  - Rewarded (i.e. from watching a video ad instead of paying)
+ *  values are: 0. Test (i.e. purchased from a license testing account) 1. Promo
+ *  (i.e. purchased using a promo code) 2. Rewarded (i.e. from watching a video
+ *  ad instead of paying)
  *
  *  Uses NSNumber of intValue.
  */
@@ -985,7 +1089,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest
+ *  Request for the product.purchases.acknowledge API.
  */
 @interface GTLRAndroidPublisher_ProductPurchasesAcknowledgeRequest : GTLRObject
 
@@ -996,7 +1100,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_Review
+ *  An Android app review.
  */
 @interface GTLRAndroidPublisher_Review : GTLRObject
 
@@ -1013,7 +1117,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ReviewReplyResult
+ *  The result of replying/updating a reply to review.
  */
 @interface GTLRAndroidPublisher_ReviewReplyResult : GTLRObject
 
@@ -1027,19 +1131,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ReviewsListResponse
+ *  Response listing reviews.
  */
 @interface GTLRAndroidPublisher_ReviewsListResponse : GTLRObject
 
+/** Information about the current page. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
+
+/** List of reviews. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Review *> *reviews;
+
+/** Pagination token, to handle a number of products that is over one page. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_ReviewsReplyRequest
+ *  Request to reply to review or update existing reply.
  */
 @interface GTLRAndroidPublisher_ReviewsReplyRequest : GTLRObject
 
@@ -1053,65 +1162,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_ReviewsReplyResponse
+ *  Response on status of replying to a review.
  */
 @interface GTLRAndroidPublisher_ReviewsReplyResponse : GTLRObject
 
+/** The result of replying/updating a reply to review. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ReviewReplyResult *result;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_Sampling
- */
-@interface GTLRAndroidPublisher_Sampling : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
-
-/**
- *  modulus
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *modulus;
-
-/**
- *  salt
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *salt;
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_StratifiedSampling *> *stratifiedSamplings;
-
-/**
- *  useAndroidId
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *useAndroidId;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_StratifiedSampling
- */
-@interface GTLRAndroidPublisher_StratifiedSampling : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ModRange *> *modRanges;
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Stratum *stratum;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_Stratum
- */
-@interface GTLRAndroidPublisher_Stratum : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *brand;
 
 @end
 
@@ -1124,11 +1180,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The cancellation reason the user chose in the survey. Possible values are:
- *  - Other
- *  - I don't use this service enough
- *  - Technical issues
- *  - Cost-related reasons
- *  - I found a better app
+ *  0. Other 1. I don't use this service enough 2. Technical issues 3.
+ *  Cost-related reasons 4. I found a better app
  *
  *  Uses NSNumber of intValue.
  */
@@ -1185,14 +1238,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *newPrice NS_RETURNS_NOT_RETAINED;
 
 /**
- *  The current state of the price change. Possible values are:
- *  - Outstanding: State for a pending price change waiting for the user to
- *  agree. In this state, you can optionally seek confirmation from the user
- *  using the In-App API.
- *  - Accepted: State for an accepted price change that the subscription will
- *  renew with unless it's canceled. The price change takes effect on a future
- *  date when the subscription renews. Note that the change might not occur when
- *  the subscription is renewed next.
+ *  The current state of the price change. Possible values are: 0. Outstanding:
+ *  State for a pending price change waiting for the user to agree. In this
+ *  state, you can optionally seek confirmation from the user using the In-App
+ *  API. 1. Accepted: State for an accepted price change that the subscription
+ *  will renew with unless it's canceled. The price change takes effect on a
+ *  future date when the subscription renews. Note that the change might not
+ *  occur when the subscription is renewed next.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1209,8 +1261,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The acknowledgement state of the subscription product. Possible values are:
- *  - Yet to be acknowledged
- *  - Acknowledged
+ *  0. Yet to be acknowledged 1. Acknowledged
  *
  *  Uses NSNumber of intValue.
  */
@@ -1235,12 +1286,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The reason why a subscription was canceled or is not auto-renewing. Possible
- *  values are:
- *  - User canceled the subscription
- *  - Subscription was canceled by the system, for example because of a billing
- *  problem
- *  - Subscription was replaced with a new subscription
- *  - Subscription was canceled by the developer
+ *  values are: 0. User canceled the subscription 1. Subscription was canceled
+ *  by the system, for example because of a billing problem 2. Subscription was
+ *  replaced with a new subscription 3. Subscription was canceled by the
+ *  developer
  *
  *  Uses NSNumber of intValue.
  */
@@ -1297,9 +1346,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Introductory price information of the subscription. This is only present
- *  when the subscription was purchased with an introductory price.
- *  This field does not indicate the subscription is currently in introductory
- *  price period.
+ *  when the subscription was purchased with an introductory price. This field
+ *  does not indicate the subscription is currently in introductory price
+ *  period.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_IntroductoryPriceInfo *introductoryPriceInfo;
 
@@ -1311,9 +1360,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The purchase token of the originating purchase if this subscription is one
- *  of the following:
- *  - Re-signup of a canceled but non-lapsed subscription
- *  - Upgrade/downgrade from a previous subscription For example, suppose a user
+ *  of the following: 0. Re-signup of a canceled but non-lapsed subscription 1.
+ *  Upgrade/downgrade from a previous subscription For example, suppose a user
  *  originally signs up and you receive purchase token X, then the user cancels
  *  and goes through the resignup flow (before their subscription lapses) and
  *  you receive purchase token Y, and finally the user upgrades their
@@ -1325,17 +1373,33 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *linkedPurchaseToken;
 
 /**
+ *  An obfuscated version of the id that is uniquely associated with the user's
+ *  account in your app. Present for the following purchases: * If account
+ *  linking happened as part of the subscription purchase flow. * It was
+ *  specified using
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid
+ *  when the purchase was made.
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedExternalAccountId;
+
+/**
+ *  An obfuscated version of the id that is uniquely associated with the user's
+ *  profile in your app. Only present if specified using
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedprofileid
+ *  when the purchase was made.
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedExternalProfileId;
+
+/**
  *  The order id of the latest recurring order associated with the purchase of
  *  the subscription.
  */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
- *  The payment state of the subscription. Possible values are:
- *  - Payment pending
- *  - Payment received
- *  - Free trial
- *  - Pending deferred upgrade/downgrade
+ *  The payment state of the subscription. Possible values are: 0. Payment
+ *  pending 1. Payment received 2. Free trial 3. Pending deferred
+ *  upgrade/downgrade
  *
  *  Uses NSNumber of intValue.
  */
@@ -1386,9 +1450,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The type of promotion applied on this purchase. This field is only set if a
  *  promotion is applied when the subscription was purchased. Possible values
- *  are:
- *  - One time code
- *  - Vanity code
+ *  are: 0. One time code 1. Vanity code
  *
  *  Uses NSNumber of intValue.
  */
@@ -1397,9 +1459,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The type of purchase of the subscription. This field is only set if this
  *  purchase was not made using the standard in-app billing flow. Possible
- *  values are:
- *  - Test (i.e. purchased from a license testing account)
- *  - Promo (i.e. purchased using a promo code)
+ *  values are: 0. Test (i.e. purchased from a license testing account) 1. Promo
+ *  (i.e. purchased using a promo code)
  *
  *  Uses NSNumber of intValue.
  */
@@ -1424,7 +1485,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest
+ *  Request for the purchases.subscriptions.acknowledge API.
  */
 @interface GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest : GTLRObject
 
@@ -1435,7 +1496,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest
+ *  Request for the purchases.subscriptions.defer API.
  */
 @interface GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest : GTLRObject
 
@@ -1446,7 +1507,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_SubscriptionPurchasesDeferResponse
+ *  Response for the purchases.subscriptions.defer API.
  */
 @interface GTLRAndroidPublisher_SubscriptionPurchasesDeferResponse : GTLRObject
 
@@ -1461,57 +1522,45 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_SystemApkVariantsCreateRequest
+ *  Response to list previously created system APK variants.
  */
-@interface GTLRAndroidPublisher_SystemApkVariantsCreateRequest : GTLRObject
+@interface GTLRAndroidPublisher_SystemApksListResponse : GTLRObject
 
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceSpec *deviceSpec;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_SystemApkVariantsListResponse
- */
-@interface GTLRAndroidPublisher_SystemApkVariantsListResponse : GTLRObject
-
+/** All system APK variants created. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Variant *> *variants;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_Testers
+ *  The testers of an app. The resource for TestersService.
  */
 @interface GTLRAndroidPublisher_Testers : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<NSString *> *autoEnrolledAndroidGroups;
-@property(nonatomic, strong, nullable) NSArray<NSString *> *autoEnrolledGoogleGroups;
-@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedGoogleGroups;
-
-/**
- *  A list of all Google Groups, as email addresses, that define testers for
- *  this track.
- */
+/** All testing Google Groups, as email addresses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *googleGroups;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_Timestamp
+ *  A Timestamp represents a point in time independent of any time zone or local
+ *  calendar, encoded as a count of seconds and fractions of seconds at
+ *  nanosecond resolution. The count is relative to an epoch at UTC midnight on
+ *  January 1, 1970.
  */
 @interface GTLRAndroidPublisher_Timestamp : GTLRObject
 
 /**
- *  nanos
+ *  Non-negative fractions of a second at nanosecond resolution. Must be from 0
+ *  to 999,999,999 inclusive.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nanos;
 
 /**
- *  seconds
+ *  Represents seconds of UTC time since Unix epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1521,88 +1570,105 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_TokenPagination
+ *  Pagination information returned by a List operation when token pagination is
+ *  enabled. List operations that supports paging return only one "page" of
+ *  results. This protocol buffer message describes the page that has been
+ *  returned. When using token pagination, clients should use the next/previous
+ *  token to get another page of the result. The presence or absence of
+ *  next/previous token indicates whether a next/previous page is available and
+ *  provides a mean of accessing this page. ListRequest.page_token should be set
+ *  to either next_page_token or previous_page_token to access another page.
  */
 @interface GTLRAndroidPublisher_TokenPagination : GTLRObject
 
+/**
+ *  Tokens to pass to the standard list field 'page_token'. Whenever available,
+ *  tokens are preferred over manipulating start_index.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @property(nonatomic, copy, nullable) NSString *previousPageToken;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_Track
+ *  A track configuration. The resource for TracksService.
  */
 @interface GTLRAndroidPublisher_Track : GTLRObject
 
 /**
- *  A list of all active releases in this track during a read request. On an
- *  update request, it represents desired changes.
+ *  In a read request, represents all active releases in the track. In an update
+ *  request, represents desired changes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackRelease *> *releases;
 
-/** Identifier for this track. */
+/** Identifier of the track. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_TrackRelease
+ *  A release within a track.
  */
 @interface GTLRAndroidPublisher_TrackRelease : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Control *> *controls;
+/** Restricts a release to a specific set of countries. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_CountryTargeting *countryTargeting;
 
 /**
  *  In-app update priority of the release. All newly added APKs in the release
- *  will be considered at this priority. in_app_update_priority can take values
- *  between [0, 5]. 5 is the highest priority. Default priority is 0.
- *  in_app_update_priority can not be updated once the release is rolled out.
- *  See https://developer.android.com/guide/playcore/in-app-updates.
+ *  will be considered at this priority. Can take values in the range [0, 5],
+ *  with 5 the highest priority. Defaults to 0. in_app_update_priority can not
+ *  be updated once the release is rolled out. See
+ *  https://developer.android.com/guide/playcore/in-app-updates.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *inAppUpdatePriority;
 
 /**
- *  The release name, used to identify this release in the Play Console UI. Not
- *  required to be unique. This is optional, if not set it will be generated
- *  from the version_name in the APKs.
+ *  The release name. Not required to be unique. If not set, the name is
+ *  generated from the APK's version_name. If the release contains multiple
+ *  APKs, the name is generated from the date.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackReleasePin *> *pinnedVersions;
-
-/** The description of what is new in the app in this release. */
+/** A description of what is new in this release. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_LocalizedText *> *releaseNotes;
 
 /**
- *  rollbackEnabled
+ *  The status of the release.
  *
- *  Uses NSNumber of boolValue.
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_TrackRelease_Status_Completed The release
+ *        will have no further changes. Its APKs are being served to all users,
+ *        unless they are eligible to APKs of a more recent release. (Value:
+ *        "completed")
+ *    @arg @c kGTLRAndroidPublisher_TrackRelease_Status_Draft The release's APKs
+ *        are not being served to users. (Value: "draft")
+ *    @arg @c kGTLRAndroidPublisher_TrackRelease_Status_Halted The release's
+ *        APKs will no longer be served to users. Users who already have these
+ *        APKs are unaffected. (Value: "halted")
+ *    @arg @c kGTLRAndroidPublisher_TrackRelease_Status_InProgress The release's
+ *        APKs are being served to a fraction of users, determined by
+ *        'user_fraction'. (Value: "inProgress")
+ *    @arg @c kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified
+ *        Unspecified status. (Value: "statusUnspecified")
  */
-@property(nonatomic, strong, nullable) NSNumber *rollbackEnabled;
-
-@property(nonatomic, strong, nullable) GTLRAndroidPublisher_Sampling *sampling;
-
-/** The desired status of this release. */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  Fraction of users who are eligible to receive the release. 0 < fraction < 1.
- *  To be set, release status must be "inProgress" or "halted".
+ *  Fraction of users who are eligible for a staged release. 0 < fraction < 1.
+ *  Can only be set when status is "inProgress" or "halted".
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *userFraction;
 
 /**
- *  A list of all version codes of APKs that will be exposed to the users of
- *  this track when this release is rolled out. Note that this list should
- *  contain all versions you wish to be active, including those you wish to
+ *  Version codes of all APKs in the release. Must include version codes to
  *  retain from previous releases.
  *
  *  Uses NSNumber of longLongValue.
@@ -1613,77 +1679,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_TrackReleasePin
- */
-@interface GTLRAndroidPublisher_TrackReleasePin : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackReleasePinPinTargeting *> *targetings;
-
-/**
- *  versionCodes
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *versionCodes;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_TrackReleasePinPinTargeting
- */
-@interface GTLRAndroidPublisher_TrackReleasePinPinTargeting : GTLRObject
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *countryCodes;
-@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin *> *devices;
-
-/**
- *  phoneskyVersions
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *phoneskyVersions;
-
-/**
- *  sdkVersions
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *sdkVersions;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin
- */
-@interface GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *brand;
-@property(nonatomic, copy, nullable) NSString *device;
-@property(nonatomic, copy, nullable) NSString *product;
-
-@end
-
-
-/**
- *  GTLRAndroidPublisher_TracksListResponse
+ *  Response listing all tracks.
  */
 @interface GTLRAndroidPublisher_TracksListResponse : GTLRObject
 
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "androidpublisher#tracksListResponse".
- */
+/** The kind of this response ("androidpublisher#tracksListResponse"). */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** All tracks. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Track *> *tracks;
 
 @end
 
 
 /**
- *  GTLRAndroidPublisher_UserComment
+ *  User entry from conversation between user and developer.
  */
 @interface GTLRAndroidPublisher_UserComment : GTLRObject
 
@@ -1712,15 +1722,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** Codename for the reviewer's device, e.g. klte, flounder. May be absent. */
 @property(nonatomic, copy, nullable) NSString *device;
 
-/** Some information about the characteristics of the user's device */
+/** Information about the characteristics of the user's device. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceMetadata *deviceMetadata;
 
 /** The last time at which this comment was updated. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Timestamp *lastModified;
 
 /**
- *  Untranslated text of the review, in the case where the review has been
- *  translated. If the review has not been translated this is left blank.
+ *  Untranslated text of the review, where the review was translated. If the
+ *  review was not translated this is left blank.
  */
 @property(nonatomic, copy, nullable) NSString *originalText;
 
@@ -1746,14 +1756,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *text;
 
 /**
- *  Number of users who have given this review a thumbs down
+ *  Number of users who have given this review a thumbs down.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *thumbsDownCount;
 
 /**
- *  Number of users who have given this review a thumbs up
+ *  Number of users who have given this review a thumbs up.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1763,15 +1773,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Represents the variant of a generated system APK from an uploaded App
- *  Bundle.
+ *  A permission used by this APK.
+ */
+@interface GTLRAndroidPublisher_UsesPermission : GTLRObject
+
+/**
+ *  Optionally, the maximum SDK version for which the permission is required.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSdkVersion;
+
+/** The name of the permission requested. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  APK that is suitable for inclusion in a system image. The resource of
+ *  SystemApksService.
  */
 @interface GTLRAndroidPublisher_Variant : GTLRObject
 
+/** The device spec used to generate the APK. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeviceSpec *deviceSpec;
 
 /**
- *  variantId
+ *  Output only. The ID of a previously created system APK variant.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -1814,25 +1843,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *purchaseToken;
 
 /**
- *  The reason why the purchase was voided, possible values are:
- *  - Other
- *  - Remorse
- *  - Not_received
- *  - Defective
- *  - Accidental_purchase
- *  - Fraud
- *  - Friendly_fraud
- *  - Chargeback
+ *  The reason why the purchase was voided, possible values are: 0. Other 1.
+ *  Remorse 2. Not_received 3. Defective 4. Accidental_purchase 5. Fraud 6.
+ *  Friendly_fraud 7. Chargeback
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *voidedReason;
 
 /**
- *  The initiator of voided purchase, possible values are:
- *  - User
- *  - Developer
- *  - Google
+ *  The initiator of voided purchase, possible values are: 0. User 1. Developer
+ *  2. Google
  *
  *  Uses NSNumber of intValue.
  */
@@ -1850,12 +1871,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRAndroidPublisher_VoidedPurchasesListResponse
+ *  Response for the voidedpurchases.list API.
  */
 @interface GTLRAndroidPublisher_VoidedPurchasesListResponse : GTLRObject
 
+/** General pagination information. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_PageInfo *pageInfo;
+
+/** Pagination information for token pagination. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TokenPagination *tokenPagination;
+
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_VoidedPurchase *> *voidedPurchases;
 
 @end

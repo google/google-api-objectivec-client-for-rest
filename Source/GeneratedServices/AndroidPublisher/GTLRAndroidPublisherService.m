@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Developer API (androidpublisher/v3)
+//   Google Play Android Developer API (androidpublisher/v3)
 // Description:
-//   Accesses Android application developers' Google Play accounts.
+//   Lets Android application developers access their Google Play accounts.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
@@ -25,27 +25,13 @@ NSString * const kGTLRAuthScopeAndroidPublisher = @"https://www.googleapis.com/a
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"androidpublisher/v3/applications/";
+    self.rootURLString = @"https://androidpublisher.googleapis.com/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/androidpublisher/v3";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"androidpublisher#apksListResponse" : [GTLRAndroidPublisher_ApksListResponse class],
-    @"androidpublisher#bundlesListResponse" : [GTLRAndroidPublisher_BundlesListResponse class],
-    @"androidpublisher#inappproductsListResponse" : [GTLRAndroidPublisher_InappproductsListResponse class],
-    @"androidpublisher#listingsListResponse" : [GTLRAndroidPublisher_ListingsListResponse class],
-    @"androidpublisher#productPurchase" : [GTLRAndroidPublisher_ProductPurchase class],
-    @"androidpublisher#subscriptionPurchase" : [GTLRAndroidPublisher_SubscriptionPurchase class],
-    @"androidpublisher#tracksListResponse" : [GTLRAndroidPublisher_TracksListResponse class],
-    @"androidpublisher#voidedPurchase" : [GTLRAndroidPublisher_VoidedPurchase class],
-  };
 }
 
 @end

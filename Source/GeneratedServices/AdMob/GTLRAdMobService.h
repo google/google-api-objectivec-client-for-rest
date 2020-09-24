@@ -27,6 +27,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: See your AdMob data
+ *
+ *  Value "https://www.googleapis.com/auth/admob.report"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdMobReport;
+
+// ----------------------------------------------------------------------------
+//   GTLRAdMobService
+//
+
 /**
  *  Service for executing AdMob API queries.
  *

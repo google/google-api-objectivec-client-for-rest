@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  account credentials from your Actions console project.
  *
  *  Method: homegraph.agentUsers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_AgentUsersDelete : GTLRHomeGraphServiceQuery
 // Previous library name was
@@ -87,6 +90,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  service account credentials from your Actions console project.
  *
  *  Method: homegraph.devices.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_DevicesQuery : GTLRHomeGraphServiceQuery
 // Previous library name was
@@ -124,6 +130,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Actions console project.
  *
  *  Method: homegraph.devices.reportStateAndNotification
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_DevicesReportStateAndNotification : GTLRHomeGraphServiceQuery
 // Previous library name was
@@ -163,6 +172,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  account credentials from your Actions console project.
  *
  *  Method: homegraph.devices.requestSync
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_DevicesRequestSync : GTLRHomeGraphServiceQuery
 // Previous library name was
@@ -194,6 +206,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  credentials from your Actions console project.
  *
  *  Method: homegraph.devices.sync
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHomeGraphService
  */
 @interface GTLRHomeGraphServiceQuery_DevicesSync : GTLRHomeGraphServiceQuery
 // Previous library name was

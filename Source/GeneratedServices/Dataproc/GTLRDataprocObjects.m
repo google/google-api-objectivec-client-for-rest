@@ -32,6 +32,12 @@ NSString * const kGTLRDataproc_ClusterStatus_Substate_StaleStatus = @"STALE_STAT
 NSString * const kGTLRDataproc_ClusterStatus_Substate_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified = @"UNSPECIFIED";
 
+// GTLRDataproc_GceClusterConfig.privateIpv6GoogleAccess
+NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Bidirectional = @"BIDIRECTIONAL";
+NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork = @"INHERIT_FROM_SUBNETWORK";
+NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound = @"OUTBOUND";
+NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified = @"PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED";
+
 // GTLRDataproc_InstanceGroupConfig.preemptibility
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_NonPreemptible = @"NON_PREEMPTIBLE";
 NSString * const kGTLRDataproc_InstanceGroupConfig_Preemptibility_PreemptibilityUnspecified = @"PREEMPTIBILITY_UNSPECIFIED";
@@ -75,9 +81,13 @@ NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUn
 // GTLRDataproc_SoftwareConfig.optionalComponents
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda = @"ANACONDA";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Docker = @"DOCKER";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Flink = @"FLINK";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @"HIVE_WEBHCAT";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto = @"PRESTO";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Ranger = @"RANGER";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Solr = @"SOLR";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin = @"ZEPPELIN";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper = @"ZOOKEEPER";
 
@@ -168,7 +178,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_Binding
-@dynamic condition, members, role;
+@dynamic bindingId, condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -471,8 +481,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GceClusterConfig
-@dynamic internalIpOnly, metadata, networkUri, reservationAffinity,
-         serviceAccount, serviceAccountScopes, subnetworkUri, tags, zoneUri;
+@dynamic internalIpOnly, metadata, networkUri, privateIpv6GoogleAccess,
+         reservationAffinity, serviceAccount, serviceAccountScopes,
+         subnetworkUri, tags, zoneUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

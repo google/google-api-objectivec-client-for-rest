@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Developer API (androidpublisher/v3)
+//   Google Play Android Developer API (androidpublisher/v3)
 // Description:
-//   Accesses Android application developers' Google Play accounts.
+//   Lets Android application developers access their Google Play accounts.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
@@ -16,20 +16,20 @@
 // Constants
 
 // deobfuscationFileType
+NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeDeobfuscationFileTypeUnspecified = @"deobfuscationFileTypeUnspecified";
 NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode = @"nativeCode";
 NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeProguard = @"proguard";
 
 // expansionFileType
-NSString * const kGTLRAndroidPublisherExpansionFileTypeMain  = @"main";
-NSString * const kGTLRAndroidPublisherExpansionFileTypePatch = @"patch";
+NSString * const kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified = @"expansionFileTypeUnspecified";
+NSString * const kGTLRAndroidPublisherExpansionFileTypeMain    = @"main";
+NSString * const kGTLRAndroidPublisherExpansionFileTypePatch   = @"patch";
 
 // imageType
-NSString * const kGTLRAndroidPublisherImageTypeAutomotiveScreenshots = @"automotiveScreenshots";
-NSString * const kGTLRAndroidPublisherImageTypeDaydreamStereoImage = @"daydreamStereoImage";
+NSString * const kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified = @"appImageTypeUnspecified";
 NSString * const kGTLRAndroidPublisherImageTypeFeatureGraphic  = @"featureGraphic";
 NSString * const kGTLRAndroidPublisherImageTypeIcon            = @"icon";
 NSString * const kGTLRAndroidPublisherImageTypePhoneScreenshots = @"phoneScreenshots";
-NSString * const kGTLRAndroidPublisherImageTypePromoGraphic    = @"promoGraphic";
 NSString * const kGTLRAndroidPublisherImageTypeSevenInchScreenshots = @"sevenInchScreenshots";
 NSString * const kGTLRAndroidPublisherImageTypeTenInchScreenshots = @"tenInchScreenshots";
 NSString * const kGTLRAndroidPublisherImageTypeTvBanner        = @"tvBanner";
@@ -62,7 +62,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/externallyHosted";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/externallyHosted";
   GTLRAndroidPublisherQuery_EditsApksAddexternallyhosted *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -86,7 +86,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/apks";
   GTLRAndroidPublisherQuery_EditsApksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -110,7 +110,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/apks";
   GTLRAndroidPublisherQuery_EditsApksUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -134,7 +134,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/bundles";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/bundles";
   GTLRAndroidPublisherQuery_EditsBundlesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -158,7 +158,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/bundles";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/bundles";
   GTLRAndroidPublisherQuery_EditsBundlesUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -182,7 +182,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}:commit";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}:commit";
   GTLRAndroidPublisherQuery_EditsCommit *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -205,7 +205,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}";
   GTLRAndroidPublisherQuery_EditsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -230,7 +230,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"apkVersionCode", @"deobfuscationFileType", @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/deobfuscationFiles/{deobfuscationFileType}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/deobfuscationFiles/{deobfuscationFileType}";
   GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -256,7 +256,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/details";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/details";
   GTLRAndroidPublisherQuery_EditsDetailsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -286,7 +286,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/details";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/details";
   GTLRAndroidPublisherQuery_EditsDetailsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -317,7 +317,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/details";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/details";
   GTLRAndroidPublisherQuery_EditsDetailsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -343,7 +343,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"apkVersionCode", @"editId", @"expansionFileType", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}";
   GTLRAndroidPublisherQuery_EditsExpansionfilesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -377,7 +377,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"apkVersionCode", @"editId", @"expansionFileType", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}";
   GTLRAndroidPublisherQuery_EditsExpansionfilesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -412,7 +412,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"apkVersionCode", @"editId", @"expansionFileType", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}";
   GTLRAndroidPublisherQuery_EditsExpansionfilesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -441,7 +441,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"apkVersionCode", @"editId", @"expansionFileType", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/apks/{apkVersionCode}/expansionFiles/{expansionFileType}";
   GTLRAndroidPublisherQuery_EditsExpansionfilesUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -467,7 +467,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}";
   GTLRAndroidPublisherQuery_EditsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -493,7 +493,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"imageId", @"imageType", @"language", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings/{language}/{imageType}/{imageId}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}/{imageType}/{imageId}";
   GTLRAndroidPublisherQuery_EditsImagesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -520,7 +520,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"imageType", @"language", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings/{language}/{imageType}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}/{imageType}";
   GTLRAndroidPublisherQuery_EditsImagesDeleteall *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -547,7 +547,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"imageType", @"language", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings/{language}/{imageType}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}/{imageType}";
   GTLRAndroidPublisherQuery_EditsImagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -575,7 +575,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"imageType", @"language", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings/{language}/{imageType}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}/{imageType}";
   GTLRAndroidPublisherQuery_EditsImagesUpload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -605,7 +605,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
     return nil;
   }
   NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"{packageName}/edits";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits";
   GTLRAndroidPublisherQuery_EditsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -629,7 +629,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"language", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings/{language}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}";
   GTLRAndroidPublisherQuery_EditsListingsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -652,7 +652,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings";
   GTLRAndroidPublisherQuery_EditsListingsDeleteall *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -675,7 +675,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"language", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings/{language}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}";
   GTLRAndroidPublisherQuery_EditsListingsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -699,7 +699,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings";
   GTLRAndroidPublisherQuery_EditsListingsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -730,7 +730,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"language", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings/{language}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}";
   GTLRAndroidPublisherQuery_EditsListingsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -763,7 +763,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"language", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/listings/{language}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/listings/{language}";
   GTLRAndroidPublisherQuery_EditsListingsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -789,7 +789,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName", @"track"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/testers/{track}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/testers/{track}";
   GTLRAndroidPublisherQuery_EditsTestersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -821,7 +821,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName", @"track"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/testers/{track}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/testers/{track}";
   GTLRAndroidPublisherQuery_EditsTestersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -854,7 +854,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName", @"track"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/testers/{track}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/testers/{track}";
   GTLRAndroidPublisherQuery_EditsTestersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -880,7 +880,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName", @"track"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/tracks/{track}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks/{track}";
   GTLRAndroidPublisherQuery_EditsTracksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -904,7 +904,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/tracks";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks";
   GTLRAndroidPublisherQuery_EditsTracksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -935,7 +935,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName", @"track"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/tracks/{track}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks/{track}";
   GTLRAndroidPublisherQuery_EditsTracksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -968,7 +968,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName", @"track"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}/tracks/{track}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}/tracks/{track}";
   GTLRAndroidPublisherQuery_EditsTracksUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -993,7 +993,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"editId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/edits/{editId}:validate";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/edits/{editId}:validate";
   GTLRAndroidPublisherQuery_EditsValidate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1016,7 +1016,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"sku"
   ];
-  NSString *pathURITemplate = @"{packageName}/inappproducts/{sku}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts/{sku}";
   GTLRAndroidPublisherQuery_InappproductsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1038,7 +1038,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"sku"
   ];
-  NSString *pathURITemplate = @"{packageName}/inappproducts/{sku}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts/{sku}";
   GTLRAndroidPublisherQuery_InappproductsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1065,7 +1065,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
     return nil;
   }
   NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"{packageName}/inappproducts";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts";
   GTLRAndroidPublisherQuery_InappproductsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1085,7 +1085,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 + (instancetype)queryWithPackageName:(NSString *)packageName {
   NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"{packageName}/inappproducts";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts";
   GTLRAndroidPublisherQuery_InappproductsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1114,7 +1114,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"sku"
   ];
-  NSString *pathURITemplate = @"{packageName}/inappproducts/{sku}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts/{sku}";
   GTLRAndroidPublisherQuery_InappproductsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1145,7 +1145,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"sku"
   ];
-  NSString *pathURITemplate = @"{packageName}/inappproducts/{sku}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/inappproducts/{sku}";
   GTLRAndroidPublisherQuery_InappproductsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1167,7 +1167,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 + (instancetype)queryWithPackageName:(NSString *)packageName
                     uploadParameters:(GTLRUploadParameters *)uploadParameters {
   NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"internalappsharing/{packageName}/artifacts/apk";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/internalappsharing/{packageName}/artifacts/apk";
   GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadapk *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1188,7 +1188,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 + (instancetype)queryWithPackageName:(NSString *)packageName
                     uploadParameters:(GTLRUploadParameters *)uploadParameters {
   NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"internalappsharing/{packageName}/artifacts/bundle";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/internalappsharing/{packageName}/artifacts/bundle";
   GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadbundle *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1211,7 +1211,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"orderId", @"packageName"
   ];
-  NSString *pathURITemplate = @"{packageName}/orders/{orderId}:refund";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/orders/{orderId}:refund";
   GTLRAndroidPublisherQuery_OrdersRefund *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1241,7 +1241,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"productId", @"token"
   ];
-  NSString *pathURITemplate = @"{packageName}/purchases/products/{productId}/tokens/{token}:acknowledge";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/products/{productId}/tokens/{token}:acknowledge";
   GTLRAndroidPublisherQuery_PurchasesProductsAcknowledge *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1266,7 +1266,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"productId", @"token"
   ];
-  NSString *pathURITemplate = @"{packageName}/purchases/products/{productId}/tokens/{token}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/products/{productId}/tokens/{token}";
   GTLRAndroidPublisherQuery_PurchasesProductsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1298,7 +1298,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"subscriptionId", @"token"
   ];
-  NSString *pathURITemplate = @"{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:acknowledge";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:acknowledge";
   GTLRAndroidPublisherQuery_PurchasesSubscriptionsAcknowledge *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1323,7 +1323,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"subscriptionId", @"token"
   ];
-  NSString *pathURITemplate = @"{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:cancel";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:cancel";
   GTLRAndroidPublisherQuery_PurchasesSubscriptionsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1354,7 +1354,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"subscriptionId", @"token"
   ];
-  NSString *pathURITemplate = @"{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:defer";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:defer";
   GTLRAndroidPublisherQuery_PurchasesSubscriptionsDefer *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1380,7 +1380,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"subscriptionId", @"token"
   ];
-  NSString *pathURITemplate = @"{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}";
   GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1405,7 +1405,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"subscriptionId", @"token"
   ];
-  NSString *pathURITemplate = @"{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:refund";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:refund";
   GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1429,7 +1429,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"subscriptionId", @"token"
   ];
-  NSString *pathURITemplate = @"{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:revoke";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptions/{subscriptionId}/tokens/{token}:revoke";
   GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1449,7 +1449,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 + (instancetype)queryWithPackageName:(NSString *)packageName {
   NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"{packageName}/purchases/voidedpurchases";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/voidedpurchases";
   GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1471,7 +1471,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"reviewId"
   ];
-  NSString *pathURITemplate = @"{packageName}/reviews/{reviewId}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/reviews/{reviewId}";
   GTLRAndroidPublisherQuery_ReviewsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1491,7 +1491,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 + (instancetype)queryWithPackageName:(NSString *)packageName {
   NSArray *pathParams = @[ @"packageName" ];
-  NSString *pathURITemplate = @"{packageName}/reviews";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/reviews";
   GTLRAndroidPublisherQuery_ReviewsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1520,7 +1520,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"reviewId"
   ];
-  NSString *pathURITemplate = @"{packageName}/reviews/{reviewId}:reply";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/reviews/{reviewId}:reply";
   GTLRAndroidPublisherQuery_ReviewsReply *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1539,7 +1539,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @dynamic packageName, versionCode;
 
-+ (instancetype)queryWithObject:(GTLRAndroidPublisher_SystemApkVariantsCreateRequest *)object
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_Variant *)object
                     packageName:(NSString *)packageName
                     versionCode:(long long)versionCode {
   if (object == nil) {
@@ -1551,7 +1551,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"versionCode"
   ];
-  NSString *pathURITemplate = @"{packageName}/systemApks/{versionCode}/variants";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/systemApks/{versionCode}/variants";
   GTLRAndroidPublisherQuery_SystemapksVariantsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1576,7 +1576,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"variantId", @"versionCode"
   ];
-  NSString *pathURITemplate = @"{packageName}/systemApks/{versionCode}/variants/{variantId}:download";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/systemApks/{versionCode}/variants/{variantId}:download";
   GTLRAndroidPublisherQuery_SystemapksVariantsDownload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1613,7 +1613,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"variantId", @"versionCode"
   ];
-  NSString *pathURITemplate = @"{packageName}/systemApks/{versionCode}/variants/{variantId}";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/systemApks/{versionCode}/variants/{variantId}";
   GTLRAndroidPublisherQuery_SystemapksVariantsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1637,14 +1637,14 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
   NSArray *pathParams = @[
     @"packageName", @"versionCode"
   ];
-  NSString *pathURITemplate = @"{packageName}/systemApks/{versionCode}/variants";
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/systemApks/{versionCode}/variants";
   GTLRAndroidPublisherQuery_SystemapksVariantsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.packageName = packageName;
   query.versionCode = versionCode;
-  query.expectedObjectClass = [GTLRAndroidPublisher_SystemApkVariantsListResponse class];
+  query.expectedObjectClass = [GTLRAndroidPublisher_SystemApksListResponse class];
   query.loggingName = @"androidpublisher.systemapks.variants.list";
   return query;
 }

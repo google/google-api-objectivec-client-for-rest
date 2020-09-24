@@ -1752,22 +1752,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  Request message for DisableService method.
- */
-@interface GTLRServiceManagement_DisableServiceRequest : GTLRObject
-
-/**
- *  Required. The identity of consumer resource which service disablement will
- *  be applied to. The Google Service Management implementation accepts the
- *  following forms: - "project:" Note: this is made compatible with
- *  google.api.servicecontrol.v1.Operation.consumer_id.
- */
-@property(nonatomic, copy, nullable) NSString *consumerId;
-
-@end
-
-
-/**
  *  Operation payload for DisableService method.
  */
 @interface GTLRServiceManagement_DisableServiceResponse : GTLRObject

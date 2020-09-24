@@ -66,6 +66,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Analytics"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AnalyticsData",
+            targets: ["GoogleAPIClientForREST_AnalyticsData"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_AnalyticsReporting",
             targets: ["GoogleAPIClientForREST_AnalyticsReporting"]
         ),
@@ -100,6 +104,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_ArtifactRegistry",
             targets: ["GoogleAPIClientForREST_ArtifactRegistry"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Assuredworkloads",
+            targets: ["GoogleAPIClientForREST_Assuredworkloads"]
         ),
         .library(
             name: "GoogleAPIClientForREST_BigQueryConnectionService",
@@ -246,6 +254,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudSearch"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CloudSecurityToken",
+            targets: ["GoogleAPIClientForREST_CloudSecurityToken"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CloudShell",
             targets: ["GoogleAPIClientForREST_CloudShell"]
         ),
@@ -296,6 +308,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CustomSearch",
             targets: ["GoogleAPIClientForREST_CustomSearch"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_CustomSearchAPI",
+            targets: ["GoogleAPIClientForREST_CustomSearchAPI"]
         ),
         .library(
             name: "GoogleAPIClientForREST_DLP",
@@ -582,6 +598,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_SQLAdmin"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Safebrowsing",
+            targets: ["GoogleAPIClientForREST_Safebrowsing"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Script",
             targets: ["GoogleAPIClientForREST_Script"]
         ),
@@ -642,6 +662,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Slides"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_SmartDeviceManagement",
+            targets: ["GoogleAPIClientForREST_SmartDeviceManagement"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Spanner",
             targets: ["GoogleAPIClientForREST_Spanner"]
         ),
@@ -690,6 +714,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_ToolResults"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_TrafficDirectorService",
+            targets: ["GoogleAPIClientForREST_TrafficDirectorService"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Translate",
             targets: ["GoogleAPIClientForREST_Translate"]
         ),
@@ -716,6 +744,14 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Webmasters",
             targets: ["GoogleAPIClientForREST_Webmasters"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_WorkflowExecutions",
+            targets: ["GoogleAPIClientForREST_WorkflowExecutions"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Workflows",
+            targets: ["GoogleAPIClientForREST_Workflows"]
         ),
         .library(
             name: "GoogleAPIClientForREST_YouTube",
@@ -848,6 +884,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_AnalyticsData",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/AnalyticsData",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_AnalyticsReporting",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/AnalyticsReporting",
@@ -899,6 +941,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_ArtifactRegistry",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/ArtifactRegistry",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Assuredworkloads",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Assuredworkloads",
             publicHeadersPath: "."
         ),
         .target(
@@ -1118,6 +1166,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_CloudSecurityToken",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/CloudSecurityToken",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CloudShell",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/CloudShell",
@@ -1193,6 +1247,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CustomSearch",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/CustomSearch",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CustomSearchAPI",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/CustomSearchAPI",
             publicHeadersPath: "."
         ),
         .target(
@@ -1622,6 +1682,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Safebrowsing",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Safebrowsing",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Script",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Script",
@@ -1712,6 +1778,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_SmartDeviceManagement",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/SmartDeviceManagement",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Spanner",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Spanner",
@@ -1784,6 +1856,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_TrafficDirectorService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/TrafficDirectorService",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Translate",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Translate",
@@ -1823,6 +1901,18 @@ let package = Package(
             name: "GoogleAPIClientForREST_Webmasters",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Webmasters",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_WorkflowExecutions",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/WorkflowExecutions",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Workflows",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Workflows",
             publicHeadersPath: "."
         ),
         .target(

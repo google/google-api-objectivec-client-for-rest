@@ -28,6 +28,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+/**
+ *  Authorization scope: View and manage Search Console data for your verified
+ *  sites
+ *
+ *  Value "https://www.googleapis.com/auth/webmasters"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSearchConsoleWebmasters;
+/**
+ *  Authorization scope: View Search Console data for your verified sites
+ *
+ *  Value "https://www.googleapis.com/auth/webmasters.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSearchConsoleWebmastersReadonly;
+
+// ----------------------------------------------------------------------------
+//   GTLRSearchConsoleService
+//
+
 /**
  *  Service for executing Google Search Console API queries.
  *

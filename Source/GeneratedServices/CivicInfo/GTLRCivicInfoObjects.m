@@ -112,10 +112,10 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 
 @implementation GTLRCivicInfo_AdministrativeBody
 @dynamic absenteeVotingInfoUrl, ballotInfoUrl, correspondenceAddress,
-         electionInfoUrl, electionOfficials,
-         electionRegistrationConfirmationUrl, electionRegistrationUrl,
-         electionRulesUrl, hoursOfOperation, name, physicalAddress,
-         voterServices, votingLocationFinderUrl;
+         electionInfoUrl, electionNoticeText, electionNoticeUrl,
+         electionOfficials, electionRegistrationConfirmationUrl,
+         electionRegistrationUrl, electionRulesUrl, hoursOfOperation, name,
+         physicalAddress, voterServices, votingLocationFinderUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"voterServices" : @"voter_services" };

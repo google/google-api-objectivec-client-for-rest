@@ -3539,13 +3539,16 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deploys a revision of an API proxy. If an API proxy revision is currently
- *  deployed, to ensure seamless deployment with zero downtime set the
- *  `override` parameter to `true`. In this case, hybrid attempts to deploy the
- *  new revision fully before undeploying the existing revision. You cannot
+ *  Deploys a revision of an API proxy. If another revision of the same API
+ *  proxy revision is currently deployed, set the `override` parameter to `true`
+ *  to have this revision replace the currently deployed revision. You cannot
  *  invoke an API proxy until it has been deployed to an environment. After you
  *  deploy an API proxy revision, you cannot edit it. To edit the API proxy, you
- *  must create and deploy a new revision.
+ *  must create and deploy a new revision. For a request path
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments`,
+ *  two permissions are required: * `apigee.deployments.create` on the resource
+ *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.deploy` on
+ *  the resource `organizations/{org}/apis/{api}/revisions/{rev}`
  *
  *  Method: apigee.organizations.environments.apis.revisions.deploy
  *
@@ -3589,13 +3592,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
  *
- *  Deploys a revision of an API proxy. If an API proxy revision is currently
- *  deployed, to ensure seamless deployment with zero downtime set the
- *  `override` parameter to `true`. In this case, hybrid attempts to deploy the
- *  new revision fully before undeploying the existing revision. You cannot
+ *  Deploys a revision of an API proxy. If another revision of the same API
+ *  proxy revision is currently deployed, set the `override` parameter to `true`
+ *  to have this revision replace the currently deployed revision. You cannot
  *  invoke an API proxy until it has been deployed to an environment. After you
  *  deploy an API proxy revision, you cannot edit it. To edit the API proxy, you
- *  must create and deploy a new revision.
+ *  must create and deploy a new revision. For a request path
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments`,
+ *  two permissions are required: * `apigee.deployments.create` on the resource
+ *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.deploy` on
+ *  the resource `organizations/{org}/apis/{api}/revisions/{rev}`
  *
  *  @param name Required. Name of the API proxy revision deployment in the
  *    following format:
@@ -3614,7 +3620,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  detect possible traffic routing changes that would result from this
  *  deployment being created. Any potential routing conflicts or unsafe changes
  *  will be reported in the response. This routing analysis is not performed for
- *  a non-dry-run DeployApiProxy request.
+ *  a non-dry-run DeployApiProxy request. For a request path
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments:generateDeployChangeReport`,
+ *  two permissions are required: * `apigee.deployments.create` on the resource
+ *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.deploy` on
+ *  the resource `organizations/{org}/apis/{api}/revisions/{rev}`
  *
  *  Method: apigee.organizations.environments.apis.revisions.deployments.generateDeployChangeReport
  *
@@ -3624,12 +3634,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReport : GTLRApigeeQuery
 // Previous library name was
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReportWithname:]
-
-/**
- *  Base path where the API proxy revision should be deployed. Defaults to '/'
- *  if not provided.
- */
-@property(nonatomic, copy, nullable) NSString *basepath;
 
 /**
  *  Name of the API proxy revision deployment in the following format:
@@ -3652,7 +3656,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  detect possible traffic routing changes that would result from this
  *  deployment being created. Any potential routing conflicts or unsafe changes
  *  will be reported in the response. This routing analysis is not performed for
- *  a non-dry-run DeployApiProxy request.
+ *  a non-dry-run DeployApiProxy request. For a request path
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments:generateDeployChangeReport`,
+ *  two permissions are required: * `apigee.deployments.create` on the resource
+ *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.deploy` on
+ *  the resource `organizations/{org}/apis/{api}/revisions/{rev}`
  *
  *  @param name Name of the API proxy revision deployment in the following
  *    format:
@@ -3671,7 +3679,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  detect possible traffic routing changes that would result from this
  *  deployment being removed. Any potential routing conflicts or unsafe changes
  *  will be reported in the response. This routing analysis is not performed for
- *  a non-dry-run UndeployApiProxy request.
+ *  a non-dry-run UndeployApiProxy request. For a request path
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments:generateUndeployChangeReport`,
+ *  two permissions are required: * `apigee.deployments.delete` on the resource
+ *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.undeploy`
+ *  on the resource `organizations/{org}/apis/{api}/revisions/{rev}`
  *
  *  Method: apigee.organizations.environments.apis.revisions.deployments.generateUndeployChangeReport
  *
@@ -3697,7 +3709,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  detect possible traffic routing changes that would result from this
  *  deployment being removed. Any potential routing conflicts or unsafe changes
  *  will be reported in the response. This routing analysis is not performed for
- *  a non-dry-run UndeployApiProxy request.
+ *  a non-dry-run UndeployApiProxy request. For a request path
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments:generateUndeployChangeReport`,
+ *  two permissions are required: * `apigee.deployments.delete` on the resource
+ *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.undeploy`
+ *  on the resource `organizations/{org}/apis/{api}/revisions/{rev}`
  *
  *  @param name Name of the API proxy revision deployment in the following
  *    format:
@@ -3746,10 +3762,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Undeploys an API proxy revision from an environment. Because multiple
- *  revisions of the same API proxy can be deployed in the same environment if
- *  the base paths are different, you must specify the revision number of the
- *  API proxy.
+ *  Undeploys an API proxy revision from an environment. For a request path
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments`,
+ *  two permissions are required: * `apigee.deployments.delete` on the resource
+ *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.undeploy`
+ *  on the resource `organizations/{org}/apis/{api}/revisions/{rev}`
  *
  *  Method: apigee.organizations.environments.apis.revisions.undeploy
  *
@@ -3782,10 +3799,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
- *  Undeploys an API proxy revision from an environment. Because multiple
- *  revisions of the same API proxy can be deployed in the same environment if
- *  the base paths are different, you must specify the revision number of the
- *  API proxy.
+ *  Undeploys an API proxy revision from an environment. For a request path
+ *  `organizations/{org}/environments/{env}/apis/{api}/revisions/{rev}/deployments`,
+ *  two permissions are required: * `apigee.deployments.delete` on the resource
+ *  `organizations/{org}/environments/{env}` * `apigee.proxyrevisions.undeploy`
+ *  on the resource `organizations/{org}/apis/{api}/revisions/{rev}`
  *
  *  @param name Required. Name of the API proxy revision deployment in the
  *    following format:
@@ -5428,11 +5446,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deploys a revision of a shared flow. If a shared flow revision is currently
- *  deployed, to ensure seamless deployment with zero downtime set the
- *  `override` parameter to `true`. In this case, hybrid attempts to deply the
- *  new revision fully before undeploying the existing revision. You cannot use
- *  a shared flows until it has been deployed to an environment.
+ *  Deploys a revision of a shared flow. If another revision of the same shared
+ *  flow is currently deployed, set the `override` parameter to `true` to have
+ *  this revision replace the currently deployed revision. You cannot use a
+ *  shared flow until it has been deployed to an environment. For a request path
+ *  `organizations/{org}/environments/{env}/sharedflows/{sf}/revisions/{rev}/deployments`,
+ *  two permissions are required: * `apigee.deployments.create` on the resource
+ *  `organizations/{org}/environments/{env}` *
+ *  `apigee.sharedflowrevisions.deploy` on the resource
+ *  `organizations/{org}/sharedflows/{sf}/revisions/{rev}`
  *
  *  Method: apigee.organizations.environments.sharedflows.revisions.deploy
  *
@@ -5464,11 +5486,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
  *
- *  Deploys a revision of a shared flow. If a shared flow revision is currently
- *  deployed, to ensure seamless deployment with zero downtime set the
- *  `override` parameter to `true`. In this case, hybrid attempts to deply the
- *  new revision fully before undeploying the existing revision. You cannot use
- *  a shared flows until it has been deployed to an environment.
+ *  Deploys a revision of a shared flow. If another revision of the same shared
+ *  flow is currently deployed, set the `override` parameter to `true` to have
+ *  this revision replace the currently deployed revision. You cannot use a
+ *  shared flow until it has been deployed to an environment. For a request path
+ *  `organizations/{org}/environments/{env}/sharedflows/{sf}/revisions/{rev}/deployments`,
+ *  two permissions are required: * `apigee.deployments.create` on the resource
+ *  `organizations/{org}/environments/{env}` *
+ *  `apigee.sharedflowrevisions.deploy` on the resource
+ *  `organizations/{org}/sharedflows/{sf}/revisions/{rev}`
  *
  *  @param name Required. Name of the shared flow revision to deploy in the
  *    following format:
@@ -5517,7 +5543,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Undeploys a shared flow revision from an environment.
+ *  Undeploys a shared flow revision from an environment. For a request path
+ *  `organizations/{org}/environments/{env}/sharedflows/{sf}/revisions/{rev}/deployments`,
+ *  two permissions are required: * `apigee.deployments.delete` on the resource
+ *  `organizations/{org}/environments/{env}` *
+ *  `apigee.sharedflowrevisions.undeploy` on the resource
+ *  `organizations/{org}/sharedflows/{sf}/revisions/{rev}`
  *
  *  Method: apigee.organizations.environments.sharedflows.revisions.undeploy
  *
@@ -5538,7 +5569,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
- *  Undeploys a shared flow revision from an environment.
+ *  Undeploys a shared flow revision from an environment. For a request path
+ *  `organizations/{org}/environments/{env}/sharedflows/{sf}/revisions/{rev}/deployments`,
+ *  two permissions are required: * `apigee.deployments.delete` on the resource
+ *  `organizations/{org}/environments/{env}` *
+ *  `apigee.sharedflowrevisions.undeploy` on the resource
+ *  `organizations/{org}/sharedflows/{sf}/revisions/{rev}`
  *
  *  @param name Required. Name of the shared flow revision to undeploy in the
  *    following format:

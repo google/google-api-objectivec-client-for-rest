@@ -22,6 +22,7 @@
 
 @class GTLRCloudIdentity_EntityKey;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes;
+@class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState_KeyValuePairs;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CustomAttributeValue;
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device;
@@ -441,6 +442,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_PasswordState_PasswordStateUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_Membership.type
+
+/**
+ *  Represents group type.
+ *
+ *  Value: "GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_Group;
+/**
+ *  Represents other type.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_Other;
+/**
+ *  Represents service account type.
+ *
+ *  Value: "SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_ServiceAccount;
+/**
+ *  Default. Should not be used.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_TypeUnspecified;
+/**
+ *  Represents user type.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
+
 /**
  *  An EntityKey uniquely identifies an Entity. Namespaces are used to provide
  *  isolation for IDs. A single ID can be reused across namespaces but the
@@ -522,12 +557,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
 
 
 /**
+ *  Request message for approving the device to access user data.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest : GTLRObject
+
+/**
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
+ *  If you're using this API for your own organization, use
+ *  `customers/my_customer` If you're using this API to manage another
+ *  organization, use `customers/{customer_id}`, where customer_id is the
+ *  customer to whom the device belongs.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+@end
+
+
+/**
  *  Response message for approving the device to access user data.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserResponse : GTLRObject
 
 /** Resultant DeviceUser object for the action. */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser *deviceUser;
+
+@end
+
+
+/**
+ *  Request message for blocking account on device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest : GTLRObject
+
+/**
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
+ *  If you're using this API for your own organization, use
+ *  `customers/my_customer` If you're using this API to manage another
+ *  organization, use `customers/{customer_id}`, where customer_id is the
+ *  customer to whom the device belongs.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
 
 @end
 
@@ -544,6 +615,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
 
 
 /**
+ *  Request message for cancelling an unfinished device wipe.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest : GTLRObject
+
+/**
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
+ *  If you're using this API for your own organization, use
+ *  `customers/my_customer` If you're using this API to manage another
+ *  organization, use `customers/{customer_id}`, where customer_id is the
+ *  customer to whom the device belongs.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+@end
+
+
+/**
  *  Response message for cancelling an unfinished device wipe.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceResponse : GTLRObject
@@ -553,6 +642,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
  *  returned in the device object.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device *device;
+
+@end
+
+
+/**
+ *  Request message for cancelling an unfinished user account wipe.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest : GTLRObject
+
+/**
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
+ *  If you're using this API for your own organization, use
+ *  `customers/my_customer` If you're using this API to manage another
+ *  organization, use `customers/{customer_id}`, where customer_id is the
+ *  customer to whom the device belongs.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
 
 @end
 
@@ -608,7 +715,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The Health score of the resource
+ *  The Health score of the resource. The Health score is the callers
+ *  specification of the condition of the device from a usability point of view.
+ *  For example, a third-party device management provider may specify a health
+ *  score based on its compliance with organizational policies.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState_HealthScore_Good
@@ -658,7 +768,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  ClientState in format:
  *  `devices/{device_id}/deviceUsers/{device_user_id}/clientState/{partner_id}`,
- *  where partner_id corresponds to the partner storing the data.
+ *  where partner_id corresponds to the partner storing the data. For partners
+ *  belonging to the "BeyondCorp Alliance", this is the partner ID specified to
+ *  you by Google. For all other callers, this is a string of the form:
+ *  `{customer_id}-suffix`, where `customer_id` is your customer ID. The
+ *  *suffix* is any string the caller specifies. This string will be displayed
+ *  verbatim in the administration console. This suffix is used in setting up
+ *  Custom Access Levels in Context-Aware Access. Your organization's customer
+ *  ID can be obtained from the URL: `GET
+ *  https://www.googleapis.com/admin/directory/v1/customers/my_customer` The
+ *  `id` field in the response contains the customer ID starting with the letter
+ *  'C'. The customer ID to be used in this API is the string after the letter
+ *  'C' (not including 'C')
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1002,6 +1123,134 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
 
 
 /**
+ *  Response message that is returned in ListClientStates.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "clientStates" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListClientStatesResponse : GTLRCollectionObject
+
+/**
+ *  Client states meeting the list restrictions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState *> *clientStates;
+
+/**
+ *  Token to retrieve the next page of results. Empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message that is returned from the ListDevices method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "devices" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListDevicesResponse : GTLRCollectionObject
+
+/**
+ *  Devices meeting the list restrictions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device *> *devices;
+
+/**
+ *  Token to retrieve the next page of results. Empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message that is returned from the ListDeviceUsers method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deviceUsers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListDeviceUsersResponse : GTLRCollectionObject
+
+/**
+ *  Devices meeting the list restrictions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser *> *deviceUsers;
+
+/**
+ *  Token to retrieve the next page of results. Empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response containing resource names of the DeviceUsers associated with the
+ *  caller's credentials.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1LookupSelfDeviceUsersResponse : GTLRObject
+
+/**
+ *  The obfuscated customer Id that may be passed back to other Devices API
+ *  methods such as List, Get, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) of the
+ *  DeviceUsers in the format:
+ *  `devices/{device_id}/deviceUsers/{user_resource_id}`, where device_id is the
+ *  unique ID assigned to a Device and user_resource_id is the unique user ID
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+/**
+ *  Token to retrieve the next page of results. Empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Request message for wiping all data on the device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceRequest : GTLRObject
+
+/**
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
+ *  If you're using this API for your own organization, use
+ *  `customers/my_customer` If you're using this API to manage another
+ *  organization, use `customers/{customer_id}`, where customer_id is the
+ *  customer to whom the device belongs.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+@end
+
+
+/**
  *  Response message for wiping all data on the device.
  */
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceResponse : GTLRObject
@@ -1011,6 +1260,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
  *  returned in the device object.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device *device;
+
+@end
+
+
+/**
+ *  Request message for starting an account wipe on device.
+ */
+@interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest : GTLRObject
+
+/**
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
+ *  If you're using this API for your own organization, use
+ *  `customers/my_customer` If you're using this API to manage another
+ *  organization, use `customers/{customer_id}`, where customer_id is the
+ *  customer to whom the device belongs.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
 
 @end
 
@@ -1212,6 +1479,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_MembershipRole *> *roles;
 
+/**
+ *  Output only. The type of the membership.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_Group Represents group type.
+ *        (Value: "GROUP")
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_Other Represents other type.
+ *        (Value: "OTHER")
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_ServiceAccount Represents
+ *        service account type. (Value: "SERVICE_ACCOUNT")
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_TypeUnspecified Default. Should
+ *        not be used. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_User Represents user type.
+ *        (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 /** Output only. Last updated timestamp of the Membership. Output only. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -1228,6 +1512,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
  *  `"MEMBER"`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The request message for MembershipsService.ModifyMembershipRoles.
+ */
+@interface GTLRCloudIdentity_ModifyMembershipRolesRequest : GTLRObject
+
+/**
+ *  The `MembershipRole`s to be added. Adding or removing roles in the same
+ *  request as updating roles is not supported. Must not be set if
+ *  `update_roles_params` is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_MembershipRole *> *addRoles;
+
+/**
+ *  The `name`s of the `MembershipRole`s to be removed. Adding or removing roles
+ *  in the same request as updating roles is not supported. It is not possible
+ *  to remove the `MEMBER` `MembershipRole`. If you wish to delete a
+ *  `Membership`, call MembershipsService.DeleteMembership instead. Must not
+ *  contain `MEMBER`. Must not be set if `update_roles_params` is set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeRoles;
+
+@end
+
+
+/**
+ *  The response message for MembershipsService.ModifyMembershipRoles.
+ */
+@interface GTLRCloudIdentity_ModifyMembershipRolesResponse : GTLRObject
+
+/** The `Membership` resource after modifying its `MembershipRole`s. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_Membership *membership;
 
 @end
 

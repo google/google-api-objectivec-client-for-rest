@@ -178,6 +178,7 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Ty
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ChinLeftGonion = @"CHIN_LEFT_GONION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ChinRightGonion = @"CHIN_RIGHT_GONION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ForeheadGlabella = @"FOREHEAD_GLABELLA";
+NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftCheekCenter = @"LEFT_CHEEK_CENTER";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEarTragion = @"LEFT_EAR_TRAGION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEye = @"LEFT_EYE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary = @"LEFT_EYE_BOTTOM_BOUNDARY";
@@ -197,6 +198,7 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Ty
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseBottomLeft = @"NOSE_BOTTOM_LEFT";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseBottomRight = @"NOSE_BOTTOM_RIGHT";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseTip = @"NOSE_TIP";
+NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightCheekCenter = @"RIGHT_CHEEK_CENTER";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEarTragion = @"RIGHT_EAR_TRAGION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEye = @"RIGHT_EYE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary = @"RIGHT_EYE_BOTTOM_BOUNDARY";
@@ -334,6 +336,7 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Ty
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ChinLeftGonion = @"CHIN_LEFT_GONION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ChinRightGonion = @"CHIN_RIGHT_GONION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ForeheadGlabella = @"FOREHEAD_GLABELLA";
+NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftCheekCenter = @"LEFT_CHEEK_CENTER";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEarTragion = @"LEFT_EAR_TRAGION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEye = @"LEFT_EYE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary = @"LEFT_EYE_BOTTOM_BOUNDARY";
@@ -353,6 +356,7 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Ty
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseBottomLeft = @"NOSE_BOTTOM_LEFT";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseBottomRight = @"NOSE_BOTTOM_RIGHT";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseTip = @"NOSE_TIP";
+NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightCheekCenter = @"RIGHT_CHEEK_CENTER";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEarTragion = @"RIGHT_EAR_TRAGION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEye = @"RIGHT_EYE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary = @"RIGHT_EYE_BOTTOM_BOUNDARY";
@@ -497,6 +501,7 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Ty
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ChinLeftGonion = @"CHIN_LEFT_GONION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ChinRightGonion = @"CHIN_RIGHT_GONION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ForeheadGlabella = @"FOREHEAD_GLABELLA";
+NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftCheekCenter = @"LEFT_CHEEK_CENTER";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEarTragion = @"LEFT_EAR_TRAGION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEye = @"LEFT_EYE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary = @"LEFT_EYE_BOTTOM_BOUNDARY";
@@ -516,6 +521,7 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Ty
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseBottomLeft = @"NOSE_BOTTOM_LEFT";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseBottomRight = @"NOSE_BOTTOM_RIGHT";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseTip = @"NOSE_TIP";
+NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightCheekCenter = @"RIGHT_CHEEK_CENTER";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEarTragion = @"RIGHT_EAR_TRAGION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEye = @"RIGHT_EYE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary = @"RIGHT_EYE_BOTTOM_BOUNDARY";
@@ -660,6 +666,7 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Ty
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinLeftGonion = @"CHIN_LEFT_GONION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ChinRightGonion = @"CHIN_RIGHT_GONION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ForeheadGlabella = @"FOREHEAD_GLABELLA";
+NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftCheekCenter = @"LEFT_CHEEK_CENTER";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEarTragion = @"LEFT_EAR_TRAGION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEye = @"LEFT_EYE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEyeBottomBoundary = @"LEFT_EYE_BOTTOM_BOUNDARY";
@@ -679,6 +686,7 @@ NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Ty
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomLeft = @"NOSE_BOTTOM_LEFT";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseBottomRight = @"NOSE_BOTTOM_RIGHT";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseTip = @"NOSE_TIP";
+NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightCheekCenter = @"RIGHT_CHEEK_CENTER";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEarTragion = @"RIGHT_EAR_TRAGION";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEye = @"RIGHT_EYE";
 NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEyeBottomBoundary = @"RIGHT_EYE_BOTTOM_BOUNDARY";
@@ -752,6 +760,7 @@ NSString * const kGTLRVision_Landmark_Type_ChinGnathion        = @"CHIN_GNATHION
 NSString * const kGTLRVision_Landmark_Type_ChinLeftGonion      = @"CHIN_LEFT_GONION";
 NSString * const kGTLRVision_Landmark_Type_ChinRightGonion     = @"CHIN_RIGHT_GONION";
 NSString * const kGTLRVision_Landmark_Type_ForeheadGlabella    = @"FOREHEAD_GLABELLA";
+NSString * const kGTLRVision_Landmark_Type_LeftCheekCenter     = @"LEFT_CHEEK_CENTER";
 NSString * const kGTLRVision_Landmark_Type_LeftEarTragion      = @"LEFT_EAR_TRAGION";
 NSString * const kGTLRVision_Landmark_Type_LeftEye             = @"LEFT_EYE";
 NSString * const kGTLRVision_Landmark_Type_LeftEyeBottomBoundary = @"LEFT_EYE_BOTTOM_BOUNDARY";
@@ -771,6 +780,7 @@ NSString * const kGTLRVision_Landmark_Type_NoseBottomCenter    = @"NOSE_BOTTOM_C
 NSString * const kGTLRVision_Landmark_Type_NoseBottomLeft      = @"NOSE_BOTTOM_LEFT";
 NSString * const kGTLRVision_Landmark_Type_NoseBottomRight     = @"NOSE_BOTTOM_RIGHT";
 NSString * const kGTLRVision_Landmark_Type_NoseTip             = @"NOSE_TIP";
+NSString * const kGTLRVision_Landmark_Type_RightCheekCenter    = @"RIGHT_CHEEK_CENTER";
 NSString * const kGTLRVision_Landmark_Type_RightEarTragion     = @"RIGHT_EAR_TRAGION";
 NSString * const kGTLRVision_Landmark_Type_RightEye            = @"RIGHT_EYE";
 NSString * const kGTLRVision_Landmark_Type_RightEyeBottomBoundary = @"RIGHT_EYE_BOTTOM_BOUNDARY";

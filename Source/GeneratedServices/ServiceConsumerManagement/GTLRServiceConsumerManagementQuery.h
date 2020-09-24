@@ -243,8 +243,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Service for which search is performed. services/{service} {service} the name
- *  of a service, for example 'service.googleapis.com'.
+ *  Required. Service for which search is performed. services/{service}
+ *  {service} the name of a service, for example 'service.googleapis.com'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -269,8 +269,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Search tenancy units for a managed service.
  *
- *  @param parent Service for which search is performed. services/{service}
- *    {service} the name of a service, for example 'service.googleapis.com'.
+ *  @param parent Required. Service for which search is performed.
+ *    services/{service} {service} the name of a service, for example
+ *    'service.googleapis.com'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesSearch
  *
@@ -299,7 +300,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAddProjectWithObject:parent:]
 
 /**
- *  Name of the tenancy unit. Such as
+ *  Required. Name of the tenancy unit. Such as
  *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -315,7 +316,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceConsumerManagement_AddTenantProjectRequest
  *    to include in the query.
- *  @param parent Name of the tenancy unit. Such as
+ *  @param parent Required. Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAddProject
@@ -350,7 +351,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsApplyProjectConfigWithObject:name:]
 
 /**
- *  Name of the tenancy unit. Such as
+ *  Required. Name of the tenancy unit. Such as
  *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -375,7 +376,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRServiceConsumerManagement_ApplyTenantProjectConfigRequest to include
  *    in the query.
- *  @param name Name of the tenancy unit. Such as
+ *  @param name Required. Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsApplyProjectConfig
@@ -406,8 +407,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAttachProjectWithObject:name:]
 
 /**
- *  Name of the tenancy unit that the project will be attached to. Such as
- *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
+ *  Required. Name of the tenancy unit that the project will be attached to.
+ *  Such as 'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -427,8 +428,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRServiceConsumerManagement_AttachTenantProjectRequest to include in the
  *    query.
- *  @param name Name of the tenancy unit that the project will be attached to.
- *    Such as
+ *  @param name Required. Name of the tenancy unit that the project will be
+ *    attached to. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAttachProject
@@ -454,8 +455,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsCreateWithObject:parent:]
 
 /**
- *  services/{service}/{collection id}/{resource id} {collection id} is the
- *  cloud resource collection type representing the service consumer, for
+ *  Required. services/{service}/{collection id}/{resource id} {collection id}
+ *  is the cloud resource collection type representing the service consumer, for
  *  example 'projects', or 'organizations'. {resource id} is the consumer
  *  numeric id, such as project number: '123456'. {service} the name of a
  *  managed service, such as 'service.googleapis.com'. Enables service binding
@@ -473,12 +474,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceConsumerManagement_CreateTenancyUnitRequest
  *    to include in the query.
- *  @param parent services/{service}/{collection id}/{resource id} {collection
- *    id} is the cloud resource collection type representing the service
- *    consumer, for example 'projects', or 'organizations'. {resource id} is the
- *    consumer numeric id, such as project number: '123456'. {service} the name
- *    of a managed service, such as 'service.googleapis.com'. Enables service
- *    binding using the new tenancy unit.
+ *  @param parent Required. services/{service}/{collection id}/{resource id}
+ *    {collection id} is the cloud resource collection type representing the
+ *    service consumer, for example 'projects', or 'organizations'. {resource
+ *    id} is the consumer numeric id, such as project number: '123456'.
+ *    {service} the name of a managed service, such as 'service.googleapis.com'.
+ *    Enables service binding using the new tenancy unit.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsCreate
  */
@@ -500,7 +501,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsDeleteWithname:]
 
-/** Name of the tenancy unit to be deleted. */
+/** Required. Name of the tenancy unit to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -509,7 +510,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Delete a tenancy unit. Before you delete the tenancy unit, there should be
  *  no tenant resources in it that aren't in a DELETED state. Operation.
  *
- *  @param name Name of the tenancy unit to be deleted.
+ *  @param name Required. Name of the tenancy unit to be deleted.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDelete
  */
@@ -536,7 +537,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsDeleteProjectWithObject:name:]
 
 /**
- *  Name of the tenancy unit. Such as
+ *  Required. Name of the tenancy unit. Such as
  *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -555,7 +556,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRServiceConsumerManagement_DeleteTenantProjectRequest to include in the
  *    query.
- *  @param name Name of the tenancy unit. Such as
+ *  @param name Required. Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDeleteProject
@@ -580,21 +581,21 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsListWithparent:]
 
-/** Filter expression over tenancy resources field. Optional. */
+/** Optional. Filter expression over tenancy resources field. Optional. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of results returned by this request. */
+/** Optional. The maximum number of results returned by this request. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The continuation token, which is used to page through large result sets. To
- *  get the next page of results, set this parameter to the value of
+ *  Optional. The continuation token, which is used to page through large result
+ *  sets. To get the next page of results, set this parameter to the value of
  *  `nextPageToken` from the previous response.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Managed service and service consumer. Required.
+ *  Required. Managed service and service consumer. Required.
  *  services/{service}/{collection id}/{resource id} {collection id} is the
  *  cloud resource collection type representing the service consumer, for
  *  example 'projects', or 'organizations'. {resource id} is the consumer
@@ -611,7 +612,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  to find the tenant project number when creating VMs. Service producers must
  *  persist the tenant project's information after the project is created.
  *
- *  @param parent Managed service and service consumer. Required.
+ *  @param parent Required. Managed service and service consumer. Required.
  *    services/{service}/{collection id}/{resource id} {collection id} is the
  *    cloud resource collection type representing the service consumer, for
  *    example 'projects', or 'organizations'. {resource id} is the consumer
@@ -647,7 +648,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsRemoveProjectWithObject:name:]
 
 /**
- *  Name of the tenancy unit. Such as
+ *  Required. Name of the tenancy unit. Such as
  *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -666,7 +667,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRServiceConsumerManagement_RemoveTenantProjectRequest to include in the
  *    query.
- *  @param name Name of the tenancy unit. Such as
+ *  @param name Required. Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsRemoveProject
@@ -693,7 +694,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsUndeleteProjectWithObject:name:]
 
 /**
- *  Name of the tenancy unit. Such as
+ *  Required. Name of the tenancy unit. Such as
  *  'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -710,7 +711,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRServiceConsumerManagement_UndeleteTenantProjectRequest to include in
  *    the query.
- *  @param name Name of the tenancy unit. Such as
+ *  @param name Required. Name of the tenancy unit. Such as
  *    'services/service.googleapis.com/projects/12345/tenancyUnits/abcd'.
  *
  *  @return GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsUndeleteProject

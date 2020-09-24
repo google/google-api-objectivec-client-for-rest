@@ -15,10 +15,17 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// initialGroupConfig
+NSString * const kGTLRCloudIdentityInitialGroupConfigEmpty     = @"EMPTY";
+NSString * const kGTLRCloudIdentityInitialGroupConfigInitialGroupConfigUnspecified = @"INITIAL_GROUP_CONFIG_UNSPECIFIED";
+NSString * const kGTLRCloudIdentityInitialGroupConfigWithInitialOwner = @"WITH_INITIAL_OWNER";
+
 // view
-NSString * const kGTLRCloudIdentityViewBasic           = @"BASIC";
-NSString * const kGTLRCloudIdentityViewFull            = @"FULL";
-NSString * const kGTLRCloudIdentityViewViewUnspecified = @"VIEW_UNSPECIFIED";
+NSString * const kGTLRCloudIdentityViewBasic               = @"BASIC";
+NSString * const kGTLRCloudIdentityViewCompanyInventory    = @"COMPANY_INVENTORY";
+NSString * const kGTLRCloudIdentityViewFull                = @"FULL";
+NSString * const kGTLRCloudIdentityViewUserAssignedDevices = @"USER_ASSIGNED_DEVICES";
+NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -30,7 +37,391 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRCloudIdentityQuery_DevicesCancelWipe
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancelWipe";
+  GTLRCloudIdentityQuery_DevicesCancelWipe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.cancelWipe";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesCreate
+
+@dynamic customer;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/devices";
+  GTLRCloudIdentityQuery_DevicesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDelete
+
+@dynamic customer, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_DevicesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersApprove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:approve";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersApprove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.approve";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersBlock
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:block";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersBlock *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.block";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersCancelWipe
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancelWipe";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersCancelWipe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.cancelWipe";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesGet
+
+@dynamic customer, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.clientStates.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesList
+
+@dynamic customer, filter, orderBy, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/clientStates";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListClientStatesResponse class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.clientStates.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesPatch
+
+@dynamic customer, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.clientStates.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersDelete
+
+@dynamic customer, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersGet
+
+@dynamic customer, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersList
+
+@dynamic customer, filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deviceUsers";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListDeviceUsersResponse class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersLookup
+
+@dynamic androidId, pageSize, pageToken, parent, rawResourceId, userId;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:lookup";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersLookup *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1LookupSelfDeviceUsersResponse class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.lookup";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesDeviceUsersWipe
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:wipe";
+  GTLRCloudIdentityQuery_DevicesDeviceUsersWipe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.deviceUsers.wipe";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesGet
+
+@dynamic customer, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudIdentityQuery_DevicesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device class];
+  query.loggingName = @"cloudidentity.devices.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesList
+
+@dynamic customer, filter, orderBy, pageSize, pageToken, view;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/devices";
+  GTLRCloudIdentityQuery_DevicesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListDevicesResponse class];
+  query.loggingName = @"cloudidentity.devices.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_DevicesWipe
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:wipe";
+  GTLRCloudIdentityQuery_DevicesWipe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.devices.wipe";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIdentityQuery_GroupsCreate
+
+@dynamic initialGroupConfig;
 
 + (instancetype)queryWithObject:(GTLRCloudIdentity_Group *)object {
   if (object == nil) {
@@ -238,6 +629,33 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified = @"VIEW_UNSPECIFIED";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudIdentity_LookupMembershipNameResponse class];
   query.loggingName = @"cloudidentity.groups.memberships.lookup";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_GroupsMembershipsModifyMembershipRoles
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudIdentity_ModifyMembershipRolesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:modifyMembershipRoles";
+  GTLRCloudIdentityQuery_GroupsMembershipsModifyMembershipRoles *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudIdentity_ModifyMembershipRolesResponse class];
+  query.loggingName = @"cloudidentity.groups.memberships.modifyMembershipRoles";
   return query;
 }
 

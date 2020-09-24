@@ -294,3 +294,30 @@
 }
 
 @end
+
+@implementation GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeMessageStats
+
+@dynamic topic;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_ComputeMessageStatsRequest *)object
+                          topic:(NSString *)topic {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"topic" ];
+  NSString *pathURITemplate = @"v1/topicStats/{+topic}:computeMessageStats";
+  GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeMessageStats *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.topic = topic;
+  query.expectedObjectClass = [GTLRPubsubLite_ComputeMessageStatsResponse class];
+  query.loggingName = @"pubsublite.topicStats.projects.locations.topics.computeMessageStats";
+  return query;
+}
+
+@end

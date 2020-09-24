@@ -38,9 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Searches Knowledge Graph for entities that match the constraints.
- *  A list of matched entities will be returned in response, which will be in
- *  JSON-LD format and compatible with http://schema.org
+ *  Searches Knowledge Graph for entities that match the constraints. A list of
+ *  matched entities will be returned in response, which will be in JSON-LD
+ *  format and compatible with http://schema.org
  *
  *  Method: kgsearch.entities.search
  */
@@ -49,9 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryKgsearch queryForEntitiesSearch]
 
 /**
- *  The list of entity id to be used for search instead of query string.
- *  To specify multiple ids in the HTTP request, repeat the parameter in the
- *  URL as in ...?ids=A&ids=B
+ *  The list of entity id to be used for search instead of query string. To
+ *  specify multiple ids in the HTTP request, repeat the parameter in the URL as
+ *  in ...?ids=A&ids=B
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ids;
 
@@ -59,8 +59,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL indent;
 
 /**
- *  The list of language codes (defined in ISO 693) to run the query with,
- *  e.g. 'en'.
+ *  The list of language codes (defined in ISO 693) to run the query with, e.g.
+ *  'en'.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languages;
 
@@ -74,18 +74,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Restricts returned entities with these types, e.g. Person
- *  (as defined in http://schema.org/Person). If multiple types are specified,
- *  returned entities will contain one or more of these types.
+ *  Restricts returned entities with these types, e.g. Person (as defined in
+ *  http://schema.org/Person). If multiple types are specified, returned
+ *  entities will contain one or more of these types.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *types;
 
 /**
  *  Fetches a @c GTLRKgsearch_SearchResponse.
  *
- *  Searches Knowledge Graph for entities that match the constraints.
- *  A list of matched entities will be returned in response, which will be in
- *  JSON-LD format and compatible with http://schema.org
+ *  Searches Knowledge Graph for entities that match the constraints. A list of
+ *  matched entities will be returned in response, which will be in JSON-LD
+ *  format and compatible with http://schema.org
  *
  *  @return GTLRKgsearchQuery_EntitiesSearch
  */

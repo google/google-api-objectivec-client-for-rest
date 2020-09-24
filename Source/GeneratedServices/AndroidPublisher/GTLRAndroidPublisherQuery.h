@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Developer API (androidpublisher/v3)
+//   Google Play Android Developer API (androidpublisher/v3)
 // Description:
-//   Accesses Android application developers' Google Play accounts.
+//   Lets Android application developers access their Google Play accounts.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
@@ -30,9 +30,9 @@
 @class GTLRAndroidPublisher_ReviewsReplyRequest;
 @class GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest;
 @class GTLRAndroidPublisher_SubscriptionPurchasesDeferRequest;
-@class GTLRAndroidPublisher_SystemApkVariantsCreateRequest;
 @class GTLRAndroidPublisher_Testers;
 @class GTLRAndroidPublisher_Track;
+@class GTLRAndroidPublisher_Variant;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -47,43 +47,103 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // deobfuscationFileType
 
-/** Value: "nativeCode" */
+/**
+ *  Unspecified deobfuscation file type.
+ *
+ *  Value: "deobfuscationFileTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeDeobfuscationFileTypeUnspecified;
+/**
+ *  Native debugging symbols file type.
+ *
+ *  Value: "nativeCode"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode;
-/** Value: "proguard" */
+/**
+ *  Proguard deobfuscation file type.
+ *
+ *  Value: "proguard"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeProguard;
 
 // ----------------------------------------------------------------------------
 // expansionFileType
 
-/** Value: "main" */
+/**
+ *  Unspecified expansion file type.
+ *
+ *  Value: "expansionFileTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified;
+/**
+ *  Main expansion file.
+ *
+ *  Value: "main"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherExpansionFileTypeMain;
-/** Value: "patch" */
+/**
+ *  Patch expansion file.
+ *
+ *  Value: "patch"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherExpansionFileTypePatch;
 
 // ----------------------------------------------------------------------------
 // imageType
 
-/** Value: "automotiveScreenshots" */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeAutomotiveScreenshots;
-/** Value: "daydreamStereoImage" */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeDaydreamStereoImage;
-/** Value: "featureGraphic" */
+/**
+ *  Unspecified type. Do not use.
+ *
+ *  Value: "appImageTypeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified;
+/**
+ *  Feature graphic.
+ *
+ *  Value: "featureGraphic"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeFeatureGraphic;
-/** Value: "icon" */
+/**
+ *  Icon.
+ *
+ *  Value: "icon"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeIcon;
-/** Value: "phoneScreenshots" */
+/**
+ *  Phone screenshot.
+ *
+ *  Value: "phoneScreenshots"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypePhoneScreenshots;
-/** Value: "promoGraphic" */
-FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypePromoGraphic;
-/** Value: "sevenInchScreenshots" */
+/**
+ *  Seven inch screenshot.
+ *
+ *  Value: "sevenInchScreenshots"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeSevenInchScreenshots;
-/** Value: "tenInchScreenshots" */
+/**
+ *  Ten inch screenshot.
+ *
+ *  Value: "tenInchScreenshots"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTenInchScreenshots;
-/** Value: "tvBanner" */
+/**
+ *  TV banner.
+ *
+ *  Value: "tvBanner"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTvBanner;
-/** Value: "tvScreenshots" */
+/**
+ *  TV screenshot.
+ *
+ *  Value: "tvScreenshots"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeTvScreenshots;
-/** Value: "wearScreenshots" */
+/**
+ *  Wear screenshot.
+ *
+ *  Value: "wearScreenshots"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots;
 
 // ----------------------------------------------------------------------------
@@ -103,8 +163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Creates a new APK without uploading the APK itself to Google Play, instead
  *  hosting the APK at a specified URL. This function is only available to
- *  enterprises using Google Play for Work whose application is configured to
- *  restrict distribution to the enterprise domain.
+ *  organizations using Managed Play whose application is configured to restrict
+ *  distribution to the organizations.
  *
  *  Method: androidpublisher.edits.apks.addexternallyhosted
  *
@@ -115,13 +175,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsApksAddexternallyhostedWithObject:packageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
@@ -129,14 +186,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  Creates a new APK without uploading the APK itself to Google Play, instead
  *  hosting the APK at a specified URL. This function is only available to
- *  enterprises using Google Play for Work whose application is configured to
- *  restrict distribution to the enterprise domain.
+ *  organizations using Managed Play whose application is configured to restrict
+ *  distribution to the organizations.
  *
  *  @param object The @c GTLRAndroidPublisher_ApksAddExternallyHostedRequest to
  *    include in the query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsApksAddexternallyhosted
  */
@@ -147,7 +203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  GTLRAndroidPublisherQuery_EditsApksList
+ *  Lists all current APKs of the app and edit.
  *
  *  Method: androidpublisher.edits.apks.list
  *
@@ -158,21 +214,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsApksListWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ApksListResponse.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  Lists all current APKs of the app and edit.
+ *
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsApksList
  */
@@ -182,7 +236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  GTLRAndroidPublisherQuery_EditsApksUpload
+ *  Uploads an APK and adds to the current edit.
  *
  *  Method: androidpublisher.edits.apks.upload
  *
@@ -193,23 +247,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsApksUploadWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Apk.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  Uploads an APK and adds to the current edit.
+ *
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    1GB. Accepted MIME types: application/octet-stream,
+ *    10737418240. Accepted MIME types: application/octet-stream,
  *    application/vnd.android.package-archive
  *
  *  @return GTLRAndroidPublisherQuery_EditsApksUpload
@@ -221,7 +273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  GTLRAndroidPublisherQuery_EditsBundlesList
+ *  Lists all current Android App Bundles of the app and edit.
  *
  *  Method: androidpublisher.edits.bundles.list
  *
@@ -232,21 +284,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsBundlesListWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_BundlesListResponse.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  Lists all current Android App Bundles of the app and edit.
+ *
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsBundlesList
  */
@@ -258,8 +308,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Uploads a new Android App Bundle to this edit. If you are using the Google
  *  API client libraries, please increase the timeout of the http request before
- *  calling this endpoint (a timeout of 2 minutes is recommended). See:
- *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts
+ *  and
+ *  Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
  *  for an example in java.
  *
  *  Method: androidpublisher.edits.bundles.upload
@@ -278,13 +329,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, assign) BOOL ackBundleInstallationWarning;
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
@@ -292,15 +340,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  Uploads a new Android App Bundle to this edit. If you are using the Google
  *  API client libraries, please increase the timeout of the http request before
- *  calling this endpoint (a timeout of 2 minutes is recommended). See:
- *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts
+ *  and
+ *  Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
  *  for an example in java.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    10GB. Accepted MIME type: application/octet-stream
+ *    10737418240. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsBundlesUpload
  */
@@ -311,7 +359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Commits/applies the changes made in this edit back to the app.
+ *  Commits an app edit.
  *
  *  Method: androidpublisher.edits.commit
  *
@@ -322,23 +370,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsCommitWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppEdit.
  *
- *  Commits/applies the changes made in this edit back to the app.
+ *  Commits an app edit.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsCommit
  */
@@ -348,9 +392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Deletes an edit for an app. Creating a new edit will automatically delete
- *  any of your previous edits so this method need only be called if you want to
- *  preemptively abandon an edit.
+ *  Deletes an app edit.
  *
  *  Method: androidpublisher.edits.delete
  *
@@ -361,26 +403,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsDeleteWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes an edit for an app. Creating a new edit will automatically delete
- *  any of your previous edits so this method need only be called if you want to
- *  preemptively abandon an edit.
+ *  Deletes an app edit.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsDelete
  */
@@ -390,10 +426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Uploads the deobfuscation file of the specified APK. If a deobfuscation or
- *  symbolication file already exists, it will be replaced. See
- *  https://developer.android.com/studio/build/shrink-code to learn more about
- *  deobfuscation files.
+ *  Uploads a new deobfuscation file and attaches to the specified APK.
  *
  *  Method: androidpublisher.edits.deobfuscationfiles.upload
  *
@@ -404,51 +437,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsDeobfuscationfilesUploadWithpackageName:editId:apkVersionCode:deobfuscationFileType:]
 
-/** The version code of the APK whose deobfuscation file is being uploaded. */
+/** The version code of the APK whose Deobfuscation File is being uploaded. */
 @property(nonatomic, assign) NSInteger apkVersionCode;
 
 /**
- *  deobfuscationFileType
+ *  The type of the deobfuscation file.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Value
- *        "nativeCode"
- *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeProguard Value
- *        "proguard"
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeDeobfuscationFileTypeUnspecified
+ *        Unspecified deobfuscation file type. (Value:
+ *        "deobfuscationFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeProguard Proguard
+ *        deobfuscation file type. (Value: "proguard")
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Native
+ *        debugging symbols file type. (Value: "nativeCode")
  */
 @property(nonatomic, copy, nullable) NSString *deobfuscationFileType;
 
 /** Unique identifier for this edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier of the Android app for which the deobfuscation files are
- *  being uploaded; for example, "com.spiffygame".
- */
+/** Unique identifier for the Android app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_DeobfuscationFilesUploadResponse.
  *
- *  Uploads the deobfuscation file of the specified APK. If a deobfuscation or
- *  symbolication file already exists, it will be replaced. See
- *  https://developer.android.com/studio/build/shrink-code to learn more about
- *  deobfuscation files.
+ *  Uploads a new deobfuscation file and attaches to the specified APK.
  *
- *  @param packageName Unique identifier of the Android app for which the
- *    deobfuscation files are being uploaded; for example, "com.spiffygame".
+ *  @param packageName Unique identifier for the Android app.
  *  @param editId Unique identifier for this edit.
- *  @param apkVersionCode The version code of the APK whose deobfuscation file
+ *  @param apkVersionCode The version code of the APK whose Deobfuscation File
  *    is being uploaded.
- *  @param deobfuscationFileType NSString
+ *  @param deobfuscationFileType The type of the deobfuscation file.
  *
  *  Likely values for @c deobfuscationFileType:
- *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Value
- *        "nativeCode"
- *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeProguard Value
- *        "proguard"
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeDeobfuscationFileTypeUnspecified
+ *        Unspecified deobfuscation file type. (Value:
+ *        "deobfuscationFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeProguard Proguard
+ *        deobfuscation file type. (Value: "proguard")
+ *    @arg @c kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode Native
+ *        debugging symbols file type. (Value: "nativeCode")
  *  @param uploadParameters The media to include in this query. Maximum size
- *    300MB. Accepted MIME type: application/octet-stream
+ *    314572800. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload
  */
@@ -461,8 +493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Fetches app details for this edit. This includes the default language and
- *  developer support contact information.
+ *  Gets details of an app.
  *
  *  Method: androidpublisher.edits.details.get
  *
@@ -473,24 +504,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsDetailsGetWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppDetails.
  *
- *  Fetches app details for this edit. This includes the default language and
- *  developer support contact information.
+ *  Gets details of an app.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsDetailsGet
  */
@@ -500,7 +526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates app details for this edit. This method supports patch semantics.
+ *  Patches details of an app.
  *
  *  Method: androidpublisher.edits.details.patch
  *
@@ -511,25 +537,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsDetailsPatchWithObject:packageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppDetails.
  *
- *  Updates app details for this edit. This method supports patch semantics.
+ *  Patches details of an app.
  *
  *  @param object The @c GTLRAndroidPublisher_AppDetails to include in the
  *    query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsDetailsPatch
  */
@@ -540,7 +562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates app details for this edit.
+ *  Updates details of an app.
  *
  *  Method: androidpublisher.edits.details.update
  *
@@ -551,25 +573,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsDetailsUpdateWithObject:packageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppDetails.
  *
- *  Updates app details for this edit.
+ *  Updates details of an app.
  *
  *  @param object The @c GTLRAndroidPublisher_AppDetails to include in the
  *    query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsDetailsUpdate
  */
@@ -580,7 +598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Fetches the Expansion File configuration for the APK specified.
+ *  Fetches the expansion file configuration for the specified APK.
  *
  *  Method: androidpublisher.edits.expansionfiles.get
  *
@@ -592,44 +610,51 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 //   +[GTLQueryAndroidPublisher queryForEditsExpansionfilesGetWithpackageName:editId:apkVersionCode:expansionFileType:]
 
 /**
- *  The version code of the APK whose Expansion File configuration is being read
+ *  The version code of the APK whose expansion file configuration is being read
  *  or modified.
  */
 @property(nonatomic, assign) NSInteger apkVersionCode;
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  expansionFileType
+ *  The file type of the file configuration which is being read or modified.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified
+ *        Unspecified expansion file type. (Value:
+ *        "expansionFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Main expansion file.
+ *        (Value: "main")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Patch expansion file.
+ *        (Value: "patch")
  */
 @property(nonatomic, copy, nullable) NSString *expansionFileType;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ExpansionFile.
  *
- *  Fetches the Expansion File configuration for the APK specified.
+ *  Fetches the expansion file configuration for the specified APK.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param apkVersionCode The version code of the APK whose Expansion File
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param apkVersionCode The version code of the APK whose expansion file
  *    configuration is being read or modified.
- *  @param expansionFileType NSString
+ *  @param expansionFileType The file type of the file configuration which is
+ *    being read or modified.
  *
  *  Likely values for @c expansionFileType:
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified
+ *        Unspecified expansion file type. (Value:
+ *        "expansionFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Main expansion file.
+ *        (Value: "main")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Patch expansion file.
+ *        (Value: "patch")
  *
  *  @return GTLRAndroidPublisherQuery_EditsExpansionfilesGet
  */
@@ -641,9 +666,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates the APK's Expansion File configuration to reference another APK's
- *  Expansion Files. To add a new Expansion File use the Upload method. This
- *  method supports patch semantics.
+ *  Patches the APK's expansion file configuration to reference another APK's
+ *  expansion file. To add a new expansion file use the Upload method.
  *
  *  Method: androidpublisher.edits.expansionfiles.patch
  *
@@ -655,48 +679,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 //   +[GTLQueryAndroidPublisher queryForEditsExpansionfilesPatchWithObject:packageName:editId:apkVersionCode:expansionFileType:]
 
 /**
- *  The version code of the APK whose Expansion File configuration is being read
+ *  The version code of the APK whose expansion file configuration is being read
  *  or modified.
  */
 @property(nonatomic, assign) NSInteger apkVersionCode;
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  expansionFileType
+ *  The file type of the expansion file configuration which is being updated.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified
+ *        Unspecified expansion file type. (Value:
+ *        "expansionFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Main expansion file.
+ *        (Value: "main")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Patch expansion file.
+ *        (Value: "patch")
  */
 @property(nonatomic, copy, nullable) NSString *expansionFileType;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ExpansionFile.
  *
- *  Updates the APK's Expansion File configuration to reference another APK's
- *  Expansion Files. To add a new Expansion File use the Upload method. This
- *  method supports patch semantics.
+ *  Patches the APK's expansion file configuration to reference another APK's
+ *  expansion file. To add a new expansion file use the Upload method.
  *
  *  @param object The @c GTLRAndroidPublisher_ExpansionFile to include in the
  *    query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param apkVersionCode The version code of the APK whose Expansion File
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param apkVersionCode The version code of the APK whose expansion file
  *    configuration is being read or modified.
- *  @param expansionFileType NSString
+ *  @param expansionFileType The file type of the expansion file configuration
+ *    which is being updated.
  *
  *  Likely values for @c expansionFileType:
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified
+ *        Unspecified expansion file type. (Value:
+ *        "expansionFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Main expansion file.
+ *        (Value: "main")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Patch expansion file.
+ *        (Value: "patch")
  *
  *  @return GTLRAndroidPublisherQuery_EditsExpansionfilesPatch
  */
@@ -709,8 +739,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates the APK's Expansion File configuration to reference another APK's
- *  Expansion Files. To add a new Expansion File use the Upload method.
+ *  Updates the APK's expansion file configuration to reference another APK's
+ *  expansion file. To add a new expansion file use the Upload method.
  *
  *  Method: androidpublisher.edits.expansionfiles.update
  *
@@ -722,47 +752,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 //   +[GTLQueryAndroidPublisher queryForEditsExpansionfilesUpdateWithObject:packageName:editId:apkVersionCode:expansionFileType:]
 
 /**
- *  The version code of the APK whose Expansion File configuration is being read
+ *  The version code of the APK whose expansion file configuration is being read
  *  or modified.
  */
 @property(nonatomic, assign) NSInteger apkVersionCode;
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  expansionFileType
+ *  The file type of the file configuration which is being read or modified.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified
+ *        Unspecified expansion file type. (Value:
+ *        "expansionFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Main expansion file.
+ *        (Value: "main")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Patch expansion file.
+ *        (Value: "patch")
  */
 @property(nonatomic, copy, nullable) NSString *expansionFileType;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ExpansionFile.
  *
- *  Updates the APK's Expansion File configuration to reference another APK's
- *  Expansion Files. To add a new Expansion File use the Upload method.
+ *  Updates the APK's expansion file configuration to reference another APK's
+ *  expansion file. To add a new expansion file use the Upload method.
  *
  *  @param object The @c GTLRAndroidPublisher_ExpansionFile to include in the
  *    query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param apkVersionCode The version code of the APK whose Expansion File
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param apkVersionCode The version code of the APK whose expansion file
  *    configuration is being read or modified.
- *  @param expansionFileType NSString
+ *  @param expansionFileType The file type of the file configuration which is
+ *    being read or modified.
  *
  *  Likely values for @c expansionFileType:
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified
+ *        Unspecified expansion file type. (Value:
+ *        "expansionFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Main expansion file.
+ *        (Value: "main")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Patch expansion file.
+ *        (Value: "patch")
  *
  *  @return GTLRAndroidPublisherQuery_EditsExpansionfilesUpdate
  */
@@ -775,7 +812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Uploads and attaches a new Expansion File to the APK specified.
+ *  Uploads a new expansion file and attaches to the specified APK.
  *
  *  Method: androidpublisher.edits.expansionfiles.upload
  *
@@ -787,46 +824,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 //   +[GTLQueryAndroidPublisher queryForEditsExpansionfilesUploadWithpackageName:editId:apkVersionCode:expansionFileType:]
 
 /**
- *  The version code of the APK whose Expansion File configuration is being read
+ *  The version code of the APK whose expansion file configuration is being read
  *  or modified.
  */
 @property(nonatomic, assign) NSInteger apkVersionCode;
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  expansionFileType
+ *  The file type of the expansion file configuration which is being updated.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified
+ *        Unspecified expansion file type. (Value:
+ *        "expansionFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Main expansion file.
+ *        (Value: "main")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Patch expansion file.
+ *        (Value: "patch")
  */
 @property(nonatomic, copy, nullable) NSString *expansionFileType;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ExpansionFilesUploadResponse.
  *
- *  Uploads and attaches a new Expansion File to the APK specified.
+ *  Uploads a new expansion file and attaches to the specified APK.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param apkVersionCode The version code of the APK whose Expansion File
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param apkVersionCode The version code of the APK whose expansion file
  *    configuration is being read or modified.
- *  @param expansionFileType NSString
+ *  @param expansionFileType The file type of the expansion file configuration
+ *    which is being updated.
  *
  *  Likely values for @c expansionFileType:
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Value "main"
- *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Value "patch"
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeExpansionFileTypeUnspecified
+ *        Unspecified expansion file type. (Value:
+ *        "expansionFileTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypeMain Main expansion file.
+ *        (Value: "main")
+ *    @arg @c kGTLRAndroidPublisherExpansionFileTypePatch Patch expansion file.
+ *        (Value: "patch")
  *  @param uploadParameters The media to include in this query. Maximum size
- *    2048MB. Accepted MIME type: application/octet-stream
+ *    2147483648. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_EditsExpansionfilesUpload
  */
@@ -839,8 +883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Returns information about the edit specified. Calls will fail if the edit is
- *  no long active (e.g. has been deleted, superseded or expired).
+ *  Gets an app edit.
  *
  *  Method: androidpublisher.edits.get
  *
@@ -851,24 +894,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsGetWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppEdit.
  *
- *  Returns information about the edit specified. Calls will fail if the edit is
- *  no long active (e.g. has been deleted, superseded or expired).
+ *  Gets an app edit.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsGet
  */
@@ -889,7 +927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsImagesDeleteWithpackageName:editId:language:imageType:imageId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
@@ -898,41 +936,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @property(nonatomic, copy, nullable) NSString *imageId;
 
 /**
- *  imageType
+ *  Type of the Image.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
- *        "automotiveScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
- *        "daydreamStereoImage"
- *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
- *        "featureGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
- *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Value
- *        "phoneScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypePromoGraphic Value "promoGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Value
- *        "sevenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Value
- *        "tenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner Value "tvBanner"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots Value "tvScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
- *        "wearScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified Unspecified
+ *        type. Do not use. (Value: "appImageTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Phone screenshot.
+ *        (Value: "phoneScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Seven inch
+ *        screenshot. (Value: "sevenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Ten inch
+ *        screenshot. (Value: "tenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots TV screenshot. (Value:
+ *        "tvScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Wear screenshot.
+ *        (Value: "wearScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeIcon Icon. (Value: "icon")
+ *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Feature graphic.
+ *        (Value: "featureGraphic")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner TV banner. (Value:
+ *        "tvBanner")
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
- *  The language code (a BCP-47 language tag) of the localized listing whose
- *  images are to read or modified. For example, to select Austrian German, pass
- *  "de-AT".
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German).
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
@@ -941,35 +974,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  Deletes the image (specified by id) from the edit.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param language The language code (a BCP-47 language tag) of the localized
- *    listing whose images are to read or modified. For example, to select
- *    Austrian German, pass "de-AT".
- *  @param imageType NSString
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param language Language localization code (a BCP-47 language tag; for
+ *    example, "de-AT" for Austrian German).
+ *  @param imageType Type of the Image.
  *  @param imageId Unique identifier an image within the set of images attached
  *    to this edit.
  *
  *  Likely values for @c imageType:
- *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
- *        "automotiveScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
- *        "daydreamStereoImage"
- *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
- *        "featureGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
- *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Value
- *        "phoneScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypePromoGraphic Value "promoGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Value
- *        "sevenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Value
- *        "tenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner Value "tvBanner"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots Value "tvScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
- *        "wearScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified Unspecified
+ *        type. Do not use. (Value: "appImageTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Phone screenshot.
+ *        (Value: "phoneScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Seven inch
+ *        screenshot. (Value: "sevenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Ten inch
+ *        screenshot. (Value: "tenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots TV screenshot. (Value:
+ *        "tvScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Wear screenshot.
+ *        (Value: "wearScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeIcon Icon. (Value: "icon")
+ *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Feature graphic.
+ *        (Value: "featureGraphic")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner TV banner. (Value:
+ *        "tvBanner")
  *
  *  @return GTLRAndroidPublisherQuery_EditsImagesDelete
  */
@@ -982,7 +1012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Deletes all images for the specified language and image type.
+ *  Deletes all images for the specified language and image type. Returns an
+ *  empty response if no images are found.
  *
  *  Method: androidpublisher.edits.images.deleteall
  *
@@ -993,79 +1024,76 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsImagesDeleteallWithpackageName:editId:language:imageType:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  imageType
+ *  Type of the Image. Providing an image type that refers to no images is a
+ *  no-op.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
- *        "automotiveScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
- *        "daydreamStereoImage"
- *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
- *        "featureGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
- *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Value
- *        "phoneScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypePromoGraphic Value "promoGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Value
- *        "sevenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Value
- *        "tenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner Value "tvBanner"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots Value "tvScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
- *        "wearScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified Unspecified
+ *        type. Do not use. (Value: "appImageTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Phone screenshot.
+ *        (Value: "phoneScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Seven inch
+ *        screenshot. (Value: "sevenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Ten inch
+ *        screenshot. (Value: "tenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots TV screenshot. (Value:
+ *        "tvScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Wear screenshot.
+ *        (Value: "wearScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeIcon Icon. (Value: "icon")
+ *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Feature graphic.
+ *        (Value: "featureGraphic")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner TV banner. (Value:
+ *        "tvBanner")
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
- *  The language code (a BCP-47 language tag) of the localized listing whose
- *  images are to read or modified. For example, to select Austrian German, pass
- *  "de-AT".
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German). Providing a language that is not supported by the App is a
+ *  no-op.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ImagesDeleteAllResponse.
  *
- *  Deletes all images for the specified language and image type.
+ *  Deletes all images for the specified language and image type. Returns an
+ *  empty response if no images are found.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param language The language code (a BCP-47 language tag) of the localized
- *    listing whose images are to read or modified. For example, to select
- *    Austrian German, pass "de-AT".
- *  @param imageType NSString
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param language Language localization code (a BCP-47 language tag; for
+ *    example, "de-AT" for Austrian German). Providing a language that is not
+ *    supported by the App is a no-op.
+ *  @param imageType Type of the Image. Providing an image type that refers to
+ *    no images is a no-op.
  *
  *  Likely values for @c imageType:
- *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
- *        "automotiveScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
- *        "daydreamStereoImage"
- *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
- *        "featureGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
- *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Value
- *        "phoneScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypePromoGraphic Value "promoGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Value
- *        "sevenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Value
- *        "tenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner Value "tvBanner"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots Value "tvScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
- *        "wearScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified Unspecified
+ *        type. Do not use. (Value: "appImageTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Phone screenshot.
+ *        (Value: "phoneScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Seven inch
+ *        screenshot. (Value: "sevenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Ten inch
+ *        screenshot. (Value: "tenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots TV screenshot. (Value:
+ *        "tvScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Wear screenshot.
+ *        (Value: "wearScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeIcon Icon. (Value: "icon")
+ *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Feature graphic.
+ *        (Value: "featureGraphic")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner TV banner. (Value:
+ *        "tvBanner")
  *
  *  @return GTLRAndroidPublisherQuery_EditsImagesDeleteall
  */
@@ -1077,7 +1105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Lists all images for the specified language and image type.
+ *  Lists all images. The response may be empty.
  *
  *  Method: androidpublisher.edits.images.list
  *
@@ -1088,79 +1116,74 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsImagesListWithpackageName:editId:language:imageType:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  imageType
+ *  Type of the Image. Providing an image type that refers to no images will
+ *  return an empty response.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
- *        "automotiveScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
- *        "daydreamStereoImage"
- *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
- *        "featureGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
- *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Value
- *        "phoneScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypePromoGraphic Value "promoGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Value
- *        "sevenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Value
- *        "tenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner Value "tvBanner"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots Value "tvScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
- *        "wearScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified Unspecified
+ *        type. Do not use. (Value: "appImageTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Phone screenshot.
+ *        (Value: "phoneScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Seven inch
+ *        screenshot. (Value: "sevenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Ten inch
+ *        screenshot. (Value: "tenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots TV screenshot. (Value:
+ *        "tvScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Wear screenshot.
+ *        (Value: "wearScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeIcon Icon. (Value: "icon")
+ *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Feature graphic.
+ *        (Value: "featureGraphic")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner TV banner. (Value:
+ *        "tvBanner")
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
- *  The language code (a BCP-47 language tag) of the localized listing whose
- *  images are to read or modified. For example, to select Austrian German, pass
- *  "de-AT".
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German). There must be a store listing for the specified language.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ImagesListResponse.
  *
- *  Lists all images for the specified language and image type.
+ *  Lists all images. The response may be empty.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param language The language code (a BCP-47 language tag) of the localized
- *    listing whose images are to read or modified. For example, to select
- *    Austrian German, pass "de-AT".
- *  @param imageType NSString
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param language Language localization code (a BCP-47 language tag; for
+ *    example, "de-AT" for Austrian German). There must be a store listing for
+ *    the specified language.
+ *  @param imageType Type of the Image. Providing an image type that refers to
+ *    no images will return an empty response.
  *
  *  Likely values for @c imageType:
- *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
- *        "automotiveScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
- *        "daydreamStereoImage"
- *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
- *        "featureGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
- *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Value
- *        "phoneScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypePromoGraphic Value "promoGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Value
- *        "sevenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Value
- *        "tenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner Value "tvBanner"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots Value "tvScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
- *        "wearScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified Unspecified
+ *        type. Do not use. (Value: "appImageTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Phone screenshot.
+ *        (Value: "phoneScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Seven inch
+ *        screenshot. (Value: "sevenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Ten inch
+ *        screenshot. (Value: "tenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots TV screenshot. (Value:
+ *        "tvScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Wear screenshot.
+ *        (Value: "wearScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeIcon Icon. (Value: "icon")
+ *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Feature graphic.
+ *        (Value: "featureGraphic")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner TV banner. (Value:
+ *        "tvBanner")
  *
  *  @return GTLRAndroidPublisherQuery_EditsImagesList
  */
@@ -1172,8 +1195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Uploads a new image and adds it to the list of images for the specified
- *  language and image type.
+ *  Uploads an image of the specified language and image type, and adds to the
+ *  edit.
  *
  *  Method: androidpublisher.edits.images.upload
  *
@@ -1184,82 +1207,76 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsImagesUploadWithpackageName:editId:language:imageType:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  imageType
+ *  Type of the Image.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
- *        "automotiveScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
- *        "daydreamStereoImage"
- *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
- *        "featureGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
- *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Value
- *        "phoneScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypePromoGraphic Value "promoGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Value
- *        "sevenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Value
- *        "tenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner Value "tvBanner"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots Value "tvScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
- *        "wearScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified Unspecified
+ *        type. Do not use. (Value: "appImageTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Phone screenshot.
+ *        (Value: "phoneScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Seven inch
+ *        screenshot. (Value: "sevenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Ten inch
+ *        screenshot. (Value: "tenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots TV screenshot. (Value:
+ *        "tvScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Wear screenshot.
+ *        (Value: "wearScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeIcon Icon. (Value: "icon")
+ *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Feature graphic.
+ *        (Value: "featureGraphic")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner TV banner. (Value:
+ *        "tvBanner")
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
 /**
- *  The language code (a BCP-47 language tag) of the localized listing whose
- *  images are to read or modified. For example, to select Austrian German, pass
- *  "de-AT".
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German). Providing a language that is not supported by the App is a
+ *  no-op.
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ImagesUploadResponse.
  *
- *  Uploads a new image and adds it to the list of images for the specified
- *  language and image type.
+ *  Uploads an image of the specified language and image type, and adds to the
+ *  edit.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param language The language code (a BCP-47 language tag) of the localized
- *    listing whose images are to read or modified. For example, to select
- *    Austrian German, pass "de-AT".
- *  @param imageType NSString
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param language Language localization code (a BCP-47 language tag; for
+ *    example, "de-AT" for Austrian German). Providing a language that is not
+ *    supported by the App is a no-op.
+ *  @param imageType Type of the Image.
  *
  *  Likely values for @c imageType:
- *    @arg @c kGTLRAndroidPublisherImageTypeAutomotiveScreenshots Value
- *        "automotiveScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeDaydreamStereoImage Value
- *        "daydreamStereoImage"
- *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Value
- *        "featureGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeIcon Value "icon"
- *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Value
- *        "phoneScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypePromoGraphic Value "promoGraphic"
- *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Value
- *        "sevenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Value
- *        "tenInchScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner Value "tvBanner"
- *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots Value "tvScreenshots"
- *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Value
- *        "wearScreenshots"
+ *    @arg @c kGTLRAndroidPublisherImageTypeAppImageTypeUnspecified Unspecified
+ *        type. Do not use. (Value: "appImageTypeUnspecified")
+ *    @arg @c kGTLRAndroidPublisherImageTypePhoneScreenshots Phone screenshot.
+ *        (Value: "phoneScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeSevenInchScreenshots Seven inch
+ *        screenshot. (Value: "sevenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTenInchScreenshots Ten inch
+ *        screenshot. (Value: "tenInchScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvScreenshots TV screenshot. (Value:
+ *        "tvScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeWearScreenshots Wear screenshot.
+ *        (Value: "wearScreenshots")
+ *    @arg @c kGTLRAndroidPublisherImageTypeIcon Icon. (Value: "icon")
+ *    @arg @c kGTLRAndroidPublisherImageTypeFeatureGraphic Feature graphic.
+ *        (Value: "featureGraphic")
+ *    @arg @c kGTLRAndroidPublisherImageTypeTvBanner TV banner. (Value:
+ *        "tvBanner")
  *  @param uploadParameters The media to include in this query. Maximum size
- *    15MB. Accepted MIME type: image/ *
+ *    15728640. Accepted MIME type: image/ *
  *
  *  @return GTLRAndroidPublisherQuery_EditsImagesUpload
  */
@@ -1272,7 +1289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Creates a new edit for an app, populated with the app's current state.
+ *  Creates a new edit for an app.
  *
  *  Method: androidpublisher.edits.insert
  *
@@ -1283,20 +1300,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsInsertWithObject:packageName:]
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppEdit.
  *
- *  Creates a new edit for an app, populated with the app's current state.
+ *  Creates a new edit for an app.
  *
  *  @param object The @c GTLRAndroidPublisher_AppEdit to include in the query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
+ *  @param packageName Package name of the app.
  *
  *  @return GTLRAndroidPublisherQuery_EditsInsert
  */
@@ -1306,7 +1319,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Deletes the specified localized store listing from an edit.
+ *  Deletes a localized store listing.
  *
  *  Method: androidpublisher.edits.listings.delete
  *
@@ -1317,33 +1330,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsListingsDeleteWithpackageName:editId:language:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  The language code (a BCP-47 language tag) of the localized listing to read
- *  or modify. For example, to select Austrian German, pass "de-AT".
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German).
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the specified localized store listing from an edit.
+ *  Deletes a localized store listing.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param language The language code (a BCP-47 language tag) of the localized
- *    listing to read or modify. For example, to select Austrian German, pass
- *    "de-AT".
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param language Language localization code (a BCP-47 language tag; for
+ *    example, "de-AT" for Austrian German).
  *
  *  @return GTLRAndroidPublisherQuery_EditsListingsDelete
  */
@@ -1354,7 +1362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Deletes all localized listings from an edit.
+ *  Deletes all store listings.
  *
  *  Method: androidpublisher.edits.listings.deleteall
  *
@@ -1365,24 +1373,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsListingsDeleteallWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes all localized listings from an edit.
+ *  Deletes all store listings.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsListingsDeleteall
  */
@@ -1392,7 +1396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Fetches information about a localized store listing.
+ *  Gets a localized store listing.
  *
  *  Method: androidpublisher.edits.listings.get
  *
@@ -1403,32 +1407,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsListingsGetWithpackageName:editId:language:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  The language code (a BCP-47 language tag) of the localized listing to read
- *  or modify. For example, to select Austrian German, pass "de-AT".
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German).
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Listing.
  *
- *  Fetches information about a localized store listing.
+ *  Gets a localized store listing.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param language The language code (a BCP-47 language tag) of the localized
- *    listing to read or modify. For example, to select Austrian German, pass
- *    "de-AT".
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param language Language localization code (a BCP-47 language tag; for
+ *    example, "de-AT" for Austrian German).
  *
  *  @return GTLRAndroidPublisherQuery_EditsListingsGet
  */
@@ -1439,7 +1438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Returns all of the localized store listings attached to this edit.
+ *  Lists all localized store listings.
  *
  *  Method: androidpublisher.edits.listings.list
  *
@@ -1450,23 +1449,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsListingsListWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ListingsListResponse.
  *
- *  Returns all of the localized store listings attached to this edit.
+ *  Lists all localized store listings.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsListingsList
  */
@@ -1476,8 +1471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Creates or updates a localized store listing. This method supports patch
- *  semantics.
+ *  Patches a localized store listing.
  *
  *  Method: androidpublisher.edits.listings.patch
  *
@@ -1488,34 +1482,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsListingsPatchWithObject:packageName:editId:language:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  The language code (a BCP-47 language tag) of the localized listing to read
- *  or modify. For example, to select Austrian German, pass "de-AT".
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German).
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Listing.
  *
- *  Creates or updates a localized store listing. This method supports patch
- *  semantics.
+ *  Patches a localized store listing.
  *
  *  @param object The @c GTLRAndroidPublisher_Listing to include in the query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param language The language code (a BCP-47 language tag) of the localized
- *    listing to read or modify. For example, to select Austrian German, pass
- *    "de-AT".
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param language Language localization code (a BCP-47 language tag; for
+ *    example, "de-AT" for Austrian German).
  *
  *  @return GTLRAndroidPublisherQuery_EditsListingsPatch
  */
@@ -1538,19 +1526,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsListingsUpdateWithObject:packageName:editId:language:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
 /**
- *  The language code (a BCP-47 language tag) of the localized listing to read
- *  or modify. For example, to select Austrian German, pass "de-AT".
+ *  Language localization code (a BCP-47 language tag; for example, "de-AT" for
+ *  Austrian German).
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
@@ -1559,12 +1544,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Creates or updates a localized store listing.
  *
  *  @param object The @c GTLRAndroidPublisher_Listing to include in the query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param language The language code (a BCP-47 language tag) of the localized
- *    listing to read or modify. For example, to select Austrian German, pass
- *    "de-AT".
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param language Language localization code (a BCP-47 language tag; for
+ *    example, "de-AT" for Austrian German).
  *
  *  @return GTLRAndroidPublisherQuery_EditsListingsUpdate
  */
@@ -1576,7 +1559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  GTLRAndroidPublisherQuery_EditsTestersGet
+ *  Gets testers.
  *
  *  Method: androidpublisher.edits.testers.get
  *
@@ -1587,25 +1570,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsTestersGetWithpackageName:editId:track:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The track to read or modify. */
+/** The track to read from. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify.
+ *  Gets testers.
+ *
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param track The track to read from.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTestersGet
  */
@@ -1616,7 +1597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  GTLRAndroidPublisherQuery_EditsTestersPatch
+ *  Patches testers.
  *
  *  Method: androidpublisher.edits.testers.patch
  *
@@ -1627,26 +1608,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsTestersPatchWithObject:packageName:editId:track:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The track to read or modify. */
+/** The track to update. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
  *
+ *  Patches testers.
+ *
  *  @param object The @c GTLRAndroidPublisher_Testers to include in the query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param track The track to update.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTestersPatch
  */
@@ -1658,7 +1637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  GTLRAndroidPublisherQuery_EditsTestersUpdate
+ *  Updates testers.
  *
  *  Method: androidpublisher.edits.testers.update
  *
@@ -1669,26 +1648,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsTestersUpdateWithObject:packageName:editId:track:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The track to read or modify. */
+/** The track to update. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Testers.
  *
+ *  Updates testers.
+ *
  *  @param object The @c GTLRAndroidPublisher_Testers to include in the query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param track The track to update.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTestersUpdate
  */
@@ -1700,8 +1677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Fetches the track configuration for the specified track type. Includes the
- *  APK version codes that are in this track.
+ *  Gets a track.
  *
  *  Method: androidpublisher.edits.tracks.get
  *
@@ -1712,28 +1688,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsTracksGetWithpackageName:editId:track:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The track to read or modify. */
+/** Identifier of the track. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Track.
  *
- *  Fetches the track configuration for the specified track type. Includes the
- *  APK version codes that are in this track.
+ *  Gets a track.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param track Identifier of the track.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTracksGet
  */
@@ -1744,7 +1715,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Lists all the track configurations for this edit.
+ *  Lists all tracks.
  *
  *  Method: androidpublisher.edits.tracks.list
  *
@@ -1755,23 +1726,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsTracksListWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_TracksListResponse.
  *
- *  Lists all the track configurations for this edit.
+ *  Lists all tracks.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTracksList
  */
@@ -1781,8 +1748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates the track configuration for the specified track type. This method
- *  supports patch semantics.
+ *  Patches a track.
  *
  *  Method: androidpublisher.edits.tracks.patch
  *
@@ -1793,29 +1759,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsTracksPatchWithObject:packageName:editId:track:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The track to read or modify. */
+/** Identifier of the track. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Track.
  *
- *  Updates the track configuration for the specified track type. This method
- *  supports patch semantics.
+ *  Patches a track.
  *
  *  @param object The @c GTLRAndroidPublisher_Track to include in the query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param track Identifier of the track.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTracksPatch
  */
@@ -1827,7 +1788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates the track configuration for the specified track type.
+ *  Updates a track.
  *
  *  Method: androidpublisher.edits.tracks.update
  *
@@ -1838,28 +1799,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsTracksUpdateWithObject:packageName:editId:track:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The track to read or modify. */
+/** Identifier of the track. */
 @property(nonatomic, copy, nullable) NSString *track;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Track.
  *
- *  Updates the track configuration for the specified track type.
+ *  Updates a track.
  *
  *  @param object The @c GTLRAndroidPublisher_Track to include in the query.
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
- *  @param track The track to read or modify.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
+ *  @param track Identifier of the track.
  *
  *  @return GTLRAndroidPublisherQuery_EditsTracksUpdate
  */
@@ -1871,8 +1828,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Checks that the edit can be successfully committed. The edit's changes are
- *  not applied to the live app.
+ *  Validates an app edit.
  *
  *  Method: androidpublisher.edits.validate
  *
@@ -1883,24 +1839,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForEditsValidateWithpackageName:editId:]
 
-/** Unique identifier for this edit. */
+/** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
 
-/**
- *  Unique identifier for the Android app that is being updated; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_AppEdit.
  *
- *  Checks that the edit can be successfully committed. The edit's changes are
- *  not applied to the live app.
+ *  Validates an app edit.
  *
- *  @param packageName Unique identifier for the Android app that is being
- *    updated; for example, "com.spiffygame".
- *  @param editId Unique identifier for this edit.
+ *  @param packageName Package name of the app.
+ *  @param editId Identifier of the edit.
  *
  *  @return GTLRAndroidPublisherQuery_EditsValidate
  */
@@ -1910,7 +1861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Delete an in-app product for an app.
+ *  Deletes an in-app product (i.e. a managed product or a subscriptions).
  *
  *  Method: androidpublisher.inappproducts.delete
  *
@@ -1921,10 +1872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForInappproductsDeleteWithpackageName:sku:]
 
-/**
- *  Unique identifier for the Android app with the in-app product; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Unique identifier for the in-app product. */
@@ -1934,10 +1882,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete an in-app product for an app.
+ *  Deletes an in-app product (i.e. a managed product or a subscriptions).
  *
- *  @param packageName Unique identifier for the Android app with the in-app
- *    product; for example, "com.spiffygame".
+ *  @param packageName Package name of the app.
  *  @param sku Unique identifier for the in-app product.
  *
  *  @return GTLRAndroidPublisherQuery_InappproductsDelete
@@ -1948,7 +1895,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Returns information about the in-app product specified.
+ *  Gets an in-app product, which can be a managed product or a subscription.
  *
  *  Method: androidpublisher.inappproducts.get
  *
@@ -1959,6 +1906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForInappproductsGetWithpackageName:sku:]
 
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Unique identifier for the in-app product. */
@@ -1967,9 +1915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Returns information about the in-app product specified.
+ *  Gets an in-app product, which can be a managed product or a subscription.
  *
- *  @param packageName NSString
+ *  @param packageName Package name of the app.
  *  @param sku Unique identifier for the in-app product.
  *
  *  @return GTLRAndroidPublisherQuery_InappproductsGet
@@ -1980,7 +1928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Creates a new in-app product for an app.
+ *  Creates an in-app product (i.e. a managed product or a subscriptions).
  *
  *  Method: androidpublisher.inappproducts.insert
  *
@@ -1998,18 +1946,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, assign) BOOL autoConvertMissingPrices;
 
-/** Unique identifier for the Android app; for example, "com.spiffygame". */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Creates a new in-app product for an app.
+ *  Creates an in-app product (i.e. a managed product or a subscriptions).
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.
- *  @param packageName Unique identifier for the Android app; for example,
- *    "com.spiffygame".
+ *  @param packageName Package name of the app.
  *
  *  @return GTLRAndroidPublisherQuery_InappproductsInsert
  */
@@ -2019,8 +1966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  List all the in-app products for an Android app, both subscriptions and
- *  managed in-app products..
+ *  Lists all in-app products - both managed products and subscriptions.
  *
  *  Method: androidpublisher.inappproducts.list
  *
@@ -2031,26 +1977,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForInappproductsListWithpackageName:]
 
+/** How many results the list operation should return. */
 @property(nonatomic, assign) NSUInteger maxResults;
 
-/**
- *  Unique identifier for the Android app with in-app products; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
+/** The index of the first element to return. */
 @property(nonatomic, assign) NSUInteger startIndex;
 
+/** Pagination token. If empty, list starts at the first product. */
 @property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_InappproductsListResponse.
  *
- *  List all the in-app products for an Android app, both subscriptions and
- *  managed in-app products..
+ *  Lists all in-app products - both managed products and subscriptions.
  *
- *  @param packageName Unique identifier for the Android app with in-app
- *    products; for example, "com.spiffygame".
+ *  @param packageName Package name of the app.
  *
  *  @return GTLRAndroidPublisherQuery_InappproductsList
  */
@@ -2059,8 +2003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates the details of an in-app product. This method supports patch
- *  semantics.
+ *  Patches an in-app product (i.e. a managed product or a subscriptions).
  *
  *  Method: androidpublisher.inappproducts.patch
  *
@@ -2078,10 +2021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, assign) BOOL autoConvertMissingPrices;
 
-/**
- *  Unique identifier for the Android app with the in-app product; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Unique identifier for the in-app product. */
@@ -2090,13 +2030,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Updates the details of an in-app product. This method supports patch
- *  semantics.
+ *  Patches an in-app product (i.e. a managed product or a subscriptions).
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.
- *  @param packageName Unique identifier for the Android app with the in-app
- *    product; for example, "com.spiffygame".
+ *  @param packageName Package name of the app.
  *  @param sku Unique identifier for the in-app product.
  *
  *  @return GTLRAndroidPublisherQuery_InappproductsPatch
@@ -2108,7 +2046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Updates the details of an in-app product.
+ *  Updates an in-app product (i.e. a managed product or a subscriptions).
  *
  *  Method: androidpublisher.inappproducts.update
  *
@@ -2126,10 +2064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, assign) BOOL autoConvertMissingPrices;
 
-/**
- *  Unique identifier for the Android app with the in-app product; for example,
- *  "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Unique identifier for the in-app product. */
@@ -2138,12 +2073,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_InAppProduct.
  *
- *  Updates the details of an in-app product.
+ *  Updates an in-app product (i.e. a managed product or a subscriptions).
  *
  *  @param object The @c GTLRAndroidPublisher_InAppProduct to include in the
  *    query.
- *  @param packageName Unique identifier for the Android app with the in-app
- *    product; for example, "com.spiffygame".
+ *  @param packageName Package name of the app.
  *  @param sku Unique identifier for the in-app product.
  *
  *  @return GTLRAndroidPublisherQuery_InappproductsUpdate
@@ -2157,8 +2091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Uploads an APK to internal app sharing. If you are using the Google API
  *  client libraries, please increase the timeout of the http request before
- *  calling this endpoint (a timeout of 2 minutes is recommended). See:
- *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts
+ *  and
+ *  Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
  *  for an example in java.
  *
  *  Method: androidpublisher.internalappsharingartifacts.uploadapk
@@ -2170,7 +2105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForInternalappsharingartifactsUploadapkWithpackageName:]
 
-/** Unique identifier for the Android app; for example, "com.spiffygame". */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
@@ -2178,14 +2113,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  Uploads an APK to internal app sharing. If you are using the Google API
  *  client libraries, please increase the timeout of the http request before
- *  calling this endpoint (a timeout of 2 minutes is recommended). See:
- *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts
+ *  and
+ *  Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
  *  for an example in java.
  *
- *  @param packageName Unique identifier for the Android app; for example,
- *    "com.spiffygame".
+ *  @param packageName Package name of the app.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    1GB. Accepted MIME types: application/octet-stream,
+ *    1073741824. Accepted MIME types: application/octet-stream,
  *    application/vnd.android.package-archive
  *
  *  @return GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadapk
@@ -2198,8 +2133,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Uploads an app bundle to internal app sharing. If you are using the Google
  *  API client libraries, please increase the timeout of the http request before
- *  calling this endpoint (a timeout of 2 minutes is recommended). See:
- *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts
+ *  and
+ *  Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
  *  for an example in java.
  *
  *  Method: androidpublisher.internalappsharingartifacts.uploadbundle
@@ -2211,7 +2147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForInternalappsharingartifactsUploadbundleWithpackageName:]
 
-/** Unique identifier for the Android app; for example, "com.spiffygame". */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /**
@@ -2219,14 +2155,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  Uploads an app bundle to internal app sharing. If you are using the Google
  *  API client libraries, please increase the timeout of the http request before
- *  calling this endpoint (a timeout of 2 minutes is recommended). See:
- *  https://developers.google.com/api-client-library/java/google-api-java-client/errors
+ *  calling this endpoint (a timeout of 2 minutes is recommended). See [Timeouts
+ *  and
+ *  Errors](https://developers.google.com/api-client-library/java/google-api-java-client/errors)
  *  for an example in java.
  *
- *  @param packageName Unique identifier for the Android app; for example,
- *    "com.spiffygame".
+ *  @param packageName Package name of the app.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    10GB. Accepted MIME type: application/octet-stream
+ *    10737418240. Accepted MIME type: application/octet-stream
  *
  *  @return GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadbundle
  */
@@ -2263,7 +2199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Whether to revoke the purchased item. If set to true, access to the
  *  subscription or in-app item will be terminated immediately. If the item is a
  *  recurring subscription, all future payments will also be terminated.
- *  Consumed in-app items need to be handled by developer's app. (optional)
+ *  Consumed in-app items need to be handled by developer's app. (optional).
  */
 @property(nonatomic, assign) BOOL revoke;
 
@@ -2307,7 +2243,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  The token provided to the user's device when the subscription was purchased.
+ *  The token provided to the user's device when the inapp product was
+ *  purchased.
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
@@ -2323,7 +2260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    sold in (for example, 'com.some.thing').
  *  @param productId The inapp product SKU (for example,
  *    'com.some.thing.inapp1').
- *  @param token The token provided to the user's device when the subscription
+ *  @param token The token provided to the user's device when the inapp product
  *    was purchased.
  *
  *  @return GTLRAndroidPublisherQuery_PurchasesProductsAcknowledge
@@ -2600,7 +2537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** The purchased subscription ID (for example, 'monthly001'). */
+/** "The purchased subscription ID (for example, 'monthly001'). */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
 /**
@@ -2617,7 +2554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  @param packageName The package name of the application for which this
  *    subscription was purchased (for example, 'com.some.thing').
- *  @param subscriptionId The purchased subscription ID (for example,
+ *  @param subscriptionId "The purchased subscription ID (for example,
  *    'monthly001').
  *  @param token The token provided to the user's device when the subscription
  *    was purchased.
@@ -2701,6 +2638,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, assign) long long endTime;
 
+/**
+ *  Defines how many results the list operation should return. The default
+ *  number depends on the resource collection.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
@@ -2709,6 +2650,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
+/**
+ *  Defines the index of the first element to return. This can only be used if
+ *  indexed paging is enabled.
+ */
 @property(nonatomic, assign) NSUInteger startIndex;
 
 /**
@@ -2721,19 +2666,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  */
 @property(nonatomic, assign) long long startTime;
 
+/**
+ *  Defines the token of the page to return, usually taken from TokenPagination.
+ *  This can only be used if token paging is enabled.
+ */
 @property(nonatomic, copy, nullable) NSString *token;
 
 /**
  *  The type of voided purchases that you want to see in the response. Possible
- *  values are:
- *  - 0: Only voided in-app product purchases will be returned in the response.
- *  This is the default value.
- *  - 1: Both voided in-app purchases and voided subscription purchases will be
- *  returned in the response. Note: Before requesting to receive voided
- *  subscription purchases, you must switch to use orderId in the response which
- *  uniquely identifies one-time purchases and subscriptions. Otherwise, you
- *  will receive multiple subscription orders with the same PurchaseToken,
- *  because subscription renewal orders share the same PurchaseToken.
+ *  values are: 0. Only voided in-app product purchases will be returned in the
+ *  response. This is the default value. 1. Both voided in-app purchases and
+ *  voided subscription purchases will be returned in the response. Note: Before
+ *  requesting to receive voided subscription purchases, you must switch to use
+ *  orderId in the response which uniquely identifies one-time purchases and
+ *  subscriptions. Otherwise, you will receive multiple subscription orders with
+ *  the same PurchaseToken, because subscription renewal orders share the same
+ *  PurchaseToken.
  */
 @property(nonatomic, assign) NSInteger type;
 
@@ -2752,7 +2700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Returns a single review.
+ *  Gets a single review.
  *
  *  Method: androidpublisher.reviews.get
  *
@@ -2763,24 +2711,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForReviewsGetWithpackageName:reviewId:]
 
-/**
- *  Unique identifier for the Android app for which we want reviews; for
- *  example, "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
+/** Unique identifier for a review. */
 @property(nonatomic, copy, nullable) NSString *reviewId;
 
+/** Language localization code. */
 @property(nonatomic, copy, nullable) NSString *translationLanguage;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_Review.
  *
- *  Returns a single review.
+ *  Gets a single review.
  *
- *  @param packageName Unique identifier for the Android app for which we want
- *    reviews; for example, "com.spiffygame".
- *  @param reviewId NSString
+ *  @param packageName Package name of the app.
+ *  @param reviewId Unique identifier for a review.
  *
  *  @return GTLRAndroidPublisherQuery_ReviewsGet
  */
@@ -2790,7 +2736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Returns a list of reviews. Only reviews from last week will be returned.
+ *  Lists all reviews.
  *
  *  Method: androidpublisher.reviews.list
  *
@@ -2801,27 +2747,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForReviewsListWithpackageName:]
 
+/** How many results the list operation should return. */
 @property(nonatomic, assign) NSUInteger maxResults;
 
-/**
- *  Unique identifier for the Android app for which we want reviews; for
- *  example, "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
+/** The index of the first element to return. */
 @property(nonatomic, assign) NSUInteger startIndex;
 
+/** Pagination token. If empty, list starts at the first review. */
 @property(nonatomic, copy, nullable) NSString *token;
 
+/** Language localization code. */
 @property(nonatomic, copy, nullable) NSString *translationLanguage;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ReviewsListResponse.
  *
- *  Returns a list of reviews. Only reviews from last week will be returned.
+ *  Lists all reviews.
  *
- *  @param packageName Unique identifier for the Android app for which we want
- *    reviews; for example, "com.spiffygame".
+ *  @param packageName Package name of the app.
  *
  *  @return GTLRAndroidPublisherQuery_ReviewsList
  */
@@ -2830,7 +2776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Reply to a single review, or update an existing reply.
+ *  Replies to a single review, or updates an existing reply.
  *
  *  Method: androidpublisher.reviews.reply
  *
@@ -2841,24 +2787,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForReviewsReplyWithObject:packageName:reviewId:]
 
-/**
- *  Unique identifier for the Android app for which we want reviews; for
- *  example, "com.spiffygame".
- */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
+/** Unique identifier for a review. */
 @property(nonatomic, copy, nullable) NSString *reviewId;
 
 /**
  *  Fetches a @c GTLRAndroidPublisher_ReviewsReplyResponse.
  *
- *  Reply to a single review, or update an existing reply.
+ *  Replies to a single review, or updates an existing reply.
  *
  *  @param object The @c GTLRAndroidPublisher_ReviewsReplyRequest to include in
  *    the query.
- *  @param packageName Unique identifier for the Android app for which we want
- *    reviews; for example, "com.spiffygame".
- *  @param reviewId NSString
+ *  @param packageName Package name of the app.
+ *  @param reviewId Unique identifier for a review.
  *
  *  @return GTLRAndroidPublisherQuery_ReviewsReply
  */
@@ -2869,8 +2812,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Creates a new variant of APK which is suitable for inclusion in a system
- *  image.
+ *  Creates an APK which is suitable for inclusion in a system image from an
+ *  already uploaded Android App Bundle.
  *
  *  Method: androidpublisher.systemapks.variants.create
  *
@@ -2881,7 +2824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForSystemapksVariantsCreateWithObject:packageName:versionCode:]
 
-/** Unique identifier for the Android app; for example, "com.spiffygame". */
+/** Unique identifier of the Android app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The version code of the App Bundle. */
@@ -2890,26 +2833,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches a @c GTLRAndroidPublisher_Variant.
  *
- *  Creates a new variant of APK which is suitable for inclusion in a system
- *  image.
+ *  Creates an APK which is suitable for inclusion in a system image from an
+ *  already uploaded Android App Bundle.
  *
- *  @param object The @c GTLRAndroidPublisher_SystemApkVariantsCreateRequest to
- *    include in the query.
- *  @param packageName Unique identifier for the Android app; for example,
- *    "com.spiffygame".
+ *  @param object The @c GTLRAndroidPublisher_Variant to include in the query.
+ *  @param packageName Unique identifier of the Android app.
  *  @param versionCode The version code of the App Bundle.
  *
  *  @return GTLRAndroidPublisherQuery_SystemapksVariantsCreate
  */
-+ (instancetype)queryWithObject:(GTLRAndroidPublisher_SystemApkVariantsCreateRequest *)object
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_Variant *)object
                     packageName:(NSString *)packageName
                     versionCode:(long long)versionCode;
 
 @end
 
 /**
- *  Download a previously created APK which is suitable for inclusion in a
- *  system image.
+ *  Downloads a previously created system APK which is suitable for inclusion in
+ *  a system image.
  *
  *  Method: androidpublisher.systemapks.variants.download
  *
@@ -2920,9 +2861,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForSystemapksVariantsDownloadWithpackageName:versionCode:variantId:]
 
-/** Unique identifier for the Android app; for example, "com.spiffygame". */
+/** Unique identifier of the Android app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
+/** The ID of a previously created system APK variant. */
 @property(nonatomic, assign) NSUInteger variantId;
 
 /** The version code of the App Bundle. */
@@ -2931,13 +2873,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 /**
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
- *  Download a previously created APK which is suitable for inclusion in a
- *  system image.
+ *  Downloads a previously created system APK which is suitable for inclusion in
+ *  a system image.
  *
- *  @param packageName Unique identifier for the Android app; for example,
- *    "com.spiffygame".
+ *  @param packageName Unique identifier of the Android app.
  *  @param versionCode The version code of the App Bundle.
- *  @param variantId NSUInteger
+ *  @param variantId The ID of a previously created system APK variant.
  *
  *  @return GTLRAndroidPublisherQuery_SystemapksVariantsDownload
  */
@@ -2959,10 +2900,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForSystemapksVariantsGetWithpackageName:versionCode:variantId:]
 
-/** Unique identifier for the Android app; for example, "com.spiffygame". */
+/** Unique identifier of the Android app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** Unique identifier for this variant. */
+/** The ID of a previously created system APK variant. */
 @property(nonatomic, assign) NSUInteger variantId;
 
 /** The version code of the App Bundle. */
@@ -2973,10 +2914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  Returns a previously created system APK variant.
  *
- *  @param packageName Unique identifier for the Android app; for example,
- *    "com.spiffygame".
+ *  @param packageName Unique identifier of the Android app.
  *  @param versionCode The version code of the App Bundle.
- *  @param variantId Unique identifier for this variant.
+ *  @param variantId The ID of a previously created system APK variant.
  *
  *  @return GTLRAndroidPublisherQuery_SystemapksVariantsGet
  */
@@ -2998,19 +2938,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForSystemapksVariantsListWithpackageName:versionCode:]
 
-/** Unique identifier for the Android app; for example, "com.spiffygame". */
+/** Unique identifier of the Android app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The version code of the App Bundle. */
 @property(nonatomic, assign) long long versionCode;
 
 /**
- *  Fetches a @c GTLRAndroidPublisher_SystemApkVariantsListResponse.
+ *  Fetches a @c GTLRAndroidPublisher_SystemApksListResponse.
  *
  *  Returns the list of previously created system APK variants.
  *
- *  @param packageName Unique identifier for the Android app; for example,
- *    "com.spiffygame".
+ *  @param packageName Unique identifier of the Android app.
  *  @param versionCode The version code of the App Bundle.
  *
  *  @return GTLRAndroidPublisherQuery_SystemapksVariantsList

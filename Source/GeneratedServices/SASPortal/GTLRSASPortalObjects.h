@@ -843,6 +843,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
+ *  Request for MoveDeployment method.
+ */
+@interface GTLRSASPortal_MoveDeploymentRequest : GTLRObject
+
+/**
+ *  Required. The name of the new parent resource Node or Customer to reparent
+ *  the deployment under.
+ */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+@end
+
+
+/**
  *  Request for MoveDevice method.
  */
 @interface GTLRSASPortal_MoveDeviceRequest : GTLRObject

@@ -210,7 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Initiates a failover of the master node to current replica node for a
+ *  Initiates a failover of the primary node to current replica node for a
  *  specific STANDARD tier Cloud Memorystore for Redis instance.
  *
  *  Method: redis.projects.locations.instances.failover
@@ -232,7 +232,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudRedis_Operation.
  *
- *  Initiates a failover of the master node to current replica node for a
+ *  Initiates a failover of the primary node to current replica node for a
  *  specific STANDARD tier Cloud Memorystore for Redis instance.
  *
  *  @param object The @c GTLRCloudRedis_FailoverInstanceRequest to include in

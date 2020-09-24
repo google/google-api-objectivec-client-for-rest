@@ -24,19 +24,25 @@
 @class GTLRSecretManager_AuditConfig;
 @class GTLRSecretManager_AuditLogConfig;
 @class GTLRSecretManager_Automatic;
+@class GTLRSecretManager_AutomaticStatus;
 @class GTLRSecretManager_Binding;
+@class GTLRSecretManager_CustomerManagedEncryption;
+@class GTLRSecretManager_CustomerManagedEncryptionStatus;
 @class GTLRSecretManager_Expr;
 @class GTLRSecretManager_Location;
 @class GTLRSecretManager_Location_Labels;
 @class GTLRSecretManager_Location_Metadata;
 @class GTLRSecretManager_Policy;
 @class GTLRSecretManager_Replica;
+@class GTLRSecretManager_ReplicaStatus;
 @class GTLRSecretManager_Replication;
+@class GTLRSecretManager_ReplicationStatus;
 @class GTLRSecretManager_Secret;
 @class GTLRSecretManager_Secret_Labels;
 @class GTLRSecretManager_SecretPayload;
 @class GTLRSecretManager_SecretVersion;
 @class GTLRSecretManager_UserManaged;
+@class GTLRSecretManager_UserManagedStatus;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -205,6 +211,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  restrictions.
  */
 @interface GTLRSecretManager_Automatic : GTLRObject
+
+/**
+ *  Optional. The customer-managed encryption configuration of the Secret. If no
+ *  configuration is provided, Google-managed default encryption is used.
+ *  Updates to the Secret encryption configuration only apply to SecretVersions
+ *  added afterwards. They do not apply retroactively to existing
+ *  SecretVersions.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryption *customerManagedEncryption;
+
+@end
+
+
+/**
+ *  The replication status of a SecretVersion using automatic replication. Only
+ *  populated if the parent Secret has an automatic replication policy.
+ */
+@interface GTLRSecretManager_AutomaticStatus : GTLRObject
+
+/**
+ *  Output only. The customer-managed encryption status of the SecretVersion.
+ *  Only populated if customer-managed encryption is used.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryptionStatus *customerManagedEncryption;
+
 @end
 
 
@@ -212,6 +243,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Associates `members` with a `role`.
  */
 @interface GTLRSecretManager_Binding : GTLRObject
+
+/**
+ *  A client-specified ID for this binding. Expected to be globally unique to
+ *  support the internal bindings-by-ID API.
+ */
+@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding. If the condition
@@ -261,6 +298,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+@end
+
+
+/**
+ *  Configuration for encrypting secret payloads using customer-managed
+ *  encryption keys (CMEK).
+ */
+@interface GTLRSecretManager_CustomerManagedEncryption : GTLRObject
+
+/**
+ *  Required. The resource name of the Cloud KMS CryptoKey used to encrypt
+ *  secret payloads. For secrets using the UserManaged replication policy type,
+ *  Cloud KMS CryptoKeys must reside in the same location as the replica
+ *  location. For secrets using the Automatic replication policy type, Cloud KMS
+ *  CryptoKeys must reside in `global`. The expected format is `projects/ *
+ *  /locations/ * /keyRings/ * /cryptoKeys/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Describes the status of customer-managed encryption.
+ */
+@interface GTLRSecretManager_CustomerManagedEncryptionStatus : GTLRObject
+
+/**
+ *  Required. The resource name of the Cloud KMS CryptoKeyVersion used to
+ *  encrypt the secret payload, in the following format: `projects/ *
+ *  /locations/ * /keyRings/ * /cryptoKeys/ * /versions/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersionName;
 
 @end
 
@@ -590,6 +661,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @interface GTLRSecretManager_Replica : GTLRObject
 
 /**
+ *  Optional. The customer-managed encryption configuration of the User-Managed
+ *  Replica. If no configuration is provided, Google-managed default encryption
+ *  is used. Updates to the Secret encryption configuration only apply to
+ *  SecretVersions added afterwards. They do not apply retroactively to existing
+ *  SecretVersions.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryption *customerManagedEncryption;
+
+/**
  *  The canonical IDs of the location to replicate data. For example:
  *  `"us-east1"`.
  */
@@ -599,7 +679,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 
 /**
- *  A policy that defines the replication configuration of data.
+ *  Describes the status of a user-managed replica for the SecretVersion.
+ */
+@interface GTLRSecretManager_ReplicaStatus : GTLRObject
+
+/**
+ *  Output only. The customer-managed encryption status of the SecretVersion.
+ *  Only populated if customer-managed encryption is used.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_CustomerManagedEncryptionStatus *customerManagedEncryption;
+
+/**
+ *  Output only. The canonical ID of the replica location. For example:
+ *  `"us-east1"`.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+@end
+
+
+/**
+ *  A policy that defines the replication and encryption configuration of data.
  */
 @interface GTLRSecretManager_Replication : GTLRObject
 
@@ -608,6 +708,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /** The Secret will only be replicated into the locations specified. */
 @property(nonatomic, strong, nullable) GTLRSecretManager_UserManaged *userManaged;
+
+@end
+
+
+/**
+ *  The replication status of a SecretVersion.
+ */
+@interface GTLRSecretManager_ReplicationStatus : GTLRObject
+
+/**
+ *  Describes the replication status of a SecretVersion with automatic
+ *  replication. Only populated if the parent Secret has an automatic
+ *  replication policy.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_AutomaticStatus *automatic;
+
+/**
+ *  Describes the replication status of a SecretVersion with user-managed
+ *  replication. Only populated if the parent Secret has a user-managed
+ *  replication policy.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_UserManagedStatus *userManaged;
 
 @end
 
@@ -705,6 +827,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The replication status of the SecretVersion. */
+@property(nonatomic, strong, nullable) GTLRSecretManager_ReplicationStatus *replicationStatus;
+
 /**
  *  Output only. The current state of the SecretVersion.
  *
@@ -786,6 +911,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /** Required. The list of Replicas for this Secret. Cannot be empty. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_Replica *> *replicas;
+
+@end
+
+
+/**
+ *  The replication status of a SecretVersion using user-managed replication.
+ *  Only populated if the parent Secret has a user-managed replication policy.
+ */
+@interface GTLRSecretManager_UserManagedStatus : GTLRObject
+
+/** Output only. The list of replica statuses for the SecretVersion. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_ReplicaStatus *> *replicas;
 
 @end
 

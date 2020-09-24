@@ -1107,6 +1107,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnn
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
 /**
+ *  Left cheek center.
+ *
+ *  Value: "LEFT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftCheekCenter;
+/**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
@@ -1220,6 +1226,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnn
  *  Value: "NOSE_TIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseTip;
+/**
+ *  Right cheek center.
+ *
+ *  Value: "RIGHT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightCheekCenter;
 /**
  *  Right ear tragion.
  *
@@ -1916,6 +1928,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnn
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
 /**
+ *  Left cheek center.
+ *
+ *  Value: "LEFT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftCheekCenter;
+/**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
@@ -2029,6 +2047,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnn
  *  Value: "NOSE_TIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseTip;
+/**
+ *  Right cheek center.
+ *
+ *  Value: "RIGHT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightCheekCenter;
 /**
  *  Right ear tragion.
  *
@@ -2761,6 +2785,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnn
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
 /**
+ *  Left cheek center.
+ *
+ *  Value: "LEFT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftCheekCenter;
+/**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
@@ -2874,6 +2904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnn
  *  Value: "NOSE_TIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseTip;
+/**
+ *  Right cheek center.
+ *
+ *  Value: "RIGHT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightCheekCenter;
 /**
  *  Right ear tragion.
  *
@@ -3606,6 +3642,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnn
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ForeheadGlabella;
 /**
+ *  Left cheek center.
+ *
+ *  Value: "LEFT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftCheekCenter;
+/**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
@@ -3719,6 +3761,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnn
  *  Value: "NOSE_TIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseTip;
+/**
+ *  Right cheek center.
+ *
+ *  Value: "RIGHT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightCheekCenter;
 /**
  *  Right ear tragion.
  *
@@ -4095,6 +4143,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_ChinRightGonion;
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_ForeheadGlabella;
 /**
+ *  Left cheek center.
+ *
+ *  Value: "LEFT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_LeftCheekCenter;
+/**
  *  Left ear tragion.
  *
  *  Value: "LEFT_EAR_TRAGION"
@@ -4208,6 +4262,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseBottomRight;
  *  Value: "NOSE_TIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_NoseTip;
+/**
+ *  Right cheek center.
+ *
+ *  Value: "RIGHT_CHEEK_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVision_Landmark_Type_RightCheekCenter;
 /**
  *  Right ear tragion.
  *
@@ -6148,6 +6208,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        Chin right gonion. (Value: "CHIN_RIGHT_GONION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_ForeheadGlabella
  *        Forehead glabella. (Value: "FOREHEAD_GLABELLA")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftCheekCenter
+ *        Left cheek center. (Value: "LEFT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEarTragion
  *        Left ear tragion. (Value: "LEFT_EAR_TRAGION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_LeftEye
@@ -6186,6 +6248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        Nose, bottom right. (Value: "NOSE_BOTTOM_RIGHT")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_NoseTip
  *        Nose tip. (Value: "NOSE_TIP")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightCheekCenter
+ *        Right cheek center. (Value: "RIGHT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEarTragion
  *        Right ear tragion. (Value: "RIGHT_EAR_TRAGION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p1beta1FaceAnnotationLandmark_Type_RightEye
@@ -7710,6 +7774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        Chin right gonion. (Value: "CHIN_RIGHT_GONION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_ForeheadGlabella
  *        Forehead glabella. (Value: "FOREHEAD_GLABELLA")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftCheekCenter
+ *        Left cheek center. (Value: "LEFT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEarTragion
  *        Left ear tragion. (Value: "LEFT_EAR_TRAGION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_LeftEye
@@ -7748,6 +7814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        Nose, bottom right. (Value: "NOSE_BOTTOM_RIGHT")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_NoseTip
  *        Nose tip. (Value: "NOSE_TIP")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightCheekCenter
+ *        Right cheek center. (Value: "RIGHT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEarTragion
  *        Right ear tragion. (Value: "RIGHT_EAR_TRAGION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p2beta1FaceAnnotationLandmark_Type_RightEye
@@ -9313,6 +9381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        Chin right gonion. (Value: "CHIN_RIGHT_GONION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_ForeheadGlabella
  *        Forehead glabella. (Value: "FOREHEAD_GLABELLA")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftCheekCenter
+ *        Left cheek center. (Value: "LEFT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEarTragion
  *        Left ear tragion. (Value: "LEFT_EAR_TRAGION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_LeftEye
@@ -9351,6 +9421,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        Nose, bottom right. (Value: "NOSE_BOTTOM_RIGHT")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_NoseTip
  *        Nose tip. (Value: "NOSE_TIP")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightCheekCenter
+ *        Right cheek center. (Value: "RIGHT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEarTragion
  *        Right ear tragion. (Value: "RIGHT_EAR_TRAGION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p3beta1FaceAnnotationLandmark_Type_RightEye
@@ -11026,6 +11098,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        Chin right gonion. (Value: "CHIN_RIGHT_GONION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_ForeheadGlabella
  *        Forehead glabella. (Value: "FOREHEAD_GLABELLA")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftCheekCenter
+ *        Left cheek center. (Value: "LEFT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEarTragion
  *        Left ear tragion. (Value: "LEFT_EAR_TRAGION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_LeftEye
@@ -11064,6 +11138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        Nose, bottom right. (Value: "NOSE_BOTTOM_RIGHT")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_NoseTip
  *        Nose tip. (Value: "NOSE_TIP")
+ *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightCheekCenter
+ *        Right cheek center. (Value: "RIGHT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEarTragion
  *        Right ear tragion. (Value: "RIGHT_EAR_TRAGION")
  *    @arg @c kGTLRVision_GoogleCloudVisionV1p4beta1FaceAnnotationLandmark_Type_RightEye
@@ -12397,6 +12473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *        (Value: "CHIN_RIGHT_GONION")
  *    @arg @c kGTLRVision_Landmark_Type_ForeheadGlabella Forehead glabella.
  *        (Value: "FOREHEAD_GLABELLA")
+ *    @arg @c kGTLRVision_Landmark_Type_LeftCheekCenter Left cheek center.
+ *        (Value: "LEFT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_Landmark_Type_LeftEarTragion Left ear tragion. (Value:
  *        "LEFT_EAR_TRAGION")
  *    @arg @c kGTLRVision_Landmark_Type_LeftEye Left eye. (Value: "LEFT_EYE")
@@ -12432,6 +12510,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
  *    @arg @c kGTLRVision_Landmark_Type_NoseBottomRight Nose, bottom right.
  *        (Value: "NOSE_BOTTOM_RIGHT")
  *    @arg @c kGTLRVision_Landmark_Type_NoseTip Nose tip. (Value: "NOSE_TIP")
+ *    @arg @c kGTLRVision_Landmark_Type_RightCheekCenter Right cheek center.
+ *        (Value: "RIGHT_CHEEK_CENTER")
  *    @arg @c kGTLRVision_Landmark_Type_RightEarTragion Right ear tragion.
  *        (Value: "RIGHT_EAR_TRAGION")
  *    @arg @c kGTLRVision_Landmark_Type_RightEye Right eye. (Value: "RIGHT_EYE")

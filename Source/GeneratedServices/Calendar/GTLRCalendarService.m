@@ -13,22 +13,11 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeCalendar                     = @"https://www.googleapis.com/auth/calendar";
-NSString * const kGTLRAuthScopeCalendarAcls                 = @"https://www.googleapis.com/auth/calendar.acls";
-NSString * const kGTLRAuthScopeCalendarAclsReadonly         = @"https://www.googleapis.com/auth/calendar.acls.readonly";
-NSString * const kGTLRAuthScopeCalendarAppCreated           = @"https://www.googleapis.com/auth/calendar.app.created";
-NSString * const kGTLRAuthScopeCalendarCalendarlist         = @"https://www.googleapis.com/auth/calendar.calendarlist";
-NSString * const kGTLRAuthScopeCalendarCalendarlistReadonly = @"https://www.googleapis.com/auth/calendar.calendarlist.readonly";
-NSString * const kGTLRAuthScopeCalendarCalendars            = @"https://www.googleapis.com/auth/calendar.calendars";
-NSString * const kGTLRAuthScopeCalendarCalendarsReadonly    = @"https://www.googleapis.com/auth/calendar.calendars.readonly";
-NSString * const kGTLRAuthScopeCalendarEvents               = @"https://www.googleapis.com/auth/calendar.events";
-NSString * const kGTLRAuthScopeCalendarEventsFreebusy       = @"https://www.googleapis.com/auth/calendar.events.freebusy";
-NSString * const kGTLRAuthScopeCalendarEventsOwned          = @"https://www.googleapis.com/auth/calendar.events.owned";
-NSString * const kGTLRAuthScopeCalendarEventsOwnedReadonly  = @"https://www.googleapis.com/auth/calendar.events.owned.readonly";
-NSString * const kGTLRAuthScopeCalendarEventsPublicReadonly = @"https://www.googleapis.com/auth/calendar.events.public.readonly";
-NSString * const kGTLRAuthScopeCalendarEventsReadonly       = @"https://www.googleapis.com/auth/calendar.events.readonly";
-NSString * const kGTLRAuthScopeCalendarReadonly             = @"https://www.googleapis.com/auth/calendar.readonly";
-NSString * const kGTLRAuthScopeCalendarSettingsReadonly     = @"https://www.googleapis.com/auth/calendar.settings.readonly";
+NSString * const kGTLRAuthScopeCalendar                 = @"https://www.googleapis.com/auth/calendar";
+NSString * const kGTLRAuthScopeCalendarEvents           = @"https://www.googleapis.com/auth/calendar.events";
+NSString * const kGTLRAuthScopeCalendarEventsReadonly   = @"https://www.googleapis.com/auth/calendar.events.readonly";
+NSString * const kGTLRAuthScopeCalendarReadonly         = @"https://www.googleapis.com/auth/calendar.readonly";
+NSString * const kGTLRAuthScopeCalendarSettingsReadonly = @"https://www.googleapis.com/auth/calendar.settings.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRCalendarService

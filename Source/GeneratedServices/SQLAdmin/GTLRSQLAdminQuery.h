@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sql/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -56,8 +56,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeExternalSyncModeUnspecified;
 /**
- *  Offline external sync only dumps and loads a one-time snapshot of master's
- *  data
+ *  Offline external sync only dumps and loads a one-time snapshot of the
+ *  primary instance's data
  *
  *  Value: "OFFLINE"
  */
@@ -1454,7 +1454,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Start External master migration.
+ *  Start External primary instance migration.
  *
  *  Method: sql.projects.instances.startExternalSync
  *
@@ -1482,14 +1482,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @arg @c kGTLRSQLAdminSyncModeOnline Online external sync will set up
  *        replication after initial data external sync (Value: "ONLINE")
  *    @arg @c kGTLRSQLAdminSyncModeOffline Offline external sync only dumps and
- *        loads a one-time snapshot of master's data (Value: "OFFLINE")
+ *        loads a one-time snapshot of the primary instance's data (Value:
+ *        "OFFLINE")
  */
 @property(nonatomic, copy, nullable) NSString *syncMode;
 
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Start External master migration.
+ *  Start External primary instance migration.
  *
  *  @param project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
@@ -1502,7 +1503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Verify External master external sync settings.
+ *  Verify External primary instance external sync settings.
  *
  *  Method: sql.projects.instances.verifyExternalSyncSettings
  *
@@ -1530,7 +1531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @arg @c kGTLRSQLAdminSyncModeOnline Online external sync will set up
  *        replication after initial data external sync (Value: "ONLINE")
  *    @arg @c kGTLRSQLAdminSyncModeOffline Offline external sync only dumps and
- *        loads a one-time snapshot of master's data (Value: "OFFLINE")
+ *        loads a one-time snapshot of the primary instance's data (Value:
+ *        "OFFLINE")
  */
 @property(nonatomic, copy, nullable) NSString *syncMode;
 
@@ -1540,7 +1542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse.
  *
- *  Verify External master external sync settings.
+ *  Verify External primary instance external sync settings.
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.

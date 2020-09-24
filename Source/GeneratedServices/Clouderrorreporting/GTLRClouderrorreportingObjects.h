@@ -60,7 +60,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Muted;
 /**
  *  The error group is not being addressed. This is the default for new groups.
- *  It is also used for errors re-occuring after marked RESOLVED.
+ *  It is also used for errors re-occurring after marked RESOLVED.
  *
  *  Value: "OPEN"
  */
@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
  *        (Value: "MUTED")
  *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Open The
  *        error group is not being addressed. This is the default for new
- *        groups. It is also used for errors re-occuring after marked RESOLVED.
+ *        groups. It is also used for errors re-occurring after marked RESOLVED.
  *        (Value: "OPEN")
  *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_ResolutionStatusUnspecified
  *        Status is unknown. (Value: "RESOLUTION_STATUS_UNSPECIFIED")

@@ -42443,7 +42443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Represents a Target VPN Gateway resource.
  *  The target VPN gateway resource represents a Classic Cloud VPN gateway. For
- *  more information, read the Cloud VPN Overview. (== resource_for
+ *  more information, read the the Cloud VPN Overview. (== resource_for
  *  {$api_version}.targetVpnGateways ==)
  */
 @interface GTLRCompute_TargetVpnGateway : GTLRObject
@@ -44727,7 +44727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Represents a Cloud VPN Tunnel resource.
- *  For more information about VPN, read the Cloud VPN Overview. (==
+ *  For more information about VPN, read the the Cloud VPN Overview. (==
  *  resource_for {$api_version}.vpnTunnels ==)
  */
 @interface GTLRCompute_VpnTunnel : GTLRObject

@@ -11,6 +11,16 @@
 
 #import "GTLRSearchConsole.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+NSString * const kGTLRAuthScopeSearchConsoleWebmasters         = @"https://www.googleapis.com/auth/webmasters";
+NSString * const kGTLRAuthScopeSearchConsoleWebmastersReadonly = @"https://www.googleapis.com/auth/webmasters.readonly";
+
+// ----------------------------------------------------------------------------
+//   GTLRSearchConsoleService
+//
+
 @implementation GTLRSearchConsoleService
 
 - (instancetype)init {

@@ -377,14 +377,14 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryTasks queryForTasksListWithtasklist:]
 
 /**
- *  Upper bound for a task's completion date (as a RFC 3339 timestamp) to
- *  filter by. Optional. The default is not to filter by completion date.
+ *  Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter
+ *  by. Optional. The default is not to filter by completion date.
  */
 @property(nonatomic, copy, nullable) NSString *completedMax;
 
 /**
- *  Lower bound for a task's completion date (as a RFC 3339 timestamp) to
- *  filter by. Optional. The default is not to filter by completion date.
+ *  Lower bound for a task's completion date (as a RFC 3339 timestamp) to filter
+ *  by. Optional. The default is not to filter by completion date.
  */
 @property(nonatomic, copy, nullable) NSString *completedMin;
 
@@ -411,7 +411,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Flag indicating whether completed tasks are returned in the result.
- *  Optional. The default is True.
+ *  Optional. The default is True. Note that showHidden must also be True to
+ *  show tasks completed in first party clients, such as the web UI and Google's
+ *  mobile apps.
  */
 @property(nonatomic, assign) BOOL showCompleted;
 
@@ -431,9 +433,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *tasklist;
 
 /**
- *  Lower bound for a task's last modification time (as a RFC 3339 timestamp)
- *  to filter by. Optional. The default is not to filter by last modification
- *  time.
+ *  Lower bound for a task's last modification time (as a RFC 3339 timestamp) to
+ *  filter by. Optional. The default is not to filter by last modification time.
  */
 @property(nonatomic, copy, nullable) NSString *updatedMin;
 

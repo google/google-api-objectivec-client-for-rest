@@ -67,6 +67,11 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstrain
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge = @"PERIMETER_TYPE_BRIDGE";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular = @"PERIMETER_TYPE_REGULAR";
 
+// GTLRCloudAsset_PartitionSpec.partitionKey
+NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_PartitionKeyUnspecified = @"PARTITION_KEY_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_ReadTime = @"READ_TIME";
+NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_RequestTime = @"REQUEST_TIME";
+
 // GTLRCloudAsset_TemporalAsset.priorAssetState
 NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_Deleted = @"DELETED";
 NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_DoesNotExist = @"DOES_NOT_EXIST";
@@ -154,7 +159,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_BigQueryDestination
-@dynamic dataset, force, table;
+@dynamic dataset, force, partitionSpec, separateTablesPerAssetType, table;
 @end
 
 
@@ -585,6 +590,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_OutputConfig
 @dynamic bigqueryDestination, gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_PartitionSpec
+//
+
+@implementation GTLRCloudAsset_PartitionSpec
+@dynamic partitionKey;
 @end
 
 

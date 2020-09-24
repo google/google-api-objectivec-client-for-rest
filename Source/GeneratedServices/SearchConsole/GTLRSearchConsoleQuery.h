@@ -22,6 +22,7 @@
 #endif
 
 @class GTLRSearchConsole_RunMobileFriendlyTestRequest;
+@class GTLRSearchConsole_SearchAnalyticsQueryRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -37,6 +38,335 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Query your data with filters and parameters that you define. Returns zero or
+ *  more rows grouped by the row keys that you define. You must define a date
+ *  range of one or more days. When date is one of the group by values, any days
+ *  without data are omitted from the result list. If you need to know which
+ *  days have data, issue a broad date range query grouped by date for any
+ *  metric, and see which day rows are returned.
+ *
+ *  Method: webmasters.searchanalytics.query
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
+ */
+@interface GTLRSearchConsoleQuery_SearchanalyticsQuery : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSearchanalyticsQueryWithObject:siteUrl:]
+
+/**
+ *  The site's URL, including protocol. For example: `http://www.example.com/`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteUrl;
+
+/**
+ *  Fetches a @c GTLRSearchConsole_SearchAnalyticsQueryResponse.
+ *
+ *  Query your data with filters and parameters that you define. Returns zero or
+ *  more rows grouped by the row keys that you define. You must define a date
+ *  range of one or more days. When date is one of the group by values, any days
+ *  without data are omitted from the result list. If you need to know which
+ *  days have data, issue a broad date range query grouped by date for any
+ *  metric, and see which day rows are returned.
+ *
+ *  @param object The @c GTLRSearchConsole_SearchAnalyticsQueryRequest to
+ *    include in the query.
+ *  @param siteUrl The site's URL, including protocol. For example:
+ *    `http://www.example.com/`.
+ *
+ *  @return GTLRSearchConsoleQuery_SearchanalyticsQuery
+ */
++ (instancetype)queryWithObject:(GTLRSearchConsole_SearchAnalyticsQueryRequest *)object
+                        siteUrl:(NSString *)siteUrl;
+
+@end
+
+/**
+ *  Deletes a sitemap from this site.
+ *
+ *  Method: webmasters.sitemaps.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ */
+@interface GTLRSearchConsoleQuery_SitemapsDelete : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSitemapsDeleteWithsiteUrl:feedpath:]
+
+/**
+ *  The URL of the actual sitemap. For example:
+ *  `http://www.example.com/sitemap.xml`.
+ */
+@property(nonatomic, copy, nullable) NSString *feedpath;
+
+/**
+ *  The site's URL, including protocol. For example: `http://www.example.com/`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteUrl;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a sitemap from this site.
+ *
+ *  @param siteUrl The site's URL, including protocol. For example:
+ *    `http://www.example.com/`.
+ *  @param feedpath The URL of the actual sitemap. For example:
+ *    `http://www.example.com/sitemap.xml`.
+ *
+ *  @return GTLRSearchConsoleQuery_SitemapsDelete
+ */
++ (instancetype)queryWithSiteUrl:(NSString *)siteUrl
+                        feedpath:(NSString *)feedpath;
+
+@end
+
+/**
+ *  Retrieves information about a specific sitemap.
+ *
+ *  Method: webmasters.sitemaps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
+ */
+@interface GTLRSearchConsoleQuery_SitemapsGet : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSitemapsGetWithsiteUrl:feedpath:]
+
+/**
+ *  The URL of the actual sitemap. For example:
+ *  `http://www.example.com/sitemap.xml`.
+ */
+@property(nonatomic, copy, nullable) NSString *feedpath;
+
+/**
+ *  The site's URL, including protocol. For example: `http://www.example.com/`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteUrl;
+
+/**
+ *  Fetches a @c GTLRSearchConsole_WmxSitemap.
+ *
+ *  Retrieves information about a specific sitemap.
+ *
+ *  @param siteUrl The site's URL, including protocol. For example:
+ *    `http://www.example.com/`.
+ *  @param feedpath The URL of the actual sitemap. For example:
+ *    `http://www.example.com/sitemap.xml`.
+ *
+ *  @return GTLRSearchConsoleQuery_SitemapsGet
+ */
++ (instancetype)queryWithSiteUrl:(NSString *)siteUrl
+                        feedpath:(NSString *)feedpath;
+
+@end
+
+/**
+ *  Lists the [sitemaps-entries](/webmaster-tools/v3/sitemaps) submitted for
+ *  this site, or included in the sitemap index file (if `sitemapIndex` is
+ *  specified in the request).
+ *
+ *  Method: webmasters.sitemaps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
+ */
+@interface GTLRSearchConsoleQuery_SitemapsList : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSitemapsListWithsiteUrl:]
+
+/**
+ *  A URL of a site's sitemap index. For example:
+ *  `http://www.example.com/sitemapindex.xml`.
+ */
+@property(nonatomic, copy, nullable) NSString *sitemapIndex;
+
+/**
+ *  The site's URL, including protocol. For example: `http://www.example.com/`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteUrl;
+
+/**
+ *  Fetches a @c GTLRSearchConsole_SitemapsListResponse.
+ *
+ *  Lists the [sitemaps-entries](/webmaster-tools/v3/sitemaps) submitted for
+ *  this site, or included in the sitemap index file (if `sitemapIndex` is
+ *  specified in the request).
+ *
+ *  @param siteUrl The site's URL, including protocol. For example:
+ *    `http://www.example.com/`.
+ *
+ *  @return GTLRSearchConsoleQuery_SitemapsList
+ */
++ (instancetype)queryWithSiteUrl:(NSString *)siteUrl;
+
+@end
+
+/**
+ *  Submits a sitemap for a site.
+ *
+ *  Method: webmasters.sitemaps.submit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ */
+@interface GTLRSearchConsoleQuery_SitemapsSubmit : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSitemapsSubmitWithsiteUrl:feedpath:]
+
+/**
+ *  The URL of the actual sitemap. For example:
+ *  `http://www.example.com/sitemap.xml`.
+ */
+@property(nonatomic, copy, nullable) NSString *feedpath;
+
+/**
+ *  The site's URL, including protocol. For example: `http://www.example.com/`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteUrl;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Submits a sitemap for a site.
+ *
+ *  @param siteUrl The site's URL, including protocol. For example:
+ *    `http://www.example.com/`.
+ *  @param feedpath The URL of the actual sitemap. For example:
+ *    `http://www.example.com/sitemap.xml`.
+ *
+ *  @return GTLRSearchConsoleQuery_SitemapsSubmit
+ */
++ (instancetype)queryWithSiteUrl:(NSString *)siteUrl
+                        feedpath:(NSString *)feedpath;
+
+@end
+
+/**
+ *  Adds a site to the set of the user's sites in Search Console.
+ *
+ *  Method: webmasters.sites.add
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ */
+@interface GTLRSearchConsoleQuery_SitesAdd : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSitesAddWithsiteUrl:]
+
+/** The URL of the site to add. */
+@property(nonatomic, copy, nullable) NSString *siteUrl;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Adds a site to the set of the user's sites in Search Console.
+ *
+ *  @param siteUrl The URL of the site to add.
+ *
+ *  @return GTLRSearchConsoleQuery_SitesAdd
+ */
++ (instancetype)queryWithSiteUrl:(NSString *)siteUrl;
+
+@end
+
+/**
+ *  Removes a site from the set of the user's Search Console sites.
+ *
+ *  Method: webmasters.sites.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ */
+@interface GTLRSearchConsoleQuery_SitesDelete : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSitesDeleteWithsiteUrl:]
+
+/**
+ *  The URI of the property as defined in Search Console. **Examples:**
+ *  `http://www.example.com/` or `sc-domain:example.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteUrl;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Removes a site from the set of the user's Search Console sites.
+ *
+ *  @param siteUrl The URI of the property as defined in Search Console.
+ *    **Examples:** `http://www.example.com/` or `sc-domain:example.com`.
+ *
+ *  @return GTLRSearchConsoleQuery_SitesDelete
+ */
++ (instancetype)queryWithSiteUrl:(NSString *)siteUrl;
+
+@end
+
+/**
+ *  Retrieves information about specific site.
+ *
+ *  Method: webmasters.sites.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
+ */
+@interface GTLRSearchConsoleQuery_SitesGet : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSitesGetWithsiteUrl:]
+
+/**
+ *  The URI of the property as defined in Search Console. **Examples:**
+ *  `http://www.example.com/` or `sc-domain:example.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *siteUrl;
+
+/**
+ *  Fetches a @c GTLRSearchConsole_WmxSite.
+ *
+ *  Retrieves information about specific site.
+ *
+ *  @param siteUrl The URI of the property as defined in Search Console.
+ *    **Examples:** `http://www.example.com/` or `sc-domain:example.com`.
+ *
+ *  @return GTLRSearchConsoleQuery_SitesGet
+ */
++ (instancetype)queryWithSiteUrl:(NSString *)siteUrl;
+
+@end
+
+/**
+ *  Lists the user's Search Console sites.
+ *
+ *  Method: webmasters.sites.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSearchConsoleWebmasters
+ *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
+ */
+@interface GTLRSearchConsoleQuery_SitesList : GTLRSearchConsoleQuery
+// Previous library name was
+//   +[GTLQuerySearchConsole queryForSitesList]
+
+/**
+ *  Fetches a @c GTLRSearchConsole_SitesListResponse.
+ *
+ *  Lists the user's Search Console sites.
+ *
+ *  @return GTLRSearchConsoleQuery_SitesList
+ */
++ (instancetype)query;
 
 @end
 

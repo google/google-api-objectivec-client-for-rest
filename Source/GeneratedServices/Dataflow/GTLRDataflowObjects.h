@@ -57,6 +57,8 @@
 @class GTLRDataflow_FailedLocation;
 @class GTLRDataflow_FileIODetails;
 @class GTLRDataflow_FlattenInstruction;
+@class GTLRDataflow_FlexTemplateRuntimeEnvironment;
+@class GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels;
 @class GTLRDataflow_FloatingPointList;
 @class GTLRDataflow_FloatingPointMean;
 @class GTLRDataflow_Histogram;
@@ -638,6 +640,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_Unkn
  *  Value: "WRITE_KIND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
+
+// ----------------------------------------------------------------------------
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.ipConfiguration
+
+/**
+ *  Workers should have private IP addresses.
+ *
+ *  Value: "WORKER_IP_PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPrivate;
+/**
+ *  Workers should have public IP addresses.
+ *
+ *  Value: "WORKER_IP_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPublic;
+/**
+ *  The configuration is unknown, or unspecified.
+ *
+ *  Value: "WORKER_IP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_GetTemplateResponse.templateType
@@ -2887,6 +2911,138 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  The environment values to be set at runtime for flex template.
+ */
+@interface GTLRDataflow_FlexTemplateRuntimeEnvironment : GTLRObject
+
+/** Additional experiment flags for the job. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalExperiments;
+
+/**
+ *  Additional user labels to be specified for the job. Keys and values must
+ *  follow the restrictions specified in the [labeling
+ *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
+ *  page.
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels *additionalUserLabels;
+
+/**
+ *  Whether to enable Streaming Engine for the job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableStreamingEngine;
+
+/**
+ *  Configuration for VM IPs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPrivate
+ *        Workers should have private IP addresses. (Value: "WORKER_IP_PRIVATE")
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPublic
+ *        Workers should have public IP addresses. (Value: "WORKER_IP_PUBLIC")
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpUnspecified
+ *        The configuration is unknown, or unspecified. (Value:
+ *        "WORKER_IP_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ipConfiguration;
+
+/**
+ *  Name for the Cloud KMS key for the job. Key format is:
+ *  projects//locations//keyRings//cryptoKeys/
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  The machine type to use for the job. Defaults to the value from the template
+ *  if not specified.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  The maximum number of Google Compute Engine instances to be made available
+ *  to your pipeline during execution, from 1 to 1000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxWorkers;
+
+/**
+ *  Network to which VMs will be assigned. If empty or unspecified, the service
+ *  will use the network "default".
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  The initial number of Google Compute Engine instances for the job.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numWorkers;
+
+/** The email address of the service account to run the job as. */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Subnetwork to which VMs will be assigned, if desired. Expected to be of the
+ *  form "regions/REGION/subnetworks/SUBNETWORK".
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/**
+ *  The Cloud Storage path to use for temporary files. Must be a valid Cloud
+ *  Storage URL, beginning with `gs://`.
+ */
+@property(nonatomic, copy, nullable) NSString *tempLocation;
+
+/**
+ *  The Compute Engine region
+ *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which
+ *  worker processing should occur, e.g. "us-west1". Mutually exclusive with
+ *  worker_zone. If neither worker_region nor worker_zone is specified, default
+ *  to the control plane's region.
+ */
+@property(nonatomic, copy, nullable) NSString *workerRegion;
+
+/**
+ *  The Compute Engine zone
+ *  (https://cloud.google.com/compute/docs/regions-zones/regions-zones) in which
+ *  worker processing should occur, e.g. "us-west1-a". Mutually exclusive with
+ *  worker_region. If neither worker_region nor worker_zone is specified, a zone
+ *  in the control plane's region is chosen based on available capacity. If both
+ *  `worker_zone` and `zone` are set, `worker_zone` takes precedence.
+ */
+@property(nonatomic, copy, nullable) NSString *workerZone;
+
+/**
+ *  The Compute Engine [availability
+ *  zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones) for
+ *  launching worker instances to run your pipeline. In the future, worker_zone
+ *  will take precedence.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  Additional user labels to be specified for the job. Keys and values must
+ *  follow the restrictions specified in the [labeling
+ *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
+ *  page.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels : GTLRObject
+@end
+
+
+/**
  *  A metric value representing a list of floating point numbers.
  */
 @interface GTLRDataflow_FloatingPointList : GTLRObject
@@ -3485,10 +3641,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /**
  *  Information about the execution of a job.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "stages" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRDataflow_JobExecutionDetails : GTLRObject
+@interface GTLRDataflow_JobExecutionDetails : GTLRCollectionObject
 
-/** The stages of the job execution. */
+/**
+ *  If present, this response does not contain all requested tasks. To obtain
+ *  the next page of results, repeat the request with page_token set to this
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The stages of the job execution.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StageSummary *> *stages;
 
 @end
@@ -3709,6 +3882,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Gcs path to a file with json serialized ContainerSpec as content. */
 @property(nonatomic, copy, nullable) NSString *containerSpecGcsPath;
+
+/** The runtime environment for the FlexTemplate job */
+@property(nonatomic, strong, nullable) GTLRDataflow_FlexTemplateRuntimeEnvironment *environment;
 
 /** Required. The job name to use for the created job. */
 @property(nonatomic, copy, nullable) NSString *jobName;

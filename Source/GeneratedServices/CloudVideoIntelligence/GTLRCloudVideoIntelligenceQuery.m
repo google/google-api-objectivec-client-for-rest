@@ -77,6 +77,25 @@
 
 @end
 
+@implementation GTLRCloudVideoIntelligenceQuery_ProjectsLocationsCorporaOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudVideoIntelligenceQuery_ProjectsLocationsCorporaOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudVideoIntelligence_GoogleLongrunningOperation class];
+  query.loggingName = @"videointelligence.projects.locations.corpora.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudVideoIntelligenceQuery_ProjectsLocationsCorpuraOperationsGet
 
 @dynamic name;

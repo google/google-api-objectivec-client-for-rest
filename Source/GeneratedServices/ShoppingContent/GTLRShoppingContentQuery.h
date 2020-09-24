@@ -97,6 +97,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTime
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesCompleted;
 /** Value: "new" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesNew;
+/** Value: "pending" */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesPending;
 /** Value: "shipped" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesShipped;
 /** Value: "undeliverable" */
@@ -2170,6 +2172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Likely values:
  *    @arg @c kGTLRShoppingContentShipmentStatesCompleted Value "completed"
  *    @arg @c kGTLRShoppingContentShipmentStatesNew Value "new"
+ *    @arg @c kGTLRShoppingContentShipmentStatesPending Value "pending"
  *    @arg @c kGTLRShoppingContentShipmentStatesShipped Value "shipped"
  *    @arg @c kGTLRShoppingContentShipmentStatesUndeliverable Value
  *        "undeliverable"

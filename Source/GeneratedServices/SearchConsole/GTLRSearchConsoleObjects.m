@@ -14,6 +14,22 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRSearchConsole_ApiDimensionFilter.dimension
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_Dimension_Country = @"COUNTRY";
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_Dimension_Device = @"DEVICE";
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_Dimension_Page = @"PAGE";
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_Dimension_Query = @"QUERY";
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_Dimension_SearchAppearance = @"SEARCH_APPEARANCE";
+
+// GTLRSearchConsole_ApiDimensionFilter.operatorProperty
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_Contains = @"CONTAINS";
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_Equals = @"EQUALS";
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_NotContains = @"NOT_CONTAINS";
+NSString * const kGTLRSearchConsole_ApiDimensionFilter_OperatorProperty_NotEquals = @"NOT_EQUALS";
+
+// GTLRSearchConsole_ApiDimensionFilterGroup.groupType
+NSString * const kGTLRSearchConsole_ApiDimensionFilterGroup_GroupType_And = @"AND";
+
 // GTLRSearchConsole_MobileFriendlyIssue.rule
 NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_ConfigureViewport = @"CONFIGURE_VIEWPORT";
 NSString * const kGTLRSearchConsole_MobileFriendlyIssue_Rule_FixedWidthViewport = @"FIXED_WIDTH_VIEWPORT";
@@ -28,11 +44,112 @@ NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendli
 NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_MobileFriendlyTestResultUnspecified = @"MOBILE_FRIENDLY_TEST_RESULT_UNSPECIFIED";
 NSString * const kGTLRSearchConsole_RunMobileFriendlyTestResponse_MobileFriendliness_NotMobileFriendly = @"NOT_MOBILE_FRIENDLY";
 
+// GTLRSearchConsole_SearchAnalyticsQueryRequest.aggregationType
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_Auto = @"AUTO";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByPage = @"BY_PAGE";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByProperty = @"BY_PROPERTY";
+
+// GTLRSearchConsole_SearchAnalyticsQueryRequest.dimensions
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Country = @"COUNTRY";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Date = @"DATE";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Device = @"DEVICE";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Page = @"PAGE";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Query = @"QUERY";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_SearchAppearance = @"SEARCH_APPEARANCE";
+
+// GTLRSearchConsole_SearchAnalyticsQueryRequest.searchType
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Image = @"IMAGE";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Video = @"VIDEO";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Web = @"WEB";
+
+// GTLRSearchConsole_SearchAnalyticsQueryResponse.responseAggregationType
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_Auto = @"AUTO";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByPage = @"BY_PAGE";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryResponse_ResponseAggregationType_ByProperty = @"BY_PROPERTY";
+
 // GTLRSearchConsole_TestStatus.status
 NSString * const kGTLRSearchConsole_TestStatus_Status_Complete = @"COMPLETE";
 NSString * const kGTLRSearchConsole_TestStatus_Status_InternalError = @"INTERNAL_ERROR";
 NSString * const kGTLRSearchConsole_TestStatus_Status_PageUnreachable = @"PAGE_UNREACHABLE";
 NSString * const kGTLRSearchConsole_TestStatus_Status_TestStatusUnspecified = @"TEST_STATUS_UNSPECIFIED";
+
+// GTLRSearchConsole_WmxSite.permissionLevel
+NSString * const kGTLRSearchConsole_WmxSite_PermissionLevel_SiteFullUser = @"SITE_FULL_USER";
+NSString * const kGTLRSearchConsole_WmxSite_PermissionLevel_SiteOwner = @"SITE_OWNER";
+NSString * const kGTLRSearchConsole_WmxSite_PermissionLevel_SitePermissionLevelUnspecified = @"SITE_PERMISSION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_WmxSite_PermissionLevel_SiteRestrictedUser = @"SITE_RESTRICTED_USER";
+NSString * const kGTLRSearchConsole_WmxSite_PermissionLevel_SiteUnverifiedUser = @"SITE_UNVERIFIED_USER";
+
+// GTLRSearchConsole_WmxSitemap.type
+NSString * const kGTLRSearchConsole_WmxSitemap_Type_AtomFeed   = @"ATOM_FEED";
+NSString * const kGTLRSearchConsole_WmxSitemap_Type_NotSitemap = @"NOT_SITEMAP";
+NSString * const kGTLRSearchConsole_WmxSitemap_Type_Oceanfront = @"OCEANFRONT";
+NSString * const kGTLRSearchConsole_WmxSitemap_Type_PatternSitemap = @"PATTERN_SITEMAP";
+NSString * const kGTLRSearchConsole_WmxSitemap_Type_RssFeed    = @"RSS_FEED";
+NSString * const kGTLRSearchConsole_WmxSitemap_Type_Sitemap    = @"SITEMAP";
+NSString * const kGTLRSearchConsole_WmxSitemap_Type_UrlList    = @"URL_LIST";
+
+// GTLRSearchConsole_WmxSitemapContent.type
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_AndroidApp = @"ANDROID_APP";
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_DataFeedElement = @"DATA_FEED_ELEMENT";
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Image = @"IMAGE";
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_IosApp = @"IOS_APP";
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Mobile = @"MOBILE";
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_News = @"NEWS";
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Pattern = @"PATTERN";
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Video = @"VIDEO";
+NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web = @"WEB";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_ApiDataRow
+//
+
+@implementation GTLRSearchConsole_ApiDataRow
+@dynamic clicks, ctr, impressions, keys, position;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_ApiDimensionFilter
+//
+
+@implementation GTLRSearchConsole_ApiDimensionFilter
+@dynamic dimension, expression, operatorProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"operatorProperty" : @"operator" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_ApiDimensionFilterGroup
+//
+
+@implementation GTLRSearchConsole_ApiDimensionFilterGroup
+@dynamic filters, groupType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"filters" : [GTLRSearchConsole_ApiDimensionFilter class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -106,9 +223,122 @@ NSString * const kGTLRSearchConsole_TestStatus_Status_TestStatusUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSearchConsole_SearchAnalyticsQueryRequest
+//
+
+@implementation GTLRSearchConsole_SearchAnalyticsQueryRequest
+@dynamic aggregationType, dimensionFilterGroups, dimensions, endDate, rowLimit,
+         searchType, startDate, startRow;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionFilterGroups" : [GTLRSearchConsole_ApiDimensionFilterGroup class],
+    @"dimensions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_SearchAnalyticsQueryResponse
+//
+
+@implementation GTLRSearchConsole_SearchAnalyticsQueryResponse
+@dynamic responseAggregationType, rows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rows" : [GTLRSearchConsole_ApiDataRow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_SitemapsListResponse
+//
+
+@implementation GTLRSearchConsole_SitemapsListResponse
+@dynamic sitemap;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sitemap" : [GTLRSearchConsole_WmxSitemap class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_SitesListResponse
+//
+
+@implementation GTLRSearchConsole_SitesListResponse
+@dynamic siteEntry;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"siteEntry" : [GTLRSearchConsole_WmxSite class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSearchConsole_TestStatus
 //
 
 @implementation GTLRSearchConsole_TestStatus
 @dynamic details, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_WmxSite
+//
+
+@implementation GTLRSearchConsole_WmxSite
+@dynamic permissionLevel, siteUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_WmxSitemap
+//
+
+@implementation GTLRSearchConsole_WmxSitemap
+@dynamic contents, errors, isPending, isSitemapsIndex, lastDownloaded,
+         lastSubmitted, path, type, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contents" : [GTLRSearchConsole_WmxSitemapContent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSearchConsole_WmxSitemapContent
+//
+
+@implementation GTLRSearchConsole_WmxSitemapContent
+@dynamic indexed, submitted, type;
 @end

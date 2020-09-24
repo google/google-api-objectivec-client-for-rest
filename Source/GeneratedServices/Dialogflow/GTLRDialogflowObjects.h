@@ -1602,6 +1602,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
+ *  The response message for Agents.ImportAgent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportAgentResponse : GTLRObject
+
+/**
+ *  The unique identifier of the new agent. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *agent;
+
+@end
+
+
+/**
  *  Represents page information communicated to and from the webhook.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo : GTLRObject
@@ -1895,6 +1909,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  synthesis, as described in the comment on the ResponseMessage message.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageOutputAudioText : GTLRObject
+
+/**
+ *  Output only. Whether the playback of this message can be interrupted by the
+ *  end user's speech and the client can then starts the next Dialogflow
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
 
 /**
  *  The SSML text to be synthesized. For more information, see
@@ -2682,12 +2705,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, strong, nullable) NSNumber *lifespanCount;
 
 /**
- *  Required. The unique identifier of the context. Format:
- *  `projects//agent/sessions//contexts/`, or
- *  `projects//agent/environments//users//sessions//contexts/`. The `Context ID`
- *  is always converted to lowercase, may only contain characters in
- *  a-zA-Z0-9_-% and may be at most 250 bytes long. If `Environment ID` is not
- *  specified, we assume default 'draft' environment. If `User ID` is not
+ *  Required. The unique identifier of the context. Supported formats: -
+ *  `projects//agent/sessions//contexts/`, -
+ *  `projects//locations//agent/sessions//contexts/`, -
+ *  `projects//agent/environments//users//sessions//contexts/`, -
+ *  `projects//locations//agent/environments//users//sessions//contexts/`, The
+ *  `Context ID` is always converted to lowercase, may only contain characters
+ *  in a-zA-Z0-9_-% and may be at most 250 bytes long. If `Environment ID` is
+ *  not specified, we assume default 'draft' environment. If `User ID` is not
  *  specified, we assume default '-' user. The following context names are
  *  reserved for internal use by Dialogflow. You should not use these contexts
  *  or create contexts with these names: * `__system_counters__` *
@@ -2795,7 +2820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 /**
  *  The unique identifier of the entity type. Required for
  *  EntityTypes.UpdateEntityType and EntityTypes.BatchUpdateEntityTypes methods.
- *  Format: `projects//agent/entityTypes/`.
+ *  Supported formats: - `projects//agent/entityTypes/` -
+ *  `projects//locations//agent/entityTypes/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2953,7 +2979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. The list of context names required for this intent to be
- *  triggered. Format: `projects//agent/sessions/-/contexts/`.
+ *  triggered. Formats: - `projects//agent/sessions/-/contexts/` -
+ *  `projects//locations//agent/sessions/-/contexts/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputContextNames;
 
@@ -2996,8 +3023,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  Optional. The unique identifier of this intent. Required for
- *  Intents.UpdateIntent and Intents.BatchUpdateIntents methods. Format:
- *  `projects//agent/intents/`.
+ *  Intents.UpdateIntent and Intents.BatchUpdateIntents methods. Supported
+ *  formats: - `projects//agent/intents/` -
+ *  `projects//locations//agent/intents/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4335,9 +4363,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  may provide additional information in the payload. In particular, for the
  *  Dialogflow Phone Gateway integration, this field has the form: {
  *  "telephony": { "caller_id": "+18558363987" } } Note: The caller ID field
- *  (`caller_id`) will be redacted for Standard Edition agents and populated
- *  with the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164)
- *  for Enterprise Edition agents.
+ *  (`caller_id`) will be redacted for Trial Edition agents and populated with
+ *  the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164) for
+ *  Essentials Edition agents.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest_Payload *payload;
 
@@ -4362,9 +4390,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  may provide additional information in the payload. In particular, for the
  *  Dialogflow Phone Gateway integration, this field has the form: {
  *  "telephony": { "caller_id": "+18558363987" } } Note: The caller ID field
- *  (`caller_id`) will be redacted for Standard Edition agents and populated
- *  with the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164)
- *  for Enterprise Edition agents.
+ *  (`caller_id`) will be redacted for Trial Edition agents and populated with
+ *  the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164) for
+ *  Essentials Edition agents.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -4639,9 +4667,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 @property(nonatomic, copy, nullable) NSString *entityOverrideMode;
 
 /**
- *  Required. The unique identifier of this session entity type. Format:
- *  `projects//agent/sessions//entityTypes/`, or
- *  `projects//agent/environments//users//sessions//entityTypes/`. If
+ *  Required. The unique identifier of this session entity type. Supported
+ *  formats: - `projects//agent/sessions//entityTypes/` -
+ *  `projects//locations//agent/sessions//entityTypes/` -
+ *  `projects//agent/environments//users//sessions//entityTypes/` -
+ *  `projects//locations//agent/environments/ /users//sessions//entityTypes/` If
+ *  `Location ID` is not specified we assume default 'us' location. If
  *  `Environment ID` is not specified, we assume default 'draft' environment. If
  *  `User ID` is not specified, we assume default '-' user. `` must be the
  *  display name of an existing entity type in the same agent that will be
@@ -4680,9 +4711,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /**
  *  The unique identifier of detectIntent request session. Can be used to
- *  identify end-user inside webhook implementation. Format:
- *  `projects//agent/sessions/`, or
- *  `projects//agent/environments//users//sessions/`.
+ *  identify end-user inside webhook implementation. Supported formats: -
+ *  `projects//agent/sessions/, - `projects//locations//agent/sessions/`, -
+ *  `projects//agent/environments//users//sessions/`, -
+ *  `projects//locations//agent/environments//users//sessions/`,
  */
 @property(nonatomic, copy, nullable) NSString *session;
 
@@ -6753,9 +6785,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  may provide additional information in the payload. In particular, for the
  *  Dialogflow Phone Gateway integration, this field has the form: {
  *  "telephony": { "caller_id": "+18558363987" } } Note: The caller ID field
- *  (`caller_id`) will be redacted for Standard Edition agents and populated
- *  with the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164)
- *  for Enterprise Edition agents.
+ *  (`caller_id`) will be redacted for Trial Edition agents and populated with
+ *  the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164) for
+ *  Essentials Edition agents.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2OriginalDetectIntentRequest_Payload *payload;
 
@@ -6780,9 +6812,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  may provide additional information in the payload. In particular, for the
  *  Dialogflow Phone Gateway integration, this field has the form: {
  *  "telephony": { "caller_id": "+18558363987" } } Note: The caller ID field
- *  (`caller_id`) will be redacted for Standard Edition agents and populated
- *  with the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164)
- *  for Enterprise Edition agents.
+ *  (`caller_id`) will be redacted for Trial Edition agents and populated with
+ *  the caller ID in [E.164 format](https://en.wikipedia.org/wiki/E.164) for
+ *  Essentials Edition agents.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -7622,6 +7654,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  only if `agent_uri` is specified in ExportAgentRequest.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
+
+@end
+
+
+/**
+ *  Metadata returned for the TestCases.ExportTestCases long running operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response message for TestCases.ExportTestCases.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesResponse : GTLRObject
+
+/**
+ *  Uncompressed raw byte content for test cases.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  The URI to a file containing the exported test cases. This field is
+ *  populated only if `gcs_uri` is specified in ExportTestCasesRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+@end
+
+
+/**
+ *  The response message for Agents.ImportAgent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportAgentResponse : GTLRObject
+
+/**
+ *  The unique identifier of the new agent. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *agent;
+
+@end
+
+
+/**
+ *  Metadata returned for the TestCases.ImportTestCases long running operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesMetadata : GTLRObject
+@end
+
+
+/**
+ *  The response message for TestCases.ImportTestCases.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesResponse : GTLRObject
+
+/**
+ *  The unique identifiers of the new test cases. Format:
+ *  `projects//locations//agents//testCases/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
 @end
 

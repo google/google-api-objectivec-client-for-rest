@@ -1187,44 +1187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_
 
 
 /**
- *  Represents the metadata of a long-running operation.
- */
-@interface GTLRCloudMemorystoreforMemcached_OperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
-
-/** Output only. Time when the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. Time when the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusDetail;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains

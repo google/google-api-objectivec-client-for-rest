@@ -105,6 +105,7 @@ NSString * const kGTLRWebSecurityScanner_ScanRunErrorTrace_Code_TooManyRedirects
 NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_BlockedByIap = @"BLOCKED_BY_IAP";
 NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_InsufficientCrawlResults = @"INSUFFICIENT_CRAWL_RESULTS";
+NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_NoStartingUrlFoundForManagedScan = @"NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN";
 NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyCrawlResults = @"TOO_MANY_CRAWL_RESULTS";
 NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyFuzzTasks = @"TOO_MANY_FUZZ_TASKS";
 

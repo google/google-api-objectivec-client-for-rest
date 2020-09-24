@@ -92,6 +92,11 @@ NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind = @"SING
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind = @"UNKNOWN_KIND";
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind = @"WRITE_KIND";
 
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.ipConfiguration
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPublic = @"WORKER_IP_PUBLIC";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpUnspecified = @"WORKER_IP_UNSPECIFIED";
+
 // GTLRDataflow_GetTemplateResponse.templateType
 NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Flex = @"FLEX";
 NSString * const kGTLRDataflow_GetTemplateResponse_TemplateType_Legacy = @"LEGACY";
@@ -805,6 +810,45 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_FlexTemplateRuntimeEnvironment
+//
+
+@implementation GTLRDataflow_FlexTemplateRuntimeEnvironment
+@dynamic additionalExperiments, additionalUserLabels, enableStreamingEngine,
+         ipConfiguration, kmsKeyName, machineType, maxWorkers, network,
+         numWorkers, serviceAccountEmail, subnetwork, tempLocation,
+         workerRegion, workerZone, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalExperiments" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels
+//
+
+@implementation GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_FloatingPointList
 //
 
@@ -1024,13 +1068,17 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_JobExecutionDetails
-@dynamic stages;
+@dynamic nextPageToken, stages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"stages" : [GTLRDataflow_StageSummary class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"stages";
 }
 
 @end
@@ -1161,8 +1209,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_LaunchFlexTemplateParameter
-@dynamic containerSpec, containerSpecGcsPath, jobName, launchOptions,
-         parameters;
+@dynamic containerSpec, containerSpecGcsPath, environment, jobName,
+         launchOptions, parameters;
 @end
 
 

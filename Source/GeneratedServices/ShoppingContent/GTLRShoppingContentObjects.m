@@ -2152,7 +2152,7 @@
 //
 
 @implementation GTLRShoppingContent_OrderreturnsRefundOperation
-@dynamic fullRefund, partialRefund, reasonText, returnRefundReason;
+@dynamic fullRefund, partialRefund, paymentType, reasonText, returnRefundReason;
 @end
 
 

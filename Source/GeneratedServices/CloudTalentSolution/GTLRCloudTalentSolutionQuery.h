@@ -42,37 +42,92 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // jobView
 
-/** Value: "JOB_VIEW_FULL" */
+/**
+ *  All available attributes are included in the search results.
+ *
+ *  Value: "JOB_VIEW_FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewFull;
-/** Value: "JOB_VIEW_ID_ONLY" */
+/**
+ *  A ID only view of job, with following attributes: Job.name,
+ *  Job.requisition_id, Job.language_code.
+ *
+ *  Value: "JOB_VIEW_ID_ONLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewIdOnly;
-/** Value: "JOB_VIEW_MINIMAL" */
+/**
+ *  A minimal view of the job, with the following attributes: Job.name,
+ *  Job.requisition_id, Job.title, Job.company_name, Job.DerivedInfo.locations,
+ *  Job.language_code.
+ *
+ *  Value: "JOB_VIEW_MINIMAL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewMinimal;
-/** Value: "JOB_VIEW_SMALL" */
+/**
+ *  A small view of the job, with the following attributes in the search
+ *  results: Job.name, Job.requisition_id, Job.title, Job.company_name,
+ *  Job.DerivedInfo.locations, Job.visibility, Job.language_code,
+ *  Job.description.
+ *
+ *  Value: "JOB_VIEW_SMALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewSmall;
-/** Value: "JOB_VIEW_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "JOB_VIEW_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionJobViewJobViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // scope
 
-/** Value: "COMPLETION_SCOPE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "COMPLETION_SCOPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionScopeCompletionScopeUnspecified;
-/** Value: "PUBLIC" */
+/**
+ *  Suggestions are based on all jobs data in the system that's visible to the
+ *  client
+ *
+ *  Value: "PUBLIC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionScopePublic;
-/** Value: "TENANT" */
+/**
+ *  Suggestions are based only on the data provided by the client.
+ *
+ *  Value: "TENANT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionScopeTenant;
 
 // ----------------------------------------------------------------------------
 // type
 
-/** Value: "COMBINED" */
+/**
+ *  Suggest both job titles and company names.
+ *
+ *  Value: "COMBINED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCombined;
-/** Value: "COMPANY_NAME" */
+/**
+ *  Only suggest company names.
+ *
+ *  Value: "COMPANY_NAME"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCompanyName;
-/** Value: "COMPLETION_TYPE_UNSPECIFIED" */
+/**
+ *  Default value.
+ *
+ *  Value: "COMPLETION_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeCompletionTypeUnspecified;
-/** Value: "JOB_TITLE" */
+/**
+ *  Only suggest job titles.
+ *
+ *  Value: "JOB_TITLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 
 // ----------------------------------------------------------------------------
@@ -91,11 +146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 
 /**
  *  Report events issued when end user interacts with customer's application
- *  that uses Cloud Talent Solution. You may inspect the created events in
- *  [self service
- *  tools](https://console.cloud.google.com/talent-solution/overview).
- *  [Learn
- *  more](https://cloud.google.com/talent-solution/docs/management-tools)
+ *  that uses Cloud Talent Solution. You may inspect the created events in [self
+ *  service tools](https://console.cloud.google.com/talent-solution/overview).
+ *  [Learn more](https://cloud.google.com/talent-solution/docs/management-tools)
  *  about self service tools.
  *
  *  Method: jobs.projects.clientEvents.create
@@ -115,11 +168,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Fetches a @c GTLRCloudTalentSolution_ClientEvent.
  *
  *  Report events issued when end user interacts with customer's application
- *  that uses Cloud Talent Solution. You may inspect the created events in
- *  [self service
- *  tools](https://console.cloud.google.com/talent-solution/overview).
- *  [Learn
- *  more](https://cloud.google.com/talent-solution/docs/management-tools)
+ *  that uses Cloud Talent Solution. You may inspect the created events in [self
+ *  service tools](https://console.cloud.google.com/talent-solution/overview).
+ *  [Learn more](https://cloud.google.com/talent-solution/docs/management-tools)
  *  about self service tools.
  *
  *  @param object The @c GTLRCloudTalentSolution_CreateClientEventRequest to
@@ -161,8 +212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  @param object The @c GTLRCloudTalentSolution_CreateCompanyRequest to include
  *    in the query.
  *  @param parent Required. Resource name of the project under which the company
- *    is created.
- *    The format is "projects/{project_id}", for example,
+ *    is created. The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsCompaniesCreate
@@ -173,8 +223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
- *  Deletes specified company.
- *  Prerequisite: The company has no jobs associated with it.
+ *  Deletes specified company. Prerequisite: The company has no jobs associated
+ *  with it.
  *
  *  Method: jobs.projects.companies.delete
  *
@@ -187,8 +237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompaniesDeleteWithname:]
 
 /**
- *  Required. The resource name of the company to be deleted.
- *  The format is "projects/{project_id}/companies/{company_id}", for example,
+ *  Required. The resource name of the company to be deleted. The format is
+ *  "projects/{project_id}/companies/{company_id}", for example,
  *  "projects/api-test-project/companies/foo".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -196,11 +246,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 /**
  *  Fetches a @c GTLRCloudTalentSolution_Empty.
  *
- *  Deletes specified company.
- *  Prerequisite: The company has no jobs associated with it.
+ *  Deletes specified company. Prerequisite: The company has no jobs associated
+ *  with it.
  *
- *  @param name Required. The resource name of the company to be deleted.
- *    The format is "projects/{project_id}/companies/{company_id}", for example,
+ *  @param name Required. The resource name of the company to be deleted. The
+ *    format is "projects/{project_id}/companies/{company_id}", for example,
  *    "projects/api-test-project/companies/foo".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsCompaniesDelete
@@ -223,8 +273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompaniesGetWithname:]
 
 /**
- *  Required. The resource name of the company to be retrieved.
- *  The format is "projects/{project_id}/companies/{company_id}", for example,
+ *  Required. The resource name of the company to be retrieved. The format is
+ *  "projects/{project_id}/companies/{company_id}", for example,
  *  "projects/api-test-project/companies/foo".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -234,8 +284,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  Retrieves specified company.
  *
- *  @param name Required. The resource name of the company to be retrieved.
- *    The format is "projects/{project_id}/companies/{company_id}", for example,
+ *  @param name Required. The resource name of the company to be retrieved. The
+ *    format is "projects/{project_id}/companies/{company_id}", for example,
  *    "projects/api-test-project/companies/foo".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsCompaniesGet
@@ -275,9 +325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 
 /**
  *  Optional. Set to true if the companies requested must have open jobs.
- *  Defaults to false.
- *  If true, at most page_size of companies are fetched, among which
- *  only those with open jobs are returned.
+ *  Defaults to false. If true, at most page_size of companies are fetched,
+ *  among which only those with open jobs are returned.
  */
 @property(nonatomic, assign) BOOL requireOpenJobs;
 
@@ -287,8 +336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Lists all companies associated with the service account.
  *
  *  @param parent Required. Resource name of the project under which the company
- *    is created.
- *    The format is "projects/{project_id}", for example,
+ *    is created. The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsCompaniesList
@@ -317,10 +365,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompaniesPatchWithObject:name:]
 
 /**
- *  Required during company update.
- *  The resource name for a company. This is generated by the service when a
- *  company is created.
- *  The format is "projects/{project_id}/companies/{company_id}", for example,
+ *  Required during company update. The resource name for a company. This is
+ *  generated by the service when a company is created. The format is
+ *  "projects/{project_id}/companies/{company_id}", for example,
  *  "projects/api-test-project/companies/foo".
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -334,10 +381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *
  *  @param object The @c GTLRCloudTalentSolution_UpdateCompanyRequest to include
  *    in the query.
- *  @param name Required during company update.
- *    The resource name for a company. This is generated by the service when a
- *    company is created.
- *    The format is "projects/{project_id}/companies/{company_id}", for example,
+ *  @param name Required during company update. The resource name for a company.
+ *    This is generated by the service when a company is created. The format is
+ *    "projects/{project_id}/companies/{company_id}", for example,
  *    "projects/api-test-project/companies/foo".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsCompaniesPatch
@@ -348,8 +394,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
- *  Completes the specified prefix with keyword suggestions.
- *  Intended for use by a job search auto-complete search box.
+ *  Completes the specified prefix with keyword suggestions. Intended for use by
+ *  a job search auto-complete search box.
  *
  *  Method: jobs.projects.complete
  *
@@ -362,64 +408,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsCompleteWithname:]
 
 /**
- *  Optional. If provided, restricts completion to specified company.
- *  The format is "projects/{project_id}/companies/{company_id}", for example,
+ *  Optional. If provided, restricts completion to specified company. The format
+ *  is "projects/{project_id}/companies/{company_id}", for example,
  *  "projects/api-test-project/companies/foo".
  */
 @property(nonatomic, copy, nullable) NSString *companyName;
 
 /**
- *  Deprecated. Use language_codes instead.
- *  Optional.
- *  The language of the query. This is
- *  the BCP-47 language code, such as "en-US" or "sr-Latn".
- *  For more information, see
- *  [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
- *  For CompletionType.JOB_TITLE type, only open jobs with the same
- *  language_code are returned.
- *  For CompletionType.COMPANY_NAME type,
- *  only companies having open jobs with the same language_code are
- *  returned.
- *  For CompletionType.COMBINED type, only open jobs with the same
- *  language_code or companies having open jobs with the same
- *  language_code are returned.
- *  The maximum number of allowed characters is 255.
+ *  Deprecated. Use language_codes instead. Optional. The language of the query.
+ *  This is the BCP-47 language code, such as "en-US" or "sr-Latn". For more
+ *  information, see [Tags for Identifying
+ *  Languages](https://tools.ietf.org/html/bcp47). For CompletionType.JOB_TITLE
+ *  type, only open jobs with the same language_code are returned. For
+ *  CompletionType.COMPANY_NAME type, only companies having open jobs with the
+ *  same language_code are returned. For CompletionType.COMBINED type, only open
+ *  jobs with the same language_code or companies having open jobs with the same
+ *  language_code are returned. The maximum number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Optional. The list of languages of the query. This is
- *  the BCP-47 language code, such as "en-US" or "sr-Latn".
- *  For more information, see
- *  [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
- *  For CompletionType.JOB_TITLE type, only open jobs with the same
- *  language_codes are returned.
- *  For CompletionType.COMPANY_NAME type,
- *  only companies having open jobs with the same language_codes are
- *  returned.
- *  For CompletionType.COMBINED type, only open jobs with the same
- *  language_codes or companies having open jobs with the same
- *  language_codes are returned.
- *  The maximum number of allowed characters is 255.
+ *  Optional. The list of languages of the query. This is the BCP-47 language
+ *  code, such as "en-US" or "sr-Latn". For more information, see [Tags for
+ *  Identifying Languages](https://tools.ietf.org/html/bcp47). For
+ *  CompletionType.JOB_TITLE type, only open jobs with the same language_codes
+ *  are returned. For CompletionType.COMPANY_NAME type, only companies having
+ *  open jobs with the same language_codes are returned. For
+ *  CompletionType.COMBINED type, only open jobs with the same language_codes or
+ *  companies having open jobs with the same language_codes are returned. The
+ *  maximum number of allowed characters is 255.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
 /**
- *  Required. Resource name of project the completion is performed within.
- *  The format is "projects/{project_id}", for example,
- *  "projects/api-test-project".
+ *  Required. Resource name of project the completion is performed within. The
+ *  format is "projects/{project_id}", for example, "projects/api-test-project".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Required. Completion result count.
- *  The maximum allowed page size is 10.
- */
+/** Required. Completion result count. The maximum allowed page size is 10. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Required. The query used to generate suggestions.
- *  The maximum number of allowed characters is 255.
+ *  Required. The query used to generate suggestions. The maximum number of
+ *  allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -428,10 +460,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  CompletionScope.PUBLIC.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolutionScopeCompletionScopeUnspecified Value
- *        "COMPLETION_SCOPE_UNSPECIFIED"
- *    @arg @c kGTLRCloudTalentSolutionScopeTenant Value "TENANT"
- *    @arg @c kGTLRCloudTalentSolutionScopePublic Value "PUBLIC"
+ *    @arg @c kGTLRCloudTalentSolutionScopeCompletionScopeUnspecified Default
+ *        value. (Value: "COMPLETION_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolutionScopeTenant Suggestions are based only on
+ *        the data provided by the client. (Value: "TENANT")
+ *    @arg @c kGTLRCloudTalentSolutionScopePublic Suggestions are based on all
+ *        jobs data in the system that's visible to the client (Value: "PUBLIC")
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -439,23 +473,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Optional. The completion topic. The default is CompletionType.COMBINED.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolutionTypeCompletionTypeUnspecified Value
- *        "COMPLETION_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRCloudTalentSolutionTypeJobTitle Value "JOB_TITLE"
- *    @arg @c kGTLRCloudTalentSolutionTypeCompanyName Value "COMPANY_NAME"
- *    @arg @c kGTLRCloudTalentSolutionTypeCombined Value "COMBINED"
+ *    @arg @c kGTLRCloudTalentSolutionTypeCompletionTypeUnspecified Default
+ *        value. (Value: "COMPLETION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolutionTypeJobTitle Only suggest job titles.
+ *        (Value: "JOB_TITLE")
+ *    @arg @c kGTLRCloudTalentSolutionTypeCompanyName Only suggest company
+ *        names. (Value: "COMPANY_NAME")
+ *    @arg @c kGTLRCloudTalentSolutionTypeCombined Suggest both job titles and
+ *        company names. (Value: "COMBINED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRCloudTalentSolution_CompleteQueryResponse.
  *
- *  Completes the specified prefix with keyword suggestions.
- *  Intended for use by a job search auto-complete search box.
+ *  Completes the specified prefix with keyword suggestions. Intended for use by
+ *  a job search auto-complete search box.
  *
  *  @param name Required. Resource name of project the completion is performed
- *    within.
- *    The format is "projects/{project_id}", for example,
+ *    within. The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsComplete
@@ -492,8 +528,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  @param object The @c GTLRCloudTalentSolution_BatchDeleteJobsRequest to
  *    include in the query.
  *  @param parent Required. The resource name of the project under which the job
- *    is created.
- *    The format is "projects/{project_id}", for example,
+ *    is created. The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsJobsBatchDelete
@@ -504,9 +539,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
- *  Creates a new job.
- *  Typically, the job becomes searchable within 10 seconds, but it may take
- *  up to 5 minutes.
+ *  Creates a new job. Typically, the job becomes searchable within 10 seconds,
+ *  but it may take up to 5 minutes.
  *
  *  Method: jobs.projects.jobs.create
  *
@@ -528,15 +562,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 /**
  *  Fetches a @c GTLRCloudTalentSolution_Job.
  *
- *  Creates a new job.
- *  Typically, the job becomes searchable within 10 seconds, but it may take
- *  up to 5 minutes.
+ *  Creates a new job. Typically, the job becomes searchable within 10 seconds,
+ *  but it may take up to 5 minutes.
  *
  *  @param object The @c GTLRCloudTalentSolution_CreateJobRequest to include in
  *    the query.
  *  @param parent Required. The resource name of the project under which the job
- *    is created.
- *    The format is "projects/{project_id}", for example,
+ *    is created. The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsJobsCreate
@@ -547,9 +579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
- *  Deletes the specified job.
- *  Typically, the job becomes unsearchable within 10 seconds, but it may take
- *  up to 5 minutes.
+ *  Deletes the specified job. Typically, the job becomes unsearchable within 10
+ *  seconds, but it may take up to 5 minutes.
  *
  *  Method: jobs.projects.jobs.delete
  *
@@ -562,22 +593,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsDeleteWithname:]
 
 /**
- *  Required. The resource name of the job to be deleted.
- *  The format is "projects/{project_id}/jobs/{job_id}",
- *  for example, "projects/api-test-project/jobs/1234".
+ *  Required. The resource name of the job to be deleted. The format is
+ *  "projects/{project_id}/jobs/{job_id}", for example,
+ *  "projects/api-test-project/jobs/1234".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudTalentSolution_Empty.
  *
- *  Deletes the specified job.
- *  Typically, the job becomes unsearchable within 10 seconds, but it may take
- *  up to 5 minutes.
+ *  Deletes the specified job. Typically, the job becomes unsearchable within 10
+ *  seconds, but it may take up to 5 minutes.
  *
- *  @param name Required. The resource name of the job to be deleted.
- *    The format is "projects/{project_id}/jobs/{job_id}",
- *    for example, "projects/api-test-project/jobs/1234".
+ *  @param name Required. The resource name of the job to be deleted. The format
+ *    is "projects/{project_id}/jobs/{job_id}", for example,
+ *    "projects/api-test-project/jobs/1234".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsJobsDelete
  */
@@ -586,8 +616,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
- *  Retrieves the specified job, whose status is OPEN or recently EXPIRED
- *  within the last 90 days.
+ *  Retrieves the specified job, whose status is OPEN or recently EXPIRED within
+ *  the last 90 days.
  *
  *  Method: jobs.projects.jobs.get
  *
@@ -600,21 +630,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsGetWithname:]
 
 /**
- *  Required. The resource name of the job to retrieve.
- *  The format is "projects/{project_id}/jobs/{job_id}",
- *  for example, "projects/api-test-project/jobs/1234".
+ *  Required. The resource name of the job to retrieve. The format is
+ *  "projects/{project_id}/jobs/{job_id}", for example,
+ *  "projects/api-test-project/jobs/1234".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudTalentSolution_Job.
  *
- *  Retrieves the specified job, whose status is OPEN or recently EXPIRED
- *  within the last 90 days.
+ *  Retrieves the specified job, whose status is OPEN or recently EXPIRED within
+ *  the last 90 days.
  *
- *  @param name Required. The resource name of the job to retrieve.
- *    The format is "projects/{project_id}/jobs/{job_id}",
- *    for example, "projects/api-test-project/jobs/1234".
+ *  @param name Required. The resource name of the job to retrieve. The format
+ *    is "projects/{project_id}/jobs/{job_id}", for example,
+ *    "projects/api-test-project/jobs/1234".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsJobsGet
  */
@@ -636,40 +666,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsListWithparent:]
 
 /**
- *  Required. The filter string specifies the jobs to be enumerated.
- *  Supported operator: =, AND
- *  The fields eligible for filtering are:
- *  * `companyName` (Required)
- *  * `requisitionId` (Optional)
- *  Sample Query:
- *  * companyName = "projects/api-test-project/companies/123"
- *  * companyName = "projects/api-test-project/companies/123" AND requisitionId
- *  = "req-1"
+ *  Required. The filter string specifies the jobs to be enumerated. Supported
+ *  operator: =, AND The fields eligible for filtering are: * `companyName`
+ *  (Required) * `requisitionId` (Optional) Sample Query: * companyName =
+ *  "projects/api-test-project/companies/123" * companyName =
+ *  "projects/api-test-project/companies/123" AND requisitionId = "req-1"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The desired job attributes returned for jobs in the
- *  search response. Defaults to JobView.JOB_VIEW_FULL if no value is
- *  specified.
+ *  Optional. The desired job attributes returned for jobs in the search
+ *  response. Defaults to JobView.JOB_VIEW_FULL if no value is specified.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewUnspecified Value
- *        "JOB_VIEW_UNSPECIFIED"
- *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewIdOnly Value
- *        "JOB_VIEW_ID_ONLY"
- *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewMinimal Value
- *        "JOB_VIEW_MINIMAL"
- *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewSmall Value "JOB_VIEW_SMALL"
- *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewFull Value "JOB_VIEW_FULL"
+ *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewUnspecified Default value.
+ *        (Value: "JOB_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewIdOnly A ID only view of
+ *        job, with following attributes: Job.name, Job.requisition_id,
+ *        Job.language_code. (Value: "JOB_VIEW_ID_ONLY")
+ *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewMinimal A minimal view of
+ *        the job, with the following attributes: Job.name, Job.requisition_id,
+ *        Job.title, Job.company_name, Job.DerivedInfo.locations,
+ *        Job.language_code. (Value: "JOB_VIEW_MINIMAL")
+ *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewSmall A small view of the
+ *        job, with the following attributes in the search results: Job.name,
+ *        Job.requisition_id, Job.title, Job.company_name,
+ *        Job.DerivedInfo.locations, Job.visibility, Job.language_code,
+ *        Job.description. (Value: "JOB_VIEW_SMALL")
+ *    @arg @c kGTLRCloudTalentSolutionJobViewJobViewFull All available
+ *        attributes are included in the search results. (Value:
+ *        "JOB_VIEW_FULL")
  */
 @property(nonatomic, copy, nullable) NSString *jobView;
 
 /**
- *  Optional. The maximum number of jobs to be returned per page of results.
- *  If job_view is set to JobView.JOB_VIEW_ID_ONLY, the maximum allowed
- *  page size is 1000. Otherwise, the maximum allowed page size is 100.
- *  Default is 100 if empty or a number < 1 is specified.
+ *  Optional. The maximum number of jobs to be returned per page of results. If
+ *  job_view is set to JobView.JOB_VIEW_ID_ONLY, the maximum allowed page size
+ *  is 1000. Otherwise, the maximum allowed page size is 100. Default is 100 if
+ *  empty or a number < 1 is specified.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -689,8 +723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
  *  Lists jobs by filter.
  *
  *  @param parent Required. The resource name of the project under which the job
- *    is created.
- *    The format is "projects/{project_id}", for example,
+ *    is created. The format is "projects/{project_id}", for example,
  *    "projects/api-test-project".
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsJobsList
@@ -704,9 +737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
- *  Updates specified job.
- *  Typically, updated contents become visible in search results within 10
- *  seconds, but it may take up to 5 minutes.
+ *  Updates specified job. Typically, updated contents become visible in search
+ *  results within 10 seconds, but it may take up to 5 minutes.
  *
  *  Method: jobs.projects.jobs.patch
  *
@@ -719,33 +751,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsPatchWithObject:name:]
 
 /**
- *  Required during job update.
- *  The resource name for the job. This is generated by the service when a
- *  job is created.
- *  The format is "projects/{project_id}/jobs/{job_id}",
- *  for example, "projects/api-test-project/jobs/1234".
- *  Use of this field in job queries and API calls is preferred over the use of
- *  requisition_id since this value is unique.
+ *  Required during job update. The resource name for the job. This is generated
+ *  by the service when a job is created. The format is
+ *  "projects/{project_id}/jobs/{job_id}", for example,
+ *  "projects/api-test-project/jobs/1234". Use of this field in job queries and
+ *  API calls is preferred over the use of requisition_id since this value is
+ *  unique.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudTalentSolution_Job.
  *
- *  Updates specified job.
- *  Typically, updated contents become visible in search results within 10
- *  seconds, but it may take up to 5 minutes.
+ *  Updates specified job. Typically, updated contents become visible in search
+ *  results within 10 seconds, but it may take up to 5 minutes.
  *
  *  @param object The @c GTLRCloudTalentSolution_UpdateJobRequest to include in
  *    the query.
- *  @param name Required during job update.
- *    The resource name for the job. This is generated by the service when a
- *    job is created.
- *    The format is "projects/{project_id}/jobs/{job_id}",
- *    for example, "projects/api-test-project/jobs/1234".
- *    Use of this field in job queries and API calls is preferred over the use
- *    of
- *    requisition_id since this value is unique.
+ *  @param name Required during job update. The resource name for the job. This
+ *    is generated by the service when a job is created. The format is
+ *    "projects/{project_id}/jobs/{job_id}", for example,
+ *    "projects/api-test-project/jobs/1234". Use of this field in job queries
+ *    and API calls is preferred over the use of requisition_id since this value
+ *    is unique.
  *
  *  @return GTLRCloudTalentSolutionQuery_ProjectsJobsPatch
  */
@@ -755,10 +783,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
- *  Searches for jobs using the provided SearchJobsRequest.
- *  This call constrains the visibility of jobs
- *  present in the database, and only returns jobs that the caller has
- *  permission to search against.
+ *  Searches for jobs using the provided SearchJobsRequest. This call constrains
+ *  the visibility of jobs present in the database, and only returns jobs that
+ *  the caller has permission to search against.
  *
  *  Method: jobs.projects.jobs.search
  *
@@ -771,19 +798,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsSearchWithObject:parent:]
 
 /**
- *  Required. The resource name of the project to search within.
- *  The format is "projects/{project_id}", for example,
- *  "projects/api-test-project".
+ *  Required. The resource name of the project to search within. The format is
+ *  "projects/{project_id}", for example, "projects/api-test-project".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudTalentSolution_SearchJobsResponse.
  *
- *  Searches for jobs using the provided SearchJobsRequest.
- *  This call constrains the visibility of jobs
- *  present in the database, and only returns jobs that the caller has
- *  permission to search against.
+ *  Searches for jobs using the provided SearchJobsRequest. This call constrains
+ *  the visibility of jobs present in the database, and only returns jobs that
+ *  the caller has permission to search against.
  *
  *  @param object The @c GTLRCloudTalentSolution_SearchJobsRequest to include in
  *    the query.
@@ -799,14 +824,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
- *  Searches for jobs using the provided SearchJobsRequest.
- *  This API call is intended for the use case of targeting passive job
- *  seekers (for example, job seekers who have signed up to receive email
- *  alerts about potential job opportunities), and has different algorithmic
- *  adjustments that are targeted to passive job seekers.
- *  This call constrains the visibility of jobs
- *  present in the database, and only returns jobs the caller has
- *  permission to search against.
+ *  Searches for jobs using the provided SearchJobsRequest. This API call is
+ *  intended for the use case of targeting passive job seekers (for example, job
+ *  seekers who have signed up to receive email alerts about potential job
+ *  opportunities), and has different algorithmic adjustments that are targeted
+ *  to passive job seekers. This call constrains the visibility of jobs present
+ *  in the database, and only returns jobs the caller has permission to search
+ *  against.
  *
  *  Method: jobs.projects.jobs.searchForAlert
  *
@@ -819,23 +843,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 //   +[GTLQueryCloudTalentSolution queryForProjectsJobsSearchForAlertWithObject:parent:]
 
 /**
- *  Required. The resource name of the project to search within.
- *  The format is "projects/{project_id}", for example,
- *  "projects/api-test-project".
+ *  Required. The resource name of the project to search within. The format is
+ *  "projects/{project_id}", for example, "projects/api-test-project".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudTalentSolution_SearchJobsResponse.
  *
- *  Searches for jobs using the provided SearchJobsRequest.
- *  This API call is intended for the use case of targeting passive job
- *  seekers (for example, job seekers who have signed up to receive email
- *  alerts about potential job opportunities), and has different algorithmic
- *  adjustments that are targeted to passive job seekers.
- *  This call constrains the visibility of jobs
- *  present in the database, and only returns jobs the caller has
- *  permission to search against.
+ *  Searches for jobs using the provided SearchJobsRequest. This API call is
+ *  intended for the use case of targeting passive job seekers (for example, job
+ *  seekers who have signed up to receive email alerts about potential job
+ *  opportunities), and has different algorithmic adjustments that are targeted
+ *  to passive job seekers. This call constrains the visibility of jobs present
+ *  in the database, and only returns jobs the caller has permission to search
+ *  against.
  *
  *  @param object The @c GTLRCloudTalentSolution_SearchJobsRequest to include in
  *    the query.

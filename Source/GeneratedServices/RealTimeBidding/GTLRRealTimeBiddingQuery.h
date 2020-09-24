@@ -419,7 +419,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 // Previous library name was
 //   +[GTLQueryRealTimeBidding queryForBuyersCreativesPatchWithObject:name:]
 
-/** Name of the creative to update. See creative.name. */
+/**
+ *  Name of the creative. Follows the pattern
+ *  `buyers/{buyer}/creatives/{creative}`, where `{buyer}` represents the
+ *  account ID of the buyer who owns the creative, and `{creative}` is the
+ *  buyer-specific creative ID that references this creative in the bid
+ *  response.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -435,7 +441,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Updates a creative.
  *
  *  @param object The @c GTLRRealTimeBidding_Creative to include in the query.
- *  @param name Name of the creative to update. See creative.name.
+ *  @param name Name of the creative. Follows the pattern
+ *    `buyers/{buyer}/creatives/{creative}`, where `{buyer}` represents the
+ *    account ID of the buyer who owns the creative, and `{creative}` is the
+ *    buyer-specific creative ID that references this creative in the bid
+ *    response.
  *
  *  @return GTLRRealTimeBiddingQuery_BuyersCreativesPatch
  */

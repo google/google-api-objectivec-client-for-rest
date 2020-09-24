@@ -1672,7 +1672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Creates a filter.
+ *  Creates a filter. Note: you can only create a maximum of 1,000 filters.
  *
  *  Method: gmail.users.settings.filters.create
  *
@@ -1694,7 +1694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Filter.
  *
- *  Creates a filter.
+ *  Creates a filter. Note: you can only create a maximum of 1,000 filters.
  *
  *  @param object The @c GTLRGmail_Filter to include in the query.
  *  @param userId User's email address. The special value "me" can be used to

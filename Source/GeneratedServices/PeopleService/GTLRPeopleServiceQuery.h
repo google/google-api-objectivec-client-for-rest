@@ -925,12 +925,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  Required. The resource names of the people to provide information about. -
- *  To get information about the authenticated user, specify `people/me`. - To
- *  get information about a google account, specify `people/{account_id}`. - To
- *  get information about a contact, specify the resource name that identifies
- *  the contact as returned by
- *  [`people.connections.list`](/people/api/rest/v1/people.connections/list).
+ *  Required. The resource names of the people to provide information about.
+ *  It's repeatable. The URL query parameter should be
+ *  resourceNames=<name1>&resourceNames=<name2>&... - To get information about
+ *  the authenticated user, specify `people/me`. - To get information about a
+ *  google account, specify `people/{account_id}`. - To get information about a
+ *  contact, specify the resource name that identifies the contact as returned
+ *  by [`people.connections.list`](/people/api/rest/v1/people.connections/list).
  *  You can include up to 50 resource names in one request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;

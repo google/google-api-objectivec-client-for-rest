@@ -48,15 +48,35 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "FULL" */
+/**
+ *  Populates all fields.
+ *
+ *  Value: "FULL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewFull;
-/** Value: "NAME_ONLY" */
+/**
+ *  Only populates `name`.
+ *
+ *  Value: "NAME_ONLY"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewNameOnly;
-/** Value: "REPLICATION_VIEW" */
+/**
+ *  Only populates `name` and fields related to the table's replication state.
+ *
+ *  Value: "REPLICATION_VIEW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewReplicationView;
-/** Value: "SCHEMA_VIEW" */
+/**
+ *  Only populates `name` and fields related to the table's schema.
+ *
+ *  Value: "SCHEMA_VIEW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewSchemaView;
-/** Value: "VIEW_UNSPECIFIED" */
+/**
+ *  Uses the default view for each method as documented in its request.
+ *
+ *  Value: "VIEW_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -75,15 +95,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  Method: bigtableadmin.operations.cancel
  *
@@ -106,15 +125,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Fetches a @c GTLRBigtableAdmin_Empty.
  *
  *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not
- *  guaranteed. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use
- *  Operations.GetOperation or
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
  *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation,
- *  the operation is not deleted; instead, it becomes an operation with
- *  an Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to `Code.CANCELLED`.
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
  *
  *  @param name The name of the operation resource to be cancelled.
  *
@@ -203,14 +221,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  Method: bigtableadmin.operations.projects.operations.list
  *
@@ -243,14 +261,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Fetches a @c GTLRBigtableAdmin_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *  NOTE: the `name` binding allows API services to override the binding
- *  to use different resource name schemes, such as `users/ * /operations`. To
- *  override the binding, API services can add a binding such as
- *  `"/v1/{name=users/ *}/operations"` to their service configuration.
- *  For backwards compatibility, the default name includes the operations
- *  collection id, however overriding users must ensure the name binding
- *  is the parent resource, without the operations collection id.
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
  *
  *  @param name The name of the operation's parent resource.
  *
@@ -293,9 +311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the instance in which to create the new app
- *  profile.
- *  Values are of the form
- *  `projects/{project}/instances/{instance}`.
+ *  profile. Values are of the form `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -306,8 +322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *
  *  @param object The @c GTLRBigtableAdmin_AppProfile to include in the query.
  *  @param parent Required. The unique name of the instance in which to create
- *    the new app profile.
- *    Values are of the form
+ *    the new app profile. Values are of the form
  *    `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesCreate
@@ -379,8 +394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the requested app profile. Values are of the
- *  form
- *  `projects/{project}/instances/{instance}/appProfiles/{app_profile}`.
+ *  form `projects/{project}/instances/{instance}/appProfiles/{app_profile}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -417,13 +431,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesAppProfilesListWithparent:]
 
 /**
- *  Maximum number of results per page.
- *  A page_size of zero lets the server choose the number of items to return.
- *  A page_size which is strictly positive will return at most that many items.
- *  A negative page_size will cause an error.
- *  Following the first request, subsequent paginated calls are not required
- *  to pass a page_size. If a page_size is set in subsequent calls, it must
- *  match the page_size given in the first request.
+ *  Maximum number of results per page. A page_size of zero lets the server
+ *  choose the number of items to return. A page_size which is strictly positive
+ *  will return at most that many items. A negative page_size will cause an
+ *  error. Following the first request, subsequent paginated calls are not
+ *  required to pass a page_size. If a page_size is set in subsequent calls, it
+ *  must match the page_size given in the first request.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -432,11 +445,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the instance for which a list of app profiles
- *  is
- *  requested. Values are of the form
- *  `projects/{project}/instances/{instance}`.
- *  Use `{instance} = '-'` to list AppProfiles for all Instances in a project,
- *  e.g., `projects/myproject/instances/-`.
+ *  is requested. Values are of the form
+ *  `projects/{project}/instances/{instance}`. Use `{instance} = '-'` to list
+ *  AppProfiles for all Instances in a project, e.g.,
+ *  `projects/myproject/instances/-`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -446,11 +458,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Lists information about app profiles in an instance.
  *
  *  @param parent Required. The unique name of the instance for which a list of
- *    app profiles is
- *    requested. Values are of the form
- *    `projects/{project}/instances/{instance}`.
- *    Use `{instance} = '-'` to list AppProfiles for all Instances in a project,
- *    e.g., `projects/myproject/instances/-`.
+ *    app profiles is requested. Values are of the form
+ *    `projects/{project}/instances/{instance}`. Use `{instance} = '-'` to list
+ *    AppProfiles for all Instances in a project, e.g.,
+ *    `projects/myproject/instances/-`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesList
  *
@@ -489,8 +500,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The subset of app profile fields which should be replaced.
- *  If unset, all fields will be replaced.
+ *  Required. The subset of app profile fields which should be replaced. If
+ *  unset, all fields will be replaced.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -514,11 +525,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Starts creating a new Cloud Bigtable Backup. The returned backup
- *  long-running operation can be used to
- *  track creation of the backup. The
- *  metadata field type is
- *  CreateBackupMetadata. The
- *  response field type is
+ *  long-running operation can be used to track creation of the backup. The
+ *  metadata field type is CreateBackupMetadata. The response field type is
  *  Backup, if successful. Cancelling the returned operation will stop the
  *  creation and delete the backup.
  *
@@ -536,9 +544,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsCreateWithObject:parent:]
 
 /**
- *  Required. The id of the backup to be created. The `backup_id` along with
- *  the parent `parent` are combined as {parent}/backups/{backup_id} to create
- *  the full backup name, of the form:
+ *  Required. The id of the backup to be created. The `backup_id` along with the
+ *  parent `parent` are combined as {parent}/backups/{backup_id} to create the
+ *  full backup name, of the form:
  *  `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup_id}`.
  *  This string must be between 1 and 50 characters in length and match the
  *  regex _a-zA-Z0-9*.
@@ -547,8 +555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. This must be one of the clusters in the instance in which this
- *  table is located. The backup will be stored in this cluster. Values are
- *  of the form `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *  table is located. The backup will be stored in this cluster. Values are of
+ *  the form `projects/{project}/instances/{instance}/clusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -556,19 +564,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Fetches a @c GTLRBigtableAdmin_Operation.
  *
  *  Starts creating a new Cloud Bigtable Backup. The returned backup
- *  long-running operation can be used to
- *  track creation of the backup. The
- *  metadata field type is
- *  CreateBackupMetadata. The
- *  response field type is
+ *  long-running operation can be used to track creation of the backup. The
+ *  metadata field type is CreateBackupMetadata. The response field type is
  *  Backup, if successful. Cancelling the returned operation will stop the
  *  creation and delete the backup.
  *
  *  @param object The @c GTLRBigtableAdmin_Backup to include in the query.
  *  @param parent Required. This must be one of the clusters in the instance in
- *    which this
- *    table is located. The backup will be stored in this cluster. Values are
- *    of the form `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *    which this table is located. The backup will be stored in this cluster.
+ *    Values are of the form
+ *    `projects/{project}/instances/{instance}/clusters/{cluster}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCreate
  */
@@ -594,8 +599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsDeleteWithname:]
 
 /**
- *  Required. Name of the backup to delete.
- *  Values are of the form
+ *  Required. Name of the backup to delete. Values are of the form
  *  `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -605,8 +609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *
  *  Deletes a pending or completed Cloud Bigtable backup.
  *
- *  @param name Required. Name of the backup to delete.
- *    Values are of the form
+ *  @param name Required. Name of the backup to delete. Values are of the form
  *    `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsDelete
@@ -632,8 +635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsGetWithname:]
 
 /**
- *  Required. Name of the backup.
- *  Values are of the form
+ *  Required. Name of the backup. Values are of the form
  *  `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -643,8 +645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *
  *  Gets metadata on a pending or completed Cloud Bigtable Backup.
  *
- *  @param name Required. Name of the backup.
- *    Values are of the form
+ *  @param name Required. Name of the backup. Values are of the form
  *    `projects/{project}/instances/{instance}/clusters/{cluster}/backups/{backup}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGet
@@ -654,9 +655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Gets the access control policy for a Table resource.
- *  Returns an empty policy if the resource exists but does not have a policy
- *  set.
+ *  Gets the access control policy for a Table resource. Returns an empty policy
+ *  if the resource exists but does not have a policy set.
  *
  *  Method: bigtableadmin.projects.instances.clusters.backups.getIamPolicy
  *
@@ -672,23 +672,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Gets the access control policy for a Table resource.
- *  Returns an empty policy if the resource exists but does not have a policy
- *  set.
+ *  Gets the access control policy for a Table resource. Returns an empty policy
+ *  if the resource exists but does not have a policy set.
  *
  *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGetIamPolicy
  */
@@ -698,8 +697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Lists Cloud Bigtable backups. Returns both completed and pending
- *  backups.
+ *  Lists Cloud Bigtable backups. Returns both completed and pending backups.
  *
  *  Method: bigtableadmin.projects.instances.clusters.backups.list
  *
@@ -715,90 +713,73 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsListWithparent:]
 
 /**
- *  A filter expression that filters backups listed in the response.
- *  The expression must specify the field name, a comparison operator,
- *  and the value that you want to use for filtering. The value must be a
- *  string, a number, or a boolean. The comparison operator must be
- *  <, >, <=, >=, !=, =, or :. Colon ':' represents a HAS operator which is
- *  roughly synonymous with equality. Filter rules are case insensitive.
- *  The fields eligible for filtering are:
- *  * `name`
- *  * `source_table`
- *  * `state`
- *  * `start_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
- *  * `end_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
- *  * `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ)
- *  * `size_bytes`
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. By default, each expression is an AND expression. However,
- *  you can include AND, OR, and NOT expressions explicitly.
- *  Some examples of using filters are:
- *  * `name:"exact"` --> The backup's name is the string "exact".
- *  * `name:howl` --> The backup's name contains the string "howl".
- *  * `source_table:prod`
- *  --> The source_table's name contains the string "prod".
- *  * `state:CREATING` --> The backup is pending creation.
- *  * `state:READY` --> The backup is fully created and ready for use.
- *  * `(name:howl) AND (start_time < \\"2018-03-28T14:50:00Z\\")`
- *  --> The backup name contains the string "howl" and start_time
- *  of the backup is before 2018-03-28T14:50:00Z.
- *  * `size_bytes > 10000000000` --> The backup's size is greater than 10GB
+ *  A filter expression that filters backups listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be <, >, <=, >=, !=, =, or :. Colon
+ *  ':' represents a HAS operator which is roughly synonymous with equality.
+ *  Filter rules are case insensitive. The fields eligible for filtering are: *
+ *  `name` * `source_table` * `state` * `start_time` (and values are of the
+ *  format YYYY-MM-DDTHH:MM:SSZ) * `end_time` (and values are of the format
+ *  YYYY-MM-DDTHH:MM:SSZ) * `expire_time` (and values are of the format
+ *  YYYY-MM-DDTHH:MM:SSZ) * `size_bytes` To filter on multiple expressions,
+ *  provide each separate expression within parentheses. By default, each
+ *  expression is an AND expression. However, you can include AND, OR, and NOT
+ *  expressions explicitly. Some examples of using filters are: * `name:"exact"`
+ *  --> The backup's name is the string "exact". * `name:howl` --> The backup's
+ *  name contains the string "howl". * `source_table:prod` --> The
+ *  source_table's name contains the string "prod". * `state:CREATING` --> The
+ *  backup is pending creation. * `state:READY` --> The backup is fully created
+ *  and ready for use. * `(name:howl) AND (start_time <
+ *  \\"2018-03-28T14:50:00Z\\")` --> The backup name contains the string "howl"
+ *  and start_time of the backup is before 2018-03-28T14:50:00Z. * `size_bytes >
+ *  10000000000` --> The backup's size is greater than 10GB
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  An expression for specifying the sort order of the results of the request.
  *  The string value should specify one or more fields in Backup. The full
- *  syntax is described at https://aip.dev/132#ordering.
- *  Fields supported are:
- *  * name
- *  * source_table
- *  * expire_time
- *  * start_time
- *  * end_time
- *  * size_bytes
- *  * state
- *  For example, "start_time". The default sorting order is ascending.
- *  To specify descending order for the field, a suffix " desc" should
- *  be appended to the field name. For example, "start_time desc".
- *  Redundant space characters in the syntax are insigificant.
- *  If order_by is empty, results will be sorted by `start_time` in descending
- *  order starting from the most recently created backup.
+ *  syntax is described at https://aip.dev/132#ordering. Fields supported are: *
+ *  name * source_table * expire_time * start_time * end_time * size_bytes *
+ *  state For example, "start_time". The default sorting order is ascending. To
+ *  specify descending order for the field, a suffix " desc" should be appended
+ *  to the field name. For example, "start_time desc". Redundant space
+ *  characters in the syntax are insigificant. If order_by is empty, results
+ *  will be sorted by `start_time` in descending order starting from the most
+ *  recently created backup.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Number of backups to be returned in the response. If 0 or
- *  less, defaults to the server's maximum allowed page size.
+ *  Number of backups to be returned in the response. If 0 or less, defaults to
+ *  the server's maximum allowed page size.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  If non-empty, `page_token` should contain a
- *  next_page_token from a
- *  previous ListBackupsResponse to the same `parent` and with the same
- *  `filter`.
+ *  If non-empty, `page_token` should contain a next_page_token from a previous
+ *  ListBackupsResponse to the same `parent` and with the same `filter`.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The cluster to list backups from. Values are of the
- *  form `projects/{project}/instances/{instance}/clusters/{cluster}`.
- *  Use `{cluster} = '-'` to list backups for all clusters in an instance,
- *  e.g., `projects/{project}/instances/{instance}/clusters/-`.
+ *  Required. The cluster to list backups from. Values are of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}`. Use `{cluster}
+ *  = '-'` to list backups for all clusters in an instance, e.g.,
+ *  `projects/{project}/instances/{instance}/clusters/-`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_ListBackupsResponse.
  *
- *  Lists Cloud Bigtable backups. Returns both completed and pending
- *  backups.
+ *  Lists Cloud Bigtable backups. Returns both completed and pending backups.
  *
  *  @param parent Required. The cluster to list backups from. Values are of the
- *    form `projects/{project}/instances/{instance}/clusters/{cluster}`.
- *    Use `{cluster} = '-'` to list backups for all clusters in an instance,
- *    e.g., `projects/{project}/instances/{instance}/clusters/-`.
+ *    form `projects/{project}/instances/{instance}/clusters/{cluster}`. Use
+ *    `{cluster} = '-'` to list backups for all clusters in an instance, e.g.,
+ *    `projects/{project}/instances/{instance}/clusters/-`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsList
  *
@@ -827,24 +808,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsPatchWithObject:name:]
 
 /**
- *  A globally unique identifier for the backup which cannot be
- *  changed. Values are of the form
- *  `projects/{project}/instances/{instance}/clusters/{cluster}/
- *  backups/_a-zA-Z0-9*`
- *  The final segment of the name must be between 1 and 50 characters
- *  in length.
- *  The backup is stored in the cluster identified by the prefix of the backup
- *  name of the form
+ *  A globally unique identifier for the backup which cannot be changed. Values
+ *  are of the form `projects/{project}/instances/{instance}/clusters/{cluster}/
+ *  backups/_a-zA-Z0-9*` The final segment of the name must be between 1 and 50
+ *  characters in length. The backup is stored in the cluster identified by the
+ *  prefix of the backup name of the form
  *  `projects/{project}/instances/{instance}/clusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. A mask specifying which fields (e.g. `expire_time`) in the
- *  Backup resource should be updated. This mask is relative to the Backup
- *  resource, not to the request message. The field mask must always be
- *  specified; this prevents any future fields from being erased accidentally
- *  by clients that do not know about them.
+ *  Required. A mask specifying which fields (e.g. `expire_time`) in the Backup
+ *  resource should be updated. This mask is relative to the Backup resource,
+ *  not to the request message. The field mask must always be specified; this
+ *  prevents any future fields from being erased accidentally by clients that do
+ *  not know about them.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -859,11 +837,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param name A globally unique identifier for the backup which cannot be
  *    changed. Values are of the form
  *    `projects/{project}/instances/{instance}/clusters/{cluster}/
- *    backups/_a-zA-Z0-9*`
- *    The final segment of the name must be between 1 and 50 characters
- *    in length.
- *    The backup is stored in the cluster identified by the prefix of the backup
- *    name of the form
+ *    backups/_a-zA-Z0-9*` The final segment of the name must be between 1 and
+ *    50 characters in length. The backup is stored in the cluster identified by
+ *    the prefix of the backup name of the form
  *    `projects/{project}/instances/{instance}/clusters/{cluster}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsPatch
@@ -874,8 +850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Sets the access control policy on a Table resource.
- *  Replaces any existing policy.
+ *  Sets the access control policy on a Table resource. Replaces any existing
+ *  policy.
  *
  *  Method: bigtableadmin.projects.instances.clusters.backups.setIamPolicy
  *
@@ -891,22 +867,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Sets the access control policy on a Table resource.
- *  Replaces any existing policy.
+ *  Sets the access control policy on a Table resource. Replaces any existing
+ *  policy.
  *
  *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsSetIamPolicy
  */
@@ -932,8 +908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -945,8 +921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsTestIamPermissions
  */
@@ -974,17 +950,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The ID to be used when referring to the new cluster within its
- *  instance,
- *  e.g., just `mycluster` rather than
+ *  instance, e.g., just `mycluster` rather than
  *  `projects/myproject/instances/myinstance/clusters/mycluster`.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Required. The unique name of the instance in which to create the new
- *  cluster.
- *  Values are of the form
- *  `projects/{project}/instances/{instance}`.
+ *  cluster. Values are of the form `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -995,8 +968,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *
  *  @param object The @c GTLRBigtableAdmin_Cluster to include in the query.
  *  @param parent Required. The unique name of the instance in which to create
- *    the new cluster.
- *    Values are of the form
+ *    the new cluster. Values are of the form
  *    `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersCreate
@@ -1025,8 +997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the cluster to be deleted. Values are of the
- *  form
- *  `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *  form `projects/{project}/instances/{instance}/clusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1075,8 +1046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Gets information about a cluster.
  *
  *  @param name Required. The unique name of the requested cluster. Values are
- *    of the form
- *    `projects/{project}/instances/{instance}/clusters/{cluster}`.
+ *    of the form `projects/{project}/instances/{instance}/clusters/{cluster}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersGet
  */
@@ -1107,8 +1077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the instance for which a list of clusters is
- *  requested.
- *  Values are of the form `projects/{project}/instances/{instance}`.
+ *  requested. Values are of the form `projects/{project}/instances/{instance}`.
  *  Use `{instance} = '-'` to list Clusters for all Instances in a project,
  *  e.g., `projects/myproject/instances/-`.
  */
@@ -1120,10 +1089,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Lists information about clusters in an instance.
  *
  *  @param parent Required. The unique name of the instance for which a list of
- *    clusters is requested.
- *    Values are of the form `projects/{project}/instances/{instance}`.
- *    Use `{instance} = '-'` to list Clusters for all Instances in a project,
- *    e.g., `projects/myproject/instances/-`.
+ *    clusters is requested. Values are of the form
+ *    `projects/{project}/instances/{instance}`. Use `{instance} = '-'` to list
+ *    Clusters for all Instances in a project, e.g.,
+ *    `projects/myproject/instances/-`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersList
  *
@@ -1193,8 +1162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the project in which to create the new
- *  instance.
- *  Values are of the form `projects/{project}`.
+ *  instance. Values are of the form `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1206,8 +1174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_CreateInstanceRequest to include in
  *    the query.
  *  @param parent Required. The unique name of the project in which to create
- *    the new instance.
- *    Values are of the form `projects/{project}`.
+ *    the new instance. Values are of the form `projects/{project}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesCreate
  */
@@ -1234,8 +1201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesDeleteWithname:]
 
 /**
- *  Required. The unique name of the instance to be deleted.
- *  Values are of the form `projects/{project}/instances/{instance}`.
+ *  Required. The unique name of the instance to be deleted. Values are of the
+ *  form `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1244,8 +1211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *
  *  Delete an instance from a project.
  *
- *  @param name Required. The unique name of the instance to be deleted.
- *    Values are of the form `projects/{project}/instances/{instance}`.
+ *  @param name Required. The unique name of the instance to be deleted. Values
+ *    are of the form `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesDelete
  */
@@ -1283,8 +1250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Gets information about an instance.
  *
  *  @param name Required. The unique name of the requested instance. Values are
- *    of the form
- *    `projects/{project}/instances/{instance}`.
+ *    of the form `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesGet
  */
@@ -1311,8 +1277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1325,8 +1291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesGetIamPolicy
  */
@@ -1358,8 +1324,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the project for which a list of instances is
- *  requested.
- *  Values are of the form `projects/{project}`.
+ *  requested. Values are of the form `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1369,8 +1334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Lists information about instances in a project.
  *
  *  @param parent Required. The unique name of the project for which a list of
- *    instances is requested.
- *    Values are of the form `projects/{project}`.
+ *    instances is requested. Values are of the form `projects/{project}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesList
  *
@@ -1407,8 +1371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The subset of Instance fields which should be replaced.
- *  Must be explicitly set.
+ *  Required. The subset of Instance fields which should be replaced. Must be
+ *  explicitly set.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1450,8 +1414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1464,8 +1428,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesSetIamPolicy
  */
@@ -1476,8 +1440,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Checks replication consistency based on a consistency token, that is, if
- *  replication has caught up based on the conditions specified in the token
- *  and the check request.
+ *  replication has caught up based on the conditions specified in the token and
+ *  the check request.
  *
  *  Method: bigtableadmin.projects.instances.tables.checkConsistency
  *
@@ -1494,8 +1458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the Table for which to check replication
- *  consistency.
- *  Values are of the form
+ *  consistency. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/{table}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1504,14 +1467,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Fetches a @c GTLRBigtableAdmin_CheckConsistencyResponse.
  *
  *  Checks replication consistency based on a consistency token, that is, if
- *  replication has caught up based on the conditions specified in the token
- *  and the check request.
+ *  replication has caught up based on the conditions specified in the token and
+ *  the check request.
  *
  *  @param object The @c GTLRBigtableAdmin_CheckConsistencyRequest to include in
  *    the query.
  *  @param name Required. The unique name of the Table for which to check
- *    replication consistency.
- *    Values are of the form
+ *    replication consistency. Values are of the form
  *    `projects/{project}/instances/{instance}/tables/{table}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesCheckConsistency
@@ -1522,9 +1484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Creates a new table in the specified instance.
- *  The table can be created with a full set of initial column families,
- *  specified in the request.
+ *  Creates a new table in the specified instance. The table can be created with
+ *  a full set of initial column families, specified in the request.
  *
  *  Method: bigtableadmin.projects.instances.tables.create
  *
@@ -1548,15 +1509,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Table.
  *
- *  Creates a new table in the specified instance.
- *  The table can be created with a full set of initial column families,
- *  specified in the request.
+ *  Creates a new table in the specified instance. The table can be created with
+ *  a full set of initial column families, specified in the request.
  *
  *  @param object The @c GTLRBigtableAdmin_CreateTableRequest to include in the
  *    query.
  *  @param parent Required. The unique name of the instance in which to create
- *    the table.
- *    Values are of the form `projects/{project}/instances/{instance}`.
+ *    the table. Values are of the form
+ *    `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesCreate
  */
@@ -1582,8 +1542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesDeleteWithname:]
 
 /**
- *  Required. The unique name of the table to be deleted.
- *  Values are of the form
+ *  Required. The unique name of the table to be deleted. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/{table}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1593,9 +1552,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *
  *  Permanently deletes a specified table and all of its data.
  *
- *  @param name Required. The unique name of the table to be deleted.
- *    Values are of the form
- *    `projects/{project}/instances/{instance}/tables/{table}`.
+ *  @param name Required. The unique name of the table to be deleted. Values are
+ *    of the form `projects/{project}/instances/{instance}/tables/{table}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesDelete
  */
@@ -1638,8 +1596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_DropRowRangeRequest to include in the
  *    query.
  *  @param name Required. The unique name of the table on which to drop a range
- *    of rows.
- *    Values are of the form
+ *    of rows. Values are of the form
  *    `projects/{project}/instances/{instance}/tables/{table}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesDropRowRange
@@ -1670,8 +1627,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The unique name of the Table for which to create a consistency
- *  token.
- *  Values are of the form
+ *  token. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/{table}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1687,8 +1643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_GenerateConsistencyTokenRequest to
  *    include in the query.
  *  @param name Required. The unique name of the Table for which to create a
- *    consistency token.
- *    Values are of the form
+ *    consistency token. Values are of the form
  *    `projects/{project}/instances/{instance}/tables/{table}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesGenerateConsistencyToken
@@ -1716,22 +1671,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesGetWithname:]
 
 /**
- *  Required. The unique name of the requested table.
- *  Values are of the form
+ *  Required. The unique name of the requested table. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/{table}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The view to be applied to the returned table's fields.
- *  Defaults to `SCHEMA_VIEW` if unspecified.
+ *  The view to be applied to the returned table's fields. Defaults to
+ *  `SCHEMA_VIEW` if unspecified.
  *
  *  Likely values:
- *    @arg @c kGTLRBigtableAdminViewViewUnspecified Value "VIEW_UNSPECIFIED"
- *    @arg @c kGTLRBigtableAdminViewNameOnly Value "NAME_ONLY"
- *    @arg @c kGTLRBigtableAdminViewSchemaView Value "SCHEMA_VIEW"
- *    @arg @c kGTLRBigtableAdminViewReplicationView Value "REPLICATION_VIEW"
- *    @arg @c kGTLRBigtableAdminViewFull Value "FULL"
+ *    @arg @c kGTLRBigtableAdminViewViewUnspecified Uses the default view for
+ *        each method as documented in its request. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdminViewNameOnly Only populates `name`. (Value:
+ *        "NAME_ONLY")
+ *    @arg @c kGTLRBigtableAdminViewSchemaView Only populates `name` and fields
+ *        related to the table's schema. (Value: "SCHEMA_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewReplicationView Only populates `name` and
+ *        fields related to the table's replication state. (Value:
+ *        "REPLICATION_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1740,9 +1699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *
  *  Gets metadata information about the specified table.
  *
- *  @param name Required. The unique name of the requested table.
- *    Values are of the form
- *    `projects/{project}/instances/{instance}/tables/{table}`.
+ *  @param name Required. The unique name of the requested table. Values are of
+ *    the form `projects/{project}/instances/{instance}/tables/{table}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesGet
  */
@@ -1751,9 +1709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Gets the access control policy for a Table resource.
- *  Returns an empty policy if the resource exists but does not have a policy
- *  set.
+ *  Gets the access control policy for a Table resource. Returns an empty policy
+ *  if the resource exists but does not have a policy set.
  *
  *  Method: bigtableadmin.projects.instances.tables.getIamPolicy
  *
@@ -1769,23 +1726,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesGetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being requested. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Gets the access control policy for a Table resource.
- *  Returns an empty policy if the resource exists but does not have a policy
- *  set.
+ *  Gets the access control policy for a Table resource. Returns an empty policy
+ *  if the resource exists but does not have a policy set.
  *
  *  @param object The @c GTLRBigtableAdmin_GetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesGetIamPolicy
  */
@@ -1812,13 +1768,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesListWithparent:]
 
 /**
- *  Maximum number of results per page.
- *  A page_size of zero lets the server choose the number of items to return.
- *  A page_size which is strictly positive will return at most that many items.
- *  A negative page_size will cause an error.
- *  Following the first request, subsequent paginated calls are not required
- *  to pass a page_size. If a page_size is set in subsequent calls, it must
- *  match the page_size given in the first request.
+ *  Maximum number of results per page. A page_size of zero lets the server
+ *  choose the number of items to return. A page_size which is strictly positive
+ *  will return at most that many items. A negative page_size will cause an
+ *  error. Following the first request, subsequent paginated calls are not
+ *  required to pass a page_size. If a page_size is set in subsequent calls, it
+ *  must match the page_size given in the first request.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1832,15 +1787,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  The view to be applied to the returned tables' fields.
- *  Only NAME_ONLY view (default) and REPLICATION_VIEW are supported.
+ *  The view to be applied to the returned tables' fields. Only NAME_ONLY view
+ *  (default) and REPLICATION_VIEW are supported.
  *
  *  Likely values:
- *    @arg @c kGTLRBigtableAdminViewViewUnspecified Value "VIEW_UNSPECIFIED"
- *    @arg @c kGTLRBigtableAdminViewNameOnly Value "NAME_ONLY"
- *    @arg @c kGTLRBigtableAdminViewSchemaView Value "SCHEMA_VIEW"
- *    @arg @c kGTLRBigtableAdminViewReplicationView Value "REPLICATION_VIEW"
- *    @arg @c kGTLRBigtableAdminViewFull Value "FULL"
+ *    @arg @c kGTLRBigtableAdminViewViewUnspecified Uses the default view for
+ *        each method as documented in its request. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdminViewNameOnly Only populates `name`. (Value:
+ *        "NAME_ONLY")
+ *    @arg @c kGTLRBigtableAdminViewSchemaView Only populates `name` and fields
+ *        related to the table's schema. (Value: "SCHEMA_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewReplicationView Only populates `name` and
+ *        fields related to the table's replication state. (Value:
+ *        "REPLICATION_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -1850,8 +1810,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Lists all tables served from a specified instance.
  *
  *  @param parent Required. The unique name of the instance for which tables
- *    should be listed.
- *    Values are of the form `projects/{project}/instances/{instance}`.
+ *    should be listed. Values are of the form
+ *    `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesList
  *
@@ -1900,8 +1860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_ModifyColumnFamiliesRequest to
  *    include in the query.
  *  @param name Required. The unique name of the table whose families should be
- *    modified.
- *    Values are of the form
+ *    modified. Values are of the form
  *    `projects/{project}/instances/{instance}/tables/{table}`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesModifyColumnFamilies
@@ -1912,14 +1871,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Create a new table by restoring from a completed backup. The new table
- *  must be in the same instance as the instance containing the backup. The
- *  returned table long-running operation can
- *  be used to track the progress of the operation, and to cancel it. The
- *  metadata field type is
- *  RestoreTableMetadata. The
- *  response type is
- *  Table, if successful.
+ *  Create a new table by restoring from a completed backup. The new table must
+ *  be in the same instance as the instance containing the backup. The returned
+ *  table long-running operation can be used to track the progress of the
+ *  operation, and to cancel it. The metadata field type is
+ *  RestoreTableMetadata. The response type is Table, if successful.
  *
  *  Method: bigtableadmin.projects.instances.tables.restore
  *
@@ -1935,30 +1891,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesRestoreWithObject:parent:]
 
 /**
- *  Required. The name of the instance in which to create the restored
- *  table. This instance must be the parent of the source backup. Values are
- *  of the form `projects/<project>/instances/<instance>`.
+ *  Required. The name of the instance in which to create the restored table.
+ *  This instance must be the parent of the source backup. Values are of the
+ *  form `projects//instances/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_Operation.
  *
- *  Create a new table by restoring from a completed backup. The new table
- *  must be in the same instance as the instance containing the backup. The
- *  returned table long-running operation can
- *  be used to track the progress of the operation, and to cancel it. The
- *  metadata field type is
- *  RestoreTableMetadata. The
- *  response type is
- *  Table, if successful.
+ *  Create a new table by restoring from a completed backup. The new table must
+ *  be in the same instance as the instance containing the backup. The returned
+ *  table long-running operation can be used to track the progress of the
+ *  operation, and to cancel it. The metadata field type is
+ *  RestoreTableMetadata. The response type is Table, if successful.
  *
  *  @param object The @c GTLRBigtableAdmin_RestoreTableRequest to include in the
  *    query.
  *  @param parent Required. The name of the instance in which to create the
- *    restored
- *    table. This instance must be the parent of the source backup. Values are
- *    of the form `projects/<project>/instances/<instance>`.
+ *    restored table. This instance must be the parent of the source backup.
+ *    Values are of the form `projects//instances/`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesRestore
  */
@@ -1968,8 +1920,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Sets the access control policy on a Table resource.
- *  Replaces any existing policy.
+ *  Sets the access control policy on a Table resource. Replaces any existing
+ *  policy.
  *
  *  Method: bigtableadmin.projects.instances.tables.setIamPolicy
  *
@@ -1985,22 +1937,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesSetIamPolicyWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy is being specified.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy is being specified. See the
+ *  operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_Policy.
  *
- *  Sets the access control policy on a Table resource.
- *  Replaces any existing policy.
+ *  Sets the access control policy on a Table resource. Replaces any existing
+ *  policy.
  *
  *  @param object The @c GTLRBigtableAdmin_SetIamPolicyRequest to include in the
  *    query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified.
- *    See the operation documentation for the appropriate value for this field.
+ *    specified. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesSetIamPolicy
  */
@@ -2026,8 +1978,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2039,8 +1991,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesTestIamPermissions
  */
@@ -2067,8 +2019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 //   +[GTLQueryBigtableAdmin queryForProjectsInstancesTestIamPermissionsWithObject:resource:]
 
 /**
- *  REQUIRED: The resource for which the policy detail is being requested.
- *  See the operation documentation for the appropriate value for this field.
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  the operation documentation for the appropriate value for this field.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -2080,8 +2032,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_TestIamPermissionsRequest to include
  *    in the query.
  *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested.
- *    See the operation documentation for the appropriate value for this field.
+ *    requested. See the operation documentation for the appropriate value for
+ *    this field.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTestIamPermissions
  */

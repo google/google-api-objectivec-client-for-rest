@@ -1812,7 +1812,7 @@
 
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReport
 
-@dynamic basepath, name, override;
+@dynamic name, override;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

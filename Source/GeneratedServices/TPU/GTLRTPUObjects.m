@@ -38,6 +38,14 @@ NSString * const kGTLRTPU_Node_State_Stopping         = @"STOPPING";
 NSString * const kGTLRTPU_Node_State_Terminated       = @"TERMINATED";
 NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 
+// GTLRTPU_Symptom.symptomType
+NSString * const kGTLRTPU_Symptom_SymptomType_ExecuteTimedOut  = @"EXECUTE_TIMED_OUT";
+NSString * const kGTLRTPU_Symptom_SymptomType_HbmOutOfMemory   = @"HBM_OUT_OF_MEMORY";
+NSString * const kGTLRTPU_Symptom_SymptomType_LowMemory        = @"LOW_MEMORY";
+NSString * const kGTLRTPU_Symptom_SymptomType_MeshBuildFail    = @"MESH_BUILD_FAIL";
+NSString * const kGTLRTPU_Symptom_SymptomType_OutOfMemory      = @"OUT_OF_MEMORY";
+NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRTPU_AcceleratorType
@@ -226,8 +234,8 @@ NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 @implementation GTLRTPU_Node
 @dynamic acceleratorType, cidrBlock, createTime, descriptionProperty, health,
          healthDescription, ipAddress, labels, name, network, networkEndpoints,
-         port, schedulingConfig, serviceAccount, state, tensorflowVersion,
-         useServiceNetworking;
+         port, schedulingConfig, serviceAccount, state, symptoms,
+         tensorflowVersion, useServiceNetworking;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -235,7 +243,8 @@ NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"networkEndpoints" : [GTLRTPU_NetworkEndpoint class]
+    @"networkEndpoints" : [GTLRTPU_NetworkEndpoint class],
+    @"symptoms" : [GTLRTPU_Symptom class]
   };
   return map;
 }
@@ -373,6 +382,16 @@ NSString * const kGTLRTPU_Node_State_Unhiding         = @"UNHIDING";
 //
 
 @implementation GTLRTPU_StopNodeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTPU_Symptom
+//
+
+@implementation GTLRTPU_Symptom
+@dynamic createTime, details, symptomType, workerId;
 @end
 
 

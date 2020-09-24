@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Licensing API (licensing/v1)
+//   Enterprise License Manager API (licensing/v1)
 // Description:
-//   Licensing API to view and manage licenses for your domain
+//   The Google Enterprise License Manager API's allows you to license apps for
+//   all the users of a domain managed by you.
 // Documentation:
 //   https://developers.google.com/admin-sdk/licensing/
 
@@ -26,7 +27,6 @@ NSString * const kGTLRAuthScopeLicensingAppsLicensing = @"https://www.googleapis
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"apps/licensing/v1/product/";
     self.batchPath = @"batch/licensing/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

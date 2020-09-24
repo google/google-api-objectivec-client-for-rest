@@ -1307,14 +1307,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAudioUnmutesVideo;
 /** Value: "METRIC_AVERAGE_DISPLAY_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageDisplayTime;
-/** Value: "METRIC_AVERAGE_IMPRESSION_FREQUENCY_PER_COOKIE" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageImpressionFrequencyPerCookie;
 /** Value: "METRIC_AVERAGE_IMPRESSION_FREQUENCY_PER_USER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageImpressionFrequencyPerUser;
 /** Value: "METRIC_AVERAGE_INTERACTION_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageInteractionTime;
-/** Value: "METRIC_AVERAGE_VIEW_FREQUENCY_PER_COOKIE" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageViewFrequencyPerCookie;
 /** Value: "METRIC_AVERAGE_WATCH_TIME_PER_IMPRESSION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageWatchTimePerImpression;
 /** Value: "METRIC_BEGIN_TO_RENDER_ELIGIBLE_IMPRESSIONS" */
@@ -1463,8 +1459,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricExits;
 /** Value: "METRIC_EXPANSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricExpansions;
-/** Value: "METRIC_EXPOSURE_CONVERSION_RATE" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricExposureConversionRate;
 /** Value: "METRIC_FEE10_ADVERTISER" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricFee10Advertiser;
 /** Value: "METRIC_FEE10_PARTNER" */
@@ -1915,8 +1909,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalConversions;
 /** Value: "METRIC_TOTAL_CONVERSIONS_CROSS_ENVIRONMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalConversionsCrossEnvironment;
-/** Value: "METRIC_TOTAL_COOKIES" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalCookies;
 /** Value: "METRIC_TOTAL_DISPLAY_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalDisplayTime;
 /** Value: "METRIC_TOTAL_EXPOSURES" */
@@ -1981,8 +1973,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalPaths;
 /** Value: "METRIC_TOTAL_USERS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalUsers;
-/** Value: "METRIC_TOTAL_VIEWERS_COOKIES" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalViewersCookies;
 /** Value: "METRIC_TRACKED_ADS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrackedAds;
 /** Value: "METRIC_TRUEVIEW_AVERAGE_CPE_ADVERTISER" */
@@ -4599,8 +4589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @property(nonatomic, copy, nullable) NSString *frequency;
 
 /**
- *  Time of day at which a new report will be generated, represented as minutes
- *  past midnight. Range is 0 to 1439. Only applies to scheduled reports.
+ *  Deprecated. This field has no effect.
  *
  *  Uses NSNumber of intValue.
  */
