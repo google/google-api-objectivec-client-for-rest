@@ -26,8 +26,8 @@ NSString * const kGTLRAuthScopeDoubleclicksearch = @"https://www.googleapis.com/
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.batchPath = @"batch/doubleclicksearch/v2";
+    self.rootURLString = @"https://doubleclicksearch.googleapis.com/";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

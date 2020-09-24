@@ -1943,3 +1943,41 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 }
 
 @end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Location class];
+  query.loggingName = @"healthcare.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/locations";
+  GTLRCloudHealthcareQuery_ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ListLocationsResponse class];
+  query.loggingName = @"healthcare.projects.locations.list";
+  return query;
+}
+
+@end

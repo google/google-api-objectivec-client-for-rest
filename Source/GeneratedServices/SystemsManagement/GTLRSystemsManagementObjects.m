@@ -19,36 +19,10 @@ NSString * const kGTLRSystemsManagement_AptSettings_Type_Dist  = @"DIST";
 NSString * const kGTLRSystemsManagement_AptSettings_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRSystemsManagement_AptSettings_Type_Upgrade = @"UPGRADE";
 
-// GTLRSystemsManagement_ExecResourceExec.interpreter
-NSString * const kGTLRSystemsManagement_ExecResourceExec_Interpreter_InterpreterUnspecified = @"INTERPRETER_UNSPECIFIED";
-NSString * const kGTLRSystemsManagement_ExecResourceExec_Interpreter_None = @"NONE";
-NSString * const kGTLRSystemsManagement_ExecResourceExec_Interpreter_Powershell = @"POWERSHELL";
-NSString * const kGTLRSystemsManagement_ExecResourceExec_Interpreter_Shell = @"SHELL";
-
 // GTLRSystemsManagement_ExecStepConfig.interpreter
 NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_InterpreterUnspecified = @"INTERPRETER_UNSPECIFIED";
 NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_Powershell = @"POWERSHELL";
 NSString * const kGTLRSystemsManagement_ExecStepConfig_Interpreter_Shell = @"SHELL";
-
-// GTLRSystemsManagement_ExtractArchiveResource.type
-NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_ArchiveTypeUnspecified = @"ARCHIVE_TYPE_UNSPECIFIED";
-NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_Tar = @"TAR";
-NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_TarBzip = @"TAR_BZIP";
-NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_TarGzip = @"TAR_GZIP";
-NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_TarLzma = @"TAR_LZMA";
-NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_TarXz = @"TAR_XZ";
-NSString * const kGTLRSystemsManagement_ExtractArchiveResource_Type_Zip = @"ZIP";
-
-// GTLRSystemsManagement_FileResource.state
-NSString * const kGTLRSystemsManagement_FileResource_State_Absent = @"ABSENT";
-NSString * const kGTLRSystemsManagement_FileResource_State_ContentsMatch = @"CONTENTS_MATCH";
-NSString * const kGTLRSystemsManagement_FileResource_State_DesiredStateUnspecified = @"DESIRED_STATE_UNSPECIFIED";
-NSString * const kGTLRSystemsManagement_FileResource_State_Present = @"PRESENT";
-
-// GTLRSystemsManagement_PackageResource.desiredState
-NSString * const kGTLRSystemsManagement_PackageResource_DesiredState_DesiredStateUnspecified = @"DESIRED_STATE_UNSPECIFIED";
-NSString * const kGTLRSystemsManagement_PackageResource_DesiredState_Installed = @"INSTALLED";
-NSString * const kGTLRSystemsManagement_PackageResource_DesiredState_Removed = @"REMOVED";
 
 // GTLRSystemsManagement_PatchConfig.rebootConfig
 NSString * const kGTLRSystemsManagement_PatchConfig_RebootConfig_Always = @"ALWAYS";
@@ -93,11 +67,6 @@ NSString * const kGTLRSystemsManagement_PatchRollout_Mode_ZoneByZone = @"ZONE_BY
 NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_FrequencyUnspecified = @"FREQUENCY_UNSPECIFIED";
 NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Monthly = @"MONTHLY";
 NSString * const kGTLRSystemsManagement_RecurringSchedule_Frequency_Weekly = @"WEEKLY";
-
-// GTLRSystemsManagement_RepositoryResourceAptRepository.archiveType
-NSString * const kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_ArchiveTypeUnspecified = @"ARCHIVE_TYPE_UNSPECIFIED";
-NSString * const kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_Deb = @"DEB";
-NSString * const kGTLRSystemsManagement_RepositoryResourceAptRepository_ArchiveType_DebSrc = @"DEB_SRC";
 
 // GTLRSystemsManagement_WeekDayOfMonth.dayOfWeek
 NSString * const kGTLRSystemsManagement_WeekDayOfMonth_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -170,35 +139,6 @@ NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Up
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSystemsManagement_ExecResource
-//
-
-@implementation GTLRSystemsManagement_ExecResource
-@dynamic enforce, validate;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_ExecResourceExec
-//
-
-@implementation GTLRSystemsManagement_ExecResourceExec
-@dynamic allowedSuccessCodes, args, file, interpreter, script;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedSuccessCodes" : [NSNumber class],
-    @"args" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSystemsManagement_ExecStep
 //
 
@@ -238,56 +178,6 @@ NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Up
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_ExtractArchiveResource
-//
-
-@implementation GTLRSystemsManagement_ExtractArchiveResource
-@dynamic creates, destination, overwrite, source, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_File
-//
-
-@implementation GTLRSystemsManagement_File
-@dynamic allowInsecure, gcs, localPath, remote;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_FileGcs
-//
-
-@implementation GTLRSystemsManagement_FileGcs
-@dynamic bucket, generation, object;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_FileRemote
-//
-
-@implementation GTLRSystemsManagement_FileRemote
-@dynamic sha256Checksum, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_FileResource
-//
-
-@implementation GTLRSystemsManagement_FileResource
-@dynamic content, file, path, permissions, state;
 @end
 
 
@@ -403,95 +293,6 @@ NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Up
 
 @implementation GTLRSystemsManagement_OneTimeSchedule
 @dynamic executeTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_PackageResource
-//
-
-@implementation GTLRSystemsManagement_PackageResource
-@dynamic apt, deb, desiredState, googet, msi, rpm, yum, zypper;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_PackageResourceAPT
-//
-
-@implementation GTLRSystemsManagement_PackageResourceAPT
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_PackageResourceDeb
-//
-
-@implementation GTLRSystemsManagement_PackageResourceDeb
-@dynamic pullDeps, source;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_PackageResourceGooGet
-//
-
-@implementation GTLRSystemsManagement_PackageResourceGooGet
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_PackageResourceMSI
-//
-
-@implementation GTLRSystemsManagement_PackageResourceMSI
-@dynamic allowedSuccessCodes, flags, source;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"allowedSuccessCodes" : [NSNumber class],
-    @"flags" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_PackageResourceRPM
-//
-
-@implementation GTLRSystemsManagement_PackageResourceRPM
-@dynamic pullDeps, source;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_PackageResourceYUM
-//
-
-@implementation GTLRSystemsManagement_PackageResourceYUM
-@dynamic name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_PackageResourceZypper
-//
-
-@implementation GTLRSystemsManagement_PackageResourceZypper
-@dynamic name;
 @end
 
 
@@ -629,97 +430,6 @@ NSString * const kGTLRSystemsManagement_WindowsUpdateSettings_Classifications_Up
 @implementation GTLRSystemsManagement_RecurringSchedule
 @dynamic endTime, frequency, lastExecuteTime, monthly, nextExecuteTime,
          startTime, timeOfDay, timeZone, weekly;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_RepositoryResource
-//
-
-@implementation GTLRSystemsManagement_RepositoryResource
-@dynamic apt, goo, yum, zypper;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_RepositoryResourceAptRepository
-//
-
-@implementation GTLRSystemsManagement_RepositoryResourceAptRepository
-@dynamic archiveType, components, distribution, gpgKey, uri;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"components" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_RepositoryResourceGooRepository
-//
-
-@implementation GTLRSystemsManagement_RepositoryResourceGooRepository
-@dynamic name, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_RepositoryResourceYumRepository
-//
-
-@implementation GTLRSystemsManagement_RepositoryResourceYumRepository
-@dynamic baseUrl, displayName, gpgKeys, identifier;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"gpgKeys" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_RepositoryResourceZypperRepository
-//
-
-@implementation GTLRSystemsManagement_RepositoryResourceZypperRepository
-@dynamic baseUrl, displayName, gpgKeys, identifier;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"gpgKeys" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSystemsManagement_ServiceResource
-//
-
-@implementation GTLRSystemsManagement_ServiceResource
 @end
 
 

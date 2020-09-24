@@ -2,13 +2,38 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Developer API (androidpublisher/v3)
+//   Google Play Android Developer API (androidpublisher/v3)
 // Description:
-//   Accesses Android application developers' Google Play accounts.
+//   Lets Android application developers access their Google Play accounts.
 // Documentation:
 //   https://developers.google.com/android-publisher
 
 #import "GTLRAndroidPublisherObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRAndroidPublisher_DeobfuscationFile.symbolType
+NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_DeobfuscationFileTypeUnspecified = @"deobfuscationFileTypeUnspecified";
+NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_NativeCode = @"nativeCode";
+NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard = @"proguard";
+
+// GTLRAndroidPublisher_InAppProduct.purchaseType
+NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_ManagedUser = @"managedUser";
+NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_PurchaseTypeUnspecified = @"purchaseTypeUnspecified";
+NSString * const kGTLRAndroidPublisher_InAppProduct_PurchaseType_Subscription = @"subscription";
+
+// GTLRAndroidPublisher_InAppProduct.status
+NSString * const kGTLRAndroidPublisher_InAppProduct_Status_Active = @"active";
+NSString * const kGTLRAndroidPublisher_InAppProduct_Status_Inactive = @"inactive";
+NSString * const kGTLRAndroidPublisher_InAppProduct_Status_StatusUnspecified = @"statusUnspecified";
+
+// GTLRAndroidPublisher_TrackRelease.status
+NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Completed = @"completed";
+NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Draft = @"draft";
+NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Halted = @"halted";
+NSString * const kGTLRAndroidPublisher_TrackRelease_Status_InProgress = @"inProgress";
+NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @"statusUnspecified";
 
 // ----------------------------------------------------------------------------
 //
@@ -16,7 +41,7 @@
 //
 
 @implementation GTLRAndroidPublisher_Apk
-@dynamic binary, testBinary, versionCode;
+@dynamic binary, versionCode;
 @end
 
 
@@ -63,6 +88,12 @@
     @"apks" : [GTLRAndroidPublisher_Apk class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -118,6 +149,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -128,26 +165,6 @@
 
 @implementation GTLRAndroidPublisher_Comment
 @dynamic developerComment, userComment;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_Control
-//
-
-@implementation GTLRAndroidPublisher_Control
-@dynamic modRanges, stratifiedSamplings, versionCodes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"modRanges" : [GTLRAndroidPublisher_ModRange class],
-    @"stratifiedSamplings" : [GTLRAndroidPublisher_StratifiedSampling class],
-    @"versionCodes" : [NSNumber class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -266,21 +283,11 @@
     @"certificateBase64s" : [NSString class],
     @"nativeCodes" : [NSString class],
     @"usesFeatures" : [NSString class],
-    @"usesPermissions" : [GTLRAndroidPublisher_ExternallyHostedApkUsesPermission class]
+    @"usesPermissions" : [GTLRAndroidPublisher_UsesPermission class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_ExternallyHostedApkUsesPermission
-//
-
-@implementation GTLRAndroidPublisher_ExternallyHostedApkUsesPermission
-@dynamic maxSdkVersion, name;
 @end
 
 
@@ -390,10 +397,17 @@
 //
 
 @implementation GTLRAndroidPublisher_InAppProductListing
-@dynamic descriptionProperty, title;
+@dynamic benefits, descriptionProperty, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"benefits" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -412,6 +426,12 @@
     @"inappproduct" : [GTLRAndroidPublisher_InAppProduct class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -463,6 +483,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -473,16 +499,6 @@
 
 @implementation GTLRAndroidPublisher_LocalizedText
 @dynamic language, text;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_ModRange
-//
-
-@implementation GTLRAndroidPublisher_ModRange
-@dynamic end, start;
 @end
 
 
@@ -513,8 +529,16 @@
 
 @implementation GTLRAndroidPublisher_ProductPurchase
 @dynamic acknowledgementState, consumptionState, developerPayload, kind,
-         orderId, productId, purchaseState, purchaseTimeMillis, purchaseToken,
+         obfuscatedExternalAccountId, obfuscatedExternalProfileId, orderId,
+         productId, purchaseState, purchaseTimeMillis, purchaseToken,
          purchaseType, quantity;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -596,53 +620,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_Sampling
-//
-
-@implementation GTLRAndroidPublisher_Sampling
-@dynamic modRanges, modulus, salt, stratifiedSamplings, useAndroidId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"modRanges" : [GTLRAndroidPublisher_ModRange class],
-    @"stratifiedSamplings" : [GTLRAndroidPublisher_StratifiedSampling class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_StratifiedSampling
-//
-
-@implementation GTLRAndroidPublisher_StratifiedSampling
-@dynamic modRanges, stratum;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"modRanges" : [GTLRAndroidPublisher_ModRange class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_Stratum
-//
-
-@implementation GTLRAndroidPublisher_Stratum
-@dynamic brand;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAndroidPublisher_SubscriptionCancelSurveyResult
 //
 
@@ -680,10 +657,18 @@
 @dynamic acknowledgementState, autoRenewing, autoResumeTimeMillis, cancelReason,
          cancelSurveyResult, countryCode, developerPayload, emailAddress,
          expiryTimeMillis, externalAccountId, familyName, givenName,
-         introductoryPriceInfo, kind, linkedPurchaseToken, orderId,
+         introductoryPriceInfo, kind, linkedPurchaseToken,
+         obfuscatedExternalAccountId, obfuscatedExternalProfileId, orderId,
          paymentState, priceAmountMicros, priceChange, priceCurrencyCode,
          profileId, profileName, promotionCode, promotionType, purchaseType,
          startTimeMillis, userCancellationTimeMillis;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -719,20 +704,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAndroidPublisher_SystemApkVariantsCreateRequest
+//   GTLRAndroidPublisher_SystemApksListResponse
 //
 
-@implementation GTLRAndroidPublisher_SystemApkVariantsCreateRequest
-@dynamic deviceSpec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_SystemApkVariantsListResponse
-//
-
-@implementation GTLRAndroidPublisher_SystemApkVariantsListResponse
+@implementation GTLRAndroidPublisher_SystemApksListResponse
 @dynamic variants;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -751,14 +726,10 @@
 //
 
 @implementation GTLRAndroidPublisher_Testers
-@dynamic autoEnrolledAndroidGroups, autoEnrolledGoogleGroups,
-         excludedGoogleGroups, googleGroups;
+@dynamic googleGroups;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"autoEnrolledAndroidGroups" : [NSString class],
-    @"autoEnrolledGoogleGroups" : [NSString class],
-    @"excludedGoogleGroups" : [NSString class],
     @"googleGroups" : [NSString class]
   };
   return map;
@@ -811,70 +782,17 @@
 //
 
 @implementation GTLRAndroidPublisher_TrackRelease
-@dynamic controls, countryTargeting, inAppUpdatePriority, name, pinnedVersions,
-         releaseNotes, rollbackEnabled, sampling, status, userFraction,
-         versionCodes;
+@dynamic countryTargeting, inAppUpdatePriority, name, releaseNotes, status,
+         userFraction, versionCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"controls" : [GTLRAndroidPublisher_Control class],
-    @"pinnedVersions" : [GTLRAndroidPublisher_TrackReleasePin class],
     @"releaseNotes" : [GTLRAndroidPublisher_LocalizedText class],
     @"versionCodes" : [NSNumber class]
   };
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_TrackReleasePin
-//
-
-@implementation GTLRAndroidPublisher_TrackReleasePin
-@dynamic targetings, versionCodes;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"targetings" : [GTLRAndroidPublisher_TrackReleasePinPinTargeting class],
-    @"versionCodes" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_TrackReleasePinPinTargeting
-//
-
-@implementation GTLRAndroidPublisher_TrackReleasePinPinTargeting
-@dynamic countryCodes, devices, phoneskyVersions, sdkVersions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"countryCodes" : [NSString class],
-    @"devices" : [GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin class],
-    @"phoneskyVersions" : [NSNumber class],
-    @"sdkVersions" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin
-//
-
-@implementation GTLRAndroidPublisher_TrackReleasePinPinTargetingDevicePin
-@dynamic brand, device, product;
 @end
 
 
@@ -893,6 +811,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -905,6 +829,16 @@
 @dynamic androidOsVersion, appVersionCode, appVersionName, device,
          deviceMetadata, lastModified, originalText, reviewerLanguage,
          starRating, text, thumbsDownCount, thumbsUpCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_UsesPermission
+//
+
+@implementation GTLRAndroidPublisher_UsesPermission
+@dynamic maxSdkVersion, name;
 @end
 
 
@@ -926,6 +860,13 @@
 @implementation GTLRAndroidPublisher_VoidedPurchase
 @dynamic kind, orderId, purchaseTimeMillis, purchaseToken, voidedReason,
          voidedSource, voidedTimeMillis;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 

@@ -28,8 +28,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Response message includes the context and a list of matching results
- *  which contain the detail of associated entities.
+ *  Response message includes the context and a list of matching results which
+ *  contain the detail of associated entities.
  */
 @interface GTLRKgsearch_SearchResponse : GTLRObject
 

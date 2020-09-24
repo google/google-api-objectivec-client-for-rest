@@ -74,6 +74,12 @@ NSString * const kGTLRAppengine_ManagedCertificate_Status_ManagementStatusUnspec
 NSString * const kGTLRAppengine_ManagedCertificate_Status_Ok   = @"OK";
 NSString * const kGTLRAppengine_ManagedCertificate_Status_Pending = @"PENDING";
 
+// GTLRAppengine_NetworkSettings.ingressTrafficAllowed
+NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedAll = @"INGRESS_TRAFFIC_ALLOWED_ALL";
+NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedInternalAndLb = @"INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB";
+NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedInternalOnly = @"INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY";
+NSString * const kGTLRAppengine_NetworkSettings_IngressTrafficAllowed_IngressTrafficAllowedUnspecified = @"INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED";
+
 // GTLRAppengine_ResourceRecord.type
 NSString * const kGTLRAppengine_ResourceRecord_Type_A          = @"A";
 NSString * const kGTLRAppengine_ResourceRecord_Type_Aaaa       = @"AAAA";
@@ -832,6 +838,16 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_NetworkSettings
+//
+
+@implementation GTLRAppengine_NetworkSettings
+@dynamic ingressTrafficAllowed;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_NetworkUtilization
 //
 
@@ -1010,7 +1026,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_Service
-@dynamic identifier, name, split;
+@dynamic identifier, name, networkSettings, split;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

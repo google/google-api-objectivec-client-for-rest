@@ -1451,7 +1451,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  Deletes a ServiceAccountKey.
+ *  Deletes a ServiceAccountKey. Deleting a service account key does not revoke
+ *  short-lived credentials that have been issued based on the service account
+ *  key.
  *
  *  Method: iam.projects.serviceAccounts.keys.delete
  *
@@ -1474,7 +1476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_Empty.
  *
- *  Deletes a ServiceAccountKey.
+ *  Deletes a ServiceAccountKey. Deleting a service account key does not revoke
+ *  short-lived credentials that have been issued based on the service account
+ *  key.
  *
  *  @param name Required. The resource name of the service account key in the
  *    following format:

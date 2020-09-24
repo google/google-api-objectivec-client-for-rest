@@ -24,6 +24,7 @@
 @class GTLRClassroom_Course;
 @class GTLRClassroom_CourseAlias;
 @class GTLRClassroom_CourseWork;
+@class GTLRClassroom_CourseWorkMaterial;
 @class GTLRClassroom_GuardianInvitation;
 @class GTLRClassroom_Invitation;
 @class GTLRClassroom_ModifyAnnouncementAssigneesRequest;
@@ -128,6 +129,40 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseStatesProvisioned;
  *  Value: "SUSPENDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseStatesSuspended;
+
+// ----------------------------------------------------------------------------
+// courseWorkMaterialStates
+
+/**
+ *  No state specified. This is never returned.
+ *
+ *  Value: "COURSEWORK_MATERIAL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkMaterialStatesCourseworkMaterialStateUnspecified;
+/**
+ *  Status for course work material that was published but is now deleted.
+ *  Course work material in this state is visible only to course teachers and
+ *  domain administrators. Course work material in this state is deleted after
+ *  some time.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkMaterialStatesDeleted;
+/**
+ *  Status for an course work material that is not yet published. Course work
+ *  material in this state is visible only to course teachers and domain
+ *  administrators.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkMaterialStatesDraft;
+/**
+ *  Status for course work material that has been published. This is the default
+ *  state.
+ *
+ *  Value: "PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroomCourseWorkMaterialStatesPublished;
 
 // ----------------------------------------------------------------------------
 // courseWorkStates
@@ -1035,6 +1070,338 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *        information.
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Creates a course work material. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course, create course work material in the requested
+ *  course, share a Drive attachment, or for access errors. * `INVALID_ARGUMENT`
+ *  if the request is malformed or if more than 20 * materials are provided. *
+ *  `NOT_FOUND` if the requested course does not exist. * `FAILED_PRECONDITION`
+ *  for the following request error: * AttachmentNotVisible
+ *
+ *  Method: classroom.courses.courseWorkMaterials.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkmaterials
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsCreate : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsCreateWithObject:courseId:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Fetches a @c GTLRClassroom_CourseWorkMaterial.
+ *
+ *  Creates a course work material. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course, create course work material in the requested
+ *  course, share a Drive attachment, or for access errors. * `INVALID_ARGUMENT`
+ *  if the request is malformed or if more than 20 * materials are provided. *
+ *  `NOT_FOUND` if the requested course does not exist. * `FAILED_PRECONDITION`
+ *  for the following request error: * AttachmentNotVisible
+ *
+ *  @param object The @c GTLRClassroom_CourseWorkMaterial to include in the
+ *    query.
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_CourseWorkMaterial *)object
+                       courseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Deletes a course work material. This request must be made by the Developer
+ *  Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work material item. This method returns the following
+ *  error codes: * `PERMISSION_DENIED` if the requesting developer project did
+ *  not create the corresponding course work material, if the requesting user is
+ *  not permitted to delete the requested course or for access errors. *
+ *  `FAILED_PRECONDITION` if the requested course work material has already been
+ *  deleted. * `NOT_FOUND` if no course exists with the requested ID.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkmaterials
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsDelete : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsDeleteWithcourseId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the course work material to delete. This identifier is a
+ *  Classroom-assigned identifier.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes a course work material. This request must be made by the Developer
+ *  Console project of the [OAuth client
+ *  ID](https://support.google.com/cloud/answer/6158849) used to create the
+ *  corresponding course work material item. This method returns the following
+ *  error codes: * `PERMISSION_DENIED` if the requesting developer project did
+ *  not create the corresponding course work material, if the requesting user is
+ *  not permitted to delete the requested course or for access errors. *
+ *  `FAILED_PRECONDITION` if the requested course work material has already been
+ *  deleted. * `NOT_FOUND` if no course exists with the requested ID.
+ *
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param identifier Identifier of the course work material to delete. This
+ *    identifier is a Classroom-assigned identifier.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a course work material. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work material, or for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  requested course or course work material does not exist.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkmaterials
+ *    @c kGTLRAuthScopeClassroomCourseworkmaterialsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsGet : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsGetWithcourseId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the course work material.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_CourseWorkMaterial.
+ *
+ *  Returns a course work material. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  access the requested course or course work material, or for access errors. *
+ *  `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if the
+ *  requested course or course work material does not exist.
+ *
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param identifier Identifier of the course work material.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsGet
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a list of course work material that the requester is permitted to
+ *  view. Course students may only view `PUBLISHED` course work material. Course
+ *  teachers and domain administrators may view all course work material. This
+ *  method returns the following error codes: * `PERMISSION_DENIED` if the
+ *  requesting user is not permitted to access the requested course or for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if the requested course does not exist.
+ *
+ *  Method: classroom.courses.courseWorkMaterials.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkmaterials
+ *    @c kGTLRAuthScopeClassroomCourseworkmaterialsReadonly
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsList : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsListWithcourseId:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Restriction on the work status to return. Only course work material that
+ *  matches is returned. If unspecified, items with a work status of `PUBLISHED`
+ *  is returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroomCourseWorkMaterialStatesCourseworkMaterialStateUnspecified
+ *        No state specified. This is never returned. (Value:
+ *        "COURSEWORK_MATERIAL_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroomCourseWorkMaterialStatesPublished Status for course
+ *        work material that has been published. This is the default state.
+ *        (Value: "PUBLISHED")
+ *    @arg @c kGTLRClassroomCourseWorkMaterialStatesDraft Status for an course
+ *        work material that is not yet published. Course work material in this
+ *        state is visible only to course teachers and domain administrators.
+ *        (Value: "DRAFT")
+ *    @arg @c kGTLRClassroomCourseWorkMaterialStatesDeleted Status for course
+ *        work material that was published but is now deleted. Course work
+ *        material in this state is visible only to course teachers and domain
+ *        administrators. Course work material in this state is deleted after
+ *        some time. (Value: "DELETED")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *courseWorkMaterialStates;
+
+/**
+ *  Optional filtering for course work material with at least one Drive material
+ *  whose ID matches the provided string. If `material_link` is also specified,
+ *  course work material must have materials matching both filters.
+ */
+@property(nonatomic, copy, nullable) NSString *materialDriveId;
+
+/**
+ *  Optional filtering for course work material with at least one link material
+ *  whose URL partially matches the provided string.
+ */
+@property(nonatomic, copy, nullable) NSString *materialLink;
+
+/**
+ *  Optional sort ordering for results. A comma-separated list of fields with an
+ *  optional sort direction keyword. Supported field is `updateTime`. Supported
+ *  direction keywords are `asc` and `desc`. If not specified, `updateTime desc`
+ *  is the default behavior. Examples: `updateTime asc`, `updateTime`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Maximum number of items to return. Zero or unspecified indicates that the
+ *  server may assign a maximum. The server may return fewer than the specified
+ *  number of results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  nextPageToken value returned from a previous list call, indicating that the
+ *  subsequent page of results should be returned. The list request must be
+ *  otherwise identical to the one that resulted in this token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListCourseWorkMaterialResponse.
+ *
+ *  Returns a list of course work material that the requester is permitted to
+ *  view. Course students may only view `PUBLISHED` course work material. Course
+ *  teachers and domain administrators may view all course work material. This
+ *  method returns the following error codes: * `PERMISSION_DENIED` if the
+ *  requesting user is not permitted to access the requested course or for
+ *  access errors. * `INVALID_ARGUMENT` if the request is malformed. *
+ *  `NOT_FOUND` if the requested course does not exist.
+ *
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Updates one or more fields of a course work material. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` if the requesting developer
+ *  project for access errors. * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `FAILED_PRECONDITION` if the requested course work material has already
+ *  been deleted. * `NOT_FOUND` if the requested course or course work material
+ *  does not exist
+ *
+ *  Method: classroom.courses.courseWorkMaterials.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomCourseworkmaterials
+ */
+@interface GTLRClassroomQuery_CoursesCourseWorkMaterialsPatch : GTLRClassroomQuery
+// Previous library name was
+//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsPatchWithObject:courseId:identifier:]
+
+/**
+ *  Identifier of the course. This identifier can be either the
+ *  Classroom-assigned identifier or an alias.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Identifier of the course work material.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Mask that identifies which fields on the course work material to update.
+ *  This field is required to do an update. The update fails if invalid fields
+ *  are specified. If a field supports empty values, it can be cleared by
+ *  specifying it in the update mask and not in the course work material object.
+ *  If a field that does not support empty values is included in the update mask
+ *  and not set in the course work material object, an `INVALID_ARGUMENT` error
+ *  is returned. The following fields may be specified by teachers: * `title` *
+ *  `description` * `state` * `scheduled_time` * `topic_id`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_CourseWorkMaterial.
+ *
+ *  Updates one or more fields of a course work material. This method returns
+ *  the following error codes: * `PERMISSION_DENIED` if the requesting developer
+ *  project for access errors. * `INVALID_ARGUMENT` if the request is malformed.
+ *  * `FAILED_PRECONDITION` if the requested course work material has already
+ *  been deleted. * `NOT_FOUND` if the requested course or course work material
+ *  does not exist
+ *
+ *  @param object The @c GTLRClassroom_CourseWorkMaterial to include in the
+ *    query.
+ *  @param courseId Identifier of the course. This identifier can be either the
+ *    Classroom-assigned identifier or an alias.
+ *  @param identifier Identifier of the course work material.
+ *
+ *  @return GTLRClassroomQuery_CoursesCourseWorkMaterialsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_CourseWorkMaterial *)object
+                       courseId:(NSString *)courseId
+                     identifier:(NSString *)identifier;
 
 @end
 

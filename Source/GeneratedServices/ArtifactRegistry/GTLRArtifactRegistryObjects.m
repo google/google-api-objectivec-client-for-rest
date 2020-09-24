@@ -31,7 +31,7 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 //
 
 @implementation GTLRArtifactRegistry_Binding
-@dynamic condition, members, role;
+@dynamic bindingId, condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

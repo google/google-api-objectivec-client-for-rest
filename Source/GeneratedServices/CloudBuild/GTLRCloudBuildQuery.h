@@ -24,6 +24,7 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_CancelBuildRequest;
 @class GTLRCloudBuild_CancelOperationRequest;
+@class GTLRCloudBuild_CreateBuildRequest;
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_RetryBuildRequest;
 
@@ -177,6 +178,12 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryCloudBuild queryForProjectsBuildsCreateWithObject:projectId:]
 
+/**
+ *  The parent resource where this build will be created. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
 /** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -217,6 +224,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The name of the `Build` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/builds/{build}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -259,6 +272,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Token to provide to skip to a particular spot in the list. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The parent of the collection of `Builds`. Format:
+ *  `projects/{project}/locations/location`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -348,6 +367,241 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithObject:(GTLRCloudBuild_RetryBuildRequest *)object
                       projectId:(NSString *)projectId
                      identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Cancels a build in progress.
+ *
+ *  Method: cloudbuild.projects.locations.builds.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsCancelWithObject:name:]
+
+/**
+ *  The name of the `Build` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/builds/{build}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Build.
+ *
+ *  Cancels a build in progress.
+ *
+ *  @param object The @c GTLRCloudBuild_CancelBuildRequest to include in the
+ *    query.
+ *  @param name The name of the `Build` to retrieve. Format:
+ *    `projects/{project}/locations/{location}/builds/{build}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_CancelBuildRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Starts a build with the specified configuration. This method returns a
+ *  long-running `Operation`, which includes the build ID. Pass the build ID to
+ *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
+ *
+ *  Method: cloudbuild.projects.locations.builds.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsCreateWithObject:parent:]
+
+/**
+ *  The parent resource where this build will be created. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Starts a build with the specified configuration. This method returns a
+ *  long-running `Operation`, which includes the build ID. Pass the build ID to
+ *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
+ *
+ *  @param object The @c GTLRCloudBuild_CreateBuildRequest to include in the
+ *    query.
+ *  @param parent The parent resource where this build will be created. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_CreateBuildRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns information about a previously requested build. The `Build` that is
+ *  returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
+ *  and timing information.
+ *
+ *  Method: cloudbuild.projects.locations.builds.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsGet : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsGetWithname:]
+
+/**
+ *  Required. ID of the build.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The name of the `Build` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/builds/{build}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. ID of the project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Build.
+ *
+ *  Returns information about a previously requested build. The `Build` that is
+ *  returned includes its status (such as `SUCCESS`, `FAILURE`, or `WORKING`),
+ *  and timing information.
+ *
+ *  @param name The name of the `Build` to retrieve. Format:
+ *    `projects/{project}/locations/{location}/builds/{build}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists previously requested builds. Previously requested builds may still be
+ *  in-progress, or may have finished successfully or unsuccessfully.
+ *
+ *  Method: cloudbuild.projects.locations.builds.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsList : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsListWithparent:]
+
+/** The raw filter text to constrain the results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Number of results to return in the list. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to provide to skip to a particular spot in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The parent of the collection of `Builds`. Format:
+ *  `projects/{project}/locations/location`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. ID of the project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_ListBuildsResponse.
+ *
+ *  Lists previously requested builds. Previously requested builds may still be
+ *  in-progress, or may have finished successfully or unsuccessfully.
+ *
+ *  @param parent The parent of the collection of `Builds`. Format:
+ *    `projects/{project}/locations/location`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new build based on the specified build. This method creates a new
+ *  build using the original build request, which may or may not result in an
+ *  identical build. For triggered builds: * Triggered builds resolve to a
+ *  precise revision; therefore a retry of a triggered build will result in a
+ *  build that uses the same revision. For non-triggered builds that specify
+ *  `RepoSource`: * If the original build built from the tip of a branch, the
+ *  retried build will build from the tip of that branch, which may not be the
+ *  same revision as the original build. * If the original build specified a
+ *  commit sha or revision ID, the retried build will use the identical source.
+ *  For builds that specify `StorageSource`: * If the original build pulled
+ *  source from Google Cloud Storage without specifying the generation of the
+ *  object, the new build will use the current object, which may be different
+ *  from the original build source. * If the original build pulled source from
+ *  Cloud Storage and specified the generation of the object, the new build will
+ *  attempt to use the same object, which may or may not be available depending
+ *  on the bucket's lifecycle management settings.
+ *
+ *  Method: cloudbuild.projects.locations.builds.retry
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsBuildsRetry : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsRetryWithObject:name:]
+
+/**
+ *  The name of the `Build` to retry. Format:
+ *  `projects/{project}/locations/{location}/builds/{build}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Creates a new build based on the specified build. This method creates a new
+ *  build using the original build request, which may or may not result in an
+ *  identical build. For triggered builds: * Triggered builds resolve to a
+ *  precise revision; therefore a retry of a triggered build will result in a
+ *  build that uses the same revision. For non-triggered builds that specify
+ *  `RepoSource`: * If the original build built from the tip of a branch, the
+ *  retried build will build from the tip of that branch, which may not be the
+ *  same revision as the original build. * If the original build specified a
+ *  commit sha or revision ID, the retried build will use the identical source.
+ *  For builds that specify `StorageSource`: * If the original build pulled
+ *  source from Google Cloud Storage without specifying the generation of the
+ *  object, the new build will use the current object, which may be different
+ *  from the original build source. * If the original build pulled source from
+ *  Cloud Storage and specified the generation of the object, the new build will
+ *  attempt to use the same object, which may or may not be available depending
+ *  on the bucket's lifecycle management settings.
+ *
+ *  @param object The @c GTLRCloudBuild_RetryBuildRequest to include in the
+ *    query.
+ *  @param name The name of the `Build` to retry. Format:
+ *    `projects/{project}/locations/{location}/builds/{build}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsRetry
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_RetryBuildRequest *)object
+                           name:(NSString *)name;
 
 @end
 

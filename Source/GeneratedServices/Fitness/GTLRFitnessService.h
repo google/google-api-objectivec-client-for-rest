@@ -142,7 +142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationRead;
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationWrite;
 /**
  *  Authorization scope: See info about your reproductive health in Google Fit.
- *  I consent to Google sharing my reporductive health information with this
+ *  I consent to Google sharing my reproductive health information with this
  *  app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.reproductive_health.read"
@@ -150,7 +150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationWrite;
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthRead;
 /**
  *  Authorization scope: See and add info about your reproductive health in
- *  Google Fit. I consent to Google sharing my reporductive health information
+ *  Google Fit. I consent to Google sharing my reproductive health information
  *  with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.reproductive_health.write"

@@ -540,17 +540,6 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_OperationMetadata
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_OperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
-         verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudMemorystoreforMemcached_Status
 //
 

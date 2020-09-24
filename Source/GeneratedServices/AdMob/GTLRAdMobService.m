@@ -10,6 +10,15 @@
 
 #import "GTLRAdMob.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeAdMobReport = @"https://www.googleapis.com/auth/admob.report";
+
+// ----------------------------------------------------------------------------
+//   GTLRAdMobService
+//
+
 @implementation GTLRAdMobService
 
 - (instancetype)init {

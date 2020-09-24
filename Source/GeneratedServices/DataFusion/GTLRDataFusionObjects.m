@@ -101,7 +101,7 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_Binding
-@dynamic condition, members, role;
+@dynamic bindingId, condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -153,11 +153,11 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 @implementation GTLRDataFusion_Instance
 @dynamic accelerators, apiEndpoint, availableVersion, createTime,
-         descriptionProperty, displayName, enableStackdriverLogging,
-         enableStackdriverMonitoring, gcsBucket, labels, name, networkConfig,
-         options, p4ServiceAccount, privateInstance, serviceAccount,
-         serviceEndpoint, state, stateMessage, tenantProjectId, type,
-         updateTime, version, zoneProperty;
+         dataprocServiceAccount, descriptionProperty, displayName,
+         enableStackdriverLogging, enableStackdriverMonitoring, gcsBucket,
+         labels, name, networkConfig, options, p4ServiceAccount,
+         privateInstance, serviceAccount, serviceEndpoint, state, stateMessage,
+         tenantProjectId, type, updateTime, version, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

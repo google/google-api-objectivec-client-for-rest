@@ -759,7 +759,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_TenantProjectConfig *projectConfig;
 
-/** Tag of the added project. Must be less than 128 characters. Required. */
+/**
+ *  Required. Tag of the added project. Must be less than 128 characters.
+ *  Required.
+ */
 @property(nonatomic, copy, nullable) NSString *tag;
 
 @end
@@ -837,7 +840,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /** Configuration that should be applied to the existing tenant project. */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_TenantProjectConfig *projectConfig;
 
-/** Tag of the project. Must be less than 128 characters. Required. */
+/**
+ *  Required. Tag of the project. Must be less than 128 characters. Required.
+ */
 @property(nonatomic, copy, nullable) NSString *tag;
 
 @end
@@ -864,7 +869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, copy, nullable) NSString *reservedResource;
 
 /**
- *  Tag of the tenant resource after attachment. Must be less than 128
+ *  Required. Tag of the tenant resource after attachment. Must be less than 128
  *  characters. Required.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
@@ -1385,7 +1390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @interface GTLRServiceConsumerManagement_DeleteTenantProjectRequest : GTLRObject
 
-/** Tag of the resource within the tenancy unit. */
+/** Required. Tag of the resource within the tenancy unit. */
 @property(nonatomic, copy, nullable) NSString *tag;
 
 @end
@@ -3076,7 +3081,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @interface GTLRServiceConsumerManagement_RemoveTenantProjectRequest : GTLRObject
 
-/** Tag of the resource within the tenancy unit. */
+/** Required. Tag of the resource within the tenancy unit. */
 @property(nonatomic, copy, nullable) NSString *tag;
 
 @end
@@ -3473,12 +3478,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @interface GTLRServiceConsumerManagement_TenancyUnit : GTLRObject
 
 /**
- *  \@OutputOnly Cloud resource name of the consumer of this service. For
- *  example 'projects/123456'.
+ *  Output only. \@OutputOnly Cloud resource name of the consumer of this
+ *  service. For example 'projects/123456'.
  */
 @property(nonatomic, copy, nullable) NSString *consumer;
 
-/** \@OutputOnly The time this tenancy unit was created. */
+/** Output only. \@OutputOnly The time this tenancy unit was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -3576,8 +3581,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @interface GTLRServiceConsumerManagement_TenantResource : GTLRObject
 
 /**
- *  \@OutputOnly Identifier of the tenant resource. For cloud projects, it is in
- *  the form 'projects/{number}'. For example 'projects/123456'.
+ *  Output only. \@OutputOnly Identifier of the tenant resource. For cloud
+ *  projects, it is in the form 'projects/{number}'. For example
+ *  'projects/123456'.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -3647,7 +3653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @interface GTLRServiceConsumerManagement_UndeleteTenantProjectRequest : GTLRObject
 
-/** Tag of the resource within the tenancy unit. */
+/** Required. Tag of the resource within the tenancy unit. */
 @property(nonatomic, copy, nullable) NSString *tag;
 
 @end

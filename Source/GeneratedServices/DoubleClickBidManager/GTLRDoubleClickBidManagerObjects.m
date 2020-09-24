@@ -627,10 +627,8 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAudioRevenu
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAudioUnmutesAudio = @"METRIC_AUDIO_UNMUTES_AUDIO";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAudioUnmutesVideo = @"METRIC_AUDIO_UNMUTES_VIDEO";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageDisplayTime = @"METRIC_AVERAGE_DISPLAY_TIME";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageImpressionFrequencyPerCookie = @"METRIC_AVERAGE_IMPRESSION_FREQUENCY_PER_COOKIE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageImpressionFrequencyPerUser = @"METRIC_AVERAGE_IMPRESSION_FREQUENCY_PER_USER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageInteractionTime = @"METRIC_AVERAGE_INTERACTION_TIME";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageViewFrequencyPerCookie = @"METRIC_AVERAGE_VIEW_FREQUENCY_PER_COOKIE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricAverageWatchTimePerImpression = @"METRIC_AVERAGE_WATCH_TIME_PER_IMPRESSION";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBeginToRenderEligibleImpressions = @"METRIC_BEGIN_TO_RENDER_ELIGIBLE_IMPRESSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricBeginToRenderImpressions = @"METRIC_BEGIN_TO_RENDER_IMPRESSIONS";
@@ -703,7 +701,6 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricEstimatedCp
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricEstimatedTotalCostForImpressionsWithCustomValueAdvertiserCurrency = @"METRIC_ESTIMATED_TOTAL_COST_FOR_IMPRESSIONS_WITH_CUSTOM_VALUE_ADVERTISER_CURRENCY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricExits = @"METRIC_EXITS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricExpansions = @"METRIC_EXPANSIONS";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricExposureConversionRate = @"METRIC_EXPOSURE_CONVERSION_RATE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricFee10Advertiser = @"METRIC_FEE10_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricFee10Partner = @"METRIC_FEE10_PARTNER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricFee10Usd = @"METRIC_FEE10_USD";
@@ -927,7 +924,6 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTimers = @"
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalAudioMediaCostEcpclAdvertiserCurrency = @"METRIC_TOTAL_AUDIO_MEDIA_COST_ECPCL_ADVERTISER_CURRENCY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalConversions = @"METRIC_TOTAL_CONVERSIONS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalConversionsCrossEnvironment = @"METRIC_TOTAL_CONVERSIONS_CROSS_ENVIRONMENT";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalCookies = @"METRIC_TOTAL_COOKIES";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalDisplayTime = @"METRIC_TOTAL_DISPLAY_TIME";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalExposures = @"METRIC_TOTAL_EXPOSURES";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalImpressionCustomValue = @"METRIC_TOTAL_IMPRESSION_CUSTOM_VALUE";
@@ -959,7 +955,6 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaC
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalMediaCostViewableEcpmUsd = @"METRIC_TOTAL_MEDIA_COST_VIEWABLE_ECPM_USD";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalPaths = @"METRIC_TOTAL_PATHS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalUsers = @"METRIC_TOTAL_USERS";
-NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTotalViewersCookies = @"METRIC_TOTAL_VIEWERS_COOKIES";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrackedAds = @"METRIC_TRACKED_ADS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAverageCpeAdvertiser = @"METRIC_TRUEVIEW_AVERAGE_CPE_ADVERTISER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTrueviewAverageCpePartner = @"METRIC_TRUEVIEW_AVERAGE_CPE_PARTNER";

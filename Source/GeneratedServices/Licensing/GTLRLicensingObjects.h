@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Licensing API (licensing/v1)
+//   Enterprise License Manager API (licensing/v1)
 // Description:
-//   Licensing API to view and manage licenses for your domain
+//   The Google Enterprise License Manager API's allows you to license apps for
+//   all the users of a domain managed by you.
 // Documentation:
 //   https://developers.google.com/admin-sdk/licensing/
 
@@ -85,7 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  LicesnseAssignment List for a given product/sku for a customer.
+ *  GTLRLicensing_LicenseAssignmentList
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should

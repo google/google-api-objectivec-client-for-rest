@@ -359,6 +359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_Androi
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_Ios;
 /** Value: "iosSdk5" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_IosSdk5;
+/** Value: "server" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_Server;
 /** Value: "usageContextUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Container_UsageContext_UsageContextUnspecified;
 /** Value: "web" */

@@ -101,7 +101,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsBuildsCreate
 
-@dynamic projectId;
+@dynamic parent, projectId;
 
 + (instancetype)queryWithObject:(GTLRCloudBuild_Build *)object
                       projectId:(NSString *)projectId {
@@ -128,7 +128,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsBuildsGet
 
-@dynamic identifier, projectId;
+@dynamic identifier, name, projectId;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };
@@ -155,7 +155,7 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsBuildsList
 
-@dynamic filter, pageSize, pageToken, projectId;
+@dynamic filter, pageSize, pageToken, parent, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"projectId" ];
@@ -202,6 +202,129 @@
   query.identifier = identifier;
   query.expectedObjectClass = [GTLRCloudBuild_Operation class];
   query.loggingName = @"cloudbuild.projects.builds.retry";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_CancelBuildRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Build class];
+  query.loggingName = @"cloudbuild.projects.locations.builds.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_CreateBuildRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/builds";
+  GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.builds.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBuildsGet
+
+@dynamic identifier, name, projectId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudBuildQuery_ProjectsLocationsBuildsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Build class];
+  query.loggingName = @"cloudbuild.projects.locations.builds.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBuildsList
+
+@dynamic filter, pageSize, pageToken, parent, projectId;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/builds";
+  GTLRCloudBuildQuery_ProjectsLocationsBuildsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudBuild_ListBuildsResponse class];
+  query.loggingName = @"cloudbuild.projects.locations.builds.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudBuildQuery_ProjectsLocationsBuildsRetry
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_RetryBuildRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:retry";
+  GTLRCloudBuildQuery_ProjectsLocationsBuildsRetry *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudBuild_Operation class];
+  query.loggingName = @"cloudbuild.projects.locations.builds.retry";
   return query;
 }
 

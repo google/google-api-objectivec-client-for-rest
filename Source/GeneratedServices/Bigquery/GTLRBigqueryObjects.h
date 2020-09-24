@@ -139,6 +139,7 @@
 @class GTLRBigquery_TrainingOptions;
 @class GTLRBigquery_TrainingOptions_LabelClassWeights;
 @class GTLRBigquery_TrainingRun;
+@class GTLRBigquery_TransactionInfo;
 @class GTLRBigquery_UserDefinedFunctionResource;
 @class GTLRBigquery_ViewDefinition;
 
@@ -4304,6 +4305,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSlotMs;
 
+/**
+ *  [Output-only] [Alpha] Information of the multi-statement transaction if this
+ *  job is part of one.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TransactionInfo *transactionInfoTemplate;
+
 @end
 
 
@@ -7298,6 +7305,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  default options that were used.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TrainingOptions *trainingOptions;
+
+@end
+
+
+/**
+ *  GTLRBigquery_TransactionInfo
+ */
+@interface GTLRBigquery_TransactionInfo : GTLRObject
+
+/** [Output-only] // [Alpha] Id of the transaction. */
+@property(nonatomic, copy, nullable) NSString *transactionId;
 
 @end
 

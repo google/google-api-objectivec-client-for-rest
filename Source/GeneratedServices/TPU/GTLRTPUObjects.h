@@ -33,6 +33,7 @@
 @class GTLRTPU_SchedulingConfig;
 @class GTLRTPU_Status;
 @class GTLRTPU_Status_Details_Item;
+@class GTLRTPU_Symptom;
 @class GTLRTPU_TensorFlowVersion;
 
 // Generated comments include content from the discovery document; avoid them
@@ -181,6 +182,47 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Terminated;
  *  Value: "UNHIDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
+
+// ----------------------------------------------------------------------------
+// GTLRTPU_Symptom.symptomType
+
+/**
+ *  TPU runtime execution has timed out.
+ *
+ *  Value: "EXECUTE_TIMED_OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_ExecuteTimedOut;
+/**
+ *  TPU HBM is out of memory.
+ *
+ *  Value: "HBM_OUT_OF_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_HbmOutOfMemory;
+/**
+ *  TPU VM memory is low.
+ *
+ *  Value: "LOW_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_LowMemory;
+/**
+ *  TPU runtime fails to construct a mesh that recognizes each TPU device's
+ *  neighbors.
+ *
+ *  Value: "MESH_BUILD_FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_MeshBuildFail;
+/**
+ *  TPU runtime is out of memory.
+ *
+ *  Value: "OUT_OF_MEMORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_OutOfMemory;
+/**
+ *  Unspecified symptom.
+ *
+ *  Value: "SYMPTOM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified;
 
 /**
  *  A accelerator type that a Node can be configured with.
@@ -551,6 +593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Output only. The Symptoms that have occurred to the TPU Node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTPU_Symptom *> *symptoms;
+
 /** The version of Tensorflow running in the Node. Required. */
 @property(nonatomic, copy, nullable) NSString *tensorflowVersion;
 
@@ -787,6 +832,43 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Unhiding;
  *  Request for StopNode.
  */
 @interface GTLRTPU_StopNodeRequest : GTLRObject
+@end
+
+
+/**
+ *  A Symptom instance.
+ */
+@interface GTLRTPU_Symptom : GTLRObject
+
+/** Timestamp when the Symptom is created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Detailed information of the current Symptom. */
+@property(nonatomic, copy, nullable) NSString *details;
+
+/**
+ *  Type of the Symptom.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_Symptom_SymptomType_ExecuteTimedOut TPU runtime execution
+ *        has timed out. (Value: "EXECUTE_TIMED_OUT")
+ *    @arg @c kGTLRTPU_Symptom_SymptomType_HbmOutOfMemory TPU HBM is out of
+ *        memory. (Value: "HBM_OUT_OF_MEMORY")
+ *    @arg @c kGTLRTPU_Symptom_SymptomType_LowMemory TPU VM memory is low.
+ *        (Value: "LOW_MEMORY")
+ *    @arg @c kGTLRTPU_Symptom_SymptomType_MeshBuildFail TPU runtime fails to
+ *        construct a mesh that recognizes each TPU device's neighbors. (Value:
+ *        "MESH_BUILD_FAIL")
+ *    @arg @c kGTLRTPU_Symptom_SymptomType_OutOfMemory TPU runtime is out of
+ *        memory. (Value: "OUT_OF_MEMORY")
+ *    @arg @c kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified Unspecified
+ *        symptom. (Value: "SYMPTOM_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *symptomType;
+
+/** A string used to uniquely distinguish a worker within a TPU node. */
+@property(nonatomic, copy, nullable) NSString *workerId;
+
 @end
 
 

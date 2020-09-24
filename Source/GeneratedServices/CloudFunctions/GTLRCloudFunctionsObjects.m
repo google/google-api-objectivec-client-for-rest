@@ -124,14 +124,29 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 //
 
 @implementation GTLRCloudFunctions_CloudFunction
-@dynamic availableMemoryMb, buildId, descriptionProperty, entryPoint,
-         environmentVariables, eventTrigger, httpsTrigger, ingressSettings,
-         labels, maxInstances, name, network, runtime, serviceAccountEmail,
-         sourceArchiveUrl, sourceRepository, sourceUploadUrl, status, timeout,
-         updateTime, versionId, vpcConnector, vpcConnectorEgressSettings;
+@dynamic availableMemoryMb, buildEnvironmentVariables, buildId,
+         descriptionProperty, entryPoint, environmentVariables, eventTrigger,
+         httpsTrigger, ingressSettings, labels, maxInstances, name, network,
+         runtime, serviceAccountEmail, sourceArchiveUrl, sourceRepository,
+         sourceUploadUrl, status, timeout, updateTime, versionId, vpcConnector,
+         vpcConnectorEgressSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_CloudFunction_BuildEnvironmentVariables
+//
+
+@implementation GTLRCloudFunctions_CloudFunction_BuildEnvironmentVariables
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

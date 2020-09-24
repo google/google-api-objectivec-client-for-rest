@@ -1381,7 +1381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy
 // GTLRAndroidManagement_PersonalApplicationPolicy.installType
 
 /**
- *  The app is blocked and can't be installed.
+ *  The app is blocked and can't be installed in the personal profile.
  *
  *  Value: "BLOCKED"
  */
@@ -1398,7 +1398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPol
 
 /**
  *  All Play Store apps are available, except those whose install_type is
- *  BLOCKED in PersonalApplicationPolicy.
+ *  BLOCKED in personal_applications.
  *
  *  Value: "BLACKLIST"
  */
@@ -4342,7 +4342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Policies for apps on the personal profile of a company-owned device with a
+ *  Policies for apps in the personal profile of a company-owned device with a
  *  work profile.
  */
 @interface GTLRAndroidManagement_PersonalApplicationPolicy : GTLRObject
@@ -4352,7 +4352,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked
- *        The app is blocked and can't be installed. (Value: "BLOCKED")
+ *        The app is blocked and can't be installed in the personal profile.
+ *        (Value: "BLOCKED")
  *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified
  *        Unspecified. The default behavior is that all installs are allowed.
  *        (Value: "INSTALL_TYPE_UNSPECIFIED")
@@ -4388,16 +4389,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) NSNumber *maxDaysWithWorkOff;
 
-/** Policy applied to applications on the personal profile. */
+/** Policy applied to applications in the personal profile. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PersonalApplicationPolicy *> *personalApplications;
 
 /**
- *  Controls how apps on the personal profile are allowed or blocked.
+ *  Used together with personal_applications to control how apps in the personal
+ *  profile are allowed or blocked.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist
  *        All Play Store apps are available, except those whose install_type is
- *        BLOCKED in PersonalApplicationPolicy. (Value: "BLACKLIST")
+ *        BLOCKED in personal_applications. (Value: "BLACKLIST")
  *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified
  *        Unspecified. Default behavior is to allow all installs. (Value:
  *        "PLAY_STORE_MODE_UNSPECIFIED")

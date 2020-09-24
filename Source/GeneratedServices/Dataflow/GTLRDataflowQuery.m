@@ -687,7 +687,7 @@ NSString * const kGTLRDataflowViewMetadataOnly       = @"METADATA_ONLY";
 
 @implementation GTLRDataflowQuery_ProjectsLocationsJobsGetExecutionDetails
 
-@dynamic jobId, location, projectId;
+@dynamic jobId, location, pageSize, pageToken, projectId;
 
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location

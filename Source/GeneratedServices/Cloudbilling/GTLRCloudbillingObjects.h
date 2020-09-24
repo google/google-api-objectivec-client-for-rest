@@ -255,8 +255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
 @property(nonatomic, copy, nullable) NSString *masterBillingAccount;
 
 /**
- *  The resource name of the billing account. The resource name has the form
- *  `billingAccounts/{billing_account_id}`. For example,
+ *  Output only. The resource name of the billing account. The resource name has
+ *  the form `billingAccounts/{billing_account_id}`. For example,
  *  `billingAccounts/012345-567890-ABCDEF` would be the resource name for
  *  billing account `012345-567890-ABCDEF`.
  */

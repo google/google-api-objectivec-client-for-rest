@@ -1208,7 +1208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) NSArray<NSString *> *impressionTrackingUrls;
 
 /**
- *  Output only. Name of the creative. Follows the pattern
+ *  Name of the creative. Follows the pattern
  *  `buyers/{buyer}/creatives/{creative}`, where `{buyer}` represents the
  *  account ID of the buyer who owns the creative, and `{creative}` is the
  *  buyer-specific creative ID that references this creative in the bid

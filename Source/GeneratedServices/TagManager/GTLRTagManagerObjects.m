@@ -152,6 +152,7 @@ NSString * const kGTLRTagManager_Container_UsageContext_Android = @"android";
 NSString * const kGTLRTagManager_Container_UsageContext_AndroidSdk5 = @"androidSdk5";
 NSString * const kGTLRTagManager_Container_UsageContext_Ios    = @"ios";
 NSString * const kGTLRTagManager_Container_UsageContext_IosSdk5 = @"iosSdk5";
+NSString * const kGTLRTagManager_Container_UsageContext_Server = @"server";
 NSString * const kGTLRTagManager_Container_UsageContext_UsageContextUnspecified = @"usageContextUnspecified";
 NSString * const kGTLRTagManager_Container_UsageContext_Web    = @"web";
 

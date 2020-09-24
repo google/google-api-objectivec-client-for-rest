@@ -30,7 +30,8 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Thresho
 //
 
 @implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1AllUpdatesRule
-@dynamic monitoringNotificationChannels, pubsubTopic, schemaVersion;
+@dynamic disableDefaultIamRecipients, monitoringNotificationChannels,
+         pubsubTopic, schemaVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

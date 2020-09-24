@@ -23,6 +23,7 @@ NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc = @"returnCre
 // shipmentStates
 NSString * const kGTLRShoppingContentShipmentStatesCompleted   = @"completed";
 NSString * const kGTLRShoppingContentShipmentStatesNew         = @"new";
+NSString * const kGTLRShoppingContentShipmentStatesPending     = @"pending";
 NSString * const kGTLRShoppingContentShipmentStatesShipped     = @"shipped";
 NSString * const kGTLRShoppingContentShipmentStatesUndeliverable = @"undeliverable";
 

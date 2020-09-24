@@ -44,6 +44,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets information about the specified AdMob publisher account.
  *
  *  Method: admob.accounts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsGet : GTLRAdMobQuery
 // Previous library name was
@@ -74,6 +77,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Currently, all credentials have access to at most one AdMob account.
  *
  *  Method: admob.accounts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsList : GTLRAdMobQuery
 // Previous library name was
@@ -110,6 +116,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  specification.
  *
  *  Method: admob.accounts.mediationReport.generate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsMediationReportGenerate : GTLRAdMobQuery
 // Previous library name was
@@ -144,6 +153,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  specification.
  *
  *  Method: admob.accounts.networkReport.generate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsNetworkReportGenerate : GTLRAdMobQuery
 // Previous library name was

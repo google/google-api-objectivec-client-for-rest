@@ -69,6 +69,22 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypePaid = @"T
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeTrial = @"TYPE_TRIAL";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.exporter
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_CloudTrace = @"CLOUD_TRACE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_ExporterUnspecified = @"EXPORTER_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeger = @"JAEGER";
+
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig.errorSources
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_Apigee = @"APIGEE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_ErrorSourceUnspecified = @"ERROR_SOURCE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_Target = @"TARGET";
+
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig.sampler
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Off = @"OFF";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_On = @"ON";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Probability = @"PROBABILITY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified = @"SAMPLER_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1UpdateError.code
 NSString * const kGTLRApigee_GoogleCloudApigeeV1UpdateError_Code_Aborted = @"ABORTED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1UpdateError_Code_AlreadyExists = @"ALREADY_EXISTS";
@@ -616,8 +632,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Deployment
-@dynamic apiProxy, basePath, deployStartTime, environment, errors, instances,
-         pods, revision, routeConflicts, state;
+@dynamic apiProxy, deployStartTime, environment, errors, instances, pods,
+         revision, routeConflicts, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -834,7 +850,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig
 @dynamic createTime, dataCollectors, debugMask, deployments, featureFlags,
          flowhooks, keystores, name, provider, pubsubTopic, resourceReferences,
-         resources, revisionId, sequenceNumber, targets, uid;
+         resources, revisionId, sequenceNumber, targets, traceConfig, uid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1523,17 +1539,34 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1Operation
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1Operation
+@dynamic methods, resource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1OperationConfig
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1OperationConfig
-@dynamic apiSource, attributes, methods, quota, resources;
+@dynamic apiSource, attributes, operations, quota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
-    @"methods" : [NSString class],
-    @"resources" : [NSString class]
+    @"operations" : [GTLRApigee_GoogleCloudApigeeV1Operation class]
   };
   return map;
 }
@@ -1956,6 +1989,65 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RoutingRule
 @dynamic basepath, environment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig
+@dynamic endpoint, exporter, name, overrides, revisionCreateTime, revisionId,
+         samplingConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"overrides" : [GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride
+@dynamic apiProxy, name, revisionCreateTime, revisionId, samplingConfig, uid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig
+@dynamic errorSources, responseCodeRanges, responseCodes, sampler, samplingRate;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSources" : [NSString class],
+    @"responseCodeRanges" : [GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange class],
+    @"responseCodes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange
+@dynamic firstResponseCode, lastResponseCode;
 @end
 
 

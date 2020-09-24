@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Licensing API (licensing/v1)
+//   Enterprise License Manager API (licensing/v1)
 // Description:
-//   Licensing API to view and manage licenses for your domain
+//   The Google Enterprise License Manager API's allows you to license apps for
+//   all the users of a domain managed by you.
 // Documentation:
 //   https://developers.google.com/admin-sdk/licensing/
 
@@ -42,9 +43,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLicensingAppsLicensing;
 //
 
 /**
- *  Service for executing Licensing API queries.
+ *  Service for executing Enterprise License Manager API queries.
  *
- *  Licensing API to view and manage licenses for your domain
+ *  The Google Enterprise License Manager API's allows you to license apps for
+ *  all the users of a domain managed by you.
  */
 @interface GTLRLicensingService : GTLRService
 

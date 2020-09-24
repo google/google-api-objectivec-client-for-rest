@@ -50,6 +50,9 @@
 @class GTLRCloudHealthcare_HttpBody_Extensions_Item;
 @class GTLRCloudHealthcare_ImageConfig;
 @class GTLRCloudHealthcare_InfoTypeTransformation;
+@class GTLRCloudHealthcare_Location;
+@class GTLRCloudHealthcare_Location_Labels;
+@class GTLRCloudHealthcare_Location_Metadata;
 @class GTLRCloudHealthcare_Message;
 @class GTLRCloudHealthcare_Message_Labels;
 @class GTLRCloudHealthcare_NotificationConfig;
@@ -287,7 +290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImportResourcesRequest_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_Analytics;
 /**
- *  No schema type specified.
+ *  No schema type specified. This type is unsupported.
  *
  *  Value: "SCHEMA_TYPE_UNSPECIFIED"
  */
@@ -1684,6 +1687,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 
 /**
+ *  The response message for Locations.ListLocations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "locations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudHealthcare_ListLocationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of locations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Location *> *locations;
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Lists the messages in the specified HL7v2 store.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1732,6 +1759,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_Operation *> *operations;
 
+@end
+
+
+/**
+ *  A resource that represents Google Cloud Platform location.
+ */
+@interface GTLRCloudHealthcare_Location : GTLRObject
+
+/**
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Location_Labels *labels;
+
+/** The canonical id for this location. For example: `"us-east1"`. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Location_Metadata *metadata;
+
+/**
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudHealthcare_Location_Labels : GTLRObject
+@end
+
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudHealthcare_Location_Metadata : GTLRObject
 @end
 
 
@@ -1832,7 +1920,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  permissions causes the calls that send notifications to fail. If a
  *  notification can't be published to Cloud Pub/Sub, errors are logged to Cloud
  *  Logging (see [Viewing logs](/healthcare/docs/how-tos/logging)). If the
- *  number of errors exceeds a certain rate, some aren't submitted.
+ *  number of errors exceeds a certain rate, some aren't submitted. Note that
+ *  not all operations trigger notifications, see [Configuring Pub/Sub
+ *  notifications](https://cloud.google.com/healthcare/docs/how-tos/pubsub) for
+ *  specific details.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -2175,7 +2266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *        are `Parameters.parameter.resource`, `Bundle.entry.resource`, and
  *        `Bundle.entry.response.outcome`. (Value: "ANALYTICS")
  *    @arg @c kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecified
- *        No schema type specified. (Value: "SCHEMA_TYPE_UNSPECIFIED")
+ *        No schema type specified. This type is unsupported. (Value:
+ *        "SCHEMA_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *schemaType;
 

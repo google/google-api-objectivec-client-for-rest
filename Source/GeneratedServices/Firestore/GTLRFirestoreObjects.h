@@ -111,7 +111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_ArrayContains;
 /**
  *  The given `field` is an array that contains any of the values in the given
  *  array. Requires: * That `value` is a non-empty `ArrayValue` with at most 10
- *  values. * No other `IN` or `ARRAY_CONTAINS_ANY`.
+ *  values. * No other `IN` or `ARRAY_CONTAINS_ANY` or `NOT_IN`.
  *
  *  Value: "ARRAY_CONTAINS_ANY"
  */
@@ -139,7 +139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_GreaterThanOrEq
 /**
  *  The given `field` is equal to at least one value in the given array.
  *  Requires: * That `value` is a non-empty `ArrayValue` with at most 10 values.
- *  * No other `IN` or `ARRAY_CONTAINS_ANY`.
+ *  * No other `IN` or `ARRAY_CONTAINS_ANY` or `NOT_IN`.
  *
  *  Value: "IN"
  */
@@ -187,7 +187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_FieldFilter_Op_OperatorUnspeci
 
 /**
  *  The time at which the server processed the request, with millisecond
- *  precision.
+ *  precision. If used on multiple fields (same or different documents) in a
+ *  transaction, all the fields will get the same server timestamp.
  *
  *  Value: "REQUEST_TIME"
  */
@@ -1180,7 +1181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_FieldFilter_Op_ArrayContainsAny The given `field`
  *        is an array that contains any of the values in the given array.
  *        Requires: * That `value` is a non-empty `ArrayValue` with at most 10
- *        values. * No other `IN` or `ARRAY_CONTAINS_ANY`. (Value:
+ *        values. * No other `IN` or `ARRAY_CONTAINS_ANY` or `NOT_IN`. (Value:
  *        "ARRAY_CONTAINS_ANY")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_Equal The given `field` is equal to
  *        the given `value`. (Value: "EQUAL")
@@ -1193,7 +1194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *    @arg @c kGTLRFirestore_FieldFilter_Op_In The given `field` is equal to at
  *        least one value in the given array. Requires: * That `value` is a
  *        non-empty `ArrayValue` with at most 10 values. * No other `IN` or
- *        `ARRAY_CONTAINS_ANY`. (Value: "IN")
+ *        `ARRAY_CONTAINS_ANY` or `NOT_IN`. (Value: "IN")
  *    @arg @c kGTLRFirestore_FieldFilter_Op_LessThan The given `field` is less
  *        than the given `value`. Requires: * That `field` come first in
  *        `order_by`. (Value: "LESS_THAN")
@@ -1310,7 +1311,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Likely values:
  *    @arg @c kGTLRFirestore_FieldTransform_SetToServerValue_RequestTime The
  *        time at which the server processed the request, with millisecond
- *        precision. (Value: "REQUEST_TIME")
+ *        precision. If used on multiple fields (same or different documents) in
+ *        a transaction, all the fields will get the same server timestamp.
+ *        (Value: "REQUEST_TIME")
  *    @arg @c kGTLRFirestore_FieldTransform_SetToServerValue_ServerValueUnspecified
  *        Unspecified. This value must not be used. (Value:
  *        "SERVER_VALUE_UNSPECIFIED")

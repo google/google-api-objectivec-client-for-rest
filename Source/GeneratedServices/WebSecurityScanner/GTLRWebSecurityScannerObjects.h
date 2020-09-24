@@ -562,6 +562,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_C
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_InsufficientCrawlResults;
 /**
+ *  Indicates that no seeds is found for a scan
+ *
+ *  Value: "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_NoStartingUrlFoundForManagedScan;
+/**
  *  Indicates that a scan discovered too many URLs to test, or excessive
  *  redundant URLs.
  *
@@ -1543,6 +1549,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
  *        Indicates that a scan discovered an unexpectedly low number of URLs.
  *        This is sometimes caused by complex navigation features or by using a
  *        single URL for numerous pages. (Value: "INSUFFICIENT_CRAWL_RESULTS")
+ *    @arg @c kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_NoStartingUrlFoundForManagedScan
+ *        Indicates that no seeds is found for a scan (Value:
+ *        "NO_STARTING_URL_FOUND_FOR_MANAGED_SCAN")
  *    @arg @c kGTLRWebSecurityScanner_ScanRunWarningTrace_Code_TooManyCrawlResults
  *        Indicates that a scan discovered too many URLs to test, or excessive
  *        redundant URLs. (Value: "TOO_MANY_CRAWL_RESULTS")

@@ -1544,6 +1544,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
+/**
+ *  If specified, determines the maximum number of stages to return. If
+ *  unspecified, the service may choose an appropriate default, or may return an
+ *  arbitrarily large number of results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If supplied, this should be the value of next_page_token returned by an
+ *  earlier call. This will cause the next page of results to be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
 /** A project id. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -1560,6 +1573,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
  *  @param jobId The job to get execution details for.
  *
  *  @return GTLRDataflowQuery_ProjectsLocationsJobsGetExecutionDetails
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithProjectId:(NSString *)projectId
                           location:(NSString *)location

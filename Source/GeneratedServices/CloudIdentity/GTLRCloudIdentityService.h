@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: See your device details
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-identity.devices.lookup"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityDevicesLookup;
+/**
  *  Authorization scope: See, change, create, and delete any of the Cloud
  *  Identity Groups that you can access, including the members of each group
  *

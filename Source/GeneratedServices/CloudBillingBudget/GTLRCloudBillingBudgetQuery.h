@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: billingbudgets.billingAccounts.budgets.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBillingBudgetCloudBilling
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsCreate : GTLRCloudBillingBudgetQuery
@@ -85,6 +86,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: billingbudgets.billingAccounts.budgets.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBillingBudgetCloudBilling
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsDelete : GTLRCloudBillingBudgetQuery
@@ -120,6 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: billingbudgets.billingAccounts.budgets.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBillingBudgetCloudBilling
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsGet : GTLRCloudBillingBudgetQuery
@@ -158,6 +161,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: billingbudgets.billingAccounts.budgets.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBillingBudgetCloudBilling
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsList : GTLRCloudBillingBudgetQuery
@@ -214,6 +218,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: billingbudgets.billingAccounts.budgets.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBillingBudgetCloudBilling
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsPatch : GTLRCloudBillingBudgetQuery

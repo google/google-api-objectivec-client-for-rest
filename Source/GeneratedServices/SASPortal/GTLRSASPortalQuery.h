@@ -24,6 +24,7 @@
 @class GTLRSASPortal_Device;
 @class GTLRSASPortal_GenerateSecretRequest;
 @class GTLRSASPortal_GetPolicyRequest;
+@class GTLRSASPortal_MoveDeploymentRequest;
 @class GTLRSASPortal_MoveDeviceRequest;
 @class GTLRSASPortal_MoveNodeRequest;
 @class GTLRSASPortal_Node;
@@ -47,6 +48,149 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a device under a node or customer.
+ *
+ *  Method: sasportal.customers.deployments.devices.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsDevicesCreate : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsDevicesCreateWithObject:parent:]
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Creates a device under a node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_Device to include in the query.
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsDevicesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Device *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a signed device under a node or customer.
+ *
+ *  Method: sasportal.customers.deployments.devices.createSigned
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsDevicesCreateSigned : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsDevicesCreateSignedWithObject:parent:]
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Creates a signed device under a node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_CreateSignedDeviceRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsDevicesCreateSigned
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_CreateSignedDeviceRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists devices under a node or customer.
+ *
+ *  Method: sasportal.customers.deployments.devices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsDevicesList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsDevicesListWithparent:]
+
+/**
+ *  The filter expression. The filter should have one of the following formats:
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  the device. The filter is case insensitive.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of devices to return in the response. If empty or zero,
+ *  all devices will be listed. Must be in the range [0, 1000].
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListDevices that
+ *  indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListDevicesResponse.
+ *
+ *  Lists devices under a node or customer.
+ *
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsDevicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves a deployment under another node or customer.
+ *
+ *  Method: sasportal.customers.deployments.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_CustomersDeploymentsMove : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForCustomersDeploymentsMoveWithObject:name:]
+
+/** Required. The name of the deployment to move. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Operation.
+ *
+ *  Moves a deployment under another node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_MoveDeploymentRequest to include in the
+ *    query.
+ *  @param name Required. The name of the deployment to move.
+ *
+ *  @return GTLRSASPortalQuery_CustomersDeploymentsMove
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_MoveDeploymentRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -748,6 +892,192 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a device.
+ *
+ *  Method: sasportal.deployments.devices.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_DeploymentsDevicesDelete : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForDeploymentsDevicesDeleteWithname:]
+
+/** Required. The name of the device. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Empty.
+ *
+ *  Deletes a device.
+ *
+ *  @param name Required. The name of the device.
+ *
+ *  @return GTLRSASPortalQuery_DeploymentsDevicesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details about a device.
+ *
+ *  Method: sasportal.deployments.devices.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_DeploymentsDevicesGet : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForDeploymentsDevicesGetWithname:]
+
+/** Required. The name of the device. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Gets details about a device.
+ *
+ *  @param name Required. The name of the device.
+ *
+ *  @return GTLRSASPortalQuery_DeploymentsDevicesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Moves a device under another node or customer.
+ *
+ *  Method: sasportal.deployments.devices.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_DeploymentsDevicesMove : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForDeploymentsDevicesMoveWithObject:name:]
+
+/** Required. The name of the device to move. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Operation.
+ *
+ *  Moves a device under another node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_MoveDeviceRequest to include in the
+ *    query.
+ *  @param name Required. The name of the device to move.
+ *
+ *  @return GTLRSASPortalQuery_DeploymentsDevicesMove
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_MoveDeviceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a device.
+ *
+ *  Method: sasportal.deployments.devices.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_DeploymentsDevicesPatch : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForDeploymentsDevicesPatchWithObject:name:]
+
+/** Output only. The resource path name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Updates a device.
+ *
+ *  @param object The @c GTLRSASPortal_Device to include in the query.
+ *  @param name Output only. The resource path name.
+ *
+ *  @return GTLRSASPortalQuery_DeploymentsDevicesPatch
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Device *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Signs a device.
+ *
+ *  Method: sasportal.deployments.devices.signDevice
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_DeploymentsDevicesSignDevice : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForDeploymentsDevicesSignDeviceWithObject:name:]
+
+/** Output only. The resource path name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Empty.
+ *
+ *  Signs a device.
+ *
+ *  @param object The @c GTLRSASPortal_SignDeviceRequest to include in the
+ *    query.
+ *  @param name Output only. The resource path name.
+ *
+ *  @return GTLRSASPortalQuery_DeploymentsDevicesSignDevice
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_SignDeviceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a signed device.
+ *
+ *  Method: sasportal.deployments.devices.updateSigned
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_DeploymentsDevicesUpdateSigned : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForDeploymentsDevicesUpdateSignedWithObject:name:]
+
+/** Required. The name of the device to update. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Updates a signed device.
+ *
+ *  @param object The @c GTLRSASPortal_UpdateSignedDeviceRequest to include in
+ *    the query.
+ *  @param name Required. The name of the device to update.
+ *
+ *  @return GTLRSASPortalQuery_DeploymentsDevicesUpdateSigned
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_UpdateSignedDeviceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Generates a secret to be used with the ValidateInstaller method
  *
  *  Method: sasportal.installer.generateSecret
@@ -796,6 +1126,149 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSASPortalQuery_InstallerValidate
  */
 + (instancetype)queryWithObject:(GTLRSASPortal_ValidateInstallerRequest *)object;
+
+@end
+
+/**
+ *  Creates a device under a node or customer.
+ *
+ *  Method: sasportal.nodes.deployments.devices.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesDeploymentsDevicesCreate : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesDeploymentsDevicesCreateWithObject:parent:]
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Creates a device under a node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_Device to include in the query.
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_NodesDeploymentsDevicesCreate
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_Device *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a signed device under a node or customer.
+ *
+ *  Method: sasportal.nodes.deployments.devices.createSigned
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesDeploymentsDevicesCreateSigned : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesDeploymentsDevicesCreateSignedWithObject:parent:]
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Device.
+ *
+ *  Creates a signed device under a node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_CreateSignedDeviceRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_NodesDeploymentsDevicesCreateSigned
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_CreateSignedDeviceRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists devices under a node or customer.
+ *
+ *  Method: sasportal.nodes.deployments.devices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesDeploymentsDevicesList : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesDeploymentsDevicesListWithparent:]
+
+/**
+ *  The filter expression. The filter should have one of the following formats:
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  the device. The filter is case insensitive.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of devices to return in the response. If empty or zero,
+ *  all devices will be listed. Must be in the range [0, 1000].
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to ListDevices that
+ *  indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The name of the parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSASPortal_ListDevicesResponse.
+ *
+ *  Lists devices under a node or customer.
+ *
+ *  @param parent Required. The name of the parent resource.
+ *
+ *  @return GTLRSASPortalQuery_NodesDeploymentsDevicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves a deployment under another node or customer.
+ *
+ *  Method: sasportal.nodes.deployments.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSASPortalUserinfoEmail
+ */
+@interface GTLRSASPortalQuery_NodesDeploymentsMove : GTLRSASPortalQuery
+// Previous library name was
+//   +[GTLQuerySASPortal queryForNodesDeploymentsMoveWithObject:name:]
+
+/** Required. The name of the deployment to move. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSASPortal_Operation.
+ *
+ *  Moves a deployment under another node or customer.
+ *
+ *  @param object The @c GTLRSASPortal_MoveDeploymentRequest to include in the
+ *    query.
+ *  @param name Required. The name of the deployment to move.
+ *
+ *  @return GTLRSASPortalQuery_NodesDeploymentsMove
+ */
++ (instancetype)queryWithObject:(GTLRSASPortal_MoveDeploymentRequest *)object
+                           name:(NSString *)name;
 
 @end
 

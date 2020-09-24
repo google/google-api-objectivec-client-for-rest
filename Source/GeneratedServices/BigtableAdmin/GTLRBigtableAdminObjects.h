@@ -104,8 +104,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_AuditLogConfig_LogType_Log
 // GTLRBigtableAdmin_Backup.state
 
 /**
- *  The pending backup is still being created. Operations on the
- *  backup may fail with `FAILED_PRECONDITION` in this state.
+ *  The pending backup is still being created. Operations on the backup may fail
+ *  with `FAILED_PRECONDITION` in this state.
  *
  *  Value: "CREATING"
  */
@@ -149,16 +149,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_DefaultStorageType
 // GTLRBigtableAdmin_Cluster.state
 
 /**
- *  The cluster is currently being created, and may be destroyed
- *  if the creation process encounters an error.
- *  A cluster may not be able to serve requests while being created.
+ *  The cluster is currently being created, and may be destroyed if the creation
+ *  process encounters an error. A cluster may not be able to serve requests
+ *  while being created.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Creating;
 /**
- *  The cluster has no backing nodes. The data (tables) still
- *  exist, but no operations can be performed on the cluster.
+ *  The cluster has no backing nodes. The data (tables) still exist, but no
+ *  operations can be performed on the cluster.
  *
  *  Value: "DISABLED"
  */
@@ -170,11 +170,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Disabled;
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_Ready;
 /**
- *  The cluster is currently being resized, and may revert to its previous
- *  node count if the process encounters an error.
- *  A cluster is still capable of serving requests while being resized,
- *  but may exhibit performance as if its number of allocated nodes is
- *  between the starting and requested states.
+ *  The cluster is currently being resized, and may revert to its previous node
+ *  count if the process encounters an error. A cluster is still capable of
+ *  serving requests while being resized, but may exhibit performance as if its
+ *  number of allocated nodes is between the starting and requested states.
  *
  *  Value: "RESIZING"
  */
@@ -190,32 +189,32 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Cluster_State_StateNotKnow
 // GTLRBigtableAdmin_ClusterState.replicationState
 
 /**
- *  The cluster was recently created, and the table must finish copying
- *  over pre-existing data from other clusters before it can begin
- *  receiving live replication updates and serving Data API requests.
+ *  The cluster was recently created, and the table must finish copying over
+ *  pre-existing data from other clusters before it can begin receiving live
+ *  replication updates and serving Data API requests.
  *
  *  Value: "INITIALIZING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Initializing;
 /**
- *  The table is temporarily unable to serve Data API requests from this
- *  cluster due to planned internal maintenance.
+ *  The table is temporarily unable to serve Data API requests from this cluster
+ *  due to planned internal maintenance.
  *
  *  Value: "PLANNED_MAINTENANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_PlannedMaintenance;
 /**
  *  The table can serve Data API requests from this cluster. Depending on
- *  replication delay, reads may not immediately reflect the state of the
- *  table in other clusters.
+ *  replication delay, reads may not immediately reflect the state of the table
+ *  in other clusters.
  *
  *  Value: "READY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_Ready;
 /**
- *  The table is fully created and ready for use after a restore, and is
- *  being optimized for performance. When optimizations are complete, the
- *  table will transition to `READY` state.
+ *  The table is fully created and ready for use after a restore, and is being
+ *  optimized for performance. When optimizations are complete, the table will
+ *  transition to `READY` state.
  *
  *  Value: "READY_OPTIMIZING"
  */
@@ -227,8 +226,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_StateNotKnown;
 /**
- *  The table is temporarily unable to serve Data API requests from this
- *  cluster due to unplanned or emergency maintenance.
+ *  The table is temporarily unable to serve Data API requests from this cluster
+ *  due to unplanned or emergency maintenance.
  *
  *  Value: "UNPLANNED_MAINTENANCE"
  */
@@ -238,15 +237,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationSt
 // GTLRBigtableAdmin_Instance.state
 
 /**
- *  The instance is currently being created, and may be destroyed
- *  if the creation process encounters an error.
+ *  The instance is currently being created, and may be destroyed if the
+ *  creation process encounters an error.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_Creating;
 /**
- *  The instance has been successfully created and can serve requests
- *  to its tables.
+ *  The instance has been successfully created and can serve requests to its
+ *  tables.
  *
  *  Value: "READY"
  */
@@ -262,23 +261,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_State_StateNotKno
 // GTLRBigtableAdmin_Instance.type
 
 /**
- *  DEPRECATED: Prefer PRODUCTION for all use cases, as it no longer enforces
- *  a higher minimum node count than DEVELOPMENT.
+ *  DEPRECATED: Prefer PRODUCTION for all use cases, as it no longer enforces a
+ *  higher minimum node count than DEVELOPMENT.
  *
  *  Value: "DEVELOPMENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Development;
 /**
- *  An instance meant for production use. `serve_nodes` must be set
- *  on the cluster.
+ *  An instance meant for production use. `serve_nodes` must be set on the
+ *  cluster.
  *
  *  Value: "PRODUCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Production;
 /**
- *  The type of the instance is unspecified. If set when creating an
- *  instance, a `PRODUCTION` instance will be created. If set when updating
- *  an instance, the type will be left unchanged.
+ *  The type of the instance is unspecified. If set when creating an instance, a
+ *  `PRODUCTION` instance will be created. If set when updating an instance, the
+ *  type will be left unchanged.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -326,8 +325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_RestoreTableMetadata_Sourc
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_Millis;
 /**
- *  The user did not specify a granularity. Should not be returned.
- *  When specified during table creation, MILLIS will be used.
+ *  The user did not specify a granularity. Should not be returned. When
+ *  specified during table creation, MILLIS will be used.
  *
  *  Value: "TIMESTAMP_GRANULARITY_UNSPECIFIED"
  */
@@ -337,9 +336,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_Timestam
 // GTLRBigtableAdmin_TableProgress.state
 
 /**
- *  The table was deleted before it finished copying to the new cluster.
- *  Note that tables deleted after completion will stay marked as
- *  COMPLETED, not CANCELLED.
+ *  The table was deleted before it finished copying to the new cluster. Note
+ *  that tables deleted after completion will stay marked as COMPLETED, not
+ *  CANCELLED.
  *
  *  Value: "CANCELLED"
  */
@@ -380,13 +379,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Strongly validated etag for optimistic concurrency control. Preserve the
- *  value returned from `GetAppProfile` when calling `UpdateAppProfile` to
- *  fail the request if there has been a modification in the mean time. The
- *  `update_mask` of the request need not include `etag` for this protection
- *  to apply.
- *  See [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag) and
- *  [RFC 7232](https://tools.ietf.org/html/rfc7232#section-2.3) for more
- *  details.
+ *  value returned from `GetAppProfile` when calling `UpdateAppProfile` to fail
+ *  the request if there has been a modification in the mean time. The
+ *  `update_mask` of the request need not include `etag` for this protection to
+ *  apply. See [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag) and [RFC
+ *  7232](https://tools.ietf.org/html/rfc7232#section-2.3) for more details.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -406,50 +403,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Specifies the audit configuration for a service.
- *  The configuration determines which permission types are logged, and what
- *  identities, if any, are exempted from logging.
- *  An AuditConfig must have one or more AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service,
- *  the union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  {
- *  "audit_configs": [
- *  {
- *  "service": "allServices",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  },
- *  {
- *  "log_type": "ADMIN_READ"
- *  }
- *  ]
- *  },
- *  {
- *  "service": "sampleservice.googleapis.com",
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ"
- *  },
- *  {
- *  "log_type": "DATA_WRITE",
- *  "exempted_members": [
- *  "user:aliya\@example.com"
- *  ]
- *  }
- *  ]
- *  }
- *  ]
- *  }
+ *  Specifies the audit configuration for a service. The configuration
+ *  determines which permission types are logged, and what identities, if any,
+ *  are exempted from logging. An AuditConfig must have one or more
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -460,9 +426,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_AuditLogConfig *> *auditLogConfigs;
 
 /**
- *  Specifies a service that will be enabled for audit logging.
- *  For example, `storage.googleapis.com`, `cloudsql.googleapis.com`.
- *  `allServices` is a special value that covers all services.
+ *  Specifies a service that will be enabled for audit logging. For example,
+ *  `storage.googleapis.com`, `cloudsql.googleapis.com`. `allServices` is a
+ *  special value that covers all services.
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -470,30 +436,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Provides the configuration for logging a type of permissions.
- *  Example:
- *  {
- *  "audit_log_configs": [
- *  {
- *  "log_type": "DATA_READ",
- *  "exempted_members": [
- *  "user:jose\@example.com"
- *  ]
- *  },
- *  {
- *  "log_type": "DATA_WRITE"
- *  }
- *  ]
- *  }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRBigtableAdmin_AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission.
- *  Follows the same format of Binding.members.
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
@@ -527,23 +480,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Required. The expiration time of the backup, with microseconds
- *  granularity that must be at least 6 hours and at most 30 days
- *  from the time the request is received. Once the `expire_time`
- *  has passed, Cloud Bigtable will delete the backup and free the
- *  resources used by the backup.
+ *  Required. The expiration time of the backup, with microseconds granularity
+ *  that must be at least 6 hours and at most 30 days from the time the request
+ *  is received. Once the `expire_time` has passed, Cloud Bigtable will delete
+ *  the backup and free the resources used by the backup.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
- *  A globally unique identifier for the backup which cannot be
- *  changed. Values are of the form
- *  `projects/{project}/instances/{instance}/clusters/{cluster}/
- *  backups/_a-zA-Z0-9*`
- *  The final segment of the name must be between 1 and 50 characters
- *  in length.
- *  The backup is stored in the cluster identified by the prefix of the backup
- *  name of the form
+ *  A globally unique identifier for the backup which cannot be changed. Values
+ *  are of the form `projects/{project}/instances/{instance}/clusters/{cluster}/
+ *  backups/_a-zA-Z0-9*` The final segment of the name must be between 1 and 50
+ *  characters in length. The backup is stored in the cluster identified by the
+ *  prefix of the backup name of the form
  *  `projects/{project}/instances/{instance}/clusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -557,17 +506,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Required. Immutable. Name of the table from which this backup was created.
- *  This needs
- *  to be in the same instance as the backup. Values are of the form
+ *  This needs to be in the same instance as the backup. Values are of the form
  *  `projects/{project}/instances/{instance}/tables/{source_table}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceTable;
 
 /**
- *  Output only. `start_time` is the time that the backup was started
- *  (i.e. approximately the time the
- *  CreateBackup request is received). The
- *  row data in this backup will be no older than this timestamp.
+ *  Output only. `start_time` is the time that the backup was started (i.e.
+ *  approximately the time the CreateBackup request is received). The row data
+ *  in this backup will be no older than this timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -576,9 +523,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Backup_State_Creating The pending backup is
- *        still being created. Operations on the
- *        backup may fail with `FAILED_PRECONDITION` in this state. (Value:
- *        "CREATING")
+ *        still being created. Operations on the backup may fail with
+ *        `FAILED_PRECONDITION` in this state. (Value: "CREATING")
  *    @arg @c kGTLRBigtableAdmin_Backup_State_Ready The backup is complete and
  *        ready for use. (Value: "READY")
  *    @arg @c kGTLRBigtableAdmin_Backup_State_StateUnspecified Not specified.
@@ -598,8 +544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *backup;
 
 /**
- *  Output only. This time that the backup was finished. Row data in the
- *  backup will be no newer than this timestamp.
+ *  Output only. This time that the backup was finished. Row data in the backup
+ *  will be no newer than this timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -621,56 +567,51 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is
- *  on the internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone
- *  who is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group.
- *  For example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a user that has been recently deleted. For
- *  example, `alice\@example.com?uid=123456789012345678901`. If the user is
- *  recovered, this value reverts to `user:{emailid}` and the recovered user
- *  retains the role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
- *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`.
- *  If the service account is undeleted, this value reverts to
+ *  identifier) representing a user that has been recently deleted. For example,
+ *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
+ *  this value reverts to `user:{emailid}` and the recovered user retains the
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
+ *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently
- *  deleted. For example, `admins\@example.com?uid=123456789012345678901`. If
- *  the group is recovered, this value reverts to `group:{emailid}` and the
- *  recovered group retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
 /**
- *  Role that is assigned to `members`.
- *  For example, `roles/viewer`, `roles/editor`, or `roles/owner`.
+ *  Role that is assigned to `members`. For example, `roles/viewer`,
+ *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -709,15 +650,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  A resizable group of nodes in a particular cloud location, capable
- *  of serving all Tables in the parent
- *  Instance.
+ *  A resizable group of nodes in a particular cloud location, capable of
+ *  serving all Tables in the parent Instance.
  */
 @interface GTLRBigtableAdmin_Cluster : GTLRObject
 
 /**
- *  Immutable. The type of storage used by this cluster to serve its
- *  parent instance's tables, unless explicitly overridden.
+ *  Immutable. The type of storage used by this cluster to serve its parent
+ *  instance's tables, unless explicitly overridden.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Cluster_DefaultStorageType_Hdd Magnetic drive
@@ -732,10 +672,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Immutable. The location where this cluster's nodes and storage reside. For
- *  best
- *  performance, clients should be located as close as possible to this
- *  cluster. Currently only zones are supported, so values should be of the
- *  form `projects/{project}/locations/{zone}`.
+ *  best performance, clients should be located as close as possible to this
+ *  cluster. Currently only zones are supported, so values should be of the form
+ *  `projects/{project}/locations/{zone}`.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -747,8 +686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Required. The number of nodes allocated to this cluster. More nodes enable
- *  higher
- *  throughput and more consistent performance.
+ *  higher throughput and more consistent performance.
  *
  *  Uses NSNumber of intValue.
  */
@@ -759,22 +697,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Cluster_State_Creating The cluster is currently
- *        being created, and may be destroyed
- *        if the creation process encounters an error.
- *        A cluster may not be able to serve requests while being created.
- *        (Value: "CREATING")
+ *        being created, and may be destroyed if the creation process encounters
+ *        an error. A cluster may not be able to serve requests while being
+ *        created. (Value: "CREATING")
  *    @arg @c kGTLRBigtableAdmin_Cluster_State_Disabled The cluster has no
- *        backing nodes. The data (tables) still
- *        exist, but no operations can be performed on the cluster. (Value:
- *        "DISABLED")
+ *        backing nodes. The data (tables) still exist, but no operations can be
+ *        performed on the cluster. (Value: "DISABLED")
  *    @arg @c kGTLRBigtableAdmin_Cluster_State_Ready The cluster has been
  *        successfully created and is ready to serve requests. (Value: "READY")
  *    @arg @c kGTLRBigtableAdmin_Cluster_State_Resizing The cluster is currently
- *        being resized, and may revert to its previous
- *        node count if the process encounters an error.
- *        A cluster is still capable of serving requests while being resized,
- *        but may exhibit performance as if its number of allocated nodes is
- *        between the starting and requested states. (Value: "RESIZING")
+ *        being resized, and may revert to its previous node count if the
+ *        process encounters an error. A cluster is still capable of serving
+ *        requests while being resized, but may exhibit performance as if its
+ *        number of allocated nodes is between the starting and requested
+ *        states. (Value: "RESIZING")
  *    @arg @c kGTLRBigtableAdmin_Cluster_State_StateNotKnown The state of the
  *        cluster could not be determined. (Value: "STATE_NOT_KNOWN")
  */
@@ -793,10 +729,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_ClusterState_ReplicationState_Initializing The
- *        cluster was recently created, and the table must finish copying
- *        over pre-existing data from other clusters before it can begin
- *        receiving live replication updates and serving Data API requests.
- *        (Value: "INITIALIZING")
+ *        cluster was recently created, and the table must finish copying over
+ *        pre-existing data from other clusters before it can begin receiving
+ *        live replication updates and serving Data API requests. (Value:
+ *        "INITIALIZING")
  *    @arg @c kGTLRBigtableAdmin_ClusterState_ReplicationState_PlannedMaintenance
  *        The table is temporarily unable to serve Data API requests from this
  *        cluster due to planned internal maintenance. (Value:
@@ -828,11 +764,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_ColumnFamily : GTLRObject
 
 /**
- *  Garbage collection rule specified as a protobuf.
- *  Must serialize to at most 500 bytes.
- *  NOTE: Garbage collection executes opportunistically in the background, and
- *  so it's possible for reads to return a cell even if it matches the active
- *  GC expression for its family.
+ *  Garbage collection rule specified as a protobuf. Must serialize to at most
+ *  500 bytes. NOTE: Garbage collection executes opportunistically in the
+ *  background, and so it's possible for reads to return a cell even if it
+ *  matches the active GC expression for its family.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GcRule *gcRule;
 
@@ -840,8 +775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Metadata type for the operation returned by
- *  CreateBackup.
+ *  Metadata type for the operation returned by CreateBackup.
  */
 @interface GTLRBigtableAdmin_CreateBackupMetadata : GTLRObject
 
@@ -878,12 +812,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Keys: the full `name` of each table that existed in the instance when
- *  CreateCluster was first called, i.e.
- *  `projects/<project>/instances/<instance>/tables/<table>`. Any table added
- *  to the instance by a later API call will be created in the new cluster by
- *  that API call, not this one.
- *  Values: information on how much of a table's data has been copied to the
- *  newly-created cluster so far.
+ *  CreateCluster was first called, i.e. `projects//instances//tables/`. Any
+ *  table added to the instance by a later API call will be created in the new
+ *  cluster by that API call, not this one. Values: information on how much of a
+ *  table's data has been copied to the newly-created cluster so far.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateClusterMetadata_Tables *tables;
 
@@ -892,12 +824,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Keys: the full `name` of each table that existed in the instance when
- *  CreateCluster was first called, i.e.
- *  `projects/<project>/instances/<instance>/tables/<table>`. Any table added
- *  to the instance by a later API call will be created in the new cluster by
- *  that API call, not this one.
- *  Values: information on how much of a table's data has been copied to the
- *  newly-created cluster so far.
+ *  CreateCluster was first called, i.e. `projects//instances//tables/`. Any
+ *  table added to the instance by a later API call will be created in the new
+ *  cluster by that API call, not this one. Values: information on how much of a
+ *  table's data has been copied to the newly-created cluster so far.
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigtableAdmin_TableProgress. Use @c -additionalJSONKeys and @c
@@ -914,24 +844,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_CreateClusterRequest : GTLRObject
 
 /**
- *  Required. The cluster to be created.
- *  Fields marked `OutputOnly` must be left blank.
+ *  Required. The cluster to be created. Fields marked `OutputOnly` must be left
+ *  blank.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Cluster *cluster;
 
 /**
  *  Required. The ID to be used when referring to the new cluster within its
- *  instance,
- *  e.g., just `mycluster` rather than
+ *  instance, e.g., just `mycluster` rather than
  *  `projects/myproject/instances/myinstance/clusters/mycluster`.
  */
 @property(nonatomic, copy, nullable) NSString *clusterId;
 
 /**
  *  Required. The unique name of the instance in which to create the new
- *  cluster.
- *  Values are of the form
- *  `projects/{project}/instances/{instance}`.
+ *  cluster. Values are of the form `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -965,30 +892,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  Required. The clusters to be created within the instance, mapped by desired
  *  cluster ID, e.g., just `mycluster` rather than
- *  `projects/myproject/instances/myinstance/clusters/mycluster`.
- *  Fields marked `OutputOnly` must be left blank.
- *  Currently, at most four clusters can be specified.
+ *  `projects/myproject/instances/myinstance/clusters/mycluster`. Fields marked
+ *  `OutputOnly` must be left blank. Currently, at most four clusters can be
+ *  specified.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_CreateInstanceRequest_Clusters *clusters;
 
 /**
- *  Required. The instance to create.
- *  Fields marked `OutputOnly` must be left blank.
+ *  Required. The instance to create. Fields marked `OutputOnly` must be left
+ *  blank.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance *instance;
 
 /**
  *  Required. The ID to be used when referring to the new instance within its
- *  project,
- *  e.g., just `myinstance` rather than
+ *  project, e.g., just `myinstance` rather than
  *  `projects/myproject/instances/myinstance`.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  Required. The unique name of the project in which to create the new
- *  instance.
- *  Values are of the form `projects/{project}`.
+ *  instance. Values are of the form `projects/{project}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -998,9 +923,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  Required. The clusters to be created within the instance, mapped by desired
  *  cluster ID, e.g., just `mycluster` rather than
- *  `projects/myproject/instances/myinstance/clusters/mycluster`.
- *  Fields marked `OutputOnly` must be left blank.
- *  Currently, at most four clusters can be specified.
+ *  `projects/myproject/instances/myinstance/clusters/mycluster`. Fields marked
+ *  `OutputOnly` must be left blank. Currently, at most four clusters can be
+ *  specified.
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigtableAdmin_Cluster. Use @c -additionalJSONKeys and @c
@@ -1012,26 +937,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Request message for
- *  google.bigtable.admin.v2.BigtableTableAdmin.CreateTable
+ *  Request message for google.bigtable.admin.v2.BigtableTableAdmin.CreateTable
  */
 @interface GTLRBigtableAdmin_CreateTableRequest : GTLRObject
 
 /**
- *  The optional list of row keys that will be used to initially split the
- *  table into several tablets (tablets are similar to HBase regions).
- *  Given two split keys, `s1` and `s2`, three tablets will be created,
- *  spanning the key ranges: `[, s1), [s1, s2), [s2, )`.
- *  Example:
- *  * Row keys := `["a", "apple", "custom", "customer_1", "customer_2",`
- *  `"other", "zz"]`
- *  * initial_split_keys := `["apple", "customer_1", "customer_2", "other"]`
- *  * Key assignment:
- *  - Tablet 1 `[, apple) => {"a"}.`
- *  - Tablet 2 `[apple, customer_1) => {"apple", "custom"}.`
- *  - Tablet 3 `[customer_1, customer_2) => {"customer_1"}.`
- *  - Tablet 4 `[customer_2, other) => {"customer_2"}.`
- *  - Tablet 5 `[other, ) => {"other", "zz"}.`
+ *  The optional list of row keys that will be used to initially split the table
+ *  into several tablets (tablets are similar to HBase regions). Given two split
+ *  keys, `s1` and `s2`, three tablets will be created, spanning the key ranges:
+ *  `[, s1), [s1, s2), [s2, )`. Example: * Row keys := `["a", "apple", "custom",
+ *  "customer_1", "customer_2",` `"other", "zz"]` * initial_split_keys :=
+ *  `["apple", "customer_1", "customer_2", "other"]` * Key assignment: - Tablet
+ *  1 `[, apple) => {"a"}.` - Tablet 2 `[apple, customer_1) => {"apple",
+ *  "custom"}.` - Tablet 3 `[customer_1, customer_2) => {"customer_1"}.` -
+ *  Tablet 4 `[customer_2, other) => {"customer_2"}.` - Tablet 5 `[other, ) =>
+ *  {"other", "zz"}.`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Split *> *initialSplits;
 
@@ -1040,8 +960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Required. The name by which the new table should be referred to within the
- *  parent
- *  instance, e.g., `foobar` rather than `{parent}/tables/foobar`.
+ *  parent instance, e.g., `foobar` rather than `{parent}/tables/foobar`.
  *  Maximum 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *tableId;
@@ -1050,8 +969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Request message for
- *  google.bigtable.admin.v2.BigtableTableAdmin.DropRowRange
+ *  Request message for google.bigtable.admin.v2.BigtableTableAdmin.DropRowRange
  */
 @interface GTLRBigtableAdmin_DropRowRangeRequest : GTLRObject
 
@@ -1063,8 +981,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) NSNumber *deleteAllDataFromTable;
 
 /**
- *  Delete all rows that start with this row key prefix. Prefix cannot be
- *  zero length.
+ *  Delete all rows that start with this row key prefix. Prefix cannot be zero
+ *  length.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1077,11 +995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance:
- *  service Foo {
- *  rpc Bar(google.protobuf.Empty) returns (google.protobuf.Empty);
- *  }
- *  The JSON representation for `Empty` is empty JSON object `{}`.
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRBigtableAdmin_Empty : GTLRObject
 @end
@@ -1090,27 +1006,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
- *  title: "Summary size limit"
- *  description: "Determines if a summary is less than 100 chars"
- *  expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner"
- *  description: "Determines if requestor is the document owner"
- *  expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents"
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
+ *  title: "Summary size limit" description: "Determines if a summary is less
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
  *  description: "Determine whether the document should be publicly visible"
  *  expression: "document.type != 'private' && document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string"
- *  description: "Create a notification string with a timestamp."
- *  expression: "'New message received at ' + string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression
- *  are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRBigtableAdmin_Expr : GTLRObject
 
@@ -1135,9 +1044,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Optional. Title for the expression, i.e. a short string describing
- *  its purpose. This can be used e.g. in UIs which allow to enter the
- *  expression.
+ *  Optional. Title for the expression, i.e. a short string describing its
+ *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -1175,9 +1083,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Intersection *intersection;
 
 /**
- *  Delete cells in a column older than the given age.
- *  Values must be at least one millisecond, and will be truncated to
- *  microsecond granularity.
+ *  Delete cells in a column older than the given age. Values must be at least
+ *  one millisecond, and will be truncated to microsecond granularity.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxAge;
 
@@ -1238,14 +1145,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_GetPolicyOptions : GTLRObject
 
 /**
- *  Optional. The policy format version to be returned.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected.
- *  Requests for policies with any conditional bindings must specify version 3.
- *  Policies without any conditional bindings may specify any valid value or
- *  leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  Optional. The policy format version to be returned. Valid values are 0, 1,
+ *  and 3. Requests specifying an invalid value will be rejected. Requests for
+ *  policies with any conditional bindings must specify version 3. Policies
+ *  without any conditional bindings may specify any valid value or leave the
+ *  field unset. To learn which resources support conditions in their IAM
+ *  policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1256,32 +1161,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  A collection of Bigtable Tables and
- *  the resources that serve them.
- *  All tables in an instance are served from all
- *  Clusters in the instance.
+ *  A collection of Bigtable Tables and the resources that serve them. All
+ *  tables in an instance are served from all Clusters in the instance.
  */
 @interface GTLRBigtableAdmin_Instance : GTLRObject
 
 /**
- *  Required. The descriptive name for this instance as it appears in UIs.
- *  Can be changed at any time, but should be kept globally unique
- *  to avoid confusion.
+ *  Required. The descriptive name for this instance as it appears in UIs. Can
+ *  be changed at any time, but should be kept globally unique to avoid
+ *  confusion.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Required. Labels are a flexible and lightweight mechanism for organizing
- *  cloud
- *  resources into groups that reflect a customer's organizational needs and
- *  deployment strategies. They can be used to filter resources and aggregate
- *  metrics.
- *  * Label keys must be between 1 and 63 characters long and must conform to
- *  the regular expression: `\\p{Ll}\\p{Lo}{0,62}`.
- *  * Label values must be between 0 and 63 characters long and must conform to
- *  the regular expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`.
- *  * No more than 64 labels can be associated with a given resource.
- *  * Keys and values must both be under 128 bytes.
+ *  cloud resources into groups that reflect a customer's organizational needs
+ *  and deployment strategies. They can be used to filter resources and
+ *  aggregate metrics. * Label keys must be between 1 and 63 characters long and
+ *  must conform to the regular expression: `\\p{Ll}\\p{Lo}{0,62}`. * Label
+ *  values must be between 0 and 63 characters long and must conform to the
+ *  regular expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`. * No more than 64
+ *  labels can be associated with a given resource. * Keys and values must both
+ *  be under 128 bytes.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance_Labels *labels;
 
@@ -1296,11 +1197,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Instance_State_Creating The instance is
- *        currently being created, and may be destroyed
- *        if the creation process encounters an error. (Value: "CREATING")
+ *        currently being created, and may be destroyed if the creation process
+ *        encounters an error. (Value: "CREATING")
  *    @arg @c kGTLRBigtableAdmin_Instance_State_Ready The instance has been
- *        successfully created and can serve requests
- *        to its tables. (Value: "READY")
+ *        successfully created and can serve requests to its tables. (Value:
+ *        "READY")
  *    @arg @c kGTLRBigtableAdmin_Instance_State_StateNotKnown The state of the
  *        instance could not be determined. (Value: "STATE_NOT_KNOWN")
  */
@@ -1311,17 +1212,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Instance_Type_Development DEPRECATED: Prefer
- *        PRODUCTION for all use cases, as it no longer enforces
- *        a higher minimum node count than DEVELOPMENT. (Value: "DEVELOPMENT")
+ *        PRODUCTION for all use cases, as it no longer enforces a higher
+ *        minimum node count than DEVELOPMENT. (Value: "DEVELOPMENT")
  *    @arg @c kGTLRBigtableAdmin_Instance_Type_Production An instance meant for
- *        production use. `serve_nodes` must be set
- *        on the cluster. (Value: "PRODUCTION")
+ *        production use. `serve_nodes` must be set on the cluster. (Value:
+ *        "PRODUCTION")
  *    @arg @c kGTLRBigtableAdmin_Instance_Type_TypeUnspecified The type of the
- *        instance is unspecified. If set when creating an
- *        instance, a `PRODUCTION` instance will be created. If set when
- *        updating
- *        an instance, the type will be left unchanged. (Value:
- *        "TYPE_UNSPECIFIED")
+ *        instance is unspecified. If set when creating an instance, a
+ *        `PRODUCTION` instance will be created. If set when updating an
+ *        instance, the type will be left unchanged. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1330,16 +1229,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Required. Labels are a flexible and lightweight mechanism for organizing
- *  cloud
- *  resources into groups that reflect a customer's organizational needs and
- *  deployment strategies. They can be used to filter resources and aggregate
- *  metrics.
- *  * Label keys must be between 1 and 63 characters long and must conform to
- *  the regular expression: `\\p{Ll}\\p{Lo}{0,62}`.
- *  * Label values must be between 0 and 63 characters long and must conform to
- *  the regular expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`.
- *  * No more than 64 labels can be associated with a given resource.
- *  * Keys and values must both be under 128 bytes.
+ *  cloud resources into groups that reflect a customer's organizational needs
+ *  and deployment strategies. They can be used to filter resources and
+ *  aggregate metrics. * Label keys must be between 1 and 63 characters long and
+ *  must conform to the regular expression: `\\p{Ll}\\p{Lo}{0,62}`. * Label
+ *  values must be between 0 and 63 characters long and must conform to the
+ *  regular expression: `[\\p{Ll}\\p{Lo}\\p{N}_-]{0,63}`. * No more than 64
+ *  labels can be associated with a given resource. * Keys and values must both
+ *  be under 128 bytes.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1380,17 +1277,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_AppProfile *> *appProfiles;
 
 /**
- *  Locations from which AppProfile information could not be retrieved,
- *  due to an outage or some other transient condition.
- *  AppProfiles from these locations may be missing from `app_profiles`.
- *  Values are of the form `projects/<project>/locations/<zone_id>`
+ *  Locations from which AppProfile information could not be retrieved, due to
+ *  an outage or some other transient condition. AppProfiles from these
+ *  locations may be missing from `app_profiles`. Values are of the form
+ *  `projects//locations/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *failedLocations;
 
 /**
- *  Set if not all app profiles could be returned in a single response.
- *  Pass this value to `page_token` in another request to get the next
- *  page of results.
+ *  Set if not all app profiles could be returned in a single response. Pass
+ *  this value to `page_token` in another request to get the next page of
+ *  results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1416,8 +1313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Backup *> *backups;
 
 /**
- *  `next_page_token` can be sent in a subsequent
- *  ListBackups call to fetch more
+ *  `next_page_token` can be sent in a subsequent ListBackups call to fetch more
  *  of the matching backups.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -1444,11 +1340,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Cluster *> *clusters;
 
 /**
- *  Locations from which Cluster information could not be retrieved,
- *  due to an outage or some other transient condition.
- *  Clusters from these locations may be missing from `clusters`,
- *  or may only have partial information returned.
- *  Values are of the form `projects/<project>/locations/<zone_id>`
+ *  Locations from which Cluster information could not be retrieved, due to an
+ *  outage or some other transient condition. Clusters from these locations may
+ *  be missing from `clusters`, or may only have partial information returned.
+ *  Values are of the form `projects//locations/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *failedLocations;
 
@@ -1469,12 +1364,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_ListInstancesResponse : GTLRCollectionObject
 
 /**
- *  Locations from which Instance information could not be retrieved,
- *  due to an outage or some other transient condition.
- *  Instances whose Clusters are all in one of the failed locations
- *  may be missing from `instances`, and Instances with at least one
- *  Cluster in a failed location may only have partial information returned.
- *  Values are of the form `projects/<project>/locations/<zone_id>`
+ *  Locations from which Instance information could not be retrieved, due to an
+ *  outage or some other transient condition. Instances whose Clusters are all
+ *  in one of the failed locations may be missing from `instances`, and
+ *  Instances with at least one Cluster in a failed location may only have
+ *  partial information returned. Values are of the form `projects//locations/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *failedLocations;
 
@@ -1541,8 +1435,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Response message for
- *  google.bigtable.admin.v2.BigtableTableAdmin.ListTables
+ *  Response message for google.bigtable.admin.v2.BigtableTableAdmin.ListTables
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "tables" property. If returned as the result of a query, it should
@@ -1552,9 +1445,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_ListTablesResponse : GTLRCollectionObject
 
 /**
- *  Set if not all tables could be returned in a single response.
- *  Pass this value to `page_token` in another request to get the next
- *  page of results.
+ *  Set if not all tables could be returned in a single response. Pass this
+ *  value to `page_token` in another request to get the next page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1575,8 +1467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_Location : GTLRObject
 
 /**
- *  The friendly name for this location, typically a nearby city name.
- *  For example, "Tokyo".
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1596,8 +1488,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Location_Metadata *metadata;
 
 /**
- *  Resource name for the location, which may vary between implementations.
- *  For example: `"projects/example-project/locations/us-east1"`
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: `"projects/example-project/locations/us-east1"`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1636,14 +1528,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_Modification : GTLRObject
 
 /**
- *  Create a new column family with the specified schema, or fail if
- *  one already exists with the given ID.
+ *  Create a new column family with the specified schema, or fail if one already
+ *  exists with the given ID.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_ColumnFamily *create;
 
 /**
- *  Drop (delete) the column family with the given ID, or fail if no such
- *  family exists.
+ *  Drop (delete) the column family with the given ID, or fail if no such family
+ *  exists.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1657,8 +1549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Update an existing column family to the specified schema, or fail
- *  if no column family exists with the given ID.
+ *  Update an existing column family to the specified schema, or fail if no
+ *  column family exists with the given ID.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_ColumnFamily *update;
 
@@ -1673,10 +1565,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Required. Modifications to be atomically applied to the specified table's
- *  families.
- *  Entries are applied in order, meaning that earlier modifications can be
- *  masked by later ones (in the case of repeated updates to the same family,
- *  for example).
+ *  families. Entries are applied in order, meaning that earlier modifications
+ *  can be masked by later ones (in the case of repeated updates to the same
+ *  family, for example).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Modification *> *modifications;
 
@@ -1686,9 +1577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  Read/write requests are routed to the nearest cluster in the instance, and
  *  will fail over to the nearest cluster that is available in the event of
- *  transient errors or delays. Clusters in a region are considered
- *  equidistant. Choosing this option sacrifices read-your-writes consistency
- *  to improve availability.
+ *  transient errors or delays. Clusters in a region are considered equidistant.
+ *  Choosing this option sacrifices read-your-writes consistency to improve
+ *  availability.
  */
 @interface GTLRBigtableAdmin_MultiClusterRoutingUseAny : GTLRObject
 @end
@@ -1701,8 +1592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_Operation : GTLRObject
 
 /**
- *  If the value is `false`, it means the operation is still in progress.
- *  If `true`, the operation is completed, and either `error` or `response` is
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
  *  available.
  *
  *  Uses NSNumber of boolValue.
@@ -1714,16 +1605,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Operation_Metadata *metadata;
 
 /**
  *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the
- *  `name` should be a resource name ending with `operations/{unique_id}`.
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1732,10 +1623,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Operation_Response *response;
 
@@ -1744,8 +1634,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time.
- *  Some services might not provide such metadata. Any method that returns a
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
  *  long-running operation should document the metadata type, if any.
  *
  *  @note This class is documented as having more properties of any valid JSON
@@ -1762,10 +1652,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  method returns no data on success, such as `Delete`, the response is
  *  `google.protobuf.Empty`. If the original method is standard
  *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx`
- *  is the original method name. For example, if the original method name
- *  is `TakeSnapshot()`, the inferred response type is
- *  `TakeSnapshotResponse`.
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1777,8 +1666,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Encapsulates progress related information for a Cloud Bigtable long
- *  running operation.
+ *  Encapsulates progress related information for a Cloud Bigtable long running
+ *  operation.
  */
 @interface GTLRBigtableAdmin_OperationProgress : GTLRObject
 
@@ -1789,8 +1678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Percent completion of the operation.
- *  Values are between 0 and 100 inclusive.
+ *  Percent completion of the operation. Values are between 0 and 100 inclusive.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1803,8 +1691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Metadata type for the long-running operation used to track the progress
- *  of optimizations performed on a newly restored table. This long-running
+ *  Metadata type for the long-running operation used to track the progress of
+ *  optimizations performed on a newly restored table. This long-running
  *  operation is automatically created by the system after the successful
  *  completion of a table restore, and cannot be cancelled.
  */
@@ -1830,8 +1718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Instance *instance;
 
 /**
- *  Required. The subset of Instance fields which should be replaced.
- *  Must be explicitly set.
+ *  Required. The subset of Instance fields which should be replaced. Must be
+ *  explicitly set.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1842,66 +1730,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts,
- *  Google groups, and domains (such as G Suite). A `role` is a named list of
- *  permissions; each `role` can be an IAM predefined role or a user-created
- *  custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the
- *  [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  {
- *  "bindings": [
- *  {
- *  "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [
- *  "user:mike\@example.com",
- *  "group:admins\@example.com",
- *  "domain:google.com",
- *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com"
- *  ]
- *  },
- *  {
- *  "role": "roles/resourcemanager.organizationViewer",
- *  "members": [
- *  "user:eve\@example.com"
- *  ],
- *  "condition": {
- *  "title": "expirable access",
- *  "description": "Does not grant access after Sep 2020",
- *  "expression": "request.time < timestamp('2020-10-01T00:00:00.000Z')",
- *  }
- *  }
- *  ],
- *  "etag": "BwWWja0YfJA=",
- *  "version": 3
- *  }
- *  **YAML example:**
- *  bindings:
- *  - members:
- *  - user:mike\@example.com
- *  - group:admins\@example.com
- *  - domain:google.com
- *  - serviceAccount:my-project-id\@appspot.gserviceaccount.com
- *  role: roles/resourcemanager.organizationAdmin
- *  - members:
- *  - user:eve\@example.com
- *  role: roles/resourcemanager.organizationViewer
- *  condition:
- *  title: expirable access
- *  description: Does not grant access after Sep 2020
- *  expression: request.time < timestamp('2020-10-01T00:00:00.000Z')
- *  - etag: BwWWja0YfJA=
- *  - version: 3
- *  For a description of IAM and its features, see the
- *  [IAM documentation](https://cloud.google.com/iam/docs/).
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
+ *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
+ *  "roles/resourcemanager.organizationViewer", "members": [
+ *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
+ *  "description": "Does not grant access after Sep 2020", "expression":
+ *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
+ *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
+ *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
+ *  role: roles/resourcemanager.organizationViewer condition: title: expirable
+ *  access description: Does not grant access after Sep 2020 expression:
+ *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
+ *  version: 3 For a description of IAM and its features, see the [IAM
+ *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRBigtableAdmin_Policy : GTLRObject
 
@@ -1910,23 +1766,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Associates a list of `members` to a `role`. Optionally, may specify a
- *  `condition` that determines how and when the `bindings` are applied. Each
- *  of the `bindings` must contain at least one member.
+ *  `condition` that determines how and when the `bindings` are applied. Each of
+ *  the `bindings` must contain at least one member.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Binding *> *bindings;
 
 /**
- *  `etag` is used for optimistic concurrency control as a way to help
- *  prevent simultaneous updates of a policy from overwriting each other.
- *  It is strongly suggested that systems make use of the `etag` in the
- *  read-modify-write cycle to perform policy updates in order to avoid race
- *  conditions: An `etag` is returned in the response to `getIamPolicy`, and
- *  systems are expected to put that etag in the request to `setIamPolicy` to
- *  ensure that their change will be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  `etag` is used for optimistic concurrency control as a way to help prevent
+ *  simultaneous updates of a policy from overwriting each other. It is strongly
+ *  suggested that systems make use of the `etag` in the read-modify-write cycle
+ *  to perform policy updates in order to avoid race conditions: An `etag` is
+ *  returned in the response to `getIamPolicy`, and systems are expected to put
+ *  that etag in the request to `setIamPolicy` to ensure that their change will
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1934,24 +1790,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding
- *  * Adding a conditional role binding to a policy
- *  * Changing a conditional role binding in a policy
- *  * Removing any role binding, with or without a condition, from a policy
- *  that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1967,8 +1819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_RestoreInfo : GTLRObject
 
 /**
- *  Information about the backup used to restore the table. The backup
- *  may no longer exist.
+ *  Information about the backup used to restore the table. The backup may no
+ *  longer exist.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_BackupInfo *backupInfo;
 
@@ -1987,8 +1839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Metadata type for the long-running operation returned by
- *  RestoreTable.
+ *  Metadata type for the long-running operation returned by RestoreTable.
  */
 @interface GTLRBigtableAdmin_RestoreTableMetadata : GTLRObject
 
@@ -1998,22 +1849,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If exists, the name of the long-running operation that will be used to
- *  track the post-restore optimization process to optimize the performance of
- *  the restored table. The metadata type of the long-running operation is
- *  OptimizeRestoreTableMetadata. The response type is
- *  Empty. This long-running operation may be
- *  automatically created by the system if applicable after the
+ *  If exists, the name of the long-running operation that will be used to track
+ *  the post-restore optimization process to optimize the performance of the
+ *  restored table. The metadata type of the long-running operation is
+ *  OptimizeRestoreTableMetadata. The response type is Empty. This long-running
+ *  operation may be automatically created by the system if applicable after the
  *  RestoreTable long-running operation completes successfully. This operation
- *  may not be created if the table is already optimized or the restore was
- *  not successful.
+ *  may not be created if the table is already optimized or the restore was not
+ *  successful.
  */
 @property(nonatomic, copy, nullable) NSString *optimizeTableOperationName;
 
-/**
- *  The progress of the RestoreTable
- *  operation.
- */
+/** The progress of the RestoreTable operation. */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_OperationProgress *progress;
 
 /**
@@ -2031,22 +1878,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  The request for
- *  RestoreTable.
+ *  The request for RestoreTable.
  */
 @interface GTLRBigtableAdmin_RestoreTableRequest : GTLRObject
 
 /**
  *  Name of the backup from which to restore. Values are of the form
- *  `projects/<project>/instances/<instance>/clusters/<cluster>/backups/<backup>`.
+ *  `projects//instances//clusters//backups/`.
  */
 @property(nonatomic, copy, nullable) NSString *backup;
 
 /**
- *  Required. The id of the table to create and restore to. This
- *  table must not already exist. The `table_id` appended to
- *  `parent` forms the full table name of the form
- *  `projects/<project>/instances/<instance>/tables/<table_id>`.
+ *  Required. The id of the table to create and restore to. This table must not
+ *  already exist. The `table_id` appended to `parent` forms the full table name
+ *  of the form `projects//instances//tables/`.
  */
 @property(nonatomic, copy, nullable) NSString *tableId;
 
@@ -2060,17 +1905,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  REQUIRED: The complete policy to be applied to the `resource`. The size of
- *  the policy is limited to a few 10s of KB. An empty policy is a
- *  valid policy but certain Cloud Platform services (such as Projects)
- *  might reject them.
+ *  the policy is limited to a few 10s of KB. An empty policy is a valid policy
+ *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Policy *policy;
 
 /**
  *  OPTIONAL: A FieldMask specifying which fields of the policy to modify. Only
  *  the fields in the mask will be modified. If no mask is provided, the
- *  following default mask is used:
- *  `paths: "bindings, etag"`
+ *  following default mask is used: `paths: "bindings, etag"`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2080,16 +1923,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Unconditionally routes all read/write requests to a specific cluster.
- *  This option preserves read-your-writes consistency but does not improve
+ *  Unconditionally routes all read/write requests to a specific cluster. This
+ *  option preserves read-your-writes consistency but does not improve
  *  availability.
  */
 @interface GTLRBigtableAdmin_SingleClusterRouting : GTLRObject
 
 /**
  *  Whether or not `CheckAndMutateRow` and `ReadModifyWriteRow` requests are
- *  allowed by this app profile. It is unsafe to send these requests to
- *  the same table/row/column in multiple clusters.
+ *  allowed by this app profile. It is unsafe to send these requests to the same
+ *  table/row/column in multiple clusters.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2121,9 +1964,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details.
- *  You can find out more about this error model and how to work with it in the
- *  [API Design Guide](https://cloud.google.com/apis/design/errors).
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
  */
 @interface GTLRBigtableAdmin_Status : GTLRObject
 
@@ -2163,17 +2006,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  A collection of user data indexed by row, column, and timestamp.
- *  Each table is served using the resources of its parent cluster.
+ *  A collection of user data indexed by row, column, and timestamp. Each table
+ *  is served using the resources of its parent cluster.
  */
 @interface GTLRBigtableAdmin_Table : GTLRObject
 
 /**
- *  Output only. Map from cluster ID to per-cluster table state.
- *  If it could not be determined whether or not the table has data in a
- *  particular cluster (for example, if its zone is unavailable), then
- *  there will be an entry for the cluster with UNKNOWN `replication_status`.
- *  Views: `REPLICATION_VIEW`, `FULL`
+ *  Output only. Map from cluster ID to per-cluster table state. If it could not
+ *  be determined whether or not the table has data in a particular cluster (for
+ *  example, if its zone is unavailable), then there will be an entry for the
+ *  cluster with UNKNOWN `replication_status`. Views: `REPLICATION_VIEW`, `FULL`
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Table_ClusterStates *clusterStates;
 
@@ -2185,32 +2027,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  Immutable. The granularity (i.e. `MILLIS`) at which timestamps are stored in
- *  this
- *  table. Timestamps not matching the granularity will be rejected.
- *  If unspecified at creation time, the value will be set to `MILLIS`.
- *  Views: `SCHEMA_VIEW`, `FULL`.
+ *  this table. Timestamps not matching the granularity will be rejected. If
+ *  unspecified at creation time, the value will be set to `MILLIS`. Views:
+ *  `SCHEMA_VIEW`, `FULL`.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_Millis The table keeps data
  *        versioned at a granularity of 1ms. (Value: "MILLIS")
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_TimestampGranularityUnspecified
- *        The user did not specify a granularity. Should not be returned.
- *        When specified during table creation, MILLIS will be used. (Value:
+ *        The user did not specify a granularity. Should not be returned. When
+ *        specified during table creation, MILLIS will be used. (Value:
  *        "TIMESTAMP_GRANULARITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *granularity;
 
 /**
  *  The unique name of the table. Values are of the form
- *  `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`.
- *  Views: `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
+ *  `projects/{project}/instances/{instance}/tables/_a-zA-Z0-9*`. Views:
+ *  `NAME_ONLY`, `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Output only. If this table was restored from another data source (e.g. a
- *  backup), this
- *  field will be populated with information about the restore.
+ *  backup), this field will be populated with information about the restore.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_RestoreInfo *restoreInfo;
 
@@ -2218,11 +2058,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
- *  Output only. Map from cluster ID to per-cluster table state.
- *  If it could not be determined whether or not the table has data in a
- *  particular cluster (for example, if its zone is unavailable), then
- *  there will be an entry for the cluster with UNKNOWN `replication_status`.
- *  Views: `REPLICATION_VIEW`, `FULL`
+ *  Output only. Map from cluster ID to per-cluster table state. If it could not
+ *  be determined whether or not the table has data in a particular cluster (for
+ *  example, if its zone is unavailable), then there will be an entry for the
+ *  cluster with UNKNOWN `replication_status`. Views: `REPLICATION_VIEW`, `FULL`
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigtableAdmin_ClusterState. Use @c -additionalJSONKeys and @c
@@ -2252,9 +2091,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_TableProgress : GTLRObject
 
 /**
- *  Estimate of the number of bytes copied so far for this table.
- *  This will eventually reach 'estimated_size_bytes' unless the table copy
- *  is CANCELLED.
+ *  Estimate of the number of bytes copied so far for this table. This will
+ *  eventually reach 'estimated_size_bytes' unless the table copy is CANCELLED.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2272,9 +2110,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_TableProgress_State_Cancelled The table was
- *        deleted before it finished copying to the new cluster.
- *        Note that tables deleted after completion will stay marked as
- *        COMPLETED, not CANCELLED. (Value: "CANCELLED")
+ *        deleted before it finished copying to the new cluster. Note that
+ *        tables deleted after completion will stay marked as COMPLETED, not
+ *        CANCELLED. (Value: "CANCELLED")
  *    @arg @c kGTLRBigtableAdmin_TableProgress_State_Completed The table has
  *        been fully copied to the new cluster. (Value: "COMPLETED")
  *    @arg @c kGTLRBigtableAdmin_TableProgress_State_Copying The table is
@@ -2296,9 +2134,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 /**
  *  The set of permissions to check for the `resource`. Permissions with
- *  wildcards (such as '*' or 'storage.*') are not allowed. For more
- *  information see
- *  [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ *  wildcards (such as '*' or 'storage.*') are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
@@ -2311,8 +2148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 @interface GTLRBigtableAdmin_TestIamPermissionsResponse : GTLRObject
 
 /**
- *  A subset of `TestPermissionsRequest.permissions` that the caller is
- *  allowed.
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 

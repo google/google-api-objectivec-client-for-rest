@@ -902,7 +902,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The attendees of the event. See the Events with attendees guide for more
- *  information on scheduling events with other calendar users.
+ *  information on scheduling events with other calendar users. Service accounts
+ *  need to use domain-wide delegation of authority to populate the attendee
+ *  list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCalendar_EventAttendee *> *attendees;
 
@@ -964,7 +966,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Extended properties of the event. */
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_ExtendedProperties *extendedProperties;
 
-/** A gadget that extends this event. */
+/**
+ *  A gadget that extends this event. Gadgets are deprecated; this structure is
+ *  instead only used for returning birthday calendar metadata.
+ */
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_Gadget *gadget;
 
 /**
@@ -1233,12 +1238,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  A gadget that extends this event.
+ *  A gadget that extends this event. Gadgets are deprecated; this structure is
+ *  instead only used for returning birthday calendar metadata.
  */
 @interface GTLRCalendar_Event_Gadget : GTLRObject
 
 /**
- *  The gadget's display mode. Optional. Possible values are:
+ *  The gadget's display mode. Deprecated. Possible values are:
  *  - "icon" - The gadget displays next to the event's title in the calendar
  *  view.
  *  - "chip" - The gadget displays when the event is clicked.
@@ -1247,30 +1253,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The gadget's height in pixels. The height must be an integer greater than 0.
- *  Optional.
+ *  Optional. Deprecated.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
-/** The gadget's icon URL. The URL scheme must be HTTPS. */
+/** The gadget's icon URL. The URL scheme must be HTTPS. Deprecated. */
 @property(nonatomic, copy, nullable) NSString *iconLink;
 
-/** The gadget's URL. The URL scheme must be HTTPS. */
+/** The gadget's URL. The URL scheme must be HTTPS. Deprecated. */
 @property(nonatomic, copy, nullable) NSString *link;
 
 /** Preferences. */
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_Gadget_Preferences *preferences;
 
-/** The gadget's title. */
+/** The gadget's title. Deprecated. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** The gadget's type. */
+/** The gadget's type. Deprecated. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  The gadget's width in pixels. The width must be an integer greater than 0.
- *  Optional.
+ *  Optional. Deprecated.
  *
  *  Uses NSNumber of intValue.
  */

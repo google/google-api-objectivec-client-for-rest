@@ -49,6 +49,7 @@
 @class GTLRCloudAsset_Operation_Metadata;
 @class GTLRCloudAsset_Operation_Response;
 @class GTLRCloudAsset_OutputConfig;
+@class GTLRCloudAsset_PartitionSpec;
 @class GTLRCloudAsset_Permissions;
 @class GTLRCloudAsset_Policy;
 @class GTLRCloudAsset_PubsubDestination;
@@ -328,6 +329,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextma
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAsset_PartitionSpec.partitionKey
+
+/**
+ *  Unspecified partition key. If used, it means using non-partitioned table.
+ *
+ *  Value: "PARTITION_KEY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_PartitionKeyUnspecified;
+/**
+ *  The time when the snapshot is taken. If specified as partition key, the
+ *  result table(s) is partitoned by the additional timestamp column, readTime.
+ *  If [read_time] in ExportAssetsRequest is specified, the readTime column's
+ *  value will be the same as it. Otherwise, its value will be the current time
+ *  that is used to take the snapshot.
+ *
+ *  Value: "READ_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_ReadTime;
+/**
+ *  The time when the request is received and started to be processed. If
+ *  specified as partition key, the result table(s) is partitoned by the
+ *  requestTime column, an additional timestamp column representing when the
+ *  request was received.
+ *
+ *  Value: "REQUEST_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_RequestTime;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAsset_TemporalAsset.priorAssetState
 
 /**
@@ -551,6 +581,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *force;
+
+/**
+ *  [partition_spec] determines whether to export to partitioned table(s) and
+ *  how to partition the data. If [partition_spec] is unset or
+ *  [partition_spec.partion_key] is unset or `PARTITION_KEY_UNSPECIFIED`, the
+ *  snapshot results will be exported to non-partitioned table(s). [force] will
+ *  decide whether to overwrite existing table(s). If [partition_spec] is
+ *  specified. First, the snapshot results will be written to partitioned
+ *  table(s) with two additional timestamp columns, readTime and requestTime,
+ *  one of which will be the partition key. Secondly, in the case when any
+ *  destination table already exists, it will first try to update existing
+ *  table's schema as necessary by appending additional columns. Then, if
+ *  [force] is `TRUE`, the corresponding partition will be overwritten by the
+ *  snapshot results (data in different partitions will remain intact); if
+ *  [force] is unset or `FALSE`, it will append the data. An error will be
+ *  returned if the schema update or data appension fails.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_PartitionSpec *partitionSpec;
+
+/**
+ *  If this flag is `TRUE`, the snapshot results will be written to one or
+ *  multiple tables, each of which contains results of one asset type. The
+ *  [force] and [partition_spec] fields will apply to each of them. Field
+ *  [table] will be concatenated with "_" and the asset type names (see
+ *  https://cloud.google.com/asset-inventory/docs/supported-asset-types for
+ *  supported asset types) to construct per-asset-type table names, in which all
+ *  non-alphanumeric characters like "." and "/" will be substituted by "_".
+ *  Example: if field [table] is "mytable" and snapshot results contain
+ *  "storage.googleapis.com/Bucket" assets, the corresponding table name will be
+ *  "mytable_storage_googleapis_com_Bucket". If any of these tables does not
+ *  exist, a new table with the concatenated name will be created. When
+ *  [content_type] in the ExportAssetsRequest is `RESOURCE`, the schema of each
+ *  table will include RECORD-type columns mapped to the nested fields in the
+ *  Asset.resource.data field of that asset type (up to the 15 nested level
+ *  BigQuery supports
+ *  (https://cloud.google.com/bigquery/docs/nested-repeated#limitations)). The
+ *  fields in >15 nested levels will be stored in JSON format string as a child
+ *  column of its parent RECORD column. If error occurs when exporting to any
+ *  table, the whole export call will return an error but the export results
+ *  that already succeed will persist. Example: if exporting to table_type_A
+ *  succeeds when exporting to table_type_B fails during one export call, the
+ *  results in table_type_A will persist and there will not be partial results
+ *  persisting in a table.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *separateTablesPerAssetType;
 
 /**
  *  Required. The BigQuery table to which the snapshot result should be written.
@@ -1719,6 +1796,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /** Destination on Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_GcsDestination *gcsDestination;
+
+@end
+
+
+/**
+ *  Specifications of BigQuery partitioned table as export destination.
+ */
+@interface GTLRCloudAsset_PartitionSpec : GTLRObject
+
+/**
+ *  The partition key for BigQuery partitioned table.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_PartitionSpec_PartitionKey_PartitionKeyUnspecified
+ *        Unspecified partition key. If used, it means using non-partitioned
+ *        table. (Value: "PARTITION_KEY_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAsset_PartitionSpec_PartitionKey_ReadTime The time when
+ *        the snapshot is taken. If specified as partition key, the result
+ *        table(s) is partitoned by the additional timestamp column, readTime.
+ *        If [read_time] in ExportAssetsRequest is specified, the readTime
+ *        column's value will be the same as it. Otherwise, its value will be
+ *        the current time that is used to take the snapshot. (Value:
+ *        "READ_TIME")
+ *    @arg @c kGTLRCloudAsset_PartitionSpec_PartitionKey_RequestTime The time
+ *        when the request is received and started to be processed. If specified
+ *        as partition key, the result table(s) is partitoned by the requestTime
+ *        column, an additional timestamp column representing when the request
+ *        was received. (Value: "REQUEST_TIME")
+ */
+@property(nonatomic, copy, nullable) NSString *partitionKey;
 
 @end
 

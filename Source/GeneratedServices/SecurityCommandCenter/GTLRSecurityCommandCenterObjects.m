@@ -54,12 +54,6 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Ru
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Superseded = @"SUPERSEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated = @"TERMINATED";
 
-// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset.changeType
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Created = @"CREATED";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Deleted = @"DELETED";
-NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Updated = @"UPDATED";
-
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_Completed = @"COMPLETED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -272,31 +266,6 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset
-//
-
-@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset
-@dynamic createTime, iamPolicy, name, resourceProperties,
-         securityCenterProperties, securityMarks, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties
-//
-
-@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding
 //
 
@@ -322,21 +291,11 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy
-//
-
-@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy
-@dynamic policyBlob;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1NotificationMessage
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1NotificationMessage
-@dynamic finding, notificationConfigName, resource, temporalAsset;
+@dynamic finding, notificationConfigName, resource;
 @end
 
 
@@ -362,26 +321,6 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties
-//
-
-@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties
-@dynamic resourceDisplayName, resourceName, resourceOwners, resourceParent,
-         resourceParentDisplayName, resourceProject, resourceProjectDisplayName,
-         resourceType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"resourceOwners" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks
 //
 
@@ -401,16 +340,6 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset
-//
-
-@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset
-@dynamic asset, changeType;
 @end
 
 

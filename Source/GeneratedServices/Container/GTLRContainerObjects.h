@@ -100,6 +100,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_CloudRunConfig.loadBalancerType
+
+/**
+ *  Install external load balancer for Cloud Run.
+ *
+ *  Value: "LOAD_BALANCER_TYPE_EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeExternal;
+/**
+ *  Install internal load balancer for Cloud Run.
+ *
+ *  Value: "LOAD_BALANCER_TYPE_INTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeInternal;
+/**
+ *  Load balancer type for Cloud Run is unspecified.
+ *
+ *  Value: "LOAD_BALANCER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_Cluster.status
 
 /**
@@ -818,14 +840,51 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_AutoprovisioningNodePoolDefaults : GTLRObject
 
+/**
+ *  The Customer Managed Encryption Key used to encrypt the boot disk attached
+ *  to each node in the node pool. This should be of the form
+ *  projects/[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME].
+ *  For more information about protecting resources with Cloud KMS Keys please
+ *  see: https://cloud.google.com/compute/docs/disks/customer-managed-encryption
+ */
+@property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
+
+/**
+ *  Size of the disk attached to each node, specified in GB. The smallest
+ *  allowed disk size is 10GB. If unspecified, the default disk size is 100GB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Type of the disk attached to each node (e.g. 'pd-standard' or 'pd-ssd') If
+ *  unspecified, the default disk type is 'pd-standard'
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
 /** Specifies the node management options for NAP created node-pools. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
+
+/**
+ *  Minimum CPU platform to be used for NAP created node pools. The instance may
+ *  be scheduled on the specified or newer CPU platform. Applicable values are
+ *  the friendly names of CPU platforms, such as minCpuPlatform: Intel Haswell
+ *  or minCpuPlatform: Intel Sandy Bridge. For more information, read [how to
+ *  specify min CPU
+ *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
+ *  To unset the min cpu platform field pass "automatic" as field value.
+ */
+@property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /** Scopes that are used by NAP when creating node pools. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
 /** The Google Cloud Platform Service Account to be used by the node VMs. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Shielded Instance options. */
+@property(nonatomic, strong, nullable) GTLRContainer_ShieldedInstanceConfig *shieldedInstanceConfig;
 
 /** Specifies the upgrade settings for NAP created node pools */
 @property(nonatomic, strong, nullable) GTLRContainer_UpgradeSettings *upgradeSettings;
@@ -961,6 +1020,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Which load balancer type is installed for Cloud Run.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeExternal
+ *        Install external load balancer for Cloud Run. (Value:
+ *        "LOAD_BALANCER_TYPE_EXTERNAL")
+ *    @arg @c kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeInternal
+ *        Install internal load balancer for Cloud Run. (Value:
+ *        "LOAD_BALANCER_TYPE_INTERNAL")
+ *    @arg @c kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeUnspecified
+ *        Load balancer type for Cloud Run is unspecified. (Value:
+ *        "LOAD_BALANCER_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancerType;
 
 @end
 
@@ -2206,14 +2281,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  The password to use for HTTP basic authentication to the master endpoint.
  *  Because the master endpoint is open to the Internet, you should create a
  *  strong password. If a password is provided for cluster creation, username
- *  must be non-empty.
+ *  must be non-empty. Warning: basic authentication is deprecated, and will be
+ *  removed in GKE control plane versions 1.19 and newer. For a list of
+ *  recommended authentication methods, see:
+ *  https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
  */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
  *  The username to use for HTTP basic authentication to the master endpoint.
  *  For clusters v1.6.0 and later, basic authentication can be disabled by
- *  leaving username unspecified (or setting it to the empty string).
+ *  leaving username unspecified (or setting it to the empty string). Warning:
+ *  basic authentication is deprecated, and will be removed in GKE control plane
+ *  versions 1.19 and newer. For a list of recommended authentication methods,
+ *  see:
+ *  https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
  */
 @property(nonatomic, copy, nullable) NSString *username;
 

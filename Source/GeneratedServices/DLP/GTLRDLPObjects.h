@@ -204,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRDLP_GooglePrivacyDlpV2BigQueryOptions.sampleMethod
 
 /**
- *  Randomly pick the row to start scanning. The scanned rows are contiguous.
+ *  Randomly pick groups of rows to scan.
  *
  *  Value: "RANDOM_START"
  */
@@ -212,7 +212,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_Sa
 /** Value: "SAMPLE_METHOD_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified;
 /**
- *  Scan from the top (default).
+ *  Scan groups of rows in the order BigQuery provides (default). Multiple
+ *  groups of rows may be scanned in parallel, so results may not appear in the
+ *  same order the rows are read.
  *
  *  Value: "TOP"
  */
@@ -1289,12 +1291,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_RandomStart
- *        Randomly pick the row to start scanning. The scanned rows are
- *        contiguous. (Value: "RANDOM_START")
+ *        Randomly pick groups of rows to scan. (Value: "RANDOM_START")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_SampleMethodUnspecified
  *        Value "SAMPLE_METHOD_UNSPECIFIED"
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2BigQueryOptions_SampleMethod_Top Scan
- *        from the top (default). (Value: "TOP")
+ *        groups of rows in the order BigQuery provides (default). Multiple
+ *        groups of rows may be scanned in parallel, so results may not appear
+ *        in the same order the rows are read. (Value: "TOP")
  */
 @property(nonatomic, copy, nullable) NSString *sampleMethod;
 
@@ -1971,7 +1974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The template id can contain uppercase and lowercase letters, numbers, and
- *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\\\d-_]+`.
+ *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\d-_]+`.
  *  The maximum length is 100 characters. Can be empty to allow the system to
  *  generate one.
  */
@@ -1991,7 +1994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The job id can contain uppercase and lowercase letters, numbers, and
- *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\\\d-_]+`.
+ *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\d-_]+`.
  *  The maximum length is 100 characters. Can be empty to allow the system to
  *  generate one.
  */
@@ -2019,7 +2022,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The template id can contain uppercase and lowercase letters, numbers, and
- *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\\\d-_]+`.
+ *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\d-_]+`.
  *  The maximum length is 100 characters. Can be empty to allow the system to
  *  generate one.
  */
@@ -2041,7 +2044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  The trigger id can contain uppercase and lowercase letters, numbers, and
- *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\\\d-_]+`.
+ *  hyphens; that is, it must match the regular expression: `[a-zA-Z\\d-_]+`.
  *  The maximum length is 100 characters. Can be empty to allow the system to
  *  generate one.
  */
@@ -2064,7 +2067,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  The storedInfoType ID can contain uppercase and lowercase letters, numbers,
  *  and hyphens; that is, it must match the regular expression:
- *  `[a-zA-Z\\\\d-_]+`. The maximum length is 100 characters. Can be empty to
+ *  `[a-zA-Z\\d-_]+`. The maximum length is 100 characters. Can be empty to
  *  allow the system to generate one.
  */
 @property(nonatomic, copy, nullable) NSString *storedInfoTypeId;

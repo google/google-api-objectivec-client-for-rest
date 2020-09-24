@@ -88,6 +88,17 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_Automatic
+@dynamic customerManagedEncryption;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_AutomaticStatus
+//
+
+@implementation GTLRSecretManager_AutomaticStatus
+@dynamic customerManagedEncryption;
 @end
 
 
@@ -97,7 +108,7 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_Binding
-@dynamic condition, members, role;
+@dynamic bindingId, condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -106,6 +117,26 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_CustomerManagedEncryption
+//
+
+@implementation GTLRSecretManager_CustomerManagedEncryption
+@dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_CustomerManagedEncryptionStatus
+//
+
+@implementation GTLRSecretManager_CustomerManagedEncryptionStatus
+@dynamic kmsKeyVersionName;
 @end
 
 
@@ -293,7 +324,17 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_Replica
-@dynamic location;
+@dynamic customerManagedEncryption, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_ReplicaStatus
+//
+
+@implementation GTLRSecretManager_ReplicaStatus
+@dynamic customerManagedEncryption, location;
 @end
 
 
@@ -303,6 +344,16 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_Replication
+@dynamic automatic, userManaged;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_ReplicationStatus
+//
+
+@implementation GTLRSecretManager_ReplicationStatus
 @dynamic automatic, userManaged;
 @end
 
@@ -347,7 +398,7 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_SecretVersion
-@dynamic createTime, destroyTime, name, state;
+@dynamic createTime, destroyTime, name, replicationStatus, state;
 @end
 
 
@@ -408,6 +459,24 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"replicas" : [GTLRSecretManager_Replica class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_UserManagedStatus
+//
+
+@implementation GTLRSecretManager_UserManagedStatus
+@dynamic replicas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicas" : [GTLRSecretManager_ReplicaStatus class]
   };
   return map;
 }

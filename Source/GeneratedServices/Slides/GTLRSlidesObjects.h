@@ -8486,7 +8486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  contained in a shape with a parent placeholder, then these text styles may
  *  be inherited from the parent. Which text styles are inherited depend on the
  *  nesting level of lists: * A text run in a paragraph that is not in a list
- *  will inherit its text style from the newline character in the paragraph
+ *  will inherit its text style from the the newline character in the paragraph
  *  at the 0 nesting level of the list inside the parent placeholder. * A text
  *  run in a paragraph that is in a list will inherit its text style from the
  *  newline character in the paragraph at its corresponding nesting level of the

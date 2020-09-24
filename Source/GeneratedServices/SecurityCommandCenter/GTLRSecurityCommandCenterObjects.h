@@ -31,16 +31,11 @@
 @class GTLRSecurityCommandCenter_Finding;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
-@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset;
-@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_SourceProperties;
-@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource;
-@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks;
-@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
@@ -261,34 +256,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "TERMINATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1RunAssetDiscoveryResponse_State_Terminated;
-
-// ----------------------------------------------------------------------------
-// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset.changeType
-
-/**
- *  Unspecified or default.
- *
- *  Value: "CHANGE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_ChangeTypeUnspecified;
-/**
- *  Newly created Asset
- *
- *  Value: "CREATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Created;
-/**
- *  Asset was deleted.
- *
- *  Value: "DELETED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Deleted;
-/**
- *  Asset was updated.
- *
- *  Value: "UPDATED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Updated;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1RunAssetDiscoveryResponse.state
@@ -876,72 +843,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
- *  Security Command Center representation of a Google Cloud resource. The Asset
- *  is a Security Command Center resource that captures information about a
- *  single Google Cloud resource. All modifications to an Asset are only within
- *  the context of Security Command Center and don't affect the referenced
- *  Google Cloud resource.
- */
-@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset : GTLRObject
-
-/** The time at which the asset was created in Security Command Center. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Cloud IAM Policy information associated with the Google Cloud resource
- *  described by the Security Command Center asset. This information is managed
- *  and defined by the Google Cloud resource and cannot be modified by the user.
- */
-@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy *iamPolicy;
-
-/**
- *  The relative resource name of this asset. See:
- *  https://cloud.google.com/apis/design/resource_names#relative_resource_name
- *  Example: "organizations/{organization_id}/assets/{asset_id}".
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Resource managed properties. These properties are managed and defined by the
- *  Google Cloud resource and cannot be modified by the user.
- */
-@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties *resourceProperties;
-
-/**
- *  Security Command Center managed properties. These properties are managed by
- *  Security Command Center and cannot be modified by the user.
- */
-@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties *securityCenterProperties;
-
-/**
- *  User specified security marks. These marks are entirely managed by the user
- *  and come from the SecurityMarks resource that belongs to the asset.
- */
-@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks *securityMarks;
-
-/**
- *  The time at which the asset was last updated, added, or deleted in Cloud
- *  SCC.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Resource managed properties. These properties are managed and defined by the
- *  Google Cloud resource and cannot be modified by the user.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset_ResourceProperties : GTLRObject
-@end
-
-
-/**
  *  Security Command Center finding. A finding is a record of assessment data
  *  (security, risk, health or privacy) ingested into Security Command Center
  *  for presentation, notification, analysis, policy testing, and enforcement.
@@ -1008,7 +909,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks *securityMarks;
 
 /**
- *  The severity of the finding.
+ *  The severity of the finding. This field is managed by the source that writes
+ *  the finding.
  *
  *  Likely values:
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_Severity_Critical
@@ -1067,23 +969,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
- *  Cloud IAM Policy information associated with the Google Cloud resource
- *  described by the Security Command Center asset. This information is managed
- *  and defined by the Google Cloud resource and cannot be modified by the user.
- */
-@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1IamPolicy : GTLRObject
-
-/**
- *  The JSON representation of the Policy associated with the asset. See
- *  https://cloud.google.com/iam/docs/reference/rest/v1/Policy for format
- *  details.
- */
-@property(nonatomic, copy, nullable) NSString *policyBlob;
-
-@end
-
-
-/**
  *  Security Command Center's Notification
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1NotificationMessage : GTLRObject
@@ -1098,11 +983,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 /** The Cloud resource tied to the notification. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource *resource;
-
-/**
- *  If it's an asset based notification config, this field will be populated.
- */
-@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset *temporalAsset;
 
 @end
 
@@ -1163,54 +1043,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
- *  Security Command Center managed properties. These properties are managed by
- *  Security Command Center and cannot be modified by the user.
- */
-@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityCenterProperties : GTLRObject
-
-/** The user defined display name for this resource. */
-@property(nonatomic, copy, nullable) NSString *resourceDisplayName;
-
-/**
- *  The full resource name of the Google Cloud resource this asset represents.
- *  This field is immutable after create time. See:
- *  https://cloud.google.com/apis/design/resource_names#full_resource_name
- */
-@property(nonatomic, copy, nullable) NSString *resourceName;
-
-/** Owners of the Google Cloud resource. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceOwners;
-
-/**
- *  The full resource name of the immediate parent of the resource. See:
- *  https://cloud.google.com/apis/design/resource_names#full_resource_name
- */
-@property(nonatomic, copy, nullable) NSString *resourceParent;
-
-/** The user defined display name for the parent of this resource. */
-@property(nonatomic, copy, nullable) NSString *resourceParentDisplayName;
-
-/**
- *  The full resource name of the project the resource belongs to. See:
- *  https://cloud.google.com/apis/design/resource_names#full_resource_name
- */
-@property(nonatomic, copy, nullable) NSString *resourceProject;
-
-/** The user defined display name for the project of this resource. */
-@property(nonatomic, copy, nullable) NSString *resourceProjectDisplayName;
-
-/**
- *  The type of the Google Cloud resource. Examples include: APPLICATION,
- *  PROJECT, and ORGANIZATION. This is a case insensitive field defined by
- *  Security Command Center and/or the producer of the resource and is immutable
- *  after create time.
- */
-@property(nonatomic, copy, nullable) NSString *resourceType;
-
-@end
-
-
-/**
  *  User specified security marks that are attached to the parent Security
  *  Command Center resource. Security marks are scoped within a Security Command
  *  Center organization -- they can be modified and viewed by all users who have
@@ -1253,35 +1085,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *        fetch them all at once.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks : GTLRObject
-@end
-
-
-/**
- *  Wrapper over asset object that also captures the state change for the asset
- *  e.g. if it was a newly created asset vs updated or deleted asset.
- */
-@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset : GTLRObject
-
-/**
- *  Asset data that includes attributes, properties and marks about the asset.
- */
-@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Asset *asset;
-
-/**
- *  Represents if the asset was created/updated/deleted.
- *
- *  Likely values:
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_ChangeTypeUnspecified
- *        Unspecified or default. (Value: "CHANGE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Created
- *        Newly created Asset (Value: "CREATED")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Deleted
- *        Asset was deleted. (Value: "DELETED")
- *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1TemporalAsset_ChangeType_Updated
- *        Asset was updated. (Value: "UPDATED")
- */
-@property(nonatomic, copy, nullable) NSString *changeType;
-
 @end
 
 
@@ -1898,14 +1701,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The PubSub topic to send notifications to. Its format is
+ *  The Pub/Sub topic to send notifications to. Its format is
  *  "projects/[project_id]/topics/[topic]".
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
 /**
  *  Output only. The service account that needs "pubsub.topics.publish"
- *  permission to publish to the PubSub topic.
+ *  permission to publish to the Pub/Sub topic.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 

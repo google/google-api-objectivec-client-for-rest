@@ -55,6 +55,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomCourses;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomCoursesReadonly;
 /**
+ *  Authorization scope: See, edit, and create classwork materials in Google
+ *  Classroom
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.courseworkmaterials"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkmaterials;
+/**
+ *  Authorization scope: See all classwork materials for your Google Classroom
+ *  classes
+ *
+ *  Value "https://www.googleapis.com/auth/classroom.courseworkmaterials.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkmaterialsReadonly;
+/**
  *  Authorization scope: Manage your course work and view your grades in Google
  *  Classroom
  *

@@ -32,6 +32,7 @@
 @class GTLRClassroom_CourseRosterChangesInfo;
 @class GTLRClassroom_CourseWork;
 @class GTLRClassroom_CourseWorkChangesInfo;
+@class GTLRClassroom_CourseWorkMaterial;
 @class GTLRClassroom_Date;
 @class GTLRClassroom_DriveFile;
 @class GTLRClassroom_DriveFolder;
@@ -276,6 +277,62 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_MultipleCh
  *  Value: "SHORT_ANSWER_QUESTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion;
+
+// ----------------------------------------------------------------------------
+// GTLRClassroom_CourseWorkMaterial.assigneeMode
+
+/**
+ *  All students can see the item. This is the default state.
+ *
+ *  Value: "ALL_STUDENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWorkMaterial_AssigneeMode_AllStudents;
+/**
+ *  No mode specified. This is never returned.
+ *
+ *  Value: "ASSIGNEE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWorkMaterial_AssigneeMode_AssigneeModeUnspecified;
+/**
+ *  A subset of the students can see the item.
+ *
+ *  Value: "INDIVIDUAL_STUDENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWorkMaterial_AssigneeMode_IndividualStudents;
+
+// ----------------------------------------------------------------------------
+// GTLRClassroom_CourseWorkMaterial.state
+
+/**
+ *  No state specified. This is never returned.
+ *
+ *  Value: "COURSEWORK_MATERIAL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWorkMaterial_State_CourseworkMaterialStateUnspecified;
+/**
+ *  Status for course work material that was published but is now deleted.
+ *  Course work material in this state is visible only to course teachers and
+ *  domain administrators. Course work material in this state is deleted after
+ *  some time.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWorkMaterial_State_Deleted;
+/**
+ *  Status for an course work material that is not yet published. Course work
+ *  material in this state is visible only to course teachers and domain
+ *  administrators.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWorkMaterial_State_Draft;
+/**
+ *  Status for course work material that has been published. This is the default
+ *  state.
+ *
+ *  Value: "PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRClassroom_CourseWorkMaterial_State_Published;
 
 // ----------------------------------------------------------------------------
 // GTLRClassroom_Feed.feedType
@@ -1182,6 +1239,124 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 
 /**
+ *  Course work material created by a teacher for students of the course
+ */
+@interface GTLRClassroom_CourseWorkMaterial : GTLRObject
+
+/**
+ *  Absolute link to this course work material in the Classroom web UI. This is
+ *  only populated if `state` is `PUBLISHED`. Read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *alternateLink;
+
+/**
+ *  Assignee mode of the course work material. If unspecified, the default value
+ *  is `ALL_STUDENTS`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroom_CourseWorkMaterial_AssigneeMode_AllStudents All
+ *        students can see the item. This is the default state. (Value:
+ *        "ALL_STUDENTS")
+ *    @arg @c kGTLRClassroom_CourseWorkMaterial_AssigneeMode_AssigneeModeUnspecified
+ *        No mode specified. This is never returned. (Value:
+ *        "ASSIGNEE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_CourseWorkMaterial_AssigneeMode_IndividualStudents
+ *        A subset of the students can see the item. (Value:
+ *        "INDIVIDUAL_STUDENTS")
+ */
+@property(nonatomic, copy, nullable) NSString *assigneeMode;
+
+/** Identifier of the course. Read-only. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Timestamp when this course work material was created. Read-only. */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
+/**
+ *  Identifier for the user that created the course work material. Read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *creatorUserId;
+
+/**
+ *  Optional description of this course work material. The text must be a valid
+ *  UTF-8 string containing no more than 30,000 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Classroom-assigned identifier of this course work material, unique per
+ *  course. Read-only.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Identifiers of students with access to the course work material. This field
+ *  is set only if `assigneeMode` is `INDIVIDUAL_STUDENTS`. If the
+ *  `assigneeMode` is `INDIVIDUAL_STUDENTS`, then only students specified in
+ *  this field can see the course work material.
+ */
+@property(nonatomic, strong, nullable) GTLRClassroom_IndividualStudentsOptions *individualStudentsOptions;
+
+/**
+ *  Additional materials. A course work material must have no more than 20
+ *  material items.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Material *> *materials;
+
+/**
+ *  Optional timestamp when this course work material is scheduled to be
+ *  published.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledTime;
+
+/**
+ *  Status of this course work material. If unspecified, the default state is
+ *  `DRAFT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRClassroom_CourseWorkMaterial_State_CourseworkMaterialStateUnspecified
+ *        No state specified. This is never returned. (Value:
+ *        "COURSEWORK_MATERIAL_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRClassroom_CourseWorkMaterial_State_Deleted Status for course
+ *        work material that was published but is now deleted. Course work
+ *        material in this state is visible only to course teachers and domain
+ *        administrators. Course work material in this state is deleted after
+ *        some time. (Value: "DELETED")
+ *    @arg @c kGTLRClassroom_CourseWorkMaterial_State_Draft Status for an course
+ *        work material that is not yet published. Course work material in this
+ *        state is visible only to course teachers and domain administrators.
+ *        (Value: "DRAFT")
+ *    @arg @c kGTLRClassroom_CourseWorkMaterial_State_Published Status for
+ *        course work material that has been published. This is the default
+ *        state. (Value: "PUBLISHED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Title of this course work material. The title must be a valid UTF-8 string
+ *  containing between 1 and 3000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  Identifier for the topic that this course work material is associated with.
+ *  Must match an existing topic in the course.
+ */
+@property(nonatomic, copy, nullable) NSString *topicId;
+
+/**
+ *  Timestamp of the most recent change to this course work material. Read-only.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Represents a whole or partial calendar date, e.g. a birthday. The time of
  *  day and time zone are either specified elsewhere or are not significant. The
  *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
@@ -1627,6 +1802,33 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRClassroom_Course *> *courses;
+
+/**
+ *  Token identifying the next page of results to return. If empty, no further
+ *  results are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response when listing course work material.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "courseWorkMaterial" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRClassroom_ListCourseWorkMaterialResponse : GTLRCollectionObject
+
+/**
+ *  Course work material items that match the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_CourseWorkMaterial *> *courseWorkMaterial;
 
 /**
  *  Token identifying the next page of results to return. If empty, no further

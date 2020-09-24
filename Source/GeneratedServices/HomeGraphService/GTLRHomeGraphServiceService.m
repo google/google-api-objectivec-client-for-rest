@@ -8,6 +8,15 @@
 
 #import "GTLRHomeGraphService.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeHomeGraphService = @"https://www.googleapis.com/auth/homegraph";
+
+// ----------------------------------------------------------------------------
+//   GTLRHomeGraphServiceService
+//
+
 @implementation GTLRHomeGraphServiceService
 
 - (instancetype)init {

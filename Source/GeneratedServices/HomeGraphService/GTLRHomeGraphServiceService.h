@@ -25,6 +25,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: New Service: https://www.googleapis.com/auth/homegraph
+ *
+ *  Value "https://www.googleapis.com/auth/homegraph"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHomeGraphService;
+
+// ----------------------------------------------------------------------------
+//   GTLRHomeGraphServiceService
+//
+
 /**
  *  Service for executing HomeGraph API queries.
  */

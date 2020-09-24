@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Play Developer API (androidpublisher/v3)
+//   Google Play Android Developer API (androidpublisher/v3)
 // Description:
-//   Accesses Android application developers' Google Play accounts.
+//   Lets Android application developers access their Google Play accounts.
 // Documentation:
 //   https://developers.google.com/android-publisher
 

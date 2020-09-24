@@ -304,6 +304,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportAgentResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportAgentResponse
+@dynamic agent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo
 //
 
@@ -456,7 +466,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageOutputAudioText
-@dynamic ssml, text;
+@dynamic allowPlaybackInterruption, ssml, text;
 @end
 
 
@@ -3189,6 +3199,62 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportAgentResponse
 @dynamic agentContent, agentUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesResponse
+@dynamic content, gcsUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportAgentResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportAgentResponse
+@dynamic agent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesResponse
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

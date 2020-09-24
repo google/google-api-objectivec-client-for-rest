@@ -1300,7 +1300,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @dynamic completionRatio, creationTime, endTime, extract, load, numChildJobs,
          parentJobId, query, quotaDeferments, reservationId, reservationUsage,
          rowLevelSecurityStatistics, scriptStatistics, startTime,
-         totalBytesProcessed, totalSlotMs;
+         totalBytesProcessed, totalSlotMs, transactionInfoTemplate;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"reservationId" : @"reservation_id" };
@@ -2450,6 +2450,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_TransactionInfo
+//
+
+@implementation GTLRBigquery_TransactionInfo
+@dynamic transactionId;
 @end
 
 

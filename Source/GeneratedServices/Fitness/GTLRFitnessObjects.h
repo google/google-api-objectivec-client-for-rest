@@ -328,7 +328,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, strong, nullable) NSArray<GTLRFitness_AggregateBy *> *aggregateBy;
 
 /**
- *  Specifies that data be aggregated each activity segment recored for a user.
+ *  Specifies that data be aggregated each activity segment recorded for a user.
  *  Similar to bucketByActivitySegment, but bucketing is done for each activity
  *  segment rather than all segments of the same type. Mutually exclusive of
  *  other bucketing specifications.
@@ -630,8 +630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFitness_Device_Type_Watch;
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  A partial list of data points contained in the dataset, ordered by largest
- *  endTimeNanos first. This list is considered complete when retrieving a small
+ *  A partial list of data points contained in the dataset, ordered by
+ *  endTimeNanos. This list is considered complete when retrieving a small
  *  dataset and partial when patching a dataset or retrieving a dataset that is
  *  too large to include in a single response.
  *

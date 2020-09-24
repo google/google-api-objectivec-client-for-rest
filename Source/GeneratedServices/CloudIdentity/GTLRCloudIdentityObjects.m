@@ -96,6 +96,13 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_P
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_PasswordState_PasswordSet = @"PASSWORD_SET";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_PasswordState_PasswordStateUnspecified = @"PASSWORD_STATE_UNSPECIFIED";
 
+// GTLRCloudIdentity_Membership.type
+NSString * const kGTLRCloudIdentity_Membership_Type_Group      = @"GROUP";
+NSString * const kGTLRCloudIdentity_Membership_Type_Other      = @"OTHER";
+NSString * const kGTLRCloudIdentity_Membership_Type_ServiceAccount = @"SERVICE_ACCOUNT";
+NSString * const kGTLRCloudIdentity_Membership_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudIdentity_EntityKey
@@ -128,11 +135,31 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_P
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest
+@dynamic customer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserResponse
 //
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserResponse
 @dynamic deviceUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest
+@dynamic customer;
 @end
 
 
@@ -148,11 +175,31 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_P
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest
+@dynamic customer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceResponse
 //
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceResponse
 @dynamic device;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest
+@dynamic customer;
 @end
 
 
@@ -252,11 +299,115 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_P
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListClientStatesResponse
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListClientStatesResponse
+@dynamic clientStates, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clientStates" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"clientStates";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListDevicesResponse
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListDevicesResponse
+@dynamic devices, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"devices" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"devices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListDeviceUsersResponse
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ListDeviceUsersResponse
+@dynamic deviceUsers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deviceUsers" : [GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deviceUsers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1LookupSelfDeviceUsersResponse
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1LookupSelfDeviceUsersResponse
+@dynamic customer, names, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceRequest
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceRequest
+@dynamic customer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceResponse
 //
 
 @implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceResponse
 @dynamic device;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest
+//
+
+@implementation GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest
+@dynamic customer;
 @end
 
 
@@ -370,7 +521,7 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_P
 //
 
 @implementation GTLRCloudIdentity_Membership
-@dynamic createTime, name, preferredMemberKey, roles, updateTime;
+@dynamic createTime, name, preferredMemberKey, roles, type, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -389,6 +540,35 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_P
 
 @implementation GTLRCloudIdentity_MembershipRole
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ModifyMembershipRolesRequest
+//
+
+@implementation GTLRCloudIdentity_ModifyMembershipRolesRequest
+@dynamic addRoles, removeRoles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addRoles" : [GTLRCloudIdentity_MembershipRole class],
+    @"removeRoles" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ModifyMembershipRolesResponse
+//
+
+@implementation GTLRCloudIdentity_ModifyMembershipRolesResponse
+@dynamic membership;
 @end
 
 

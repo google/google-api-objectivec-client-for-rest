@@ -28,6 +28,26 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_ComputeMessageStatsRequest
+//
+
+@implementation GTLRPubsubLite_ComputeMessageStatsRequest
+@dynamic endCursor, partition, startCursor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ComputeMessageStatsResponse
+//
+
+@implementation GTLRPubsubLite_ComputeMessageStatsResponse
+@dynamic messageBytes, messageCount, minimumEventTime, minimumPublishTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_Cursor
 //
 

@@ -12,8 +12,9 @@
 #import "GTLRCloudBillingBudget.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeCloudBillingBudgetCloudBilling  = @"https://www.googleapis.com/auth/cloud-billing";
 NSString * const kGTLRAuthScopeCloudBillingBudgetCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

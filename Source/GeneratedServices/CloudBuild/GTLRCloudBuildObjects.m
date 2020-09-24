@@ -74,6 +74,7 @@ NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 // GTLRCloudBuild_PullRequestFilter.commentControl
 NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled = @"COMMENTS_DISABLED";
 NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled = @"COMMENTS_ENABLED";
+NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabledForExternalContributorsOnly = @"COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY";
 
 // ----------------------------------------------------------------------------
 //
@@ -136,8 +137,8 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 @implementation GTLRCloudBuild_Build
 @dynamic artifacts, buildTriggerId, createTime, finishTime, identifier, images,
-         logsBucket, logUrl, options, projectId, queueTtl, results, secrets,
-         serviceAccount, source, sourceProvenance, startTime, status,
+         logsBucket, logUrl, name, options, projectId, queueTtl, results,
+         secrets, serviceAccount, source, sourceProvenance, startTime, status,
          statusDetail, steps, substitutions, tags, timeout, timing;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -305,6 +306,12 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_CancelBuildRequest
+@dynamic identifier, name, projectId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -314,6 +321,16 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_CreateBuildRequest
+//
+
+@implementation GTLRCloudBuild_CreateBuildRequest
+@dynamic build, projectId;
 @end
 
 
@@ -617,6 +634,12 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_RetryBuildRequest
+@dynamic identifier, name, projectId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

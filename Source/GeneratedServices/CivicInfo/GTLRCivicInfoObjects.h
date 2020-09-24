@@ -239,6 +239,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  */
 @property(nonatomic, copy, nullable) NSString *electionInfoUrl;
 
+/**
+ *  A last minute or emergency notification text provided by this administrative
+ *  body.
+ */
+@property(nonatomic, copy, nullable) NSString *electionNoticeText;
+
+/**
+ *  A URL provided by this administrative body for additional information
+ *  related to the last minute or emergency notification.
+ */
+@property(nonatomic, copy, nullable) NSString *electionNoticeUrl;
+
 /** The election officials for this election administrative body. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCivicInfo_ElectionOfficial *> *electionOfficials;
 
@@ -805,20 +817,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Latitude of the location, in degrees north of the equator. Only some
- *  locations -- generally, ballot drop boxes for vote-by-mail elections -- will
- *  have this set; for others, use a geocoding service like the Google Maps API
- *  to resolve the address to a geographic point.
+ *  Latitude of the location, in degrees north of the equator. Note this field
+ *  may not be available for some locations.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *latitude;
 
 /**
- *  Longitude of the location, in degrees east of the Prime Meridian. Only some
- *  locations -- generally, ballot drop boxes for vote-by-mail elections -- will
- *  have this set; for others, use a geocoding service like the Google Maps API
- *  to resolve the address to a geographic point.
+ *  Longitude of the location, in degrees east of the Prime Meridian. Note this
+ *  field may not be available for some locations.
  *
  *  Uses NSNumber of doubleValue.
  */

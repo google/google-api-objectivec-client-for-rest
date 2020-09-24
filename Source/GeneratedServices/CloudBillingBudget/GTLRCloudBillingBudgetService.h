@@ -29,8 +29,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: View and manage your Google Cloud Platform billing
+ *  accounts
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-billing"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudBillingBudgetCloudBilling;
 /**
  *  Authorization scope: View and manage your data across Google Cloud Platform
  *  services

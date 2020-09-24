@@ -30,13 +30,13 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  GTLRTasks_Task
+ *  LINT.IfChange
  */
 @interface GTLRTasks_Task : GTLRObject
 
 /**
- *  Completion date of the task (as a RFC 3339 timestamp). This field is
- *  omitted if the task has not been completed.
+ *  Completion date of the task (as a RFC 3339 timestamp). This field is omitted
+ *  if the task has not been completed.
  */
 @property(nonatomic, copy, nullable) NSString *completed;
 
@@ -59,9 +59,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Flag indicating whether the task is hidden. This is the case if the task
- *  had been marked completed when the task list was last cleared. The default
- *  is False. This field is read-only.
+ *  Flag indicating whether the task is hidden. This is the case if the task had
+ *  been marked completed when the task list was last cleared. The default is
+ *  False. This field is read-only.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -91,12 +91,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  String indicating the position of the task among its sibling tasks under
- *  the same parent task or at the top level. If this string is greater than
- *  another task's corresponding position string according to lexicographical
- *  ordering, the task is positioned after the other task under the same parent
- *  task (or at the top level). This field is read-only. Use the "move" method
- *  to move the task to another position.
+ *  String indicating the position of the task among its sibling tasks under the
+ *  same parent task or at the top level. If this string is greater than another
+ *  task's corresponding position string according to lexicographical ordering,
+ *  the task is positioned after the other task under the same parent task (or
+ *  at the top level). This field is read-only. Use the "move" method to move
+ *  the task to another position.
  */
 @property(nonatomic, copy, nullable) NSString *position;
 
@@ -123,8 +123,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTasks_Task_Links_Item : GTLRObject
 
 /**
- *  The description. In HTML speak: Everything between &lt;a&gt; and
- *  &lt;/a&gt;.
+ *  The description. In HTML speak: Everything between <a> and </a>.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */

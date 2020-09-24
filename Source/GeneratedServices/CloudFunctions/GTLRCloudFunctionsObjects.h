@@ -24,6 +24,7 @@
 @class GTLRCloudFunctions_AuditLogConfig;
 @class GTLRCloudFunctions_Binding;
 @class GTLRCloudFunctions_CloudFunction;
+@class GTLRCloudFunctions_CloudFunction_BuildEnvironmentVariables;
 @class GTLRCloudFunctions_CloudFunction_EnvironmentVariables;
 @class GTLRCloudFunctions_CloudFunction_Labels;
 @class GTLRCloudFunctions_EventTrigger;
@@ -371,6 +372,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  */
 @property(nonatomic, strong, nullable) NSNumber *availableMemoryMb;
 
+/** Build environment variables that shall be available during build time. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_CloudFunction_BuildEnvironmentVariables *buildEnvironmentVariables;
+
 /**
  *  Output only. The Cloud Build ID of the latest successful deployment of the
  *  function.
@@ -429,7 +433,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 
 /**
  *  The limit on the maximum number of function instances that may coexist at a
- *  given time.
+ *  given time. In some cases, such as rapid traffic surges, Cloud Functions
+ *  may, for a short period of time, create more instances than the specified
+ *  max instances limit. If your function cannot tolerate this temporary
+ *  behavior, you may want to factor in a safety margin and set a lower max
+ *  instances value than your function can tolerate. See the [Max
+ *  Instances](https://cloud.google.com/functions/docs/max-instances) Guide for
+ *  more details.
  *
  *  Uses NSNumber of intValue.
  */
@@ -552,6 +562,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  */
 @property(nonatomic, copy, nullable) NSString *vpcConnectorEgressSettings;
 
+@end
+
+
+/**
+ *  Build environment variables that shall be available during build time.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudFunctions_CloudFunction_BuildEnvironmentVariables : GTLRObject
 @end
 
 

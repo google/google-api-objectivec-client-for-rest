@@ -729,7 +729,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveActivity_SystemEvent_Type_UserDelet
  */
 @interface GTLRDriveActivity_Copy : GTLRObject
 
-/** The original object. */
+/** The the original object. */
 @property(nonatomic, strong, nullable) GTLRDriveActivity_TargetReference *originalObject;
 
 @end

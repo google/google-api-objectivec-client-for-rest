@@ -54,6 +54,17 @@ NSString * const kGTLRClassroom_CourseWork_WorkType_CourseWorkTypeUnspecified = 
 NSString * const kGTLRClassroom_CourseWork_WorkType_MultipleChoiceQuestion = @"MULTIPLE_CHOICE_QUESTION";
 NSString * const kGTLRClassroom_CourseWork_WorkType_ShortAnswerQuestion = @"SHORT_ANSWER_QUESTION";
 
+// GTLRClassroom_CourseWorkMaterial.assigneeMode
+NSString * const kGTLRClassroom_CourseWorkMaterial_AssigneeMode_AllStudents = @"ALL_STUDENTS";
+NSString * const kGTLRClassroom_CourseWorkMaterial_AssigneeMode_AssigneeModeUnspecified = @"ASSIGNEE_MODE_UNSPECIFIED";
+NSString * const kGTLRClassroom_CourseWorkMaterial_AssigneeMode_IndividualStudents = @"INDIVIDUAL_STUDENTS";
+
+// GTLRClassroom_CourseWorkMaterial.state
+NSString * const kGTLRClassroom_CourseWorkMaterial_State_CourseworkMaterialStateUnspecified = @"COURSEWORK_MATERIAL_STATE_UNSPECIFIED";
+NSString * const kGTLRClassroom_CourseWorkMaterial_State_Deleted = @"DELETED";
+NSString * const kGTLRClassroom_CourseWorkMaterial_State_Draft = @"DRAFT";
+NSString * const kGTLRClassroom_CourseWorkMaterial_State_Published = @"PUBLISHED";
+
 // GTLRClassroom_Feed.feedType
 NSString * const kGTLRClassroom_Feed_FeedType_CourseRosterChanges = @"COURSE_ROSTER_CHANGES";
 NSString * const kGTLRClassroom_Feed_FeedType_CourseWorkChanges = @"COURSE_WORK_CHANGES";
@@ -310,6 +321,34 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_CourseWorkMaterial
+//
+
+@implementation GTLRClassroom_CourseWorkMaterial
+@dynamic alternateLink, assigneeMode, courseId, creationTime, creatorUserId,
+         descriptionProperty, identifier, individualStudentsOptions, materials,
+         scheduledTime, state, title, topicId, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"materials" : [GTLRClassroom_Material class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_Date
 //
 
@@ -521,6 +560,28 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 + (NSString *)collectionItemsKey {
   return @"courses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListCourseWorkMaterialResponse
+//
+
+@implementation GTLRClassroom_ListCourseWorkMaterialResponse
+@dynamic courseWorkMaterial, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"courseWorkMaterial" : [GTLRClassroom_CourseWorkMaterial class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"courseWorkMaterial";
 }
 
 @end

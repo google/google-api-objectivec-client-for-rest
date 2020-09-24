@@ -86,6 +86,67 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequir
 
 
 /**
+ *  Compute statistics about a range of messages in a given topic and partition.
+ */
+@interface GTLRPubsubLite_ComputeMessageStatsRequest : GTLRObject
+
+/**
+ *  The exclusive end of the range. The range is empty if end_cursor <=
+ *  start_cursor. Specifying a start_cursor before the first message and an
+ *  end_cursor after the last message will retrieve all messages.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_Cursor *endCursor;
+
+/**
+ *  Required. The partition for which we should compute message stats.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partition;
+
+/** The inclusive start of the range. */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_Cursor *startCursor;
+
+@end
+
+
+/**
+ *  Response containing stats for messages in the requested topic and partition.
+ */
+@interface GTLRPubsubLite_ComputeMessageStatsResponse : GTLRObject
+
+/**
+ *  The number of quota bytes accounted to these messages.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *messageBytes;
+
+/**
+ *  The count of messages.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *messageCount;
+
+/**
+ *  The minimum event timestamp across these messages. For the purposes of this
+ *  computation, if a message does not have an event time, we use the publish
+ *  time. The timestamp will be unset if there are no messages.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *minimumEventTime;
+
+/**
+ *  The minimum publish timestamp across these messages. Note that publish
+ *  timestamps within a partition are non-decreasing. The timestamp will be
+ *  unset if there are no messages.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *minimumPublishTime;
+
+@end
+
+
+/**
  *  A cursor that describes the position of a message within a topic partition.
  */
 @interface GTLRPubsubLite_Cursor : GTLRObject

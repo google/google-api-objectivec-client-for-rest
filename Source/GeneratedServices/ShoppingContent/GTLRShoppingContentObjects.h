@@ -308,7 +308,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRShoppingContent_AccountAddress : GTLRObject
 
-/** CLDR country code (e.g. "US"). */
+/**
+ *  CLDR country code (e.g. "US"). This value cannot be set for a sub-account of
+ *  an MCA. All MCA sub-accounts inherit the country of their parent MCA.
+ */
 @property(nonatomic, copy, nullable) NSString *country;
 
 /**
@@ -2735,7 +2738,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** A list of errors defined if, and only if, the request failed. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
-/** The list of accessible GMB accounts. */
+/** The the list of accessible GMB accounts. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_GmbAccounts *gmbAccounts;
 
 /**
@@ -4746,14 +4749,25 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRShoppingContent_OrderreturnsRefundOperation : GTLRObject
 
 /**
- *  If true, the item will be fully refunded.
+ *  If true, the item will be fully refunded. Allowed only when payment_type is
+ *  FOP. Merchant can choose this refund option to indicate the full remaining
+ *  amount of corresponding object to be refunded to the customer via FOP.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fullRefund;
 
-/** If this is set, the item will be partially refunded. */
+/**
+ *  If this is set, the item will be partially refunded. Merchant can choose
+ *  this refund option to specify the customized amount that to be refunded to
+ *  the customer.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_OrderreturnsPartialRefund *partialRefund;
+
+/**
+ *  The payment way of issuing refund. Default value is ORIGINAL_FOP if not set.
+ */
+@property(nonatomic, copy, nullable) NSString *paymentType;
 
 /** The explanation of the reason. */
 @property(nonatomic, copy, nullable) NSString *reasonText;

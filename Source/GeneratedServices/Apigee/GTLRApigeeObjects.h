@@ -76,6 +76,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1KeystoreConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Metadata;
 @class GTLRApigee_GoogleCloudApigeeV1Metric;
+@class GTLRApigee_GoogleCloudApigeeV1Operation;
 @class GTLRApigee_GoogleCloudApigeeV1OperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1OperationGroup;
 @class GTLRApigee_GoogleCloudApigeeV1OptimizedStatsNode;
@@ -97,6 +98,10 @@
 @class GTLRApigee_GoogleCloudApigeeV1Result;
 @class GTLRApigee_GoogleCloudApigeeV1RevisionStatus;
 @class GTLRApigee_GoogleCloudApigeeV1RoutingRule;
+@class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig;
+@class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride;
+@class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig;
+@class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange;
 @class GTLRApigee_GoogleCloudApigeeV1SchemaSchemaElement;
 @class GTLRApigee_GoogleCloudApigeeV1SchemaSchemaProperty;
 @class GTLRApigee_GoogleCloudApigeeV1ServiceIssuersMapping;
@@ -310,6 +315,80 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_T
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.exporter
+
+/**
+ *  Cloudtrace exporter
+ *
+ *  Value: "CLOUD_TRACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_CloudTrace;
+/**
+ *  Exporter unspecified
+ *
+ *  Value: "EXPORTER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_ExporterUnspecified;
+/**
+ *  Jaeger exporter
+ *
+ *  Value: "JAEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeger;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig.errorSources
+
+/**
+ *  Only capture trace errors within the Apigee system.
+ *
+ *  Value: "APIGEE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_Apigee;
+/**
+ *  Error source is unspecified.
+ *
+ *  Value: "ERROR_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_ErrorSourceUnspecified;
+/**
+ *  Only capture trace errors from target server.
+ *
+ *  Value: "TARGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_Target;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig.sampler
+
+/**
+ *  OFF means distributed trace is disabled, or the sampling probability is 0.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Off;
+/**
+ *  ON means distributed trace is enabled always for all api calls, and sampling
+ *  probability is 0.5.
+ *
+ *  Value: "ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_On;
+/**
+ *  PROBABILITY means traces are captured on a probability that defined by
+ *  sampling_rate. The sampling rate is limited to 0 to 0.5 when this is set.
+ *
+ *  Value: "PROBABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Probability;
+/**
+ *  Sampler unspecified.
+ *
+ *  Value: "SAMPLER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1UpdateError.code
@@ -1710,9 +1789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** API proxy. */
 @property(nonatomic, copy, nullable) NSString *apiProxy;
 
-/** Base path for the deployment. */
-@property(nonatomic, copy, nullable) NSString *basePath;
-
 /**
  *  Time the API proxy was marked `deployed` in the control plane in millisconds
  *  since epoch.
@@ -2274,6 +2350,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  displayed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1TargetServerConfig *> *targets;
+
+/**
+ *  Trace configurations. Contains config for the environment and config
+ *  overrides for specific API proxies.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig *traceConfig;
 
 /**
  *  Unique ID for the environment configuration. The ID will only change if the
@@ -3132,6 +3214,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Operation represents the pairing of REST resource path and the actions
+ *  (verbs) allowed on the resource path.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1Operation : GTLRObject
+
+/**
+ *  methods refers to the REST verbs as in
+ *  https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html. When none specified,
+ *  all verb types are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
+
+/**
+ *  Required. resource represents REST resource path associated with the
+ *  proxy/remote service.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
  *  OperationConfig binds the resources in a proxy or remote service with the
  *  allowed REST methods and its associated quota enforcement.
  */
@@ -3147,23 +3251,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
 
 /**
- *  methods refers to the REST verbs as in
- *  https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html. When none specified,
- *  all verb types are allowed.
+ *  operations is the list of resource/methods pair, belonging to proxy/remote
+ *  service, upon which quota will applied on. Note that currently we allow only
+ *  a single operation. The call will fail if more than one is provided.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Operation *> *operations;
 
 /**
  *  Quota parameters to be enforced for the resources, methods, api_source
  *  combination. If none specified, quota enforcement will not be done.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Quota *quota;
-
-/**
- *  Required. resources represents a list of REST resource path associated with
- *  the proxy/remote service.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
 @end
 
@@ -3183,10 +3281,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Identfies whether the configuration is for Apigee proxy or a remote service.
- *  Possible values are "proxy" and "remote_service". If none specified, the
+ *  Possible values are "proxy" and "remoteservice". If none specified, the
  *  default is "proxy". "proxy" is used when Apigee proxies are associated with
- *  the API product. "remote_service" is used when non-Apigee proxy like Envoy
- *  is used, and is associated with the API product.
+ *  the API product. "remoteservice" is used when non-Apigee proxy like Envoy is
+ *  used, and is associated with the API product.
  */
 @property(nonatomic, copy, nullable) NSString *operationConfigType;
 
@@ -3382,7 +3480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Properties *properties;
 
 /**
- *  Output only. Runtime type of the Apigee organization based on the Apigee
+ *  Required. Runtime type of the Apigee organization based on the Apigee
  *  subscription purchased.
  *
  *  Likely values:
@@ -4006,6 +4104,175 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  format: `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
+
+@end
+
+
+/**
+ *  NEXT ID: 8 RuntimeTraceConfig defines the configurations for distributed
+ *  trace in an environment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig : GTLRObject
+
+/** Endpoint of the exporter. */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Exporter that is used to view the distributed trace captured using
+ *  OpenCensus. An exporter sends traces to any backend that is capable of
+ *  consuming them. Recorded spans can be exported by registered exporters.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_CloudTrace
+ *        Cloudtrace exporter (Value: "CLOUD_TRACE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_ExporterUnspecified
+ *        Exporter unspecified (Value: "EXPORTER_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeger
+ *        Jaeger exporter (Value: "JAEGER")
+ */
+@property(nonatomic, copy, nullable) NSString *exporter;
+
+/**
+ *  Name of the trace config in the following format:
+ *  `organizations/{org}/environment/{env}/traceConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** List of trace configuration overrides for spicific API proxies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride *> *overrides;
+
+/** The timestamp that the revision was created or updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;
+
+/**
+ *  Revision number which can be used by the runtime to detect if the trace
+ *  config has changed between two versions.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/** Trace configuration for all API proxies in an environment. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig *samplingConfig;
+
+@end
+
+
+/**
+ *  NEXT ID: 7 Trace configuration override for a specific API proxy in an
+ *  environment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride : GTLRObject
+
+/**
+ *  Name of the API proxy that will have its trace configuration overridden
+ *  following format: `organizations/{org}/apis/{api}`
+ */
+@property(nonatomic, copy, nullable) NSString *apiProxy;
+
+/**
+ *  Name of the trace config override in the following format:
+ *  `organizations/{org}/environment/{env}/traceConfig/overrides/{override}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The timestamp that the revision was created or updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;
+
+/**
+ *  Revision number which can be used by the runtime to detect if the trace
+ *  config override has changed between two versions.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  Trace configuration override for a specific API proxy in an environment.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig *samplingConfig;
+
+/**
+ *  Unique ID for the configuration override. The ID will only change if the
+ *  override is deleted and recreated.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+@end
+
+
+/**
+ *  NEXT ID: 6 RuntimeTraceSamplingConfig represents the detail settings of
+ *  distributed tracing. Only the fields that are defined in the distributed
+ *  trace configuration can be overridden using the distribute trace
+ *  configuration override APIs.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig : GTLRObject
+
+/**
+ *  Error sources from which to capture errors. If none are specified, error
+ *  codes are captured from all sources.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errorSources;
+
+/** List of response code ranges. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange *> *responseCodeRanges;
+
+/**
+ *  List of single response codes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *responseCodes;
+
+/**
+ *  Sampler of distributed tracing. OFF is the default value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Off
+ *        OFF means distributed trace is disabled, or the sampling probability
+ *        is 0. (Value: "OFF")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_On
+ *        ON means distributed trace is enabled always for all api calls, and
+ *        sampling probability is 0.5. (Value: "ON")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Probability
+ *        PROBABILITY means traces are captured on a probability that defined by
+ *        sampling_rate. The sampling rate is limited to 0 to 0.5 when this is
+ *        set. (Value: "PROBABILITY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified
+ *        Sampler unspecified. (Value: "SAMPLER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sampler;
+
+/**
+ *  Field sampling rate. This value is only valid when is only applicable when
+ *  sampling value is probabilistic(PROBABILITY). The supported values are > 0
+ *  and <= 0.5.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingRate;
+
+@end
+
+
+/**
+ *  ResponseCodeRange represents a group of response codes to capture, from the
+ *  first response code to the last response code. Each range is a close
+ *  interval. For example, if an interval is [400, 403], then that means 400,
+ *  401, 402, 403 will be all captured.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange : GTLRObject
+
+/**
+ *  The first response code to capture.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *firstResponseCode;
+
+/**
+ *  The last response code to capture.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastResponseCode;
 
 @end
 

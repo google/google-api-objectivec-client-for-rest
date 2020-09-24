@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRContainer_CloudRunConfig.loadBalancerType
+NSString * const kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeExternal = @"LOAD_BALANCER_TYPE_EXTERNAL";
+NSString * const kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeInternal = @"LOAD_BALANCER_TYPE_INTERNAL";
+NSString * const kGTLRContainer_CloudRunConfig_LoadBalancerType_LoadBalancerTypeUnspecified = @"LOAD_BALANCER_TYPE_UNSPECIFIED";
+
 // GTLRContainer_Cluster.status
 NSString * const kGTLRContainer_Cluster_Status_Degraded        = @"DEGRADED";
 NSString * const kGTLRContainer_Cluster_Status_Error           = @"ERROR";
@@ -171,7 +176,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AutoprovisioningNodePoolDefaults
-@dynamic management, oauthScopes, serviceAccount, upgradeSettings;
+@dynamic bootDiskKmsKey, diskSizeGb, diskType, management, minCpuPlatform,
+         oauthScopes, serviceAccount, shieldedInstanceConfig, upgradeSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -259,7 +265,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_CloudRunConfig
-@dynamic disabled;
+@dynamic disabled, loadBalancerType;
 @end
 
 

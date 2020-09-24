@@ -54,8 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAdMob_MediationReportSpec.dimensions
 
 /**
- *  The unique ID of the ad source (for example, "5450213213286189855" and
- *  "AdMob Network" as label value).
+ *  The [unique ID of the ad source](/admob/api/v1/ad_sources) (for example,
+ *  "5450213213286189855" and "AdMob Network" as label value).
  *
  *  Value: "AD_SOURCE"
  */
@@ -213,8 +213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Observ
 // GTLRAdMob_MediationReportSpecDimensionFilter.dimension
 
 /**
- *  The unique ID of the ad source (for example, "5450213213286189855" and
- *  "AdMob Network" as label value).
+ *  The [unique ID of the ad source](/admob/api/v1/ad_sources) (for example,
+ *  "5450213213286189855" and "AdMob Network" as label value).
  *
  *  Value: "AD_SOURCE"
  */
@@ -299,8 +299,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
 // GTLRAdMob_MediationReportSpecSortCondition.dimension
 
 /**
- *  The unique ID of the ad source (for example, "5450213213286189855" and
- *  "AdMob Network" as label value).
+ *  The [unique ID of the ad source](/admob/api/v1/ad_sources) (for example,
+ *  "5450213213286189855" and "AdMob Network" as label value).
  *
  *  Value: "AD_SOURCE"
  */
@@ -1151,7 +1151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 /**
  *  Maximum number of report data rows to return. If the value is not set, the
  *  API returns as many rows as possible, up to 100000. Acceptable values are
- *  1-100000, inclusive. Any other values are treated as 100000.
+ *  1-100000, inclusive. Values larger than 100000 return an error.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1191,8 +1191,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSource
- *        The unique ID of the ad source (for example, "5450213213286189855" and
- *        "AdMob Network" as label value). (Value: "AD_SOURCE")
+ *        The [unique ID of the ad source](/admob/api/v1/ad_sources) (for
+ *        example, "5450213213286189855" and "AdMob Network" as label value).
+ *        (Value: "AD_SOURCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSourceInstance
  *        The unique ID of the ad source instance (for example,
  *        "ca-app-pub-1234#5678" and "AdMob (default)" as label value). (Value:
@@ -1253,8 +1254,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSource The
- *        unique ID of the ad source (for example, "5450213213286189855" and
- *        "AdMob Network" as label value). (Value: "AD_SOURCE")
+ *        [unique ID of the ad source](/admob/api/v1/ad_sources) (for example,
+ *        "5450213213286189855" and "AdMob Network" as label value). (Value:
+ *        "AD_SOURCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSourceInstance
  *        The unique ID of the ad source instance (for example,
  *        "ca-app-pub-1234#5678" and "AdMob (default)" as label value). (Value:
@@ -1397,7 +1399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
 /**
  *  Maximum number of report data rows to return. If the value is not set, the
  *  API returns as many rows as possible, up to 100000. Acceptable values are
- *  1-100000, inclusive. Any other values are treated as 100000.
+ *  1-100000, inclusive. Values larger than 100000 return an error.
  *
  *  Uses NSNumber of intValue.
  */

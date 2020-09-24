@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sql/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1beta4)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -921,6 +921,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_MaintenanceDenyPeriod
+//
+
+@implementation GTLRSQLAdmin_MaintenanceDenyPeriod
+@dynamic endDate, startDate, time;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_MaintenanceWindow
 //
 
@@ -1128,13 +1138,15 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          backupConfiguration, collation, crashSafeReplicationEnabled,
          databaseFlags, databaseReplicationEnabled, dataDiskSizeGb,
          dataDiskType, ipConfiguration, kind, locationPreference,
-         maintenanceWindow, pricingPlan, replicationType, settingsVersion,
-         storageAutoResize, storageAutoResizeLimit, tier, userLabels;
+         maintenanceDenyPeriods, maintenanceWindow, pricingPlan,
+         replicationType, settingsVersion, storageAutoResize,
+         storageAutoResizeLimit, tier, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"authorizedGaeApplications" : [NSString class],
-    @"databaseFlags" : [GTLRSQLAdmin_DatabaseFlags class]
+    @"databaseFlags" : [GTLRSQLAdmin_DatabaseFlags class],
+    @"maintenanceDenyPeriods" : [GTLRSQLAdmin_MaintenanceDenyPeriod class]
   };
   return map;
 }
