@@ -269,7 +269,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
   GTLRYouTubeService *service = self.youTubeService;
 
   GTLRYouTubeQuery_ChannelsList *query =
-      [GTLRYouTubeQuery_ChannelsList queryWithPart:@[@"contentDetails"]];
+      [GTLRYouTubeQuery_ChannelsList queryWithPart:@"contentDetails"];
   query.mine = YES;
 
   // maxResults specifies the number of results per page.  Since we earlier
@@ -329,7 +329,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
     GTLRYouTubeService *service = self.youTubeService;
 
     GTLRYouTubeQuery_PlaylistItemsList *query =
-        [GTLRYouTubeQuery_PlaylistItemsList queryWithPart:@[@"snippet,contentDetails"]];
+        [GTLRYouTubeQuery_PlaylistItemsList queryWithPart:@"snippet,contentDetails"];
     query.playlistId = playlistID;
     query.maxResults = 50;
 
@@ -355,7 +355,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
   GTLRYouTubeService *service = self.youTubeService;
 
   GTLRYouTubeQuery_VideoCategoriesList *query =
-      [GTLRYouTubeQuery_VideoCategoriesList queryWithPart:@[@"snippet,id"]];
+      [GTLRYouTubeQuery_VideoCategoriesList queryWithPart:@"snippet,id"];
   query.regionCode = [[NSLocale currentLocale] objectForKey:NSLocaleCountryCode];
 
   [service executeQuery:query
@@ -452,7 +452,7 @@ NSString *const kGTMAppAuthKeychainItemName = @"YouTubeSample: YouTube. GTMAppAu
 
   GTLRYouTubeQuery_VideosInsert *query =
       [GTLRYouTubeQuery_VideosInsert queryWithObject:video
-                                               part:@[@"snippet,status"]
+                                               part:@"snippet,status"
                                    uploadParameters:uploadParameters];
 
   NSProgressIndicator *progressIndicator = _uploadProgressIndicator;

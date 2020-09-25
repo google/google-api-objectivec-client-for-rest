@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   YouTube Data API v3 (youtube/v3)
+//   YouTube Data API (youtube/v3)
 // Description:
-//   The YouTube Data API v3 is an API that provides access to YouTube data,
-//   such as videos, playlists, and channels.
+//   Supports core YouTube features, such as uploading videos, creating and
+//   managing playlists, searching for content, and much more.
 // Documentation:
-//   https://developers.google.com/youtube/
+//   https://developers.google.com/youtube/v3
 
 #import "GTLRYouTube.h"
 
@@ -33,9 +33,10 @@ NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit = @"https://www
   if (self) {
     // From discovery.
     self.rootURLString = @"https://www.googleapis.com/";
+    self.servicePath = @"youtube/v3/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/youtube";
+    self.batchPath = @"batch/youtube/v3";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
@@ -56,6 +57,8 @@ NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit = @"https://www
     @"youtube#commentListResponse" : [GTLRYouTube_CommentListResponse class],
     @"youtube#commentThread" : [GTLRYouTube_CommentThread class],
     @"youtube#commentThreadListResponse" : [GTLRYouTube_CommentThreadListResponse class],
+    @"youtube#guideCategory" : [GTLRYouTube_GuideCategory class],
+    @"youtube#guideCategoryListResponse" : [GTLRYouTube_GuideCategoryListResponse class],
     @"youtube#i18nLanguage" : [GTLRYouTube_I18nLanguage class],
     @"youtube#i18nLanguageListResponse" : [GTLRYouTube_I18nLanguageListResponse class],
     @"youtube#i18nRegion" : [GTLRYouTube_I18nRegion class],
@@ -86,13 +89,14 @@ NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit = @"https://www
     @"youtube#superChatEvent" : [GTLRYouTube_SuperChatEvent class],
     @"youtube#superChatEventListResponse" : [GTLRYouTube_SuperChatEventListResponse class],
     @"youtube#thirdPartyLink" : [GTLRYouTube_ThirdPartyLink class],
+    @"youtube#thirdPartyLinkListResponse" : [GTLRYouTube_ThirdPartyLinkListResponse class],
     @"youtube#thumbnailSetResponse" : [GTLRYouTube_ThumbnailSetResponse class],
     @"youtube#video" : [GTLRYouTube_Video class],
     @"youtube#videoAbuseReportReason" : [GTLRYouTube_VideoAbuseReportReason class],
     @"youtube#videoAbuseReportReasonListResponse" : [GTLRYouTube_VideoAbuseReportReasonListResponse class],
     @"youtube#videoCategory" : [GTLRYouTube_VideoCategory class],
     @"youtube#videoCategoryListResponse" : [GTLRYouTube_VideoCategoryListResponse class],
-    @"youtube#videoGetRatingResponse" : [GTLRYouTube_VideoRatingListResponse class],
+    @"youtube#videoGetRatingResponse" : [GTLRYouTube_VideoGetRatingResponse class],
     @"youtube#videoListResponse" : [GTLRYouTube_VideoListResponse class],
   };
 }
