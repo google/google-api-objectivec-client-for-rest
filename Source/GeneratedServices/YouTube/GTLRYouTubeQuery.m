@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   YouTube Data API (youtube/v3)
+//   YouTube Data API v3 (youtube/v3)
 // Description:
-//   Supports core YouTube features, such as uploading videos, creating and
-//   managing playlists, searching for content, and much more.
+//   The YouTube Data API v3 is an API that provides access to YouTube data,
+//   such as videos, playlists, and channels.
 // Documentation:
-//   https://developers.google.com/youtube/v3
+//   https://developers.google.com/youtube/
 
 #import "GTLRYouTubeQuery.h"
 
@@ -17,38 +17,46 @@
 // Constants
 
 // broadcastStatus
-NSString * const kGTLRYouTubeBroadcastStatusActive    = @"active";
-NSString * const kGTLRYouTubeBroadcastStatusAll       = @"all";
-NSString * const kGTLRYouTubeBroadcastStatusComplete  = @"complete";
-NSString * const kGTLRYouTubeBroadcastStatusCompleted = @"completed";
-NSString * const kGTLRYouTubeBroadcastStatusLive      = @"live";
-NSString * const kGTLRYouTubeBroadcastStatusTesting   = @"testing";
-NSString * const kGTLRYouTubeBroadcastStatusUpcoming  = @"upcoming";
+NSString * const kGTLRYouTubeBroadcastStatusActive             = @"active";
+NSString * const kGTLRYouTubeBroadcastStatusAll                = @"all";
+NSString * const kGTLRYouTubeBroadcastStatusBroadcastStatusFilterUnspecified = @"broadcastStatusFilterUnspecified";
+NSString * const kGTLRYouTubeBroadcastStatusComplete           = @"complete";
+NSString * const kGTLRYouTubeBroadcastStatusCompleted          = @"completed";
+NSString * const kGTLRYouTubeBroadcastStatusLive               = @"live";
+NSString * const kGTLRYouTubeBroadcastStatusStatusUnspecified  = @"statusUnspecified";
+NSString * const kGTLRYouTubeBroadcastStatusTesting            = @"testing";
+NSString * const kGTLRYouTubeBroadcastStatusUpcoming           = @"upcoming";
 
 // broadcastType
-NSString * const kGTLRYouTubeBroadcastTypeAll        = @"all";
-NSString * const kGTLRYouTubeBroadcastTypeEvent      = @"event";
-NSString * const kGTLRYouTubeBroadcastTypePersistent = @"persistent";
+NSString * const kGTLRYouTubeBroadcastTypeAll                  = @"all";
+NSString * const kGTLRYouTubeBroadcastTypeBroadcastTypeFilterUnspecified = @"broadcastTypeFilterUnspecified";
+NSString * const kGTLRYouTubeBroadcastTypeEvent                = @"event";
+NSString * const kGTLRYouTubeBroadcastTypePersistent           = @"persistent";
 
 // channelType
-NSString * const kGTLRYouTubeChannelTypeAny  = @"any";
-NSString * const kGTLRYouTubeChannelTypeShow = @"show";
+NSString * const kGTLRYouTubeChannelTypeAny                    = @"any";
+NSString * const kGTLRYouTubeChannelTypeChannelTypeUnspecified = @"channelTypeUnspecified";
+NSString * const kGTLRYouTubeChannelTypeShow                   = @"show";
 
 // chart
-NSString * const kGTLRYouTubeChartMostPopular = @"mostPopular";
+NSString * const kGTLRYouTubeChartChartUnspecified = @"chartUnspecified";
+NSString * const kGTLRYouTubeChartMostPopular      = @"mostPopular";
 
 // eventType
 NSString * const kGTLRYouTubeEventTypeCompleted = @"completed";
 NSString * const kGTLRYouTubeEventTypeLive      = @"live";
+NSString * const kGTLRYouTubeEventTypeNone      = @"none";
 NSString * const kGTLRYouTubeEventTypeUpcoming  = @"upcoming";
 
 // filter
-NSString * const kGTLRYouTubeFilterAll    = @"all";
-NSString * const kGTLRYouTubeFilterNewest = @"newest";
+NSString * const kGTLRYouTubeFilterAll                  = @"all";
+NSString * const kGTLRYouTubeFilterNewest               = @"newest";
+NSString * const kGTLRYouTubeFilterSponsorFilterUnknown = @"sponsorFilterUnknown";
 
 // mode
-NSString * const kGTLRYouTubeModeAllCurrent = @"all_current";
-NSString * const kGTLRYouTubeModeUpdates    = @"updates";
+NSString * const kGTLRYouTubeModeAllCurrent             = @"all_current";
+NSString * const kGTLRYouTubeModeListMembersModeUnknown = @"listMembersModeUnknown";
+NSString * const kGTLRYouTubeModeUpdates                = @"updates";
 
 // moderationStatus
 NSString * const kGTLRYouTubeModerationStatusHeldForReview = @"heldForReview";
@@ -59,17 +67,21 @@ NSString * const kGTLRYouTubeModerationStatusRejected      = @"rejected";
 // myRating
 NSString * const kGTLRYouTubeMyRatingDislike = @"dislike";
 NSString * const kGTLRYouTubeMyRatingLike    = @"like";
+NSString * const kGTLRYouTubeMyRatingNone    = @"none";
 
 // order
-NSString * const kGTLRYouTubeOrderAlphabetical = @"alphabetical";
-NSString * const kGTLRYouTubeOrderDate         = @"date";
-NSString * const kGTLRYouTubeOrderRating       = @"rating";
-NSString * const kGTLRYouTubeOrderRelevance    = @"relevance";
-NSString * const kGTLRYouTubeOrderTime         = @"time";
-NSString * const kGTLRYouTubeOrderTitle        = @"title";
-NSString * const kGTLRYouTubeOrderUnread       = @"unread";
-NSString * const kGTLRYouTubeOrderVideoCount   = @"videoCount";
-NSString * const kGTLRYouTubeOrderViewCount    = @"viewCount";
+NSString * const kGTLRYouTubeOrderAlphabetical                 = @"alphabetical";
+NSString * const kGTLRYouTubeOrderDate                         = @"date";
+NSString * const kGTLRYouTubeOrderOrderUnspecified             = @"orderUnspecified";
+NSString * const kGTLRYouTubeOrderRating                       = @"rating";
+NSString * const kGTLRYouTubeOrderRelevance                    = @"relevance";
+NSString * const kGTLRYouTubeOrderSearchSortUnspecified        = @"searchSortUnspecified";
+NSString * const kGTLRYouTubeOrderSubscriptionOrderUnspecified = @"subscriptionOrderUnspecified";
+NSString * const kGTLRYouTubeOrderTime                         = @"time";
+NSString * const kGTLRYouTubeOrderTitle                        = @"title";
+NSString * const kGTLRYouTubeOrderUnread                       = @"unread";
+NSString * const kGTLRYouTubeOrderVideoCount                   = @"videoCount";
+NSString * const kGTLRYouTubeOrderViewCount                    = @"viewCount";
 
 // rating
 NSString * const kGTLRYouTubeRatingDislike = @"dislike";
@@ -77,28 +89,25 @@ NSString * const kGTLRYouTubeRatingLike    = @"like";
 NSString * const kGTLRYouTubeRatingNone    = @"none";
 
 // safeSearch
-NSString * const kGTLRYouTubeSafeSearchModerate = @"moderate";
-NSString * const kGTLRYouTubeSafeSearchNone     = @"none";
-NSString * const kGTLRYouTubeSafeSearchStrict   = @"strict";
+NSString * const kGTLRYouTubeSafeSearchModerate                = @"moderate";
+NSString * const kGTLRYouTubeSafeSearchNone                    = @"none";
+NSString * const kGTLRYouTubeSafeSearchSafeSearchSettingUnspecified = @"safeSearchSettingUnspecified";
+NSString * const kGTLRYouTubeSafeSearchStrict                  = @"strict";
 
 // textFormat
-NSString * const kGTLRYouTubeTextFormatHtml      = @"html";
-NSString * const kGTLRYouTubeTextFormatPlainText = @"plainText";
-
-// tfmt
-NSString * const kGTLRYouTubeTfmtSbv  = @"sbv";
-NSString * const kGTLRYouTubeTfmtScc  = @"scc";
-NSString * const kGTLRYouTubeTfmtSrt  = @"srt";
-NSString * const kGTLRYouTubeTfmtTtml = @"ttml";
-NSString * const kGTLRYouTubeTfmtVtt  = @"vtt";
+NSString * const kGTLRYouTubeTextFormatHtml                  = @"html";
+NSString * const kGTLRYouTubeTextFormatPlainText             = @"plainText";
+NSString * const kGTLRYouTubeTextFormatTextFormatUnspecified = @"textFormatUnspecified";
 
 // type
 NSString * const kGTLRYouTubeTypeChannelToStoreLink = @"channelToStoreLink";
+NSString * const kGTLRYouTubeTypeLinkUnspecified    = @"linkUnspecified";
 
 // videoCaption
-NSString * const kGTLRYouTubeVideoCaptionAny           = @"any";
-NSString * const kGTLRYouTubeVideoCaptionClosedCaption = @"closedCaption";
-NSString * const kGTLRYouTubeVideoCaptionNone          = @"none";
+NSString * const kGTLRYouTubeVideoCaptionAny                   = @"any";
+NSString * const kGTLRYouTubeVideoCaptionClosedCaption         = @"closedCaption";
+NSString * const kGTLRYouTubeVideoCaptionNone                  = @"none";
+NSString * const kGTLRYouTubeVideoCaptionVideoCaptionUnspecified = @"videoCaptionUnspecified";
 
 // videoDefinition
 NSString * const kGTLRYouTubeVideoDefinitionAny      = @"any";
@@ -111,14 +120,16 @@ NSString * const kGTLRYouTubeVideoDimensionX2d = @"2d";
 NSString * const kGTLRYouTubeVideoDimensionX3d = @"3d";
 
 // videoDuration
-NSString * const kGTLRYouTubeVideoDurationAny    = @"any";
-NSString * const kGTLRYouTubeVideoDurationLong   = @"long";
-NSString * const kGTLRYouTubeVideoDurationMedium = @"medium";
-NSString * const kGTLRYouTubeVideoDurationShort  = @"short";
+NSString * const kGTLRYouTubeVideoDurationAny                  = @"any";
+NSString * const kGTLRYouTubeVideoDurationLong                 = @"long";
+NSString * const kGTLRYouTubeVideoDurationMedium               = @"medium";
+NSString * const kGTLRYouTubeVideoDurationShort                = @"short";
+NSString * const kGTLRYouTubeVideoDurationVideoDurationUnspecified = @"videoDurationUnspecified";
 
 // videoEmbeddable
-NSString * const kGTLRYouTubeVideoEmbeddableAny  = @"any";
-NSString * const kGTLRYouTubeVideoEmbeddableTrue = @"true";
+NSString * const kGTLRYouTubeVideoEmbeddableAny                = @"any";
+NSString * const kGTLRYouTubeVideoEmbeddableTrue               = @"true";
+NSString * const kGTLRYouTubeVideoEmbeddableVideoEmbeddableUnspecified = @"videoEmbeddableUnspecified";
 
 // videoLicense
 NSString * const kGTLRYouTubeVideoLicenseAny            = @"any";
@@ -126,13 +137,15 @@ NSString * const kGTLRYouTubeVideoLicenseCreativeCommon = @"creativeCommon";
 NSString * const kGTLRYouTubeVideoLicenseYoutube        = @"youtube";
 
 // videoSyndicated
-NSString * const kGTLRYouTubeVideoSyndicatedAny  = @"any";
-NSString * const kGTLRYouTubeVideoSyndicatedTrue = @"true";
+NSString * const kGTLRYouTubeVideoSyndicatedAny                = @"any";
+NSString * const kGTLRYouTubeVideoSyndicatedTrue               = @"true";
+NSString * const kGTLRYouTubeVideoSyndicatedVideoSyndicatedUnspecified = @"videoSyndicatedUnspecified";
 
 // videoType
-NSString * const kGTLRYouTubeVideoTypeAny     = @"any";
-NSString * const kGTLRYouTubeVideoTypeEpisode = @"episode";
-NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
+NSString * const kGTLRYouTubeVideoTypeAny                  = @"any";
+NSString * const kGTLRYouTubeVideoTypeEpisode              = @"episode";
+NSString * const kGTLRYouTubeVideoTypeMovie                = @"movie";
+NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecified";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -144,13 +157,53 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @end
 
+@implementation GTLRYouTubeQuery_AbuseReportsInsert
+
+@dynamic part;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRYouTube_AbuseReport *)object
+                           part:(NSArray<NSString *> *)part {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"youtube/v3/abuseReports";
+  GTLRYouTubeQuery_AbuseReportsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.part = part;
+  query.expectedObjectClass = [GTLRYouTube_AbuseReport class];
+  query.loggingName = @"youtube.abuseReports.insert";
+  return query;
+}
+
+@end
+
 @implementation GTLRYouTubeQuery_ActivitiesList
 
 @dynamic channelId, home, maxResults, mine, pageToken, part, publishedAfter,
          publishedBefore, regionCode;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"activities";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/activities";
   GTLRYouTubeQuery_ActivitiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -172,7 +225,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"captions";
+  NSString *pathURITemplate = @"youtube/v3/captions";
   GTLRYouTubeQuery_CaptionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -194,7 +247,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
   NSArray *pathParams = @[ @"id" ];
-  NSString *pathURITemplate = @"captions/{id}";
+  NSString *pathURITemplate = @"youtube/v3/captions/{id}";
   GTLRYouTubeQuery_CaptionsDownload *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -208,6 +261,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   GTLRYouTubeQuery_CaptionsDownload *query =
     [self queryWithIdentifier:identifier];
   query.downloadAsDataObjectType = @"media";
+  query.useMediaDownloadService = YES;
   query.loggingName = @"Download youtube.captions.download";
   return query;
 }
@@ -218,8 +272,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOf, onBehalfOfContentOwner, part, sync;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Caption *)object
-                           part:(NSString *)part
+                           part:(NSArray<NSString *> *)part
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -227,7 +288,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"captions";
+  NSString *pathURITemplate = @"youtube/v3/captions";
   GTLRYouTubeQuery_CaptionsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -250,15 +311,23 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part
-                      videoId:(NSString *)videoId {
-  NSString *pathURITemplate = @"captions";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithVideoId:(NSString *)videoId
+                            part:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/captions";
   GTLRYouTubeQuery_CaptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.part = part;
   query.videoId = videoId;
+  query.part = part;
   query.expectedObjectClass = [GTLRYouTube_CaptionListResponse class];
   query.loggingName = @"youtube.captions.list";
   return query;
@@ -270,8 +339,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOf, onBehalfOfContentOwner, part, sync;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Caption *)object
-                           part:(NSString *)part
+                           part:(NSArray<NSString *> *)part
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -279,7 +355,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"captions";
+  NSString *pathURITemplate = @"youtube/v3/captions";
   GTLRYouTubeQuery_CaptionsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -296,7 +372,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @implementation GTLRYouTubeQuery_ChannelBannersInsert
 
-@dynamic channelId, onBehalfOfContentOwner;
+@dynamic channelId, onBehalfOfContentOwner, onBehalfOfContentOwnerChannel;
 
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelBannerResource *)object
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
@@ -306,7 +382,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"channelBanners/insert";
+  NSString *pathURITemplate = @"youtube/v3/channelBanners/insert";
   GTLRYouTubeQuery_ChannelBannersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -329,7 +405,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"channelSections";
+  NSString *pathURITemplate = @"youtube/v3/channelSections";
   GTLRYouTubeQuery_ChannelSectionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -345,15 +421,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, onBehalfOfContentOwnerChannel, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelSection *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"channelSections";
+  NSString *pathURITemplate = @"youtube/v3/channelSections";
   GTLRYouTubeQuery_ChannelSectionsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -375,8 +458,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"channelSections";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/channelSections";
   GTLRYouTubeQuery_ChannelSectionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -393,15 +484,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_ChannelSection *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"channelSections";
+  NSString *pathURITemplate = @"youtube/v3/channelSections";
   GTLRYouTubeQuery_ChannelSectionsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -424,8 +522,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"channels";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/channels";
   GTLRYouTubeQuery_ChannelsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -442,15 +548,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Channel *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"channels";
+  NSString *pathURITemplate = @"youtube/v3/channels";
   GTLRYouTubeQuery_ChannelsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -473,7 +586,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"comments";
+  NSString *pathURITemplate = @"youtube/v3/comments";
   GTLRYouTubeQuery_CommentsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -489,15 +602,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Comment *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"comments";
+  NSString *pathURITemplate = @"youtube/v3/comments";
   GTLRYouTubeQuery_CommentsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -519,8 +639,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"comments";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/comments";
   GTLRYouTubeQuery_CommentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -541,8 +669,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"comments/markAsSpam";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithIdentifier:(NSArray<NSString *> *)identifier {
+  NSString *pathURITemplate = @"youtube/v3/comments/markAsSpam";
   GTLRYouTubeQuery_CommentsMarkAsSpam *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -562,9 +697,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithIdentifier:(NSString *)identifier
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithIdentifier:(NSArray<NSString *> *)identifier
                    moderationStatus:(NSString *)moderationStatus {
-  NSString *pathURITemplate = @"comments/setModerationStatus";
+  NSString *pathURITemplate = @"youtube/v3/comments/setModerationStatus";
   GTLRYouTubeQuery_CommentsSetModerationStatus *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -581,15 +723,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Comment *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"comments";
+  NSString *pathURITemplate = @"youtube/v3/comments";
   GTLRYouTubeQuery_CommentsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -607,15 +756,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"commentThreads";
+  NSString *pathURITemplate = @"youtube/v3/commentThreads";
   GTLRYouTubeQuery_CommentThreadsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -639,8 +795,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"commentThreads";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/commentThreads";
   GTLRYouTubeQuery_CommentThreadsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -657,15 +821,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"commentThreads";
+  NSString *pathURITemplate = @"youtube/v3/commentThreads";
   GTLRYouTubeQuery_CommentThreadsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -679,34 +850,19 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @end
 
-@implementation GTLRYouTubeQuery_GuideCategoriesList
-
-@dynamic hl, identifier, part, regionCode;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"guideCategories";
-  GTLRYouTubeQuery_GuideCategoriesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.part = part;
-  query.expectedObjectClass = [GTLRYouTube_GuideCategoryListResponse class];
-  query.loggingName = @"youtube.guideCategories.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRYouTubeQuery_I18nLanguagesList
 
 @dynamic hl, part;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"i18nLanguages";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/i18nLanguages";
   GTLRYouTubeQuery_I18nLanguagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -723,8 +879,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic hl, part;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"i18nRegions";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/i18nRegions";
   GTLRYouTubeQuery_I18nRegionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -746,9 +909,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithIdentifier:(NSString *)identifier
-                               part:(NSString *)part {
-  NSString *pathURITemplate = @"liveBroadcasts/bind";
+                               part:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts/bind";
   GTLRYouTubeQuery_LiveBroadcastsBind *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -771,9 +941,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithIdentifier:(NSString *)identifier
-                               part:(NSString *)part {
-  NSString *pathURITemplate = @"liveBroadcasts/control";
+                               part:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts/control";
   GTLRYouTubeQuery_LiveBroadcastsControl *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -796,7 +973,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"liveBroadcasts";
+  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts";
   GTLRYouTubeQuery_LiveBroadcastsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -812,15 +989,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, onBehalfOfContentOwnerChannel, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_LiveBroadcast *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"liveBroadcasts";
+  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts";
   GTLRYouTubeQuery_LiveBroadcastsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -843,8 +1027,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"liveBroadcasts";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts";
   GTLRYouTubeQuery_LiveBroadcastsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -866,16 +1058,23 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithBroadcastStatus:(NSString *)broadcastStatus
-                              identifier:(NSString *)identifier
-                                    part:(NSString *)part {
-  NSString *pathURITemplate = @"liveBroadcasts/transition";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithIdentifier:(NSString *)identifier
+                    broadcastStatus:(NSString *)broadcastStatus
+                               part:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts/transition";
   GTLRYouTubeQuery_LiveBroadcastsTransition *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
-  query.broadcastStatus = broadcastStatus;
   query.identifier = identifier;
+  query.broadcastStatus = broadcastStatus;
   query.part = part;
   query.expectedObjectClass = [GTLRYouTube_LiveBroadcast class];
   query.loggingName = @"youtube.liveBroadcasts.transition";
@@ -888,15 +1087,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, onBehalfOfContentOwnerChannel, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_LiveBroadcast *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"liveBroadcasts";
+  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts";
   GTLRYouTubeQuery_LiveBroadcastsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -919,7 +1125,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"liveChat/bans";
+  NSString *pathURITemplate = @"youtube/v3/liveChat/bans";
   GTLRYouTubeQuery_LiveChatBansDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -935,15 +1141,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatBan *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"liveChat/bans";
+  NSString *pathURITemplate = @"youtube/v3/liveChat/bans";
   GTLRYouTubeQuery_LiveChatBansInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -966,7 +1179,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"liveChat/messages";
+  NSString *pathURITemplate = @"youtube/v3/liveChat/messages";
   GTLRYouTubeQuery_LiveChatMessagesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -982,15 +1195,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatMessage *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"liveChat/messages";
+  NSString *pathURITemplate = @"youtube/v3/liveChat/messages";
   GTLRYouTubeQuery_LiveChatMessagesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1008,9 +1228,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic hl, liveChatId, maxResults, pageToken, part, profileImageSize;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithLiveChatId:(NSString *)liveChatId
-                               part:(NSString *)part {
-  NSString *pathURITemplate = @"liveChat/messages";
+                               part:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/liveChat/messages";
   GTLRYouTubeQuery_LiveChatMessagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1033,7 +1260,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"liveChat/moderators";
+  NSString *pathURITemplate = @"youtube/v3/liveChat/moderators";
   GTLRYouTubeQuery_LiveChatModeratorsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1049,15 +1276,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_LiveChatModerator *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"liveChat/moderators";
+  NSString *pathURITemplate = @"youtube/v3/liveChat/moderators";
   GTLRYouTubeQuery_LiveChatModeratorsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1075,9 +1309,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic liveChatId, maxResults, pageToken, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithLiveChatId:(NSString *)liveChatId
-                               part:(NSString *)part {
-  NSString *pathURITemplate = @"liveChat/moderators";
+                               part:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/liveChat/moderators";
   GTLRYouTubeQuery_LiveChatModeratorsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1100,7 +1341,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"liveStreams";
+  NSString *pathURITemplate = @"youtube/v3/liveStreams";
   GTLRYouTubeQuery_LiveStreamsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1116,15 +1357,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, onBehalfOfContentOwnerChannel, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_LiveStream *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"liveStreams";
+  NSString *pathURITemplate = @"youtube/v3/liveStreams";
   GTLRYouTubeQuery_LiveStreamsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1147,8 +1395,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"liveStreams";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/liveStreams";
   GTLRYouTubeQuery_LiveStreamsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1165,15 +1421,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, onBehalfOfContentOwnerChannel, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_LiveStream *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"liveStreams";
+  NSString *pathURITemplate = @"youtube/v3/liveStreams";
   GTLRYouTubeQuery_LiveStreamsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1191,8 +1454,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"membershipsLevels";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/membershipsLevels";
   GTLRYouTubeQuery_MembershipsLevelsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1210,8 +1480,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 @dynamic filterByMemberChannelId, hasAccessToLevel, maxResults, mode, pageToken,
          part;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"members";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/members";
   GTLRYouTubeQuery_MembersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1233,7 +1510,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"playlistItems";
+  NSString *pathURITemplate = @"youtube/v3/playlistItems";
   GTLRYouTubeQuery_PlaylistItemsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1249,15 +1526,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_PlaylistItem *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"playlistItems";
+  NSString *pathURITemplate = @"youtube/v3/playlistItems";
   GTLRYouTubeQuery_PlaylistItemsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1280,8 +1564,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"playlistItems";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/playlistItems";
   GTLRYouTubeQuery_PlaylistItemsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1298,15 +1590,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_PlaylistItem *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"playlistItems";
+  NSString *pathURITemplate = @"youtube/v3/playlistItems";
   GTLRYouTubeQuery_PlaylistItemsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1329,7 +1628,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"playlists";
+  NSString *pathURITemplate = @"youtube/v3/playlists";
   GTLRYouTubeQuery_PlaylistsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1345,15 +1644,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, onBehalfOfContentOwnerChannel, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Playlist *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"playlists";
+  NSString *pathURITemplate = @"youtube/v3/playlists";
   GTLRYouTubeQuery_PlaylistsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1376,8 +1682,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"playlists";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/playlists";
   GTLRYouTubeQuery_PlaylistsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1394,15 +1708,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Playlist *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"playlists";
+  NSString *pathURITemplate = @"youtube/v3/playlists";
   GTLRYouTubeQuery_PlaylistsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1426,8 +1747,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
          videoDuration, videoEmbeddable, videoLicense, videoSyndicated,
          videoType;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"search";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class],
+    @"type" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/search";
   GTLRYouTubeQuery_SearchList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1444,8 +1773,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic filter, maxResults, pageToken, part;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"sponsors";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/sponsors";
   GTLRYouTubeQuery_SponsorsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1467,7 +1803,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"subscriptions";
+  NSString *pathURITemplate = @"youtube/v3/subscriptions";
   GTLRYouTubeQuery_SubscriptionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1483,15 +1819,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Subscription *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"subscriptions";
+  NSString *pathURITemplate = @"youtube/v3/subscriptions";
   GTLRYouTubeQuery_SubscriptionsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1515,8 +1858,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"subscriptions";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/subscriptions";
   GTLRYouTubeQuery_SubscriptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1533,8 +1884,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic hl, maxResults, pageToken, part;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"superChatEvents";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/superChatEvents";
   GTLRYouTubeQuery_SuperChatEventsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1547,46 +1905,93 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @end
 
-@implementation GTLRYouTubeQuery_ThirdPartyLinkDelete
+@implementation GTLRYouTubeQuery_TestsInsert
 
-@dynamic linkingToken, type;
+@dynamic part;
 
-+ (instancetype)queryWithLinkingToken:(NSString *)linkingToken
-                                 type:(NSString *)type {
-  NSString *pathURITemplate = @"thirdPartyLinks";
-  GTLRYouTubeQuery_ThirdPartyLinkDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:nil];
-  query.linkingToken = linkingToken;
-  query.type = type;
-  query.loggingName = @"youtube.thirdPartyLink.delete";
-  return query;
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
 }
 
-@end
-
-@implementation GTLRYouTubeQuery_ThirdPartyLinkInsert
-
-@dynamic debugProjectIdOverride, part;
-
-+ (instancetype)queryWithObject:(GTLRYouTube_ThirdPartyLink *)object
-                           part:(NSString *)part {
++ (instancetype)queryWithObject:(GTLRYouTube_TestItem *)object
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"thirdPartyLinks";
-  GTLRYouTubeQuery_ThirdPartyLinkInsert *query =
+  NSString *pathURITemplate = @"youtube/v3/tests";
+  GTLRYouTubeQuery_TestsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.part = part;
+  query.expectedObjectClass = [GTLRYouTube_TestItem class];
+  query.loggingName = @"youtube.tests.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_ThirdPartyLinksDelete
+
+@dynamic linkingToken, part, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithLinkingToken:(NSString *)linkingToken
+                                 type:(NSString *)type {
+  NSString *pathURITemplate = @"youtube/v3/thirdPartyLinks";
+  GTLRYouTubeQuery_ThirdPartyLinksDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:nil];
+  query.linkingToken = linkingToken;
+  query.type = type;
+  query.loggingName = @"youtube.thirdPartyLinks.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_ThirdPartyLinksInsert
+
+@dynamic part;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRYouTube_ThirdPartyLink *)object
+                           part:(NSArray<NSString *> *)part {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"youtube/v3/thirdPartyLinks";
+  GTLRYouTubeQuery_ThirdPartyLinksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
   query.part = part;
   query.expectedObjectClass = [GTLRYouTube_ThirdPartyLink class];
-  query.loggingName = @"youtube.thirdPartyLink.insert";
+  query.loggingName = @"youtube.thirdPartyLinks.insert";
   return query;
 }
 
@@ -1596,41 +2001,55 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic linkingToken, part, type;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"thirdPartyLinks";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/thirdPartyLinks";
   GTLRYouTubeQuery_ThirdPartyLinksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
   query.part = part;
-  query.expectedObjectClass = [GTLRYouTube_ThirdPartyLinkListResponse class];
+  query.expectedObjectClass = [GTLRYouTube_ThirdPartyLink class];
   query.loggingName = @"youtube.thirdPartyLinks.list";
   return query;
 }
 
 @end
 
-@implementation GTLRYouTubeQuery_ThirdPartyLinkUpdate
+@implementation GTLRYouTubeQuery_ThirdPartyLinksUpdate
 
 @dynamic part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_ThirdPartyLink *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"thirdPartyLinks";
-  GTLRYouTubeQuery_ThirdPartyLinkUpdate *query =
+  NSString *pathURITemplate = @"youtube/v3/thirdPartyLinks";
+  GTLRYouTubeQuery_ThirdPartyLinksUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
                        pathParameterNames:nil];
   query.bodyObject = object;
   query.part = part;
   query.expectedObjectClass = [GTLRYouTube_ThirdPartyLink class];
-  query.loggingName = @"youtube.thirdPartyLink.update";
+  query.loggingName = @"youtube.thirdPartyLinks.update";
   return query;
 }
 
@@ -1642,7 +2061,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 + (instancetype)queryWithVideoId:(NSString *)videoId
                 uploadParameters:(GTLRUploadParameters *)uploadParameters {
-  NSString *pathURITemplate = @"thumbnails/set";
+  NSString *pathURITemplate = @"youtube/v3/thumbnails/set";
   GTLRYouTubeQuery_ThumbnailsSet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1660,8 +2079,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic hl, part;
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"videoAbuseReportReasons";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/videoAbuseReportReasons";
   GTLRYouTubeQuery_VideoAbuseReportReasonsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1682,8 +2108,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"videoCategories";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/videoCategories";
   GTLRYouTubeQuery_VideoCategoriesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1705,7 +2139,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 }
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"videos";
+  NSString *pathURITemplate = @"youtube/v3/videos";
   GTLRYouTubeQuery_VideosDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1725,14 +2159,21 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithIdentifier:(NSString *)identifier {
-  NSString *pathURITemplate = @"videos/getRating";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithIdentifier:(NSArray<NSString *> *)identifier {
+  NSString *pathURITemplate = @"youtube/v3/videos/getRating";
   GTLRYouTubeQuery_VideosGetRating *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
   query.identifier = identifier;
-  query.expectedObjectClass = [GTLRYouTube_VideoGetRatingResponse class];
+  query.expectedObjectClass = [GTLRYouTube_VideoRatingListResponse class];
   query.loggingName = @"youtube.videos.getRating";
   return query;
 }
@@ -1744,8 +2185,15 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 @dynamic autoLevels, notifySubscribers, onBehalfOfContentOwner,
          onBehalfOfContentOwnerChannel, part, stabilize;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Video *)object
-                           part:(NSString *)part
+                           part:(NSArray<NSString *> *)part
                uploadParameters:(GTLRUploadParameters *)uploadParameters {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1753,7 +2201,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"videos";
+  NSString *pathURITemplate = @"youtube/v3/videos";
   GTLRYouTubeQuery_VideosInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1778,8 +2226,16 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
   return @{ @"identifier" : @"id" };
 }
 
-+ (instancetype)queryWithPart:(NSString *)part {
-  NSString *pathURITemplate = @"videos";
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"id" : [NSString class],
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
+  NSString *pathURITemplate = @"youtube/v3/videos";
   GTLRYouTubeQuery_VideosList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1802,7 +2258,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 + (instancetype)queryWithIdentifier:(NSString *)identifier
                              rating:(NSString *)rating {
-  NSString *pathURITemplate = @"videos/rate";
+  NSString *pathURITemplate = @"youtube/v3/videos/rate";
   GTLRYouTubeQuery_VideosRate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1826,7 +2282,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"videos/reportAbuse";
+  NSString *pathURITemplate = @"youtube/v3/videos/reportAbuse";
   GTLRYouTubeQuery_VideosReportAbuse *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1842,15 +2298,22 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 
 @dynamic onBehalfOfContentOwner, part;
 
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
 + (instancetype)queryWithObject:(GTLRYouTube_Video *)object
-                           part:(NSString *)part {
+                           part:(NSArray<NSString *> *)part {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"videos";
+  NSString *pathURITemplate = @"youtube/v3/videos";
   GTLRYouTubeQuery_VideosUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1877,7 +2340,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"watermarks/set";
+  NSString *pathURITemplate = @"youtube/v3/watermarks/set";
   GTLRYouTubeQuery_WatermarksSet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1896,7 +2359,7 @@ NSString * const kGTLRYouTubeVideoTypeMovie   = @"movie";
 @dynamic channelId, onBehalfOfContentOwner;
 
 + (instancetype)queryWithChannelId:(NSString *)channelId {
-  NSString *pathURITemplate = @"watermarks/unset";
+  NSString *pathURITemplate = @"youtube/v3/watermarks/unset";
   GTLRYouTubeQuery_WatermarksUnset *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
