@@ -2718,24 +2718,34 @@ static NSDictionary *MergeDictionaries(NSDictionary *recessiveDict, NSDictionary
 
   // We'll use a locally-scoped task ID variable so the expiration block is guaranteed
   // to refer to this task rather than to whatever task the property has.
-  __block UIBackgroundTaskIdentifier bgTaskID =
+  // Since a request can be started from any thread, we also have to ensure the
+  // variable for accessing it is safe across the initial thread and the handler
+  // (incase it gets failed immediately from the app already heading into the
+  // background).
+  __block UIBackgroundTaskIdentifier guardedTaskID = UIBackgroundTaskInvalid;
+  UIBackgroundTaskIdentifier returnedTaskID =
       [app beginBackgroundTaskWithName:taskName
                      expirationHandler:^{
         // Background task expiration callback. This block is always invoked by
         // UIApplication on the main thread.
-        if (bgTaskID != UIBackgroundTaskInvalid) {
+        UIBackgroundTaskIdentifier localTaskID;
+        @synchronized(self) {
+          localTaskID = guardedTaskID;
+        }
+        if (localTaskID != UIBackgroundTaskInvalid) {
           @synchronized(self) {
-            if (bgTaskID == self.backgroundTaskIdentifier) {
+            if (localTaskID == self.backgroundTaskIdentifier) {
               self.backgroundTaskIdentifier = UIBackgroundTaskInvalid;
             }
           }
-          // This explicitly ends the captured bgTaskID rather than the backgroundTaskIdentifier
+          // This explicitly ends the captured localTaskID rather than the backgroundTaskIdentifier
           // property to ensure expiration is handled even if the property has changed.
-          [app endBackgroundTask:bgTaskID];
+          [app endBackgroundTask:localTaskID];
         }
   }];
   @synchronized(self) {
-    self.backgroundTaskIdentifier = bgTaskID;
+    guardedTaskID = returnedTaskID;
+    self.backgroundTaskIdentifier = returnedTaskID;
   }
 #endif  // GTM_BACKGROUND_TASK_FETCHING
 }
