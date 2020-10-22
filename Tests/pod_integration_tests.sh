@@ -26,7 +26,7 @@ RunXcodeBuild() {
 case "${PLATFORM}" in
   ios)
     TARGET_NAME=iOSPodTests
-    DEPLOYMENT_TARGET=7.0
+    DEPLOYMENT_TARGET=9.0
     SDK=iphonesimulator
     ;;
   osx)
