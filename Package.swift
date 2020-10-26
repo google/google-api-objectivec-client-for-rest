@@ -4,12 +4,6 @@ import PackageDescription
 
 let package = Package(
     name: "GoogleAPIClientForREST",
-    platforms: [
-        .macOS(.v10_10),
-        .iOS(.v8),
-        .tvOS(.v9),
-        .watchOS(.v2)
-    ],
     products: [
         // The main library, only thing you need to use your own services.
         .library(
