@@ -1099,9 +1099,10 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
             [NSString stringWithFormat:@"%@:%@", apiName, version];
         [self.apisToSkip addObject:apiVersion];
       } else {
-        // Not what most services are moving to a model where directory only
+        // Now what most services are moving to a model where directory only
         // list the api, but discovery comes from a differnet server, it might
-        // make sense to eventualy drop this direct support.
+        // make sense to eventualy drop this direct support or try to query
+        // directory to find it and then use the discovery url from there.
         NSArray *pair = @[ apiName, version ];
         [self.apisToFetch addObject:pair];
       }
@@ -1239,8 +1240,6 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 - (void)stateDescribe {
   [self printSection:@"Requesting API(s)"];
 
-  GTLRBatchQuery *batchQuery = [GTLRBatchQuery batchQuery];
-
   // Stable order for the requests.
   NSArray *orderedTuples =
     [self.apisToFetch sortedArrayUsingComparator:
@@ -1288,7 +1287,10 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       GTLRDiscoveryQuery_ApisGetRest *query =
         [GTLRDiscoveryQuery_ApisGetRest queryWithApi:serviceName
                                              version:serviceVersion];
-      query.completionBlock = ^(GTLRServiceTicket *ticket, id object, NSError *error) {
+      self.numberOfActiveNetworkActions += 1;
+      [self.discoveryService executeQuery:query
+                        completionHandler:^(GTLRServiceTicket *ticket, id object, NSError *error) {
+        self.numberOfActiveNetworkActions -= 1;
         if (error) {
           GTLRErrorObject *errObj = [GTLRErrorObject underlyingObjectForError:error];
           // If we got back a structured error object, then the query failed, so
@@ -1313,28 +1315,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
              serviceName, serviceVersion, api.name, api.version];
           }
         }
-      };
-      [batchQuery addQuery:query];
+      }];
     }
   }  // for(tuple in orderedTuples)
-
-  if (batchQuery.queries.count > 0) {
-    // Send in the batch.
-    [self.discoveryService executeQuery:batchQuery
-                      completionHandler:^(GTLRServiceTicket *ticket, id object, NSError *error) {
-        self.numberOfActiveNetworkActions -= 1;
-        // Per query handling is done above. The exception is if there is an error
-        // here, it's probably a network error, so report it globally here.  Per
-        // query failures (within the batch) were handled above (they show up
-        // in the BatchResult, not as the error argument.)
-        if (error) {
-          [self reportError:@"Failed to fetch discovery documents, error: %@", error];
-          self.status = 12;
-          self.state = SGMain_Done;
-        }
-      }];
-    self.numberOfActiveNetworkActions += 1;
-  }
 
   [self printSubsection:@" + Waiting for discovery documents"];
   self.state = SGMain_Wait;
