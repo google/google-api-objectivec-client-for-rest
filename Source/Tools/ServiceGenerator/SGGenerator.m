@@ -266,10 +266,12 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
 
     if (apiUnknowns != nil) {
       apiUnknowns = [apiUnknowns sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+      NSString *keyPathStr =
+          (keyPath.count == 0) ? @"<root>" : [keyPath componentsJoinedByString:@"."];
       NSString *info =
         [NSString stringWithFormat:@"Unexpected JSON %s under %@: %@",
          (apiUnknowns.count > 1 ? "keys" : "key"),
-         [keyPath componentsJoinedByString:@"."],
+         keyPathStr,
          [apiUnknowns componentsJoinedByString:@", "]];
       messageHandler(kSGGeneratorHandlerMessageInfo, info);
     }
@@ -670,9 +672,7 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
   BOOL allGood = YES;
 
   if (self.auditJSON) {
-    NSString *rootName =
-      [NSString stringWithFormat:@"%@/%@", self.api.name, self.api.version];
-    CheckForUnknownJSON(self.api, @[ rootName ], messageHandler);
+    CheckForUnknownJSON(self.api, @[], messageHandler);
   }
 
   // Check each method...
