@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.4)
 // Description:
-//   Manages your DoubleClick Campaign Manager ad campaigns and reports.
+//   Manage your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
@@ -367,6 +367,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTracki
 // ----------------------------------------------------------------------------
 // type
 
+/** Value: "AD_SERVING_BRAND_SAFE_AD" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypeAdServingBrandSafeAd;
 /** Value: "AD_SERVING_CLICK_TRACKER" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypeAdServingClickTracker;
 /** Value: "AD_SERVING_DEFAULT_AD" */
@@ -991,7 +993,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForAccountUserProfilesPatchWithObject:profileId:identifier:]
 
 /**
- *  User profile ID.
+ *  AccountUserProfile ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1009,7 +1011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_AccountUserProfile to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier User profile ID.
+ *  @param identifier AccountUserProfile ID.
  *
  *  @return GTLRDfareportingQuery_AccountUserProfilesPatch
  */
@@ -1161,16 +1163,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  the VAST standard.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingCompatibilityApp Value "APP"
- *    @arg @c kGTLRDfareportingCompatibilityAppInterstitial Value
- *        "APP_INTERSTITIAL"
  *    @arg @c kGTLRDfareportingCompatibilityDisplay Value "DISPLAY"
  *    @arg @c kGTLRDfareportingCompatibilityDisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
- *    @arg @c kGTLRDfareportingCompatibilityInStreamAudio Value
- *        "IN_STREAM_AUDIO"
+ *    @arg @c kGTLRDfareportingCompatibilityApp Value "APP"
+ *    @arg @c kGTLRDfareportingCompatibilityAppInterstitial Value
+ *        "APP_INTERSTITIAL"
  *    @arg @c kGTLRDfareportingCompatibilityInStreamVideo Value
  *        "IN_STREAM_VIDEO"
+ *    @arg @c kGTLRDfareportingCompatibilityInStreamAudio Value
+ *        "IN_STREAM_AUDIO"
  */
 @property(nonatomic, copy, nullable) NSString *compatibility;
 
@@ -1292,13 +1294,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only ads with these types.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingTypeAdServingClickTracker Value
- *        "AD_SERVING_CLICK_TRACKER"
- *    @arg @c kGTLRDfareportingTypeAdServingDefaultAd Value
- *        "AD_SERVING_DEFAULT_AD"
  *    @arg @c kGTLRDfareportingTypeAdServingStandardAd Value
  *        "AD_SERVING_STANDARD_AD"
+ *    @arg @c kGTLRDfareportingTypeAdServingDefaultAd Value
+ *        "AD_SERVING_DEFAULT_AD"
+ *    @arg @c kGTLRDfareportingTypeAdServingClickTracker Value
+ *        "AD_SERVING_CLICK_TRACKER"
  *    @arg @c kGTLRDfareportingTypeAdServingTracking Value "AD_SERVING_TRACKING"
+ *    @arg @c kGTLRDfareportingTypeAdServingBrandSafeAd Value
+ *        "AD_SERVING_BRAND_SAFE_AD"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1594,7 +1598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForAdvertiserGroupsPatchWithObject:profileId:identifier:]
 
 /**
- *  Advertiser group ID.
+ *  AdvertiserGroup ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1611,7 +1615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_AdvertiserGroup to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Advertiser group ID.
+ *  @param identifier AdvertiserGroup ID.
  *
  *  @return GTLRDfareportingQuery_AdvertiserGroupsPatch
  */
@@ -1828,7 +1832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates an existing landing page. This method supports patch semantics.
+ *  Updates an existing advertiser landing page. This method supports patch
+ *  semantics.
  *
  *  Method: dfareporting.advertiserLandingPages.patch
  *
@@ -1840,7 +1845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForAdvertiserLandingPagesPatchWithObject:profileId:identifier:]
 
 /**
- *  Landing page ID.
+ *  LandingPage ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1852,11 +1857,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_LandingPage.
  *
- *  Updates an existing landing page. This method supports patch semantics.
+ *  Updates an existing advertiser landing page. This method supports patch
+ *  semantics.
  *
  *  @param object The @c GTLRDfareporting_LandingPage to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Landing page ID.
+ *  @param identifier LandingPage ID.
  *
  *  @return GTLRDfareportingQuery_AdvertiserLandingPagesPatch
  */
@@ -2026,8 +2032,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  June 2015", "advertiser April 2015", or simply "advertiser 2015". Most of
  *  the searches also add wildcards implicitly at the start and the end of the
  *  search string. For example, a search string of "advertiser" will match
- *  objects with name "my advertiser", "advertiser 2015", or simply
- *  "advertiser".
+ *  objects with name "my advertiser", "advertiser 2015", or simply "advertiser"
+ *  .
  */
 @property(nonatomic, copy, nullable) NSString *searchString;
 
@@ -2595,24 +2601,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only change logs with the specified action.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingActionActionAdd Value "ACTION_ADD"
- *    @arg @c kGTLRDfareportingActionActionAssign Value "ACTION_ASSIGN"
- *    @arg @c kGTLRDfareportingActionActionAssociate Value "ACTION_ASSOCIATE"
  *    @arg @c kGTLRDfareportingActionActionCreate Value "ACTION_CREATE"
+ *    @arg @c kGTLRDfareportingActionActionUpdate Value "ACTION_UPDATE"
  *    @arg @c kGTLRDfareportingActionActionDelete Value "ACTION_DELETE"
- *    @arg @c kGTLRDfareportingActionActionDisable Value "ACTION_DISABLE"
- *    @arg @c kGTLRDfareportingActionActionEmailTags Value "ACTION_EMAIL_TAGS"
  *    @arg @c kGTLRDfareportingActionActionEnable Value "ACTION_ENABLE"
- *    @arg @c kGTLRDfareportingActionActionLink Value "ACTION_LINK"
+ *    @arg @c kGTLRDfareportingActionActionDisable Value "ACTION_DISABLE"
+ *    @arg @c kGTLRDfareportingActionActionAdd Value "ACTION_ADD"
+ *    @arg @c kGTLRDfareportingActionActionRemove Value "ACTION_REMOVE"
  *    @arg @c kGTLRDfareportingActionActionMarkAsDefault Value
  *        "ACTION_MARK_AS_DEFAULT"
- *    @arg @c kGTLRDfareportingActionActionPush Value "ACTION_PUSH"
- *    @arg @c kGTLRDfareportingActionActionRemove Value "ACTION_REMOVE"
- *    @arg @c kGTLRDfareportingActionActionSend Value "ACTION_SEND"
- *    @arg @c kGTLRDfareportingActionActionShare Value "ACTION_SHARE"
+ *    @arg @c kGTLRDfareportingActionActionAssociate Value "ACTION_ASSOCIATE"
+ *    @arg @c kGTLRDfareportingActionActionAssign Value "ACTION_ASSIGN"
  *    @arg @c kGTLRDfareportingActionActionUnassign Value "ACTION_UNASSIGN"
+ *    @arg @c kGTLRDfareportingActionActionSend Value "ACTION_SEND"
+ *    @arg @c kGTLRDfareportingActionActionLink Value "ACTION_LINK"
  *    @arg @c kGTLRDfareportingActionActionUnlink Value "ACTION_UNLINK"
- *    @arg @c kGTLRDfareportingActionActionUpdate Value "ACTION_UPDATE"
+ *    @arg @c kGTLRDfareportingActionActionPush Value "ACTION_PUSH"
+ *    @arg @c kGTLRDfareportingActionActionEmailTags Value "ACTION_EMAIL_TAGS"
+ *    @arg @c kGTLRDfareportingActionActionShare Value "ACTION_SHARE"
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
@@ -2662,76 +2668,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only change logs with the specified object type.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingObjectTypeObjectAccount Value "OBJECT_ACCOUNT"
- *    @arg @c kGTLRDfareportingObjectTypeObjectAccountBillingFeature Value
- *        "OBJECT_ACCOUNT_BILLING_FEATURE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectAd Value "OBJECT_AD"
  *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiser Value
  *        "OBJECT_ADVERTISER"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightConfiguration Value
+ *        "OBJECT_FLOODLIGHT_CONFIGURATION"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectAd Value "OBJECT_AD"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightActvity Value
+ *        "OBJECT_FLOODLIGHT_ACTVITY"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectCampaign Value "OBJECT_CAMPAIGN"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightActivityGroup Value
+ *        "OBJECT_FLOODLIGHT_ACTIVITY_GROUP"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectCreative Value "OBJECT_CREATIVE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectPlacement Value
+ *        "OBJECT_PLACEMENT"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectDfaSite Value "OBJECT_DFA_SITE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectUserRole Value "OBJECT_USER_ROLE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectUserProfile Value
+ *        "OBJECT_USER_PROFILE"
  *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiserGroup Value
  *        "OBJECT_ADVERTISER_GROUP"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectAccount Value "OBJECT_ACCOUNT"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectSubaccount Value
+ *        "OBJECT_SUBACCOUNT"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectRichmediaCreative Value
+ *        "OBJECT_RICHMEDIA_CREATIVE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectInstreamCreative Value
+ *        "OBJECT_INSTREAM_CREATIVE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectMediaOrder Value
+ *        "OBJECT_MEDIA_ORDER"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectContentCategory Value
+ *        "OBJECT_CONTENT_CATEGORY"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectPlacementStrategy Value
+ *        "OBJECT_PLACEMENT_STRATEGY"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectSdSite Value "OBJECT_SD_SITE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectSize Value "OBJECT_SIZE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectCreativeGroup Value
+ *        "OBJECT_CREATIVE_GROUP"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectCreativeAsset Value
+ *        "OBJECT_CREATIVE_ASSET"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectUserProfileFilter Value
+ *        "OBJECT_USER_PROFILE_FILTER"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectLandingPage Value
+ *        "OBJECT_LANDING_PAGE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectCreativeField Value
+ *        "OBJECT_CREATIVE_FIELD"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectRemarketingList Value
+ *        "OBJECT_REMARKETING_LIST"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectProvidedListClient Value
+ *        "OBJECT_PROVIDED_LIST_CLIENT"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectEventTag Value "OBJECT_EVENT_TAG"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectCreativeBundle Value
+ *        "OBJECT_CREATIVE_BUNDLE"
  *    @arg @c kGTLRDfareportingObjectTypeObjectBillingAccountGroup Value
  *        "OBJECT_BILLING_ACCOUNT_GROUP"
  *    @arg @c kGTLRDfareportingObjectTypeObjectBillingFeature Value
  *        "OBJECT_BILLING_FEATURE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectRateCard Value "OBJECT_RATE_CARD"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectAccountBillingFeature Value
+ *        "OBJECT_ACCOUNT_BILLING_FEATURE"
  *    @arg @c kGTLRDfareportingObjectTypeObjectBillingMinimumFee Value
  *        "OBJECT_BILLING_MINIMUM_FEE"
  *    @arg @c kGTLRDfareportingObjectTypeObjectBillingProfile Value
  *        "OBJECT_BILLING_PROFILE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectCampaign Value "OBJECT_CAMPAIGN"
- *    @arg @c kGTLRDfareportingObjectTypeObjectContentCategory Value
- *        "OBJECT_CONTENT_CATEGORY"
- *    @arg @c kGTLRDfareportingObjectTypeObjectCreative Value "OBJECT_CREATIVE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectCreativeAsset Value
- *        "OBJECT_CREATIVE_ASSET"
- *    @arg @c kGTLRDfareportingObjectTypeObjectCreativeBundle Value
- *        "OBJECT_CREATIVE_BUNDLE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectCreativeField Value
- *        "OBJECT_CREATIVE_FIELD"
- *    @arg @c kGTLRDfareportingObjectTypeObjectCreativeGroup Value
- *        "OBJECT_CREATIVE_GROUP"
- *    @arg @c kGTLRDfareportingObjectTypeObjectDfaSite Value "OBJECT_DFA_SITE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectEventTag Value "OBJECT_EVENT_TAG"
- *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightActivityGroup Value
- *        "OBJECT_FLOODLIGHT_ACTIVITY_GROUP"
- *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightActvity Value
- *        "OBJECT_FLOODLIGHT_ACTVITY"
- *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightConfiguration Value
- *        "OBJECT_FLOODLIGHT_CONFIGURATION"
- *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightDv360Link Value
- *        "OBJECT_FLOODLIGHT_DV360_LINK"
- *    @arg @c kGTLRDfareportingObjectTypeObjectInstreamCreative Value
- *        "OBJECT_INSTREAM_CREATIVE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectLandingPage Value
- *        "OBJECT_LANDING_PAGE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectMediaOrder Value
- *        "OBJECT_MEDIA_ORDER"
- *    @arg @c kGTLRDfareportingObjectTypeObjectPlacement Value
- *        "OBJECT_PLACEMENT"
- *    @arg @c kGTLRDfareportingObjectTypeObjectPlacementStrategy Value
- *        "OBJECT_PLACEMENT_STRATEGY"
  *    @arg @c kGTLRDfareportingObjectTypeObjectPlaystoreLink Value
  *        "OBJECT_PLAYSTORE_LINK"
- *    @arg @c kGTLRDfareportingObjectTypeObjectProvidedListClient Value
- *        "OBJECT_PROVIDED_LIST_CLIENT"
- *    @arg @c kGTLRDfareportingObjectTypeObjectRateCard Value "OBJECT_RATE_CARD"
- *    @arg @c kGTLRDfareportingObjectTypeObjectRemarketingList Value
- *        "OBJECT_REMARKETING_LIST"
- *    @arg @c kGTLRDfareportingObjectTypeObjectRichmediaCreative Value
- *        "OBJECT_RICHMEDIA_CREATIVE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectSdSite Value "OBJECT_SD_SITE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectSearchLiftStudy Value
- *        "OBJECT_SEARCH_LIFT_STUDY"
- *    @arg @c kGTLRDfareportingObjectTypeObjectSize Value "OBJECT_SIZE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectSubaccount Value
- *        "OBJECT_SUBACCOUNT"
  *    @arg @c kGTLRDfareportingObjectTypeObjectTargetingTemplate Value
  *        "OBJECT_TARGETING_TEMPLATE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectUserProfile Value
- *        "OBJECT_USER_PROFILE"
- *    @arg @c kGTLRDfareportingObjectTypeObjectUserProfileFilter Value
- *        "OBJECT_USER_PROFILE_FILTER"
- *    @arg @c kGTLRDfareportingObjectTypeObjectUserRole Value "OBJECT_USER_ROLE"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectSearchLiftStudy Value
+ *        "OBJECT_SEARCH_LIFT_STUDY"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectFloodlightDv360Link Value
+ *        "OBJECT_FLOODLIGHT_DV360_LINK"
  */
 @property(nonatomic, copy, nullable) NSString *objectType;
 
@@ -3094,7 +3100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForContentCategoriesPatchWithObject:profileId:identifier:]
 
 /**
- *  Content category ID.
+ *  ContentCategory ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3111,7 +3117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_ContentCategory to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Content category ID.
+ *  @param identifier ContentCategory ID.
  *
  *  @return GTLRDfareportingQuery_ContentCategoriesPatch
  */
@@ -3304,7 +3310,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param advertiserId Advertiser ID of this creative. This is a required
  *    field.
  *  @param uploadParameters The media to include in this query. Maximum size
- *    1024MB. Accepted MIME type: * / *
+ *    1073741824. Accepted MIME type: * / *
  *
  *  @return GTLRDfareportingQuery_CreativeAssetsInsert
  */
@@ -3527,7 +3533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForCreativeFieldsPatchWithObject:profileId:identifier:]
 
 /**
- *  Creative Field ID
+ *  CreativeField ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3543,7 +3549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_CreativeField to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Creative Field ID
+ *  @param identifier CreativeField ID.
  *
  *  @return GTLRDfareportingQuery_CreativeFieldsPatch
  */
@@ -3804,11 +3810,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 // Previous library name was
 //   +[GTLQueryDfareporting queryForCreativeFieldValuesPatchWithObject:profileId:creativeFieldId:identifier:]
 
-/** Creative field ID for this creative field value. */
+/** CreativeField ID. */
 @property(nonatomic, assign) long long creativeFieldId;
 
 /**
- *  Creative Field Value ID
+ *  CreativeFieldValue ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -3826,8 +3832,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_CreativeFieldValue to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param creativeFieldId Creative field ID for this creative field value.
- *  @param identifier Creative Field Value ID
+ *  @param creativeFieldId CreativeField ID.
+ *  @param identifier CreativeFieldValue ID.
  *
  *  @return GTLRDfareportingQuery_CreativeFieldValuesPatch
  */
@@ -4055,7 +4061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForCreativeGroupsPatchWithObject:profileId:identifier:]
 
 /**
- *  Creative group ID.
+ *  CreativeGroup ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4071,7 +4077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_CreativeGroup to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Creative group ID.
+ *  @param identifier CreativeGroup ID.
  *
  *  @return GTLRDfareportingQuery_CreativeGroupsPatch
  */
@@ -4299,45 +4305,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only creatives with these creative types.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingTypesBrandSafeDefaultInstreamVideo Value
- *        "BRAND_SAFE_DEFAULT_INSTREAM_VIDEO"
+ *    @arg @c kGTLRDfareportingTypesImage Value "IMAGE"
+ *    @arg @c kGTLRDfareportingTypesDisplayRedirect Value "DISPLAY_REDIRECT"
  *    @arg @c kGTLRDfareportingTypesCustomDisplay Value "CUSTOM_DISPLAY"
+ *    @arg @c kGTLRDfareportingTypesInternalRedirect Value "INTERNAL_REDIRECT"
  *    @arg @c kGTLRDfareportingTypesCustomDisplayInterstitial Value
  *        "CUSTOM_DISPLAY_INTERSTITIAL"
- *    @arg @c kGTLRDfareportingTypesDisplay Value "DISPLAY"
- *    @arg @c kGTLRDfareportingTypesDisplayImageGallery Value
- *        "DISPLAY_IMAGE_GALLERY"
- *    @arg @c kGTLRDfareportingTypesDisplayRedirect Value "DISPLAY_REDIRECT"
- *    @arg @c kGTLRDfareportingTypesFlashInpage Value "FLASH_INPAGE"
- *    @arg @c kGTLRDfareportingTypesHtml5Banner Value "HTML5_BANNER"
- *    @arg @c kGTLRDfareportingTypesImage Value "IMAGE"
- *    @arg @c kGTLRDfareportingTypesInstreamAudio Value "INSTREAM_AUDIO"
- *    @arg @c kGTLRDfareportingTypesInstreamVideo Value "INSTREAM_VIDEO"
- *    @arg @c kGTLRDfareportingTypesInstreamVideoRedirect Value
- *        "INSTREAM_VIDEO_REDIRECT"
- *    @arg @c kGTLRDfareportingTypesInternalRedirect Value "INTERNAL_REDIRECT"
  *    @arg @c kGTLRDfareportingTypesInterstitialInternalRedirect Value
  *        "INTERSTITIAL_INTERNAL_REDIRECT"
+ *    @arg @c kGTLRDfareportingTypesTrackingText Value "TRACKING_TEXT"
  *    @arg @c kGTLRDfareportingTypesRichMediaDisplayBanner Value
  *        "RICH_MEDIA_DISPLAY_BANNER"
+ *    @arg @c kGTLRDfareportingTypesRichMediaInpageFloating Value
+ *        "RICH_MEDIA_INPAGE_FLOATING"
+ *    @arg @c kGTLRDfareportingTypesRichMediaImExpand Value
+ *        "RICH_MEDIA_IM_EXPAND"
  *    @arg @c kGTLRDfareportingTypesRichMediaDisplayExpanding Value
  *        "RICH_MEDIA_DISPLAY_EXPANDING"
  *    @arg @c kGTLRDfareportingTypesRichMediaDisplayInterstitial Value
  *        "RICH_MEDIA_DISPLAY_INTERSTITIAL"
  *    @arg @c kGTLRDfareportingTypesRichMediaDisplayMultiFloatingInterstitial
  *        Value "RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL"
- *    @arg @c kGTLRDfareportingTypesRichMediaImExpand Value
- *        "RICH_MEDIA_IM_EXPAND"
- *    @arg @c kGTLRDfareportingTypesRichMediaInpageFloating Value
- *        "RICH_MEDIA_INPAGE_FLOATING"
  *    @arg @c kGTLRDfareportingTypesRichMediaMobileInApp Value
  *        "RICH_MEDIA_MOBILE_IN_APP"
- *    @arg @c kGTLRDfareportingTypesRichMediaPeelDown Value
- *        "RICH_MEDIA_PEEL_DOWN"
- *    @arg @c kGTLRDfareportingTypesTrackingText Value "TRACKING_TEXT"
+ *    @arg @c kGTLRDfareportingTypesFlashInpage Value "FLASH_INPAGE"
+ *    @arg @c kGTLRDfareportingTypesInstreamVideo Value "INSTREAM_VIDEO"
  *    @arg @c kGTLRDfareportingTypesVpaidLinearVideo Value "VPAID_LINEAR_VIDEO"
  *    @arg @c kGTLRDfareportingTypesVpaidNonLinearVideo Value
  *        "VPAID_NON_LINEAR_VIDEO"
+ *    @arg @c kGTLRDfareportingTypesInstreamVideoRedirect Value
+ *        "INSTREAM_VIDEO_REDIRECT"
+ *    @arg @c kGTLRDfareportingTypesRichMediaPeelDown Value
+ *        "RICH_MEDIA_PEEL_DOWN"
+ *    @arg @c kGTLRDfareportingTypesHtml5Banner Value "HTML5_BANNER"
+ *    @arg @c kGTLRDfareportingTypesDisplay Value "DISPLAY"
+ *    @arg @c kGTLRDfareportingTypesDisplayImageGallery Value
+ *        "DISPLAY_IMAGE_GALLERY"
+ *    @arg @c kGTLRDfareportingTypesBrandSafeDefaultInstreamVideo Value
+ *        "BRAND_SAFE_DEFAULT_INSTREAM_VIDEO"
+ *    @arg @c kGTLRDfareportingTypesInstreamAudio Value "INSTREAM_AUDIO"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *types;
 
@@ -4482,7 +4488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** The value of the nextToken from the previous result page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /**
@@ -4492,7 +4498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_DimensionValueRequest to include in
  *    the query.
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *
  *  @return GTLRDfareportingQuery_DimensionValuesQuery
  *
@@ -4714,9 +4720,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Type of the object of this dynamic targeting key. This is a required field.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingObjectTypeObjectAd Value "OBJECT_AD"
  *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiser Value
  *        "OBJECT_ADVERTISER"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectAd Value "OBJECT_AD"
  *    @arg @c kGTLRDfareportingObjectTypeObjectCreative Value "OBJECT_CREATIVE"
  *    @arg @c kGTLRDfareportingObjectTypeObjectPlacement Value
  *        "OBJECT_PLACEMENT"
@@ -4742,9 +4748,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *    a required field.
  *
  *  Likely values for @c objectType:
- *    @arg @c kGTLRDfareportingObjectTypeObjectAd Value "OBJECT_AD"
  *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiser Value
  *        "OBJECT_ADVERTISER"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectAd Value "OBJECT_AD"
  *    @arg @c kGTLRDfareportingObjectTypeObjectCreative Value "OBJECT_CREATIVE"
  *    @arg @c kGTLRDfareportingObjectTypeObjectPlacement Value
  *        "OBJECT_PLACEMENT"
@@ -4820,9 +4826,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only dynamic targeting keys with this object type.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingObjectTypeObjectAd Value "OBJECT_AD"
  *    @arg @c kGTLRDfareportingObjectTypeObjectAdvertiser Value
  *        "OBJECT_ADVERTISER"
+ *    @arg @c kGTLRDfareportingObjectTypeObjectAd Value "OBJECT_AD"
  *    @arg @c kGTLRDfareportingObjectTypeObjectCreative Value "OBJECT_CREATIVE"
  *    @arg @c kGTLRDfareportingObjectTypeObjectPlacement Value
  *        "OBJECT_PLACEMENT"
@@ -4999,12 +5005,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  click tracking.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingEventTagTypesClickThroughEventTag Value
- *        "CLICK_THROUGH_EVENT_TAG"
  *    @arg @c kGTLRDfareportingEventTagTypesImpressionImageEventTag Value
  *        "IMPRESSION_IMAGE_EVENT_TAG"
  *    @arg @c kGTLRDfareportingEventTagTypesImpressionJavascriptEventTag Value
  *        "IMPRESSION_JAVASCRIPT_EVENT_TAG"
+ *    @arg @c kGTLRDfareportingEventTagTypesClickThroughEventTag Value
+ *        "CLICK_THROUGH_EVENT_TAG"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eventTagTypes;
 
@@ -5078,7 +5084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForEventTagsPatchWithObject:profileId:identifier:]
 
 /**
- *  Event tag ID.
+ *  EventTag ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5094,7 +5100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_EventTag to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Event tag ID.
+ *  @param identifier EventTag ID.
  *
  *  @return GTLRDfareportingQuery_EventTagsPatch
  */
@@ -5206,7 +5212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** The value of the nextToken from the previous result page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The DFA profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /**
@@ -5255,7 +5261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Lists files for a user profile.
  *
- *  @param profileId The DFA profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *
  *  @return GTLRDfareportingQuery_FilesList
  *
@@ -5556,7 +5562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForFloodlightActivitiesPatchWithObject:profileId:identifier:]
 
 /**
- *  Floodlight activity ID.
+ *  FloodlightActivity ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5574,7 +5580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_FloodlightActivity to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Floodlight activity ID.
+ *  @param identifier FloodlightActivity ID.
  *
  *  @return GTLRDfareportingQuery_FloodlightActivitiesPatch
  */
@@ -5810,7 +5816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForFloodlightActivityGroupsPatchWithObject:profileId:identifier:]
 
 /**
- *  Floodlight activity Group ID.
+ *  FloodlightActivityGroup ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5828,7 +5834,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_FloodlightActivityGroup to include in
  *    the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Floodlight activity Group ID.
+ *  @param identifier FloodlightActivityGroup ID.
  *
  *  @return GTLRDfareportingQuery_FloodlightActivityGroupsPatch
  */
@@ -5956,7 +5962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForFloodlightConfigurationsPatchWithObject:profileId:identifier:]
 
 /**
- *  Floodlight configuration ID.
+ *  FloodlightConfiguration ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5974,7 +5980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_FloodlightConfiguration to include in
  *    the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Floodlight configuration ID.
+ *  @param identifier FloodlightConfiguration ID.
  *
  *  @return GTLRDfareportingQuery_FloodlightConfigurationsPatch
  */
@@ -6139,10 +6145,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only inventory items with this type.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingTypePlanningPlacementTypeCredit Value
- *        "PLANNING_PLACEMENT_TYPE_CREDIT"
  *    @arg @c kGTLRDfareportingTypePlanningPlacementTypeRegular Value
  *        "PLANNING_PLACEMENT_TYPE_REGULAR"
+ *    @arg @c kGTLRDfareportingTypePlanningPlacementTypeCredit Value
+ *        "PLANNING_PLACEMENT_TYPE_CREDIT"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6275,10 +6281,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only apps from these directories.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareportingDirectoriesUnknown Value "UNKNOWN"
  *    @arg @c kGTLRDfareportingDirectoriesAppleAppStore Value "APPLE_APP_STORE"
  *    @arg @c kGTLRDfareportingDirectoriesGooglePlayStore Value
  *        "GOOGLE_PLAY_STORE"
- *    @arg @c kGTLRDfareportingDirectoriesUnknown Value "UNKNOWN"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directories;
 
@@ -6994,18 +7000,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only placement groups with these pricing types.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpa Value
- *        "PRICING_TYPE_CPA"
- *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpc Value
- *        "PRICING_TYPE_CPC"
  *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpm Value
  *        "PRICING_TYPE_CPM"
- *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpmActiveview Value
- *        "PRICING_TYPE_CPM_ACTIVEVIEW"
- *    @arg @c kGTLRDfareportingPricingTypesPricingTypeFlatRateClicks Value
- *        "PRICING_TYPE_FLAT_RATE_CLICKS"
+ *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpc Value
+ *        "PRICING_TYPE_CPC"
+ *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpa Value
+ *        "PRICING_TYPE_CPA"
  *    @arg @c kGTLRDfareportingPricingTypesPricingTypeFlatRateImpressions Value
  *        "PRICING_TYPE_FLAT_RATE_IMPRESSIONS"
+ *    @arg @c kGTLRDfareportingPricingTypesPricingTypeFlatRateClicks Value
+ *        "PRICING_TYPE_FLAT_RATE_CLICKS"
+ *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpmActiveview Value
+ *        "PRICING_TYPE_CPM_ACTIVEVIEW"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pricingTypes;
 
@@ -7085,7 +7091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForPlacementGroupsPatchWithObject:profileId:identifier:]
 
 /**
- *  Placement group ID.
+ *  PlacementGroup ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7102,7 +7108,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_PlacementGroup to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Placement group ID.
+ *  @param identifier PlacementGroup ID.
  *
  *  @return GTLRDfareportingQuery_PlacementGroupsPatch
  */
@@ -7171,48 +7177,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @property(nonatomic, assign) long long profileId;
 
 /**
- *  Tag formats to generate for these placements.
- *  Note: PLACEMENT_TAG_STANDARD can only be generated for 1x1 placements.
+ *  Tag formats to generate for these placements. *Note:* PLACEMENT_TAG_STANDARD
+ *  can only be generated for 1x1 placements.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagClickCommands Value
- *        "PLACEMENT_TAG_CLICK_COMMANDS"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagIframeIlayer Value
- *        "PLACEMENT_TAG_IFRAME_ILAYER"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagStandard Value
+ *        "PLACEMENT_TAG_STANDARD"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagIframeJavascript Value
  *        "PLACEMENT_TAG_IFRAME_JAVASCRIPT"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagIframeJavascriptLegacy
- *        Value "PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetch Value
- *        "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast3
- *        Value "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast4
- *        Value "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagIframeIlayer Value
+ *        "PLACEMENT_TAG_IFRAME_ILAYER"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInternalRedirect Value
  *        "PLACEMENT_TAG_INTERNAL_REDIRECT"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagJavascript Value
+ *        "PLACEMENT_TAG_JAVASCRIPT"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInterstitialIframeJavascript
  *        Value "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInterstitialIframeJavascriptLegacy
- *        Value "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInterstitialInternalRedirect
  *        Value "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInterstitialJavascript
  *        Value "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInterstitialJavascriptLegacy
- *        Value "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagJavascript Value
- *        "PLACEMENT_TAG_JAVASCRIPT"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagJavascriptLegacy Value
- *        "PLACEMENT_TAG_JAVASCRIPT_LEGACY"
- *    @arg @c kGTLRDfareportingTagFormatsPlacementTagStandard Value
- *        "PLACEMENT_TAG_STANDARD"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagClickCommands Value
+ *        "PLACEMENT_TAG_CLICK_COMMANDS"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetch Value
+ *        "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagTracking Value
  *        "PLACEMENT_TAG_TRACKING"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagTrackingIframe Value
  *        "PLACEMENT_TAG_TRACKING_IFRAME"
  *    @arg @c kGTLRDfareportingTagFormatsPlacementTagTrackingJavascript Value
  *        "PLACEMENT_TAG_TRACKING_JAVASCRIPT"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast3
+ *        Value "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagIframeJavascriptLegacy
+ *        Value "PLACEMENT_TAG_IFRAME_JAVASCRIPT_LEGACY"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagJavascriptLegacy Value
+ *        "PLACEMENT_TAG_JAVASCRIPT_LEGACY"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInterstitialIframeJavascriptLegacy
+ *        Value "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT_LEGACY"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInterstitialJavascriptLegacy
+ *        Value "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT_LEGACY"
+ *    @arg @c kGTLRDfareportingTagFormatsPlacementTagInstreamVideoPrefetchVast4
+ *        Value "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagFormats;
 
@@ -7337,16 +7343,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  rendering in in-stream video ads developed with the VAST standard.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingCompatibilitiesApp Value "APP"
- *    @arg @c kGTLRDfareportingCompatibilitiesAppInterstitial Value
- *        "APP_INTERSTITIAL"
  *    @arg @c kGTLRDfareportingCompatibilitiesDisplay Value "DISPLAY"
  *    @arg @c kGTLRDfareportingCompatibilitiesDisplayInterstitial Value
  *        "DISPLAY_INTERSTITIAL"
- *    @arg @c kGTLRDfareportingCompatibilitiesInStreamAudio Value
- *        "IN_STREAM_AUDIO"
+ *    @arg @c kGTLRDfareportingCompatibilitiesApp Value "APP"
+ *    @arg @c kGTLRDfareportingCompatibilitiesAppInterstitial Value
+ *        "APP_INTERSTITIAL"
  *    @arg @c kGTLRDfareportingCompatibilitiesInStreamVideo Value
  *        "IN_STREAM_VIDEO"
+ *    @arg @c kGTLRDfareportingCompatibilitiesInStreamAudio Value
+ *        "IN_STREAM_AUDIO"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *compatibilities;
 
@@ -7435,18 +7441,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Select only placements with these pricing types.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpa Value
- *        "PRICING_TYPE_CPA"
- *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpc Value
- *        "PRICING_TYPE_CPC"
  *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpm Value
  *        "PRICING_TYPE_CPM"
- *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpmActiveview Value
- *        "PRICING_TYPE_CPM_ACTIVEVIEW"
- *    @arg @c kGTLRDfareportingPricingTypesPricingTypeFlatRateClicks Value
- *        "PRICING_TYPE_FLAT_RATE_CLICKS"
+ *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpc Value
+ *        "PRICING_TYPE_CPC"
+ *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpa Value
+ *        "PRICING_TYPE_CPA"
  *    @arg @c kGTLRDfareportingPricingTypesPricingTypeFlatRateImpressions Value
  *        "PRICING_TYPE_FLAT_RATE_IMPRESSIONS"
+ *    @arg @c kGTLRDfareportingPricingTypesPricingTypeFlatRateClicks Value
+ *        "PRICING_TYPE_FLAT_RATE_CLICKS"
+ *    @arg @c kGTLRDfareportingPricingTypesPricingTypeCpmActiveview Value
+ *        "PRICING_TYPE_CPM_ACTIVEVIEW"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pricingTypes;
 
@@ -7459,8 +7465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  "placement June 2015", "placement May 2015", or simply "placements 2015".
  *  Most of the searches also add wildcards implicitly at the start and the end
  *  of the search string. For example, a search string of "placement" will match
- *  placements with name "my placement", "placement 2015", or simply
- *  "placement".
+ *  placements with name "my placement", "placement 2015", or simply "placement"
+ *  .
  */
 @property(nonatomic, copy, nullable) NSString *searchString;
 
@@ -7766,7 +7772,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForPlacementStrategiesPatchWithObject:profileId:identifier:]
 
 /**
- *  Placement strategy ID.
+ *  PlacementStrategy ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -7784,7 +7790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_PlacementStrategy to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Placement strategy ID.
+ *  @param identifier PlacementStrategy ID.
  *
  *  @return GTLRDfareportingQuery_PlacementStrategiesPatch
  */
@@ -8019,8 +8025,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Retrieves a list of projects, possibly filtered. This method supports
- *  paging.
+ *  Retrieves a list of projects, possibly filtered. This method supports paging
+ *  .
  *
  *  Method: dfareporting.projects.list
  *
@@ -8096,8 +8102,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_ProjectsListResponse.
  *
- *  Retrieves a list of projects, possibly filtered. This method supports
- *  paging.
+ *  Retrieves a list of projects, possibly filtered. This method supports paging
+ *  .
  *
  *  @param profileId User profile ID associated with this request.
  *
@@ -8220,13 +8226,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  */
 @interface GTLRDfareportingQuery_RemarketingListSharesPatch : GTLRDfareportingQuery
 // Previous library name was
-//   +[GTLQueryDfareporting queryForRemarketingListSharesPatchWithObject:profileId:remarketingListId:]
+//   +[GTLQueryDfareporting queryForRemarketingListSharesPatchWithObject:profileId:identifier:]
+
+/**
+ *  RemarketingList ID.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, assign) long long identifier;
 
 /** User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
-
-/** Remarketing list ID. */
-@property(nonatomic, assign) long long remarketingListId;
 
 /**
  *  Fetches a @c GTLRDfareporting_RemarketingListShare.
@@ -8237,13 +8247,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_RemarketingListShare to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param remarketingListId Remarketing list ID.
+ *  @param identifier RemarketingList ID.
  *
  *  @return GTLRDfareportingQuery_RemarketingListSharesPatch
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_RemarketingListShare *)object
                       profileId:(long long)profileId
-              remarketingListId:(long long)remarketingListId;
+                     identifier:(long long)identifier;
 
 @end
 
@@ -8413,7 +8423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForRemarketingListsPatchWithObject:profileId:identifier:]
 
 /**
- *  Remarketing list ID.
+ *  RemarketingList ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -8430,7 +8440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_RemarketingList to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Remarketing list ID.
+ *  @param identifier RemarketingList ID.
  *
  *  @return GTLRDfareportingQuery_RemarketingListsPatch
  */
@@ -8485,7 +8495,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 // Previous library name was
 //   +[GTLQueryDfareporting queryForReportsCompatibleFieldsQueryWithObject:profileId:]
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /**
@@ -8496,7 +8506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  input report and user permissions.
  *
  *  @param object The @c GTLRDfareporting_Report to include in the query.
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *
  *  @return GTLRDfareportingQuery_ReportsCompatibleFieldsQuery
  */
@@ -8517,7 +8527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 // Previous library name was
 //   +[GTLQueryDfareporting queryForReportsDeleteWithprofileId:reportId:]
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /** The ID of the report. */
@@ -8529,7 +8539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Deletes a report by its ID.
  *
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *  @param reportId The ID of the report.
  *
  *  @return GTLRDfareportingQuery_ReportsDelete
@@ -8555,7 +8565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** The ID of the report file. */
 @property(nonatomic, assign) long long fileId;
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /** The ID of the report. */
@@ -8567,7 +8577,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Retrieves a report file by its report ID and file ID. This method supports
  *  media download.
  *
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *  @param reportId The ID of the report.
  *  @param fileId The ID of the report file.
  *
@@ -8583,7 +8593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Retrieves a report file by its report ID and file ID. This method supports
  *  media download.
  *
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *  @param reportId The ID of the report.
  *  @param fileId The ID of the report file.
  *
@@ -8618,7 +8628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** The value of the nextToken from the previous result page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The DFA profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /** The ID of the parent report. */
@@ -8654,7 +8664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Lists files for a report.
  *
- *  @param profileId The DFA profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *  @param reportId The ID of the parent report.
  *
  *  @return GTLRDfareportingQuery_ReportsFilesList
@@ -8680,7 +8690,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 // Previous library name was
 //   +[GTLQueryDfareporting queryForReportsGetWithprofileId:reportId:]
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /** The ID of the report. */
@@ -8691,7 +8701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Retrieves a report by its ID.
  *
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *  @param reportId The ID of the report.
  *
  *  @return GTLRDfareportingQuery_ReportsGet
@@ -8713,7 +8723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 // Previous library name was
 //   +[GTLQueryDfareporting queryForReportsInsertWithObject:profileId:]
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /**
@@ -8722,7 +8732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Creates a report.
  *
  *  @param object The @c GTLRDfareporting_Report to include in the query.
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *
  *  @return GTLRDfareportingQuery_ReportsInsert
  */
@@ -8754,7 +8764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** The value of the nextToken from the previous result page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /**
@@ -8803,7 +8813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Retrieves list of reports.
  *
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *
  *  @return GTLRDfareportingQuery_ReportsList
  *
@@ -8812,6 +8822,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *        information.
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
+
+@end
+
+/**
+ *  Updates an existing report. This method supports patch semantics.
+ *
+ *  Method: dfareporting.reports.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareporting
+ */
+@interface GTLRDfareportingQuery_ReportsPatch : GTLRDfareportingQuery
+// Previous library name was
+//   +[GTLQueryDfareporting queryForReportsPatchWithObject:profileId:reportId:]
+
+/** The DFA user profile ID. */
+@property(nonatomic, assign) long long profileId;
+
+/** The ID of the report. */
+@property(nonatomic, assign) long long reportId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_Report.
+ *
+ *  Updates an existing report. This method supports patch semantics.
+ *
+ *  @param object The @c GTLRDfareporting_Report to include in the query.
+ *  @param profileId The DFA user profile ID.
+ *  @param reportId The ID of the report.
+ *
+ *  @return GTLRDfareportingQuery_ReportsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
+                      profileId:(long long)profileId
+                       reportId:(long long)reportId;
 
 @end
 
@@ -8827,7 +8872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 // Previous library name was
 //   +[GTLQueryDfareporting queryForReportsRunWithprofileId:reportId:]
 
-/** The DFA profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /** The ID of the report. */
@@ -8845,7 +8890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Runs a report.
  *
- *  @param profileId The DFA profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *  @param reportId The ID of the report.
  *
  *  @return GTLRDfareportingQuery_ReportsRun
@@ -8867,7 +8912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 // Previous library name was
 //   +[GTLQueryDfareporting queryForReportsUpdateWithObject:profileId:reportId:]
 
-/** The DFA user profile ID. */
+/** The Campaign Manager 360 user profile ID. */
 @property(nonatomic, assign) long long profileId;
 
 /** The ID of the report. */
@@ -8879,7 +8924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Updates a report.
  *
  *  @param object The @c GTLRDfareporting_Report to include in the query.
- *  @param profileId The DFA user profile ID.
+ *  @param profileId The Campaign Manager 360 user profile ID.
  *  @param reportId The ID of the report.
  *
  *  @return GTLRDfareportingQuery_ReportsUpdate
@@ -9382,8 +9427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  June 2015", "subaccount April 2015", or simply "subaccount 2015". Most of
  *  the searches also add wildcards implicitly at the start and the end of the
  *  search string. For example, a search string of "subaccount" will match
- *  objects with name "my subaccount", "subaccount 2015", or simply
- *  "subaccount".
+ *  objects with name "my subaccount", "subaccount 2015", or simply "subaccount"
+ *  .
  */
 @property(nonatomic, copy, nullable) NSString *searchString;
 
@@ -9796,7 +9841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForTargetingTemplatesPatchWithObject:profileId:identifier:]
 
 /**
- *  Targeting template ID.
+ *  TargetingTemplate ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -9814,7 +9859,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @param object The @c GTLRDfareporting_TargetingTemplate to include in the
  *    query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier Targeting template ID.
+ *  @param identifier TargetingTemplate ID.
  *
  *  @return GTLRDfareportingQuery_TargetingTemplatesPatch
  */
@@ -9862,6 +9907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDfareporting
+ *    @c kGTLRAuthScopeDfareportingDdmconversions
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserProfilesGet : GTLRDfareportingQuery
@@ -9891,6 +9937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDfareporting
+ *    @c kGTLRAuthScopeDfareportingDdmconversions
  *    @c kGTLRAuthScopeDfareportingDfatrafficking
  */
 @interface GTLRDfareportingQuery_UserProfilesList : GTLRDfareportingQuery
@@ -10258,7 +10305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 //   +[GTLQueryDfareporting queryForUserRolesPatchWithObject:profileId:identifier:]
 
 /**
- *  User role ID.
+ *  UserRole ID.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -10274,7 +10321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *
  *  @param object The @c GTLRDfareporting_UserRole to include in the query.
  *  @param profileId User profile ID associated with this request.
- *  @param identifier User role ID.
+ *  @param identifier UserRole ID.
  *
  *  @return GTLRDfareportingQuery_UserRolesPatch
  */

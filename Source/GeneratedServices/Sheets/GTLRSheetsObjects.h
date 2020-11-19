@@ -820,7 +820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_Boolean;
 FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_ConditionTypeUnspecified;
 /**
  *  The condition's formula must evaluate to true. Supported by data validation,
- *  conditional formatting and filters. Requires a single ConditionValue.
+ *  conditional formatting and filters. Not supported by data source sheet
+ *  filters. Requires a single ConditionValue.
  *
  *  Value: "CUSTOM_FORMULA"
  */
@@ -851,7 +852,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_DateBetween
 /**
  *  The cell's value must be the same date as the condition's value. Supported
  *  by data validation, conditional formatting and filters. Requires a single
- *  ConditionValue.
+ *  ConditionValue for data validation, conditional formatting, and filters on
+ *  non-data source objects and at least one ConditionValue for filters on data
+ *  source objects.
  *
  *  Value: "DATE_EQ"
  */
@@ -911,7 +914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberBetwe
 /**
  *  The cell's value must be equal to the condition's value. Supported by data
  *  validation, conditional formatting and filters. Requires a single
- *  ConditionValue.
+ *  ConditionValue for data validation, conditional formatting, and filters on
+ *  non-data source objects and at least one ConditionValue for filters on data
+ *  source objects.
  *
  *  Value: "NUMBER_EQ"
  */
@@ -959,7 +964,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_NumberNotBe
 /**
  *  The cell's value must be not equal to the condition's value. Supported by
  *  data validation, conditional formatting and filters. Requires a single
- *  ConditionValue.
+ *  ConditionValue for data validation, conditional formatting, and filters on
+ *  non-data source objects and at least one ConditionValue for filters on data
+ *  source objects.
  *
  *  Value: "NUMBER_NOT_EQ"
  */
@@ -998,7 +1005,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_BooleanCondition_Type_TextEndsWit
 /**
  *  The cell's value must be exactly the condition's value. Supported by data
  *  validation, conditional formatting and filters. Requires a single
- *  ConditionValue.
+ *  ConditionValue for data validation, conditional formatting, and filters on
+ *  non-data source objects and at least one ConditionValue for filters on data
+ *  source objects.
  *
  *  Value: "TEXT_EQ"
  */
@@ -1904,7 +1913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimensi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_DataSourceRefreshSchedule_RefreshScope_AllDataSources;
 /**
- *  Default value; Do not use.
+ *  Default value, do not use.
  *
  *  Value: "DATA_SOURCE_REFRESH_SCOPE_UNSPECIFIED"
  */
@@ -3338,9 +3347,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Adds a data source. After the data source is added successfully, an
- *  associated DataSource sheet is created and an execution is triggered to
+ *  associated DATA_SOURCE sheet is created and an execution is triggered to
  *  refresh the sheet to read data from the data source. The request requires an
- *  additional bigquery.readonly OAuth scope.
+ *  additional `bigquery.readonly` OAuth scope.
  */
 @interface GTLRSheets_AddDataSourceRequest : GTLRObject
 
@@ -4113,7 +4122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The criteria for showing/hiding values per column. The map's key is the
- *  column index, and the value is the criteria for that column.
+ *  column index, and the value is the criteria for that column. This field is
+ *  deprecated in favor of filter_specs.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_BasicFilter_Criteria *criteria;
 
@@ -4138,7 +4148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The criteria for showing/hiding values per column. The map's key is the
- *  column index, and the value is the criteria for that column.
+ *  column index, and the value is the criteria for that column. This field is
+ *  deprecated in favor of filter_specs.
  *
  *  @note This class is documented as having more properties of
  *        GTLRSheets_FilterCriteria. Use @c -additionalJSONKeys and @c
@@ -4650,7 +4661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  The specification of a BigQuery data source.
+ *  The specification of a BigQuery data source that's connected to a sheet.
  */
 @interface GTLRSheets_BigQueryDataSourceSpec : GTLRObject
 
@@ -4681,7 +4692,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  Specifies a BigQuery table definition. Only native tables is allowed.
+ *  Specifies a BigQuery table definition. Only [native
+ *  tables](https://cloud.google.com/bigquery/docs/tables-intro) is allowed.
  */
 @interface GTLRSheets_BigQueryTableSpec : GTLRObject
 
@@ -4729,8 +4741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        default value, do not use. (Value: "CONDITION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_CustomFormula The condition's
  *        formula must evaluate to true. Supported by data validation,
- *        conditional formatting and filters. Requires a single ConditionValue.
- *        (Value: "CUSTOM_FORMULA")
+ *        conditional formatting and filters. Not supported by data source sheet
+ *        filters. Requires a single ConditionValue. (Value: "CUSTOM_FORMULA")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_DateAfter The cell's value must
  *        be after the date of the condition's value. Supported by data
  *        validation, conditional formatting and filters. Requires a single
@@ -4745,8 +4757,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        "DATE_BETWEEN")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_DateEq The cell's value must be
  *        the same date as the condition's value. Supported by data validation,
- *        conditional formatting and filters. Requires a single ConditionValue.
- *        (Value: "DATE_EQ")
+ *        conditional formatting and filters. Requires a single ConditionValue
+ *        for data validation, conditional formatting, and filters on non-data
+ *        source objects and at least one ConditionValue for filters on data
+ *        source objects. (Value: "DATE_EQ")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_DateIsValid The cell's value
  *        must be a date. Supported by data validation. Requires no
  *        ConditionValues. (Value: "DATE_IS_VALID")
@@ -4775,8 +4789,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        ConditionValues. (Value: "NUMBER_BETWEEN")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_NumberEq The cell's value must
  *        be equal to the condition's value. Supported by data validation,
- *        conditional formatting and filters. Requires a single ConditionValue.
- *        (Value: "NUMBER_EQ")
+ *        conditional formatting and filters. Requires a single ConditionValue
+ *        for data validation, conditional formatting, and filters on non-data
+ *        source objects and at least one ConditionValue for filters on data
+ *        source objects. (Value: "NUMBER_EQ")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_NumberGreater The cell's value
  *        must be greater than the condition's value. Supported by data
  *        validation, conditional formatting and filters. Requires a single
@@ -4800,7 +4816,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_BooleanCondition_Type_NumberNotEq The cell's value
  *        must be not equal to the condition's value. Supported by data
  *        validation, conditional formatting and filters. Requires a single
- *        ConditionValue. (Value: "NUMBER_NOT_EQ")
+ *        ConditionValue for data validation, conditional formatting, and
+ *        filters on non-data source objects and at least one ConditionValue for
+ *        filters on data source objects. (Value: "NUMBER_NOT_EQ")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_OneOfList The cell's value must
  *        be in the list of condition values. Supported by data validation.
  *        Supports any number of condition values, one per item in the list.
@@ -4819,8 +4837,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        "TEXT_ENDS_WITH")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_TextEq The cell's value must be
  *        exactly the condition's value. Supported by data validation,
- *        conditional formatting and filters. Requires a single ConditionValue.
- *        (Value: "TEXT_EQ")
+ *        conditional formatting and filters. Requires a single ConditionValue
+ *        for data validation, conditional formatting, and filters on non-data
+ *        source objects and at least one ConditionValue for filters on data
+ *        source objects. (Value: "TEXT_EQ")
  *    @arg @c kGTLRSheets_BooleanCondition_Type_TextIsEmail The cell's value
  *        must be a valid email address. Supported by data validation. Requires
  *        no ConditionValues. (Value: "TEXT_IS_EMAIL")
@@ -4989,7 +5009,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *bubbleSizes;
 
 /**
- *  The format of the text inside the bubbles. Underline and Strikethrough are
+ *  The format of the text inside the bubbles. Strikethrough and underline are
  *  not supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *bubbleTextStyle;
@@ -5127,8 +5147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Output only. Information about a data source formula on the cell. The field
- *  is set if user_entered_value is a formula referencing some
- *  [SheetType.DATA_SOURCE] sheet, e.g `=SUM(DataSheet!Column)`.
+ *  is set if user_entered_value is a formula referencing some DATA_SOURCE
+ *  sheet, e.g `=SUM(DataSheet!Column)`.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_DataSourceFormula *dataSourceFormula;
 
@@ -5169,8 +5189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *formattedValue;
 
 /**
- *  A hyperlink this cell points to, if any. This field is read-only. (To set
- *  it, use a `=HYPERLINK` formula in the userEnteredValue.formulaValue field.)
+ *  A hyperlink this cell points to, if any. If the cell contains multiple
+ *  hyperlinks, this field will be empty. This field is read-only. To set it,
+ *  use a `=HYPERLINK` formula in the userEnteredValue.formulaValue field.
  */
 @property(nonatomic, copy, nullable) NSString *hyperlink;
 
@@ -5188,12 +5209,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Runs of rich text applied to subsections of the cell. Runs are only valid on
- *  user entered strings, not formulas, bools, or numbers. Runs start at
- *  specific indexes in the text and continue until the next run. Properties of
- *  a run will continue unless explicitly changed in a subsequent run (and
- *  properties of the first run will continue the properties of the cell unless
- *  explicitly changed). When writing, the new runs will overwrite any prior
- *  runs. When writing a new user_entered_value, previous runs are erased.
+ *  user entered strings, not formulas, bools, or numbers. Properties of a run
+ *  start at a specific index in the text and continue until the next run. Runs
+ *  will inherit the properties of the cell unless explicitly changed. When
+ *  writing, the new runs will overwrite any prior runs. When writing a new
+ *  user_entered_value, previous runs are erased.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_TextFormatRun *> *textFormatRuns;
 
@@ -6053,7 +6073,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  The data execution status.
+ *  The data execution status. A data execution is created to sync a data source
+ *  object with the latest data from a DataSource. It is usually scheduled to
+ *  run at background, you can check its state to tell if an execution completes
+ *  There are several scenarios where a data execution is triggered to run: *
+ *  Adding a data source creates an associated data source sheet as well as a
+ *  data execution to sync the data from the data source to the sheet. *
+ *  Updating a data source creates a data execution to refresh the associated
+ *  data source sheet similarly. * You can send refresh request to explicitly
+ *  refresh one or multiple data source objects.
  */
 @interface GTLRSheets_DataExecutionStatus : GTLRObject
 
@@ -6203,20 +6231,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /** All calculated columns in the data source. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataSourceColumn *> *calculatedColumns;
 
-/** The spreadsheet-scoped unique ID that identifies the data source. */
+/**
+ *  The spreadsheet-scoped unique ID that identifies the data source. Example:
+ *  1080547365.
+ */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 /**
  *  The ID of the Sheet connected with the data source. The field cannot be
- *  changed once set. When creating a data source, an associated
- *  SheetType.DATA_SOURCE sheet is also created, if the field is not specified,
- *  the ID of the created sheet will be randomly generated.
+ *  changed once set. When creating a data source, an associated DATA_SOURCE
+ *  sheet is also created, if the field is not specified, the ID of the created
+ *  sheet will be randomly generated.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sheetId;
 
-/** The DataSourceSpec. */
+/** The DataSourceSpec for the data source connected with this spreadsheet. */
 @property(nonatomic, strong, nullable) GTLRSheets_DataSourceSpec *spec;
 
 @end
@@ -6237,7 +6268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  A data source column.
+ *  A column in a data source.
  */
 @interface GTLRSheets_DataSourceColumn : GTLRObject
 
@@ -6251,7 +6282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  An unique identifier that references to a data source column.
+ *  An unique identifier that references a data source column.
  */
 @interface GTLRSheets_DataSourceColumnReference : GTLRObject
 
@@ -6283,7 +6314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_DataSourceObjectReference : GTLRObject
 
 /**
- *  References to a DataSourceChart.
+ *  References to a data source chart.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6298,7 +6329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /** References to a DataSourceTable anchored at the cell. */
 @property(nonatomic, strong, nullable) GTLRSheets_GridCoordinate *dataSourceTableAnchorCell;
 
-/** References to a SheetType.DATA_SOURCE sheet. */
+/** References to a DATA_SOURCE sheet. */
 @property(nonatomic, copy, nullable) NSString *sheetId;
 
 @end
@@ -6316,14 +6347,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  A parameter in a data source's query. The parameter allows user to pass in
- *  values from the spreadsheet into a query.
+ *  A parameter in a data source's query. The parameter allows the user to pass
+ *  in values from the spreadsheet into a query.
  */
 @interface GTLRSheets_DataSourceParameter : GTLRObject
 
 /**
  *  Named parameter. Must be a legitimate identifier for the DataSource that
- *  supports it. For example, BigQuery identifier
+ *  supports it. For example, [BigQuery
+ *  identifier](https://cloud.google.com/bigquery/docs/reference/standard-sql/lexical#identifiers).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6337,7 +6369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  Schedule refreshes in a time interval everyday.
+ *  A schedule for data to refresh every day in a given time interval.
  */
 @interface GTLRSheets_DataSourceRefreshDailySchedule : GTLRObject
 
@@ -6352,8 +6384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  Schedule refreshes in a time interval on specified days in a month and
- *  repeats monthly.
+ *  A monthly schedule for data to refresh on specific days in the month in a
+ *  given time interval.
  */
 @interface GTLRSheets_DataSourceRefreshMonthlySchedule : GTLRObject
 
@@ -6376,11 +6408,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  The data source refresh schedule. All data sources in the spreadsheet are
- *  scheduled to refresh in a future time interval. The time interval size
- *  defaults to the one defined in the Sheets editor. For example, if a daily
- *  schedule at start time of 8am is scheduled, and the time interval is 4
- *  hours, the scheduled refresh will happen between 8am and 12pm every day.
+ *  Schedule for refreshing the data source. Data sources in the spreadsheet are
+ *  refreshed within a time interval. You can specify the start time by clicking
+ *  the Scheduled Refresh button in the Sheets editor, but the interval is fixed
+ *  at 4 hours. For example, if you specify a start time of 8am , the refresh
+ *  will take place between 8am and 12pm every day.
  */
 @interface GTLRSheets_DataSourceRefreshSchedule : GTLRObject
 
@@ -6401,14 +6433,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) GTLRSheets_Interval *nextRun;
 
 /**
- *  The scope of the refresh.
+ *  The scope of the refresh. Must be ALL_DATA_SOURCES.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_DataSourceRefreshSchedule_RefreshScope_AllDataSources
  *        Refreshes all data sources and their associated data source objects in
  *        the spreadsheet. (Value: "ALL_DATA_SOURCES")
  *    @arg @c kGTLRSheets_DataSourceRefreshSchedule_RefreshScope_DataSourceRefreshScopeUnspecified
- *        Default value; Do not use. (Value:
+ *        Default value, do not use. (Value:
  *        "DATA_SOURCE_REFRESH_SCOPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *refreshScope;
@@ -6420,8 +6452,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  Schedule refreshes in a time interval on specified days in a week and
- *  repeats weekly.
+ *  A weekly schedule for data to refresh on specific days in a given time
+ *  interval.
  */
 @interface GTLRSheets_DataSourceRefreshWeeklySchedule : GTLRObject
 
@@ -6439,7 +6471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  A range along a single dimension on a DataSource sheet.
+ *  A range along a single dimension on a DATA_SOURCE sheet.
  */
 @interface GTLRSheets_DataSourceSheetDimensionRange : GTLRObject
 
@@ -6457,7 +6489,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  Additional properties of a SheetType.DATA_SOURCE sheet.
+ *  Additional properties of a DATA_SOURCE sheet.
  */
 @interface GTLRSheets_DataSourceSheetProperties : GTLRObject
 
@@ -6469,30 +6501,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /** The data execution status. */
 @property(nonatomic, strong, nullable) GTLRSheets_DataExecutionStatus *dataExecutionStatus;
 
-/** ID of the DataSource the sheet connected with. */
+/** ID of the DataSource the sheet is connected to. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
 
 @end
 
 
 /**
- *  The specification of a data source.
+ *  This specifies the details of the data source. For example, for BigQuery,
+ *  this specifies information about the BigQuery source.
  */
 @interface GTLRSheets_DataSourceSpec : GTLRObject
 
 /** A BigQueryDataSourceSpec. */
 @property(nonatomic, strong, nullable) GTLRSheets_BigQueryDataSourceSpec *bigQuery;
 
-/** The parameters of the data source. */
+/** The parameters of the data source, used when querying the data source. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_DataSourceParameter *> *parameters;
 
 @end
 
 
 /**
- *  A data source table, allowing to import a static table of data from the
- *  DataSource into Sheets. This is also known as "Extract" in the Sheets
- *  editor.
+ *  A data source table, which allows the user to import a static table of data
+ *  from the DataSource into Sheets. This is also known as "Extract" in the
+ *  Sheets editor.
  */
 @interface GTLRSheets_DataSourceTable : GTLRObject
 
@@ -6887,7 +6920,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_DeleteSheetRequest : GTLRObject
 
 /**
- *  The ID of the sheet to delete.
+ *  The ID of the sheet to delete. If the sheet is of SheetType.DATA_SOURCE
+ *  type, the associated DataSource is also deleted.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7277,7 +7311,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *newSheetName NS_RETURNS_NOT_RETAINED;
 
 /**
- *  The sheet to duplicate.
+ *  The sheet to duplicate. If the source sheet is of DATA_SOURCE type, its
+ *  backing DataSource is also duplicated and associated with the new copy of
+ *  the sheet. No data execution is triggered, the grid data of this sheet is
+ *  also copied over but only available after the batch request completes.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7518,7 +7555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The criteria for showing/hiding values per column. The map's key is the
- *  column index, and the value is the criteria for that column.
+ *  column index, and the value is the criteria for that column. This field is
+ *  deprecated in favor of filter_specs.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_FilterView_Criteria *criteria;
 
@@ -7562,7 +7600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The criteria for showing/hiding values per column. The map's key is the
- *  column index, and the value is the criteria for that column.
+ *  column index, and the value is the criteria for that column. This field is
+ *  deprecated in favor of filter_specs.
  *
  *  @note This class is documented as having more properties of
  *        GTLRSheets_FilterCriteria. Use @c -additionalJSONKeys and @c
@@ -8702,6 +8741,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @interface GTLRSheets_PivotFilterCriteria : GTLRObject
 
+/**
+ *  A condition that must be true for values to be shown. (`visibleValues` does
+ *  not override this -- even if a value is listed there, it is still hidden if
+ *  it does not meet the condition.) Condition values that refer to ranges in
+ *  A1-notation are evaluated relative to the pivot table sheet. References are
+ *  treated absolutely, so are not filled down the pivot table. For example, a
+ *  condition value of `=A1` on "Pivot Table 1" is treated as `'Pivot Table
+ *  1'!$A$1`. The source data of the pivot table can be referenced by column
+ *  header name. For example, if the source data has columns named "Revenue" and
+ *  "Cost" and a condition is applied to the "Revenue" column with type
+ *  `NUMBER_GREATER` and value `=Cost`, then only columns where "Revenue" >
+ *  "Cost" are included.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_BooleanCondition *condition;
+
+/**
+ *  Whether values are visible by default. If true, the visible_values are
+ *  ignored, all values that meet condition (if specified) are shown. If false,
+ *  values that are both in visible_values and meet condition are shown.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visibleByDefault;
+
 /** Values that should be included. Values not listed here are excluded. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *visibleValues;
 
@@ -8926,7 +8989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  column offset of the source range that you want to filter, and the value is
  *  the criteria for that column. For example, if the source was `C10:E15`, a
  *  key of `0` will have the filter for column `C`, whereas the key `1` is for
- *  column `D`.
+ *  column `D`. This field is deprecated in favor of filter_specs.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_PivotTable_Criteria *criteria;
 
@@ -8973,7 +9036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  column offset of the source range that you want to filter, and the value is
  *  the criteria for that column. For example, if the source was `C10:E15`, a
  *  key of `0` will have the filter for column `C`, whereas the key `1` is for
- *  column `D`.
+ *  column `D`. This field is deprecated in favor of filter_specs.
  *
  *  @note This class is documented as having more properties of
  *        GTLRSheets_PivotFilterCriteria. Use @c -additionalJSONKeys and @c
@@ -9175,10 +9238,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Refreshes one or multiple data source objects in the spreadsheet by the
- *  specified references. The request requires an additional bigquery.readonly
- *  OAuth scope. If there're multiple refresh requests referencing the same data
- *  source objects in one batch, only the last refresh request is processed, and
- *  all those requests will have the same response accordingly.
+ *  specified references. The request requires an additional `bigquery.readonly`
+ *  OAuth scope. If there are multiple refresh requests referencing the same
+ *  data source objects in one batch, only the last refresh request is
+ *  processed, and all those requests will have the same response accordingly.
  */
 @interface GTLRSheets_RefreshDataSourceRequest : GTLRObject
 
@@ -9562,7 +9625,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The aggregation type for key and baseline chart data in scorecard chart.
- *  This field is optional.
+ *  This field is not supported for data source charts. Use the
+ *  ChartData.aggregateType field of the key_value_data or baseline_value_data
+ *  instead for data source charts. This field is optional.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_ScorecardChartSpec_AggregateType_Average Average
@@ -9717,7 +9782,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  with ranges `Sheet1!A1:C10` and `Sheet1!D15:E20`, then the first GridData
  *  will have a startRow/startColumn of `0`, while the second one will have
  *  `startRow 14` (zero-based row 15), and `startColumn 3` (zero-based column
- *  D).
+ *  D). For a DATA_SOURCE sheet, you can not request a specific range, the
+ *  GridData contains all the values.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_GridData *> *data;
 
@@ -9754,8 +9820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_SheetProperties : GTLRObject
 
 /**
- *  Output only. If present, the field contains SheetType.DATA_SOURCE sheet
- *  specific properties.
+ *  Output only. If present, the field contains DATA_SOURCE sheet specific
+ *  properties.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_DataSourceSheetProperties *dataSourceSheetProperties;
 
@@ -9763,7 +9829,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Additional properties of the sheet if this sheet is a grid. (If the sheet is
  *  an object sheet, containing a chart or image, then this field will be
  *  absent.) When writing it is an error to set any grid properties on non-grid
- *  sheets.
+ *  sheets. If this sheet is a DATA_SOURCE sheet, this field is output only but
+ *  contains the properties that reflect how a data source sheet is rendered in
+ *  the UI, e.g. row_count.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_GridProperties *gridProperties;
 
@@ -10765,9 +10833,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Updates a data source. After the data source is updated successfully, an
- *  execution is triggered to refresh the associated DataSource sheet to read
+ *  execution is triggered to refresh the associated DATA_SOURCE sheet to read
  *  data from the updated data source. The request requires an additional
- *  bigquery.readonly OAuth scope.
+ *  `bigquery.readonly` OAuth scope.
  */
 @interface GTLRSheets_UpdateDataSourceRequest : GTLRObject
 
@@ -10776,7 +10844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The fields that should be updated. At least one field must be specified. The
- *  root 'dataSource' is implied and should not be specified. A single `"*"` can
+ *  root `dataSource` is implied and should not be specified. A single `"*"` can
  *  be used as short-hand for listing every field.
  *
  *  String format is a comma-separated list of fields.

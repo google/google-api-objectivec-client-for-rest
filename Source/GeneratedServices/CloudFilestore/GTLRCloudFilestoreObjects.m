@@ -14,6 +14,21 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudFilestore_Backup.sourceInstanceTier
+NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_BasicHdd = @"BASIC_HDD";
+NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_BasicSsd = @"BASIC_SSD";
+NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_HighScaleSsd = @"HIGH_SCALE_SSD";
+NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Premium = @"PREMIUM";
+NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_Standard = @"STANDARD";
+NSString * const kGTLRCloudFilestore_Backup_SourceInstanceTier_TierUnspecified = @"TIER_UNSPECIFIED";
+
+// GTLRCloudFilestore_Backup.state
+NSString * const kGTLRCloudFilestore_Backup_State_Creating     = @"CREATING";
+NSString * const kGTLRCloudFilestore_Backup_State_Deleting     = @"DELETING";
+NSString * const kGTLRCloudFilestore_Backup_State_Finalizing   = @"FINALIZING";
+NSString * const kGTLRCloudFilestore_Backup_State_Ready        = @"READY";
+NSString * const kGTLRCloudFilestore_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance.state
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Creating = @"CREATING";
 NSString * const kGTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Deleting = @"DELETING";
@@ -39,9 +54,60 @@ NSString * const kGTLRCloudFilestore_Instance_Tier_Premium     = @"PREMIUM";
 NSString * const kGTLRCloudFilestore_Instance_Tier_Standard    = @"STANDARD";
 NSString * const kGTLRCloudFilestore_Instance_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
 
+// GTLRCloudFilestore_MaintenancePolicy.state
+NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_Deleting = @"DELETING";
+NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_Ready = @"READY";
+NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudFilestore_NetworkConfig.modes
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified = @"ADDRESS_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4";
+
+// GTLRCloudFilestore_Schedule.day
+NSString * const kGTLRCloudFilestore_Schedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_Schedule_Day_Friday       = @"FRIDAY";
+NSString * const kGTLRCloudFilestore_Schedule_Day_Monday       = @"MONDAY";
+NSString * const kGTLRCloudFilestore_Schedule_Day_Saturday     = @"SATURDAY";
+NSString * const kGTLRCloudFilestore_Schedule_Day_Sunday       = @"SUNDAY";
+NSString * const kGTLRCloudFilestore_Schedule_Day_Thursday     = @"THURSDAY";
+NSString * const kGTLRCloudFilestore_Schedule_Day_Tuesday      = @"TUESDAY";
+NSString * const kGTLRCloudFilestore_Schedule_Day_Wednesday    = @"WEDNESDAY";
+
+// GTLRCloudFilestore_UpdatePolicy.channel
+NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Earlier = @"EARLIER";
+NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Later = @"LATER";
+NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecified = @"UPDATE_CHANNEL_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Backup
+//
+
+@implementation GTLRCloudFilestore_Backup
+@dynamic capacityGb, createTime, descriptionProperty, downloadBytes, labels,
+         name, sourceFileShare, sourceInstance, sourceInstanceTier, state,
+         storageBytes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Backup_Labels
+//
+
+@implementation GTLRCloudFilestore_Backup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -49,6 +115,36 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 //
 
 @implementation GTLRCloudFilestore_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_DailyCycle
+//
+
+@implementation GTLRCloudFilestore_DailyCycle
+@dynamic duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Date
+//
+
+@implementation GTLRCloudFilestore_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_DenyMaintenancePeriod
+//
+
+@implementation GTLRCloudFilestore_DenyMaintenancePeriod
+@dynamic endDate, startDate, time;
 @end
 
 
@@ -67,7 +163,7 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 //
 
 @implementation GTLRCloudFilestore_FileShareConfig
-@dynamic capacityGb, name;
+@dynamic capacityGb, name, sourceBackup;
 @end
 
 
@@ -178,7 +274,21 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
-@dynamic exclude;
+@dynamic exclude, maintenancePolicies;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies
+//
+
+@implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudFilestore_MaintenancePolicy class];
+}
+
 @end
 
 
@@ -293,6 +403,29 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_ListBackupsResponse
+//
+
+@implementation GTLRCloudFilestore_ListBackupsResponse
+@dynamic backups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backups" : [GTLRCloudFilestore_Backup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_ListInstancesResponse
 //
 
@@ -398,6 +531,46 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_MaintenancePolicy
+//
+
+@implementation GTLRCloudFilestore_MaintenancePolicy
+@dynamic createTime, descriptionProperty, labels, name, state, updatePolicy,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_MaintenancePolicy_Labels
+//
+
+@implementation GTLRCloudFilestore_MaintenancePolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_MaintenanceWindow
+//
+
+@implementation GTLRCloudFilestore_MaintenanceWindow
+@dynamic dailyCycle, weeklyCycle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_NetworkConfig
 //
 
@@ -466,6 +639,26 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_RestoreInstanceRequest
+//
+
+@implementation GTLRCloudFilestore_RestoreInstanceRequest
+@dynamic fileShare, sourceBackup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_Schedule
+//
+
+@implementation GTLRCloudFilestore_Schedule
+@dynamic day, duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_Status
 //
 
@@ -491,6 +684,52 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4"
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_TimeOfDay
+//
+
+@implementation GTLRCloudFilestore_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_UpdatePolicy
+//
+
+@implementation GTLRCloudFilestore_UpdatePolicy
+@dynamic channel, denyMaintenancePeriods, window;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"denyMaintenancePeriods" : [GTLRCloudFilestore_DenyMaintenancePeriod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_WeeklyCycle
+//
+
+@implementation GTLRCloudFilestore_WeeklyCycle
+@dynamic schedule;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedule" : [GTLRCloudFilestore_Schedule class]
+  };
+  return map;
 }
 
 @end

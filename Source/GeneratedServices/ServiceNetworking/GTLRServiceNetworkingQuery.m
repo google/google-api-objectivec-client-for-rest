@@ -392,6 +392,25 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_ConsumerConfig class];
+  query.loggingName = @"servicenetworking.services.projects.global.networks.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksPeeredDnsDomainsCreate
 
 @dynamic parent;
@@ -452,6 +471,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRServiceNetworking_ListPeeredDnsDomainsResponse class];
   query.loggingName = @"servicenetworking.services.projects.global.networks.peeredDnsDomains.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksUpdateConsumerConfig
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_UpdateConsumerConfigRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:updateConsumerConfig";
+  GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksUpdateConsumerConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.projects.global.networks.updateConsumerConfig";
   return query;
 }
 

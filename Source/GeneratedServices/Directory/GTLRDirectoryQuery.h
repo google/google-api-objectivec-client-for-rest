@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Directory API (admin/directory_v1)
+//   Admin SDK (admin/directory_v1)
 // Description:
-//   Manages enterprise resources such as users and groups, administrative
-//   notifications, security features, and more.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/directory/
+//   http://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -27,6 +28,7 @@
 @class GTLRDirectory_Channel;
 @class GTLRDirectory_ChromeOsDevice;
 @class GTLRDirectory_ChromeOsDeviceAction;
+@class GTLRDirectory_ChromeosdevicesIssueCommandRequest;
 @class GTLRDirectory_ChromeOsMoveDevicesToOu;
 @class GTLRDirectory_Customer;
 @class GTLRDirectory_DomainAlias;
@@ -64,6 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "CLIENT_SPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified;
+/** Value: "COORDINATES_SOURCE_UNDEFINED" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined;
 /**
  *  Building.coordinates are automatically populated based on the postal
  *  address.
@@ -86,6 +90,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecif
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventAdd;
 /** Value: "delete" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventDelete;
+/** Value: "eventTypeUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventEventTypeUnspecified;
+/** Value: "eventUndefined" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventEventUndefined;
 /**
  *  User Admin Status Change Event
  *
@@ -160,6 +168,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByName;
  *  Value: "notes"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByNotes;
+/** Value: "orderByUndefined" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByOrderByUndefined;
+/** Value: "orderByUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByOrderByUnspecified;
 /**
  *  Mobile operating system.
  *
@@ -200,6 +212,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionBasic;
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionCustom;
 /** Value: "full" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionFull;
+/** Value: "PROJECTION_UNDEFINED" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionProjectionUndefined;
+/** Value: "projectionUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionProjectionUnspecified;
 
 // ----------------------------------------------------------------------------
 // sortOrder
@@ -216,6 +232,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderAscending;
  *  Value: "DESCENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderDescending;
+/** Value: "SORT_ORDER_UNDEFINED" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderSortOrderUndefined;
+/** Value: "sortOrderUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectorySortOrderSortOrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // type
@@ -232,6 +252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeAll;
  *  Value: "children"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeChildren;
+/** Value: "typeUndefined" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeTypeUndefined;
 
 // ----------------------------------------------------------------------------
 // viewType
@@ -248,6 +270,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeAdminView;
  *  Value: "domain_public"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
+/** Value: "view_type_undefined" */
+FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -371,7 +395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Stop watching resources through this channel
+ *  Stop watching resources through this channel.
  *
  *  Method: admin.channels.stop
  *
@@ -390,7 +414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Stop watching resources through this channel
+ *  Stop watching resources through this channel.
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *
@@ -460,6 +484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
+ *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, serialNumber, status, and user) (Value:
  *        "BASIC")
@@ -500,7 +526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Maximum number of results to return. Max allowed value is 200.
+ *  Maximum number of results to return.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -510,6 +536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Column to use for sorting results
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
  *    @arg @c kGTLRDirectoryOrderByAnnotatedLocation Chromebook location as
  *        annotated by the administrator. (Value: "annotatedLocation")
  *    @arg @c kGTLRDirectoryOrderByAnnotatedUser Chromebook user as annotated by
@@ -536,6 +563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
+ *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, serialNumber, status, and user) (Value:
  *        "BASIC")
@@ -544,7 +573,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
-/** Search string in the format provided by this Help Center article. */
+/**
+ *  Search string in the format given at
+ *  http://support.google.com/chromeos/a/bin/answer.py?answer=1698333
+ */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
@@ -552,6 +584,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  orderBy is also used
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
+ *        "SORT_ORDER_UNDEFINED"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -614,7 +648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Update Chrome OS Device. This method supports patch semantics.
+ *  Patch Chrome OS Device
  *
  *  Method: directory.chromeosdevices.patch
  *
@@ -635,6 +669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
+ *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, serialNumber, status, and user) (Value:
  *        "BASIC")
@@ -646,7 +682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevice.
  *
- *  Update Chrome OS Device. This method supports patch semantics.
+ *  Patch Chrome OS Device
  *
  *  @param object The @c GTLRDirectory_ChromeOsDevice to include in the query.
  *  @param customerId Immutable ID of the G Suite account
@@ -682,6 +718,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
+ *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, serialNumber, status, and user) (Value:
  *        "BASIC")
@@ -702,6 +740,81 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @return GTLRDirectoryQuery_ChromeosdevicesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDirectory_ChromeOsDevice *)object
+                     customerId:(NSString *)customerId
+                       deviceId:(NSString *)deviceId;
+
+@end
+
+/**
+ *  Gets command data a specific command issued to the device.
+ *
+ *  Method: admin.customer.devices.chromeos.commands.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
+ *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeosReadonly
+ */
+@interface GTLRDirectoryQuery_CustomerDevicesChromeosCommandsGet : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomerDevicesChromeosCommandsGetWithcustomerId:deviceId:commandId:]
+
+/** Immutable. Immutable ID of Chrome OS Device Command. */
+@property(nonatomic, assign) long long commandId;
+
+/** Immutable. Immutable ID of the G Suite account. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/** Immutable. Immutable ID of Chrome OS Device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  Fetches a @c GTLRDirectory_ChromeosdevicesCommand.
+ *
+ *  Gets command data a specific command issued to the device.
+ *
+ *  @param customerId Immutable. Immutable ID of the G Suite account.
+ *  @param deviceId Immutable. Immutable ID of Chrome OS Device.
+ *  @param commandId Immutable. Immutable ID of Chrome OS Device Command.
+ *
+ *  @return GTLRDirectoryQuery_CustomerDevicesChromeosCommandsGet
+ */
++ (instancetype)queryWithCustomerId:(NSString *)customerId
+                           deviceId:(NSString *)deviceId
+                          commandId:(long long)commandId;
+
+@end
+
+/**
+ *  Issues a command for the device to execute.
+ *
+ *  Method: admin.customer.devices.chromeos.issueCommand
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
+ */
+@interface GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomerDevicesChromeosIssueCommandWithObject:customerId:deviceId:]
+
+/** Immutable. Immutable ID of the G Suite account. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/** Immutable. Immutable ID of Chrome OS Device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/**
+ *  Fetches a @c GTLRDirectory_ChromeosdevicesIssueCommandResponse.
+ *
+ *  Issues a command for the device to execute.
+ *
+ *  @param object The @c GTLRDirectory_ChromeosdevicesIssueCommandRequest to
+ *    include in the query.
+ *  @param customerId Immutable. Immutable ID of the G Suite account.
+ *  @param deviceId Immutable. Immutable ID of Chrome OS Device.
+ *
+ *  @return GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_ChromeosdevicesIssueCommandRequest *)object
                      customerId:(NSString *)customerId
                        deviceId:(NSString *)deviceId;
 
@@ -737,7 +850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Updates a customer. This method supports patch semantics.
+ *  Patch Customers via Apiary Patch Orchestration
  *
  *  Method: directory.customers.patch
  *
@@ -754,7 +867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Customer.
  *
- *  Updates a customer. This method supports patch semantics.
+ *  Patch Customers via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_Customer to include in the query.
  *  @param customerKey Id of the customer to be updated
@@ -797,7 +910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Deletes a Domain Alias of the customer.
+ *  Deletes a domain Alias of the customer.
  *
  *  Method: directory.domainAliases.delete
  *
@@ -818,7 +931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a Domain Alias of the customer.
+ *  Deletes a domain Alias of the customer.
  *
  *  @param customer Immutable ID of the G Suite account.
  *  @param domainAliasName Name of domain alias to be retrieved.
@@ -865,7 +978,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Inserts a Domain alias of the customer.
+ *  Inserts a domain alias of the customer.
  *
  *  Method: directory.domainAliases.insert
  *
@@ -882,7 +995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_DomainAlias.
  *
- *  Inserts a Domain alias of the customer.
+ *  Inserts a domain alias of the customer.
  *
  *  @param object The @c GTLRDirectory_DomainAlias to include in the query.
  *  @param customer Immutable ID of the G Suite account.
@@ -1265,6 +1378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Column to use for sorting results
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
  *    @arg @c kGTLRDirectoryOrderByEmail Email of the group. (Value: "email")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -1274,7 +1388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Query string search. Should be of the form "". Complete documentation is at
- *  https://developers.google.com/admin-sdk/directory/v1/guides/search-groups
+ *  https: //developers.google.com/admin-sdk/directory/v1/guides/search-groups
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1283,6 +1397,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  orderBy is also used
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
+ *        "SORT_ORDER_UNDEFINED"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -1313,7 +1429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Update Group. This method supports patch semantics.
+ *  Patch Groups via Apiary Patch Orchestration
  *
  *  Method: directory.groups.patch
  *
@@ -1333,7 +1449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Group.
  *
- *  Update Group. This method supports patch semantics.
+ *  Patch Groups via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_Group to include in the query.
  *  @param groupKey Email or immutable ID of the group. If ID, it should match
@@ -1580,8 +1696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Update membership of a user in the specified group. This method supports
- *  patch semantics.
+ *  Patch Member via Apiary Patch Orchestration
  *
  *  Method: directory.members.patch
  *
@@ -1608,8 +1723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Member.
  *
- *  Update membership of a user in the specified group. This method supports
- *  patch semantics.
+ *  Patch Member via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_Member to include in the query.
  *  @param groupKey Email or immutable ID of the group. If ID, it should match
@@ -1762,6 +1876,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
+ *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, model, status, type, and status) (Value:
  *        "BASIC")
@@ -1806,7 +1922,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Maximum number of results to return.
+ *  Maximum number of results to return. Max allowed value is 100.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..100).
@@ -1817,6 +1933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Column to use for sorting results
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
  *    @arg @c kGTLRDirectoryOrderByDeviceId Mobile Device serial number. (Value:
  *        "deviceId")
  *    @arg @c kGTLRDirectoryOrderByEmail Owner user email. (Value: "email")
@@ -1838,6 +1955,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Restrict information returned to a set of selected fields.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
+ *        "PROJECTION_UNDEFINED"
  *    @arg @c kGTLRDirectoryProjectionBasic Includes only the basic metadata
  *        fields (e.g., deviceId, model, status, type, and status) (Value:
  *        "BASIC")
@@ -1846,7 +1965,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
-/** Search string in the format provided by this Help Center article. */
+/**
+ *  Search string in the format given at
+ *  http://support.google.com/a/bin/answer.py?answer=1408863#search
+ */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
@@ -1854,6 +1976,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  orderBy is also used
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
+ *        "SORT_ORDER_UNDEFINED"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -1894,7 +2018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the organizational unit or its ID */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1908,7 +2032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @return GTLRDirectoryQuery_OrgunitsDelete
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId
-                        orgUnitPath:(NSArray<NSString *> *)orgUnitPath;
+                        orgUnitPath:(NSString *)orgUnitPath;
 
 @end
 
@@ -1929,7 +2053,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the organizational unit or its ID */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
@@ -1942,7 +2066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @return GTLRDirectoryQuery_OrgunitsGet
  */
 + (instancetype)queryWithCustomerId:(NSString *)customerId
-                        orgUnitPath:(NSArray<NSString *> *)orgUnitPath;
+                        orgUnitPath:(NSString *)orgUnitPath;
 
 @end
 
@@ -1999,6 +2123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Whether to return all sub-organizations or just immediate children
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryTypeTypeUndefined Value "typeUndefined"
  *    @arg @c kGTLRDirectoryTypeAll All sub-organizational units. (Value: "all")
  *    @arg @c kGTLRDirectoryTypeChildren Immediate children only (default).
  *        (Value: "children")
@@ -2019,7 +2144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Update organizational unit. This method supports patch semantics.
+ *  Patch organization unit via Apiary Patch Orchestration
  *
  *  Method: directory.orgunits.patch
  *
@@ -2034,12 +2159,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the organizational unit or its ID */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Update organizational unit. This method supports patch semantics.
+ *  Patch organization unit via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
  *  @param customerId Immutable ID of the G Suite account
@@ -2049,7 +2174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId
-                    orgUnitPath:(NSArray<NSString *> *)orgUnitPath;
+                    orgUnitPath:(NSString *)orgUnitPath;
 
 @end
 
@@ -2069,7 +2194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the organizational unit or its ID */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *orgUnitPath;
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
@@ -2084,7 +2209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId
-                    orgUnitPath:(NSArray<NSString *> *)orgUnitPath;
+                    orgUnitPath:(NSString *)orgUnitPath;
 
 @end
 
@@ -2129,7 +2254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForResourcesBuildingsDeleteWithcustomer:buildingId:]
 
-/** The ID of the building to delete. */
+/** The id of the building to delete. */
 @property(nonatomic, copy, nullable) NSString *buildingId;
 
 /**
@@ -2148,7 +2273,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @param customer The unique ID for the customer's G Suite account. As an
  *    account administrator, you can also use the my_customer alias to represent
  *    your account's customer ID.
- *  @param buildingId The ID of the building to delete.
+ *  @param buildingId The id of the building to delete.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsDelete
  */
@@ -2213,6 +2338,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Source from which Building.coordinates are derived.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined Value
+ *        "COORDINATES_SOURCE_UNDEFINED"
  *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
  *        Building.coordinates are set to the coordinates included in the
  *        request. (Value: "CLIENT_SPECIFIED")
@@ -2303,7 +2430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Updates a building. This method supports patch semantics.
+ *  Patches a building via Apiary Patch Orchestration.
  *
  *  Method: directory.resources.buildings.patch
  *
@@ -2314,13 +2441,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForResourcesBuildingsPatchWithObject:customer:buildingId:]
 
-/** The ID of the building to update. */
+/** The id of the building to update. */
 @property(nonatomic, copy, nullable) NSString *buildingId;
 
 /**
  *  Source from which Building.coordinates are derived.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined Value
+ *        "COORDINATES_SOURCE_UNDEFINED"
  *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
  *        Building.coordinates are set to the coordinates included in the
  *        request. (Value: "CLIENT_SPECIFIED")
@@ -2347,13 +2476,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Building.
  *
- *  Updates a building. This method supports patch semantics.
+ *  Patches a building via Apiary Patch Orchestration.
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
  *    account administrator, you can also use the my_customer alias to represent
  *    your account's customer ID.
- *  @param buildingId The ID of the building to update.
+ *  @param buildingId The id of the building to update.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsPatch
  */
@@ -2375,13 +2504,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForResourcesBuildingsUpdateWithObject:customer:buildingId:]
 
-/** The ID of the building to update. */
+/** The id of the building to update. */
 @property(nonatomic, copy, nullable) NSString *buildingId;
 
 /**
  *  Source from which Building.coordinates are derived.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined Value
+ *        "COORDINATES_SOURCE_UNDEFINED"
  *    @arg @c kGTLRDirectoryCoordinatesSourceClientSpecified
  *        Building.coordinates are set to the coordinates included in the
  *        request. (Value: "CLIENT_SPECIFIED")
@@ -2414,7 +2545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  @param customer The unique ID for the customer's G Suite account. As an
  *    account administrator, you can also use the my_customer alias to represent
  *    your account's customer ID.
- *  @param buildingId The ID of the building to update.
+ *  @param buildingId The id of the building to update.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsUpdate
  */
@@ -2584,23 +2715,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  String query used to filter results. Should be of the form "field operator
  *  value" where field can be any of supported fields and operators can be any
- *  of supported operations. Operators include '=' for exact match and ':' for
- *  prefix match or HAS match, depending on type of field.
- *  For ':', when the field supports a scalar value, such as a String, and the
- *  value is followed by an asterisk (*), the query is considered a prefix
- *  match. In a prefix match, the value must be at the start of a string to be a
- *  match. For example, resourceName:Conference* returns all strings whose
- *  resourceName starts with "Conference," such as "Conference-Room-1."
- *  For ':', when the field supports repeated values, such as
- *  featureInstances[].features, use a colon (:) without an asterisk (*) to
- *  indicate a HAS match. For example, featureInstances.feature.name:Phone would
- *  return any calendar resource that has a feature instance whose name is
- *  "Phone" (all rooms with phones).
- *  An asterisk (*) is only valid at end of value, it cannot be used at start or
- *  middle of value. For example, resourceName:*Room* doesn't work. Query
- *  strings are case sensitive.
- *  Supported fields include generatedResourceName, resourceName, name,
- *  buildingId, featureInstances.feature.name.
+ *  of supported operations. Operators include '=' for exact match, '!=' for
+ *  mismatch and ':' for prefix match or HAS match where applicable. For prefix
+ *  match, the value should always be followed by a *. Logical operators NOT and
+ *  AND are supported (in this order of precedence). Supported fields include
+ *  generatedResourceName, name, buildingId, floor_name, capacity,
+ *  featureInstances.feature.name. For example buildingId=US-NYC-9TH AND
+ *  featureInstances.feature.name:Phone.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -2624,10 +2745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Updates a calendar resource.
- *  This method supports patch semantics, meaning you only need to include the
- *  fields you wish to update. Fields that are not present in the request will
- *  be preserved. This method supports patch semantics.
+ *  Patches a calendar resource via Apiary Patch Orchestration.
  *
  *  Method: directory.resources.calendars.patch
  *
@@ -2651,10 +2769,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_CalendarResource.
  *
- *  Updates a calendar resource.
- *  This method supports patch semantics, meaning you only need to include the
- *  fields you wish to update. Fields that are not present in the request will
- *  be preserved. This method supports patch semantics.
+ *  Patches a calendar resource via Apiary Patch Orchestration.
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
@@ -2671,10 +2786,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Updates a calendar resource.
- *  This method supports patch semantics, meaning you only need to include the
- *  fields you wish to update. Fields that are not present in the request will
- *  be preserved.
+ *  Updates a calendar resource. This method supports patch semantics, meaning
+ *  you only need to include the fields you wish to update. Fields that are not
+ *  present in the request will be preserved.
  *
  *  Method: directory.resources.calendars.update
  *
@@ -2698,10 +2812,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_CalendarResource.
  *
- *  Updates a calendar resource.
- *  This method supports patch semantics, meaning you only need to include the
- *  fields you wish to update. Fields that are not present in the request will
- *  be preserved.
+ *  Updates a calendar resource. This method supports patch semantics, meaning
+ *  you only need to include the fields you wish to update. Fields that are not
+ *  present in the request will be preserved.
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
@@ -2883,7 +2996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Updates a feature. This method supports patch semantics.
+ *  Patches a feature via Apiary Patch Orchestration.
  *
  *  Method: directory.resources.features.patch
  *
@@ -2907,7 +3020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Feature.
  *
- *  Updates a feature. This method supports patch semantics.
+ *  Patches a feature via Apiary Patch Orchestration.
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
@@ -3301,7 +3414,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Updates a role. This method supports patch semantics.
+ *  Patch role via Apiary Patch Orchestration
  *
  *  Method: directory.roles.patch
  *
@@ -3321,7 +3434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Role.
  *
- *  Updates a role. This method supports patch semantics.
+ *  Patch role via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_Role to include in the query.
  *  @param customer Immutable ID of the G Suite account.
@@ -3498,7 +3611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Update schema. This method supports patch semantics.
+ *  Patch Schema via Apiary Patch Orchestration
  *
  *  Method: directory.schemas.patch
  *
@@ -3518,7 +3631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Update schema. This method supports patch semantics.
+ *  Patch Schema via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the G Suite account
@@ -3677,6 +3790,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
+ *  Turn off 2-Step Verification for user.
+ *
+ *  Method: directory.twoStepVerification.turnOff
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
+ */
+@interface GTLRDirectoryQuery_TwoStepVerificationTurnOff : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForTwoStepVerificationTurnOffWithuserKey:]
+
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
+@property(nonatomic, copy, nullable) NSString *userKey;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Turn off 2-Step Verification for user.
+ *
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
+ *
+ *  @return GTLRDirectoryQuery_TwoStepVerificationTurnOff
+ */
++ (instancetype)queryWithUserKey:(NSString *)userKey;
+
+@end
+
+/**
  *  Remove a alias for the user
  *
  *  Method: directory.users.aliases.delete
@@ -3757,15 +3903,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersAliasesListWithuserKey:]
 
-/**
- *  Event on which subscription is intended (if subscribing)
- *
- *  Likely values:
- *    @arg @c kGTLRDirectoryEventAdd Alias Created Event (Value: "add")
- *    @arg @c kGTLRDirectoryEventDelete Alias Deleted Event (Value: "delete")
- */
-@property(nonatomic, copy, nullable) NSString *event;
-
 /** Email or immutable ID of the user */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -3783,7 +3920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Watch for changes in user aliases list
+ *  Watch for changes in users list
  *
  *  Method: directory.users.aliases.watch
  *
@@ -3801,6 +3938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Event on which subscription is intended (if subscribing)
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryEventEventUndefined Value "eventUndefined"
  *    @arg @c kGTLRDirectoryEventAdd Alias Created Event (Value: "add")
  *    @arg @c kGTLRDirectoryEventDelete Alias Deleted Event (Value: "delete")
  */
@@ -3812,7 +3950,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Channel.
  *
- *  Watch for changes in user aliases list
+ *  Watch for changes in users list
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *  @param userKey Email or immutable ID of the user
@@ -3876,6 +4014,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  What subset of fields to fetch for this user.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
+ *        "projectionUndefined"
  *    @arg @c kGTLRDirectoryProjectionBasic Do not include any custom fields for
  *        the user. (Value: "basic")
  *    @arg @c kGTLRDirectoryProjectionCustom Include custom fields from schemas
@@ -3895,6 +4035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryViewTypeViewTypeUndefined Value
+ *        "view_type_undefined"
  *    @arg @c kGTLRDirectoryViewTypeAdminView Fetches the ADMIN_VIEW of the
  *        user. (Value: "admin_view")
  *    @arg @c kGTLRDirectoryViewTypeDomainPublic Fetches the DOMAIN_PUBLIC view
@@ -3976,20 +4118,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Event on which subscription is intended (if subscribing)
- *
- *  Likely values:
- *    @arg @c kGTLRDirectoryEventAdd User Created Event (Value: "add")
- *    @arg @c kGTLRDirectoryEventDelete User Deleted Event (Value: "delete")
- *    @arg @c kGTLRDirectoryEventMakeAdmin User Admin Status Change Event
- *        (Value: "makeAdmin")
- *    @arg @c kGTLRDirectoryEventUndelete User Undeleted Event (Value:
- *        "undelete")
- *    @arg @c kGTLRDirectoryEventUpdate User Updated Event (Value: "update")
- */
-@property(nonatomic, copy, nullable) NSString *event;
-
-/**
  *  Maximum number of results to return.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
@@ -4001,6 +4129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Column to use for sorting results
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
  *    @arg @c kGTLRDirectoryOrderByEmail Primary email of the user. (Value:
  *        "email")
  *    @arg @c kGTLRDirectoryOrderByFamilyName User's family name. (Value:
@@ -4017,6 +4146,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  What subset of fields to fetch for this user.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
+ *        "projectionUndefined"
  *    @arg @c kGTLRDirectoryProjectionBasic Do not include any custom fields for
  *        the user. (Value: "basic")
  *    @arg @c kGTLRDirectoryProjectionCustom Include custom fields from schemas
@@ -4031,7 +4162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Query string search. Should be of the form "". Complete documentation is at
- *  https://developers.google.com/admin-sdk/directory/v1/guides/search-users
+ *  https: //developers.google.com/admin-sdk/directory/v1/guides/search-users
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -4042,6 +4173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Whether to return results in ascending or descending order.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
+ *        "SORT_ORDER_UNDEFINED"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:
@@ -4053,6 +4186,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryViewTypeViewTypeUndefined Value
+ *        "view_type_undefined"
  *    @arg @c kGTLRDirectoryViewTypeAdminView Fetches the ADMIN_VIEW of the
  *        user. (Value: "admin_view")
  *    @arg @c kGTLRDirectoryViewTypeDomainPublic Fetches the DOMAIN_PUBLIC view
@@ -4110,7 +4245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  update user. This method supports patch semantics.
+ *  Patch Users via Apiary Patch Orchestration
  *
  *  Method: directory.users.patch
  *
@@ -4130,7 +4265,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_User.
  *
- *  update user. This method supports patch semantics.
+ *  Patch Users via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
  *  @param userKey Email or immutable ID of the user. If ID, it should match
@@ -4202,7 +4337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Add a photo for the user. This method supports patch semantics.
+ *  Patch Photo via Apiary Patch Orchestration
  *
  *  Method: directory.users.photos.patch
  *
@@ -4219,7 +4354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_UserPhoto.
  *
- *  Add a photo for the user. This method supports patch semantics.
+ *  Patch Photo via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_UserPhoto to include in the query.
  *  @param userKey Email or immutable ID of the user
@@ -4258,6 +4393,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 + (instancetype)queryWithObject:(GTLRDirectory_UserPhoto *)object
                         userKey:(NSString *)userKey;
+
+@end
+
+/**
+ *  Sign a user out of all web and device sessions and reset their sign-in
+ *  cookies. User will have to sign in by authenticating again.
+ *
+ *  Method: directory.users.signOut
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryUserSecurity
+ */
+@interface GTLRDirectoryQuery_UsersSignOut : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForUsersSignOutWithuserKey:]
+
+/**
+ *  Identifies the target user in the API request. The value can be the user's
+ *  primary email address, alias email address, or unique user ID.
+ */
+@property(nonatomic, copy, nullable) NSString *userKey;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Sign a user out of all web and device sessions and reset their sign-in
+ *  cookies. User will have to sign in by authenticating again.
+ *
+ *  @param userKey Identifies the target user in the API request. The value can
+ *    be the user's primary email address, alias email address, or unique user
+ *    ID.
+ *
+ *  @return GTLRDirectoryQuery_UsersSignOut
+ */
++ (instancetype)queryWithUserKey:(NSString *)userKey;
 
 @end
 
@@ -4354,14 +4525,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Name of the domain. Fill this field to get users from only this domain. To
- *  return all users in a multi-domain fill customer field instead.
+ *  return all users in a multi-domain fill customer field instead."
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Event on which subscription is intended (if subscribing)
+ *  Event on which subscription is intended
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryEventEventTypeUnspecified Value
+ *        "eventTypeUnspecified"
  *    @arg @c kGTLRDirectoryEventAdd User Created Event (Value: "add")
  *    @arg @c kGTLRDirectoryEventDelete User Deleted Event (Value: "delete")
  *    @arg @c kGTLRDirectoryEventMakeAdmin User Admin Status Change Event
@@ -4384,6 +4557,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Column to use for sorting results
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryOrderByOrderByUnspecified Value "orderByUnspecified"
  *    @arg @c kGTLRDirectoryOrderByEmail Primary email of the user. (Value:
  *        "email")
  *    @arg @c kGTLRDirectoryOrderByFamilyName User's family name. (Value:
@@ -4400,6 +4574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  What subset of fields to fetch for this user.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectoryProjectionProjectionUnspecified Value
+ *        "projectionUnspecified"
  *    @arg @c kGTLRDirectoryProjectionBasic Do not include any custom fields for
  *        the user. (Value: "basic")
  *    @arg @c kGTLRDirectoryProjectionCustom Include custom fields from schemas
@@ -4414,7 +4590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 
 /**
  *  Query string search. Should be of the form "". Complete documentation is at
- *  https://developers.google.com/admin-sdk/directory/v1/guides/search-users
+ *  https: //developers.google.com/admin-sdk/directory/v1/guides/search-users
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -4425,6 +4601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Whether to return results in ascending or descending order.
  *
  *  Likely values:
+ *    @arg @c kGTLRDirectorySortOrderSortOrderUnspecified Value
+ *        "sortOrderUnspecified"
  *    @arg @c kGTLRDirectorySortOrderAscending Ascending order. (Value:
  *        "ASCENDING")
  *    @arg @c kGTLRDirectorySortOrderDescending Descending order. (Value:

@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Data Transfer API (admin/datatransfer_v1)
+//   Admin SDK (admin/datatransfer_v1)
 // Description:
-//   Transfers user data from one user to another.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/data-transfer/
+//   http://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -81,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDataTransfer queryForApplicationsList]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Apps account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -181,7 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDataTransfer queryForTransfersList]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Apps account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**

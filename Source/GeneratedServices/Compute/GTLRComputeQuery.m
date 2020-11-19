@@ -43,7 +43,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_AcceleratorTypesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -91,7 +92,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_AcceleratorTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -118,7 +120,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_AddressesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -218,7 +221,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_AddressesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -241,7 +245,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_AutoscalersAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -353,7 +358,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_AutoscalersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -579,7 +585,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_BackendBucketsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -691,7 +697,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_BackendServicesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -839,7 +846,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_BackendServicesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -988,7 +995,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_DisksAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1166,7 +1174,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_DisksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1378,7 +1387,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_DiskTypesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1426,7 +1436,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_DiskTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1526,7 +1537,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ExternalVpnGatewaysList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1680,7 +1691,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_FirewallsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1761,7 +1772,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ForwardingRulesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -1861,7 +1873,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ForwardingRulesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -2023,7 +2036,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_GlobalAddressesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2115,7 +2128,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_GlobalForwardingRulesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2331,7 +2344,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_GlobalNetworkEndpointGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2350,7 +2363,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_GlobalNetworkEndpointGroupsListNetworkEndpoints
 
-@dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project;
+@dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
             networkEndpointGroup:(NSString *)networkEndpointGroup {
@@ -2373,7 +2387,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_GlobalOperationsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2437,7 +2452,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_GlobalOperationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2479,7 +2494,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_HealthChecksAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2571,7 +2587,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_HealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2725,7 +2741,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_HttpHealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -2879,7 +2895,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_HttpsHealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3110,7 +3126,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ImagesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3122,6 +3138,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_ImageList class];
   query.loggingName = @"compute.images.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ImagesPatch
+
+@dynamic image, project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_Image *)object
+                        project:(NSString *)project
+                          image:(NSString *)image {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"image", @"project"
+  ];
+  NSString *pathURITemplate = @"{project}/global/images/{image}";
+  GTLRComputeQuery_ImagesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.image = image;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.images.patch";
   return query;
 }
 
@@ -3259,7 +3306,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstanceGroupManagersAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -3519,7 +3567,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstanceGroupManagersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -3547,7 +3596,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstanceGroupManagersListErrors
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         zoneProperty;
+         returnPartialSuccess, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -3577,7 +3626,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstanceGroupManagersListManagedInstances
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         zoneProperty;
+         returnPartialSuccess, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -3607,7 +3656,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstanceGroupManagersListPerInstanceConfigs
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         zoneProperty;
+         returnPartialSuccess, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -3926,7 +3975,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstanceGroupsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4038,7 +4088,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstanceGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -4066,7 +4117,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstanceGroupsListInstances
 
 @dynamic filter, instanceGroup, maxResults, orderBy, pageToken, project,
-         zoneProperty;
+         returnPartialSuccess, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -4253,7 +4304,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstancesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -4612,7 +4664,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstancesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -4640,7 +4693,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_InstancesListReferrers
 
 @dynamic filter, instance, maxResults, orderBy, pageToken, project,
-         zoneProperty;
+         returnPartialSuccess, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -5614,7 +5667,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InstanceTemplatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5695,7 +5748,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InterconnectAttachmentsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5795,7 +5849,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InterconnectAttachmentsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -5874,7 +5929,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InterconnectLocationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -5989,7 +6044,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_InterconnectsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -6189,7 +6244,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_LicensesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -6270,7 +6325,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_MachineTypesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -6318,7 +6374,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_MachineTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6345,7 +6402,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NetworkEndpointGroupsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -6531,7 +6589,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NetworkEndpointGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6559,7 +6618,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NetworkEndpointGroupsListNetworkEndpoints
 
 @dynamic filter, maxResults, networkEndpointGroup, orderBy, pageToken, project,
-         zoneProperty;
+         returnPartialSuccess, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -6737,7 +6796,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NetworksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -6757,7 +6816,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NetworksListPeeringRoutes
 
 @dynamic direction, filter, maxResults, network, orderBy, pageToken,
-         peeringName, project, region;
+         peeringName, project, region, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                          network:(NSString *)network {
@@ -6933,7 +6992,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NodeGroupsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7113,7 +7173,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NodeGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -7141,7 +7202,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_NodeGroupsListNodes
 
 @dynamic filter, maxResults, nodeGroup, orderBy, pageToken, project,
-         zoneProperty;
+         returnPartialSuccess, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -7318,7 +7379,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NodeTemplatesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7443,7 +7505,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NodeTemplatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -7532,7 +7595,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NodeTypesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7580,7 +7644,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_NodeTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -7607,7 +7672,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_PacketMirroringsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7707,7 +7773,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_PacketMirroringsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -7926,7 +7993,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ProjectsGetXpnResources
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -7945,7 +8012,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ProjectsListXpnHosts
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithObject:(GTLRCompute_ProjectsListXpnHostsRequest *)object
                         project:(NSString *)project {
@@ -8188,7 +8255,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionAutoscalersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -8387,7 +8455,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionBackendServicesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -8476,7 +8545,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionCommitmentsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -8551,7 +8621,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionCommitmentsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -8746,7 +8817,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionDisksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -8959,7 +9031,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionDiskTypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -9088,7 +9161,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionHealthCheckServicesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -9200,7 +9274,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionHealthChecksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -9535,7 +9610,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -9559,7 +9635,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersListErrors
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         region;
+         region, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -9585,7 +9661,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         region;
+         region, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -9611,7 +9687,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 @implementation GTLRComputeQuery_RegionInstanceGroupManagersListPerInstanceConfigs
 
 @dynamic filter, instanceGroupManager, maxResults, orderBy, pageToken, project,
-         region;
+         region, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -9886,7 +9962,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -9909,7 +9986,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionInstanceGroupsListInstances
 
-@dynamic filter, instanceGroup, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, instanceGroup, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithObject:(GTLRCompute_RegionInstanceGroupsListInstancesRequest *)object
                         project:(NSString *)project
@@ -10056,7 +10134,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionNetworkEndpointGroupsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -10160,7 +10239,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionNotificationEndpointsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -10232,7 +10312,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionOperationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -10303,7 +10384,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -10403,7 +10484,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionSslCertificatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -10507,7 +10589,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionTargetHttpProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -10644,7 +10727,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionTargetHttpsProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -10814,7 +10898,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RegionUrlMapsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -10936,7 +11021,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ReservationsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11077,7 +11163,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ReservationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -11215,7 +11302,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ResourcePoliciesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11340,7 +11428,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ResourcePoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -11429,7 +11518,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RoutersAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11498,7 +11588,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RoutersGetNatMappingInfo
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region, router;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess, router;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
@@ -11579,7 +11670,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RoutersList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -11774,7 +11866,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_RoutesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11920,7 +12012,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SecurityPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -11939,7 +12031,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12112,7 +12204,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SnapshotsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12224,7 +12316,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SslCertificatesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12316,7 +12409,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SslCertificatesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12408,7 +12501,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SslPoliciesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12427,7 +12520,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SslPoliciesListAvailableFeatures
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12477,7 +12570,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SubnetworksAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12635,7 +12729,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SubnetworksList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -12658,7 +12753,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_SubnetworksListUsable
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12882,7 +12977,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetGrpcProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -12932,7 +13027,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetHttpProxiesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13024,7 +13120,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetHttpProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13036,6 +13132,37 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_TargetHttpProxyList class];
   query.loggingName = @"compute.targetHttpProxies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_TargetHttpProxiesPatch
+
+@dynamic project, requestId, targetHttpProxy;
+
++ (instancetype)queryWithObject:(GTLRCompute_TargetHttpProxy *)object
+                        project:(NSString *)project
+                targetHttpProxy:(NSString *)targetHttpProxy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"targetHttpProxy"
+  ];
+  NSString *pathURITemplate = @"{project}/global/targetHttpProxies/{targetHttpProxy}";
+  GTLRComputeQuery_TargetHttpProxiesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.targetHttpProxy = targetHttpProxy;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.targetHttpProxies.patch";
   return query;
 }
 
@@ -13074,7 +13201,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetHttpsProxiesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13166,7 +13294,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetHttpsProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13309,7 +13437,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetInstancesAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13421,7 +13550,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetInstancesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -13514,7 +13644,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetPoolsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -13647,7 +13778,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetPoolsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -13842,7 +13974,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetSslProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14058,7 +14190,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetTcpProxiesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14139,7 +14271,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetVpnGatewaysAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14239,7 +14372,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_TargetVpnGatewaysList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -14262,7 +14396,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_UrlMapsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14385,7 +14520,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_UrlMapsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14497,7 +14632,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_VpnGatewaysAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14622,7 +14758,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_VpnGatewaysList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -14711,7 +14848,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_VpnTunnelsAggregatedList
 
-@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project;
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
@@ -14811,7 +14949,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_VpnTunnelsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, region;
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region {
@@ -14891,7 +15030,8 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ZoneOperationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project, zoneProperty;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -14974,7 +15114,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @implementation GTLRComputeQuery_ZonesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];

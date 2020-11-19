@@ -4,7 +4,8 @@
 // API:
 //   Groups Migration API (groupsmigration/v1)
 // Description:
-//   Groups Migration Api.
+//   The Groups Migration API allows domain administrators to archive emails
+//   into Google groups.
 // Documentation:
 //   https://developers.google.com/google-apps/groups-migration/
 
@@ -25,7 +26,7 @@
 + (instancetype)queryWithGroupId:(NSString *)groupId
                 uploadParameters:(GTLRUploadParameters *)uploadParameters {
   NSArray *pathParams = @[ @"groupId" ];
-  NSString *pathURITemplate = @"{groupId}/archive";
+  NSString *pathURITemplate = @"groups/v1/groups/{groupId}/archive";
   GTLRGroupsMigrationQuery_ArchiveInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

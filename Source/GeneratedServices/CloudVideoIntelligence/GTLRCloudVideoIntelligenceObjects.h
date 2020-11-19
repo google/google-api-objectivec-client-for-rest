@@ -27,6 +27,10 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceDetectionAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelSegment;
@@ -36,6 +40,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedVertex;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2PersonDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechTranscription;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2TextAnnotation;
@@ -53,6 +58,11 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentDetectionConfig;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionConfig;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelFrame;
@@ -69,6 +79,10 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceDetectionAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelSegment;
@@ -78,6 +92,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedVertex;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1PersonDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechRecognitionAlternative;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechTranscription;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1TextAnnotation;
@@ -94,6 +109,10 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceDetectionAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelSegment;
@@ -103,6 +122,7 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1NormalizedVertex;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ObjectTrackingAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ObjectTrackingFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1PersonDetectionAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechRecognitionAlternative;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechTranscription;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1TextAnnotation;
@@ -122,7 +142,10 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Entity;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceFrame;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelFrame;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelSegment;
@@ -146,6 +169,8 @@
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoAnnotationResults;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1WordInfo;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1PersonDetectionAnnotation;
+@class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1PersonDetectionConfig;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ShotChangeDetectionConfig;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechContext;
 @class GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechRecognitionAlternative;
@@ -188,6 +213,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ExplicitContentDetection;
 /**
+ *  Human face detection.
+ *
+ *  Value: "FACE_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_FaceDetection;
+/**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
@@ -211,6 +242,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Value: "OBJECT_TRACKING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_ObjectTracking;
+/**
+ *  Person detection.
+ *
+ *  Value: "PERSON_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1AnnotateVideoRequest_Features_PersonDetection;
 /**
  *  Shot change detection.
  *
@@ -280,6 +317,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
+ *  Human face detection.
+ *
+ *  Value: "FACE_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_FaceDetection;
+/**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
@@ -303,6 +346,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Value: "OBJECT_TRACKING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Person detection.
+ *
+ *  Value: "PERSON_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_PersonDetection;
 /**
  *  Shot change detection.
  *
@@ -440,6 +489,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
+ *  Human face detection.
+ *
+ *  Value: "FACE_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_FaceDetection;
+/**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
@@ -463,6 +518,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Value: "OBJECT_TRACKING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Person detection.
+ *
+ *  Value: "PERSON_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_PersonDetection;
 /**
  *  Shot change detection.
  *
@@ -532,6 +593,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
+ *  Human face detection.
+ *
+ *  Value: "FACE_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_FaceDetection;
+/**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
@@ -555,6 +622,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Value: "OBJECT_TRACKING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Person detection.
+ *
+ *  Value: "PERSON_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_PersonDetection;
 /**
  *  Shot change detection.
  *
@@ -694,6 +767,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ExplicitContentDetection;
 /**
+ *  Human face detection.
+ *
+ *  Value: "FACE_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_FaceDetection;
+/**
  *  Unspecified.
  *
  *  Value: "FEATURE_UNSPECIFIED"
@@ -717,6 +796,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Value: "OBJECT_TRACKING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ObjectTracking;
+/**
+ *  Person detection.
+ *
+ *  Value: "PERSON_DETECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_PersonDetection;
 /**
  *  Shot change detection.
  *
@@ -968,6 +1053,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 
 /**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceAnnotation : GTLRObject
+
+/** All video frames where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceFrame *> *frames;
+
+/** All video segments where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceSegment *> *segments;
+
+/**
+ *  Thumbnail of a representative face view (in JPEG format).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+@end
+
+
+/**
+ *  Face detection annotation.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceDetectionAnnotation : GTLRObject
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceFrame : GTLRObject
+
+/**
+ *  Normalized Bounding boxes in a frame. There can be more than one boxes if
+ *  the same face is detected in multiple locations within the current frame.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2NormalizedBoundingBox *> *normalizedBoundingBoxes;
+
+/**
+ *  Time-offset, relative to the beginning of the video, corresponding to the
+ *  video frame for this location.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for face detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceSegment : GTLRObject
+
+/** Video segment where a face was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *segment;
+
+@end
+
+
+/**
  *  Label annotation.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2LabelAnnotation : GTLRObject
@@ -1201,6 +1350,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 
 /**
+ *  Person detection annotation per video.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2PersonDetectionAnnotation : GTLRObject
+
+/** The detected tracks of a person. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2Track *> *tracks;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Alternative hypotheses (a.k.a. n-best list).
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2SpeechRecognitionAlternative : GTLRObject
@@ -1370,6 +1533,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ExplicitContentDetection
  *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_FaceDetection
+ *        Human face detection. (Value: "FACE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_FeatureUnspecified
  *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_LabelDetection
@@ -1379,6 +1544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *        Logo detection, tracking, and recognition. (Value: "LOGO_RECOGNITION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ObjectTracking
  *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_PersonDetection
+ *        Person detection. (Value: "PERSON_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_ShotChangeDetection
  *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoAnnotationProgress_Feature_SpeechTranscription
@@ -1430,6 +1597,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /** Explicit content annotation. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ExplicitContentAnnotation *explicitAnnotation;
 
+/** Deprecated. Please use `face_detection_annotations` instead. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceAnnotation *> *faceAnnotations;
+
+/** Face detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceDetectionAnnotation *> *faceDetectionAnnotations;
+
 /**
  *  Label annotations on frame level. There is exactly one element for each
  *  unique label.
@@ -1448,6 +1621,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2ObjectTrackingAnnotation *> *objectAnnotations;
+
+/** Person detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2PersonDetectionAnnotation *> *personDetectionAnnotations;
 
 /** Video segment on which the annotation is run. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2VideoSegment *segment;
@@ -1704,6 +1880,99 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  video frame for this location.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceAnnotation : GTLRObject
+
+/** All video frames where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceFrame *> *frames;
+
+/** All video segments where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceSegment *> *segments;
+
+/**
+ *  Thumbnail of a representative face view (in JPEG format).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+@end
+
+
+/**
+ *  Face detection annotation.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionAnnotation : GTLRObject
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Config for FACE_DETECTION.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionConfig : GTLRObject
+
+/**
+ *  Whether to enable face attributes detection, such as glasses, dark_glasses,
+ *  mouth_open etc. Ignored if 'include_bounding_boxes' is set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeAttributes;
+
+/**
+ *  Whether bounding boxes are included in the face annotation output.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeBoundingBoxes;
+
+/**
+ *  Model to use for face detection. Supported values: "builtin/stable" (the
+ *  default if unset) and "builtin/latest".
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceFrame : GTLRObject
+
+/**
+ *  Normalized Bounding boxes in a frame. There can be more than one boxes if
+ *  the same face is detected in multiple locations within the current frame.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1NormalizedBoundingBox *> *normalizedBoundingBoxes;
+
+/**
+ *  Time-offset, relative to the beginning of the video, corresponding to the
+ *  video frame for this location.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for face detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceSegment : GTLRObject
+
+/** Video segment where a face was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *segment;
 
 @end
 
@@ -2170,6 +2439,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 
 /**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceAnnotation : GTLRObject
+
+/** All video frames where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceFrame *> *frames;
+
+/** All video segments where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceSegment *> *segments;
+
+/**
+ *  Thumbnail of a representative face view (in JPEG format).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+@end
+
+
+/**
+ *  Face detection annotation.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceDetectionAnnotation : GTLRObject
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceFrame : GTLRObject
+
+/**
+ *  Normalized Bounding boxes in a frame. There can be more than one boxes if
+ *  the same face is detected in multiple locations within the current frame.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1NormalizedBoundingBox *> *normalizedBoundingBoxes;
+
+/**
+ *  Time-offset, relative to the beginning of the video, corresponding to the
+ *  video frame for this location.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for face detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceSegment : GTLRObject
+
+/** Video segment where a face was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *segment;
+
+@end
+
+
+/**
  *  Label annotation.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1LabelAnnotation : GTLRObject
@@ -2403,6 +2736,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 
 /**
+ *  Person detection annotation per video.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1PersonDetectionAnnotation : GTLRObject
+
+/** The detected tracks of a person. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Track *> *tracks;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Alternative hypotheses (a.k.a. n-best list).
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1SpeechRecognitionAlternative : GTLRObject
@@ -2572,6 +2919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ExplicitContentDetection
  *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_FaceDetection
+ *        Human face detection. (Value: "FACE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_FeatureUnspecified
  *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_LabelDetection
@@ -2581,6 +2930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *        Logo detection, tracking, and recognition. (Value: "LOGO_RECOGNITION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ObjectTracking
  *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_PersonDetection
+ *        Person detection. (Value: "PERSON_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_ShotChangeDetection
  *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoAnnotationProgress_Feature_SpeechTranscription
@@ -2632,6 +2983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /** Explicit content annotation. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ExplicitContentAnnotation *explicitAnnotation;
 
+/** Deprecated. Please use `face_detection_annotations` instead. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceAnnotation *> *faceAnnotations;
+
+/** Face detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceDetectionAnnotation *> *faceDetectionAnnotations;
+
 /**
  *  Label annotations on frame level. There is exactly one element for each
  *  unique label.
@@ -2650,6 +3007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1ObjectTrackingAnnotation *> *objectAnnotations;
+
+/** Person detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1PersonDetectionAnnotation *> *personDetectionAnnotations;
 
 /** Video segment on which the annotation is run. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1VideoSegment *segment;
@@ -2923,6 +3283,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 
 /**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceAnnotation : GTLRObject
+
+/** All video frames where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceFrame *> *frames;
+
+/** All video segments where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceSegment *> *segments;
+
+/**
+ *  Thumbnail of a representative face view (in JPEG format).
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+@end
+
+
+/**
+ *  Face detection annotation.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceDetectionAnnotation : GTLRObject
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceFrame : GTLRObject
+
+/**
+ *  Normalized Bounding boxes in a frame. There can be more than one boxes if
+ *  the same face is detected in multiple locations within the current frame.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1NormalizedBoundingBox *> *normalizedBoundingBoxes;
+
+/**
+ *  Time-offset, relative to the beginning of the video, corresponding to the
+ *  video frame for this location.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for face detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceSegment : GTLRObject
+
+/** Video segment where a face was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *segment;
+
+@end
+
+
+/**
  *  Label annotation.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1LabelAnnotation : GTLRObject
@@ -3156,6 +3580,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 
 /**
+ *  Person detection annotation per video.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1PersonDetectionAnnotation : GTLRObject
+
+/** The detected tracks of a person. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1Track *> *tracks;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Alternative hypotheses (a.k.a. n-best list).
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1SpeechRecognitionAlternative : GTLRObject
@@ -3325,6 +3763,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ExplicitContentDetection
  *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_FaceDetection
+ *        Human face detection. (Value: "FACE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_FeatureUnspecified
  *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_LabelDetection
@@ -3334,6 +3774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *        Logo detection, tracking, and recognition. (Value: "LOGO_RECOGNITION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ObjectTracking
  *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_PersonDetection
+ *        Person detection. (Value: "PERSON_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_ShotChangeDetection
  *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoAnnotationProgress_Feature_SpeechTranscription
@@ -3385,6 +3827,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /** Explicit content annotation. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ExplicitContentAnnotation *explicitAnnotation;
 
+/** Deprecated. Please use `face_detection_annotations` instead. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceAnnotation *> *faceAnnotations;
+
+/** Face detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceDetectionAnnotation *> *faceDetectionAnnotations;
+
 /**
  *  Label annotations on frame level. There is exactly one element for each
  *  unique label.
@@ -3403,6 +3851,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1ObjectTrackingAnnotation *> *objectAnnotations;
+
+/** Person detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1PersonDetectionAnnotation *> *personDetectionAnnotations;
 
 /** Video segment on which the annotation is run. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1VideoSegment *segment;
@@ -3735,23 +4186,65 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 
 /**
- *  Face detection annotation.
+ *  Deprecated. No effect.
  */
-@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation : GTLRObject
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceAnnotation : GTLRObject
+
+/** All video frames where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceFrame *> *frames;
+
+/** All video segments where a face was detected. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceSegment *> *segments;
 
 /**
- *  The thumbnail of a person's face.
+ *  Thumbnail of a representative face view (in JPEG format).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *thumbnail;
 
-/** The face tracks with attributes. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track *> *tracks;
+@end
+
+
+/**
+ *  Face detection annotation.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation : GTLRObject
 
 /** Feature version. */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Deprecated. No effect.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceFrame : GTLRObject
+
+/**
+ *  Normalized Bounding boxes in a frame. There can be more than one boxes if
+ *  the same face is detected in multiple locations within the current frame.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1NormalizedBoundingBox *> *normalizedBoundingBoxes;
+
+/**
+ *  Time-offset, relative to the beginning of the video, corresponding to the
+ *  video frame for this location.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
+
+@end
+
+
+/**
+ *  Video segment level annotation results for face detection.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceSegment : GTLRObject
+
+/** Video segment where a face was detected. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1VideoSegment *segment;
 
 @end
 
@@ -4102,12 +4595,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 /**
  *  Streaming annotation results corresponding to a portion of the video that is
- *  currently being processed.
+ *  currently being processed. Only ONE type of annotation will be specified in
+ *  the response.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1StreamingVideoAnnotationResults : GTLRObject
 
 /** Explicit content annotation results. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation *explicitAnnotation;
+
+/** Timestamp of the processed frame in microseconds. */
+@property(nonatomic, strong, nullable) GTLRDuration *frameTimestamp;
 
 /** Label annotation results. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1LabelAnnotation *> *labelAnnotations;
@@ -4307,6 +4804,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /** Explicit content annotation. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1ExplicitContentAnnotation *explicitAnnotation;
 
+/** Deprecated. Please use `face_detection_annotations` instead. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceAnnotation *> *faceAnnotations;
+
 /** Face detection annotations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation *> *faceDetectionAnnotations;
 
@@ -4448,6 +4948,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 /** The word corresponding to this set of information. */
 @property(nonatomic, copy, nullable) NSString *word;
+
+@end
+
+
+/**
+ *  Person detection annotation per video.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1PersonDetectionAnnotation : GTLRObject
+
+/** The detected tracks of a person. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Track *> *tracks;
+
+/** Feature version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Config for PERSON_DETECTION.
+ */
+@interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1PersonDetectionConfig : GTLRObject
+
+/**
+ *  Whether to enable person attributes detection, such as cloth color (black,
+ *  blue, etc), type (coat, dress, etc), pattern (plain, floral, etc), hair,
+ *  etc. Ignored if 'include_bounding_boxes' is set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeAttributes;
+
+/**
+ *  Whether bounding boxes are included in the person detection annotation
+ *  output.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeBoundingBoxes;
+
+/**
+ *  Whether to enable pose landmarks detection. Ignored if
+ *  'include_bounding_boxes' is set to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includePoseLandmarks;
 
 @end
 
@@ -4768,6 +5315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Likely values:
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ExplicitContentDetection
  *        Explicit content detection. (Value: "EXPLICIT_CONTENT_DETECTION")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_FaceDetection
+ *        Human face detection. (Value: "FACE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_FeatureUnspecified
  *        Unspecified. (Value: "FEATURE_UNSPECIFIED")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_LabelDetection
@@ -4777,6 +5326,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *        Logo detection, tracking, and recognition. (Value: "LOGO_RECOGNITION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ObjectTracking
  *        Object detection and tracking. (Value: "OBJECT_TRACKING")
+ *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_PersonDetection
+ *        Person detection. (Value: "PERSON_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_ShotChangeDetection
  *        Shot change detection. (Value: "SHOT_CHANGE_DETECTION")
  *    @arg @c kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoAnnotationProgress_Feature_SpeechTranscription
@@ -4828,6 +5379,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /** Explicit content annotation. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentAnnotation *explicitAnnotation;
 
+/** Deprecated. Please use `face_detection_annotations` instead. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceAnnotation *> *faceAnnotations;
+
+/** Face detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionAnnotation *> *faceDetectionAnnotations;
+
 /**
  *  Label annotations on frame level. There is exactly one element for each
  *  unique label.
@@ -4846,6 +5403,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 
 /** Annotations for list of objects detected and tracked in video. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingAnnotation *> *objectAnnotations;
+
+/** Person detection annotations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1PersonDetectionAnnotation *> *personDetectionAnnotations;
 
 /** Video segment on which the annotation is run. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1VideoSegment *segment;
@@ -4904,11 +5464,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
 /** Config for EXPLICIT_CONTENT_DETECTION. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ExplicitContentDetectionConfig *explicitContentDetectionConfig;
 
+/** Config for FACE_DETECTION. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionConfig *faceDetectionConfig;
+
 /** Config for LABEL_DETECTION. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1LabelDetectionConfig *labelDetectionConfig;
 
 /** Config for OBJECT_TRACKING. */
 @property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1ObjectTrackingConfig *objectTrackingConfig;
+
+/** Config for PERSON_DETECTION. */
+@property(nonatomic, strong, nullable) GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1PersonDetectionConfig *personDetectionConfig;
 
 /**
  *  Video segments to annotate. The segments may overlap and are not required to

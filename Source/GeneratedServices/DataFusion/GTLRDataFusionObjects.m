@@ -38,7 +38,6 @@ NSString * const kGTLRDataFusion_Instance_State_Creating       = @"CREATING";
 NSString * const kGTLRDataFusion_Instance_State_Deleting       = @"DELETING";
 NSString * const kGTLRDataFusion_Instance_State_Failed         = @"FAILED";
 NSString * const kGTLRDataFusion_Instance_State_Restarting     = @"RESTARTING";
-NSString * const kGTLRDataFusion_Instance_State_Running        = @"RUNNING";
 NSString * const kGTLRDataFusion_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDataFusion_Instance_State_Updating       = @"UPDATING";
 NSString * const kGTLRDataFusion_Instance_State_Upgrading      = @"UPGRADING";

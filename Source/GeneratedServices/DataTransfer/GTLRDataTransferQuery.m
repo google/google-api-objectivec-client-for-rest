@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Data Transfer API (admin/datatransfer_v1)
+//   Admin SDK (admin/datatransfer_v1)
 // Description:
-//   Transfers user data from one user to another.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/data-transfer/
+//   http://developers.google.com/admin-sdk/
 
 #import "GTLRDataTransferQuery.h"
 
@@ -24,7 +26,7 @@
 
 + (instancetype)queryWithApplicationId:(long long)applicationId {
   NSArray *pathParams = @[ @"applicationId" ];
-  NSString *pathURITemplate = @"applications/{applicationId}";
+  NSString *pathURITemplate = @"admin/datatransfer/v1/applications/{applicationId}";
   GTLRDataTransferQuery_ApplicationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -42,7 +44,7 @@
 @dynamic customerId, maxResults, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"applications";
+  NSString *pathURITemplate = @"admin/datatransfer/v1/applications";
   GTLRDataTransferQuery_ApplicationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -60,7 +62,7 @@
 
 + (instancetype)queryWithDataTransferId:(NSString *)dataTransferId {
   NSArray *pathParams = @[ @"dataTransferId" ];
-  NSString *pathURITemplate = @"transfers/{dataTransferId}";
+  NSString *pathURITemplate = @"admin/datatransfer/v1/transfers/{dataTransferId}";
   GTLRDataTransferQuery_TransfersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -82,7 +84,7 @@
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"transfers";
+  NSString *pathURITemplate = @"admin/datatransfer/v1/transfers";
   GTLRDataTransferQuery_TransfersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -101,7 +103,7 @@
          status;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"transfers";
+  NSString *pathURITemplate = @"admin/datatransfer/v1/transfers";
   GTLRDataTransferQuery_TransfersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

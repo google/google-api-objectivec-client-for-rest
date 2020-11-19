@@ -4,10 +4,9 @@
 // API:
 //   Content API for Shopping (content/v2.1)
 // Description:
-//   Manages product items, inventory, and Merchant Center accounts for Google
-//   Shopping.
+//   Manage your product listings and accounts for Google Shopping
 // Documentation:
-//   https://developers.google.com/shopping-content
+//   https://developers.google.com/shopping-content/v2/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -22,6 +21,7 @@
 #endif
 
 @class GTLRShoppingContent_Account;
+@class GTLRShoppingContent_AccountLabel;
 @class GTLRShoppingContent_AccountsCustomBatchRequest;
 @class GTLRShoppingContent_AccountsLinkRequest;
 @class GTLRShoppingContent_AccountstatusesCustomBatchRequest;
@@ -31,6 +31,7 @@
 @class GTLRShoppingContent_Datafeed;
 @class GTLRShoppingContent_DatafeedsCustomBatchRequest;
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchRequest;
+@class GTLRShoppingContent_LabelIds;
 @class GTLRShoppingContent_LiaSettings;
 @class GTLRShoppingContent_LiasettingsCustomBatchRequest;
 @class GTLRShoppingContent_LocalInventory;
@@ -38,6 +39,7 @@
 @class GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest;
 @class GTLRShoppingContent_OrderreturnsAcknowledgeRequest;
+@class GTLRShoppingContent_OrderreturnsCreateOrderReturnRequest;
 @class GTLRShoppingContent_OrderreturnsProcessRequest;
 @class GTLRShoppingContent_OrdersAcknowledgeRequest;
 @class GTLRShoppingContent_OrdersCancelLineItemRequest;
@@ -55,6 +57,7 @@
 @class GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsRequest;
 @class GTLRShoppingContent_OrdersUpdateMerchantOrderIdRequest;
 @class GTLRShoppingContent_OrdersUpdateShipmentRequest;
+@class GTLRShoppingContent_OrderTrackingSignal;
 @class GTLRShoppingContent_PosCustomBatchRequest;
 @class GTLRShoppingContent_PosInventoryRequest;
 @class GTLRShoppingContent_PosSaleRequest;
@@ -63,8 +66,10 @@
 @class GTLRShoppingContent_ProductsCustomBatchRequest;
 @class GTLRShoppingContent_ProductstatusesCustomBatchRequest;
 @class GTLRShoppingContent_PubsubNotificationSettings;
+@class GTLRShoppingContent_Region;
 @class GTLRShoppingContent_RegionalInventory;
 @class GTLRShoppingContent_RegionalinventoryCustomBatchRequest;
+@class GTLRShoppingContent_RepricingRule;
 @class GTLRShoppingContent_ReturnAddress;
 @class GTLRShoppingContent_ReturnaddressCustomBatchRequest;
 @class GTLRShoppingContent_ReturnPolicy;
@@ -85,93 +90,93 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // orderBy
 
-/** Value: "returnCreationTimeAsc" */
+/** Value: "RETURN_CREATION_TIME_ASC" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc;
-/** Value: "returnCreationTimeDesc" */
+/** Value: "RETURN_CREATION_TIME_DESC" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc;
 
 // ----------------------------------------------------------------------------
 // shipmentStates
 
-/** Value: "completed" */
+/** Value: "COMPLETED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesCompleted;
-/** Value: "new" */
+/** Value: "NEW" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesNew;
-/** Value: "pending" */
+/** Value: "PENDING" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesPending;
-/** Value: "shipped" */
+/** Value: "SHIPPED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesShipped;
-/** Value: "undeliverable" */
+/** Value: "UNDELIVERABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesUndeliverable;
 
 // ----------------------------------------------------------------------------
 // shipmentStatus
 
-/** Value: "inProgress" */
+/** Value: "IN_PROGRESS" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusInProgress;
-/** Value: "new" */
+/** Value: "NEW" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusNew;
-/** Value: "processed" */
+/** Value: "PROCESSED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusProcessed;
 
 // ----------------------------------------------------------------------------
 // shipmentTypes
 
-/** Value: "byMail" */
+/** Value: "BY_MAIL" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesByMail;
-/** Value: "contactCustomerSupport" */
+/** Value: "CONTACT_CUSTOMER_SUPPORT" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesContactCustomerSupport;
-/** Value: "returnless" */
+/** Value: "RETURNLESS" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesReturnless;
 
 // ----------------------------------------------------------------------------
 // statuses
 
-/** Value: "active" */
+/** Value: "ACTIVE" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesActive;
-/** Value: "canceled" */
+/** Value: "CANCELED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesCanceled;
-/** Value: "completed" */
+/** Value: "COMPLETED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesCompleted;
-/** Value: "delivered" */
+/** Value: "DELIVERED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesDelivered;
-/** Value: "inProgress" */
+/** Value: "IN_PROGRESS" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesInProgress;
-/** Value: "partiallyDelivered" */
+/** Value: "PARTIALLY_DELIVERED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyDelivered;
-/** Value: "partiallyReturned" */
+/** Value: "PARTIALLY_RETURNED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyReturned;
-/** Value: "partiallyShipped" */
+/** Value: "PARTIALLY_SHIPPED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyShipped;
-/** Value: "pendingShipment" */
+/** Value: "PENDING_SHIPMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPendingShipment;
-/** Value: "returned" */
+/** Value: "RETURNED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesReturned;
-/** Value: "shipped" */
+/** Value: "SHIPPED" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesShipped;
 
 // ----------------------------------------------------------------------------
 // templateName
 
-/** Value: "template1" */
+/** Value: "TEMPLATE1" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1;
-/** Value: "template1a" */
+/** Value: "TEMPLATE1A" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1a;
-/** Value: "template1b" */
+/** Value: "TEMPLATE1B" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1b;
-/** Value: "template2" */
+/** Value: "TEMPLATE2" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
-/** Value: "template3" */
+/** Value: "TEMPLATE3" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
-/** Value: "template4" */
+/** Value: "TEMPLATE4" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate4;
 
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "css" */
+/** Value: "CSS" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewCss;
-/** Value: "merchant" */
+/** Value: "MERCHANT" */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 // ----------------------------------------------------------------------------
@@ -358,8 +363,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  and "css". The default value is "merchant".
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentViewCss Value "css"
- *    @arg @c kGTLRShoppingContentViewMerchant Value "merchant"
+ *    @arg @c kGTLRShoppingContentViewMerchant Value "MERCHANT"
+ *    @arg @c kGTLRShoppingContentViewCss Value "CSS"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -408,6 +413,154 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_Account *)object
                      merchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Creates a new label, not assigned to any account.
+ *
+ *  Method: content.accounts.labels.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsLabelsCreate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsLabelsCreateWithObject:accountId:]
+
+/** Required. The id of the account this label belongs to. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountLabel.
+ *
+ *  Creates a new label, not assigned to any account.
+ *
+ *  @param object The @c GTLRShoppingContent_AccountLabel to include in the
+ *    query.
+ *  @param accountId Required. The id of the account this label belongs to.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsLabelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountLabel *)object
+                      accountId:(long long)accountId;
+
+@end
+
+/**
+ *  Deletes a label and removes it from all accounts to which it was assigned.
+ *
+ *  Method: content.accounts.labels.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsLabelsDelete : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsLabelsDeleteWithaccountId:labelId:]
+
+/** Required. The id of the account that owns the label. */
+@property(nonatomic, assign) long long accountId;
+
+/** Required. The id of the label to delete. */
+@property(nonatomic, assign) long long labelId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a label and removes it from all accounts to which it was assigned.
+ *
+ *  @param accountId Required. The id of the account that owns the label.
+ *  @param labelId Required. The id of the label to delete.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsLabelsDelete
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                           labelId:(long long)labelId;
+
+@end
+
+/**
+ *  Lists the labels assigned to an account.
+ *
+ *  Method: content.accounts.labels.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsLabelsList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsLabelsListWithaccountId:]
+
+/** Required. The account id for whose labels are to be listed. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  The maximum number of labels to return. The service may return fewer than
+ *  this value. If unspecified, at most 50 labels will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListAccountLabels` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListAccountLabels` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListAccountLabelsResponse.
+ *
+ *  Lists the labels assigned to an account.
+ *
+ *  @param accountId Required. The account id for whose labels are to be listed.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsLabelsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountId:(long long)accountId;
+
+@end
+
+/**
+ *  Updates a label.
+ *
+ *  Method: content.accounts.labels.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsLabelsPatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsLabelsPatchWithObject:accountId:labelId:]
+
+/** Required. The id of the account this label belongs to. */
+@property(nonatomic, assign) long long accountId;
+
+/** Required. The id of the label to update. */
+@property(nonatomic, assign) long long labelId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountLabel.
+ *
+ *  Updates a label.
+ *
+ *  @param object The @c GTLRShoppingContent_AccountLabel to include in the
+ *    query.
+ *  @param accountId Required. The id of the account this label belongs to.
+ *  @param labelId Required. The id of the label to update.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsLabelsPatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountLabel *)object
+                      accountId:(long long)accountId
+                        labelId:(long long)labelId;
 
 @end
 
@@ -489,8 +642,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  and "css". The default value is "merchant".
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentViewCss Value "css"
- *    @arg @c kGTLRShoppingContentViewMerchant Value "merchant"
+ *    @arg @c kGTLRShoppingContentViewMerchant Value "MERCHANT"
+ *    @arg @c kGTLRShoppingContentViewCss Value "CSS"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -916,6 +1069,127 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Retrieves a single CSS domain by ID.
+ *
+ *  Method: content.csses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CssesGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCssesGetWithcssGroupId:cssDomainId:]
+
+/** Required. The ID of the CSS domain to return. */
+@property(nonatomic, assign) long long cssDomainId;
+
+/**
+ *  Required. The ID of the managing account. If this parameter is not the same
+ *  as [cssDomainId](#cssDomainId), then this ID must be a CSS group ID and
+ *  `cssDomainId` must be the ID of a CSS domain affiliated with this group.
+ */
+@property(nonatomic, assign) long long cssGroupId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Css.
+ *
+ *  Retrieves a single CSS domain by ID.
+ *
+ *  @param cssGroupId Required. The ID of the managing account. If this
+ *    parameter is not the same as [cssDomainId](#cssDomainId), then this ID
+ *    must be a CSS group ID and `cssDomainId` must be the ID of a CSS domain
+ *    affiliated with this group.
+ *  @param cssDomainId Required. The ID of the CSS domain to return.
+ *
+ *  @return GTLRShoppingContentQuery_CssesGet
+ */
++ (instancetype)queryWithCssGroupId:(long long)cssGroupId
+                        cssDomainId:(long long)cssDomainId;
+
+@end
+
+/**
+ *  Lists CSS domains affiliated with a CSS group.
+ *
+ *  Method: content.csses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CssesList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCssesListWithcssGroupId:]
+
+/** Required. The CSS group ID of CSS domains to be listed. */
+@property(nonatomic, assign) long long cssGroupId;
+
+/**
+ *  The maximum number of CSS domains to return. The service may return fewer
+ *  than this value. If unspecified, at most 50 CSS domains will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListCsses` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListCsses` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListCssesResponse.
+ *
+ *  Lists CSS domains affiliated with a CSS group.
+ *
+ *  @param cssGroupId Required. The CSS group ID of CSS domains to be listed.
+ *
+ *  @return GTLRShoppingContentQuery_CssesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCssGroupId:(long long)cssGroupId;
+
+@end
+
+/**
+ *  Updates labels that are assigned to a CSS domain by its CSS group.
+ *
+ *  Method: content.csses.updatelabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CssesUpdatelabels : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCssesUpdatelabelsWithObject:cssGroupId:cssDomainId:]
+
+/** Required. The ID of the updated CSS domain. */
+@property(nonatomic, assign) long long cssDomainId;
+
+/** Required. The CSS group ID of the updated CSS domain. */
+@property(nonatomic, assign) long long cssGroupId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Css.
+ *
+ *  Updates labels that are assigned to a CSS domain by its CSS group.
+ *
+ *  @param object The @c GTLRShoppingContent_LabelIds to include in the query.
+ *  @param cssGroupId Required. The CSS group ID of the updated CSS domain.
+ *  @param cssDomainId Required. The ID of the updated CSS domain.
+ *
+ *  @return GTLRShoppingContentQuery_CssesUpdatelabels
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_LabelIds *)object
+                     cssGroupId:(long long)cssGroupId
+                    cssDomainId:(long long)cssDomainId;
+
+@end
+
+/**
  *  Deletes, fetches, gets, inserts and updates multiple datafeeds in a single
  *  request.
  *
@@ -982,7 +1256,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Invokes a fetch for the datafeed in your Merchant Center account.
+ *  Invokes a fetch for the datafeed in your Merchant Center account. If you
+ *  need to call this method more than once per day, we recommend you use the
+ *  Products service to update your product data.
  *
  *  Method: content.datafeeds.fetchnow
  *
@@ -1005,7 +1281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_DatafeedsFetchNowResponse.
  *
- *  Invokes a fetch for the datafeed in your Merchant Center account.
+ *  Invokes a fetch for the datafeed in your Merchant Center account. If you
+ *  need to call this method more than once per day, we recommend you use the
+ *  Products service to update your product data.
  *
  *  @param merchantId The ID of the account that manages the datafeed. This
  *    account cannot be a multi-client account.
@@ -1579,7 +1857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 @interface GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact : GTLRShoppingContentQuery
 // Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsSetinventoryverificationcontactWithmerchantId:accountId:contactEmail:contactName:country:language:]
+//   +[GTLQueryShoppingContent queryForLiasettingsSetinventoryverificationcontactWithmerchantId:accountId:country:language:contactName:contactEmail:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -1617,19 +1895,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    and `accountId` must be the ID of a sub-account of this account.
  *  @param accountId The ID of the account that manages the order. This cannot
  *    be a multi-client account.
- *  @param contactEmail The email of the inventory verification contact.
- *  @param contactName The name of the inventory verification contact.
  *  @param country The country for which inventory verification is requested.
  *  @param language The language for which inventory verification is requested.
+ *  @param contactName The name of the inventory verification contact.
+ *  @param contactEmail The email of the inventory verification contact.
  *
  *  @return GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           accountId:(unsigned long long)accountId
-                       contactEmail:(NSString *)contactEmail
-                        contactName:(NSString *)contactName
                             country:(NSString *)country
-                           language:(NSString *)language;
+                           language:(NSString *)language
+                        contactName:(NSString *)contactName
+                       contactEmail:(NSString *)contactEmail;
 
 @end
 
@@ -1761,7 +2039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Update the local inventory of a product in your Merchant Center account.
+ *  Updates the local inventory of a product in your Merchant Center account.
  *
  *  Method: content.localinventory.insert
  *
@@ -1784,7 +2062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_LocalInventory.
  *
- *  Update the local inventory of a product in your Merchant Center account.
+ *  Updates the local inventory of a product in your Merchant Center account.
  *
  *  @param object The @c GTLRShoppingContent_LocalInventory to include in the
  *    query.
@@ -1903,7 +2181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 @interface GTLRShoppingContentQuery_OrderreportsListdisbursements : GTLRShoppingContentQuery
 // Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreportsListdisbursementsWithmerchantId:disbursementStartDate:]
+//   +[GTLQueryShoppingContent queryForOrderreportsListdisbursementsWithmerchantId:]
 
 /**
  *  The last date which disbursements occurred. In ISO 8601 format. Default:
@@ -1936,8 +2214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *
  *  @param merchantId The ID of the account that manages the order. This cannot
  *    be a multi-client account.
- *  @param disbursementStartDate The first date which disbursements occurred. In
- *    ISO 8601 format.
  *
  *  @return GTLRShoppingContentQuery_OrderreportsListdisbursements
  *
@@ -1945,8 +2221,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-              disbursementStartDate:(NSString *)disbursementStartDate;
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
 
 @end
 
@@ -1961,7 +2236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 @interface GTLRShoppingContentQuery_OrderreportsListtransactions : GTLRShoppingContentQuery
 // Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreportsListtransactionsWithmerchantId:disbursementId:transactionStartDate:]
+//   +[GTLQueryShoppingContent queryForOrderreportsListtransactionsWithmerchantId:disbursementId:]
 
 /** The Google-provided ID of the disbursement (found in Wallet). */
 @property(nonatomic, copy, nullable) NSString *disbursementId;
@@ -2000,8 +2275,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    be a multi-client account.
  *  @param disbursementId The Google-provided ID of the disbursement (found in
  *    Wallet).
- *  @param transactionStartDate The first date in which transaction occurred. In
- *    ISO 8601 format.
  *
  *  @return GTLRShoppingContentQuery_OrderreportsListtransactions
  *
@@ -2010,8 +2283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *        information.
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                     disbursementId:(NSString *)disbursementId
-               transactionStartDate:(NSString *)transactionStartDate;
+                     disbursementId:(NSString *)disbursementId;
 
 @end
 
@@ -2052,6 +2324,42 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_OrderreturnsAcknowledgeRequest *)object
                      merchantId:(unsigned long long)merchantId
                        returnId:(NSString *)returnId;
+
+@end
+
+/**
+ *  Create return in your Merchant Center account.
+ *
+ *  Method: content.orderreturns.createorderreturn
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrderreturnsCreateorderreturn : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrderreturnsCreateorderreturnWithObject:merchantId:]
+
+/**
+ *  The ID of the account that manages the order. This cannot be a multi-client
+ *  account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrderreturnsCreateOrderReturnResponse.
+ *
+ *  Create return in your Merchant Center account.
+ *
+ *  @param object The @c
+ *    GTLRShoppingContent_OrderreturnsCreateOrderReturnRequest to include in the
+ *    query.
+ *  @param merchantId The ID of the account that manages the order. This cannot
+ *    be a multi-client account.
+ *
+ *  @return GTLRShoppingContentQuery_OrderreturnsCreateorderreturn
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrderreturnsCreateOrderReturnRequest *)object
+                     merchantId:(unsigned long long)merchantId;
 
 @end
 
@@ -2108,10 +2416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Obtains order returns that match the acknowledgement status. When set to
  *  true, obtains order returns that have been acknowledged. When false, obtains
  *  order returns that have not been acknowledged. When not provided, obtains
- *  order returns regardless of their acknowledgement status.
- *  We recommend using this filter set to `false`, in conjunction with the
- *  `acknowledge` call, such that only un-acknowledged order returns are
- *  returned.
+ *  order returns regardless of their acknowledgement status. We recommend using
+ *  this filter set to `false`, in conjunction with the `acknowledge` call, such
+ *  that only un-acknowledged order returns are returned.
  */
 @property(nonatomic, assign) BOOL acknowledged;
 
@@ -2130,9 +2437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Obtains order returns with the specified order ids. If this parameter is
  *  provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus,
- *  shipmentState and acknowledged parameters must be not set.
- *  Note: if googleOrderId and shipmentTrackingNumber parameters are provided,
- *  the obtained results will include all order returns that either match the
+ *  shipmentState and acknowledged parameters must be not set. Note: if
+ *  googleOrderId and shipmentTrackingNumber parameters are provided, the
+ *  obtained results will include all order returns that either match the
  *  specified order id or the specified tracking number.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *googleOrderIds;
@@ -2154,10 +2461,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Return the results in the specified order.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeAsc Value
- *        "returnCreationTimeAsc"
  *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeDesc Value
- *        "returnCreationTimeDesc"
+ *        "RETURN_CREATION_TIME_DESC"
+ *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeAsc Value
+ *        "RETURN_CREATION_TIME_ASC"
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2170,12 +2477,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  regardless of their shipment states.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentShipmentStatesCompleted Value "completed"
- *    @arg @c kGTLRShoppingContentShipmentStatesNew Value "new"
- *    @arg @c kGTLRShoppingContentShipmentStatesPending Value "pending"
- *    @arg @c kGTLRShoppingContentShipmentStatesShipped Value "shipped"
+ *    @arg @c kGTLRShoppingContentShipmentStatesNew Value "NEW"
+ *    @arg @c kGTLRShoppingContentShipmentStatesShipped Value "SHIPPED"
+ *    @arg @c kGTLRShoppingContentShipmentStatesCompleted Value "COMPLETED"
  *    @arg @c kGTLRShoppingContentShipmentStatesUndeliverable Value
- *        "undeliverable"
+ *        "UNDELIVERABLE"
+ *    @arg @c kGTLRShoppingContentShipmentStatesPending Value "PENDING"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentStates;
 
@@ -2185,18 +2492,18 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  regardless of their shipment statuses.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentShipmentStatusInProgress Value "inProgress"
- *    @arg @c kGTLRShoppingContentShipmentStatusNew Value "new"
- *    @arg @c kGTLRShoppingContentShipmentStatusProcessed Value "processed"
+ *    @arg @c kGTLRShoppingContentShipmentStatusNew Value "NEW"
+ *    @arg @c kGTLRShoppingContentShipmentStatusInProgress Value "IN_PROGRESS"
+ *    @arg @c kGTLRShoppingContentShipmentStatusProcessed Value "PROCESSED"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentStatus;
 
 /**
  *  Obtains order returns with the specified tracking numbers. If this parameter
  *  is provided, createdStartDate, createdEndDate, shipmentType, shipmentStatus,
- *  shipmentState and acknowledged parameters must be not set.
- *  Note: if googleOrderId and shipmentTrackingNumber parameters are provided,
- *  the obtained results will include all order returns that either match the
+ *  shipmentState and acknowledged parameters must be not set. Note: if
+ *  googleOrderId and shipmentTrackingNumber parameters are provided, the
+ *  obtained results will include all order returns that either match the
  *  specified order id or the specified tracking number.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentTrackingNumbers;
@@ -2207,10 +2514,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  regardless of their shipment types.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentShipmentTypesByMail Value "byMail"
+ *    @arg @c kGTLRShoppingContentShipmentTypesByMail Value "BY_MAIL"
+ *    @arg @c kGTLRShoppingContentShipmentTypesReturnless Value "RETURNLESS"
  *    @arg @c kGTLRShoppingContentShipmentTypesContactCustomerSupport Value
- *        "contactCustomerSupport"
- *    @arg @c kGTLRShoppingContentShipmentTypesReturnless Value "returnless"
+ *        "CONTACT_CUSTOMER_SUPPORT"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentTypes;
 
@@ -2647,12 +2954,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  The name of the template to retrieve.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1 Value "template1"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Value "template1a"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "template1b"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "template2"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "template3"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Value "template4"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1 Value "TEMPLATE1"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "TEMPLATE2"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Value "TEMPLATE1A"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "TEMPLATE1B"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "TEMPLATE3"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Value "TEMPLATE4"
  */
 @property(nonatomic, copy, nullable) NSString *templateName;
 
@@ -2667,12 +2974,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  @param templateName The name of the template to retrieve.
  *
  *  Likely values for @c templateName:
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1 Value "template1"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Value "template1a"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "template1b"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "template2"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "template3"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Value "template4"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1 Value "TEMPLATE1"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "TEMPLATE2"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Value "TEMPLATE1A"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "TEMPLATE1B"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "TEMPLATE3"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Value "TEMPLATE4"
  *
  *  @return GTLRShoppingContentQuery_OrdersGettestordertemplate
  */
@@ -2684,8 +2991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Deprecated. Notifies that item return and refund was handled directly by
  *  merchant outside of Google payments processing (e.g. cash refund done in
- *  store).
- *  Note: We recommend calling the returnrefundlineitem method to refund
+ *  store). Note: We recommend calling the returnrefundlineitem method to refund
  *  in-store returns. We will issue the refund directly to the customer. This
  *  helps to prevent possible differences arising between merchant and Google
  *  transaction records. We also recommend having the point of sale system
@@ -2715,8 +3021,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *
  *  Deprecated. Notifies that item return and refund was handled directly by
  *  merchant outside of Google payments processing (e.g. cash refund done in
- *  store).
- *  Note: We recommend calling the returnrefundlineitem method to refund
+ *  store). Note: We recommend calling the returnrefundlineitem method to refund
  *  in-store returns. We will issue the refund directly to the customer. This
  *  helps to prevent possible differences arising between merchant and Google
  *  transaction records. We also recommend having the point of sale system
@@ -2752,9 +3057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Obtains orders that match the acknowledgement status. When set to true,
  *  obtains orders that have been acknowledged. When false, obtains orders that
- *  have not been acknowledged.
- *  We recommend using this filter set to `false`, in conjunction with the
- *  `acknowledge` call, such that only un-acknowledged orders are returned.
+ *  have not been acknowledged. We recommend using this filter set to `false`,
+ *  in conjunction with the `acknowledge` call, such that only un-acknowledged
+ *  orders are returned.
  */
 @property(nonatomic, assign) BOOL acknowledged;
 
@@ -2772,10 +3077,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, assign) unsigned long long merchantId;
 
 /**
- *  Order results by placement date in descending or ascending order.
- *  Acceptable values are:
- *  - placedDateAsc
- *  - placedDateDesc
+ *  Order results by placement date in descending or ascending order. Acceptable
+ *  values are: - placedDateAsc - placedDateDesc
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2799,21 +3102,21 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  `partiallyReturned`, `returned`, and `canceled`.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentStatusesActive Value "active"
- *    @arg @c kGTLRShoppingContentStatusesCanceled Value "canceled"
- *    @arg @c kGTLRShoppingContentStatusesCompleted Value "completed"
- *    @arg @c kGTLRShoppingContentStatusesDelivered Value "delivered"
- *    @arg @c kGTLRShoppingContentStatusesInProgress Value "inProgress"
- *    @arg @c kGTLRShoppingContentStatusesPartiallyDelivered Value
- *        "partiallyDelivered"
- *    @arg @c kGTLRShoppingContentStatusesPartiallyReturned Value
- *        "partiallyReturned"
- *    @arg @c kGTLRShoppingContentStatusesPartiallyShipped Value
- *        "partiallyShipped"
+ *    @arg @c kGTLRShoppingContentStatusesActive Value "ACTIVE"
+ *    @arg @c kGTLRShoppingContentStatusesCompleted Value "COMPLETED"
+ *    @arg @c kGTLRShoppingContentStatusesCanceled Value "CANCELED"
+ *    @arg @c kGTLRShoppingContentStatusesInProgress Value "IN_PROGRESS"
  *    @arg @c kGTLRShoppingContentStatusesPendingShipment Value
- *        "pendingShipment"
- *    @arg @c kGTLRShoppingContentStatusesReturned Value "returned"
- *    @arg @c kGTLRShoppingContentStatusesShipped Value "shipped"
+ *        "PENDING_SHIPMENT"
+ *    @arg @c kGTLRShoppingContentStatusesPartiallyShipped Value
+ *        "PARTIALLY_SHIPPED"
+ *    @arg @c kGTLRShoppingContentStatusesShipped Value "SHIPPED"
+ *    @arg @c kGTLRShoppingContentStatusesPartiallyDelivered Value
+ *        "PARTIALLY_DELIVERED"
+ *    @arg @c kGTLRShoppingContentStatusesDelivered Value "DELIVERED"
+ *    @arg @c kGTLRShoppingContentStatusesPartiallyReturned Value
+ *        "PARTIALLY_RETURNED"
+ *    @arg @c kGTLRShoppingContentStatusesReturned Value "RETURNED"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *statuses;
 
@@ -3212,6 +3515,38 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_OrdersUpdateShipmentRequest *)object
                      merchantId:(unsigned long long)merchantId
                         orderId:(NSString *)orderId;
+
+@end
+
+/**
+ *  Creates new order tracking signal.
+ *
+ *  Method: content.ordertrackingsignals.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrdertrackingsignalsCreate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForOrdertrackingsignalsCreateWithObject:merchantId:]
+
+/** The ID of the merchant for which the order signal is created. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_OrderTrackingSignal.
+ *
+ *  Creates new order tracking signal.
+ *
+ *  @param object The @c GTLRShoppingContent_OrderTrackingSignal to include in
+ *    the query.
+ *  @param merchantId The ID of the merchant for which the order signal is
+ *    created.
+ *
+ *  @return GTLRShoppingContentQuery_OrdertrackingsignalsCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrderTrackingSignal *)object
+                     merchantId:(long long)merchantId;
 
 @end
 
@@ -3903,6 +4238,407 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_RegionalInventory *)object
                      merchantId:(unsigned long long)merchantId
                       productId:(NSString *)productId;
+
+@end
+
+/**
+ *  Creates a region definition in your Merchant Center account.
+ *
+ *  Method: content.regions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RegionsCreate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRegionsCreateWithObject:merchantId:]
+
+/** Required. The id of the merchant for which to create region definition. */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the region to create. */
+@property(nonatomic, copy, nullable) NSString *regionId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Region.
+ *
+ *  Creates a region definition in your Merchant Center account.
+ *
+ *  @param object The @c GTLRShoppingContent_Region to include in the query.
+ *  @param merchantId Required. The id of the merchant for which to create
+ *    region definition.
+ *
+ *  @return GTLRShoppingContentQuery_RegionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_Region *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Deletes a region definition from your Merchant Center account.
+ *
+ *  Method: content.regions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RegionsDelete : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRegionsDeleteWithmerchantId:regionId:]
+
+/** Required. The id of the merchant for which to delete region definition. */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the region to delete. */
+@property(nonatomic, copy, nullable) NSString *regionId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a region definition from your Merchant Center account.
+ *
+ *  @param merchantId Required. The id of the merchant for which to delete
+ *    region definition.
+ *  @param regionId Required. The id of the region to delete.
+ *
+ *  @return GTLRShoppingContentQuery_RegionsDelete
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                           regionId:(NSString *)regionId;
+
+@end
+
+/**
+ *  Retrieves a region defined in your Merchant Center account.
+ *
+ *  Method: content.regions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RegionsGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRegionsGetWithmerchantId:regionId:]
+
+/**
+ *  Required. The id of the merchant for which to retrieve region definition.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the region to retrieve. */
+@property(nonatomic, copy, nullable) NSString *regionId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Region.
+ *
+ *  Retrieves a region defined in your Merchant Center account.
+ *
+ *  @param merchantId Required. The id of the merchant for which to retrieve
+ *    region definition.
+ *  @param regionId Required. The id of the region to retrieve.
+ *
+ *  @return GTLRShoppingContentQuery_RegionsGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                           regionId:(NSString *)regionId;
+
+@end
+
+/**
+ *  Lists the regions in your Merchant Center account.
+ *
+ *  Method: content.regions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RegionsList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRegionsListWithmerchantId:]
+
+/** Required. The id of the merchant for which to list region definitions. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The maximum number of regions to return. The service may return fewer than
+ *  this value. If unspecified, at most 50 rules will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListRegions` call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to `ListRegions` must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListRegionsResponse.
+ *
+ *  Lists the regions in your Merchant Center account.
+ *
+ *  @param merchantId Required. The id of the merchant for which to list region
+ *    definitions.
+ *
+ *  @return GTLRShoppingContentQuery_RegionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Updates a region definition in your Merchant Center account.
+ *
+ *  Method: content.regions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RegionsPatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRegionsPatchWithObject:merchantId:regionId:]
+
+/** Required. The id of the merchant for which to update region definition. */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the region to update. */
+@property(nonatomic, copy, nullable) NSString *regionId;
+
+/**
+ *  Optional. The field mask indicating the fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Region.
+ *
+ *  Updates a region definition in your Merchant Center account.
+ *
+ *  @param object The @c GTLRShoppingContent_Region to include in the query.
+ *  @param merchantId Required. The id of the merchant for which to update
+ *    region definition.
+ *  @param regionId Required. The id of the region to update.
+ *
+ *  @return GTLRShoppingContentQuery_RegionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_Region *)object
+                     merchantId:(long long)merchantId
+                       regionId:(NSString *)regionId;
+
+@end
+
+/**
+ *  Creates a repricing rule for your Merchant Center account.
+ *
+ *  Method: content.repricingrules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RepricingrulesCreate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRepricingrulesCreateWithObject:merchantId:]
+
+/** Required. The id of the merchant who owns the repricing rule. */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the rule to create. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_RepricingRule.
+ *
+ *  Creates a repricing rule for your Merchant Center account.
+ *
+ *  @param object The @c GTLRShoppingContent_RepricingRule to include in the
+ *    query.
+ *  @param merchantId Required. The id of the merchant who owns the repricing
+ *    rule.
+ *
+ *  @return GTLRShoppingContentQuery_RepricingrulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Deletes a repricing rule in your Merchant Center account.
+ *
+ *  Method: content.repricingrules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RepricingrulesDelete : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRepricingrulesDeleteWithmerchantId:ruleId:]
+
+/** Required. The id of the merchant who owns the repricing rule. */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the rule to Delete. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a repricing rule in your Merchant Center account.
+ *
+ *  @param merchantId Required. The id of the merchant who owns the repricing
+ *    rule.
+ *  @param ruleId Required. The id of the rule to Delete.
+ *
+ *  @return GTLRShoppingContentQuery_RepricingrulesDelete
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                             ruleId:(NSString *)ruleId;
+
+@end
+
+/**
+ *  Retrieves a repricing rule from your Merchant Center account.
+ *
+ *  Method: content.repricingrules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RepricingrulesGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRepricingrulesGetWithmerchantId:ruleId:]
+
+/** Required. The id of the merchant who owns the repricing rule. */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the rule to retrieve. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_RepricingRule.
+ *
+ *  Retrieves a repricing rule from your Merchant Center account.
+ *
+ *  @param merchantId Required. The id of the merchant who owns the repricing
+ *    rule.
+ *  @param ruleId Required. The id of the rule to retrieve.
+ *
+ *  @return GTLRShoppingContentQuery_RepricingrulesGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                             ruleId:(NSString *)ruleId;
+
+@end
+
+/**
+ *  Lists the repricing rules in your Merchant Center account.
+ *
+ *  Method: content.repricingrules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RepricingrulesList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRepricingrulesListWithmerchantId:]
+
+/** CLDR country code (e.g. "US"), used as a filter on repricing rules. */
+@property(nonatomic, copy, nullable) NSString *countryCode;
+
+/**
+ *  The two-letter ISO 639-1 language code associated with the repricing rule,
+ *  used as a filter.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Required. The id of the merchant who owns the repricing rule. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The maximum number of repricing rules to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 rules will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListRepricingRules` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListRepricingRules` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListRepricingRulesResponse.
+ *
+ *  Lists the repricing rules in your Merchant Center account.
+ *
+ *  @param merchantId Required. The id of the merchant who owns the repricing
+ *    rule.
+ *
+ *  @return GTLRShoppingContentQuery_RepricingrulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Updates a repricing rule in your Merchant Center account. All mutable fields
+ *  will be overwritten in each update request. In each update, you must provide
+ *  all required mutable fields, or an error will be thrown. If you do not
+ *  provide an optional field in the update request, if that field currently
+ *  exists, it will be deleted from the rule.
+ *
+ *  Method: content.repricingrules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RepricingrulesPatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRepricingrulesPatchWithObject:merchantId:ruleId:]
+
+/** Required. The id of the merchant who owns the repricing rule. */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the rule to update. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_RepricingRule.
+ *
+ *  Updates a repricing rule in your Merchant Center account. All mutable fields
+ *  will be overwritten in each update request. In each update, you must provide
+ *  all required mutable fields, or an error will be thrown. If you do not
+ *  provide an optional field in the update request, if that field currently
+ *  exists, it will be deleted from the rule.
+ *
+ *  @param object The @c GTLRShoppingContent_RepricingRule to include in the
+ *    query.
+ *  @param merchantId Required. The id of the merchant who owns the repricing
+ *    rule.
+ *  @param ruleId Required. The id of the rule to update.
+ *
+ *  @return GTLRShoppingContentQuery_RepricingrulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
+                     merchantId:(long long)merchantId
+                         ruleId:(NSString *)ruleId;
 
 @end
 

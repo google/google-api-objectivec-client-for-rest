@@ -23,6 +23,7 @@
 @class GTLRSQLAdmin_AclEntry;
 @class GTLRSQLAdmin_ApiWarning;
 @class GTLRSQLAdmin_BackupConfiguration;
+@class GTLRSQLAdmin_BackupRetentionSettings;
 @class GTLRSQLAdmin_BackupRun;
 @class GTLRSQLAdmin_BinLogCoordinates;
 @class GTLRSQLAdmin_CloneContext;
@@ -33,6 +34,7 @@
 @class GTLRSQLAdmin_DemoteMasterConfiguration;
 @class GTLRSQLAdmin_DemoteMasterContext;
 @class GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration;
+@class GTLRSQLAdmin_DenyMaintenancePeriod;
 @class GTLRSQLAdmin_DiskEncryptionConfiguration;
 @class GTLRSQLAdmin_DiskEncryptionStatus;
 @class GTLRSQLAdmin_ExportContext;
@@ -48,7 +50,6 @@
 @class GTLRSQLAdmin_IpConfiguration;
 @class GTLRSQLAdmin_IpMapping;
 @class GTLRSQLAdmin_LocationPreference;
-@class GTLRSQLAdmin_MaintenanceDenyPeriod;
 @class GTLRSQLAdmin_MaintenanceWindow;
 @class GTLRSQLAdmin_MySqlReplicaConfiguration;
 @class GTLRSQLAdmin_OnPremisesConfiguration;
@@ -61,6 +62,7 @@
 @class GTLRSQLAdmin_RotateServerCaContext;
 @class GTLRSQLAdmin_Settings;
 @class GTLRSQLAdmin_Settings_UserLabels;
+@class GTLRSQLAdmin_SqlActiveDirectoryConfig;
 @class GTLRSQLAdmin_SqlExternalSyncSettingError;
 @class GTLRSQLAdmin_SqlScheduledMaintenance;
 @class GTLRSQLAdmin_SqlServerDatabaseDetails;
@@ -97,6 +99,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachab
  *  Value: "SQL_API_WARNING_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_BackupRetentionSettings.retentionUnit
+
+/**
+ *  Retention will be by count, eg. "retain the most recent 7 backups".
+ *
+ *  Value: "COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRetentionSettings_RetentionUnit_Count;
+/**
+ *  Backup retention unit is unspecified, will be treated as COUNT.
+ *
+ *  Value: "RETENTION_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRetentionSettings_RetentionUnit_RetentionUnitUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupRun.backupKind
@@ -288,6 +306,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12;
 /**
+ *  The database version is PostgreSQL 13.
+ *
+ *  Value: "POSTGRES_13"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres13;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -357,7 +381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_S
 // GTLRSQLAdmin_DatabaseInstance.state
 
 /**
- *  The instance failed to be created.
+ *  The creation of the instance failed or a fatal error occurred during
+ *  maintenance.
  *
  *  Value: "FAILED"
  */
@@ -381,7 +406,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingC
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete;
 /**
- *  The instance is running.
+ *  The instance has been stopped by owner. It is not currently running, but
+ *  it's ready to be restarted.
  *
  *  Value: "RUNNABLE"
  */
@@ -393,7 +419,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Runnable
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_SqlInstanceStateUnspecified;
 /**
- *  The instance is currently offline, but it may run again in the future.
+ *  The instance is not available, for example due to problems with billing.
  *
  *  Value: "SUSPENDED"
  */
@@ -511,6 +537,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11;
  *  Value: "POSTGRES_12"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12;
+/**
+ *  The database version is PostgreSQL 13.
+ *
+ *  Value: "POSTGRES_13"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres13;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -1147,6 +1179,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
 /** Value: "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified;
 /**
+ *  SQL Server Agent is not running.
+ *
+ *  Value: "SQLSERVER_AGENT_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning;
+/**
  *  Extensions installed are either not supported or having unsupported versions
  *
  *  Value: "UNSUPPORTED_EXTENSIONS"
@@ -1164,6 +1202,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "UNSUPPORTED_MIGRATION_TYPE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType;
+/**
+ *  The table definition is not support due to missing primary key or replica
+ *  identity, applicable for postgres.
+ *
+ *  Value: "UNSUPPORTED_TABLE_DEFINITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_User.type
@@ -1239,6 +1284,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_BackupConfiguration : GTLRObject
 
+/** Backup retention settings. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupRetentionSettings *backupRetentionSettings;
+
 /**
  *  (MySQL only) Whether binary log is enabled. If backup configuration is
  *  disabled, binarylog must be disabled as well.
@@ -1279,6 +1327,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  format - *HH:MM*.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
+
+/**
+ *  The number of days of transaction logs we retain for point in time restore,
+ *  from 1-7.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transactionLogRetentionDays;
+
+@end
+
+
+/**
+ *  We currently only support backup retention by specifying the number of
+ *  backups we will retain.
+ */
+@interface GTLRSQLAdmin_BackupRetentionSettings : GTLRObject
+
+/**
+ *  Depending on the value of retention_unit, this is used to determine if a
+ *  backup needs to be deleted. If retention_unit is 'COUNT', we will retain
+ *  this many backups.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retainedBackups;
+
+/**
+ *  The unit that 'retained_backups' represents.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_BackupRetentionSettings_RetentionUnit_Count
+ *        Retention will be by count, eg. "retain the most recent 7 backups".
+ *        (Value: "COUNT")
+ *    @arg @c kGTLRSQLAdmin_BackupRetentionSettings_RetentionUnit_RetentionUnitUnspecified
+ *        Backup retention unit is unspecified, will be treated as COUNT.
+ *        (Value: "RETENTION_UNIT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *retentionUnit;
 
 @end
 
@@ -1606,10 +1693,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The database engine type and version. The *databaseVersion* field cannot be
- *  changed after instance creation. MySQL instances: *MYSQL_5_7* (default), or
- *  *MYSQL_5_6*. PostgreSQL instances: *POSTGRES_9_6*, *POSTGRES_10*,
- *  *POSTGRES_11* or *POSTGRES_12* (default). SQL Server instances:
- *  *SQLSERVER_2017_STANDARD* (default), *SQLSERVER_2017_ENTERPRISE*,
+ *  changed after instance creation. MySQL instances: *MYSQL_8_0*, *MYSQL_5_7*
+ *  (default), or *MYSQL_5_6*. PostgreSQL instances: *POSTGRES_9_6*,
+ *  *POSTGRES_10*, *POSTGRES_11* or *POSTGRES_12* (default). SQL Server
+ *  instances: *SQLSERVER_2017_STANDARD* (default), *SQLSERVER_2017_ENTERPRISE*,
  *  *SQLSERVER_2017_EXPRESS*, or *SQLSERVER_2017_WEB*.
  *
  *  Likely values:
@@ -1629,6 +1716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 11. (Value: "POSTGRES_11")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 The
  *        database version is PostgreSQL 12. (Value: "POSTGRES_12")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres13 The
+ *        database version is PostgreSQL 13. (Value: "POSTGRES_13")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -1754,8 +1843,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** Initial root password. Use only on creation. */
 @property(nonatomic, copy, nullable) NSString *rootPassword;
 
+/**
+ *  The status indicating if instance satisfies physical zone separation.
+ *  Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 /** The start time of any upcoming scheduled maintenance for this instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlScheduledMaintenance *scheduledMaintenance;
+
+/**
+ *  The Compute Engine zone that the failover instance is currently serving from
+ *  for a regional instance. This value could be different from the zone that
+ *  was specified when the instance was created if the instance has failed over
+ *  to its secondary/failover zone. Reserved for future use.
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryGceZone;
 
 /** The URI of this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -1774,28 +1879,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The current serving state of the Cloud SQL instance. This can be one of the
- *  following. *RUNNABLE*: The instance is running, or is ready to run when
- *  accessed. *SUSPENDED*: The instance is not available, for example due to
- *  problems with billing. *PENDING_CREATE*: The instance is being created.
- *  *MAINTENANCE*: The instance is down for maintenance. *FAILED*: The instance
- *  creation failed. *UNKNOWN_STATE*: The state of the instance is unknown.
+ *  following. *SQL_INSTANCE_STATE_UNSPECIFIED*: The state of the instance is
+ *  unknown. *RUNNABLE*: The instance has been stopped by owner. It is not
+ *  currently running, but it's ready to be restarted. *SUSPENDED*: The instance
+ *  is not available, for example due to problems with billing. for example due
+ *  to problems with billing. *PENDING_DELETE*: The instance is being deleted.
+ *  *PENDING_CREATE*: The instance is being created. *MAINTENANCE*: The instance
+ *  is down for maintenance. *FAILED*: The instance creation failed.
  *
  *  Likely values:
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Failed The instance failed to
- *        be created. (Value: "FAILED")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Failed The creation of the
+ *        instance failed or a fatal error occurred during maintenance. (Value:
+ *        "FAILED")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Maintenance The instance is
  *        down for maintenance. (Value: "MAINTENANCE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_PendingCreate The instance is
  *        being created. (Value: "PENDING_CREATE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete The instance is
  *        being deleted. (Value: "PENDING_DELETE")
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Runnable The instance is
- *        running. (Value: "RUNNABLE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Runnable The instance has
+ *        been stopped by owner. It is not currently running, but it's ready to
+ *        be restarted. (Value: "RUNNABLE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_SqlInstanceStateUnspecified
  *        The state of the instance is unknown. (Value:
  *        "SQL_INSTANCE_STATE_UNSPECIFIED")
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Suspended The instance is
- *        currently offline, but it may run again in the future. (Value:
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Suspended The instance is not
+ *        available, for example due to problems with billing. (Value:
  *        "SUSPENDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
@@ -1937,6 +2046,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The username for the replication connection. */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Deny Maintenance Periods. This specifies a date range during when all CSA
+ *  rollout will be denied.
+ */
+@interface GTLRSQLAdmin_DenyMaintenancePeriod : GTLRObject
+
+/**
+ *  "deny maintenance period" end date. If the year of the end date is empty,
+ *  the year of the start date also must be empty. In this case, it means the
+ *  deny maintenance period recurs every year. The date is in format yyyy-mm-dd
+ *  i.e., 2020-11-01, or mm-dd, i.e., 11-01
+ */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/**
+ *  "deny maintenance period" start date. If the year of the start date is
+ *  empty, the year of the end date also must be empty. In this case, it means
+ *  the deny maintenance period recurs every year. The date is in format
+ *  yyyy-mm-dd i.e., 2020-11-01, or mm-dd, i.e., 11-01
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+/**
+ *  Time in UTC when the "deny maintenance period" starts on start_date and ends
+ *  on end_date. The time is in format: HH:mm:SS, i.e., 00:00:00
+ */
+@property(nonatomic, copy, nullable) NSString *time;
 
 @end
 
@@ -2119,9 +2259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedStringValues;
 
 /**
- *  The database version this flag applies to. Can be *MYSQL_5_5*, *MYSQL_5_6*,
- *  or *MYSQL_5_7*. *MYSQL_5_7* is applicable only to Second Generation
- *  instances.
+ *  The database version this flag applies to. Can be *MYSQL_8_0*, *MYSQL_5_6*,
+ *  or *MYSQL_5_7*.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *appliesTo;
 
@@ -2554,43 +2693,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  The preferred Compute Engine zone for the secondary/failover (for example:
+ *  us-central1-a, us-central1-b, etc.). Reserved for future use.
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryZone;
+
+/**
  *  The preferred Compute Engine zone (for example: us-central1-a,
  *  us-central1-b, etc.).
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
-
-@end
-
-
-/**
- *  Maintenance Deny Periods. This specifies a date range during when all CSA
- *  rollout will be denied.
- */
-@interface GTLRSQLAdmin_MaintenanceDenyPeriod : GTLRObject
-
-/**
- *  "maintenance deny period" end date. If the year of the end date is empty,
- *  the year of the start date also must be empty. In this case, it means the no
- *  maintenance interval recurs every year. The date is in format yyyy-mm-dd
- *  i.e., 2020-11-01, or mm-dd, i.e., 11-01
- */
-@property(nonatomic, copy, nullable) NSString *endDate;
-
-/**
- *  "maintenance deny period" start date. If the year of the start date is
- *  empty, the year of the end date also must be empty. In this case, it means
- *  the no maintenance interval recurs every year. The date is in format
- *  yyyy-mm-dd i.e., 2020-11-01, or mm-dd, i.e., 11-01
- */
-@property(nonatomic, copy, nullable) NSString *startDate;
-
-/**
- *  Time in UTC when the "no maintenance interval" starts on start_date and ends
- *  on end_date. The time is in format: HH:mm:SS, i.e., 00:00:00
- */
-@property(nonatomic, copy, nullable) NSString *time;
 
 @end
 
@@ -3095,6 +3209,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *activationPolicy;
 
 /**
+ *  Active Directory configuration, relevant only for Cloud SQL for SQL Server.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlActiveDirectoryConfig *activeDirectoryConfig;
+
+/**
  *  The App Engine app IDs that can access this instance. (Deprecated) Applied
  *  to First Generation instances only.
  */
@@ -3169,6 +3288,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *dataDiskType;
 
+/** Deny maintenance periods */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DenyMaintenancePeriod *> *denyMaintenancePeriods;
+
 /**
  *  The settings for IP Management. This allows to enable or disable the
  *  instance IP and manage which external networks can connect to the instance.
@@ -3186,9 +3308,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Generation instances.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_LocationPreference *locationPreference;
-
-/** Maintenance deny periods */
-@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_MaintenanceDenyPeriod *> *maintenanceDenyPeriods;
 
 /**
  *  The maintenance window for this instance. This specifies when the instance
@@ -3286,6 +3405,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Active Directory configuration, relevant only for Cloud SQL for SQL Server.
+ */
+@interface GTLRSQLAdmin_SqlActiveDirectoryConfig : GTLRObject
+
+/** The name of the domain (e.g., mydomain.com). */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** This is always sql#activeDirectoryConfig. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  External primary instance migration setting error.
  */
 @interface GTLRSQLAdmin_SqlExternalSyncSettingError : GTLRObject
@@ -3342,6 +3475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Value "REPLICA_ALREADY_SETUP"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified
  *        Value "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning
+ *        SQL Server Agent is not running. (Value:
+ *        "SQLSERVER_AGENT_NOT_RUNNING")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions
  *        Extensions installed are either not supported or having unsupported
  *        versions (Value: "UNSUPPORTED_EXTENSIONS")
@@ -3350,6 +3486,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        "UNSUPPORTED_GTID_MODE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType
  *        Unsupported migration type. (Value: "UNSUPPORTED_MIGRATION_TYPE")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition
+ *        The table definition is not support due to missing primary key or
+ *        replica identity, applicable for postgres. (Value:
+ *        "UNSUPPORTED_TABLE_DEFINITION")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

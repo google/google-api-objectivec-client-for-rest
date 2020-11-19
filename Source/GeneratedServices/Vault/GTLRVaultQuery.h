@@ -22,7 +22,9 @@
 
 @class GTLRVault_AddHeldAccountsRequest;
 @class GTLRVault_AddMatterPermissionsRequest;
+@class GTLRVault_CancelOperationRequest;
 @class GTLRVault_CloseMatterRequest;
+@class GTLRVault_CountArtifactsRequest;
 @class GTLRVault_Export;
 @class GTLRVault_HeldAccount;
 @class GTLRVault_Hold;
@@ -185,6 +187,39 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @return GTLRVaultQuery_MattersClose
  */
 + (instancetype)queryWithObject:(GTLRVault_CloseMatterRequest *)object
+                       matterId:(NSString *)matterId;
+
+@end
+
+/**
+ *  Counts the artifacts within the context of a matter and returns a detailed
+ *  breakdown of metrics.
+ *
+ *  Method: vault.matters.count
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ */
+@interface GTLRVaultQuery_MattersCount : GTLRVaultQuery
+// Previous library name was
+//   +[GTLQueryVault queryForMattersCountWithObject:matterId:]
+
+/** The matter ID. */
+@property(nonatomic, copy, nullable) NSString *matterId;
+
+/**
+ *  Fetches a @c GTLRVault_Operation.
+ *
+ *  Counts the artifacts within the context of a matter and returns a detailed
+ *  breakdown of metrics.
+ *
+ *  @param object The @c GTLRVault_CountArtifactsRequest to include in the
+ *    query.
+ *  @param matterId The matter ID.
+ *
+ *  @return GTLRVaultQuery_MattersCount
+ */
++ (instancetype)queryWithObject:(GTLRVault_CountArtifactsRequest *)object
                        matterId:(NSString *)matterId;
 
 @end
@@ -1179,6 +1214,50 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: vault.operations.cancel
+ */
+@interface GTLRVaultQuery_OperationsCancel : GTLRVaultQuery
+// Previous library name was
+//   +[GTLQueryVault queryForOperationsCancelWithObject:name:]
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVault_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRVault_CancelOperationRequest to include in the
+ *    query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRVaultQuery_OperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRVault_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a long-running operation. This method indicates that the client is
  *  no longer interested in the operation result. It does not cancel the
  *  operation. If the server doesn't support this method, it returns
@@ -1204,6 +1283,93 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  @param name The name of the operation resource to be deleted.
  *
  *  @return GTLRVaultQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: vault.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVaultEdiscovery
+ *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
+ */
+@interface GTLRVaultQuery_OperationsGet : GTLRVaultQuery
+// Previous library name was
+//   +[GTLQueryVault queryForOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVault_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRVaultQuery_OperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  Method: vault.operations.list
+ */
+@interface GTLRVaultQuery_OperationsList : GTLRVaultQuery
+// Previous library name was
+//   +[GTLQueryVault queryForOperationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRVault_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRVaultQuery_OperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
 

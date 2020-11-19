@@ -111,7 +111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_AuditLogConfig_LogType_LogTyp
 // GTLRDataFusion_Instance.state
 
 /**
- *  Instance is active and ready for requests
+ *  Instance is active and ready for requests. This corresponds to 'RUNNING' in
+ *  datafusion.v1beta1.
  *
  *  Value: "ACTIVE"
  */
@@ -152,12 +153,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Failed;
  *  Value: "RESTARTING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Restarting;
-/**
- *  RUNNING is an alias of ACTIVE for backward compatibility
- *
- *  Value: "RUNNING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_State_Running;
 /**
  *  Instance does not have a state yet
  *
@@ -540,7 +535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *
  *  Likely values:
  *    @arg @c kGTLRDataFusion_Instance_State_Active Instance is active and ready
- *        for requests (Value: "ACTIVE")
+ *        for requests. This corresponds to 'RUNNING' in datafusion.v1beta1.
+ *        (Value: "ACTIVE")
  *    @arg @c kGTLRDataFusion_Instance_State_AutoUpdating Instance is being
  *        auto-updated (Value: "AUTO_UPDATING")
  *    @arg @c kGTLRDataFusion_Instance_State_AutoUpgrading Instance is being
@@ -553,8 +549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *        (Value: "FAILED")
  *    @arg @c kGTLRDataFusion_Instance_State_Restarting Instance is being
  *        restarted (Value: "RESTARTING")
- *    @arg @c kGTLRDataFusion_Instance_State_Running RUNNING is an alias of
- *        ACTIVE for backward compatibility (Value: "RUNNING")
  *    @arg @c kGTLRDataFusion_Instance_State_StateUnspecified Instance does not
  *        have a state yet (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRDataFusion_Instance_State_Updating Instance is being updated

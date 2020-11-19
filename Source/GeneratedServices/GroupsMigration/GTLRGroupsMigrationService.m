@@ -4,7 +4,8 @@
 // API:
 //   Groups Migration API (groupsmigration/v1)
 // Description:
-//   Groups Migration Api.
+//   The Groups Migration API allows domain administrators to archive emails
+//   into Google groups.
 // Documentation:
 //   https://developers.google.com/google-apps/groups-migration/
 
@@ -25,20 +26,12 @@ NSString * const kGTLRAuthScopeGroupsMigrationAppsGroupsMigration = @"https://ww
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"groups/v1/groups/";
-    self.resumableUploadPath = @"resumable/upload/";
+    self.rootURLString = @"https://groupsmigration.googleapis.com/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/groupsmigration/v1";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;
-}
-
-+ (NSDictionary<NSString *, Class> *)kindStringToClassMap {
-  return @{
-    @"groupsmigration#groups" : [GTLRGroupsMigration_Groups class],
-  };
 }
 
 @end

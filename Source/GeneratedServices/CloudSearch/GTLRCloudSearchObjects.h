@@ -4095,7 +4095,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Maximum number of search results to return in one page. Valid values are
- *  between 1 and 100, inclusive. Default value is 10.
+ *  between 1 and 100, inclusive. Default value is 10. Minimum value is 50 when
+ *  results beyond 2000 are requested.
  *
  *  Uses NSNumber of intValue.
  */

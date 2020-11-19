@@ -233,7 +233,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_AddSubnetworkRequest
 @dynamic consumer, consumerNetwork, descriptionProperty, ipPrefixLength, region,
-         requestedAddress, subnetwork, subnetworkUsers;
+         requestedAddress, secondaryIpRangeSpecs, subnetwork, subnetworkUsers;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -241,6 +241,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"secondaryIpRangeSpecs" : [GTLRServiceNetworking_SecondaryIpRangeSpec class],
     @"subnetworkUsers" : [NSString class]
   };
   return map;
@@ -427,6 +428,37 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_ConsumerConfig
+//
+
+@implementation GTLRServiceNetworking_ConsumerConfig
+@dynamic consumerExportCustomRoutes, consumerExportSubnetRoutesWithPublicIp,
+         consumerImportCustomRoutes, consumerImportSubnetRoutesWithPublicIp,
+         producerExportCustomRoutes, producerExportSubnetRoutesWithPublicIp,
+         producerImportCustomRoutes, producerImportSubnetRoutesWithPublicIp,
+         producerNetwork, reservedRanges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservedRanges" : [GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_ConsumerConfigMetadata
+//
+
+@implementation GTLRServiceNetworking_ConsumerConfigMetadata
 @end
 
 
@@ -728,6 +760,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange
+//
+
+@implementation GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange
+@dynamic address, ipPrefixLength, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Http
 //
 
@@ -750,8 +792,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_HttpRule
-@dynamic additionalBindings, allowHalfDuplex, body, custom, deleteProperty, get,
-         patch, post, put, responseBody, selector;
+@dynamic additionalBindings, body, custom, deleteProperty, get, patch, post,
+         put, responseBody, selector;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -1334,6 +1376,26 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_SecondaryIpRange
+//
+
+@implementation GTLRServiceNetworking_SecondaryIpRange
+@dynamic ipCidrRange, rangeName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_SecondaryIpRangeSpec
+//
+
+@implementation GTLRServiceNetworking_SecondaryIpRangeSpec
+@dynamic ipPrefixLength, rangeName, requestedAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_Service
 //
 
@@ -1360,21 +1422,6 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
     @"types" : [GTLRServiceNetworking_Type class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceNetworking_ServiceIdentity
-//
-
-@implementation GTLRServiceNetworking_ServiceIdentity
-@dynamic descriptionProperty, displayName, serviceAccountParent;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -1460,7 +1507,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Subnetwork
-@dynamic ipCidrRange, name, network, outsideAllocation;
+@dynamic ipCidrRange, name, network, outsideAllocation, secondaryIpRanges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"secondaryIpRanges" : [GTLRServiceNetworking_SecondaryIpRange class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1532,6 +1587,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_UpdateConsumerConfigRequest
+//
+
+@implementation GTLRServiceNetworking_UpdateConsumerConfigRequest
+@dynamic consumerConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_UpdateDnsRecordSetMetadata
 //
 
@@ -1560,7 +1625,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Usage
-@dynamic producerNotificationChannel, requirements, rules, serviceIdentity;
+@dynamic producerNotificationChannel, requirements, rules;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

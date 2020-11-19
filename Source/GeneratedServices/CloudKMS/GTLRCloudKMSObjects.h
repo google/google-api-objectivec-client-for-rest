@@ -1003,10 +1003,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  */
 @interface GTLRCloudKMS_Binding : GTLRObject
 
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
 @property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**

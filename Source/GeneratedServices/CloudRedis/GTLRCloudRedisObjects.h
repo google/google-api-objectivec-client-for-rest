@@ -37,6 +37,7 @@
 @class GTLRCloudRedis_OutputConfig;
 @class GTLRCloudRedis_Status;
 @class GTLRCloudRedis_Status_Details_Item;
+@class GTLRCloudRedis_TlsCertificate;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -176,6 +177,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa;
  *  Value: "TIER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_Instance.transitEncryptionMode
+
+/**
+ *  In-transit encryption is disabled for instance.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled;
+/**
+ *  In-transit encryption enabled with server authentication
+ *
+ *  Value: "SERVER_AUTHENTICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_ServerAuthentication;
+/**
+ *  Not set.
+ *
+ *  Value: "TRANSIT_ENCRYPTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
@@ -362,6 +385,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 @property(nonatomic, copy, nullable) NSString *alternativeLocationId;
 
 /**
+ *  Optional. Indicates whether OSS Redis AUTH is enabled for the instance. If
+ *  set to "true" AUTH is enabled on the instance. Default value is "false"
+ *  meaning AUTH is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *authEnabled;
+
+/**
  *  Optional. The full name of the Google Compute Engine
  *  [network](https://cloud.google.com/vpc/docs/vpc) to which the instance is
  *  connected. If left unspecified, the `default` network will be used.
@@ -479,6 +511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
 
+/** Output only. List of server CA certificates for the instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_TlsCertificate *> *serverCaCerts;
+
 /**
  *  Output only. The current state of this instance.
  *
@@ -525,6 +560,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
+/**
+ *  Optional. The In-transit encryption mode of Redis instance. If not provided,
+ *  in-transit encryption is disabled for instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled In-transit
+ *        encryption is disabled for instance. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudRedis_Instance_TransitEncryptionMode_ServerAuthentication
+ *        In-transit encryption enabled with server authentication (Value:
+ *        "SERVER_AUTHENTICATION")
+ *    @arg @c kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified
+ *        Not set. (Value: "TRANSIT_ENCRYPTION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *transitEncryptionMode;
+
 @end
 
 
@@ -554,6 +604,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *        fetch them all at once.
  */
 @interface GTLRCloudRedis_Instance_RedisConfigs : GTLRObject
+@end
+
+
+/**
+ *  Instance AUTH string details.
+ */
+@interface GTLRCloudRedis_InstanceAuthString : GTLRObject
+
+/** AUTH string set on the instance. */
+@property(nonatomic, copy, nullable) NSString *authString;
+
 @end
 
 
@@ -849,6 +910,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudRedis_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  TlsCertificate Resource
+ */
+@interface GTLRCloudRedis_TlsCertificate : GTLRObject
+
+/** PEM representation. */
+@property(nonatomic, copy, nullable) NSString *cert;
+
+/**
+ *  Output only. The time when the certificate was created in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  `2020-05-18T00:00:00.094Z`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The time when the certificate expires in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  `2020-05-18T00:00:00.094Z`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** Serial number, as extracted from the certificate. */
+@property(nonatomic, copy, nullable) NSString *serialNumber;
+
+/** Sha1 Fingerprint of the certificate. */
+@property(nonatomic, copy, nullable) NSString *sha1Fingerprint;
+
 @end
 
 

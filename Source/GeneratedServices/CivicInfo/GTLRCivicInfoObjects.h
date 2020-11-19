@@ -186,15 +186,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
 @property(nonatomic, strong, nullable) GTLRCivicInfo_AdministrativeBody *electionAdministrationBody;
 
 /**
- *  An ID for this object. IDs may change in future requests and should not be
- *  cached. Access to this field requires special access that can be requested
- *  from the Request more link on the Quotas page.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
  *  The city or county that provides election information for this voter. This
  *  object can have the same elements as state.
  */
@@ -382,15 +373,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *  contest.
  */
 @property(nonatomic, copy, nullable) NSString *electorateSpecifications;
-
-/**
- *  An ID for this object. IDs may change in future requests and should not be
- *  cached. Access to this field requires special access that can be requested
- *  from the Request more link on the Quotas page.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The levels of government of the office for this contest. There may be more
@@ -806,15 +788,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOff
  *  This field is not populated for polling locations.
  */
 @property(nonatomic, copy, nullable) NSString *endDate;
-
-/**
- *  An ID for this object. IDs may change in future requests and should not be
- *  cached. Access to this field requires special access that can be requested
- *  from the Request more link on the Quotas page.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  Latitude of the location, in degrees north of the equator. Note this field

@@ -1319,6 +1319,168 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @end
 
+@implementation GTLRDisplayVideoQuery_AdvertisersManualTriggersActivate
+
+@dynamic advertiserId, triggerId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_ActivateManualTriggerRequest *)object
+                   advertiserId:(long long)advertiserId
+                      triggerId:(long long)triggerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"triggerId"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/manualTriggers/{+triggerId}:activate";
+  GTLRDisplayVideoQuery_AdvertisersManualTriggersActivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.triggerId = triggerId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ManualTrigger class];
+  query.loggingName = @"displayvideo.advertisers.manualTriggers.activate";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersManualTriggersCreate
+
+@dynamic advertiserId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_ManualTrigger *)object
+                   advertiserId:(long long)advertiserId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/manualTriggers";
+  GTLRDisplayVideoQuery_AdvertisersManualTriggersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ManualTrigger class];
+  query.loggingName = @"displayvideo.advertisers.manualTriggers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersManualTriggersDeactivate
+
+@dynamic advertiserId, triggerId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_DeactivateManualTriggerRequest *)object
+                   advertiserId:(long long)advertiserId
+                      triggerId:(long long)triggerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"triggerId"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/manualTriggers/{+triggerId}:deactivate";
+  GTLRDisplayVideoQuery_AdvertisersManualTriggersDeactivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.triggerId = triggerId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ManualTrigger class];
+  query.loggingName = @"displayvideo.advertisers.manualTriggers.deactivate";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersManualTriggersGet
+
+@dynamic advertiserId, triggerId;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            triggerId:(long long)triggerId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"triggerId"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/manualTriggers/{+triggerId}";
+  GTLRDisplayVideoQuery_AdvertisersManualTriggersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.triggerId = triggerId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ManualTrigger class];
+  query.loggingName = @"displayvideo.advertisers.manualTriggers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersManualTriggersList
+
+@dynamic advertiserId, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/manualTriggers";
+  GTLRDisplayVideoQuery_AdvertisersManualTriggersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListManualTriggersResponse class];
+  query.loggingName = @"displayvideo.advertisers.manualTriggers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersManualTriggersPatch
+
+@dynamic advertiserId, triggerId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_ManualTrigger *)object
+                   advertiserId:(long long)advertiserId
+                      triggerId:(long long)triggerId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"triggerId"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/manualTriggers/{+triggerId}";
+  GTLRDisplayVideoQuery_AdvertisersManualTriggersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.triggerId = triggerId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ManualTrigger class];
+  query.loggingName = @"displayvideo.advertisers.manualTriggers.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsCreate
 
 @dynamic advertiserId;

@@ -1001,7 +1001,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *explicitlyTrashed;
 
-/** Links for exporting Google Docs to specific formats. */
+/** Links for exporting Docs Editors files to specific formats. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ExportLinks *exportLinks;
 
 /**
@@ -1197,8 +1197,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_File_ShortcutDetails *shortcutDetails;
 
 /**
- *  The size of the file's content in bytes. This is only applicable to files
- *  with binary content in Google Drive.
+ *  The size of the file's content in bytes. This is applicable to binary files
+ *  in Google Drive and Google Docs files.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1223,7 +1223,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A short-lived link to the file's thumbnail, if available. Typically lasts on
  *  the order of hours. Only populated when the requesting app can access the
- *  file's content.
+ *  file's content. If the file isn't shared publicly, the URL returned in
+ *  Files.thumbnailLink must be fetched using a credentialed request.
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailLink;
 
@@ -1622,7 +1623,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Links for exporting Google Docs to specific formats.
+ *  Links for exporting Docs Editors files to specific formats.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2235,7 +2236,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDrive_Revision : GTLRObject
 
-/** Links for exporting Google Docs to specific formats. */
+/** Links for exporting Docs Editors files to specific formats. */
 @property(nonatomic, strong, nullable) GTLRDrive_Revision_ExportLinks *exportLinks;
 
 /**
@@ -2285,25 +2286,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Whether subsequent revisions will be automatically republished. This is only
- *  applicable to Google Docs.
+ *  applicable to Docs Editors files.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *publishAuto;
 
 /**
- *  Whether this revision is published. This is only applicable to Google Docs.
+ *  Whether this revision is published. This is only applicable to Docs Editors
+ *  files.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *published;
 
-/** A link to the published revision. */
+/**
+ *  A link to the published revision. This is only populated for Google Sites
+ *  files.
+ */
 @property(nonatomic, copy, nullable) NSString *publishedLink;
 
 /**
  *  Whether this revision is published outside the domain. This is only
- *  applicable to Google Docs.
+ *  applicable to Docs Editors files.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2321,7 +2326,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Links for exporting Google Docs to specific formats.
+ *  Links for exporting Docs Editors files to specific formats.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

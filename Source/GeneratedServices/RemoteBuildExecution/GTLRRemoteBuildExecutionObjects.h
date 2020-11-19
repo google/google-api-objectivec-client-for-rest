@@ -2043,6 +2043,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 @property(nonatomic, strong, nullable) NSNumber *dockerCacheHit;
 
+/** Docker Image name. */
+@property(nonatomic, copy, nullable) NSString *dockerImageName;
+
 /**
  *  The input cache miss ratio.
  *

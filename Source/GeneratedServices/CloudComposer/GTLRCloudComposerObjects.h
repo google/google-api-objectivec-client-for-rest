@@ -774,8 +774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  [snake_case](https://en.wikipedia.org/wiki/Snake_case). Property values can
  *  contain any character, and can be written in any lower/upper case format.
  *  Certain Apache Airflow configuration property values are
- *  [blacklisted](/composer/docs/how-to/managing/setting-airflow-configurations#airflow_configuration_blacklists),
- *  and cannot be overridden.
+ *  [blocked](/composer/docs/concepts/airflow-configurations), and cannot be
+ *  overridden.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SoftwareConfig_AirflowConfigOverrides *airflowConfigOverrides;
 
@@ -841,8 +841,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  [snake_case](https://en.wikipedia.org/wiki/Snake_case). Property values can
  *  contain any character, and can be written in any lower/upper case format.
  *  Certain Apache Airflow configuration property values are
- *  [blacklisted](/composer/docs/how-to/managing/setting-airflow-configurations#airflow_configuration_blacklists),
- *  and cannot be overridden.
+ *  [blocked](/composer/docs/concepts/airflow-configurations), and cannot be
+ *  overridden.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

@@ -28,6 +28,7 @@
 @class GTLRAccessContextManager_CustomLevel;
 @class GTLRAccessContextManager_DevicePolicy;
 @class GTLRAccessContextManager_Expr;
+@class GTLRAccessContextManager_GcpUserAccessBinding;
 @class GTLRAccessContextManager_Operation;
 @class GTLRAccessContextManager_Operation_Metadata;
 @class GTLRAccessContextManager_Operation_Response;
@@ -505,6 +506,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
+ *  Restricts access to Cloud Console and Google Cloud APIs for a set of users
+ *  using Context-Aware Access.
+ */
+@interface GTLRAccessContextManager_GcpUserAccessBinding : GTLRObject
+
+/**
+ *  Required. Access level that a user must have to be granted access. Only one
+ *  access level is supported, not multiple. This repeated field must have
+ *  exactly one element. Example:
+ *  "accessPolicies/9522/accessLevels/device_trusted"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
+
+/**
+ *  Required. Immutable. Google Group id whose members are subject to this
+ *  binding's restrictions. See "id" in the [G Suite Directory API's Groups
+ *  resource]
+ *  (https://developers.google.com/admin-sdk/directory/v1/reference/groups#resource).
+ *  If a group's email address/alias is changed, this resource will continue to
+ *  point at the changed group. This field does not accept group email addresses
+ *  or aliases. Example: "01d520gv4vjcrht"
+ */
+@property(nonatomic, copy, nullable) NSString *groupKey;
+
+/**
+ *  Immutable. Assigned by the server during creation. The last segment has an
+ *  arbitrary length and has only URI unreserved characters (as defined by [RFC
+ *  3986 Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should
+ *  not be specified by the client during creation. Example:
+ *  "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A response to `ListAccessLevelsRequest`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -553,6 +591,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  The pagination token to retrieve the next page of results. If the value is
  *  empty, no further results remain.
  */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response of ListGcpUserAccessBindings.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "gcpUserAccessBindings" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAccessContextManager_ListGcpUserAccessBindingsResponse : GTLRCollectionObject
+
+/**
+ *  GcpUserAccessBinding
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_GcpUserAccessBinding *> *gcpUserAccessBindings;
+
+/** Token to get the next page of items. If blank, there are no more items. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end

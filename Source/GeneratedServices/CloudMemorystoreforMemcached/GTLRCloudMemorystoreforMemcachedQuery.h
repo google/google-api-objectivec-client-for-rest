@@ -72,8 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  ApplyParameters will update current set of Parameters to the set of
- *  specified nodes of the Memcached Instance.
+ *  ApplyParameters will restart the set of specified nodes in order to update
+ *  them to the current set of parameters for the Memcached Instance.
  *
  *  Method: memcache.projects.locations.instances.applyParameters
  *
@@ -93,8 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_Operation.
  *
- *  ApplyParameters will update current set of Parameters to the set of
- *  specified nodes of the Memcached Instance.
+ *  ApplyParameters will restart the set of specified nodes in order to update
+ *  them to the current set of parameters for the Memcached Instance.
  *
  *  @param object The @c GTLRCloudMemorystoreforMemcached_ApplyParametersRequest
  *    to include in the query.
@@ -109,7 +109,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new Instance in a given project and location.
+ *  Creates a new Instance in a given location.
  *
  *  Method: memcache.projects.locations.instances.create
  *
@@ -125,7 +125,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  with the following restrictions: * Must contain only lowercase letters,
  *  numbers, and hyphens. * Must start with a letter. * Must be between 1-40
  *  characters. * Must end with a number or a letter. * Must be unique within
- *  the user project / location
+ *  the user project / location If any of the above are not met, will raise an
+ *  invalid argument error.
  */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
@@ -139,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_Operation.
  *
- *  Creates a new Instance in a given project and location.
+ *  Creates a new Instance in a given location.
  *
  *  @param object The @c GTLRCloudMemorystoreforMemcached_Instance to include in
  *    the query.
@@ -223,7 +224,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists Instances in a given project and location.
+ *  Lists Instances in a given location.
  *
  *  Method: memcache.projects.locations.instances.list
  *
@@ -269,7 +270,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_ListInstancesResponse.
  *
- *  Lists Instances in a given project and location.
+ *  Lists Instances in a given location.
  *
  *  @param parent Required. The resource name of the instance location using the
  *    form: `projects/{project_id}/locations/{location_id}` where `location_id`

@@ -4,7 +4,7 @@
 // API:
 //   Cloud DNS API (dns/v1)
 // Documentation:
-//   http://developers.google.com/cloud-dns
+//   https://cloud.google.com/dns/docs
 
 #import "GTLRDnsQuery.h"
 

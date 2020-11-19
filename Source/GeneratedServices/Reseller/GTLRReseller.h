@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Enterprise Apps Reseller API (reseller/v1)
+//   Workspace Reseller API (reseller/v1)
 // Description:
 //   Creates and manages your customers and their subscriptions.
 // Documentation:

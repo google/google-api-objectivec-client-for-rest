@@ -156,6 +156,25 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsInstancesGetAuthString
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/authString";
+  GTLRCloudRedisQuery_ProjectsLocationsInstancesGetAuthString *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_InstanceAuthString class];
+  query.loggingName = @"redis.projects.locations.instances.getAuthString";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsInstancesImport
 
 @dynamic name;

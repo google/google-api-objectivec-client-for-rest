@@ -204,7 +204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_Authority;
  */
 FOUNDATION_EXTERN NSString * const kGTLRGameServices_Condition_Iam_CredentialsType;
 /**
- *  EXPERIMENTAL -- DO NOT USE.
+ *  EXPERIMENTAL -- DO NOT USE. The conditions can only be used in a "positive"
+ *  context (e.g., ALLOW/IN or DENY/NOT_IN).
  *
  *  Value: "CREDS_ASSERTION"
  */
@@ -508,10 +509,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  */
 @interface GTLRGameServices_Binding : GTLRObject
 
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
 @property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
@@ -627,7 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
  *        can only be used in a "positive" context (e.g., ALLOW/IN or
  *        DENY/NOT_IN). (Value: "CREDENTIALS_TYPE")
  *    @arg @c kGTLRGameServices_Condition_Iam_CredsAssertion EXPERIMENTAL -- DO
- *        NOT USE. (Value: "CREDS_ASSERTION")
+ *        NOT USE. The conditions can only be used in a "positive" context
+ *        (e.g., ALLOW/IN or DENY/NOT_IN). (Value: "CREDS_ASSERTION")
  *    @arg @c kGTLRGameServices_Condition_Iam_JustificationType What types of
  *        justifications have been supplied with this request. String values
  *        should match enum names from security.credentials.JustificationType,
@@ -1029,7 +1027,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRGameServices_GameServerCluster_Labels *labels;
 
 /**
- *  Required. The resource name of the game server cluster. Uses the form:
+ *  Required. The resource name of the game server cluster, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
  *  For example,
  *  `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
@@ -1103,7 +1102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRGameServices_GameServerConfig_Labels *labels;
 
 /**
- *  The resource name of the game server config. Uses the form:
+ *  The resource name of the game server config, in the following form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-game/configs/my-config`.
@@ -1171,7 +1170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRGameServices_GameServerDeployment_Labels *labels;
 
 /**
- *  The resource name of the game server deployment. Uses the form:
+ *  The resource name of the game server deployment, in the following form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
@@ -1224,7 +1223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) NSArray<GTLRGameServices_GameServerConfigOverride *> *gameServerConfigOverrides;
 
 /**
- *  The resource name of the game server deployment rollout. Uses the form:
+ *  The resource name of the game server deployment rollout, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
@@ -1903,7 +1903,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGameServices_Rule_Action_NoAction;
 @property(nonatomic, strong, nullable) GTLRGameServices_Realm_Labels *labels;
 
 /**
- *  The resource name of the realm. Uses the form:
+ *  The resource name of the realm, in the following form:
  *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
  *  `projects/my-project/locations/{location}/realms/my-realm`.
  */

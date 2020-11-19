@@ -4,9 +4,9 @@
 // API:
 //   Google Play Custom App Publishing API (playcustomapp/v1)
 // Description:
-//   An API to publish custom Android apps.
+//   API to create and publish custom Android apps
 // Documentation:
-//   https://developers.google.com/android/work/play/custom-app-api
+//   https://developers.google.com/android/work/play/custom-app-api/
 
 #import "GTLRPlaycustomappObjects.h"
 
@@ -16,5 +16,5 @@
 //
 
 @implementation GTLRPlaycustomapp_CustomApp
-@dynamic languageCode, title;
+@dynamic languageCode, packageName, title;
 @end

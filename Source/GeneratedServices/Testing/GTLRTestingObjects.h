@@ -52,6 +52,7 @@
 @class GTLRTesting_IntentFilter;
 @class GTLRTesting_IosDevice;
 @class GTLRTesting_IosDeviceCatalog;
+@class GTLRTesting_IosDeviceFile;
 @class GTLRTesting_IosDeviceList;
 @class GTLRTesting_IosModel;
 @class GTLRTesting_IosRuntimeConfiguration;
@@ -1085,7 +1086,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  A test of an android application that explores the application on a virtual
  *  or physical Android Device, finding culprits and crashes as it goes. Next
- *  tag: 29
+ *  tag: 30
  */
 @interface GTLRTesting_AndroidRoboTest : GTLRObject
 
@@ -1409,20 +1410,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day and time zone are either specified elsewhere or are not significant. The
- *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
- *  A full date, with non-zero year, month and day values * A month and day
- *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
- *  month and day values * A year and month value, with a zero day, e.g. a
- *  credit card expiration date Related types are google.type.TimeOfDay and
- *  `google.protobuf.Timestamp`.
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRTesting_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
- *  specifying a year by itself or a year and month where the day is not
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -1430,7 +1431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12, or 0 if specifying a year without a
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
  *  month and day.
  *
  *  Uses NSNumber of intValue.
@@ -1438,7 +1439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
  *  year.
  *
  *  Uses NSNumber of intValue.
@@ -1696,6 +1697,28 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
+ *  A file or directory to install on the device before the test starts.
+ */
+@interface GTLRTesting_IosDeviceFile : GTLRObject
+
+/**
+ *  The bundle id of the app where this file lives. iOS apps sandbox their own
+ *  filesystem, so app files must specify which app installed on the device.
+ */
+@property(nonatomic, copy, nullable) NSString *bundleId;
+
+/** The source file */
+@property(nonatomic, strong, nullable) GTLRTesting_FileReference *content;
+
+/**
+ *  Location of the file on the device, inside the app's sandboxed filesystem
+ */
+@property(nonatomic, copy, nullable) NSString *devicePath;
+
+@end
+
+
+/**
  *  A list of iOS device configurations in which the test is to be executed.
  */
 @interface GTLRTesting_IosDeviceList : GTLRObject
@@ -1830,6 +1853,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  */
 @property(nonatomic, copy, nullable) NSString *networkProfile;
 
+/**
+ *  List of directories on the device to upload to Cloud Storage at the end of
+ *  the test. Directories should either be in a shared directory (e.g.
+ *  /private/var/mobile/Media) or within an accessible directory inside the
+ *  app's filesystem (e.g. /Documents) by specifying the bundle id.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosDeviceFile *> *pullDirectories;
+
+/** List of files to push to the device before starting the test. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTesting_IosDeviceFile *> *pushFiles;
+
 @end
 
 
@@ -1961,7 +1995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  Required. Group of packages, classes, and/or test methods to be run for each
  *  shard. When any physical devices are selected, the number of
  *  test_targets_for_shard must be >= 1 and <= 50. When no physical devices are
- *  selected, the number must be >= 1 and <= 250.
+ *  selected, the number must be >= 1 and <= 500.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_TestTargetsForShard *> *testTargetsForShard;
 
@@ -2374,6 +2408,18 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /** Required. The devices the tests are being executed on. */
 @property(nonatomic, strong, nullable) GTLRTesting_EnvironmentMatrix *environmentMatrix;
+
+/**
+ *  If true, only a single attempt at most will be made to run each
+ *  execution/shard in the matrix. Flaky test attempts are not affected.
+ *  Normally, 2 or more attempts are made if a potential infrastructure issue is
+ *  detected. This feature is for latency sensitive workloads. The incidence of
+ *  execution failures may be significantly greater for fail-fast matrices and
+ *  support is more limited because of that expectation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failFast;
 
 /**
  *  The number of times a TestExecution should be re-attempted if one or more of
@@ -2824,7 +2870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 /**
  *  Required. Total number of shards. When any physical devices are selected,
  *  the number must be >= 1 and <= 50. When no physical devices are selected,
- *  the number must be >= 1 and <= 250.
+ *  the number must be >= 1 and <= 500.
  *
  *  Uses NSNumber of intValue.
  */

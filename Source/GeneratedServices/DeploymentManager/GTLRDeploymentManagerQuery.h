@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deployment Manager API (deploymentmanager/v2)
+//   Cloud Deployment Manager V2 API (deploymentmanager/v2)
 // Description:
-//   Declares, configures, and deploys complex solutions on Google Cloud
-//   Platform.
+//   The Google Cloud Deployment Manager v2 API provides services for
+//   configuring, deploying, and viewing Google Cloud services and APIs via
+//   templates which specify deployments of Cloud resources.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/
+//   https://cloud.google.com/deployment-manager
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -121,8 +122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  Sets the policy to use for deleting resources.
  *
  *  Likely values:
- *    @arg @c kGTLRDeploymentManagerDeletePolicyAbandon Value "ABANDON"
  *    @arg @c kGTLRDeploymentManagerDeletePolicyDelete Value "DELETE"
+ *    @arg @c kGTLRDeploymentManagerDeletePolicyAbandon Value "ABANDON"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerDeletePolicyDelete.
@@ -200,6 +201,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 // Previous library name was
 //   +[GTLQueryDeploymentManager queryForDeploymentsGetIamPolicyWithproject:resource:]
 
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -240,9 +244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  Sets the policy to use for creating new resources.
  *
  *  Likely values:
- *    @arg @c kGTLRDeploymentManagerCreatePolicyAcquire Value "ACQUIRE"
  *    @arg @c kGTLRDeploymentManagerCreatePolicyCreateOrAcquire Value
  *        "CREATE_OR_ACQUIRE"
+ *    @arg @c kGTLRDeploymentManagerCreatePolicyAcquire Value "ACQUIRE"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerCreatePolicyCreateOrAcquire.
@@ -305,13 +309,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -328,13 +332,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -346,6 +350,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_DeploymentsListResponse.
@@ -382,9 +392,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  Sets the policy to use for creating new resources.
  *
  *  Likely values:
- *    @arg @c kGTLRDeploymentManagerCreatePolicyAcquire Value "ACQUIRE"
  *    @arg @c kGTLRDeploymentManagerCreatePolicyCreateOrAcquire Value
  *        "CREATE_OR_ACQUIRE"
+ *    @arg @c kGTLRDeploymentManagerCreatePolicyAcquire Value "ACQUIRE"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerCreatePolicyCreateOrAcquire.
@@ -395,8 +405,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  Sets the policy to use for deleting resources.
  *
  *  Likely values:
- *    @arg @c kGTLRDeploymentManagerDeletePolicyAbandon Value "ABANDON"
  *    @arg @c kGTLRDeploymentManagerDeletePolicyDelete Value "DELETE"
+ *    @arg @c kGTLRDeploymentManagerDeletePolicyAbandon Value "ABANDON"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerDeletePolicyDelete.
@@ -577,9 +587,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  Sets the policy to use for creating new resources.
  *
  *  Likely values:
- *    @arg @c kGTLRDeploymentManagerCreatePolicyAcquire Value "ACQUIRE"
  *    @arg @c kGTLRDeploymentManagerCreatePolicyCreateOrAcquire Value
  *        "CREATE_OR_ACQUIRE"
+ *    @arg @c kGTLRDeploymentManagerCreatePolicyAcquire Value "ACQUIRE"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerCreatePolicyCreateOrAcquire.
@@ -590,8 +600,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  Sets the policy to use for deleting resources.
  *
  *  Likely values:
- *    @arg @c kGTLRDeploymentManagerDeletePolicyAbandon Value "ABANDON"
  *    @arg @c kGTLRDeploymentManagerDeletePolicyDelete Value "DELETE"
+ *    @arg @c kGTLRDeploymentManagerDeletePolicyAbandon Value "ABANDON"
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDeploymentManagerDeletePolicyDelete.
@@ -708,13 +718,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -731,13 +741,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -749,6 +759,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_ManifestsListResponse.
@@ -830,13 +846,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -853,13 +869,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -871,6 +887,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_OperationsListResponse.
@@ -958,13 +980,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -981,13 +1003,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -999,6 +1021,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_ResourcesListResponse.
@@ -1044,13 +1072,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1067,13 +1095,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1085,6 +1113,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_TypesListResponse.

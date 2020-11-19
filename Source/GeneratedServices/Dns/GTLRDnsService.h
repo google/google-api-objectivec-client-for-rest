@@ -4,7 +4,7 @@
 // API:
 //   Cloud DNS API (dns/v1)
 // Documentation:
-//   http://developers.google.com/cloud-dns
+//   https://cloud.google.com/dns/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;

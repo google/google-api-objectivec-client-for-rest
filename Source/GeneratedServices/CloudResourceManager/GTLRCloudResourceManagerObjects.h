@@ -180,6 +180,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeletedViolation;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation.operationType
+
+/**
+ *  A create folder operation.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_Create;
+/**
+ *  A move folder operation.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_Move;
+/**
+ *  Operation type not specified.
+ *
+ *  Value: "OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_OperationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation.operationType
+
+/**
+ *  A create folder operation.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_Create;
+/**
+ *  A move folder operation.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_Move;
+/**
+ *  Operation type not specified.
+ *
+ *  Value: "OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_OperationTypeUnspecified;
+
 /**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
@@ -252,12 +296,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
 @interface GTLRCloudResourceManager_Binding : GTLRObject
 
 /**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
-@property(nonatomic, copy, nullable) NSString *bindingId;
-
-/**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
@@ -306,6 +344,104 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
+@end
+
+
+/**
+ *  Metadata pertaining to the Folder creation process.
+ */
+@interface GTLRCloudResourceManager_CreateFolderMetadata : GTLRObject
+
+/** The display name of the folder. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the folder or organization we are creating the folder
+ *  under.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by CreateProject. It provides insight for when significant phases
+ *  of Project creation have completed.
+ */
+@interface GTLRCloudResourceManager_CreateProjectMetadata : GTLRObject
+
+/** Creation time of the project creation workflow. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  True if the project can be retrieved using GetProject. No other operations
+ *  on the project are guaranteed to work until the project creation is
+ *  complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gettable;
+
+/**
+ *  True if the project creation process is complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ready;
+
+@end
+
+
+/**
+ *  Runtime operation information for creating a TagKey.
+ */
+@interface GTLRCloudResourceManager_CreateTagKeyMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for creating a TagValue.
+ */
+@interface GTLRCloudResourceManager_CreateTagValueMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by DeleteFolder.
+ */
+@interface GTLRCloudResourceManager_DeleteFolderMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by DeleteOrganization.
+ */
+@interface GTLRCloudResourceManager_DeleteOrganizationMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by DeleteProject.
+ */
+@interface GTLRCloudResourceManager_DeleteProjectMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for deleting a TagKey.
+ */
+@interface GTLRCloudResourceManager_DeleteTagKeyMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for deleting a TagValue.
+ */
+@interface GTLRCloudResourceManager_DeleteTagValueMetadata : GTLRObject
 @end
 
 
@@ -370,12 +506,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The folder’s display name. A folder’s display name must be unique amongst
+ *  The folder's display name. A folder's display name must be unique amongst
  *  its siblings, e.g. no two folders with the same parent can share the same
  *  display name. The display name must start and end with a letter or digit,
  *  may contain letters, digits, spaces, hyphens and underscores and can be no
  *  longer than 30 characters. This is captured by the regular expression:
- *  [\\p{L}\\p{N}]([\\p{L}\\p{N}_- ]{0,28}[\\p{L}\\p{N}])?.
+ *  `[\\p{L}\\p{N}]([\\p{L}\\p{N}_- ]{0,28}[\\p{L}\\p{N}])?`.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -401,7 +537,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The Folder’s parent's resource name. Updates to the folder's
+ *  Required. The Folder's parent's resource name. Updates to the folder's
  *  parent must be performed via MoveFolder.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -526,6 +662,78 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
 
 
 /**
+ *  Metadata describing a long running folder operation
+ */
+@interface GTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation : GTLRObject
+
+/**
+ *  The resource name of the folder or organization we are either creating the
+ *  folder under or moving the folder to.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
+
+/** The display name of the folder. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The type of this operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_Create
+ *        A create folder operation. (Value: "CREATE")
+ *    @arg @c kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_Move
+ *        A move folder operation. (Value: "MOVE")
+ *    @arg @c kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_OperationTypeUnspecified
+ *        Operation type not specified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/**
+ *  The resource name of the folder's parent. Only applicable when the
+ *  operation_type is MOVE.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceParent;
+
+@end
+
+
+/**
+ *  Metadata describing a long running folder operation
+ */
+@interface GTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation : GTLRObject
+
+/**
+ *  The resource name of the folder or organization we are either creating the
+ *  folder under or moving the folder to.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
+
+/** The display name of the folder. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The type of this operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_Create
+ *        A create folder operation. (Value: "CREATE")
+ *    @arg @c kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_Move
+ *        A move folder operation. (Value: "MOVE")
+ *    @arg @c kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_OperationTypeUnspecified
+ *        Operation type not specified. (Value: "OPERATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/**
+ *  The resource name of the folder's parent. Only applicable when the
+ *  operation_type is MOVE.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceParent;
+
+@end
+
+
+/**
  *  The ListFolders response message.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -554,6 +762,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
 
 
 /**
+ *  Metadata pertaining to the Folder move process.
+ */
+@interface GTLRCloudResourceManager_MoveFolderMetadata : GTLRObject
+
+/** The resource name of the folder or organization to move the folder to. */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
+
+/** The display name of the folder. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The resource name of the folder's parent. */
+@property(nonatomic, copy, nullable) NSString *sourceParent;
+
+@end
+
+
+/**
  *  The MoveFolder request message.
  */
 @interface GTLRCloudResourceManager_MoveFolderRequest : GTLRObject
@@ -565,6 +790,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
  */
 @property(nonatomic, copy, nullable) NSString *destinationParent;
 
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by MoveProject.
+ */
+@interface GTLRCloudResourceManager_MoveProjectMetadata : GTLRObject
 @end
 
 
@@ -927,9 +1160,77 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
 
 
 /**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UndeleteFolder.
+ */
+@interface GTLRCloudResourceManager_UndeleteFolderMetadata : GTLRObject
+@end
+
+
+/**
  *  The UndeleteFolder request message.
  */
 @interface GTLRCloudResourceManager_UndeleteFolderRequest : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UndeleteOrganization.
+ */
+@interface GTLRCloudResourceManager_UndeleteOrganizationMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UndeleteProject.
+ */
+@interface GTLRCloudResourceManager_UndeleteProjectMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for undeleting a TagKey.
+ */
+@interface GTLRCloudResourceManager_UndeleteTagKeyMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for deleting a TagValue.
+ */
+@interface GTLRCloudResourceManager_UndeleteTagValueMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UpdateFolder.
+ */
+@interface GTLRCloudResourceManager_UpdateFolderMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UpdateProject.
+ */
+@interface GTLRCloudResourceManager_UpdateProjectMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for updating a TagKey.
+ */
+@interface GTLRCloudResourceManager_UpdateTagKeyMetadata : GTLRObject
+@end
+
+
+/**
+ *  Runtime operation information for updating a TagValue.
+ */
+@interface GTLRCloudResourceManager_UpdateTagValueMetadata : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

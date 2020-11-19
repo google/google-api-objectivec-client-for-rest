@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Data Transfer API (admin/datatransfer_v1)
+//   Admin SDK (admin/datatransfer_v1)
 // Description:
-//   Transfers user data from one user to another.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/data-transfer/
+//   http://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -49,9 +51,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataTransferDatatransferReadonl
 //
 
 /**
- *  Service for executing Admin Data Transfer API queries.
+ *  Service for executing Admin SDK queries.
  *
- *  Transfers user data from one user to another.
+ *  Admin SDK lets administrators of enterprise domains to view and manage
+ *  resources like user, groups etc. It also provides audit and usage reports of
+ *  domain.
  */
 @interface GTLRDataTransferService : GTLRService
 

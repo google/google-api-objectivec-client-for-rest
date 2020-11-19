@@ -506,8 +506,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Provides a list of the authenticated user's contacts. The request throws a
- *  400 error if 'personFields' is not specified.
+ *  Provides a list of the authenticated user's contacts. The request returns a
+ *  400 error if `personFields` is not specified. The request returns a 410
+ *  error if `sync_token` is specified and is expired. Sync tokens expire after
+ *  7 days. A request without `sync_token` should be made and all contacts
+ *  should be synced.
  *
  *  Method: people.people.connections.list
  *
@@ -557,10 +560,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @property(nonatomic, copy, nullable) NSString *requestMaskIncludeField;
 
 /**
- *  Optional. Whether the response should include `next_sync_token`, which can
- *  be used to get all changes since the last request. For subsequent sync
- *  requests use the `sync_token` param instead. Initial sync requests that
- *  specify `request_sync_token` have an additional rate limit.
+ *  Optional. Whether the response should include `next_sync_token` on the last
+ *  page, which can be used to get all changes since the last request. For
+ *  subsequent sync requests use the `sync_token` param instead. Initial sync
+ *  requests that specify `request_sync_token` have an additional rate limit.
  */
 @property(nonatomic, assign) BOOL requestSyncToken;
 
@@ -590,7 +593,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
+ *  READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
@@ -617,8 +620,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_ListConnectionsResponse.
  *
- *  Provides a list of the authenticated user's contacts. The request throws a
- *  400 error if 'personFields' is not specified.
+ *  Provides a list of the authenticated user's contacts. The request returns a
+ *  400 error if `personFields` is not specified. The request returns a 410
+ *  error if `sync_token` is specified and is expired. Sync tokens expire after
+ *  7 days. A request without `sync_token` should be made and all contacts
+ *  should be synced.
  *
  *  @param resourceName Required. The resource name to return connections for.
  *    Only `people/me` is valid.
@@ -635,7 +641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Create a new contact and return the person resource for that contact. The
- *  request throws a 400 error if more than one field is specified on a field
+ *  request returns a 400 error if more than one field is specified on a field
  *  that is a singleton for contact sources: * biographies * birthdays * genders
  *  * names
  *
@@ -664,7 +670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
+ *  READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
@@ -683,7 +689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_Person.
  *
  *  Create a new contact and return the person resource for that contact. The
- *  request throws a 400 error if more than one field is specified on a field
+ *  request returns a 400 error if more than one field is specified on a field
  *  that is a singleton for contact sources: * biographies * birthdays * genders
  *  * names
  *
@@ -754,7 +760,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
+ *  READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
@@ -785,7 +791,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Provides information about a person by specifying a resource name. Use
- *  `people/me` to indicate the authenticated user. The request throws a 400
+ *  `people/me` to indicate the authenticated user. The request returns a 400
  *  error if 'personFields' is not specified.
  *
  *  Method: people.people.get
@@ -842,7 +848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.PROFILE and ReadSourceType.CONTACT if not set.
+ *  READ_SOURCE_TYPE_PROFILE and READ_SOURCE_TYPE_CONTACT if not set.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
@@ -861,7 +867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_Person.
  *
  *  Provides information about a person by specifying a resource name. Use
- *  `people/me` to indicate the authenticated user. The request throws a 400
+ *  `people/me` to indicate the authenticated user. The request returns a 400
  *  error if 'personFields' is not specified.
  *
  *  @param resourceName Required. The resource name of the person to provide
@@ -880,7 +886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Provides information about a list of specific people by specifying a list of
  *  requested resource names. Use `people/me` to indicate the authenticated
- *  user. The request throws a 400 error if 'personFields' is not specified.
+ *  user. The request returns a 400 error if 'personFields' is not specified.
  *
  *  Method: people.people.getBatchGet
  *
@@ -938,7 +944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
+ *  READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
@@ -958,7 +964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *
  *  Provides information about a list of specific people by specifying a list of
  *  requested resource names. Use `people/me` to indicate the authenticated
- *  user. The request throws a 400 error if 'personFields' is not specified.
+ *  user. The request returns a 400 error if 'personFields' is not specified.
  *
  *  @return GTLRPeopleServiceQuery_PeopleGetBatchGet
  */
@@ -1199,7 +1205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
+ *  READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set.
  *
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.

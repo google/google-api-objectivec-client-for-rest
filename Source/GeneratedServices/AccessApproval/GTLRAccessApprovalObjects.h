@@ -43,9 +43,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Customer made a request or raised an issue that required the principal to
- *  access customer data. `detail` is of the form ("#####" is the issue ID): 1.
- *  "Feedback Report: #####" 2. "Case Number: #####" 3. "Case ID: #####" 4.
- *  "E-PIN Reference: #####" 5. "Google-#####" 6. "T-#####"
+ *  access customer data. `detail` is of the form ("#####" is the issue ID): *
+ *  "Feedback Report: #####" * "Case Number: #####" * "Case ID: #####" * "E-PIN
+ *  Reference: #####" * "Google-#####" * "T-#####"
  *
  *  Value: "CUSTOMER_INITIATED_SUPPORT"
  */
@@ -97,9 +97,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  The "home office" location of the principal. A two-letter country code (ISO
  *  3166-1 alpha-2), such as "US", "DE" or "GB" or a region code. In some
  *  limited situations Google systems may refer refer to a region code instead
- *  of a country code. Possible Region Codes: 1. ASI: Asia 2. EUR: Europe 3.
- *  OCE: Oceania 4. AFR: Africa 5. NAM: North America 6. SAM: South America 7.
- *  ANT: Antarctica 8. ANY: Any location
+ *  of a country code. Possible Region Codes: * ASI: Asia * EUR: Europe * OCE:
+ *  Oceania * AFR: Africa * NAM: North America * SAM: South America * ANT:
+ *  Antarctica * ANY: Any location
  */
 @property(nonatomic, copy, nullable) NSString *principalOfficeCountry;
 
@@ -107,9 +107,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  Physical location of the principal at the time of the access. A two-letter
  *  country code (ISO 3166-1 alpha-2), such as "US", "DE" or "GB" or a region
  *  code. In some limited situations Google systems may refer refer to a region
- *  code instead of a country code. Possible Region Codes: 1. ASI: Asia 2. EUR:
- *  Europe 3. OCE: Oceania 4. AFR: Africa 5. NAM: North America 6. SAM: South
- *  America 7. ANT: Antarctica 8. ANY: Any location
+ *  code instead of a country code. Possible Region Codes: * ASI: Asia * EUR:
+ *  Europe * OCE: Oceania * AFR: Africa * NAM: North America * SAM: South
+ *  America * ANT: Antarctica * ANY: Any location
  */
 @property(nonatomic, copy, nullable) NSString *principalPhysicalLocationCountry;
 
@@ -133,9 +133,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_CustomerInitiatedSupport
  *        Customer made a request or raised an issue that required the principal
  *        to access customer data. `detail` is of the form ("#####" is the issue
- *        ID): 1. "Feedback Report: #####" 2. "Case Number: #####" 3. "Case ID:
- *        #####" 4. "E-PIN Reference: #####" 5. "Google-#####" 6. "T-#####"
- *        (Value: "CUSTOMER_INITIATED_SUPPORT")
+ *        ID): * "Feedback Report: #####" * "Case Number: #####" * "Case ID:
+ *        #####" * "E-PIN Reference: #####" * "Google-#####" * "T-#####" (Value:
+ *        "CUSTOMER_INITIATED_SUPPORT")
  *    @arg @c kGTLRAccessApproval_AccessReason_Type_GoogleInitiatedReview Google
  *        initiated service for security, fraud, abuse, or compliance purposes.
  *        (Value: "GOOGLE_INITIATED_REVIEW")
@@ -166,7 +166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 
 /**
  *  The resource name of the request. Format is
- *  "{projects|folders|organizations}/{id}/approvalRequests/{approval_request_id}".
+ *  "{projects|folders|organizations}/{id}/approvalRequests/{approval_request}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -274,13 +274,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 
 /**
  *  The product for which Access Approval will be enrolled. Allowed values are
- *  listed below (case-sensitive): 1. all 2. ga-only 3. appengine.googleapis.com
- *  4. bigquery.googleapis.com 5. bigtable.googleapis.com 6.
- *  cloudkms.googleapis.com 7. compute.googleapis.com 8. dataflow.googleapis.com
- *  9. iam.googleapis.com 10. pubsub.googleapis.com 11. storage.googleapis.com
- *  Note: 'all' will enroll the resource in all products supported at both 'GA'
- *  and 'Preview' levels. 'ga-only' will only enroll the resource in products
- *  supported at 'GA' level.
+ *  listed below (case-sensitive): * all * App Engine * BigQuery * Cloud
+ *  Bigtable * Cloud Key Management Service * Compute Engine * Cloud Dataflow *
+ *  Cloud Identity and Access Management * Cloud Pub/Sub * Cloud Storage *
+ *  Persistent Disk Note: These values are supported as input for legacy
+ *  purposes, but will not be returned from the API. * all *
+ *  appengine.googleapis.com * bigquery.googleapis.com * bigtable.googleapis.com
+ *  * cloudkms.googleapis.com * compute.googleapis.com * dataflow.googleapis.com
+ *  * iam.googleapis.com * pubsub.googleapis.com * storage.googleapis.com Calls
+ *  to UpdateAccessApprovalSettings using 'all' or any of the XXX.googleapis.com
+ *  will be translated to the associated product name ('all', 'App Engine',
+ *  etc.). Note: 'all' will enroll the resource in all products supported at
+ *  both 'GA' and 'Preview' levels. More information about levels of support is
+ *  available at
+ *  https://cloud.google.com/access-approval/docs/supported-services
  */
 @property(nonatomic, copy, nullable) NSString *cloudProduct;
 
@@ -372,10 +379,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessApproval_EnrolledService *> *enrolledServices;
 
 /**
- *  The resource name of the settings. Format is one of: 1.
- *  "projects/{project_id}/accessApprovalSettings" 2.
- *  "folders/{folder_id}/accessApprovalSettings" 3.
- *  "organizations/{organization_id}/accessApprovalSettings"
+ *  The resource name of the settings. Format is one of: *
+ *  "projects/{project}/accessApprovalSettings" *
+ *  "folders/{folder}/accessApprovalSettings" *
+ *  "organizations/{organization}/accessApprovalSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

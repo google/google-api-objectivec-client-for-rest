@@ -79,6 +79,333 @@ NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly   = @"SERVING_DECIS
 
 @end
 
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsActivate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_ActivatePretargetingConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:activate";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsActivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.activate";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedApps
+
+@dynamic pretargetingConfig;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_AddTargetedAppsRequest *)object
+             pretargetingConfig:(NSString *)pretargetingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"pretargetingConfig" ];
+  NSString *pathURITemplate = @"v1/{+pretargetingConfig}:addTargetedApps";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedApps *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.pretargetingConfig = pretargetingConfig;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.addTargetedApps";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedPublishers
+
+@dynamic pretargetingConfig;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_AddTargetedPublishersRequest *)object
+             pretargetingConfig:(NSString *)pretargetingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"pretargetingConfig" ];
+  NSString *pathURITemplate = @"v1/{+pretargetingConfig}:addTargetedPublishers";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedPublishers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.pretargetingConfig = pretargetingConfig;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.addTargetedPublishers";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedSites
+
+@dynamic pretargetingConfig;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_AddTargetedSitesRequest *)object
+             pretargetingConfig:(NSString *)pretargetingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"pretargetingConfig" ];
+  NSString *pathURITemplate = @"v1/{+pretargetingConfig}:addTargetedSites";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsAddTargetedSites *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.pretargetingConfig = pretargetingConfig;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.addTargetedSites";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_PretargetingConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/pretargetingConfigs";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_Empty class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/pretargetingConfigs";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRRealTimeBidding_ListPretargetingConfigsResponse class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_PretargetingConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedApps
+
+@dynamic pretargetingConfig;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_RemoveTargetedAppsRequest *)object
+             pretargetingConfig:(NSString *)pretargetingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"pretargetingConfig" ];
+  NSString *pathURITemplate = @"v1/{+pretargetingConfig}:removeTargetedApps";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedApps *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.pretargetingConfig = pretargetingConfig;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.removeTargetedApps";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedPublishers
+
+@dynamic pretargetingConfig;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_RemoveTargetedPublishersRequest *)object
+             pretargetingConfig:(NSString *)pretargetingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"pretargetingConfig" ];
+  NSString *pathURITemplate = @"v1/{+pretargetingConfig}:removeTargetedPublishers";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedPublishers *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.pretargetingConfig = pretargetingConfig;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.removeTargetedPublishers";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedSites
+
+@dynamic pretargetingConfig;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_RemoveTargetedSitesRequest *)object
+             pretargetingConfig:(NSString *)pretargetingConfig {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"pretargetingConfig" ];
+  NSString *pathURITemplate = @"v1/{+pretargetingConfig}:removeTargetedSites";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsRemoveTargetedSites *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.pretargetingConfig = pretargetingConfig;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.removeTargetedSites";
+  return query;
+}
+
+@end
+
+@implementation GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsSuspend
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRRealTimeBidding_SuspendPretargetingConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:suspend";
+  GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsSuspend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRRealTimeBidding_PretargetingConfig class];
+  query.loggingName = @"realtimebidding.bidders.pretargetingConfigs.suspend";
+  return query;
+}
+
+@end
+
 @implementation GTLRRealTimeBiddingQuery_BuyersCreativesCreate
 
 @dynamic parent;

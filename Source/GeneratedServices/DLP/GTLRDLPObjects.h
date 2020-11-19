@@ -152,6 +152,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceValueConfig;
 @class GTLRDLP_GooglePrivacyDlpV2ReplaceWithInfoTypeConfig;
 @class GTLRDLP_GooglePrivacyDlpV2RequestedOptions;
+@class GTLRDLP_GooglePrivacyDlpV2RequestedRiskAnalysisOptions;
 @class GTLRDLP_GooglePrivacyDlpV2Result;
 @class GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig;
 @class GTLRDLP_GooglePrivacyDlpV2Row;
@@ -1174,6 +1175,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Numerical stats result */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2NumericalStatsResult *numericalStatsResult;
+
+/** The configuration used for this job. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RequestedRiskAnalysisOptions *requestedOptions;
 
 /** Privacy metric to compute. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PrivacyMetric *requestedPrivacyMetric;
@@ -3022,6 +3026,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Timestamp when finding was detected. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The unique finding id. */
+@property(nonatomic, copy, nullable) NSString *findingId;
 
 /**
  *  The type of content that might have been found. Provided if `excluded_types`
@@ -5258,6 +5265,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Risk analysis options.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2RequestedRiskAnalysisOptions : GTLRObject
+
+/** The job config for the risk job. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig *jobConfig;
+
+@end
+
+
+/**
  *  All result fields mentioned below are updated while the job is processing.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Result : GTLRObject
@@ -5740,24 +5758,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *enableAutoPopulationOfTimespanConfig;
 
 /**
- *  Exclude files or rows newer than this value. If set to zero, no upper time
- *  limit is applied.
+ *  Exclude files, tables, or rows newer than this value. If not set, no upper
+ *  time limit is applied.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Exclude files or rows older than this value. */
+/**
+ *  Exclude files, tables, or rows older than this value. If not set, no lower
+ *  time limit is applied.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
  *  Specification of the field containing the timestamp of scanned items. Used
- *  for data sources like Datastore and BigQuery. For BigQuery: Required to
- *  filter out rows based on the given start and end times. If not specified and
- *  the table was modified between the given start and end times, the entire
- *  table will be scanned. The valid data types of the timestamp field are:
- *  `INTEGER`, `DATE`, `TIMESTAMP`, or `DATETIME` BigQuery column. For
- *  Datastore. Valid data types of the timestamp field are: `TIMESTAMP`.
- *  Datastore entity will be scanned if the timestamp property does not exist or
- *  its value is empty or invalid.
+ *  for data sources like Datastore and BigQuery. For BigQuery: If this value is
+ *  not specified and the table was modified between the given start and end
+ *  times, the entire table will be scanned. If this value is specified, then
+ *  rows are filtered based on the given start and end times. Rows with a `NULL`
+ *  value in the provided BigQuery column are skipped. Valid data types of the
+ *  provided BigQuery column are: `INTEGER`, `DATE`, `TIMESTAMP`, and
+ *  `DATETIME`. For Datastore: If this value is specified, then entities are
+ *  filtered based on the given start and end times. If an entity does not
+ *  contain the provided timestamp property or contains empty or invalid values,
+ *  then it is included. Valid data types of the provided timestamp property
+ *  are: `TIMESTAMP`.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *timestampField;
 
@@ -6144,20 +6168,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day and time zone are either specified elsewhere or are not significant. The
- *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
- *  A full date, with non-zero year, month and day values * A month and day
- *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
- *  month and day values * A year and month value, with a zero day, e.g. a
- *  credit card expiration date Related types are google.type.TimeOfDay and
- *  `google.protobuf.Timestamp`.
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRDLP_GoogleTypeDate : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
- *  specifying a year by itself or a year and month where the day is not
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -6165,7 +6189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12, or 0 if specifying a year without a
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
  *  month and day.
  *
  *  Uses NSNumber of intValue.
@@ -6173,7 +6197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
  *  year.
  *
  *  Uses NSNumber of intValue.

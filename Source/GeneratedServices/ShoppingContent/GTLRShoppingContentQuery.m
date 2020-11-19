@@ -4,10 +4,9 @@
 // API:
 //   Content API for Shopping (content/v2.1)
 // Description:
-//   Manages product items, inventory, and Merchant Center accounts for Google
-//   Shopping.
+//   Manage your product listings and accounts for Google Shopping
 // Documentation:
-//   https://developers.google.com/shopping-content
+//   https://developers.google.com/shopping-content/v2/
 
 #import "GTLRShoppingContentQuery.h"
 
@@ -17,50 +16,50 @@
 // Constants
 
 // orderBy
-NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc = @"returnCreationTimeAsc";
-NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc = @"returnCreationTimeDesc";
+NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc = @"RETURN_CREATION_TIME_ASC";
+NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc = @"RETURN_CREATION_TIME_DESC";
 
 // shipmentStates
-NSString * const kGTLRShoppingContentShipmentStatesCompleted   = @"completed";
-NSString * const kGTLRShoppingContentShipmentStatesNew         = @"new";
-NSString * const kGTLRShoppingContentShipmentStatesPending     = @"pending";
-NSString * const kGTLRShoppingContentShipmentStatesShipped     = @"shipped";
-NSString * const kGTLRShoppingContentShipmentStatesUndeliverable = @"undeliverable";
+NSString * const kGTLRShoppingContentShipmentStatesCompleted   = @"COMPLETED";
+NSString * const kGTLRShoppingContentShipmentStatesNew         = @"NEW";
+NSString * const kGTLRShoppingContentShipmentStatesPending     = @"PENDING";
+NSString * const kGTLRShoppingContentShipmentStatesShipped     = @"SHIPPED";
+NSString * const kGTLRShoppingContentShipmentStatesUndeliverable = @"UNDELIVERABLE";
 
 // shipmentStatus
-NSString * const kGTLRShoppingContentShipmentStatusInProgress = @"inProgress";
-NSString * const kGTLRShoppingContentShipmentStatusNew        = @"new";
-NSString * const kGTLRShoppingContentShipmentStatusProcessed  = @"processed";
+NSString * const kGTLRShoppingContentShipmentStatusInProgress = @"IN_PROGRESS";
+NSString * const kGTLRShoppingContentShipmentStatusNew        = @"NEW";
+NSString * const kGTLRShoppingContentShipmentStatusProcessed  = @"PROCESSED";
 
 // shipmentTypes
-NSString * const kGTLRShoppingContentShipmentTypesByMail       = @"byMail";
-NSString * const kGTLRShoppingContentShipmentTypesContactCustomerSupport = @"contactCustomerSupport";
-NSString * const kGTLRShoppingContentShipmentTypesReturnless   = @"returnless";
+NSString * const kGTLRShoppingContentShipmentTypesByMail       = @"BY_MAIL";
+NSString * const kGTLRShoppingContentShipmentTypesContactCustomerSupport = @"CONTACT_CUSTOMER_SUPPORT";
+NSString * const kGTLRShoppingContentShipmentTypesReturnless   = @"RETURNLESS";
 
 // statuses
-NSString * const kGTLRShoppingContentStatusesActive            = @"active";
-NSString * const kGTLRShoppingContentStatusesCanceled          = @"canceled";
-NSString * const kGTLRShoppingContentStatusesCompleted         = @"completed";
-NSString * const kGTLRShoppingContentStatusesDelivered         = @"delivered";
-NSString * const kGTLRShoppingContentStatusesInProgress        = @"inProgress";
-NSString * const kGTLRShoppingContentStatusesPartiallyDelivered = @"partiallyDelivered";
-NSString * const kGTLRShoppingContentStatusesPartiallyReturned = @"partiallyReturned";
-NSString * const kGTLRShoppingContentStatusesPartiallyShipped  = @"partiallyShipped";
-NSString * const kGTLRShoppingContentStatusesPendingShipment   = @"pendingShipment";
-NSString * const kGTLRShoppingContentStatusesReturned          = @"returned";
-NSString * const kGTLRShoppingContentStatusesShipped           = @"shipped";
+NSString * const kGTLRShoppingContentStatusesActive            = @"ACTIVE";
+NSString * const kGTLRShoppingContentStatusesCanceled          = @"CANCELED";
+NSString * const kGTLRShoppingContentStatusesCompleted         = @"COMPLETED";
+NSString * const kGTLRShoppingContentStatusesDelivered         = @"DELIVERED";
+NSString * const kGTLRShoppingContentStatusesInProgress        = @"IN_PROGRESS";
+NSString * const kGTLRShoppingContentStatusesPartiallyDelivered = @"PARTIALLY_DELIVERED";
+NSString * const kGTLRShoppingContentStatusesPartiallyReturned = @"PARTIALLY_RETURNED";
+NSString * const kGTLRShoppingContentStatusesPartiallyShipped  = @"PARTIALLY_SHIPPED";
+NSString * const kGTLRShoppingContentStatusesPendingShipment   = @"PENDING_SHIPMENT";
+NSString * const kGTLRShoppingContentStatusesReturned          = @"RETURNED";
+NSString * const kGTLRShoppingContentStatusesShipped           = @"SHIPPED";
 
 // templateName
-NSString * const kGTLRShoppingContentTemplateNameTemplate1  = @"template1";
-NSString * const kGTLRShoppingContentTemplateNameTemplate1a = @"template1a";
-NSString * const kGTLRShoppingContentTemplateNameTemplate1b = @"template1b";
-NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"template2";
-NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"template3";
-NSString * const kGTLRShoppingContentTemplateNameTemplate4  = @"template4";
+NSString * const kGTLRShoppingContentTemplateNameTemplate1  = @"TEMPLATE1";
+NSString * const kGTLRShoppingContentTemplateNameTemplate1a = @"TEMPLATE1A";
+NSString * const kGTLRShoppingContentTemplateNameTemplate1b = @"TEMPLATE1B";
+NSString * const kGTLRShoppingContentTemplateNameTemplate2  = @"TEMPLATE2";
+NSString * const kGTLRShoppingContentTemplateNameTemplate3  = @"TEMPLATE3";
+NSString * const kGTLRShoppingContentTemplateNameTemplate4  = @"TEMPLATE4";
 
 // view
-NSString * const kGTLRShoppingContentViewCss      = @"css";
-NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
+NSString * const kGTLRShoppingContentViewCss      = @"CSS";
+NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -75,7 +74,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 @implementation GTLRShoppingContentQuery_AccountsAuthinfo
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"accounts/authinfo";
+  NSString *pathURITemplate = @"content/v2.1/accounts/authinfo";
   GTLRShoppingContentQuery_AccountsAuthinfo *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -96,7 +95,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/claimwebsite";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts/{accountId}/claimwebsite";
   GTLRShoppingContentQuery_AccountsClaimwebsite *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -119,7 +118,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"accounts/batch";
+  NSString *pathURITemplate = @"content/v2.1/accounts/batch";
   GTLRShoppingContentQuery_AccountsCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -141,7 +140,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts/{accountId}";
   GTLRShoppingContentQuery_AccountsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -163,7 +162,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts/{accountId}";
   GTLRShoppingContentQuery_AccountsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -190,7 +189,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/accounts";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts";
   GTLRShoppingContentQuery_AccountsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -199,6 +198,105 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   query.merchantId = merchantId;
   query.expectedObjectClass = [GTLRShoppingContent_Account class];
   query.loggingName = @"content.accounts.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsLabelsCreate
+
+@dynamic accountId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountLabel *)object
+                      accountId:(long long)accountId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"content/v2.1/accounts/{accountId}/labels";
+  GTLRShoppingContentQuery_AccountsLabelsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_AccountLabel class];
+  query.loggingName = @"content.accounts.labels.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsLabelsDelete
+
+@dynamic accountId, labelId;
+
++ (instancetype)queryWithAccountId:(long long)accountId
+                           labelId:(long long)labelId {
+  NSArray *pathParams = @[
+    @"accountId", @"labelId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/accounts/{accountId}/labels/{labelId}";
+  GTLRShoppingContentQuery_AccountsLabelsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.labelId = labelId;
+  query.loggingName = @"content.accounts.labels.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsLabelsList
+
+@dynamic accountId, pageSize, pageToken;
+
++ (instancetype)queryWithAccountId:(long long)accountId {
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"content/v2.1/accounts/{accountId}/labels";
+  GTLRShoppingContentQuery_AccountsLabelsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListAccountLabelsResponse class];
+  query.loggingName = @"content.accounts.labels.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsLabelsPatch
+
+@dynamic accountId, labelId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountLabel *)object
+                      accountId:(long long)accountId
+                        labelId:(long long)labelId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"labelId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/accounts/{accountId}/labels/{labelId}";
+  GTLRShoppingContentQuery_AccountsLabelsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.labelId = labelId;
+  query.expectedObjectClass = [GTLRShoppingContent_AccountLabel class];
+  query.loggingName = @"content.accounts.labels.patch";
   return query;
 }
 
@@ -220,7 +318,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/link";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts/{accountId}/link";
   GTLRShoppingContentQuery_AccountsLink *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -241,7 +339,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/accounts";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts";
   GTLRShoppingContentQuery_AccountsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -263,7 +361,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/listlinks";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts/{accountId}/listlinks";
   GTLRShoppingContentQuery_AccountsListlinks *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -286,7 +384,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"accountstatuses/batch";
+  NSString *pathURITemplate = @"content/v2.1/accountstatuses/batch";
   GTLRShoppingContentQuery_AccountstatusesCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -315,7 +413,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accountstatuses/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accountstatuses/{accountId}";
   GTLRShoppingContentQuery_AccountstatusesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -342,7 +440,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/accountstatuses";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accountstatuses";
   GTLRShoppingContentQuery_AccountstatusesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -371,7 +469,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts/{accountId}";
   GTLRShoppingContentQuery_AccountsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -402,7 +500,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/updatelabels";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounts/{accountId}/updatelabels";
   GTLRShoppingContentQuery_AccountsUpdatelabels *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -426,7 +524,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"accounttax/batch";
+  NSString *pathURITemplate = @"content/v2.1/accounttax/batch";
   GTLRShoppingContentQuery_AccounttaxCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -448,7 +546,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounttax/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounttax/{accountId}";
   GTLRShoppingContentQuery_AccounttaxGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -468,7 +566,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/accounttax";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounttax";
   GTLRShoppingContentQuery_AccounttaxList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -497,7 +595,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/accounttax/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/accounttax/{accountId}";
   GTLRShoppingContentQuery_AccounttaxUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -512,6 +610,79 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 @end
 
+@implementation GTLRShoppingContentQuery_CssesGet
+
+@dynamic cssDomainId, cssGroupId;
+
++ (instancetype)queryWithCssGroupId:(long long)cssGroupId
+                        cssDomainId:(long long)cssDomainId {
+  NSArray *pathParams = @[
+    @"cssDomainId", @"cssGroupId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{cssGroupId}/csses/{cssDomainId}";
+  GTLRShoppingContentQuery_CssesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.cssGroupId = cssGroupId;
+  query.cssDomainId = cssDomainId;
+  query.expectedObjectClass = [GTLRShoppingContent_Css class];
+  query.loggingName = @"content.csses.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_CssesList
+
+@dynamic cssGroupId, pageSize, pageToken;
+
++ (instancetype)queryWithCssGroupId:(long long)cssGroupId {
+  NSArray *pathParams = @[ @"cssGroupId" ];
+  NSString *pathURITemplate = @"content/v2.1/{cssGroupId}/csses";
+  GTLRShoppingContentQuery_CssesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.cssGroupId = cssGroupId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListCssesResponse class];
+  query.loggingName = @"content.csses.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_CssesUpdatelabels
+
+@dynamic cssDomainId, cssGroupId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_LabelIds *)object
+                     cssGroupId:(long long)cssGroupId
+                    cssDomainId:(long long)cssDomainId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"cssDomainId", @"cssGroupId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{cssGroupId}/csses/{cssDomainId}/updatelabels";
+  GTLRShoppingContentQuery_CssesUpdatelabels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.cssGroupId = cssGroupId;
+  query.cssDomainId = cssDomainId;
+  query.expectedObjectClass = [GTLRShoppingContent_Css class];
+  query.loggingName = @"content.csses.updatelabels";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_DatafeedsCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_DatafeedsCustomBatchRequest *)object {
@@ -521,7 +692,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"datafeeds/batch";
+  NSString *pathURITemplate = @"content/v2.1/datafeeds/batch";
   GTLRShoppingContentQuery_DatafeedsCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -543,7 +714,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"datafeedId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/datafeeds/{datafeedId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/datafeeds/{datafeedId}";
   GTLRShoppingContentQuery_DatafeedsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -565,7 +736,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"datafeedId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/datafeeds/{datafeedId}/fetchNow";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/datafeeds/{datafeedId}/fetchNow";
   GTLRShoppingContentQuery_DatafeedsFetchnow *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -588,7 +759,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"datafeedId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/datafeeds/{datafeedId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/datafeeds/{datafeedId}";
   GTLRShoppingContentQuery_DatafeedsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -615,7 +786,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/datafeeds";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/datafeeds";
   GTLRShoppingContentQuery_DatafeedsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -635,7 +806,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/datafeeds";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/datafeeds";
   GTLRShoppingContentQuery_DatafeedsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -657,7 +828,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"datafeedstatuses/batch";
+  NSString *pathURITemplate = @"content/v2.1/datafeedstatuses/batch";
   GTLRShoppingContentQuery_DatafeedstatusesCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -679,7 +850,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"datafeedId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/datafeedstatuses/{datafeedId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/datafeedstatuses/{datafeedId}";
   GTLRShoppingContentQuery_DatafeedstatusesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -699,7 +870,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/datafeedstatuses";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/datafeedstatuses";
   GTLRShoppingContentQuery_DatafeedstatusesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -728,7 +899,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"datafeedId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/datafeeds/{datafeedId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/datafeeds/{datafeedId}";
   GTLRShoppingContentQuery_DatafeedsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -752,7 +923,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"liasettings/batch";
+  NSString *pathURITemplate = @"content/v2.1/liasettings/batch";
   GTLRShoppingContentQuery_LiasettingsCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -774,7 +945,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/liasettings/{accountId}";
   GTLRShoppingContentQuery_LiasettingsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -797,7 +968,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/accessiblegmbaccounts";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/liasettings/{accountId}/accessiblegmbaccounts";
   GTLRShoppingContentQuery_LiasettingsGetaccessiblegmbaccounts *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -817,7 +988,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/liasettings";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/liasettings";
   GTLRShoppingContentQuery_LiasettingsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -833,7 +1004,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 @implementation GTLRShoppingContentQuery_LiasettingsListposdataproviders
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"liasettings/posdataproviders";
+  NSString *pathURITemplate = @"content/v2.1/liasettings/posdataproviders";
   GTLRShoppingContentQuery_LiasettingsListposdataproviders *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -855,7 +1026,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/requestgmbaccess";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/liasettings/{accountId}/requestgmbaccess";
   GTLRShoppingContentQuery_LiasettingsRequestgmbaccess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -880,7 +1051,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"country", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/requestinventoryverification/{country}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/liasettings/{accountId}/requestinventoryverification/{country}";
   GTLRShoppingContentQuery_LiasettingsRequestinventoryverification *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -901,24 +1072,24 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           accountId:(unsigned long long)accountId
-                       contactEmail:(NSString *)contactEmail
-                        contactName:(NSString *)contactName
                             country:(NSString *)country
-                           language:(NSString *)language {
+                           language:(NSString *)language
+                        contactName:(NSString *)contactName
+                       contactEmail:(NSString *)contactEmail {
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/setinventoryverificationcontact";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/liasettings/{accountId}/setinventoryverificationcontact";
   GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.merchantId = merchantId;
   query.accountId = accountId;
-  query.contactEmail = contactEmail;
-  query.contactName = contactName;
   query.country = country;
   query.language = language;
+  query.contactName = contactName;
+  query.contactEmail = contactEmail;
   query.expectedObjectClass = [GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse class];
   query.loggingName = @"content.liasettings.setinventoryverificationcontact";
   return query;
@@ -937,7 +1108,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}/setposdataprovider";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/liasettings/{accountId}/setposdataprovider";
   GTLRShoppingContentQuery_LiasettingsSetposdataprovider *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -968,7 +1139,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/liasettings/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/liasettings/{accountId}";
   GTLRShoppingContentQuery_LiasettingsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -992,7 +1163,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"localinventory/batch";
+  NSString *pathURITemplate = @"content/v2.1/localinventory/batch";
   GTLRShoppingContentQuery_LocalinventoryCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1021,7 +1192,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"productId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/products/{productId}/localinventory";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/products/{productId}/localinventory";
   GTLRShoppingContentQuery_LocalinventoryInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1052,7 +1223,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orderinvoices/{orderId}/createChargeInvoice";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderinvoices/{orderId}/createChargeInvoice";
   GTLRShoppingContentQuery_OrderinvoicesCreatechargeinvoice *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1083,7 +1254,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orderinvoices/{orderId}/createRefundInvoice";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderinvoices/{orderId}/createRefundInvoice";
   GTLRShoppingContentQuery_OrderinvoicesCreaterefundinvoice *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1103,16 +1274,14 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 @dynamic disbursementEndDate, disbursementStartDate, maxResults, merchantId,
          pageToken;
 
-+ (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-              disbursementStartDate:(NSString *)disbursementStartDate {
++ (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/orderreports/disbursements";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderreports/disbursements";
   GTLRShoppingContentQuery_OrderreportsListdisbursements *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.merchantId = merchantId;
-  query.disbursementStartDate = disbursementStartDate;
   query.expectedObjectClass = [GTLRShoppingContent_OrderreportsListDisbursementsResponse class];
   query.loggingName = @"content.orderreports.listdisbursements";
   return query;
@@ -1126,19 +1295,17 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
          transactionStartDate;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
-                     disbursementId:(NSString *)disbursementId
-               transactionStartDate:(NSString *)transactionStartDate {
+                     disbursementId:(NSString *)disbursementId {
   NSArray *pathParams = @[
     @"disbursementId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orderreports/disbursements/{disbursementId}/transactions";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderreports/disbursements/{disbursementId}/transactions";
   GTLRShoppingContentQuery_OrderreportsListtransactions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.merchantId = merchantId;
   query.disbursementId = disbursementId;
-  query.transactionStartDate = transactionStartDate;
   query.expectedObjectClass = [GTLRShoppingContent_OrderreportsListTransactionsResponse class];
   query.loggingName = @"content.orderreports.listtransactions";
   return query;
@@ -1162,7 +1329,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"returnId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orderreturns/{returnId}/acknowledge";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderreturns/{returnId}/acknowledge";
   GTLRShoppingContentQuery_OrderreturnsAcknowledge *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1177,6 +1344,33 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 @end
 
+@implementation GTLRShoppingContentQuery_OrderreturnsCreateorderreturn
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrderreturnsCreateOrderReturnRequest *)object
+                     merchantId:(unsigned long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderreturns/createOrderReturn";
+  GTLRShoppingContentQuery_OrderreturnsCreateorderreturn *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrderreturnsCreateOrderReturnResponse class];
+  query.loggingName = @"content.orderreturns.createorderreturn";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_OrderreturnsGet
 
 @dynamic merchantId, returnId;
@@ -1186,7 +1380,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"returnId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orderreturns/{returnId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderreturns/{returnId}";
   GTLRShoppingContentQuery_OrderreturnsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1219,7 +1413,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/orderreturns";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderreturns";
   GTLRShoppingContentQuery_OrderreturnsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1248,7 +1442,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"returnId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orderreturns/{returnId}/process";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orderreturns/{returnId}/process";
   GTLRShoppingContentQuery_OrderreturnsProcess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1279,7 +1473,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/acknowledge";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/acknowledge";
   GTLRShoppingContentQuery_OrdersAcknowledge *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1303,7 +1497,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/testorders/{orderId}/advance";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/testorders/{orderId}/advance";
   GTLRShoppingContentQuery_OrdersAdvancetestorder *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1333,7 +1527,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/cancel";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/cancel";
   GTLRShoppingContentQuery_OrdersCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1364,7 +1558,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/cancelLineItem";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/cancelLineItem";
   GTLRShoppingContentQuery_OrdersCancellineitem *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1395,7 +1589,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/testorders/{orderId}/cancelByCustomer";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/testorders/{orderId}/cancelByCustomer";
   GTLRShoppingContentQuery_OrdersCanceltestorderbycustomer *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1423,7 +1617,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/testorders";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/testorders";
   GTLRShoppingContentQuery_OrdersCreatetestorder *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1453,7 +1647,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/testreturn";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/testreturn";
   GTLRShoppingContentQuery_OrdersCreatetestreturn *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1477,7 +1671,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}";
   GTLRShoppingContentQuery_OrdersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1500,7 +1694,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"merchantOrderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/ordersbymerchantid/{merchantOrderId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/ordersbymerchantid/{merchantOrderId}";
   GTLRShoppingContentQuery_OrdersGetbymerchantorderid *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1523,7 +1717,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"templateName"
   ];
-  NSString *pathURITemplate = @"{merchantId}/testordertemplates/{templateName}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/testordertemplates/{templateName}";
   GTLRShoppingContentQuery_OrdersGettestordertemplate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1553,7 +1747,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/inStoreRefundLineItem";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/inStoreRefundLineItem";
   GTLRShoppingContentQuery_OrdersInstorerefundlineitem *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1582,7 +1776,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/orders";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders";
   GTLRShoppingContentQuery_OrdersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1611,7 +1805,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/refunditem";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/refunditem";
   GTLRShoppingContentQuery_OrdersRefunditem *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1642,7 +1836,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/refundorder";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/refundorder";
   GTLRShoppingContentQuery_OrdersRefundorder *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1673,7 +1867,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/rejectReturnLineItem";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/rejectReturnLineItem";
   GTLRShoppingContentQuery_OrdersRejectreturnlineitem *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1704,7 +1898,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/returnRefundLineItem";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/returnRefundLineItem";
   GTLRShoppingContentQuery_OrdersReturnrefundlineitem *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1735,7 +1929,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/setLineItemMetadata";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/setLineItemMetadata";
   GTLRShoppingContentQuery_OrdersSetlineitemmetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1766,7 +1960,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/shipLineItems";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/shipLineItems";
   GTLRShoppingContentQuery_OrdersShiplineitems *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1797,7 +1991,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/updateLineItemShippingDetails";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/updateLineItemShippingDetails";
   GTLRShoppingContentQuery_OrdersUpdatelineitemshippingdetails *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1828,7 +2022,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/updateMerchantOrderId";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/updateMerchantOrderId";
   GTLRShoppingContentQuery_OrdersUpdatemerchantorderid *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1859,7 +2053,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"orderId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/orders/{orderId}/updateShipment";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/orders/{orderId}/updateShipment";
   GTLRShoppingContentQuery_OrdersUpdateshipment *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1874,6 +2068,33 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 @end
 
+@implementation GTLRShoppingContentQuery_OrdertrackingsignalsCreate
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_OrderTrackingSignal *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/ordertrackingsignals";
+  GTLRShoppingContentQuery_OrdertrackingsignalsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_OrderTrackingSignal class];
+  query.loggingName = @"content.ordertrackingsignals.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_PosCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_PosCustomBatchRequest *)object {
@@ -1883,7 +2104,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"pos/batch";
+  NSString *pathURITemplate = @"content/v2.1/pos/batch";
   GTLRShoppingContentQuery_PosCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1906,7 +2127,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"storeCode", @"targetMerchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/pos/{targetMerchantId}/store/{storeCode}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/pos/{targetMerchantId}/store/{storeCode}";
   GTLRShoppingContentQuery_PosDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1930,7 +2151,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"storeCode", @"targetMerchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/pos/{targetMerchantId}/store/{storeCode}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/pos/{targetMerchantId}/store/{storeCode}";
   GTLRShoppingContentQuery_PosGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1961,7 +2182,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"targetMerchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/pos/{targetMerchantId}/store";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/pos/{targetMerchantId}/store";
   GTLRShoppingContentQuery_PosInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1992,7 +2213,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"targetMerchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/pos/{targetMerchantId}/inventory";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/pos/{targetMerchantId}/inventory";
   GTLRShoppingContentQuery_PosInventory *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2016,7 +2237,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"targetMerchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/pos/{targetMerchantId}/store";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/pos/{targetMerchantId}/store";
   GTLRShoppingContentQuery_PosList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2046,7 +2267,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"targetMerchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/pos/{targetMerchantId}/sale";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/pos/{targetMerchantId}/sale";
   GTLRShoppingContentQuery_PosSale *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2070,7 +2291,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"products/batch";
+  NSString *pathURITemplate = @"content/v2.1/products/batch";
   GTLRShoppingContentQuery_ProductsCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2092,7 +2313,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"productId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/products/{productId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/products/{productId}";
   GTLRShoppingContentQuery_ProductsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2114,7 +2335,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"productId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/products/{productId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/products/{productId}";
   GTLRShoppingContentQuery_ProductsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2141,7 +2362,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/products";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/products";
   GTLRShoppingContentQuery_ProductsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2161,7 +2382,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/products";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/products";
   GTLRShoppingContentQuery_ProductsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2183,7 +2404,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"productstatuses/batch";
+  NSString *pathURITemplate = @"content/v2.1/productstatuses/batch";
   GTLRShoppingContentQuery_ProductstatusesCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2212,7 +2433,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"productId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/productstatuses/{productId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/productstatuses/{productId}";
   GTLRShoppingContentQuery_ProductstatusesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2239,7 +2460,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/productstatuses";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/productstatuses";
   GTLRShoppingContentQuery_ProductstatusesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2258,7 +2479,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/pubsubnotificationsettings";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/pubsubnotificationsettings";
   GTLRShoppingContentQuery_PubsubnotificationsettingsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2284,7 +2505,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/pubsubnotificationsettings";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/pubsubnotificationsettings";
   GTLRShoppingContentQuery_PubsubnotificationsettingsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2307,7 +2528,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"regionalinventory/batch";
+  NSString *pathURITemplate = @"content/v2.1/regionalinventory/batch";
   GTLRShoppingContentQuery_RegionalinventoryCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2336,7 +2557,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"productId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/products/{productId}/regionalinventory";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/products/{productId}/regionalinventory";
   GTLRShoppingContentQuery_RegionalinventoryInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2351,6 +2572,250 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 @end
 
+@implementation GTLRShoppingContentQuery_RegionsCreate
+
+@dynamic merchantId, regionId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_Region *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/regions";
+  GTLRShoppingContentQuery_RegionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_Region class];
+  query.loggingName = @"content.regions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RegionsDelete
+
+@dynamic merchantId, regionId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                           regionId:(NSString *)regionId {
+  NSArray *pathParams = @[
+    @"merchantId", @"regionId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/regions/{regionId}";
+  GTLRShoppingContentQuery_RegionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.regionId = regionId;
+  query.loggingName = @"content.regions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RegionsGet
+
+@dynamic merchantId, regionId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                           regionId:(NSString *)regionId {
+  NSArray *pathParams = @[
+    @"merchantId", @"regionId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/regions/{regionId}";
+  GTLRShoppingContentQuery_RegionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.regionId = regionId;
+  query.expectedObjectClass = [GTLRShoppingContent_Region class];
+  query.loggingName = @"content.regions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RegionsList
+
+@dynamic merchantId, pageSize, pageToken;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/regions";
+  GTLRShoppingContentQuery_RegionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListRegionsResponse class];
+  query.loggingName = @"content.regions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RegionsPatch
+
+@dynamic merchantId, regionId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_Region *)object
+                     merchantId:(long long)merchantId
+                       regionId:(NSString *)regionId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"regionId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/regions/{regionId}";
+  GTLRShoppingContentQuery_RegionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.regionId = regionId;
+  query.expectedObjectClass = [GTLRShoppingContent_Region class];
+  query.loggingName = @"content.regions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RepricingrulesCreate
+
+@dynamic merchantId, ruleId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/repricingrules";
+  GTLRShoppingContentQuery_RepricingrulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_RepricingRule class];
+  query.loggingName = @"content.repricingrules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RepricingrulesDelete
+
+@dynamic merchantId, ruleId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                             ruleId:(NSString *)ruleId {
+  NSArray *pathParams = @[
+    @"merchantId", @"ruleId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/repricingrules/{ruleId}";
+  GTLRShoppingContentQuery_RepricingrulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.ruleId = ruleId;
+  query.loggingName = @"content.repricingrules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RepricingrulesGet
+
+@dynamic merchantId, ruleId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                             ruleId:(NSString *)ruleId {
+  NSArray *pathParams = @[
+    @"merchantId", @"ruleId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/repricingrules/{ruleId}";
+  GTLRShoppingContentQuery_RepricingrulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.ruleId = ruleId;
+  query.expectedObjectClass = [GTLRShoppingContent_RepricingRule class];
+  query.loggingName = @"content.repricingrules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RepricingrulesList
+
+@dynamic countryCode, languageCode, merchantId, pageSize, pageToken;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/repricingrules";
+  GTLRShoppingContentQuery_RepricingrulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListRepricingRulesResponse class];
+  query.loggingName = @"content.repricingrules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_RepricingrulesPatch
+
+@dynamic merchantId, ruleId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
+                     merchantId:(long long)merchantId
+                         ruleId:(NSString *)ruleId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"ruleId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/repricingrules/{ruleId}";
+  GTLRShoppingContentQuery_RepricingrulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.ruleId = ruleId;
+  query.expectedObjectClass = [GTLRShoppingContent_RepricingRule class];
+  query.loggingName = @"content.repricingrules.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_ReturnaddressCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_ReturnaddressCustomBatchRequest *)object {
@@ -2360,7 +2825,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"returnaddress/batch";
+  NSString *pathURITemplate = @"content/v2.1/returnaddress/batch";
   GTLRShoppingContentQuery_ReturnaddressCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2382,7 +2847,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"returnAddressId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/returnaddress/{returnAddressId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnaddress/{returnAddressId}";
   GTLRShoppingContentQuery_ReturnaddressDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2404,7 +2869,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"returnAddressId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/returnaddress/{returnAddressId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnaddress/{returnAddressId}";
   GTLRShoppingContentQuery_ReturnaddressGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2431,7 +2896,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/returnaddress";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnaddress";
   GTLRShoppingContentQuery_ReturnaddressInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2451,7 +2916,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/returnaddress";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnaddress";
   GTLRShoppingContentQuery_ReturnaddressList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2473,7 +2938,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"returnpolicy/batch";
+  NSString *pathURITemplate = @"content/v2.1/returnpolicy/batch";
   GTLRShoppingContentQuery_ReturnpolicyCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2495,7 +2960,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"returnPolicyId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/returnpolicy/{returnPolicyId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicy/{returnPolicyId}";
   GTLRShoppingContentQuery_ReturnpolicyDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2517,7 +2982,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"returnPolicyId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/returnpolicy/{returnPolicyId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicy/{returnPolicyId}";
   GTLRShoppingContentQuery_ReturnpolicyGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2544,7 +3009,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
     return nil;
   }
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/returnpolicy";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicy";
   GTLRShoppingContentQuery_ReturnpolicyInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2564,7 +3029,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/returnpolicy";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicy";
   GTLRShoppingContentQuery_ReturnpolicyList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2586,7 +3051,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"settlementId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/settlementreports/{settlementId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/settlementreports/{settlementId}";
   GTLRShoppingContentQuery_SettlementreportsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2606,7 +3071,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/settlementreports";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/settlementreports";
   GTLRShoppingContentQuery_SettlementreportsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2635,7 +3100,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"merchantId", @"settlementId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/settlementreports/{settlementId}/transactions";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/settlementreports/{settlementId}/transactions";
   GTLRShoppingContentQuery_SettlementtransactionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2658,7 +3123,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"shippingsettings/batch";
+  NSString *pathURITemplate = @"content/v2.1/shippingsettings/batch";
   GTLRShoppingContentQuery_ShippingsettingsCustombatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2680,7 +3145,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/shippingsettings/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/shippingsettings/{accountId}";
   GTLRShoppingContentQuery_ShippingsettingsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2700,7 +3165,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/supportedCarriers";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/supportedCarriers";
   GTLRShoppingContentQuery_ShippingsettingsGetsupportedcarriers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2719,7 +3184,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/supportedHolidays";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/supportedHolidays";
   GTLRShoppingContentQuery_ShippingsettingsGetsupportedholidays *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2738,7 +3203,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/supportedPickupServices";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/supportedPickupServices";
   GTLRShoppingContentQuery_ShippingsettingsGetsupportedpickupservices *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2757,7 +3222,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
-  NSString *pathURITemplate = @"{merchantId}/shippingsettings";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/shippingsettings";
   GTLRShoppingContentQuery_ShippingsettingsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2786,7 +3251,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"merchant";
   NSArray *pathParams = @[
     @"accountId", @"merchantId"
   ];
-  NSString *pathURITemplate = @"{merchantId}/shippingsettings/{accountId}";
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/shippingsettings/{accountId}";
   GTLRShoppingContentQuery_ShippingsettingsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

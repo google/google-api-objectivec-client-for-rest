@@ -74,6 +74,7 @@ NSString * const kGTLRToolResults_NonSdkApi_List_Grey     = @"GREY";
 NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxO = @"GREY_MAX_O";
 NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxP = @"GREY_MAX_P";
 NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxQ = @"GREY_MAX_Q";
+NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxR = @"GREY_MAX_R";
 NSString * const kGTLRToolResults_NonSdkApi_List_None     = @"NONE";
 NSString * const kGTLRToolResults_NonSdkApi_List_White    = @"WHITE";
 
@@ -145,6 +146,7 @@ NSString * const kGTLRToolResults_TestIssue_Type_BlankScreen   = @"blankScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_CompatibleWithOrchestrator = @"compatibleWithOrchestrator";
 NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboScriptExecution = @"completeRoboScriptExecution";
 NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError = @"crashDialogError";
+NSString * const kGTLRToolResults_TestIssue_Type_DeviceOutOfMemory = @"deviceOutOfMemory";
 NSString * const kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen = @"encounteredLoginScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_EncounteredNonAndroidUiWidgetScreen = @"encounteredNonAndroidUiWidgetScreen";
 NSString * const kGTLRToolResults_TestIssue_Type_FailedToInstall = @"failedToInstall";
@@ -340,6 +342,15 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 
 @implementation GTLRToolResults_CrashDialogError
 @dynamic crashPackage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRToolResults_DeviceOutOfMemory
+//
+
+@implementation GTLRToolResults_DeviceOutOfMemory
 @end
 
 

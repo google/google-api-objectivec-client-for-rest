@@ -25,6 +25,7 @@
 @class GTLRAccessContextManager_AccessPolicy;
 @class GTLRAccessContextManager_CancelOperationRequest;
 @class GTLRAccessContextManager_CommitServicePerimetersRequest;
+@class GTLRAccessContextManager_GcpUserAccessBinding;
 @class GTLRAccessContextManager_ReplaceAccessLevelsRequest;
 @class GTLRAccessContextManager_ReplaceServicePerimetersRequest;
 @class GTLRAccessContextManager_ServicePerimeter;
@@ -1037,6 +1038,210 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a GcpUserAccessBinding. If the client specifies a name, the server
+ *  will ignore it. Fails if a resource already exists with the same group_key.
+ *  Completion of this long-running operation does not necessarily signify that
+ *  the new binding is deployed onto all affected users, which may take more
+ *  time.
+ *
+ *  Method: accesscontextmanager.organizations.gcpUserAccessBindings.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsCreate : GTLRAccessContextManagerQuery
+// Previous library name was
+//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsCreateWithObject:parent:]
+
+/** Required. Example: "organizations/256" */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Creates a GcpUserAccessBinding. If the client specifies a name, the server
+ *  will ignore it. Fails if a resource already exists with the same group_key.
+ *  Completion of this long-running operation does not necessarily signify that
+ *  the new binding is deployed onto all affected users, which may take more
+ *  time.
+ *
+ *  @param object The @c GTLRAccessContextManager_GcpUserAccessBinding to
+ *    include in the query.
+ *  @param parent Required. Example: "organizations/256"
+ *
+ *  @return GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_GcpUserAccessBinding *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a GcpUserAccessBinding. Completion of this long-running operation
+ *  does not necessarily signify that the binding deletion is deployed onto all
+ *  affected users, which may take more time.
+ *
+ *  Method: accesscontextmanager.organizations.gcpUserAccessBindings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsDelete : GTLRAccessContextManagerQuery
+// Previous library name was
+//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsDeleteWithname:]
+
+/**
+ *  Required. Example: "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Deletes a GcpUserAccessBinding. Completion of this long-running operation
+ *  does not necessarily signify that the binding deletion is deployed onto all
+ *  affected users, which may take more time.
+ *
+ *  @param name Required. Example:
+ *    "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ *
+ *  @return GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the GcpUserAccessBinding with the given name.
+ *
+ *  Method: accesscontextmanager.organizations.gcpUserAccessBindings.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsGet : GTLRAccessContextManagerQuery
+// Previous library name was
+//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsGetWithname:]
+
+/**
+ *  Required. Example: "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_GcpUserAccessBinding.
+ *
+ *  Gets the GcpUserAccessBinding with the given name.
+ *
+ *  @param name Required. Example:
+ *    "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ *
+ *  @return GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all GcpUserAccessBindings for a Google Cloud organization.
+ *
+ *  Method: accesscontextmanager.organizations.gcpUserAccessBindings.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsList : GTLRAccessContextManagerQuery
+// Previous library name was
+//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsListWithparent:]
+
+/**
+ *  Optional. Maximum number of items to return. The server may return fewer
+ *  items. If left blank, the server may return any number of items.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If left blank, returns the first page. To enumerate all items, use
+ *  the next_page_token from your previous list operation.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Example: "organizations/256" */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_ListGcpUserAccessBindingsResponse.
+ *
+ *  Lists all GcpUserAccessBindings for a Google Cloud organization.
+ *
+ *  @param parent Required. Example: "organizations/256"
+ *
+ *  @return GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a GcpUserAccessBinding. Completion of this long-running operation
+ *  does not necessarily signify that the changed binding is deployed onto all
+ *  affected users, which may take more time.
+ *
+ *  Method: accesscontextmanager.organizations.gcpUserAccessBindings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch : GTLRAccessContextManagerQuery
+// Previous library name was
+//   +[GTLQueryAccessContextManager queryForOrganizationsGcpUserAccessBindingsPatchWithObject:name:]
+
+/**
+ *  Immutable. Assigned by the server during creation. The last segment has an
+ *  arbitrary length and has only URI unreserved characters (as defined by [RFC
+ *  3986 Section 2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should
+ *  not be specified by the client during creation. Example:
+ *  "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Only the fields specified in this mask are updated. Because name
+ *  and group_key cannot be changed, update_mask is required and must always be:
+ *  update_mask { paths: "access_levels" }
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_Operation.
+ *
+ *  Updates a GcpUserAccessBinding. Completion of this long-running operation
+ *  does not necessarily signify that the changed binding is deployed onto all
+ *  affected users, which may take more time.
+ *
+ *  @param object The @c GTLRAccessContextManager_GcpUserAccessBinding to
+ *    include in the query.
+ *  @param name Immutable. Assigned by the server during creation. The last
+ *    segment has an arbitrary length and has only URI unreserved characters (as
+ *    defined by [RFC 3986 Section
+ *    2.3](https://tools.ietf.org/html/rfc3986#section-2.3)). Should not be
+ *    specified by the client during creation. Example:
+ *    "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
+ *
+ *  @return GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAccessContextManager_GcpUserAccessBinding *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -1087,20 +1087,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 
 
 /**
- *  Request to create a new build.
- */
-@interface GTLRCloudBuild_CreateBuildRequest : GTLRObject
-
-/** Required. Build resource to create. */
-@property(nonatomic, strong, nullable) GTLRCloudBuild_Build *build;
-
-/** Required. ID of the project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-@end
-
-
-/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1214,7 +1200,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Build *> *builds;
 
-/** Token to receive the next page of results. */
+/**
+ *  Token to receive the next page of results. This will be absent if the end of
+ *  the response list has been reached.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end

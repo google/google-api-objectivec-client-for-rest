@@ -214,14 +214,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *zoneAffinity;
 
-/**
- *  If set, objects placed in this bucket are required to be separated by
- *  disaster domain.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *zoneSeparation;
-
 @end
 
 
@@ -302,6 +294,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  disable the feature.
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration_BucketPolicyOnly *bucketPolicyOnly;
+
+/**
+ *  The bucket's Public Access Prevention configuration. Currently,
+ *  'unspecified' and 'enforced' are supported.
+ */
+@property(nonatomic, copy, nullable) NSString *publicAccessPrevention;
 
 /** The bucket's uniform bucket-level access configuration. */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_IamConfiguration_UniformBucketLevelAccess *uniformBucketLevelAccess;
@@ -1216,8 +1214,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Cloud KMS Key used to encrypt this object, if the object is encrypted by
- *  such a key.
+ *  Not currently supported. Specifying the parameter causes the request to fail
+ *  with status code 400 - Bad Request.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 

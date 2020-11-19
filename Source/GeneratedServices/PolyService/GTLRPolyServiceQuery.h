@@ -4,10 +4,8 @@
 // API:
 //   Poly API (poly/v1)
 // Description:
-//   The Poly API provides read access to assets hosted on <a
-//   href="https://poly.google.com">poly.google.com</a> to all, and upload
-//   access to <a href="https://poly.google.com">poly.google.com</a> for
-//   whitelisted accounts.
+//   The Poly API provides read access to assets hosted on poly.google.com to
+//   all, and upload access to poly.google.com for whitelisted accounts.
 // Documentation:
 //   https://developers.google.com/poly/
 
@@ -36,23 +34,51 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // maxComplexity
 
-/** Value: "COMPLEX" */
+/**
+ *  Highly-complex.
+ *
+ *  Value: "COMPLEX"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPolyServiceMaxComplexityComplex;
-/** Value: "COMPLEXITY_UNSPECIFIED" */
+/**
+ *  No complexity specified. This is equivalent to omitting the filter.
+ *
+ *  Value: "COMPLEXITY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPolyServiceMaxComplexityComplexityUnspecified;
-/** Value: "MEDIUM" */
+/**
+ *  Averagely-complex.
+ *
+ *  Value: "MEDIUM"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPolyServiceMaxComplexityMedium;
-/** Value: "SIMPLE" */
+/**
+ *  Simple.
+ *
+ *  Value: "SIMPLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPolyServiceMaxComplexitySimple;
 
 // ----------------------------------------------------------------------------
 // visibility
 
-/** Value: "PRIVATE" */
+/**
+ *  Returns only private assets.
+ *
+ *  Value: "PRIVATE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityPrivate;
-/** Value: "PUBLISHED" */
+/**
+ *  Returns only published assets.
+ *
+ *  Value: "PUBLISHED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityPublished;
-/** Value: "VISIBILITY_UNSPECIFIED" */
+/**
+ *  No visibility specified. Returns all assets.
+ *
+ *  Value: "VISIBILITY_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -70,10 +96,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 @end
 
 /**
- *  Returns detailed information about an asset given its name.
- *  PRIVATE assets are returned only if
- *  the currently authenticated user (via OAuth token) is the author of the
- *  asset.
+ *  Returns detailed information about an asset given its name. PRIVATE assets
+ *  are returned only if the currently authenticated user (via OAuth token) is
+ *  the author of the asset.
  *
  *  Method: poly.assets.get
  */
@@ -87,10 +112,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 /**
  *  Fetches a @c GTLRPolyService_Asset.
  *
- *  Returns detailed information about an asset given its name.
- *  PRIVATE assets are returned only if
- *  the currently authenticated user (via OAuth token) is the author of the
- *  asset.
+ *  Returns detailed information about an asset given its name. PRIVATE assets
+ *  are returned only if the currently authenticated user (via OAuth token) is
+ *  the author of the asset.
  *
  *  @param name Required. An asset's name in the form `assets/{ASSET_ID}`.
  *
@@ -101,9 +125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 @end
 
 /**
- *  Lists all public, remixable assets. These are assets with an access level
- *  of PUBLIC and published under the
- *  CC-By license.
+ *  Lists all public, remixable assets. These are assets with an access level of
+ *  PUBLIC and published under the CC-By license.
  *
  *  Method: poly.assets.list
  */
@@ -129,31 +152,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 
 /**
  *  One or more search terms to be matched against all text that Poly has
- *  indexed for assets, which includes display_name,
- *  description, and tags. Multiple keywords should be
- *  separated by spaces.
+ *  indexed for assets, which includes display_name, description, and tags.
+ *  Multiple keywords should be separated by spaces.
  */
 @property(nonatomic, copy, nullable) NSString *keywords;
 
 /**
  *  Returns assets that are of the specified complexity or less. Defaults to
- *  COMPLEX. For example, a request for
- *  MEDIUM assets also includes
- *  SIMPLE assets.
+ *  COMPLEX. For example, a request for MEDIUM assets also includes SIMPLE
+ *  assets.
  *
  *  Likely values:
- *    @arg @c kGTLRPolyServiceMaxComplexityComplexityUnspecified Value
- *        "COMPLEXITY_UNSPECIFIED"
- *    @arg @c kGTLRPolyServiceMaxComplexityComplex Value "COMPLEX"
- *    @arg @c kGTLRPolyServiceMaxComplexityMedium Value "MEDIUM"
- *    @arg @c kGTLRPolyServiceMaxComplexitySimple Value "SIMPLE"
+ *    @arg @c kGTLRPolyServiceMaxComplexityComplexityUnspecified No complexity
+ *        specified. This is equivalent to omitting the filter. (Value:
+ *        "COMPLEXITY_UNSPECIFIED")
+ *    @arg @c kGTLRPolyServiceMaxComplexityComplex Highly-complex. (Value:
+ *        "COMPLEX")
+ *    @arg @c kGTLRPolyServiceMaxComplexityMedium Averagely-complex. (Value:
+ *        "MEDIUM")
+ *    @arg @c kGTLRPolyServiceMaxComplexitySimple Simple. (Value: "SIMPLE")
  */
 @property(nonatomic, copy, nullable) NSString *maxComplexity;
 
 /**
- *  Specifies an ordering for assets. Acceptable values are:
- *  `BEST`, `NEWEST`, `OLDEST`. Defaults to `BEST`, which ranks assets
- *  based on a combination of popularity and other features.
+ *  Specifies an ordering for assets. Acceptable values are: `BEST`, `NEWEST`,
+ *  `OLDEST`. Defaults to `BEST`, which ranks assets based on a combination of
+ *  popularity and other features.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -166,17 +190,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 /**
  *  Specifies a continuation token from a previous search whose results were
  *  split into multiple pages. To get the next page, submit the same request
- *  specifying the value from
- *  next_page_token.
+ *  specifying the value from next_page_token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRPolyService_ListAssetsResponse.
  *
- *  Lists all public, remixable assets. These are assets with an access level
- *  of PUBLIC and published under the
- *  CC-By license.
+ *  Lists all public, remixable assets. These are assets with an access level of
+ *  PUBLIC and published under the CC-By license.
  *
  *  @return GTLRPolyServiceQuery_AssetsList
  *
@@ -191,10 +213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 /**
  *  Lists assets authored by the given user. Only the value 'me', representing
  *  the currently-authenticated user, is supported. May include assets with an
- *  access level of PRIVATE or
- *  UNLISTED and assets which are
- *  All Rights Reserved for the
- *  currently-authenticated user.
+ *  access level of PRIVATE or UNLISTED and assets which are All Rights Reserved
+ *  for the currently-authenticated user.
  *
  *  Method: poly.users.assets.list
  */
@@ -210,15 +230,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 
 /**
  *  A valid user id. Currently, only the special value 'me', representing the
- *  currently-authenticated user is supported. To use 'me', you must pass
- *  an OAuth token with the request.
+ *  currently-authenticated user is supported. To use 'me', you must pass an
+ *  OAuth token with the request.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies an ordering for assets. Acceptable values are:
- *  `BEST`, `NEWEST`, `OLDEST`. Defaults to `BEST`, which ranks assets
- *  based on a combination of popularity and other features.
+ *  Specifies an ordering for assets. Acceptable values are: `BEST`, `NEWEST`,
+ *  `OLDEST`. Defaults to `BEST`, which ranks assets based on a combination of
+ *  popularity and other features.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -231,22 +251,21 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 /**
  *  Specifies a continuation token from a previous search whose results were
  *  split into multiple pages. To get the next page, submit the same request
- *  specifying the value from
- *  next_page_token.
+ *  specifying the value from next_page_token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The visibility of the assets to be returned.
- *  Defaults to
- *  VISIBILITY_UNSPECIFIED
- *  which returns all assets.
+ *  The visibility of the assets to be returned. Defaults to
+ *  VISIBILITY_UNSPECIFIED which returns all assets.
  *
  *  Likely values:
- *    @arg @c kGTLRPolyServiceVisibilityVisibilityUnspecified Value
- *        "VISIBILITY_UNSPECIFIED"
- *    @arg @c kGTLRPolyServiceVisibilityPublished Value "PUBLISHED"
- *    @arg @c kGTLRPolyServiceVisibilityPrivate Value "PRIVATE"
+ *    @arg @c kGTLRPolyServiceVisibilityVisibilityUnspecified No visibility
+ *        specified. Returns all assets. (Value: "VISIBILITY_UNSPECIFIED")
+ *    @arg @c kGTLRPolyServiceVisibilityPublished Returns only published assets.
+ *        (Value: "PUBLISHED")
+ *    @arg @c kGTLRPolyServiceVisibilityPrivate Returns only private assets.
+ *        (Value: "PRIVATE")
  */
 @property(nonatomic, copy, nullable) NSString *visibility;
 
@@ -255,15 +274,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
  *
  *  Lists assets authored by the given user. Only the value 'me', representing
  *  the currently-authenticated user, is supported. May include assets with an
- *  access level of PRIVATE or
- *  UNLISTED and assets which are
- *  All Rights Reserved for the
- *  currently-authenticated user.
+ *  access level of PRIVATE or UNLISTED and assets which are All Rights Reserved
+ *  for the currently-authenticated user.
  *
  *  @param name A valid user id. Currently, only the special value 'me',
- *    representing the
- *    currently-authenticated user is supported. To use 'me', you must pass
- *    an OAuth token with the request.
+ *    representing the currently-authenticated user is supported. To use 'me',
+ *    you must pass an OAuth token with the request.
  *
  *  @return GTLRPolyServiceQuery_UsersAssetsList
  *
@@ -276,8 +292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 @end
 
 /**
- *  Lists assets that the user has liked. Only the value 'me', representing
- *  the currently-authenticated user, is supported. May include assets with an
+ *  Lists assets that the user has liked. Only the value 'me', representing the
+ *  currently-authenticated user, is supported. May include assets with an
  *  access level of UNLISTED.
  *
  *  Method: poly.users.likedassets.list
@@ -294,15 +310,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 
 /**
  *  A valid user id. Currently, only the special value 'me', representing the
- *  currently-authenticated user is supported. To use 'me', you must pass
- *  an OAuth token with the request.
+ *  currently-authenticated user is supported. To use 'me', you must pass an
+ *  OAuth token with the request.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Specifies an ordering for assets. Acceptable values are:
- *  `BEST`, `NEWEST`, `OLDEST`, 'LIKED_TIME'. Defaults to `LIKED_TIME`, which
- *  ranks assets based on how recently they were liked.
+ *  Specifies an ordering for assets. Acceptable values are: `BEST`, `NEWEST`,
+ *  `OLDEST`, 'LIKED_TIME'. Defaults to `LIKED_TIME`, which ranks assets based
+ *  on how recently they were liked.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -315,22 +331,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyServiceVisibilityVisibilityUnspecifi
 /**
  *  Specifies a continuation token from a previous search whose results were
  *  split into multiple pages. To get the next page, submit the same request
- *  specifying the value from
- *  next_page_token.
+ *  specifying the value from next_page_token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRPolyService_ListLikedAssetsResponse.
  *
- *  Lists assets that the user has liked. Only the value 'me', representing
- *  the currently-authenticated user, is supported. May include assets with an
+ *  Lists assets that the user has liked. Only the value 'me', representing the
+ *  currently-authenticated user, is supported. May include assets with an
  *  access level of UNLISTED.
  *
  *  @param name A valid user id. Currently, only the special value 'me',
- *    representing the
- *    currently-authenticated user is supported. To use 'me', you must pass
- *    an OAuth token with the request.
+ *    representing the currently-authenticated user is supported. To use 'me',
+ *    you must pass an OAuth token with the request.
  *
  *  @return GTLRPolyServiceQuery_UsersLikedassetsList
  *

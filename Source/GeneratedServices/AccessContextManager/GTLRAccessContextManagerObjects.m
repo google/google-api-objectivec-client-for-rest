@@ -213,6 +213,24 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_GcpUserAccessBinding
+//
+
+@implementation GTLRAccessContextManager_GcpUserAccessBinding
+@dynamic accessLevels, groupKey, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessLevels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_ListAccessLevelsResponse
 //
 
@@ -250,6 +268,28 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 + (NSString *)collectionItemsKey {
   return @"accessPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ListGcpUserAccessBindingsResponse
+//
+
+@implementation GTLRAccessContextManager_ListGcpUserAccessBindingsResponse
+@dynamic gcpUserAccessBindings, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gcpUserAccessBindings" : [GTLRAccessContextManager_GcpUserAccessBinding class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"gcpUserAccessBindings";
 }
 
 @end

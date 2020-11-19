@@ -4,9 +4,9 @@
 // API:
 //   Google Play Custom App Publishing API (playcustomapp/v1)
 // Description:
-//   An API to publish custom Android apps.
+//   API to create and publish custom Android apps
 // Documentation:
-//   https://developers.google.com/android/work/play/custom-app-api
+//   https://developers.google.com/android/work/play/custom-app-api/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -34,6 +34,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Default listing language in BCP 47 format. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  Output only. Package name of the created Android app. Only present in the
+ *  API response.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
 
 /** Title for the Android app. */
 @property(nonatomic, copy, nullable) NSString *title;

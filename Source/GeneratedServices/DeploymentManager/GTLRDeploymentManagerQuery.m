@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deployment Manager API (deploymentmanager/v2)
+//   Cloud Deployment Manager V2 API (deploymentmanager/v2)
 // Description:
-//   Declares, configures, and deploys complex solutions on Google Cloud
-//   Platform.
+//   The Google Cloud Deployment Manager v2 API provides services for
+//   configuring, deploying, and viewing Google Cloud services and APIs via
+//   templates which specify deployments of Cloud resources.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/
+//   https://cloud.google.com/deployment-manager
 
 #import "GTLRDeploymentManagerQuery.h"
 
@@ -50,7 +51,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"deployment", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}/cancelPreview";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/cancelPreview";
   GTLRDeploymentManagerQuery_DeploymentsCancelPreview *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -74,7 +75,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"deployment", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}";
   GTLRDeploymentManagerQuery_DeploymentsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -97,7 +98,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"deployment", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}";
   GTLRDeploymentManagerQuery_DeploymentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -113,14 +114,14 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy
 
-@dynamic project, resource;
+@dynamic optionsRequestedPolicyVersion, project, resource;
 
 + (instancetype)queryWithProject:(NSString *)project
                         resource:(NSString *)resource {
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{resource}/getIamPolicy";
   GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -147,7 +148,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/deployments";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments";
   GTLRDeploymentManagerQuery_DeploymentsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -163,11 +164,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_DeploymentsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/deployments";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments";
   GTLRDeploymentManagerQuery_DeploymentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -196,7 +197,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"deployment", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}";
   GTLRDeploymentManagerQuery_DeploymentsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -227,7 +228,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{resource}/setIamPolicy";
   GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -258,7 +259,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"deployment", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}/stop";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/stop";
   GTLRDeploymentManagerQuery_DeploymentsStop *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -289,7 +290,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{resource}/testIamPermissions";
   GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -320,7 +321,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"deployment", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}";
   GTLRDeploymentManagerQuery_DeploymentsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -345,7 +346,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"deployment", @"manifest", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}/manifests/{manifest}";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/manifests/{manifest}";
   GTLRDeploymentManagerQuery_ManifestsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -362,14 +363,15 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_ManifestsList
 
-@dynamic deployment, filter, maxResults, orderBy, pageToken, project;
+@dynamic deployment, filter, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment {
   NSArray *pathParams = @[
     @"deployment", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}/manifests";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/manifests";
   GTLRDeploymentManagerQuery_ManifestsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -392,7 +394,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"operation", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/operations/{operation}";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/operations/{operation}";
   GTLRDeploymentManagerQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -408,11 +410,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_OperationsList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/operations";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/operations";
   GTLRDeploymentManagerQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -435,7 +437,7 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
   NSArray *pathParams = @[
     @"deployment", @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}/resources/{resource}";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/resources/{resource}";
   GTLRDeploymentManagerQuery_ResourcesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -452,14 +454,15 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_ResourcesList
 
-@dynamic deployment, filter, maxResults, orderBy, pageToken, project;
+@dynamic deployment, filter, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project
                       deployment:(NSString *)deployment {
   NSArray *pathParams = @[
     @"deployment", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/deployments/{deployment}/resources";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/deployments/{deployment}/resources";
   GTLRDeploymentManagerQuery_ResourcesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -475,11 +478,11 @@ NSString * const kGTLRDeploymentManagerDeletePolicyDelete  = @"DELETE";
 
 @implementation GTLRDeploymentManagerQuery_TypesList
 
-@dynamic filter, maxResults, orderBy, pageToken, project;
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/types";
+  NSString *pathURITemplate = @"deploymentmanager/v2/projects/{project}/global/types";
   GTLRDeploymentManagerQuery_TypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

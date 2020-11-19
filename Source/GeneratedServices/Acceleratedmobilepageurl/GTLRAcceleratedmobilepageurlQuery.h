@@ -41,8 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Returns AMP URL(s) and equivalent
- *  [AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).
+ *  Returns AMP URL(s) and equivalent [AMP Cache
+ *  URL(s)](/amp/cache/overview#amp-cache-url-format).
  *
  *  Method: acceleratedmobilepageurl.ampUrls.batchGet
  */
@@ -53,8 +53,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAcceleratedmobilepageurl_BatchGetAmpUrlsResponse.
  *
- *  Returns AMP URL(s) and equivalent
- *  [AMP Cache URL(s)](/amp/cache/overview#amp-cache-url-format).
+ *  Returns AMP URL(s) and equivalent [AMP Cache
+ *  URL(s)](/amp/cache/overview#amp-cache-url-format).
  *
  *  @param object The @c GTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest to
  *    include in the query.

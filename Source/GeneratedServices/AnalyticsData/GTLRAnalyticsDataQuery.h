@@ -23,6 +23,7 @@
 @class GTLRAnalyticsData_BatchRunPivotReportsRequest;
 @class GTLRAnalyticsData_BatchRunReportsRequest;
 @class GTLRAnalyticsData_RunPivotReportRequest;
+@class GTLRAnalyticsData_RunRealtimeReportRequest;
 @class GTLRAnalyticsData_RunReportRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -39,6 +40,111 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Returns metadata for dimensions and metrics available in reporting methods.
+ *  Used to explore the dimensions and metrics. In this method, a Google
+ *  Analytics GA4 Property Identifier is specified in the request, and the
+ *  metadata response includes Custom dimensions and metrics as well as
+ *  Universal metadata. For example if a custom metric with parameter name
+ *  `levels_unlocked` is registered to a property, the Metadata response will
+ *  contain `customEvent:levels_unlocked`. Universal metadata are dimensions and
+ *  metrics applicable to any property such as `country` and `totalUsers`.
+ *
+ *  Method: analyticsdata.properties.getMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesGetMetadata : GTLRAnalyticsDataQuery
+// Previous library name was
+//   +[GTLQueryAnalyticsData queryForPropertiesGetMetadataWithname:]
+
+/**
+ *  Required. The resource name of the metadata to retrieve. This name field is
+ *  specified in the URL path and not URL parameters. Property is a numeric
+ *  Google Analytics GA4 Property identifier. To learn more, see [where to find
+ *  your Property
+ *  ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ *  Example: properties/1234/metadata Set the Property ID to 0 for dimensions
+ *  and metrics common to all properties. In this special mode, this method will
+ *  not return custom dimensions and metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_Metadata.
+ *
+ *  Returns metadata for dimensions and metrics available in reporting methods.
+ *  Used to explore the dimensions and metrics. In this method, a Google
+ *  Analytics GA4 Property Identifier is specified in the request, and the
+ *  metadata response includes Custom dimensions and metrics as well as
+ *  Universal metadata. For example if a custom metric with parameter name
+ *  `levels_unlocked` is registered to a property, the Metadata response will
+ *  contain `customEvent:levels_unlocked`. Universal metadata are dimensions and
+ *  metrics applicable to any property such as `country` and `totalUsers`.
+ *
+ *  @param name Required. The resource name of the metadata to retrieve. This
+ *    name field is specified in the URL path and not URL parameters. Property
+ *    is a numeric Google Analytics GA4 Property identifier. To learn more, see
+ *    [where to find your Property
+ *    ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ *    Example: properties/1234/metadata Set the Property ID to 0 for dimensions
+ *    and metrics common to all properties. In this special mode, this method
+ *    will not return custom dimensions and metrics.
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesGetMetadata
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  The Google Analytics Realtime API returns a customized report of realtime
+ *  event data for your property. These reports show events and usage from the
+ *  last 30 minutes.
+ *
+ *  Method: analyticsdata.properties.runRealtimeReport
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAnalyticsDataAnalytics
+ *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
+ */
+@interface GTLRAnalyticsDataQuery_PropertiesRunRealtimeReport : GTLRAnalyticsDataQuery
+// Previous library name was
+//   +[GTLQueryAnalyticsData queryForPropertiesRunRealtimeReportWithObject:property:]
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked.
+ *  Specified in the URL path and not the body. To learn more, see [where to
+ *  find your Property
+ *  ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ *  Example: properties/1234
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Fetches a @c GTLRAnalyticsData_RunRealtimeReportResponse.
+ *
+ *  The Google Analytics Realtime API returns a customized report of realtime
+ *  event data for your property. These reports show events and usage from the
+ *  last 30 minutes.
+ *
+ *  @param object The @c GTLRAnalyticsData_RunRealtimeReportRequest to include
+ *    in the query.
+ *  @param property A Google Analytics GA4 property identifier whose events are
+ *    tracked. Specified in the URL path and not the body. To learn more, see
+ *    [where to find your Property
+ *    ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ *    Example: properties/1234
+ *
+ *  @return GTLRAnalyticsDataQuery_PropertiesRunRealtimeReport
+ */
++ (instancetype)queryWithObject:(GTLRAnalyticsData_RunRealtimeReportRequest *)object
+                       property:(NSString *)property;
 
 @end
 
@@ -97,38 +203,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRAnalyticsDataQuery_V1alphaBatchRunReports
  */
 + (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunReportsRequest *)object;
-
-@end
-
-/**
- *  Returns metadata for dimensions and metrics available in reporting methods.
- *  Used to explore the dimensions and metrics. Dimensions and metrics will be
- *  mostly added over time, but renames and deletions may occur. This method
- *  returns Universal Metadata. Universal Metadata are dimensions and metrics
- *  applicable to any property such as `country` and `totalUsers`.
- *
- *  Method: analyticsdata.getUniversalMetadata
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAnalyticsDataAnalytics
- *    @c kGTLRAuthScopeAnalyticsDataAnalyticsReadonly
- */
-@interface GTLRAnalyticsDataQuery_V1alphaGetUniversalMetadata : GTLRAnalyticsDataQuery
-// Previous library name was
-//   +[GTLQueryAnalyticsData queryForGetUniversalMetadata]
-
-/**
- *  Fetches a @c GTLRAnalyticsData_UniversalMetadata.
- *
- *  Returns metadata for dimensions and metrics available in reporting methods.
- *  Used to explore the dimensions and metrics. Dimensions and metrics will be
- *  mostly added over time, but renames and deletions may occur. This method
- *  returns Universal Metadata. Universal Metadata are dimensions and metrics
- *  applicable to any property such as `country` and `totalUsers`.
- *
- *  @return GTLRAnalyticsDataQuery_V1alphaGetUniversalMetadata
- */
-+ (instancetype)query;
 
 @end
 

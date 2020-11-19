@@ -28,16 +28,32 @@ NSString * const kGTLRAnalyticsData_DimensionOrderBy_OrderType_OrderTypeUnspecif
 // GTLRAnalyticsData_MetricHeader.type
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeCurrency = @"TYPE_CURRENCY";
+NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeFeet = @"TYPE_FEET";
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeFloat = @"TYPE_FLOAT";
+NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeHours = @"TYPE_HOURS";
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeInteger = @"TYPE_INTEGER";
+NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeKilometers = @"TYPE_KILOMETERS";
+NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMeters = @"TYPE_METERS";
+NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMiles = @"TYPE_MILES";
+NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMilliseconds = @"TYPE_MILLISECONDS";
+NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMinutes = @"TYPE_MINUTES";
 NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeSeconds = @"TYPE_SECONDS";
+NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeStandard = @"TYPE_STANDARD";
 
 // GTLRAnalyticsData_MetricMetadata.type
 NSString * const kGTLRAnalyticsData_MetricMetadata_Type_MetricTypeUnspecified = @"METRIC_TYPE_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeCurrency = @"TYPE_CURRENCY";
+NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeFeet = @"TYPE_FEET";
 NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeFloat = @"TYPE_FLOAT";
+NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeHours = @"TYPE_HOURS";
 NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeInteger = @"TYPE_INTEGER";
+NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeKilometers = @"TYPE_KILOMETERS";
+NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeMeters = @"TYPE_METERS";
+NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeMiles = @"TYPE_MILES";
+NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeMilliseconds = @"TYPE_MILLISECONDS";
+NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeMinutes = @"TYPE_MINUTES";
 NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeSeconds = @"TYPE_SECONDS";
+NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeStandard = @"TYPE_STANDARD";
 
 // GTLRAnalyticsData_NumericFilter.operation
 NSString * const kGTLRAnalyticsData_NumericFilter_Operation_Equal = @"EQUAL";
@@ -53,6 +69,13 @@ NSString * const kGTLRAnalyticsData_Pivot_MetricAggregations_Maximum = @"MAXIMUM
 NSString * const kGTLRAnalyticsData_Pivot_MetricAggregations_MetricAggregationUnspecified = @"METRIC_AGGREGATION_UNSPECIFIED";
 NSString * const kGTLRAnalyticsData_Pivot_MetricAggregations_Minimum = @"MINIMUM";
 NSString * const kGTLRAnalyticsData_Pivot_MetricAggregations_Total = @"TOTAL";
+
+// GTLRAnalyticsData_RunRealtimeReportRequest.metricAggregations
+NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_Count = @"COUNT";
+NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_Maximum = @"MAXIMUM";
+NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_MetricAggregationUnspecified = @"METRIC_AGGREGATION_UNSPECIFIED";
+NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_Minimum = @"MINIMUM";
+NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_Total = @"TOTAL";
 
 // GTLRAnalyticsData_RunReportRequest.metricAggregations
 NSString * const kGTLRAnalyticsData_RunReportRequest_MetricAggregations_Count = @"COUNT";
@@ -274,7 +297,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_DimensionMetadata
-@dynamic apiName, deprecatedApiNames, descriptionProperty, uiName;
+@dynamic apiName, customDefinition, deprecatedApiNames, descriptionProperty,
+         uiName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -379,6 +403,25 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_Metadata
+//
+
+@implementation GTLRAnalyticsData_Metadata
+@dynamic dimensions, metrics, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [GTLRAnalyticsData_DimensionMetadata class],
+    @"metrics" : [GTLRAnalyticsData_MetricMetadata class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_Metric
 //
 
@@ -403,8 +446,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_MetricMetadata
-@dynamic apiName, deprecatedApiNames, descriptionProperty, expression, type,
-         uiName;
+@dynamic apiName, customDefinition, deprecatedApiNames, descriptionProperty,
+         expression, type, uiName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -652,6 +695,52 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_RunRealtimeReportRequest
+//
+
+@implementation GTLRAnalyticsData_RunRealtimeReportRequest
+@dynamic dimensionFilter, dimensions, limit, metricAggregations, metricFilter,
+         metrics, orderBys, returnPropertyQuota;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensions" : [GTLRAnalyticsData_Dimension class],
+    @"metricAggregations" : [NSString class],
+    @"metrics" : [GTLRAnalyticsData_Metric class],
+    @"orderBys" : [GTLRAnalyticsData_OrderBy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsData_RunRealtimeReportResponse
+//
+
+@implementation GTLRAnalyticsData_RunRealtimeReportResponse
+@dynamic dimensionHeaders, maximums, metricHeaders, minimums, propertyQuota,
+         rowCount, rows, totals;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dimensionHeaders" : [GTLRAnalyticsData_DimensionHeader class],
+    @"maximums" : [GTLRAnalyticsData_Row class],
+    @"metricHeaders" : [GTLRAnalyticsData_MetricHeader class],
+    @"minimums" : [GTLRAnalyticsData_Row class],
+    @"rows" : [GTLRAnalyticsData_Row class],
+    @"totals" : [GTLRAnalyticsData_Row class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_RunReportRequest
 //
 
@@ -705,23 +794,4 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_StringFilter
 @dynamic caseSensitive, matchType, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalyticsData_UniversalMetadata
-//
-
-@implementation GTLRAnalyticsData_UniversalMetadata
-@dynamic dimensions, metrics;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"dimensions" : [GTLRAnalyticsData_DimensionMetadata class],
-    @"metrics" : [GTLRAnalyticsData_MetricMetadata class]
-  };
-  return map;
-}
-
 @end

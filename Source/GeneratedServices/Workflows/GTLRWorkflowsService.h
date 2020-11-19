@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Workflows API (workflows/v1beta)
+// Description:
+//   Orchestrate Workflows consisting of Google Cloud APIs, SaaS APIs or private
+//   API endpoints.
 // Documentation:
 //   https://cloud.google.com/workflows
 
@@ -42,6 +45,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkflowsCloudPlatform;
 
 /**
  *  Service for executing Workflows API queries.
+ *
+ *  Orchestrate Workflows consisting of Google Cloud APIs, SaaS APIs or private
+ *  API endpoints.
  */
 @interface GTLRWorkflowsService : GTLRService
 

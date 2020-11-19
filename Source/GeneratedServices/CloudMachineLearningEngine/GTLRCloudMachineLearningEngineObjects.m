@@ -15,6 +15,7 @@
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig.type
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfig_Type_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
@@ -25,6 +26,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1AcceleratorConfi
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability.availableAccelerators
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Capability_AvailableAccelerators_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
@@ -68,6 +70,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Queued
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Running = @"RUNNING";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1Job_State_Succeeded = @"SUCCEEDED";
+
+// GTLRCloudMachineLearningEngine_GoogleCloudMlV1MetricSpec.name
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1MetricSpec_Name_CpuUsage = @"CPU_USAGE";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1MetricSpec_Name_GpuDutyCycle = @"GPU_DUTY_CYCLE";
+NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1MetricSpec_Name_MetricNameUnspecified = @"METRIC_NAME_UNSPECIFIED";
 
 // GTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata.operationType
 NSString * const kGTLRCloudMachineLearningEngine_GoogleCloudMlV1OperationMetadata_OperationType_CreateVersion = @"CREATE_VERSION";
@@ -266,7 +273,15 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling
-@dynamic minNodes;
+@dynamic maxNodes, metrics, minNodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRCloudMachineLearningEngine_GoogleCloudMlV1MetricSpec class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -610,6 +625,33 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsRequest
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsResponse
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsResponse
+@dynamic trials;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"trials" : [GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListStudiesResponse
 //
 
@@ -719,6 +761,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1MeasurementMetric
 @dynamic metric, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1MetricSpec
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1MetricSpec
+@dynamic name, target;
 @end
 
 
@@ -1303,7 +1355,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleIamV1Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

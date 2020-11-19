@@ -4,7 +4,8 @@
 // API:
 //   AdMob API (admob/v1)
 // Description:
-//   The Google AdMob API lets you programmatically get reports on earnings.
+//   The AdMob API allows publishers to programmatically get information about
+//   their AdMob account.
 // Documentation:
 //   https://developers.google.com/admob/api/
 
@@ -28,8 +29,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See your AdMob data
+ *
+ *  Value "https://www.googleapis.com/auth/admob.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdMobReadonly;
 /**
  *  Authorization scope: See your AdMob data
  *
@@ -44,7 +51,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAdMobReport;
 /**
  *  Service for executing AdMob API queries.
  *
- *  The Google AdMob API lets you programmatically get reports on earnings.
+ *  The AdMob API allows publishers to programmatically get information about
+ *  their AdMob account.
  */
 @interface GTLRAdMobService : GTLRService
 

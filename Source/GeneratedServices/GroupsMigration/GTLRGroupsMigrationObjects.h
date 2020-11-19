@@ -4,7 +4,8 @@
 // API:
 //   Groups Migration API (groupsmigration/v1)
 // Description:
-//   Groups Migration Api.
+//   The Groups Migration API allows domain administrators to archive emails
+//   into Google groups.
 // Documentation:
 //   https://developers.google.com/google-apps/groups-migration/
 

@@ -109,7 +109,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  formats: 1.
  *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
  *  LOCATION here refers to GCP Locations:
- *  https://cloud.google.com/about/locations/
+ *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
+ *  supported insight types:
+ *  https://cloud.google.com/recommender/docs/insights/insight-types.)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -123,7 +125,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    request. Acceptable formats: 1.
  *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
  *    LOCATION here refers to GCP Locations:
- *    https://cloud.google.com/about/locations/
+ *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
+ *    supported insight types:
+ *    https://cloud.google.com/recommender/docs/insights/insight-types.)
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsList
  *
@@ -245,7 +249,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  formats: 1.
  *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
  *  LOCATION here refers to GCP Locations:
- *  https://cloud.google.com/about/locations/
+ *  https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to supported
+ *  recommenders: https://cloud.google.com/recommender/docs/recommenders.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -260,7 +265,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    request. Acceptable formats: 1.
  *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
  *    LOCATION here refers to GCP Locations:
- *    https://cloud.google.com/about/locations/
+ *    https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to
+ *    supported recommenders:
+ *    https://cloud.google.com/recommender/docs/recommenders.
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsList
  *

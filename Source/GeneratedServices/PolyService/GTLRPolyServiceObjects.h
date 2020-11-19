@@ -4,10 +4,8 @@
 // API:
 //   Poly API (poly/v1)
 // Description:
-//   The Poly API provides read access to assets hosted on <a
-//   href="https://poly.google.com">poly.google.com</a> to all, and upload
-//   access to <a href="https://poly.google.com">poly.google.com</a> for
-//   whitelisted accounts.
+//   The Poly API provides read access to assets hosted on poly.google.com to
+//   all, and upload access to poly.google.com for whitelisted accounts.
 // Documentation:
 //   https://developers.google.com/poly/
 
@@ -49,8 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRPolyService_Asset.license
 
 /**
- *  Unlicensed: All Rights Reserved by the author. Unlicensed assets are
- *  **not** returned by List Assets.
+ *  Unlicensed: All Rights Reserved by the author. Unlicensed assets are **not**
+ *  returned by List Assets.
  *
  *  Value: "ALL_RIGHTS_RESERVED"
  */
@@ -73,24 +71,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_License_Unknown;
 
 /**
  *  Access to the asset and its underlying files and resources is restricted to
- *  the author.
- *  **Authentication:** You must supply an OAuth token that corresponds to the
- *  author's account.
+ *  the author. **Authentication:** You must supply an OAuth token that
+ *  corresponds to the author's account.
  *
  *  Value: "PRIVATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Private;
 /**
- *  Access to the asset and its underlying files and resources is available
- *  to anyone.
+ *  Access to the asset and its underlying files and resources is available to
+ *  anyone.
  *
  *  Value: "PUBLIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_Public;
 /**
  *  Access to the asset and its underlying files and resources is available to
- *  anyone with the asset's name. Unlisted assets are **not**
- *  returned by List Assets.
+ *  anyone with the asset's name. Unlisted assets are **not** returned by List
+ *  Assets.
  *
  *  Value: "UNLISTED"
  */
@@ -112,11 +109,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_Asset_Visibility_VisibilityU
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_CodeUnspecified;
 /**
- *  Default materials are used in the model. This means that one or more
- *  faces is using default materials either because no usemtl statement was
- *  specified or because the requested material was not found due to a
- *  missing material file or bad material name. This does not cover the case
- *  of missing textures.
+ *  Default materials are used in the model. This means that one or more faces
+ *  is using default materials either because no usemtl statement was specified
+ *  or because the requested material was not found due to a missing material
+ *  file or bad material name. This does not cover the case of missing textures.
  *
  *  Value: "DEFAULT_MATERIALS"
  */
@@ -134,15 +130,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_Empt
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_Expired;
 /**
- *  Multiple files were encountered in addition to a ZIP archive. When
- *  uploading an archive only one file is permitted.
+ *  Multiple files were encountered in addition to a ZIP archive. When uploading
+ *  an archive only one file is permitted.
  *
  *  Value: "EXTRA_FILES_WITH_ARCHIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ExtraFilesWithArchive;
 /**
- *  The importer encountered a fatal error and was unable to import the
- *  model.
+ *  The importer encountered a fatal error and was unable to import the model.
  *
  *  Value: "FATAL_ERROR"
  */
@@ -154,8 +149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_Fata
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_ImageError;
 /**
- *  The import includes a file of an unsupported element type. The file path
- *  is specified.
+ *  The import includes a file of an unsupported element type. The file path is
+ *  specified.
  *
  *  Value: "INVALID_ELEMENT_TYPE"
  */
@@ -168,10 +163,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_Inva
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_AssetImportMessage_Code_NoImportableFile;
 /**
- *  A problem was encountered while parsing the OBJ file. The converter makes
- *  a 'best effort' attempt to continue when encountering such issues. In
- *  some cases the resulting preview model may still be acceptable. The
- *  details can be found in the parse error message.
+ *  A problem was encountered while parsing the OBJ file. The converter makes a
+ *  'best effort' attempt to continue when encountering such issues. In some
+ *  cases the resulting preview model may still be acceptable. The details can
+ *  be found in the parse error message.
  *
  *  Value: "OBJ_PARSE_ERROR"
  */
@@ -336,8 +331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooFewVer
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooManyDimensions;
 /**
- *  The maximum number of problems to report was reached. Parsing continues,
- *  but further problems will be ignored.
+ *  The maximum number of problems to report was reached. Parsing continues, but
+ *  further problems will be ignored.
  *
  *  Value: "TOO_MANY_PROBLEMS"
  */
@@ -350,8 +345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_TooManyPr
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolyService_ObjParseError_Code_UnknownMaterial;
 /**
- *  This command is a valid OBJ command but is not supported. This error is
- *  only generated for the first instance of such a command.
+ *  This command is a valid OBJ command but is not supported. This error is only
+ *  generated for the first instance of such a command.
  *
  *  Value: "UNSUPPORTED_COMMAND"
  */
@@ -393,8 +388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 
 /**
  *  Represents and describes an asset in the Poly library. An asset is a 3D
- *  model
- *  or scene created using [Tilt Brush](//www.tiltbrush.com),
+ *  model or scene created using [Tilt Brush](//www.tiltbrush.com),
  *  [Blocks](//vr.google.com/blocks/), or any 3D program that produces a file
  *  that can be upload to Poly.
  */
@@ -407,8 +401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @property(nonatomic, copy, nullable) NSString *authorName;
 
 /**
- *  For published assets, the time when the asset was published.
- *  For unpublished assets, the time when the asset was created.
+ *  For published assets, the time when the asset was published. For unpublished
+ *  assets, the time when the asset was created.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -423,8 +417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  A list of Formats where each
- *  format describes one representation of the asset.
+ *  A list of Formats where each format describes one representation of the
+ *  asset.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolyService_Format *> *formats;
 
@@ -436,13 +430,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @property(nonatomic, strong, nullable) NSNumber *isCurated;
 
 /**
- *  The license under which the author has made the asset available
- *  for use, if any.
+ *  The license under which the author has made the asset available for use, if
+ *  any.
  *
  *  Likely values:
  *    @arg @c kGTLRPolyService_Asset_License_AllRightsReserved Unlicensed: All
- *        Rights Reserved by the author. Unlicensed assets are
- *        **not** returned by List Assets. (Value: "ALL_RIGHTS_RESERVED")
+ *        Rights Reserved by the author. Unlicensed assets are **not** returned
+ *        by List Assets. (Value: "ALL_RIGHTS_RESERVED")
  *    @arg @c kGTLRPolyService_Asset_License_CreativeCommonsBy Creative Commons
  *        CC-BY 3.0. https://creativecommons.org/licenses/by/3.0/ (Value:
  *        "CREATIVE_COMMONS_BY")
@@ -454,15 +448,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 /**
  *  Application-defined opaque metadata for this asset. This field is only
  *  returned when querying for the signed-in user's own assets, not for public
- *  assets. This string is limited to 1K chars. It is up to the creator of
- *  the asset to define the format for this string (for example, JSON).
+ *  assets. This string is limited to 1K chars. It is up to the creator of the
+ *  asset to define the format for this string (for example, JSON).
  */
 @property(nonatomic, copy, nullable) NSString *metadata;
 
-/**
- *  The unique identifier for the asset in the form:
- *  `assets/{ASSET_ID}`.
- */
+/** The unique identifier for the asset in the form: `assets/{ASSET_ID}`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -489,18 +480,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
  *
  *  Likely values:
  *    @arg @c kGTLRPolyService_Asset_Visibility_Private Access to the asset and
- *        its underlying files and resources is restricted to
- *        the author.
+ *        its underlying files and resources is restricted to the author.
  *        **Authentication:** You must supply an OAuth token that corresponds to
- *        the
- *        author's account. (Value: "PRIVATE")
+ *        the author's account. (Value: "PRIVATE")
  *    @arg @c kGTLRPolyService_Asset_Visibility_Public Access to the asset and
- *        its underlying files and resources is available
- *        to anyone. (Value: "PUBLIC")
+ *        its underlying files and resources is available to anyone. (Value:
+ *        "PUBLIC")
  *    @arg @c kGTLRPolyService_Asset_Visibility_Unlisted Access to the asset and
- *        its underlying files and resources is available to
- *        anyone with the asset's name. Unlisted assets are **not**
- *        returned by List Assets. (Value: "UNLISTED")
+ *        its underlying files and resources is available to anyone with the
+ *        asset's name. Unlisted assets are **not** returned by List Assets.
+ *        (Value: "UNLISTED")
  *    @arg @c kGTLRPolyService_Asset_Visibility_VisibilityUnspecified Unknown
  *        (and invalid) visibility. (Value: "VISIBILITY_UNSPECIFIED")
  */
@@ -521,13 +510,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
  *    @arg @c kGTLRPolyService_AssetImportMessage_Code_CodeUnspecified Unknown
  *        error code. (Value: "CODE_UNSPECIFIED")
  *    @arg @c kGTLRPolyService_AssetImportMessage_Code_DefaultMaterials Default
- *        materials are used in the model. This means that one or more
- *        faces is using default materials either because no usemtl statement
- *        was
+ *        materials are used in the model. This means that one or more faces is
+ *        using default materials either because no usemtl statement was
  *        specified or because the requested material was not found due to a
  *        missing material file or bad material name. This does not cover the
- *        case
- *        of missing textures. (Value: "DEFAULT_MATERIALS")
+ *        case of missing textures. (Value: "DEFAULT_MATERIALS")
  *    @arg @c kGTLRPolyService_AssetImportMessage_Code_EmptyModel When
  *        generating the preview for the import, no geometry was found. (Value:
  *        "EMPTY_MODEL")
@@ -539,8 +526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
  *        uploading an archive only one file is permitted. (Value:
  *        "EXTRA_FILES_WITH_ARCHIVE")
  *    @arg @c kGTLRPolyService_AssetImportMessage_Code_FatalError The importer
- *        encountered a fatal error and was unable to import the
- *        model. (Value: "FATAL_ERROR")
+ *        encountered a fatal error and was unable to import the model. (Value:
+ *        "FATAL_ERROR")
  *    @arg @c kGTLRPolyService_AssetImportMessage_Code_ImageError The importer
  *        encountered a problem reading an image file. (Value: "IMAGE_ERROR")
  *    @arg @c kGTLRPolyService_AssetImportMessage_Code_InvalidElementType The
@@ -550,8 +537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
  *        asset import did not include any file that we can import (i.e. an OBJ
  *        file). (Value: "NO_IMPORTABLE_FILE")
  *    @arg @c kGTLRPolyService_AssetImportMessage_Code_ObjParseError A problem
- *        was encountered while parsing the OBJ file. The converter makes
- *        a 'best effort' attempt to continue when encountering such issues. In
+ *        was encountered while parsing the OBJ file. The converter makes a
+ *        'best effort' attempt to continue when encountering such issues. In
  *        some cases the resulting preview model may still be acceptable. The
  *        details can be found in the parse error message. (Value:
  *        "OBJ_PARSE_ERROR")
@@ -573,23 +560,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 
 
 /**
- *  Represents a file in Poly, which can be a root,
- *  resource, or thumbnail file.
+ *  Represents a file in Poly, which can be a root, resource, or thumbnail file.
  */
 @interface GTLRPolyService_File : GTLRObject
 
 /**
- *  The MIME content-type, such as `image/png`.
- *  For more information, see
- *  [MIME
+ *  The MIME content-type, such as `image/png`. For more information, see [MIME
  *  types](//developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types).
  */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
 /**
- *  The path of the resource file relative to the
- *  root file. For root or thumbnail files,
- *  this is just the filename.
+ *  The path of the resource file relative to the root file. For root or
+ *  thumbnail files, this is just the filename.
  */
 @property(nonatomic, copy, nullable) NSString *relativePath;
 
@@ -600,13 +583,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 
 
 /**
- *  The same asset can be represented in different formats, for example,
- *  a [WaveFront .obj](//en.wikipedia.org/wiki/Wavefront_.obj_file) file with
- *  its
+ *  The same asset can be represented in different formats, for example, a
+ *  [WaveFront .obj](//en.wikipedia.org/wiki/Wavefront_.obj_file) file with its
  *  corresponding .mtl file or a [Khronos glTF](//www.khronos.org/gltf) file
  *  with its corresponding .glb binary data. A format refers to a specific
- *  representation of an asset and contains all information needed to
- *  retrieve and describe this representation.
+ *  representation of an asset and contains all information needed to retrieve
+ *  and describe this representation.
  */
 @interface GTLRPolyService_Format : GTLRObject
 
@@ -620,16 +602,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @property(nonatomic, copy, nullable) NSString *formatType;
 
 /**
- *  A list of dependencies of the root element. May include, but is not
- *  limited to, materials, textures, and shader programs.
+ *  A list of dependencies of the root element. May include, but is not limited
+ *  to, materials, textures, and shader programs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolyService_File *> *resources;
 
 /**
- *  The root of the file hierarchy. This will always be populated.
- *  For some format_types - such as `TILT`, which are
- *  self-contained - this is all of the data.
- *  Other types - such as `OBJ` - often reference other data elements.
+ *  The root of the file hierarchy. This will always be populated. For some
+ *  format_types - such as `TILT`, which are self-contained - this is all of the
+ *  data. Other types - such as `OBJ` - often reference other data elements.
  *  These are contained in the resources field.
  */
 @property(nonatomic, strong, nullable) GTLRPolyService_File *root;
@@ -645,9 +626,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 /**
  *  A non-negative integer that represents the level of detail (LOD) of this
  *  format relative to other formats of the same asset with the same
- *  format_type.
- *  This hint allows you to sort formats from the most-detailed (0) to
- *  least-detailed (integers greater than 0).
+ *  format_type. This hint allows you to sort formats from the most-detailed (0)
+ *  to least-detailed (integers greater than 0).
  *
  *  Uses NSNumber of intValue.
  */
@@ -709,10 +689,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @property(nonatomic, strong, nullable) NSArray<GTLRPolyService_Asset *> *assets;
 
 /**
- *  The continuation token for retrieving the next page. If empty,
- *  indicates that there are no more pages. To get the next page, submit the
- *  same request specifying this value as the
- *  page_token.
+ *  The continuation token for retrieving the next page. If empty, indicates
+ *  that there are no more pages. To get the next page, submit the same request
+ *  specifying this value as the page_token.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -745,10 +724,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @property(nonatomic, strong, nullable) NSArray<GTLRPolyService_Asset *> *assets;
 
 /**
- *  The continuation token for retrieving the next page. If empty,
- *  indicates that there are no more pages. To get the next page, submit the
- *  same request specifying this value as the
- *  page_token.
+ *  The continuation token for retrieving the next page. If empty, indicates
+ *  that there are no more pages. To get the next page, submit the same request
+ *  specifying this value as the page_token.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -773,10 +751,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @interface GTLRPolyService_ListUserAssetsResponse : GTLRCollectionObject
 
 /**
- *  The continuation token for retrieving the next page. If empty,
- *  indicates that there are no more pages. To get the next page, submit the
- *  same request specifying this value as the
- *  page_token.
+ *  The continuation token for retrieving the next page. If empty, indicates
+ *  that there are no more pages. To get the next page, submit the same request
+ *  specifying this value as the page_token.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -860,11 +837,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
  *        specified too many dimensions for its usage. (Value:
  *        "TOO_MANY_DIMENSIONS")
  *    @arg @c kGTLRPolyService_ObjParseError_Code_TooManyProblems The maximum
- *        number of problems to report was reached. Parsing continues,
- *        but further problems will be ignored. (Value: "TOO_MANY_PROBLEMS")
+ *        number of problems to report was reached. Parsing continues, but
+ *        further problems will be ignored. (Value: "TOO_MANY_PROBLEMS")
  *    @arg @c kGTLRPolyService_ObjParseError_Code_UnknownMaterial The specified
- *        material was not found in any material definition in the
- *        import. (Value: "UNKNOWN_MATERIAL")
+ *        material was not found in any material definition in the import.
+ *        (Value: "UNKNOWN_MATERIAL")
  *    @arg @c kGTLRPolyService_ObjParseError_Code_UnsupportedCommand This
  *        command is a valid OBJ command but is not supported. This error is
  *        only generated for the first instance of such a command. (Value:
@@ -911,23 +888,22 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 
 /**
  *  Hints for displaying the asset, based on information available when the
- *  asset
- *  was uploaded.
+ *  asset was uploaded.
  */
 @interface GTLRPolyService_PresentationParams : GTLRObject
 
 /**
  *  A background color which could be used for displaying the 3D asset in a
  *  'thumbnail' or 'palette' style view. Authors have the option to set this
- *  background color when publishing or editing their asset.
- *  This is represented as a six-digit hexademical triplet specifying the
- *  RGB components of the background color, e.g. #FF0000 for Red.
+ *  background color when publishing or editing their asset. This is represented
+ *  as a six-digit hexademical triplet specifying the RGB components of the
+ *  background color, e.g. #FF0000 for Red.
  */
 @property(nonatomic, copy, nullable) NSString *backgroundColor;
 
 /**
- *  The materials' diffuse/albedo color. This does not apply to vertex colors
- *  or texture maps.
+ *  The materials' diffuse/albedo color. This does not apply to vertex colors or
+ *  texture maps.
  *
  *  Likely values:
  *    @arg @c kGTLRPolyService_PresentationParams_ColorSpace_Gamma Colors should
@@ -941,19 +917,18 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 
 /**
  *  A rotation that should be applied to the object root to make it upright.
- *  More precisely, this quaternion transforms from "object space" (the space
- *  in which the object is defined) to "presentation space", a coordinate
- *  system where +Y is up, +X is right, -Z is forward. For example, if
- *  the object is the Eiffel Tower, in its local coordinate system the
- *  object might be laid out such that the base of the tower is on the
- *  YZ plane and the tip of the tower is towards positive X. In this case
- *  this quaternion would specify a rotation (of 90 degrees about the Z
- *  axis) such that in the presentation space the base of the tower is
- *  aligned with the XZ plane, and the tip of the tower lies towards +Y.
- *  This rotation is unrelated to the object's pose in the web preview,
- *  which is just a camera position setting and is *not* reflected in this
- *  rotation.
- *  Please note: this is applicable only to the gLTF.
+ *  More precisely, this quaternion transforms from "object space" (the space in
+ *  which the object is defined) to "presentation space", a coordinate system
+ *  where +Y is up, +X is right, -Z is forward. For example, if the object is
+ *  the Eiffel Tower, in its local coordinate system the object might be laid
+ *  out such that the base of the tower is on the YZ plane and the tip of the
+ *  tower is towards positive X. In this case this quaternion would specify a
+ *  rotation (of 90 degrees about the Z axis) such that in the presentation
+ *  space the base of the tower is aligned with the XZ plane, and the tip of the
+ *  tower lies towards +Y. This rotation is unrelated to the object's pose in
+ *  the web preview, which is just a camera position setting and is *not*
+ *  reflected in this rotation. Please note: this is applicable only to the
+ *  gLTF.
  */
 @property(nonatomic, strong, nullable) GTLRPolyService_Quaternion *orientingRotation;
 
@@ -962,8 +937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 
 /**
  *  A [Quaternion](//en.wikipedia.org/wiki/Quaternion). Please note: if in the
- *  response you see "w: 1" and nothing else this is the default value of
- *  [0, 0, 0, 1] where x,y, and z are 0.
+ *  response you see "w: 1" and nothing else this is the default value of [0, 0,
+ *  0, 1] where x,y, and z are 0.
  */
 @interface GTLRPolyService_Quaternion : GTLRObject
 
@@ -1005,8 +980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @interface GTLRPolyService_RemixInfo : GTLRObject
 
 /**
- *  Resource ids for the sources of this remix, of the form:
- *  `assets/{ASSET_ID}`
+ *  Resource ids for the sources of this remix, of the form: `assets/{ASSET_ID}`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sourceAsset;
 
@@ -1014,16 +988,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 
 
 /**
- *  A response message from a request to
- *  startImport. This is returned in the response
- *  field of the Operation.
+ *  A response message from a request to startImport. This is returned in the
+ *  response field of the Operation.
  */
 @interface GTLRPolyService_StartAssetImportResponse : GTLRObject
 
 /**
  *  The id of newly created asset. If this is empty when the operation is
- *  complete it means the import failed. Please refer to the
- *  assetImportMessages field to understand what went wrong.
+ *  complete it means the import failed. Please refer to the assetImportMessages
+ *  field to understand what went wrong.
  */
 @property(nonatomic, copy, nullable) NSString *assetId;
 
@@ -1031,8 +1004,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolyService_PresentationParams_ColorSpac
 @property(nonatomic, copy, nullable) NSString *assetImportId;
 
 /**
- *  The message from the asset import. This will contain any warnings
- *  (or - in the case of failure - errors) that occurred during import.
+ *  The message from the asset import. This will contain any warnings (or - in
+ *  the case of failure - errors) that occurred during import.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolyService_AssetImportMessage *> *assetImportMessages;
 

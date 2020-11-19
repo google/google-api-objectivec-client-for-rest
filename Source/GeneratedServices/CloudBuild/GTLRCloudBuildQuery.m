@@ -236,9 +236,9 @@
 
 @implementation GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate
 
-@dynamic parent;
+@dynamic parent, projectId;
 
-+ (instancetype)queryWithObject:(GTLRCloudBuild_CreateBuildRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudBuild_Build *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Artifact Registry API (artifactregistry/v1beta1)
+//   Artifact Registry API (artifactregistry/v1beta2)
 // Description:
 //   Store and manage build artifacts in a scalable and integrated service built
 //   on Google infrastructure.
@@ -471,7 +471,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 // Previous library name was
 //   +[GTLQueryArtifactRegistry queryForProjectsLocationsRepositoriesListWithparent:]
 
-/** The maximum number of repositories to return. */
+/**
+ *  The maximum number of repositories to return. Maximum page size is 10,000.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -572,7 +574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 // Previous library name was
 //   +[GTLQueryArtifactRegistry queryForProjectsLocationsRepositoriesPackagesListWithparent:]
 
-/** The maximum number of packages to return. */
+/** The maximum number of packages to return. Maximum page size is 10,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -712,7 +714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** The maximum number of tags to return. */
+/** The maximum number of tags to return. Maximum page size is 10,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -873,7 +875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 // Previous library name was
 //   +[GTLQueryArtifactRegistry queryForProjectsLocationsRepositoriesPackagesVersionsListWithparent:]
 
-/** The maximum number of versions to return. */
+/** The maximum number of versions to return. Maximum page size is 10,000. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**

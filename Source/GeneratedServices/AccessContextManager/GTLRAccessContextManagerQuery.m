@@ -521,3 +521,114 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 }
 
 @end
+
+@implementation GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_GcpUserAccessBinding *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/gcpUserAccessBindings";
+  GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.organizations.gcpUserAccessBindings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.organizations.gcpUserAccessBindings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_GcpUserAccessBinding class];
+  query.loggingName = @"accesscontextmanager.organizations.gcpUserAccessBindings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/gcpUserAccessBindings";
+  GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAccessContextManager_ListGcpUserAccessBindingsResponse class];
+  query.loggingName = @"accesscontextmanager.organizations.gcpUserAccessBindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAccessContextManager_GcpUserAccessBinding *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAccessContextManagerQuery_OrganizationsGcpUserAccessBindingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAccessContextManager_Operation class];
+  query.loggingName = @"accesscontextmanager.organizations.gcpUserAccessBindings.patch";
+  return query;
+}
+
+@end

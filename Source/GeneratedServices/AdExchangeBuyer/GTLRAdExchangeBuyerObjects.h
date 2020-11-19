@@ -79,6 +79,7 @@
 @class GTLRAdExchangeBuyer_TargetingValueDayPartTargetingDayPart;
 @class GTLRAdExchangeBuyer_TargetingValueDemogAgeCriteria;
 @class GTLRAdExchangeBuyer_TargetingValueDemogGenderCriteria;
+@class GTLRAdExchangeBuyer_TargetingValueRequestPlatformTargeting;
 @class GTLRAdExchangeBuyer_TargetingValueSize;
 
 // Generated comments include content from the discovery document; avoid them
@@ -2796,6 +2797,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *longValue;
 
+@property(nonatomic, strong, nullable) GTLRAdExchangeBuyer_TargetingValueRequestPlatformTargeting *requestPlatformTargetingValue;
+
 /** The string value to exclude/include. */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
@@ -2895,6 +2898,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAdExchangeBuyer_TargetingValueDemogGenderCriteria : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<NSString *> *demogGenderCriteriaIds;
+
+@end
+
+
+/**
+ *  GTLRAdExchangeBuyer_TargetingValueRequestPlatformTargeting
+ */
+@interface GTLRAdExchangeBuyer_TargetingValueRequestPlatformTargeting : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestPlatforms;
 
 @end
 

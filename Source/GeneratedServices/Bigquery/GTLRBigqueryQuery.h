@@ -1146,6 +1146,63 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 @end
 
 /**
+ *  Lists all row access policies on the specified table.
+ *
+ *  Method: bigquery.rowAccessPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigquery
+ *    @c kGTLRAuthScopeBigqueryCloudPlatform
+ *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeBigqueryReadonly
+ */
+@interface GTLRBigqueryQuery_RowAccessPoliciesList : GTLRBigqueryQuery
+// Previous library name was
+//   +[GTLQueryBigquery queryForRowAccessPoliciesListWithprojectId:datasetId:tableId:]
+
+/** Required. Dataset ID of row access policies to list. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/**
+ *  The maximum number of results to return in a single response page. Leverage
+ *  the page tokens to iterate through the entire collection.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, returned by a previous call, to request the next page of
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Project ID of the row access policies to list. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Table ID of the table to list row access policies. */
+@property(nonatomic, copy, nullable) NSString *tableId;
+
+/**
+ *  Fetches a @c GTLRBigquery_ListRowAccessPoliciesResponse.
+ *
+ *  Lists all row access policies on the specified table.
+ *
+ *  @param projectId Required. Project ID of the row access policies to list.
+ *  @param datasetId Required. Dataset ID of row access policies to list.
+ *  @param tableId Required. Table ID of the table to list row access policies.
+ *
+ *  @return GTLRBigqueryQuery_RowAccessPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId;
+
+@end
+
+/**
  *  Streams data into BigQuery one record at a time without needing to run a
  *  load job. Requires the WRITER dataset role.
  *

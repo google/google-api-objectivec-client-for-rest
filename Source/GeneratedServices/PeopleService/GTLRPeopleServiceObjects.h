@@ -341,7 +341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_TwentyOneO
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_ObjectTypeUnspecified;
 /**
- *  [Google+ Page.](http://www.google.com/+/brands/)
+ *  [Currents Page.](https://gsuite.google.com/products/currents/)
  *
  *  Value: "PAGE"
  */
@@ -363,7 +363,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_ObjectTypeUnspecified;
 /**
- *  [Google+ Page.](http://www.google.com/+/brands/)
+ *  [Currents Page.](https://gsuite.google.com/products/currents/)
  *
  *  Value: "PAGE"
  */
@@ -391,7 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_UserTypes_GoogleUser;
 /**
- *  The user is a Google+ user.
+ *  The user is a Currents user.
  *
  *  Value: "GPLUS_USER"
  */
@@ -834,7 +834,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
+ *  READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -878,20 +878,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
- *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day and time zone are either specified elsewhere or are not significant. The
- *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
- *  A full date, with non-zero year, month and day values * A month and day
- *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
- *  month and day values * A year and month value, with a zero day, e.g. a
- *  credit card expiration date Related types are google.type.TimeOfDay and
- *  `google.protobuf.Timestamp`.
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRPeopleService_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
- *  specifying a year by itself or a year and month where the day is not
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -899,7 +899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12, or 0 if specifying a year without a
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
  *  month and day.
  *
  *  Uses NSNumber of intValue.
@@ -907,7 +907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
  *  year.
  *
  *  Uses NSNumber of intValue.
@@ -1203,7 +1203,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /**
  *  A token, which can be sent as `sync_token` to retrieve changes since the
  *  last request. Request must set `request_sync_token` to return the sync
- *  token.
+ *  token. When the response is paginated, only the last page will contain
+ *  `nextSyncToken`.
  */
 @property(nonatomic, copy, nullable) NSString *nextSyncToken;
 
@@ -1461,13 +1462,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  Optional. The resource names of the contact people to add in the form of
- *  `people/{person_id}`.
+ *  `people/{person_id}`. The total number of resource names in
+ *  `resource_names_to_add` and `resource_names_to_remove` must be less than or
+ *  equal to 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToAdd;
 
 /**
  *  Optional. The resource names of the contact people to remove in the form of
- *  `people/{person_id}`.
+ *  `people/{person_id}`. The total number of resource names in
+ *  `resource_names_to_add` and `resource_names_to_remove` must be less than or
+ *  equal to 1000.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNamesToRemove;
 
@@ -1852,8 +1857,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  Likely values:
  *    @arg @c kGTLRPeopleService_PersonMetadata_ObjectType_ObjectTypeUnspecified
  *        Unspecified. (Value: "OBJECT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRPeopleService_PersonMetadata_ObjectType_Page [Google+
- *        Page.](http://www.google.com/+/brands/) (Value: "PAGE")
+ *    @arg @c kGTLRPeopleService_PersonMetadata_ObjectType_Page [Currents
+ *        Page.](https://gsuite.google.com/products/currents/) (Value: "PAGE")
  *    @arg @c kGTLRPeopleService_PersonMetadata_ObjectType_Person Person.
  *        (Value: "PERSON")
  */
@@ -1980,8 +1985,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  Likely values:
  *    @arg @c kGTLRPeopleService_ProfileMetadata_ObjectType_ObjectTypeUnspecified
  *        Unspecified. (Value: "OBJECT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRPeopleService_ProfileMetadata_ObjectType_Page [Google+
- *        Page.](http://www.google.com/+/brands/) (Value: "PAGE")
+ *    @arg @c kGTLRPeopleService_ProfileMetadata_ObjectType_Page [Currents
+ *        Page.](https://gsuite.google.com/products/currents/) (Value: "PAGE")
  *    @arg @c kGTLRPeopleService_ProfileMetadata_ObjectType_Person Person.
  *        (Value: "PERSON")
  */
@@ -2337,7 +2342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  Optional. A mask of what source types to return. Defaults to
- *  ReadSourceType.CONTACT and ReadSourceType.PROFILE if not set.
+ *  READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -2375,7 +2380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /**
  *  The type of the URL. The type can be custom or one of these predefined
  *  values: * `home` * `work` * `blog` * `profile` * `homePage` * `ftp` *
- *  `reservations` * `appInstallPage`: website for a Google+ application. *
+ *  `reservations` * `appInstallPage`: website for a Currents application. *
  *  `other`
  */
 @property(nonatomic, copy, nullable) NSString *type;

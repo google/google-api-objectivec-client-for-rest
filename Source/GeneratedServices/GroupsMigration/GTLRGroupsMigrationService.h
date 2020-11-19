@@ -4,7 +4,8 @@
 // API:
 //   Groups Migration API (groupsmigration/v1)
 // Description:
-//   Groups Migration Api.
+//   The Groups Migration API allows domain administrators to archive emails
+//   into Google groups.
 // Documentation:
 //   https://developers.google.com/google-apps/groups-migration/
 
@@ -44,7 +45,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGroupsMigrationAppsGroupsMigrat
 /**
  *  Service for executing Groups Migration API queries.
  *
- *  Groups Migration Api.
+ *  The Groups Migration API allows domain administrators to archive emails into
+ *  Google groups.
  */
 @interface GTLRGroupsMigrationService : GTLRService
 

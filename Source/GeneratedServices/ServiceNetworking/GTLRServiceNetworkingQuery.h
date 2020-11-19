@@ -33,6 +33,7 @@
 @class GTLRServiceNetworking_RemoveDnsRecordSetRequest;
 @class GTLRServiceNetworking_RemoveDnsZoneRequest;
 @class GTLRServiceNetworking_SearchRangeRequest;
+@class GTLRServiceNetworking_UpdateConsumerConfigRequest;
 @class GTLRServiceNetworking_UpdateDnsRecordSetRequest;
 @class GTLRServiceNetworking_ValidateConsumerConfigRequest;
 
@@ -731,6 +732,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Service producers use this method to get the configuration of their
+ *  connection including the import/export of custom routes and subnetwork
+ *  routes with public IP.
+ *
+ *  Method: servicenetworking.services.projects.global.networks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGet : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksGetWithname:]
+
+/**
+ *  Required. Name of the consumer config to retrieve in the format:
+ *  `services/{service}/projects/{project}/global/networks/{network}`. {service}
+ *  is the peering service that is managing connectivity for the service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *  is a project number e.g. `12345` that contains the service consumer's VPC
+ *  network. {network} is the name of the service consumer's VPC network.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_ConsumerConfig.
+ *
+ *  Service producers use this method to get the configuration of their
+ *  connection including the import/export of custom routes and subnetwork
+ *  routes with public IP.
+ *
+ *  @param name Required. Name of the consumer config to retrieve in the format:
+ *    `services/{service}/projects/{project}/global/networks/{network}`.
+ *    {service} is the peering service that is managing connectivity for the
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *    is a project number e.g. `12345` that contains the service consumer's VPC
+ *    network. {network} is the name of the service consumer's VPC network.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a peered DNS domain which sends requests for records in given
  *  namespace originating in the service producer VPC network to the consumer
  *  VPC network to be resolved.
@@ -876,10 +924,64 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Service producers use this method to update the configuration of their
+ *  connection including the import/export of custom routes and subnetwork
+ *  routes with public IP.
+ *
+ *  Method: servicenetworking.services.projects.global.networks.updateConsumerConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeServiceNetworkingCloudPlatform
+ *    @c kGTLRAuthScopeServiceNetworkingServiceManagement
+ */
+@interface GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksUpdateConsumerConfig : GTLRServiceNetworkingQuery
+// Previous library name was
+//   +[GTLQueryServiceNetworking queryForServicesProjectsGlobalNetworksUpdateConsumerConfigWithObject:parent:]
+
+/**
+ *  Required. Parent resource identifying the connection for which the consumer
+ *  config is being updated in the format:
+ *  `services/{service}/projects/{project}/global/networks/{network}` {service}
+ *  is the peering service that is managing connectivity for the service
+ *  producer's organization. For Google services that support this
+ *  functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *  is the number of the project that contains the service consumer's VPC
+ *  network e.g. `12345`. {network} is the name of the service consumer's VPC
+ *  network.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRServiceNetworking_Operation.
+ *
+ *  Service producers use this method to update the configuration of their
+ *  connection including the import/export of custom routes and subnetwork
+ *  routes with public IP.
+ *
+ *  @param object The @c GTLRServiceNetworking_UpdateConsumerConfigRequest to
+ *    include in the query.
+ *  @param parent Required. Parent resource identifying the connection for which
+ *    the consumer config is being updated in the format:
+ *    `services/{service}/projects/{project}/global/networks/{network}`
+ *    {service} is the peering service that is managing connectivity for the
+ *    service producer's organization. For Google services that support this
+ *    functionality, this value is `servicenetworking.googleapis.com`. {project}
+ *    is the number of the project that contains the service consumer's VPC
+ *    network e.g. `12345`. {network} is the name of the service consumer's VPC
+ *    network.
+ *
+ *  @return GTLRServiceNetworkingQuery_ServicesProjectsGlobalNetworksUpdateConsumerConfig
+ */
++ (instancetype)queryWithObject:(GTLRServiceNetworking_UpdateConsumerConfigRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Service producers can use this method to add roles in the shared VPC host
  *  project. Each role is bound to the provided member. Each role must be
- *  selected from within a whitelisted set of roles. Each role is applied at
- *  only the granularity specified in the whitelist.
+ *  selected from within an allowlisted set of roles. Each role is applied at
+ *  only the granularity specified in the allowlist.
  *
  *  Method: servicenetworking.services.roles.add
  *
@@ -903,8 +1005,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Service producers can use this method to add roles in the shared VPC host
  *  project. Each role is bound to the provided member. Each role must be
- *  selected from within a whitelisted set of roles. Each role is applied at
- *  only the granularity specified in the whitelist.
+ *  selected from within an allowlisted set of roles. Each role is applied at
+ *  only the granularity specified in the allowlist.
  *
  *  @param object The @c GTLRServiceNetworking_AddRolesRequest to include in the
  *    query.

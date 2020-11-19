@@ -13,17 +13,6 @@
 
 #import "GTLRSmartDeviceManagementObjects.h"
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// view
-NSString * const kGTLRSmartDeviceManagementViewDeviceConsoleView = @"DEVICE_CONSOLE_VIEW";
-NSString * const kGTLRSmartDeviceManagementViewDeviceDetailsViewUnspecified = @"DEVICE_DETAILS_VIEW_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRSmartDeviceManagementQuery
 
 @dynamic fields;
@@ -78,7 +67,7 @@ NSString * const kGTLRSmartDeviceManagementViewDeviceDetailsViewUnspecified = @"
 
 @implementation GTLRSmartDeviceManagementQuery_EnterprisesDevicesList
 
-@dynamic filter, pageSize, pageToken, parent, view;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

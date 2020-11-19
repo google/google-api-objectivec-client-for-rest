@@ -20,6 +20,7 @@ NSString * const kGTLRCloudAssetContentTypeAccessPolicy        = @"ACCESS_POLICY
 NSString * const kGTLRCloudAssetContentTypeContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAssetContentTypeIamPolicy           = @"IAM_POLICY";
 NSString * const kGTLRCloudAssetContentTypeOrgPolicy           = @"ORG_POLICY";
+NSString * const kGTLRCloudAssetContentTypeOsInventory         = @"OS_INVENTORY";
 NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 // ----------------------------------------------------------------------------
@@ -157,6 +158,83 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudAsset_Operation class];
   query.loggingName = @"cloudasset.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_V1AnalyzeIamPolicy
+
+@dynamic analysisQueryAccessSelectorPermissions,
+         analysisQueryAccessSelectorRoles,
+         analysisQueryIdentitySelectorIdentity,
+         analysisQueryOptionsAnalyzeServiceAccountImpersonation,
+         analysisQueryOptionsExpandGroups, analysisQueryOptionsExpandResources,
+         analysisQueryOptionsExpandRoles, analysisQueryOptionsOutputGroupEdges,
+         analysisQueryOptionsOutputResourceEdges,
+         analysisQueryResourceSelectorFullResourceName, executionTimeout, scope;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"analysisQueryAccessSelectorPermissions" : @"analysisQuery.accessSelector.permissions",
+    @"analysisQueryAccessSelectorRoles" : @"analysisQuery.accessSelector.roles",
+    @"analysisQueryIdentitySelectorIdentity" : @"analysisQuery.identitySelector.identity",
+    @"analysisQueryOptionsAnalyzeServiceAccountImpersonation" : @"analysisQuery.options.analyzeServiceAccountImpersonation",
+    @"analysisQueryOptionsExpandGroups" : @"analysisQuery.options.expandGroups",
+    @"analysisQueryOptionsExpandResources" : @"analysisQuery.options.expandResources",
+    @"analysisQueryOptionsExpandRoles" : @"analysisQuery.options.expandRoles",
+    @"analysisQueryOptionsOutputGroupEdges" : @"analysisQuery.options.outputGroupEdges",
+    @"analysisQueryOptionsOutputResourceEdges" : @"analysisQuery.options.outputResourceEdges",
+    @"analysisQueryResourceSelectorFullResourceName" : @"analysisQuery.resourceSelector.fullResourceName"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysisQuery.accessSelector.permissions" : [NSString class],
+    @"analysisQuery.accessSelector.roles" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithScope:(NSString *)scope {
+  NSArray *pathParams = @[ @"scope" ];
+  NSString *pathURITemplate = @"v1/{+scope}:analyzeIamPolicy";
+  GTLRCloudAssetQuery_V1AnalyzeIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.scope = scope;
+  query.expectedObjectClass = [GTLRCloudAsset_AnalyzeIamPolicyResponse class];
+  query.loggingName = @"cloudasset.analyzeIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudAssetQuery_V1AnalyzeIamPolicyLongrunning
+
+@dynamic scope;
+
++ (instancetype)queryWithObject:(GTLRCloudAsset_AnalyzeIamPolicyLongrunningRequest *)object
+                          scope:(NSString *)scope {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"scope" ];
+  NSString *pathURITemplate = @"v1/{+scope}:analyzeIamPolicyLongrunning";
+  GTLRCloudAssetQuery_V1AnalyzeIamPolicyLongrunning *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.scope = scope;
+  query.expectedObjectClass = [GTLRCloudAsset_Operation class];
+  query.loggingName = @"cloudasset.analyzeIamPolicyLongrunning";
   return query;
 }
 

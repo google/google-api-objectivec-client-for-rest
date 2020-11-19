@@ -107,6 +107,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub;
 /**
+ *  Dataproc Metastore - Managed Hive Metastore.
+ *
+ *  Value: "DPMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Dpms;
+/**
  *  Default unknown system.
  *
  *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
@@ -214,6 +220,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_TagTemplate;
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy.activatedPolicyTypes
+
+/**
+ *  Fine grained access control policy, which enables access control on tagged
+ *  resources.
+ *
+ *  Value: "FINE_GRAINED_ACCESS_CONTROL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy_ActivatedPolicyTypes_FineGrainedAccessControl;
+/**
+ *  Unspecified policy type.
+ *
+ *  Value: "POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy.activatedPolicyTypes
 
 /**
@@ -234,12 +257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  Associates `members` with a `role`.
  */
 @interface GTLRDataCatalog_Binding : GTLRObject
-
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
-@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding. If the condition
@@ -542,6 +559,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Dpms
+ *        Dataproc Metastore - Managed Hive Metastore. (Value: "DPMS")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
  */
@@ -707,18 +726,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumType : GTLRObject
 
-/**
- *  The set of allowed values for this enum. This set must not be empty, the
- *  display names of the values in this set must not be empty and the display
- *  names of the values must be case-insensitively unique within this set. The
- *  order of items in this list is preserved. This field can be used to Required
- *  on create; optional on update. The set of allowed values for this enum. This
- *  set must not be empty, the display names of the values in this set must not
- *  be empty and the display names of the values must be case-insensitively
- *  unique within this set. Currently, enum values can only be added to the list
- *  of allowed values. Deletion and renaming of enum values are not supported.
- *  Can have up to 500 allowed values.
- */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue *> *allowedValues;
 
 @end
@@ -1177,7 +1184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  Unreachable locations. Search result does not include data from those
  *  locations. Users can get additional information on the error by repeating
  *  the search request with a more restrictive parameter -- setting the value
- *  for `SearchDataCatalogRequest.scope.include_locations`.
+ *  for `SearchDataCatalogRequest.scope.restricted_locations`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1269,6 +1276,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  Used for taxonomy import/export and mutation.
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy : GTLRObject
+
+/** A list of policy types that are activated for a taxonomy. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *activatedPolicyTypes;
 
 /**
  *  Description of the serialized taxonomy. The length of the description is
@@ -1507,6 +1517,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 @interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField : GTLRObject
 
+/**
+ *  The description for this field. Defaults to an empty string.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
 /** The display name for this field. Defaults to an empty string. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -1579,6 +1596,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  "projects/{project_number}/locations/{location_id}/taxonomies/{id}".
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Number of policy tags contained in this taxonomy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyTagCount;
+
+/**
+ *  Output only. Timestamps about this taxonomy. Only create_time and
+ *  update_time are used.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps *taxonomyTimestamps;
 
 @end
 

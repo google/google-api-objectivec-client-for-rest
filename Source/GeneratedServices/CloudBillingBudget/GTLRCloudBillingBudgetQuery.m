@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Billing Budget API (billingbudgets/v1beta1)
+//   Cloud Billing Budget API (billingbudgets/v1)
 // Description:
 //   The Cloud Billing Budget API stores Cloud Billing budgets, which define a
 //   budget plan and the rules to execute as spend is tracked against that plan.
@@ -23,7 +23,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -32,14 +32,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/budgets";
+  NSString *pathURITemplate = @"v1/{+parent}/budgets";
   GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget class];
+  query.expectedObjectClass = [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget class];
   query.loggingName = @"billingbudgets.billingAccounts.budgets.create";
   return query;
 }
@@ -52,7 +52,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -71,13 +71,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget class];
+  query.expectedObjectClass = [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget class];
   query.loggingName = @"billingbudgets.billingAccounts.budgets.get";
   return query;
 }
@@ -90,13 +90,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/budgets";
+  NSString *pathURITemplate = @"v1/{+parent}/budgets";
   GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ListBudgetsResponse class];
+  query.expectedObjectClass = [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ListBudgetsResponse class];
   query.loggingName = @"billingbudgets.billingAccounts.budgets.list";
   return query;
 }
@@ -105,9 +105,9 @@
 
 @implementation GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -116,14 +116,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget class];
+  query.expectedObjectClass = [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget class];
   query.loggingName = @"billingbudgets.billingAccounts.budgets.patch";
   return query;
 }

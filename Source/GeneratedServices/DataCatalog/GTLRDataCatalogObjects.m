@@ -23,6 +23,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.integratedSystem
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery = @"BIGQUERY";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub = @"CLOUD_PUBSUB";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Dpms = @"DPMS";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified = @"INTEGRATED_SYSTEM_UNSPECIFIED";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.type
@@ -45,6 +46,10 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResu
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_SearchResultTypeUnspecified = @"SEARCH_RESULT_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_TagTemplate = @"TAG_TEMPLATE";
 
+// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy.activatedPolicyTypes
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy_ActivatedPolicyTypes_FineGrainedAccessControl = @"FINE_GRAINED_ACCESS_CONTROL";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
+
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy.activatedPolicyTypes
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl = @"FINE_GRAINED_ACCESS_CONTROL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified = @"POLICY_TYPE_UNSPECIFIED";
@@ -55,7 +60,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -581,7 +586,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy
-@dynamic descriptionProperty, displayName, policyTags;
+@dynamic activatedPolicyTypes, descriptionProperty, displayName, policyTags;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -589,6 +594,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"activatedPolicyTypes" : [NSString class],
     @"policyTags" : [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedPolicyTag class]
   };
   return map;
@@ -697,7 +703,12 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField
-@dynamic displayName, isRequired, name, order, type;
+@dynamic descriptionProperty, displayName, isRequired, name, order, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -707,7 +718,8 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy
-@dynamic activatedPolicyTypes, descriptionProperty, displayName, name;
+@dynamic activatedPolicyTypes, descriptionProperty, displayName, name,
+         policyTagCount, taxonomyTimestamps;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

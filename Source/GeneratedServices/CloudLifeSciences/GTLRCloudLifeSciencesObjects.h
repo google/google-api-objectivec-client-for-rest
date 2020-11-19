@@ -33,6 +33,7 @@
 @class GTLRCloudLifeSciences_DelayedEvent;
 @class GTLRCloudLifeSciences_Disk;
 @class GTLRCloudLifeSciences_Event;
+@class GTLRCloudLifeSciences_ExistingDisk;
 @class GTLRCloudLifeSciences_FailedEvent;
 @class GTLRCloudLifeSciences_Location;
 @class GTLRCloudLifeSciences_Location_Labels;
@@ -40,9 +41,11 @@
 @class GTLRCloudLifeSciences_Metadata_Labels;
 @class GTLRCloudLifeSciences_Mount;
 @class GTLRCloudLifeSciences_Network;
+@class GTLRCloudLifeSciences_NFSMount;
 @class GTLRCloudLifeSciences_Operation;
 @class GTLRCloudLifeSciences_Operation_Metadata;
 @class GTLRCloudLifeSciences_Operation_Response;
+@class GTLRCloudLifeSciences_PersistentDisk;
 @class GTLRCloudLifeSciences_Pipeline;
 @class GTLRCloudLifeSciences_Pipeline_Environment;
 @class GTLRCloudLifeSciences_PullStartedEvent;
@@ -56,6 +59,7 @@
 @class GTLRCloudLifeSciences_UnexpectedExitStatusEvent;
 @class GTLRCloudLifeSciences_VirtualMachine;
 @class GTLRCloudLifeSciences_VirtualMachine_Labels;
+@class GTLRCloudLifeSciences_Volume;
 @class GTLRCloudLifeSciences_WorkerAssignedEvent;
 @class GTLRCloudLifeSciences_WorkerReleasedEvent;
 
@@ -711,6 +715,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
+ *  Configuration for an existing disk to be attached to the VM.
+ */
+@interface GTLRCloudLifeSciences_ExistingDisk : GTLRObject
+
+/**
+ *  If `disk` contains slashes, the Cloud Life Sciences API assumes that it is a
+ *  complete URL for the disk. If `disk` does not contain slashes, the Cloud
+ *  Life Sciences API assumes that the disk is a zonal disk and a URL will be
+ *  generated of the form `zones//disks/`, where `` is the zone in which the
+ *  instance is allocated. The disk must be ext4 formatted. If all `Mount`
+ *  references to this disk have the `read_only` flag set to true, the disk will
+ *  be attached in `read-only` mode and can be shared with other instances.
+ *  Otherwise, the disk will be available for writing but cannot be shared.
+ */
+@property(nonatomic, copy, nullable) NSString *disk;
+
+@end
+
+
+/**
  *  An event generated when the execution of a pipeline has failed. Note that
  *  other events can continue to occur after this event.
  */
@@ -1042,6 +1066,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
+ *  Configuration for an `NFSMount` to be attached to the VM.
+ */
+@interface GTLRCloudLifeSciences_NFSMount : GTLRObject
+
+/** A target NFS mount. The target must be specified as `address:/mount". */
+@property(nonatomic, copy, nullable) NSString *target;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1095,6 +1130,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudLifeSciences_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Configuration for a persistent disk to be attached to the VM. See
+ *  https://cloud.google.com/compute/docs/disks/performance for more information
+ *  about disk type, size, and performance considerations.
+ */
+@interface GTLRCloudLifeSciences_PersistentDisk : GTLRObject
+
+/**
+ *  The size, in GB, of the disk to attach. If the size is not specified, a
+ *  default is chosen to ensure reasonable I/O performance. If the disk type is
+ *  specified as `local-ssd`, multiple local drives are automatically combined
+ *  to provide the requested size. Note, however, that each physical SSD is
+ *  375GB in size, and no more than 8 drives can be attached to a single
+ *  instance.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/** An image to put on the disk before attaching it to the VM. */
+@property(nonatomic, copy, nullable) NSString *sourceImage;
+
+/** The Compute Engine disk type. If unspecified, `pd-standard` is used. */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -1452,6 +1515,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_ServiceAccount *serviceAccount;
 
+/** The list of disks and other storage to create or attach to the VM. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudLifeSciences_Volume *> *volumes;
+
 @end
 
 
@@ -1470,6 +1536,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *        fetch them all at once.
  */
 @interface GTLRCloudLifeSciences_VirtualMachine_Labels : GTLRObject
+@end
+
+
+/**
+ *  Carries information about storage that can be attached to a VM.
+ */
+@interface GTLRCloudLifeSciences_Volume : GTLRObject
+
+/** Configuration for a existing disk. */
+@property(nonatomic, strong, nullable) GTLRCloudLifeSciences_ExistingDisk *existingDisk;
+
+/** Configuration for an NFS mount. */
+@property(nonatomic, strong, nullable) GTLRCloudLifeSciences_NFSMount *nfsMount;
+
+/** Configuration for a persistent disk. */
+@property(nonatomic, strong, nullable) GTLRCloudLifeSciences_PersistentDisk *persistentDisk;
+
+/**
+ *  A user-supplied name for the volume. Used when mounting the volume into
+ *  `Actions`. The name must contain only upper and lowercase alphanumeric
+ *  characters and hyphens and cannot start with a hyphen.
+ */
+@property(nonatomic, copy, nullable) NSString *volume;
+
 @end
 
 

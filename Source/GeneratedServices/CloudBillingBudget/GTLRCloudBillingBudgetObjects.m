@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Billing Budget API (billingbudgets/v1beta1)
+//   Cloud Billing Budget API (billingbudgets/v1)
 // Description:
 //   The Cloud Billing Budget API stores Cloud Billing budgets, which define a
 //   budget plan and the rules to execute as spend is tracked against that plan.
@@ -14,22 +14,123 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter.creditTypesTreatment
-NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_CreditTypesTreatmentUnspecified = @"CREDIT_TYPES_TREATMENT_UNSPECIFIED";
-NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_ExcludeAllCredits = @"EXCLUDE_ALL_CREDITS";
-NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_CreditTypesTreatment_IncludeAllCredits = @"INCLUDE_ALL_CREDITS";
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter.creditTypesTreatment
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_CreditTypesTreatmentUnspecified = @"CREDIT_TYPES_TREATMENT_UNSPECIFIED";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_ExcludeAllCredits = @"EXCLUDE_ALL_CREDITS";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeAllCredits = @"INCLUDE_ALL_CREDITS";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeSpecifiedCredits = @"INCLUDE_SPECIFIED_CREDITS";
 
-// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule.spendBasis
-NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_BasisUnspecified = @"BASIS_UNSPECIFIED";
-NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_CurrentSpend = @"CURRENT_SPEND";
-NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule_SpendBasis_ForecastedSpend = @"FORECASTED_SPEND";
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule.spendBasis
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_BasisUnspecified = @"BASIS_UNSPECIFIED";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_CurrentSpend = @"CURRENT_SPEND";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_ForecastedSpend = @"FORECASTED_SPEND";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1AllUpdatesRule
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget
 //
 
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1AllUpdatesRule
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget
+@dynamic amount, budgetFilter, displayName, ETag, name, notificationsRule,
+         thresholdRules;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"thresholdRules" : [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1BudgetAmount
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1BudgetAmount
+@dynamic lastPeriodAmount, specifiedAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter
+@dynamic creditTypes, creditTypesTreatment, labels, projects, services,
+         subaccounts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"creditTypes" : [NSString class],
+    @"projects" : [NSString class],
+    @"services" : [NSString class],
+    @"subaccounts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_Labels
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1LastPeriodAmount
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1LastPeriodAmount
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ListBudgetsResponse
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ListBudgetsResponse
+@dynamic budgets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"budgets" : [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"budgets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1NotificationsRule
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1NotificationsRule
 @dynamic disableDefaultIamRecipients, monitoringNotificationChannels,
          pubsubTopic, schemaVersion;
 
@@ -45,129 +146,11 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Thresho
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule
 //
 
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget
-@dynamic allUpdatesRule, amount, budgetFilter, displayName, ETag, name,
-         thresholdRules;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"thresholdRules" : [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1BudgetAmount
-//
-
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1BudgetAmount
-@dynamic lastPeriodAmount, specifiedAmount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest
-//
-
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1CreateBudgetRequest
-@dynamic budget;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter
-//
-
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter
-@dynamic creditTypesTreatment, labels, projects, services, subaccounts;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"projects" : [NSString class],
-    @"services" : [NSString class],
-    @"subaccounts" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels
-//
-
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Filter_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1LastPeriodAmount
-//
-
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1LastPeriodAmount
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ListBudgetsResponse
-//
-
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ListBudgetsResponse
-@dynamic budgets, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"budgets" : [GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1Budget class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"budgets";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule
-//
-
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1ThresholdRule
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule
 @dynamic spendBasis, thresholdPercent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest
-//
-
-@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1beta1UpdateBudgetRequest
-@dynamic budget, updateMask;
 @end
 
 

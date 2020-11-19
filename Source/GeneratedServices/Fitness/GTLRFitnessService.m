@@ -23,6 +23,8 @@ NSString * const kGTLRAuthScopeFitnessBodyRead                = @"https://www.go
 NSString * const kGTLRAuthScopeFitnessBodyTemperatureRead     = @"https://www.googleapis.com/auth/fitness.body_temperature.read";
 NSString * const kGTLRAuthScopeFitnessBodyTemperatureWrite    = @"https://www.googleapis.com/auth/fitness.body_temperature.write";
 NSString * const kGTLRAuthScopeFitnessBodyWrite               = @"https://www.googleapis.com/auth/fitness.body.write";
+NSString * const kGTLRAuthScopeFitnessHeartRateRead           = @"https://www.googleapis.com/auth/fitness.heart_rate.read";
+NSString * const kGTLRAuthScopeFitnessHeartRateWrite          = @"https://www.googleapis.com/auth/fitness.heart_rate.write";
 NSString * const kGTLRAuthScopeFitnessLocationRead            = @"https://www.googleapis.com/auth/fitness.location.read";
 NSString * const kGTLRAuthScopeFitnessLocationWrite           = @"https://www.googleapis.com/auth/fitness.location.write";
 NSString * const kGTLRAuthScopeFitnessNutritionRead           = @"https://www.googleapis.com/auth/fitness.nutrition.read";
@@ -31,6 +33,8 @@ NSString * const kGTLRAuthScopeFitnessOxygenSaturationRead    = @"https://www.go
 NSString * const kGTLRAuthScopeFitnessOxygenSaturationWrite   = @"https://www.googleapis.com/auth/fitness.oxygen_saturation.write";
 NSString * const kGTLRAuthScopeFitnessReproductiveHealthRead  = @"https://www.googleapis.com/auth/fitness.reproductive_health.read";
 NSString * const kGTLRAuthScopeFitnessReproductiveHealthWrite = @"https://www.googleapis.com/auth/fitness.reproductive_health.write";
+NSString * const kGTLRAuthScopeFitnessSleepRead               = @"https://www.googleapis.com/auth/fitness.sleep.read";
+NSString * const kGTLRAuthScopeFitnessSleepWrite              = @"https://www.googleapis.com/auth/fitness.sleep.write";
 
 // ----------------------------------------------------------------------------
 //   GTLRFitnessService

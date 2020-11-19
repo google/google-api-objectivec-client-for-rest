@@ -927,9 +927,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesCopyWithObject:fileId:]
 
 /**
- *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter only takes effect if the item is not in a
- *  shared drive. Requests that specify more than one parent fail.
+ *  Deprecated. Copying files into multiple folders is no longer supported. Use
+ *  shortcuts instead.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1015,9 +1014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesCreateWithObject:]
 
 /**
- *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter only takes effect if the item is not in a
- *  shared drive. Requests that specify more than one parent fail.
+ *  Deprecated. Creating files in multiple folders is no longer supported.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1110,10 +1107,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesDeleteWithfileId:]
 
 /**
- *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter will only take effect if the item is not
- *  in a shared drive. If an item's last parent is deleted but the item itself
- *  is not, the item will be placed under its owner's root.
+ *  Deprecated. If an item is not in a shared drive and its last parent is
+ *  deleted but the item itself is not, the item will be placed under its
+ *  owner's root.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1167,10 +1163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 //   +[GTLQueryDrive queryForFilesEmptyTrash]
 
 /**
- *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter will only take effect if the item is not
- *  in a shared drive. If an item's last parent is deleted but the item itself
- *  is not, the item will be placed under its owner's root.
+ *  Deprecated. If an item is not in a shared drive and its last parent is
+ *  deleted but the item itself is not, the item will be placed under its
+ *  owner's root.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1501,13 +1496,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *addParents;
 
 /**
- *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter only takes effect if the item is not in a
- *  shared drive. If the item's owner makes a request to add a single parent,
- *  the item is removed from all current folders and placed in the requested
- *  folder. Other requests that increase the number of parents fail, except when
- *  the canAddMyDriveParent file capability is true and a single parent is being
- *  added.
+ *  Deprecated. Adding files to multiple folders is no longer supported. Use
+ *  shortcuts instead.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1676,9 +1666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *emailMessage;
 
 /**
- *  Set to true to opt in to API behavior that aims for all items to have
- *  exactly one parent. This parameter only takes effect if the item is not in a
- *  shared drive. See moveToNewOwnersRoot for details.
+ *  Deprecated. See moveToNewOwnersRoot for details.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1688,14 +1676,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  This parameter only takes effect if the item is not in a shared drive and
- *  the request is attempting to transfer the ownership of the item. When set to
- *  true, the item is moved to the new owner's My Drive root folder and all
- *  prior parents removed. If set to false, when enforceSingleParent=true,
- *  parents are not changed. If set to false, when enforceSingleParent=false,
- *  existing parents are not changed; however, the file will be added to the new
- *  owner's My Drive root folder, unless it is already in the new owner's My
- *  Drive.
+ *  This parameter will only take effect if the item is not in a shared drive
+ *  and the request is attempting to transfer the ownership of the item. If set
+ *  to true, the item will be moved to the new owner's My Drive root folder and
+ *  all prior parents removed. If set to false, parents are not changed.
  *
  *  @note If not set, the documented server-side default will be false.
  */

@@ -585,6 +585,33 @@
 
 @end
 
+@implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsListOptimalTrials
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/trials:listOptimalTrials";
+  GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsListOptimalTrials *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsResponse class];
+  query.loggingName = @"ml.projects.locations.studies.trials.listOptimalTrials";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsStop
 
 @dynamic name;

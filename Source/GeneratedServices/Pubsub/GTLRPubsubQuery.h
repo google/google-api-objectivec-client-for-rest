@@ -918,8 +918,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Seeks an existing subscription to a point in time or to a given snapshot,
- *  whichever is provided in the request. Snapshots are used in [Seek](
- *  https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+ *  whichever is provided in the request. Snapshots are used in [Seek]
+ *  (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
  *  allow you to manage message acknowledgments in bulk. That is, you can set
  *  the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot. Note that both the subscription and the
@@ -942,8 +942,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRPubsub_SeekResponse.
  *
  *  Seeks an existing subscription to a point in time or to a given snapshot,
- *  whichever is provided in the request. Snapshots are used in [Seek](
- *  https://cloud.google.com/pubsub/docs/replay-overview) operations, which
+ *  whichever is provided in the request. Snapshots are used in [Seek]
+ *  (https://cloud.google.com/pubsub/docs/replay-overview) operations, which
  *  allow you to manage message acknowledgments in bulk. That is, you can set
  *  the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot. Note that both the subscription and the
@@ -1045,8 +1045,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates the given topic with the given name. See the [resource name rules](
- *  https://cloud.google.com/pubsub/docs/admin#resource_names).
+ *  Creates the given topic with the given name. See the [resource name rules]
+ *  (https://cloud.google.com/pubsub/docs/admin#resource_names).
  *
  *  Method: pubsub.projects.topics.create
  *
@@ -1071,8 +1071,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRPubsub_Topic.
  *
- *  Creates the given topic with the given name. See the [resource name rules](
- *  https://cloud.google.com/pubsub/docs/admin#resource_names).
+ *  Creates the given topic with the given name. See the [resource name rules]
+ *  (https://cloud.google.com/pubsub/docs/admin#resource_names).
  *
  *  @param object The @c GTLRPubsub_Topic to include in the query.
  *  @param name Required. The name of the topic. It must have the format

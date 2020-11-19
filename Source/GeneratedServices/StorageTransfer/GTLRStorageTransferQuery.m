@@ -64,7 +64,8 @@
 
 @dynamic jobName, projectId;
 
-+ (instancetype)queryWithJobName:(NSString *)jobName {
++ (instancetype)queryWithJobName:(NSString *)jobName
+                       projectId:(NSString *)projectId {
   NSArray *pathParams = @[ @"jobName" ];
   NSString *pathURITemplate = @"v1/{+jobName}";
   GTLRStorageTransferQuery_TransferJobsGet *query =
@@ -72,6 +73,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.jobName = jobName;
+  query.projectId = projectId;
   query.expectedObjectClass = [GTLRStorageTransfer_TransferJob class];
   query.loggingName = @"storagetransfer.transferJobs.get";
   return query;
@@ -83,12 +85,13 @@
 
 @dynamic filter, pageSize, pageToken;
 
-+ (instancetype)query {
++ (instancetype)queryWithFilter:(NSString *)filter {
   NSString *pathURITemplate = @"v1/transferJobs";
   GTLRStorageTransferQuery_TransferJobsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
+  query.filter = filter;
   query.expectedObjectClass = [GTLRStorageTransfer_ListTransferJobsResponse class];
   query.loggingName = @"storagetransfer.transferJobs.list";
   return query;
@@ -127,13 +130,21 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
++ (instancetype)queryWithObject:(GTLRStorageTransfer_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRStorageTransferQuery_TransferOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRStorageTransfer_Empty class];
   query.loggingName = @"storagetransfer.transferOperations.cancel";
@@ -165,7 +176,8 @@
 
 @dynamic filter, name, pageSize, pageToken;
 
-+ (instancetype)queryWithName:(NSString *)name {
++ (instancetype)queryWithName:(NSString *)name
+                       filter:(NSString *)filter {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
   GTLRStorageTransferQuery_TransferOperationsList *query =
@@ -173,6 +185,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
+  query.filter = filter;
   query.expectedObjectClass = [GTLRStorageTransfer_ListOperationsResponse class];
   query.loggingName = @"storagetransfer.transferOperations.list";
   return query;

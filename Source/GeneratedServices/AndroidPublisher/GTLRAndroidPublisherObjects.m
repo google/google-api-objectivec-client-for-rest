@@ -531,7 +531,7 @@ NSString * const kGTLRAndroidPublisher_TrackRelease_Status_StatusUnspecified = @
 @dynamic acknowledgementState, consumptionState, developerPayload, kind,
          obfuscatedExternalAccountId, obfuscatedExternalProfileId, orderId,
          productId, purchaseState, purchaseTimeMillis, purchaseToken,
-         purchaseType, quantity;
+         purchaseType, quantity, regionCode;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

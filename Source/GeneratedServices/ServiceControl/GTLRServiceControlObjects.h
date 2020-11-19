@@ -43,6 +43,7 @@
 @class GTLRServiceControl_Request_Headers;
 @class GTLRServiceControl_RequestMetadata;
 @class GTLRServiceControl_Resource;
+@class GTLRServiceControl_Resource_Annotations;
 @class GTLRServiceControl_Resource_Labels;
 @class GTLRServiceControl_ResourceInfo;
 @class GTLRServiceControl_ResourceLocation;
@@ -443,8 +444,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  String representation of identity of requesting party. Populated for both
- *  first and third party identities. Only present for APIs that support
- *  third-party identities.
+ *  first and third party identities.
  */
 @property(nonatomic, copy, nullable) NSString *principalSubject;
 
@@ -835,6 +835,36 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceControl_Resource : GTLRObject
 
 /**
+ *  Annotations is an unstructured key-value map stored with a resource that may
+ *  be set by external tools to store and retrieve arbitrary metadata. They are
+ *  not queryable and should be preserved when modifying objects. More info:
+ *  http://kubernetes.io/docs/user-guide/annotations
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_Resource_Annotations *annotations;
+
+/**
+ *  Output only. The timestamp when the resource was created. This may be either
+ *  the time creation was initiated or when it was completed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The timestamp when the resource was deleted. If the resource is
+ *  not deleted, this must be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/** Mutable. The display name set by clients. Must be <= 63 characters. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. An opaque value that uniquely identifies a version or
+ *  generation of a resource. It can be used to confirm that the client and
+ *  server agree on the ordering of a resource being written.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  The labels or tags on the resource, such as AWS resource tags and Kubernetes
  *  resource labels.
  */
@@ -867,6 +897,37 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+/**
+ *  The unique identifier of the resource. UID is unique in the time and space
+ *  for this resource within the scope of the service. It is typically generated
+ *  by the server on successful creation of a resource and must not be changed.
+ *  UID is used to uniquely identify resources with resource name reuses. This
+ *  should be a UUID4.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. The timestamp when the resource was last updated. Any change to
+ *  the resource made by users must refresh this value. Changes to a resource
+ *  made by the service should refresh this value.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Annotations is an unstructured key-value map stored with a resource that may
+ *  be set by external tools to store and retrieve arbitrary metadata. They are
+ *  not queryable and should be preserved when modifying objects. More info:
+ *  http://kubernetes.io/docs/user-guide/annotations
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRServiceControl_Resource_Annotations : GTLRObject
 @end
 
 
@@ -984,6 +1045,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** First party (Google) identity as the real authority. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_FirstPartyPrincipal *firstPartyPrincipal;
+
+/**
+ *  A string representing the principal_subject associated with the identity.
+ *  See go/3pical for more info on how principal_subject is formatted.
+ */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
 
 /** Third party identity as the real authority. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_ThirdPartyPrincipal *thirdPartyPrincipal;

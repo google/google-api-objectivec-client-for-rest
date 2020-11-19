@@ -367,6 +367,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  */
 @interface GTLRCloudHealthcare_Binding : GTLRObject
 
+@property(nonatomic, copy, nullable) NSString *bindingId;
+
 /**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If
@@ -767,14 +769,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 /**
  *  The BigQuery output destination. You can only export to a BigQuery dataset
  *  that's in the same project as the DICOM store you're exporting from. The
- *  BigQuery location requires two IAM roles: `roles/bigquery.dataEditor` and
- *  `roles/bigquery.jobUser`.
+ *  Cloud Healthcare Service Agent requires two IAM roles on the BigQuery
+ *  location: `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination *bigqueryDestination;
 
 /**
- *  The Cloud Storage output destination. The Cloud Storage location requires
- *  the `roles/storage.objectAdmin` Cloud IAM role.
+ *  The Cloud Storage output destination. The Cloud Healthcare Service Agent
+ *  requires the `roles/storage.objectAdmin` Cloud IAM roles on the Cloud
+ *  Storage location.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsDestination *gcsDestination;
 
@@ -794,9 +797,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_ExportResourcesRequest : GTLRObject
 
 /**
- *  The BigQuery output destination. The BigQuery location requires two IAM
- *  roles: `roles/bigquery.dataEditor` and `roles/bigquery.jobUser`. The output
- *  is one BigQuery table per resource type.
+ *  The BigQuery output destination. The Cloud Healthcare Service Agent requires
+ *  two IAM roles on the BigQuery location: `roles/bigquery.dataEditor` and
+ *  `roles/bigquery.jobUser`. The output is one BigQuery table per resource
+ *  type.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 
@@ -905,26 +909,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @interface GTLRCloudHealthcare_FhirStore : GTLRObject
 
 /**
- *  Whether to disable referential integrity in this FHIR store. This field is
- *  immutable after FHIR store creation. The default value is false, meaning
- *  that the API enforces referential integrity and fails the requests that
- *  result in inconsistent state in the FHIR store. When this field is set to
- *  true, the API skips referential integrity checks. Consequently, operations
- *  that rely on references, such as GetPatientEverything, do not return all the
- *  results if broken references exist.
+ *  Immutable. Whether to disable referential integrity in this FHIR store. This
+ *  field is immutable after FHIR store creation. The default value is false,
+ *  meaning that the API enforces referential integrity and fails the requests
+ *  that result in inconsistent state in the FHIR store. When this field is set
+ *  to true, the API skips referential integrity checks. Consequently,
+ *  operations that rely on references, such as GetPatientEverything, do not
+ *  return all the results if broken references exist.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableReferentialIntegrity;
 
 /**
- *  Whether to disable resource versioning for this FHIR store. This field can
- *  not be changed after the creation of FHIR store. If set to false, which is
- *  the default behavior, all write operations cause historical versions to be
- *  recorded automatically. The historical versions can be fetched through the
- *  history APIs, but cannot be updated. If set to true, no historical versions
- *  are kept. The server sends errors for attempts to read the historical
- *  versions.
+ *  Immutable. Whether to disable resource versioning for this FHIR store. This
+ *  field can not be changed after the creation of FHIR store. If set to false,
+ *  which is the default behavior, all write operations cause historical
+ *  versions to be recorded automatically. The historical versions can be
+ *  fetched through the history APIs, but cannot be updated. If set to true, no
+ *  historical versions are kept. The server sends errors for attempts to read
+ *  the historical versions.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -936,10 +940,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  This determines if the client can use an Update operation to create a new
  *  resource with a client-specified ID. If false, all IDs are server-assigned
  *  through the Create operation and attempts to update a non-existent resource
- *  return errors. Please treat the audit logs with appropriate levels of care
- *  if client-specified resource IDs contain sensitive data such as patient
- *  identifiers, those IDs are part of the FHIR resource path recorded in Cloud
- *  audit logs and Cloud Pub/Sub notifications.
+ *  return errors. Be careful with the audit logs if client-specified resource
+ *  IDs contain sensitive data such as patient identifiers, those IDs are part
+ *  of the FHIR resource path recorded in Cloud audit logs and Cloud Pub/Sub
+ *  notifications.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -988,10 +992,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudHealthcare_StreamConfig *> *streamConfigs;
 
 /**
- *  The FHIR specification version that this FHIR store supports natively. This
- *  field is immutable after store creation. Requests are rejected if they
- *  contain FHIR resources of a different version. Version is required for every
- *  FHIR store.
+ *  Immutable. The FHIR specification version that this FHIR store supports
+ *  natively. This field is immutable after store creation. Requests are
+ *  rejected if they contain FHIR resources of a different version. Version is
+ *  required for every FHIR store.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_FhirStore_Version_Dstu2 Draft Standard for
@@ -1450,7 +1454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Cloud Storage source data location and import configuration. The Cloud
- *  Storage location requires the `roles/storage.objectViewer` Cloud IAM role.
+ *  Healthcare Service Agent requires the `roles/storage.objectViewer` Cloud IAM
+ *  roles on the Cloud Storage location.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomGcsSource *gcsSource;
 

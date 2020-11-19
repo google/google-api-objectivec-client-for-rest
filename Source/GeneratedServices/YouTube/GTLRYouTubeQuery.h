@@ -902,7 +902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @interface GTLRYouTubeQuery_CaptionsList : GTLRYouTubeQuery
 // Previous library name was
-//   +[GTLQueryYouTube queryForCaptionsListWithvideoId:part:]
+//   +[GTLQueryYouTube queryForCaptionsListWithpart:videoId:]
 
 /**
  *  Returns the captions with the given IDs for Stubby or Apiary.
@@ -945,15 +945,15 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *
  *  Retrieves a list of resources, possibly filtered.
  *
- *  @param videoId Returns the captions for the specified video.
  *  @param part The *part* parameter specifies a comma-separated list of one or
  *    more caption resource parts that the API response will include. The part
  *    names that you can include in the parameter value are id and snippet.
+ *  @param videoId Returns the captions for the specified video.
  *
  *  @return GTLRYouTubeQuery_CaptionsList
  */
-+ (instancetype)queryWithVideoId:(NSString *)videoId
-                            part:(NSArray<NSString *> *)part;
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part
+                      videoId:(NSString *)videoId;
 
 @end
 
@@ -2571,7 +2571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @interface GTLRYouTubeQuery_LiveBroadcastsTransition : GTLRYouTubeQuery
 // Previous library name was
-//   +[GTLQueryYouTube queryForLiveBroadcastsTransitionWithidentifier:broadcastStatus:part:]
+//   +[GTLQueryYouTube queryForLiveBroadcastsTransitionWithbroadcastStatus:identifier:part:]
 
 /**
  *  The status to which the broadcast is going to transition.
@@ -2644,9 +2644,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *
  *  Transition a broadcast to a given status.
  *
- *  @param identifier Broadcast to transition.
  *  @param broadcastStatus The status to which the broadcast is going to
  *    transition.
+ *  @param identifier Broadcast to transition.
  *  @param part The *part* parameter specifies a comma-separated list of one or
  *    more liveBroadcast resource properties that the API response will include.
  *    The part names that you can include in the parameter value are id,
@@ -2667,9 +2667,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *
  *  @return GTLRYouTubeQuery_LiveBroadcastsTransition
  */
-+ (instancetype)queryWithIdentifier:(NSString *)identifier
-                    broadcastStatus:(NSString *)broadcastStatus
-                               part:(NSArray<NSString *> *)part;
++ (instancetype)queryWithBroadcastStatus:(NSString *)broadcastStatus
+                              identifier:(NSString *)identifier
+                                    part:(NSArray<NSString *> *)part;
 
 @end
 

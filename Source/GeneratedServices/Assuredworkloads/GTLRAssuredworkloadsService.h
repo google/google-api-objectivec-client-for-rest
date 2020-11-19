@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Assured Workloads API (assuredworkloads/v1beta1)
+//   Assured Workloads API (assuredworkloads/v1)
 // Documentation:
 //   https://cloud.google.com
 

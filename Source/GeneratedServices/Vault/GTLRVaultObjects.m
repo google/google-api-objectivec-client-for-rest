@@ -13,6 +13,19 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRVault_AccountCountError.errorType
+NSString * const kGTLRVault_AccountCountError_ErrorType_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRVault_AccountCountError_ErrorType_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
+NSString * const kGTLRVault_AccountCountError_ErrorType_LocationUnavailable = @"LOCATION_UNAVAILABLE";
+NSString * const kGTLRVault_AccountCountError_ErrorType_TooManyTerms = @"TOO_MANY_TERMS";
+NSString * const kGTLRVault_AccountCountError_ErrorType_Unknown = @"UNKNOWN";
+NSString * const kGTLRVault_AccountCountError_ErrorType_WildcardTooBroad = @"WILDCARD_TOO_BROAD";
+
+// GTLRVault_CountArtifactsRequest.view
+NSString * const kGTLRVault_CountArtifactsRequest_View_All     = @"ALL";
+NSString * const kGTLRVault_CountArtifactsRequest_View_CountResultViewUnspecified = @"COUNT_RESULT_VIEW_UNSPECIFIED";
+NSString * const kGTLRVault_CountArtifactsRequest_View_TotalCount = @"TOTAL_COUNT";
+
 // GTLRVault_Export.status
 NSString * const kGTLRVault_Export_Status_Completed            = @"COMPLETED";
 NSString * const kGTLRVault_Export_Status_ExportStatusUnspecified = @"EXPORT_STATUS_UNSPECIFIED";
@@ -91,6 +104,26 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_AccountCount
+//
+
+@implementation GTLRVault_AccountCount
+@dynamic account, count;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_AccountCountError
+//
+
+@implementation GTLRVault_AccountCountError
+@dynamic account, errorType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_AccountInfo
 //
 
@@ -166,6 +199,15 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_CancelOperationRequest
+//
+
+@implementation GTLRVault_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_CloseMatterRequest
 //
 
@@ -218,6 +260,36 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 @implementation GTLRVault_CorpusQuery
 @dynamic driveQuery, groupsQuery, hangoutsChatQuery, mailQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_CountArtifactsMetadata
+//
+
+@implementation GTLRVault_CountArtifactsMetadata
+@dynamic endTime, matterId, query, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_CountArtifactsRequest
+//
+
+@implementation GTLRVault_CountArtifactsRequest
+@dynamic query, view;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_CountArtifactsResponse
+//
+
+@implementation GTLRVault_CountArtifactsResponse
+@dynamic groupsCountResult, mailCountResult, totalCount;
 @end
 
 
@@ -283,6 +355,27 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 @implementation GTLRVault_ExportStats
 @dynamic exportedArtifactCount, sizeInBytes, totalArtifactCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_GroupsCountResult
+//
+
+@implementation GTLRVault_GroupsCountResult
+@dynamic accountCountErrors, accountCounts, matchingAccountsCount,
+         nonQueryableAccounts, queriedAccountsCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accountCountErrors" : [GTLRVault_AccountCountError class],
+    @"accountCounts" : [GTLRVault_AccountCount class],
+    @"nonQueryableAccounts" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -498,6 +591,28 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVault_ListOperationsResponse
+//
+
+@implementation GTLRVault_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRVault_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVault_ListSavedQueriesResponse
 //
 
@@ -513,6 +628,27 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 + (NSString *)collectionItemsKey {
   return @"savedQueries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_MailCountResult
+//
+
+@implementation GTLRVault_MailCountResult
+@dynamic accountCountErrors, accountCounts, matchingAccountsCount,
+         nonQueryableAccounts, queriedAccountsCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accountCountErrors" : [GTLRVault_AccountCountError class],
+    @"accountCounts" : [GTLRVault_AccountCount class],
+    @"nonQueryableAccounts" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -567,6 +703,44 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 @implementation GTLRVault_MatterPermission
 @dynamic accountId, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_Operation
+//
+
+@implementation GTLRVault_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_Operation_Metadata
+//
+
+@implementation GTLRVault_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_Operation_Response
+//
+
+@implementation GTLRVault_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

@@ -20,8 +20,7 @@
          encryption, ETag, iamConfiguration, identifier, kind, labels,
          lifecycle, location, locationType, logging, metageneration, name,
          owner, projectNumber, retentionPolicy, selfLink, storageClass,
-         timeCreated, updated, versioning, website, zoneAffinity,
-         zoneSeparation;
+         timeCreated, updated, versioning, website, zoneAffinity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -90,7 +89,7 @@
 //
 
 @implementation GTLRStorage_Bucket_IamConfiguration
-@dynamic bucketPolicyOnly, uniformBucketLevelAccess;
+@dynamic bucketPolicyOnly, publicAccessPrevention, uniformBucketLevelAccess;
 @end
 
 

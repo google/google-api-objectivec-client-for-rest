@@ -559,7 +559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
  */
 @interface GTLRCloudbilling_Money : GTLRObject
 
-/** The 3-letter currency code defined in ISO 4217. */
+/** The three-letter currency code defined in ISO 4217. */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**

@@ -216,6 +216,16 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudLifeSciences_ExistingDisk
+//
+
+@implementation GTLRCloudLifeSciences_ExistingDisk
+@dynamic disk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudLifeSciences_FailedEvent
 //
 
@@ -360,6 +370,16 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudLifeSciences_NFSMount
+//
+
+@implementation GTLRCloudLifeSciences_NFSMount
+@dynamic target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudLifeSciences_Operation
 //
 
@@ -393,6 +413,16 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudLifeSciences_PersistentDisk
+//
+
+@implementation GTLRCloudLifeSciences_PersistentDisk
+@dynamic sizeGb, sourceImage, type;
 @end
 
 
@@ -578,13 +608,14 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 @implementation GTLRCloudLifeSciences_VirtualMachine
 @dynamic accelerators, bootDiskSizeGb, bootImage, cpuPlatform, disks,
          dockerCacheImages, enableStackdriverMonitoring, labels, machineType,
-         network, nvidiaDriverVersion, preemptible, serviceAccount;
+         network, nvidiaDriverVersion, preemptible, serviceAccount, volumes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accelerators" : [GTLRCloudLifeSciences_Accelerator class],
     @"disks" : [GTLRCloudLifeSciences_Disk class],
-    @"dockerCacheImages" : [NSString class]
+    @"dockerCacheImages" : [NSString class],
+    @"volumes" : [GTLRCloudLifeSciences_Volume class]
   };
   return map;
 }
@@ -603,6 +634,16 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudLifeSciences_Volume
+//
+
+@implementation GTLRCloudLifeSciences_Volume
+@dynamic existingDisk, nfsMount, persistentDisk, volume;
 @end
 
 

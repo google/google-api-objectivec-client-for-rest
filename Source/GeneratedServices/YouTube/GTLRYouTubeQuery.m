@@ -319,15 +319,15 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
   return map;
 }
 
-+ (instancetype)queryWithVideoId:(NSString *)videoId
-                            part:(NSArray<NSString *> *)part {
++ (instancetype)queryWithPart:(NSArray<NSString *> *)part
+                      videoId:(NSString *)videoId {
   NSString *pathURITemplate = @"youtube/v3/captions";
   GTLRYouTubeQuery_CaptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.videoId = videoId;
   query.part = part;
+  query.videoId = videoId;
   query.expectedObjectClass = [GTLRYouTube_CaptionListResponse class];
   query.loggingName = @"youtube.captions.list";
   return query;
@@ -1065,16 +1065,16 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
   return map;
 }
 
-+ (instancetype)queryWithIdentifier:(NSString *)identifier
-                    broadcastStatus:(NSString *)broadcastStatus
-                               part:(NSArray<NSString *> *)part {
++ (instancetype)queryWithBroadcastStatus:(NSString *)broadcastStatus
+                              identifier:(NSString *)identifier
+                                    part:(NSArray<NSString *> *)part {
   NSString *pathURITemplate = @"youtube/v3/liveBroadcasts/transition";
   GTLRYouTubeQuery_LiveBroadcastsTransition *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
-  query.identifier = identifier;
   query.broadcastStatus = broadcastStatus;
+  query.identifier = identifier;
   query.part = part;
   query.expectedObjectClass = [GTLRYouTube_LiveBroadcast class];
   query.loggingName = @"youtube.liveBroadcasts.transition";

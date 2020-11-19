@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Artifact Registry API (artifactregistry/v1beta1)
+//   Artifact Registry API (artifactregistry/v1beta2)
 // Description:
 //   Store and manage build artifacts in a scalable and integrated service built
 //   on Google infrastructure.
@@ -73,12 +73,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Hash_Type_Sha256;
 // GTLRArtifactRegistry_Repository.format
 
 /**
- *  APT package format.
- *
- *  Value: "APT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Apt;
-/**
  *  Docker package format.
  *
  *  Value: "DOCKER"
@@ -90,29 +84,11 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Docke
  *  Value: "FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified;
-/**
- *  Maven package format.
- *
- *  Value: "MAVEN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Maven;
-/**
- *  NPM package format.
- *
- *  Value: "NPM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
 
 /**
  *  Associates `members` with a `role`.
  */
 @interface GTLRArtifactRegistry_Binding : GTLRObject
-
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
-@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding. If the condition
@@ -281,6 +257,13 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
 
 /** Cloud Storage paths URI (e.g., gs://my_bucket//my_object). */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+/**
+ *  Supports URI wildcards for matching multiple objects from a single URI.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useWildcards;
 
 @end
 
@@ -803,16 +786,10 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
  *  The format of packages that are stored in the repository.
  *
  *  Likely values:
- *    @arg @c kGTLRArtifactRegistry_Repository_Format_Apt APT package format.
- *        (Value: "APT")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Docker Docker package
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
  *        Unspecified package format. (Value: "FORMAT_UNSPECIFIED")
- *    @arg @c kGTLRArtifactRegistry_Repository_Format_Maven Maven package
- *        format. (Value: "MAVEN")
- *    @arg @c kGTLRArtifactRegistry_Repository_Format_Npm NPM package format.
- *        (Value: "NPM")
  */
 @property(nonatomic, copy, nullable) NSString *format;
 

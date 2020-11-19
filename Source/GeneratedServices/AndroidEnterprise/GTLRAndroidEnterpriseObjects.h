@@ -691,6 +691,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_Stat
 FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Required;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidEnterprise_ProductPolicy.autoUpdateMode
+
+/**
+ *  The app is automatically updated with low priority to minimize the impact on
+ *  the user. The app is updated when the following constraints are met: * The
+ *  device is not actively used * The device is connected to a Wi-Fi network. *
+ *  The device is charging * If the system update policy is set to `WINDOWED`:
+ *  the local time of the device is within the daily maintenance window The
+ *  device is notified about a new update within 24 hours after it is published
+ *  by the developer, after which the app is updated the next time the
+ *  constraints above are met.
+ *
+ *  Value: "autoUpdateDefault"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateDefault;
+/**
+ *  The app is updated as soon as possible. No constraints are applied. The
+ *  device is notified immediately about a new app update after it is published
+ *  by the developer.
+ *
+ *  Value: "autoUpdateHighPriority"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateHighPriority;
+/**
+ *  Unspecified. Defaults to AUTO_UPDATE_DEFAULT.
+ *
+ *  Value: "autoUpdateModeUnspecified"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateModeUnspecified;
+/**
+ *  The app is not automatically updated for a maximum of 90 days after the app
+ *  becomes out of date. 90 days after the app becomes out of date, the latest
+ *  available version is installed automatically with low priority (see
+ *  AUTO_UPDATE_DEFAULT). After the app is updated it is not automatically
+ *  updated again until 90 days after it becomes out of date again. The user can
+ *  still manually update the app from the Play Store at any time.
+ *
+ *  Value: "autoUpdatePostponed"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdatePostponed;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidEnterprise_ProductPolicy.tracks
 
 /** Value: "alpha" */
@@ -2662,6 +2704,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 /** The auto-install policy for the product. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AutoInstallPolicy *autoInstallPolicy;
+
+/**
+ *  The auto-update mode for the product.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateDefault
+ *        The app is automatically updated with low priority to minimize the
+ *        impact on the user. The app is updated when the following constraints
+ *        are met: * The device is not actively used * The device is connected
+ *        to a Wi-Fi network. * The device is charging * If the system update
+ *        policy is set to `WINDOWED`: the local time of the device is within
+ *        the daily maintenance window The device is notified about a new update
+ *        within 24 hours after it is published by the developer, after which
+ *        the app is updated the next time the constraints above are met.
+ *        (Value: "autoUpdateDefault")
+ *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateHighPriority
+ *        The app is updated as soon as possible. No constraints are applied.
+ *        The device is notified immediately about a new app update after it is
+ *        published by the developer. (Value: "autoUpdateHighPriority")
+ *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
+ *        Unspecified. Defaults to AUTO_UPDATE_DEFAULT. (Value:
+ *        "autoUpdateModeUnspecified")
+ *    @arg @c kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdatePostponed
+ *        The app is not automatically updated for a maximum of 90 days after
+ *        the app becomes out of date. 90 days after the app becomes out of
+ *        date, the latest available version is installed automatically with low
+ *        priority (see AUTO_UPDATE_DEFAULT). After the app is updated it is not
+ *        automatically updated again until 90 days after it becomes out of date
+ *        again. The user can still manually update the app from the Play Store
+ *        at any time. (Value: "autoUpdatePostponed")
+ */
+@property(nonatomic, copy, nullable) NSString *autoUpdateMode;
 
 /** The managed configuration for the product. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_ManagedConfiguration *managedConfiguration;

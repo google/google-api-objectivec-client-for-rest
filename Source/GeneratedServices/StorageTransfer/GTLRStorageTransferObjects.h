@@ -350,6 +350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  AWS access key (see [AWS Security
  *  Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html)).
+ *  For information on our data retention policy for user credentials, see [User
+ *  credentials](data-retention#user-credentials).
  */
 @interface GTLRStorageTransfer_AwsAccessKey : GTLRObject
 
@@ -372,9 +374,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_AwsS3Data : GTLRObject
 
 /**
- *  Required. AWS access key used to sign the API requests to the AWS S3 bucket.
- *  Permissions on the bucket must be granted to the access ID of the AWS access
- *  key.
+ *  Required. Input only. AWS access key used to sign the API requests to the
+ *  AWS S3 bucket. Permissions on the bucket must be granted to the access ID of
+ *  the AWS access key. For information on our data retention policy for user
+ *  credentials, see [User credentials](data-retention#user-credentials).
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsAccessKey *awsAccessKey;
 
@@ -398,7 +401,11 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @interface GTLRStorageTransfer_AzureBlobStorageData : GTLRObject
 
-/** Required. Credentials used to authenticate API requests to Azure. */
+/**
+ *  Required. Input only. Credentials used to authenticate API requests to
+ *  Azure. For information on our data retention policy for user credentials,
+ *  see [User credentials](data-retention#user-credentials).
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AzureCredentials *azureCredentials;
 
 /** Required. The container to transfer from the Azure Storage account. */
@@ -411,7 +418,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Azure credentials
+ *  Azure credentials For information on our data retention policy for user
+ *  credentials, see [User credentials](data-retention#user-credentials).
  */
 @interface GTLRStorageTransfer_AzureCredentials : GTLRObject
 
@@ -426,20 +434,27 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day and time zone are either specified elsewhere or are not significant. The
- *  date is relative to the Proleptic Gregorian Calendar. This can represent: *
- *  A full date, with non-zero year, month and day values * A month and day
- *  value, with a zero year, e.g. an anniversary * A year on its own, with zero
- *  month and day values * A year and month value, with a zero day, e.g. a
- *  credit card expiration date Related types are google.type.TimeOfDay and
- *  `google.protobuf.Timestamp`.
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRStorageTransfer_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
  */
 @interface GTLRStorageTransfer_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
- *  specifying a year by itself or a year and month where the day is not
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -447,7 +462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12, or 0 if specifying a year without a
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
  *  month and day.
  *
  *  Uses NSNumber of intValue.
@@ -455,7 +470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
  *  year.
  *
  *  Uses NSNumber of intValue.
@@ -667,8 +682,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  an object does not match the actual size of the object fetched, the object
  *  will not be transferred. * If the specified MD5 does not match the MD5
  *  computed from the transferred bytes, the object transfer will fail. For more
- *  information, see [Generating MD5
- *  hashes](https://cloud.google.com/storage-transfer/docs/create-url-list#md5)
+ *  information, see [Generating MD5 hashes]
+ *  (https://cloud.google.com/storage-transfer/docs/create-url-list#md5-checksum)
  *  * Ensure that each URL you specify is publicly accessible. For example, in
  *  Cloud Storage you can [share an object publicly]
  *  (https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get a
@@ -957,6 +972,26 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_Schedule : GTLRObject
 
 /**
+ *  The time in UTC that no further transfer operations are scheduled. Combined
+ *  with schedule_end_date, `end_time_of_day` specifies the end date and time
+ *  for starting new transfer operations. This field must be greater than or
+ *  equal to the timestamp corresponding to the combintation of
+ *  schedule_start_date and start_time_of_day, and is subject to the following:
+ *  * If `end_time_of_day` is not set and `schedule_end_date` is set, then a
+ *  default value of `23:59:59` is used for `end_time_of_day`. * If
+ *  `end_time_of_day` is set and `schedule_end_date` is not set, then
+ *  INVALID_ARGUMENT is returned.
+ */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_TimeOfDay *endTimeOfDay;
+
+/**
+ *  Interval between the start of each scheduled TransferOperation. If
+ *  unspecified, the default value is 24 hours. This value may not be less than
+ *  1 hour.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *repeatInterval;
+
+/**
  *  The last day a transfer runs. Date boundaries are determined relative to UTC
  *  time. A job will run once per 24 hours within the following guidelines: * If
  *  `schedule_end_date` and schedule_start_date are the same and in the future
@@ -1231,6 +1266,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModificationTime;
 
 /**
+ *  The name of the most recently started TransferOperation of this JobConfig.
+ *  Present if and only if at least one TransferOperation has been created for
+ *  this JobConfig.
+ */
+@property(nonatomic, copy, nullable) NSString *latestOperationName;
+
+/**
  *  A unique name (within the transfer project) assigned when the job is
  *  created. If this field is empty in a CreateTransferJobRequest, Storage
  *  Transfer Service will assign a unique name. Otherwise, the specified name is
@@ -1360,7 +1402,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *deleteObjectsUniqueInSink;
 
 /**
- *  Whether overwriting objects that already exist in the sink is allowed.
+ *  When to overwrite objects that already exist in the sink. The default is
+ *  that only objects that are different from the source are ovewritten. If
+ *  true, all objects in the sink whose name matches an object in the source
+ *  will be overwritten with the source object.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1397,9 +1442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_ObjectConditions *objectConditions;
 
 /**
- *  If the option delete_objects_unique_in_sink is `true`, object conditions
- *  based on objects' "last modification time" are ignored and do not exclude
- *  objects in a data source or a data sink.
+ *  If the option delete_objects_unique_in_sink is `true` and time-based object
+ *  conditions such as 'last modification time' are specified, the request fails
+ *  with an INVALID_ARGUMENT error.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferOptions *transferOptions;
 
@@ -1421,7 +1466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  Required. The job to update. `transferJob` is expected to specify only four
  *  fields: description, transfer_spec, notification_config, and status. An
  *  `UpdateTransferJobRequest` that specifies other fields will be rejected with
- *  the error INVALID_ARGUMENT.
+ *  the error INVALID_ARGUMENT. Updating a job satus to DELETED requires
+ *  `storagetransfer.jobs.delete` permissions.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferJob *transferJob;
 

@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The grant type. Must be
  *  `urn:ietf:params:oauth:grant-type:token-exchange`, which indicates a token
- *  exchange is requested.
+ *  exchange.
  */
 @property(nonatomic, copy, nullable) NSString *grantType;
 
@@ -54,10 +54,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestedTokenType;
 
 /**
- *  Required. Input subject token. You can use a Google-issued OAuth 2.0 access
+ *  Required. The input token. You can use a Google-issued OAuth 2.0 access
  *  token with this field to obtain an access token with new security attributes
- *  applied, such as an AccessBoundary. Applying additional security attributes
- *  on access tokens that already contain security attributes is not allowed.
+ *  applied, such as a Credential Access Boundary. If an access token already
+ *  contains security attributes, you cannot apply additional security
+ *  attributes.
  */
 @property(nonatomic, copy, nullable) NSString *subjectToken;
 
@@ -83,10 +84,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *accessToken;
 
 /**
- *  The expiration time of `access_token` in seconds, measured from the time of
- *  issuance. This field is absent when the `subject_token` in the request is a
- *  Google-issued, short-lived access token. In this case, the expiration time
- *  of the `access_token` is the same as the `subject_token`.
+ *  The amount of time, in seconds, between the time when the `access_token` was
+ *  issued and the time when the `access_token` will expire. This field is
+ *  absent when the `subject_token` in the request is a Google-issued,
+ *  short-lived access token. In this case, the `access_token` has the same
+ *  expiration time as the `subject_token`.
  *
  *  Uses NSNumber of intValue.
  */

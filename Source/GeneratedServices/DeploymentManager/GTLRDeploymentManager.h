@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deployment Manager API (deploymentmanager/v2)
+//   Cloud Deployment Manager V2 API (deploymentmanager/v2)
 // Description:
-//   Declares, configures, and deploys complex solutions on Google Cloud
-//   Platform.
+//   The Google Cloud Deployment Manager v2 API provides services for
+//   configuring, deploying, and viewing Google Cloud services and APIs via
+//   templates which specify deployments of Cloud resources.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/
+//   https://cloud.google.com/deployment-manager
 
 #import "GTLRDeploymentManagerObjects.h"
 #import "GTLRDeploymentManagerQuery.h"

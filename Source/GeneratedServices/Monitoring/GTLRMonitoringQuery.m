@@ -57,6 +57,43 @@ NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignRate = @"ALIGN_R
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev = @"ALIGN_STDDEV";
 NSString * const kGTLRMonitoringAggregationPerSeriesAlignerAlignSum = @"ALIGN_SUM";
 
+// secondaryAggregationCrossSeriesReducer
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCount = @"REDUCE_COUNT";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCountFalse = @"REDUCE_COUNT_FALSE";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCountTrue = @"REDUCE_COUNT_TRUE";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceFractionTrue = @"REDUCE_FRACTION_TRUE";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMax = @"REDUCE_MAX";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMean = @"REDUCE_MEAN";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMin = @"REDUCE_MIN";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceNone = @"REDUCE_NONE";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile05 = @"REDUCE_PERCENTILE_05";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile50 = @"REDUCE_PERCENTILE_50";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile95 = @"REDUCE_PERCENTILE_95";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile99 = @"REDUCE_PERCENTILE_99";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceStddev = @"REDUCE_STDDEV";
+NSString * const kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceSum = @"REDUCE_SUM";
+
+// secondaryAggregationPerSeriesAligner
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCount = @"ALIGN_COUNT";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCountFalse = @"ALIGN_COUNT_FALSE";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCountTrue = @"ALIGN_COUNT_TRUE";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignDelta = @"ALIGN_DELTA";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignFractionTrue = @"ALIGN_FRACTION_TRUE";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignInterpolate = @"ALIGN_INTERPOLATE";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMax = @"ALIGN_MAX";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMean = @"ALIGN_MEAN";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMin = @"ALIGN_MIN";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignNextOlder = @"ALIGN_NEXT_OLDER";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignNone = @"ALIGN_NONE";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentChange = @"ALIGN_PERCENT_CHANGE";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile05 = @"ALIGN_PERCENTILE_05";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile50 = @"ALIGN_PERCENTILE_50";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile95 = @"ALIGN_PERCENTILE_95";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile99 = @"ALIGN_PERCENTILE_99";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignRate = @"ALIGN_RATE";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignStddev = @"ALIGN_STDDEV";
+NSString * const kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignSum = @"ALIGN_SUM";
+
 // view
 NSString * const kGTLRMonitoringViewExplicit        = @"EXPLICIT";
 NSString * const kGTLRMonitoringViewFull            = @"FULL";
@@ -734,7 +771,10 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 @dynamic aggregationAlignmentPeriod, aggregationCrossSeriesReducer,
          aggregationGroupByFields, aggregationPerSeriesAligner, filter,
          intervalEndTime, intervalStartTime, name, orderBy, pageSize, pageToken,
-         view;
+         secondaryAggregationAlignmentPeriod,
+         secondaryAggregationCrossSeriesReducer,
+         secondaryAggregationGroupByFields,
+         secondaryAggregationPerSeriesAligner, view;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -743,14 +783,19 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
     @"aggregationGroupByFields" : @"aggregation.groupByFields",
     @"aggregationPerSeriesAligner" : @"aggregation.perSeriesAligner",
     @"intervalEndTime" : @"interval.endTime",
-    @"intervalStartTime" : @"interval.startTime"
+    @"intervalStartTime" : @"interval.startTime",
+    @"secondaryAggregationAlignmentPeriod" : @"secondaryAggregation.alignmentPeriod",
+    @"secondaryAggregationCrossSeriesReducer" : @"secondaryAggregation.crossSeriesReducer",
+    @"secondaryAggregationGroupByFields" : @"secondaryAggregation.groupByFields",
+    @"secondaryAggregationPerSeriesAligner" : @"secondaryAggregation.perSeriesAligner"
   };
   return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"aggregation.groupByFields" : [NSString class]
+    @"aggregation.groupByFields" : [NSString class],
+    @"secondaryAggregation.groupByFields" : [NSString class]
   };
   return map;
 }

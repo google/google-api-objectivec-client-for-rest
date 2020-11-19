@@ -47,6 +47,11 @@ NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disa
 NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable = @"ENABLE";
 NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified = @"GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED";
 
+// GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse.result
+NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_AttestationNotVerifiable = @"ATTESTATION_NOT_VERIFIABLE";
+NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_ResultUnspecified = @"RESULT_UNSPECIFIED";
+NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_Verified = @"VERIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRBinaryAuthorization_AdmissionRule
@@ -72,6 +77,25 @@ NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Glob
 
 @implementation GTLRBinaryAuthorization_AdmissionWhitelistPattern
 @dynamic namePattern;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_AttestationOccurrence
+//
+
+@implementation GTLRBinaryAuthorization_AttestationOccurrence
+@dynamic jwts, serializedPayload, signatures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jwts" : [GTLRBinaryAuthorization_Jwt class],
+    @"signatures" : [GTLRBinaryAuthorization_Signature class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -171,6 +195,16 @@ NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Glob
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_Jwt
+//
+
+@implementation GTLRBinaryAuthorization_Jwt
+@dynamic compactJwt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_ListAttestorsResponse
 //
 
@@ -251,6 +285,16 @@ NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Glob
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBinaryAuthorization_Signature
+//
+
+@implementation GTLRBinaryAuthorization_Signature
+@dynamic publicKeyId, signature;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBinaryAuthorization_TestIamPermissionsRequest
 //
 
@@ -300,4 +344,24 @@ NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Glob
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_ValidateAttestationOccurrenceRequest
+//
+
+@implementation GTLRBinaryAuthorization_ValidateAttestationOccurrenceRequest
+@dynamic attestation, occurrenceNote, occurrenceResourceUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse
+//
+
+@implementation GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse
+@dynamic denialReason, result;
 @end

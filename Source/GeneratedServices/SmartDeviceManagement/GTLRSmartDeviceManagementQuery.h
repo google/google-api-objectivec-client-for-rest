@@ -30,36 +30,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Constants - For some of the query classes' properties below.
-
-// ----------------------------------------------------------------------------
-// view
-
-/**
- *  Selecting this option would return the structureId and structure name to
- *  which the device is assigned alongwith other basic details. Currently this
- *  view is supported only for device types -- sdm.devices.types.SPEAKER --
- *  sdm.devices.types.CHROMECAST -- sdm.devices.types.DISPLAY --
- *  sdm.devices.types.CAMERA Any other device type would only return a basic
- *  view during ListDevices invocation.
- *
- *  Value: "DEVICE_CONSOLE_VIEW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSmartDeviceManagementViewDeviceConsoleView;
-/**
- *  Default option this would return basic details for both Get and Listd
- *  Devices. Currently this view is supported only for device types, SPEAKER,
- *  DISPLAY,
- *
- *  Value: "DEVICE_DETAILS_VIEW_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSmartDeviceManagementViewDeviceDetailsViewUnspecified;
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 /**
  *  Parent class for other Smart Device Management query classes.
  */
@@ -150,10 +120,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSmartDeviceManagementViewDeviceDetailsVi
 //   +[GTLQuerySmartDeviceManagement queryForEnterprisesDevicesListWithparent:]
 
 /**
- *  Optional filter to list devices. Filters can match the exact assignee (could
- *  be a structure or a room). E.g. 'assignee=enterprises/XYZ/structures/abc'
- *  Also could filter by parent (group): 'parent=enterprises/XYZ/groups/jkl' or
- *  filter by device custom name (substring match): 'customName=wing'
+ *  Optional filter to list devices. Filters can be done on: Device custom name
+ *  (substring match): 'customName=wing'
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -168,25 +136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSmartDeviceManagementViewDeviceDetailsVi
 
 /** The parent enterprise to list devices under. E.g. "enterprises/XYZ". */
 @property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Additional details that need to be provided for the device.
- *
- *  Likely values:
- *    @arg @c kGTLRSmartDeviceManagementViewDeviceDetailsViewUnspecified Default
- *        option this would return basic details for both Get and Listd Devices.
- *        Currently this view is supported only for device types, SPEAKER,
- *        DISPLAY, (Value: "DEVICE_DETAILS_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRSmartDeviceManagementViewDeviceConsoleView Selecting this
- *        option would return the structureId and structure name to which the
- *        device is assigned alongwith other basic details. Currently this view
- *        is supported only for device types -- sdm.devices.types.SPEAKER --
- *        sdm.devices.types.CHROMECAST -- sdm.devices.types.DISPLAY --
- *        sdm.devices.types.CAMERA Any other device type would only return a
- *        basic view during ListDevices invocation. (Value:
- *        "DEVICE_CONSOLE_VIEW")
- */
-@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c
@@ -251,12 +200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSmartDeviceManagementViewDeviceDetailsVi
 // Previous library name was
 //   +[GTLQuerySmartDeviceManagement queryForEnterprisesStructuresListWithparent:]
 
-/**
- *  Optional filter to list structures. Filters can match the exact album
- *  assigned to the structure. E.g. 'album=enterprises/XYZ/albums/abc' It also
- *  support filtering by parent (only groups for now): E.g.
- *  'parent=enterprises/XYZ/groups/124'
- */
+/** Optional filter to list structures. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**

@@ -6,10 +6,7 @@
 // Description:
 //   Manages identity and access control for Google Cloud Platform resources,
 //   including the creation of service accounts, which you can use to
-//   authenticate to Google and make API calls. *Note:* This API is tied to the
-//   IAM service account credentials API ( iamcredentials.googleapis.com).
-//   Enabling or disabling this API will also enable or disable the IAM service
-//   account credentials API.
+//   authenticate to Google and make API calls.
 // Documentation:
 //   https://cloud.google.com/iam/
 
@@ -523,12 +520,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_Typ
  *  Associates `members` with a `role`.
  */
 @interface GTLRIam_Binding : GTLRObject
-
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
-@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding. If the condition
@@ -1468,10 +1459,13 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_Typ
  *  System-managed keys are automatically rotated by Google, and are used for
  *  signing for a maximum of two weeks. The rotation process is probabilistic,
  *  and usage of the new key will gradually ramp up and down over the key's
- *  lifetime. We recommend caching the public key set for a service account for
- *  no more than 24 hours to ensure you have access to the latest keys. Public
- *  keys for all service accounts are also published at the OAuth2 Service
- *  Account API.
+ *  lifetime. If you cache the public key set for a service account, we
+ *  recommend that you update the cache every 15 minutes. User-managed keys can
+ *  be added and removed at any time, so it is important to update the cache
+ *  frequently. For Google-managed keys, Google will publish a key at least 6
+ *  hours before it is first used for signing and will keep publishing it for at
+ *  least 6 hours after it was last used for signing. Public keys for all
+ *  service accounts are also published at the OAuth2 Service Account API.
  */
 @interface GTLRIam_ServiceAccountKey : GTLRObject
 

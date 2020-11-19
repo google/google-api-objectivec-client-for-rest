@@ -20,7 +20,7 @@
 
 @implementation GTLRAdSenseQuery_AccountsAdclientsGetAdCode
 
-@dynamic accountId, adClientId;
+@dynamic accountId, adClientId, tagPartner;
 
 + (instancetype)queryWithAccountId:(NSString *)accountId
                         adClientId:(NSString *)adClientId {

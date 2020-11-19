@@ -101,6 +101,15 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_CancelOperationRequest
+//
+
+@implementation GTLRStorageTransfer_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_Date
 //
 
@@ -329,7 +338,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_Schedule
-@dynamic scheduleEndDate, scheduleStartDate, startTimeOfDay;
+@dynamic endTimeOfDay, repeatInterval, scheduleEndDate, scheduleStartDate,
+         startTimeOfDay;
 @end
 
 
@@ -399,7 +409,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferJob
 @dynamic creationTime, deletionTime, descriptionProperty, lastModificationTime,
-         name, notificationConfig, projectId, schedule, status, transferSpec;
+         latestOperationName, name, notificationConfig, projectId, schedule,
+         status, transferSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

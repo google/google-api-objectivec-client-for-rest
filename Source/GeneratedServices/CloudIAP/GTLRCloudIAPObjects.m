@@ -216,7 +216,7 @@
 //
 
 @implementation GTLRCloudIAP_OAuthSettings
-@dynamic clientId, loginHint;
+@dynamic loginHint;
 @end
 
 

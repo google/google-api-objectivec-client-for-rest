@@ -2266,7 +2266,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  */
 @property(nonatomic, copy, nullable) NSString *xAt;
 
-/** The maximum number of search results on a page. Defaults to 1000. */
+/**
+ *  The maximum number of search results on a page. Default value is 100.
+ *  Maximum value is 1,000.
+ */
 @property(nonatomic, assign) NSInteger xCount;
 
 /**

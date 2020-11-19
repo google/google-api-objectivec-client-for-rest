@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deployment Manager API (deploymentmanager/v2)
+//   Cloud Deployment Manager V2 API (deploymentmanager/v2)
 // Description:
-//   Declares, configures, and deploys complex solutions on Google Cloud
-//   Platform.
+//   The Google Cloud Deployment Manager v2 API provides services for
+//   configuring, deploying, and viewing Google Cloud services and APIs via
+//   templates which specify deployments of Cloud resources.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/
+//   https://cloud.google.com/deployment-manager
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -23,9 +24,7 @@
 
 @class GTLRDeploymentManager_AuditConfig;
 @class GTLRDeploymentManager_AuditLogConfig;
-@class GTLRDeploymentManager_AuthorizationLoggingOptions;
 @class GTLRDeploymentManager_Binding;
-@class GTLRDeploymentManager_Condition;
 @class GTLRDeploymentManager_ConfigFile;
 @class GTLRDeploymentManager_Deployment;
 @class GTLRDeploymentManager_DeploymentLabelEntry;
@@ -33,11 +32,6 @@
 @class GTLRDeploymentManager_DeploymentUpdateLabelEntry;
 @class GTLRDeploymentManager_Expr;
 @class GTLRDeploymentManager_ImportFile;
-@class GTLRDeploymentManager_LogConfig;
-@class GTLRDeploymentManager_LogConfigCloudAuditOptions;
-@class GTLRDeploymentManager_LogConfigCounterOptions;
-@class GTLRDeploymentManager_LogConfigCounterOptionsCustomField;
-@class GTLRDeploymentManager_LogConfigDataAccessOptions;
 @class GTLRDeploymentManager_Manifest;
 @class GTLRDeploymentManager_Operation;
 @class GTLRDeploymentManager_Operation_Error;
@@ -54,7 +48,6 @@
 @class GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item;
 @class GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item;
-@class GTLRDeploymentManager_Rule;
 @class GTLRDeploymentManager_TargetConfiguration;
 @class GTLRDeploymentManager_Type;
 
@@ -65,22 +58,624 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_AuditLogConfig.logType
+
+/**
+ *  Admin reads. Example: CloudIAM getIamPolicy
+ *
+ *  Value: "ADMIN_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_AdminRead;
+/**
+ *  Data reads. Example: CloudSQL Users list
+ *
+ *  Value: "DATA_READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_DataRead;
+/**
+ *  Data writes. Example: CloudSQL Users create
+ *
+ *  Value: "DATA_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_DataWrite;
+/**
+ *  Default case. Should never be this.
+ *
+ *  Value: "LOG_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_Operation.status
+
+/** Value: "DONE" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Status_Done;
+/** Value: "PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Status_Pending;
+/** Value: "RUNNING" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Status_Running;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_Operation_Warnings_Item.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_InjectedKernelsDeprecated;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_Resource_Warnings_Item.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_InjectedKernelsDeprecated;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_ResourceUpdate.intent
+
+/**
+ *  The resource is scheduled to be abandoned.
+ *
+ *  Value: "ABANDON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Abandon;
+/**
+ *  The resource is scheduled to be acquired.
+ *
+ *  Value: "ACQUIRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Acquire;
+/**
+ *  The resource is scheduled to be created.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Create;
+/**
+ *  The resource is scheduled to be created, or if it already exists, acquired.
+ *
+ *  Value: "CREATE_OR_ACQUIRE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_CreateOrAcquire;
+/**
+ *  The resource is scheduled to be deleted.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Delete;
+/**
+ *  The resource is scheduled to be updated via the UPDATE method.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Update;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_ResourceUpdate.state
+
+/**
+ *  The service has aborted trying to change the resource.
+ *
+ *  Value: "ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_State_Aborted;
+/**
+ *  The service has failed to change the resource.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_State_Failed;
+/**
+ *  The service is previewing changes on the resource.
+ *
+ *  Value: "IN_PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_State_InPreview;
+/**
+ *  The service is executing changes on the resource.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_State_InProgress;
+/**
+ *  There are changes pending for this resource.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_State_Pending;
+
+// ----------------------------------------------------------------------------
+// GTLRDeploymentManager_ResourceUpdate_Warnings_Item.code
+
+/**
+ *  Warning about failed cleanup of transient changes made by a failed
+ *  operation.
+ *
+ *  Value: "CLEANUP_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_CleanupFailed;
+/**
+ *  A link to a deprecated resource was created.
+ *
+ *  Value: "DEPRECATED_RESOURCE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DeprecatedResourceUsed;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  deprecated
+ *
+ *  Value: "DEPRECATED_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DeprecatedTypeUsed;
+/**
+ *  The user created a boot disk that is larger than image size.
+ *
+ *  Value: "DISK_SIZE_LARGER_THAN_IMAGE_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DiskSizeLargerThanImageSize;
+/**
+ *  When deploying and at least one of the resources has a type marked as
+ *  experimental
+ *
+ *  Value: "EXPERIMENTAL_TYPE_USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ExperimentalTypeUsed;
+/**
+ *  Warning that is present in an external api call
+ *
+ *  Value: "EXTERNAL_API_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ExternalApiWarning;
+/**
+ *  Warning that value of a field has been overridden. Deprecated unused field.
+ *
+ *  Value: "FIELD_VALUE_OVERRIDEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_FieldValueOverriden;
+/**
+ *  The operation involved use of an injected kernel, which is deprecated.
+ *
+ *  Value: "INJECTED_KERNELS_DEPRECATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InjectedKernelsDeprecated;
+/**
+ *  When deploying a deployment with a exceedingly large number of resources
+ *
+ *  Value: "LARGE_DEPLOYMENT_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_LargeDeploymentWarning;
+/**
+ *  A resource depends on a missing type
+ *
+ *  Value: "MISSING_TYPE_DEPENDENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_MissingTypeDependency;
+/**
+ *  The route's nextHopIp address is not assigned to an instance on the network.
+ *
+ *  Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopAddressNotAssigned;
+/**
+ *  The route's next hop instance cannot ip forward.
+ *
+ *  Value: "NEXT_HOP_CANNOT_IP_FORWARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopCannotIpForward;
+/**
+ *  The route's nextHopInstance URL refers to an instance that does not exist.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopInstanceNotFound;
+/**
+ *  The route's nextHopInstance URL refers to an instance that is not on the
+ *  same network as the route.
+ *
+ *  Value: "NEXT_HOP_INSTANCE_NOT_ON_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopInstanceNotOnNetwork;
+/**
+ *  The route's next hop instance does not have a status of RUNNING.
+ *
+ *  Value: "NEXT_HOP_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopNotRunning;
+/**
+ *  No results are present on a particular list page.
+ *
+ *  Value: "NO_RESULTS_ON_PAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NoResultsOnPage;
+/**
+ *  Error which is not critical. We decided to continue the process despite the
+ *  mentioned error.
+ *
+ *  Value: "NOT_CRITICAL_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NotCriticalError;
+/**
+ *  Success is reported, but some results may be missing due to errors
+ *
+ *  Value: "PARTIAL_SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PartialSuccess;
+/**
+ *  The user attempted to use a resource that requires a TOS they have not
+ *  accepted.
+ *
+ *  Value: "REQUIRED_TOS_AGREEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RequiredTosAgreement;
+/**
+ *  Warning that a resource is in use.
+ *
+ *  Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceInUseByOtherResourceWarning;
+/**
+ *  One or more of the resources set to auto-delete could not be deleted because
+ *  they were in use.
+ *
+ *  Value: "RESOURCE_NOT_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotDeleted;
+/**
+ *  When a resource schema validation is ignored.
+ *
+ *  Value: "SCHEMA_VALIDATION_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SchemaValidationIgnored;
+/**
+ *  Instance template used in instance group manager is valid as such, but its
+ *  application does not make a lot of sense, because it allows only single
+ *  instance in instance group.
+ *
+ *  Value: "SINGLE_INSTANCE_PROPERTY_TEMPLATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SingleInstancePropertyTemplate;
+/**
+ *  When undeclared properties in the schema are present
+ *
+ *  Value: "UNDECLARED_PROPERTIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UndeclaredProperties;
+/**
+ *  A given scope cannot be reached.
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable;
+
 /**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
  *  are exempted from logging. An AuditConfig must have one or more
- *  AuditLogConfigs.
- *  If there are AuditConfigs for both `allServices` and a specific service, the
- *  union of the two AuditConfigs is used for that service: the log_types
- *  specified in each AuditConfig are enabled, and the exempted_members in each
- *  AuditLogConfig are exempted.
- *  Example Policy with multiple AuditConfigs:
- *  { "audit_configs": [ { "service": "allServices" "audit_log_configs": [ {
- *  "log_type": "DATA_READ", "exempted_members": [ "user:jose\@example.com" ] },
- *  { "log_type": "DATA_WRITE", }, { "log_type": "ADMIN_READ", } ] }, {
- *  "service": "sampleservice.googleapis.com" "audit_log_configs": [ {
- *  "log_type": "DATA_READ", }, { "log_type": "DATA_WRITE", "exempted_members":
- *  [ "user:aliya\@example.com" ] } ] } ] }
+ *  AuditLogConfigs. If there are AuditConfigs for both `allServices` and a
+ *  specific service, the union of the two AuditConfigs is used for that
+ *  service: the log_types specified in each AuditConfig are enabled, and the
+ *  exempted_members in each AuditLogConfig are exempted. Example Policy with
+ *  multiple AuditConfigs: { "audit_configs": [ { "service": "allServices",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" }, { "log_type":
+ *  "ADMIN_READ" } ] }, { "service": "sampleservice.googleapis.com",
+ *  "audit_log_configs": [ { "log_type": "DATA_READ" }, { "log_type":
+ *  "DATA_WRITE", "exempted_members": [ "user:aliya\@example.com" ] } ] } ] }
  *  For sampleservice, this policy enables DATA_READ, DATA_WRITE and ADMIN_READ
  *  logging. It also exempts jose\@example.com from DATA_READ logging, and
  *  aliya\@example.com from DATA_WRITE logging.
@@ -89,8 +684,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The configuration for logging of each type of permission. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_AuditLogConfig *> *auditLogConfigs;
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
  *  Specifies a service that will be enabled for audit logging. For example,
@@ -103,40 +696,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Provides the configuration for logging a type of permissions. Example:
- *  { "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
- *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE", } ] }
- *  This enables 'DATA_READ' and 'DATA_WRITE' logging, while exempting
- *  jose\@example.com from DATA_READ logging.
+ *  Provides the configuration for logging a type of permissions. Example: {
+ *  "audit_log_configs": [ { "log_type": "DATA_READ", "exempted_members": [
+ *  "user:jose\@example.com" ] }, { "log_type": "DATA_WRITE" } ] } This enables
+ *  'DATA_READ' and 'DATA_WRITE' logging, while exempting jose\@example.com from
+ *  DATA_READ logging.
  */
 @interface GTLRDeploymentManager_AuditLogConfig : GTLRObject
 
 /**
  *  Specifies the identities that do not cause logging for this type of
- *  permission. Follows the same format of [Binding.members][].
+ *  permission. Follows the same format of Binding.members.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedMembers;
 
 /**
- *  ignoreChildExemptions
+ *  The log type that this config enables.
  *
- *  Uses NSNumber of boolValue.
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_AuditLogConfig_LogType_AdminRead Admin
+ *        reads. Example: CloudIAM getIamPolicy (Value: "ADMIN_READ")
+ *    @arg @c kGTLRDeploymentManager_AuditLogConfig_LogType_DataRead Data reads.
+ *        Example: CloudSQL Users list (Value: "DATA_READ")
+ *    @arg @c kGTLRDeploymentManager_AuditLogConfig_LogType_DataWrite Data
+ *        writes. Example: CloudSQL Users create (Value: "DATA_WRITE")
+ *    @arg @c kGTLRDeploymentManager_AuditLogConfig_LogType_LogTypeUnspecified
+ *        Default case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
-@property(nonatomic, strong, nullable) NSNumber *ignoreChildExemptions;
-
-/** The log type that this config enables. */
 @property(nonatomic, copy, nullable) NSString *logType;
-
-@end
-
-
-/**
- *  Authorization-related information used by Cloud Audit Logging.
- */
-@interface GTLRDeploymentManager_AuthorizationLoggingOptions : GTLRObject
-
-/** The type of the permission that was checked. */
-@property(nonatomic, copy, nullable) NSString *permissionType;
 
 @end
 
@@ -147,50 +734,45 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDeploymentManager_Binding : GTLRObject
 
 /**
- *  The condition that is associated with this binding.
- *  If the condition evaluates to `true`, then this binding applies to the
- *  current request.
- *  If the condition evaluates to `false`, then this binding does not apply to
- *  the current request. However, a different role binding might grant the same
- *  role to one or more of the members in this binding.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  The condition that is associated with this binding. If the condition
+ *  evaluates to `true`, then this binding applies to the current request. If
+ *  the condition evaluates to `false`, then this binding does not apply to the
+ *  current request. However, a different role binding might grant the same role
+ *  to one or more of the members in this binding. To learn which resources
+ *  support conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Expr *condition;
 
 /**
  *  Specifies the identities requesting access for a Cloud Platform resource.
- *  `members` can have the following values:
- *  * `allUsers`: A special identifier that represents anyone who is on the
- *  internet; with or without a Google account.
- *  * `allAuthenticatedUsers`: A special identifier that represents anyone who
- *  is authenticated with a Google account or a service account.
- *  * `user:{emailid}`: An email address that represents a specific Google
- *  account. For example, `alice\@example.com` .
- *  * `serviceAccount:{emailid}`: An email address that represents a service
- *  account. For example, `my-other-app\@appspot.gserviceaccount.com`.
- *  * `group:{emailid}`: An email address that represents a Google group. For
- *  example, `admins\@example.com`.
+ *  `members` can have the following values: * `allUsers`: A special identifier
+ *  that represents anyone who is on the internet; with or without a Google
+ *  account. * `allAuthenticatedUsers`: A special identifier that represents
+ *  anyone who is authenticated with a Google account or a service account. *
+ *  `user:{emailid}`: An email address that represents a specific Google
+ *  account. For example, `alice\@example.com` . * `serviceAccount:{emailid}`:
+ *  An email address that represents a service account. For example,
+ *  `my-other-app\@appspot.gserviceaccount.com`. * `group:{emailid}`: An email
+ *  address that represents a Google group. For example, `admins\@example.com`.
  *  * `deleted:user:{emailid}?uid={uniqueid}`: An email address (plus unique
  *  identifier) representing a user that has been recently deleted. For example,
  *  `alice\@example.com?uid=123456789012345678901`. If the user is recovered,
  *  this value reverts to `user:{emailid}` and the recovered user retains the
- *  role in the binding.
- *  * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An email address (plus
- *  unique identifier) representing a service account that has been recently
- *  deleted. For example,
+ *  role in the binding. * `deleted:serviceAccount:{emailid}?uid={uniqueid}`: An
+ *  email address (plus unique identifier) representing a service account that
+ *  has been recently deleted. For example,
  *  `my-other-app\@appspot.gserviceaccount.com?uid=123456789012345678901`. If
  *  the service account is undeleted, this value reverts to
  *  `serviceAccount:{emailid}` and the undeleted service account retains the
- *  role in the binding.
- *  * `deleted:group:{emailid}?uid={uniqueid}`: An email address (plus unique
- *  identifier) representing a Google group that has been recently deleted. For
- *  example, `admins\@example.com?uid=123456789012345678901`. If the group is
- *  recovered, this value reverts to `group:{emailid}` and the recovered group
- *  retains the role in the binding.
- *  * `domain:{domain}`: The G Suite domain (primary) that represents all the
- *  users of that domain. For example, `google.com` or `example.com`.
+ *  role in the binding. * `deleted:group:{emailid}?uid={uniqueid}`: An email
+ *  address (plus unique identifier) representing a Google group that has been
+ *  recently deleted. For example,
+ *  `admins\@example.com?uid=123456789012345678901`. If the group is recovered,
+ *  this value reverts to `group:{emailid}` and the recovered group retains the
+ *  role in the binding. * `domain:{domain}`: The G Suite domain (primary) that
+ *  represents all the users of that domain. For example, `google.com` or
+ *  `example.com`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *members;
 
@@ -199,32 +781,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
-
-@end
-
-
-/**
- *  A condition to be met.
- */
-@interface GTLRDeploymentManager_Condition : GTLRObject
-
-/** Trusted attributes supplied by the IAM system. */
-@property(nonatomic, copy, nullable) NSString *iam;
-
-/** An operator to apply the subject with. */
-@property(nonatomic, copy, nullable) NSString *op;
-
-/** Trusted attributes discharged by the service. */
-@property(nonatomic, copy, nullable) NSString *svc;
-
-/**
- *  Trusted attributes supplied by any service that owns resources and uses the
- *  IAM system for access control.
- */
-@property(nonatomic, copy, nullable) NSString *sys;
-
-/** The objects of the condition. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
 
 @end
 
@@ -257,10 +813,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  `update()`, `stop()`, and `cancelPreview()` requests. A fingerprint is a
  *  randomly generated value that must be provided with `update()`, `stop()`,
  *  and `cancelPreview()` requests to perform optimistic locking. This ensures
- *  optimistic concurrency so that only one request happens at a time.
- *  The fingerprint is initially generated by Deployment Manager and changes
- *  after every request to modify data. To get the latest fingerprint value,
- *  perform a `get()` request to a deployment.
+ *  optimistic concurrency so that only one request happens at a time. The
+ *  fingerprint is initially generated by Deployment Manager and changes after
+ *  every request to modify data. To get the latest fingerprint value, perform a
+ *  `get()` request to a deployment.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -280,9 +836,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *insertTime;
 
 /**
- *  Map of labels; provided by the client when the resource is created or
- *  updated. Specifically: Label keys must be between 1 and 63 characters long
- *  and must conform to the following regular expression:
+ *  Map of One Platform labels; provided by the client when the resource is
+ *  created or updated. Specifically: Label keys must be between 1 and 63
+ *  characters long and must conform to the following regular expression:
  *  `[a-z]([-a-z0-9]*[a-z0-9])?` Label values must be between 0 and 63
  *  characters long and must conform to the regular expression
  *  `([a-z]([-a-z0-9]*[a-z0-9])?)?`.
@@ -335,11 +891,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDeploymentManager_DeploymentLabelEntry
+ *  Label object for Deployments
  */
 @interface GTLRDeploymentManager_DeploymentLabelEntry : GTLRObject
 
+/** Key of the label */
 @property(nonatomic, copy, nullable) NSString *key;
+
+/** Value of the label */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -356,10 +915,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  to perform optimistic locking. This ensures optimistic concurrency so that
  *  the deployment does not have conflicting requests (e.g. if someone attempts
  *  to make a new update request while another user attempts to cancel a
- *  preview, this would prevent one of the requests).
- *  The fingerprint is initially generated by Deployment Manager and changes
- *  after every request to modify a deployment. To get the latest fingerprint
- *  value, perform a `get()` request on the deployment.
+ *  preview, this would prevent one of the requests). The fingerprint is
+ *  initially generated by Deployment Manager and changes after every request to
+ *  modify a deployment. To get the latest fingerprint value, perform a `get()`
+ *  request on the deployment.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -405,10 +964,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  optimistic locking. This ensures optimistic concurrency so that the
  *  deployment does not have conflicting requests (e.g. if someone attempts to
  *  make a new update request while another user attempts to stop an ongoing
- *  update request, this would prevent a collision).
- *  The fingerprint is initially generated by Deployment Manager and changes
- *  after every request to modify a deployment. To get the latest fingerprint
- *  value, perform a `get()` request on the deployment.
+ *  update request, this would prevent a collision). The fingerprint is
+ *  initially generated by Deployment Manager and changes after every request to
+ *  modify a deployment. To get the latest fingerprint value, perform a `get()`
+ *  request on the deployment.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -432,7 +991,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. Map of labels; provided by the client when the resource is
+ *  Map of One Platform labels; provided by the client when the resource is
  *  created or updated. Specifically: Label keys must be between 1 and 63
  *  characters long and must conform to the following regular expression:
  *  `[a-z]([-a-z0-9]*[a-z0-9])?` Label values must be between 0 and 63
@@ -451,11 +1010,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDeploymentManager_DeploymentUpdateLabelEntry
+ *  Label object for DeploymentUpdate
  */
 @interface GTLRDeploymentManager_DeploymentUpdateLabelEntry : GTLRObject
 
+/** Key of the label */
 @property(nonatomic, copy, nullable) NSString *key;
+
+/** Value of the label */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
@@ -464,24 +1026,20 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
- *  are documented at https://github.com/google/cel-spec.
- *  Example (Comparison):
+ *  are documented at https://github.com/google/cel-spec. Example (Comparison):
  *  title: "Summary size limit" description: "Determines if a summary is less
- *  than 100 chars" expression: "document.summary.size() < 100"
- *  Example (Equality):
- *  title: "Requestor is owner" description: "Determines if requestor is the
- *  document owner" expression: "document.owner == request.auth.claims.email"
- *  Example (Logic):
- *  title: "Public documents" description: "Determine whether the document
- *  should be publicly visible" expression: "document.type != 'private' &&
- *  document.type != 'internal'"
- *  Example (Data Manipulation):
- *  title: "Notification string" description: "Create a notification string with
- *  a timestamp." expression: "'New message received at ' +
- *  string(document.create_time)"
- *  The exact variables and functions that may be referenced within an
- *  expression are determined by the service that evaluates it. See the service
- *  documentation for additional information.
+ *  than 100 chars" expression: "document.summary.size() < 100" Example
+ *  (Equality): title: "Requestor is owner" description: "Determines if
+ *  requestor is the document owner" expression: "document.owner ==
+ *  request.auth.claims.email" Example (Logic): title: "Public documents"
+ *  description: "Determine whether the document should be publicly visible"
+ *  expression: "document.type != 'private' && document.type != 'internal'"
+ *  Example (Data Manipulation): title: "Notification string" description:
+ *  "Create a notification string with a timestamp." expression: "'New message
+ *  received at ' + string(document.create_time)" The exact variables and
+ *  functions that may be referenced within an expression are determined by the
+ *  service that evaluates it. See the service documentation for additional
+ *  information.
  */
 @interface GTLRDeploymentManager_Expr : GTLRObject
 
@@ -559,97 +1117,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Specifies what kind of log the caller must write
- */
-@interface GTLRDeploymentManager_LogConfig : GTLRObject
-
-/** Cloud audit options. */
-@property(nonatomic, strong, nullable) GTLRDeploymentManager_LogConfigCloudAuditOptions *cloudAudit;
-
-/** Counter options. */
-@property(nonatomic, strong, nullable) GTLRDeploymentManager_LogConfigCounterOptions *counter;
-
-/** Data access options. */
-@property(nonatomic, strong, nullable) GTLRDeploymentManager_LogConfigDataAccessOptions *dataAccess;
-
-@end
-
-
-/**
- *  Write a Cloud Audit log
- */
-@interface GTLRDeploymentManager_LogConfigCloudAuditOptions : GTLRObject
-
-/** Information used by the Cloud Audit Logging pipeline. */
-@property(nonatomic, strong, nullable) GTLRDeploymentManager_AuthorizationLoggingOptions *authorizationLoggingOptions;
-
-/** The log_name to populate in the Cloud Audit Record. */
-@property(nonatomic, copy, nullable) NSString *logName;
-
-@end
-
-
-/**
- *  Increment a streamz counter with the specified metric and field names.
- *  Metric names should start with a '/', generally be lowercase-only, and end
- *  in "_count". Field names should not contain an initial slash. The actual
- *  exported metric names will have "/iam/policy" prepended.
- *  Field names correspond to IAM request parameters and field values are their
- *  respective values.
- *  Supported field names: - "authority", which is "[token]" if IAMContext.token
- *  is present, otherwise the value of IAMContext.authority_selector if present,
- *  and otherwise a representation of IAMContext.principal; or -
- *  "iam_principal", a representation of IAMContext.principal even if a token or
- *  authority selector is present; or - "" (empty string), resulting in a
- *  counter with no fields.
- *  Examples: counter { metric: "/debug_access_count" field: "iam_principal" }
- *  ==> increment counter /iam/policy/debug_access_count {iam_principal=[value
- *  of IAMContext.principal]}
- */
-@interface GTLRDeploymentManager_LogConfigCounterOptions : GTLRObject
-
-/** Custom fields. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_LogConfigCounterOptionsCustomField *> *customFields;
-
-/** The field value to attribute. */
-@property(nonatomic, copy, nullable) NSString *field;
-
-/** The metric to update. */
-@property(nonatomic, copy, nullable) NSString *metric;
-
-@end
-
-
-/**
- *  Custom fields. These can be used to create a counter with arbitrary
- *  field/value pairs. See: go/rpcsp-custom-fields.
- */
-@interface GTLRDeploymentManager_LogConfigCounterOptionsCustomField : GTLRObject
-
-/** Name is the field name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Value is the field value. It is important that in contrast to the
- *  CounterOptions.field, the value here is a constant that is not derived from
- *  the IAMContext.
- */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  Write a Data Access (Gin) log
- */
-@interface GTLRDeploymentManager_LogConfigDataAccessOptions : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *logMode;
-
-@end
-
-
-/**
  *  GTLRDeploymentManager_Manifest
  */
 @interface GTLRDeploymentManager_Manifest : GTLRObject
@@ -681,10 +1148,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Output only. The YAML layout for this manifest. */
 @property(nonatomic, copy, nullable) NSString *layout;
 
-/**
- *  Output only.
- *  The name of the manifest.
- */
+/** Output only. The name of the manifest. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Output only. Self link for the manifest. */
@@ -719,21 +1183,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Represents an Operation resource.
- *  Google Compute Engine has three Operation resources:
- *  * [Global](/compute/docs/reference/rest/{$api_version}/globalOperations) *
+ *  Represents an Operation resource. Google Compute Engine has three Operation
+ *  resources: *
+ *  [Global](/compute/docs/reference/rest/{$api_version}/globalOperations) *
  *  [Regional](/compute/docs/reference/rest/{$api_version}/regionOperations) *
- *  [Zonal](/compute/docs/reference/rest/{$api_version}/zoneOperations)
- *  You can use an operation resource to manage asynchronous API requests. For
- *  more information, read Handling API responses.
- *  Operations can be global, regional or zonal.
- *  - For global operations, use the `globalOperations` resource.
- *  - For regional operations, use the `regionOperations` resource.
- *  - For zonal operations, use the `zonalOperations` resource.
- *  For more information, read Global, Regional, and Zonal Resources. (==
- *  resource_for {$api_version}.globalOperations ==) (== resource_for
- *  {$api_version}.regionOperations ==) (== resource_for
- *  {$api_version}.zoneOperations ==)
+ *  [Zonal](/compute/docs/reference/rest/{$api_version}/zoneOperations) You can
+ *  use an operation resource to manage asynchronous API requests. For more
+ *  information, read Handling API responses. Operations can be global, regional
+ *  or zonal. - For global operations, use the `globalOperations` resource. -
+ *  For regional operations, use the `regionOperations` resource. - For zonal
+ *  operations, use the `zonalOperations` resource. For more information, read
+ *  Global, Regional, and Zonal Resources.
  */
 @interface GTLRDeploymentManager_Operation : GTLRObject
 
@@ -841,6 +1301,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Output Only] The status of the operation, which can be one of the
  *  following: `PENDING`, `RUNNING`, or `DONE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_Operation_Status_Done Value "DONE"
+ *    @arg @c kGTLRDeploymentManager_Operation_Status_Pending Value "PENDING"
+ *    @arg @c kGTLRDeploymentManager_Operation_Status_Running Value "RUNNING"
  */
 @property(nonatomic, copy, nullable) NSString *status;
 
@@ -911,6 +1376,85 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_Unreachable A
+ *        given scope cannot be reached. (Value: "UNREACHABLE")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -995,38 +1539,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  An Identity and Access Management (IAM) policy, which specifies access
- *  controls for Google Cloud resources.
- *  A `Policy` is a collection of `bindings`. A `binding` binds one or more
- *  `members` to a single `role`. Members can be user accounts, service
- *  accounts, Google groups, and domains (such as G Suite). A `role` is a named
- *  list of permissions; each `role` can be an IAM predefined role or a
- *  user-created custom role.
- *  For some types of Google Cloud resources, a `binding` can also specify a
- *  `condition`, which is a logical expression that allows access to a resource
- *  only if the expression evaluates to `true`. A condition can add constraints
- *  based on attributes of the request, the resource, or both. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
+ *  controls for Google Cloud resources. A `Policy` is a collection of
+ *  `bindings`. A `binding` binds one or more `members` to a single `role`.
+ *  Members can be user accounts, service accounts, Google groups, and domains
+ *  (such as G Suite). A `role` is a named list of permissions; each `role` can
+ *  be an IAM predefined role or a user-created custom role. For some types of
+ *  Google Cloud resources, a `binding` can also specify a `condition`, which is
+ *  a logical expression that allows access to a resource only if the expression
+ *  evaluates to `true`. A condition can add constraints based on attributes of
+ *  the request, the resource, or both. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- *  **JSON example:**
- *  { "bindings": [ { "role": "roles/resourcemanager.organizationAdmin",
- *  "members": [ "user:mike\@example.com", "group:admins\@example.com",
- *  "domain:google.com",
+ *  **JSON example:** { "bindings": [ { "role":
+ *  "roles/resourcemanager.organizationAdmin", "members": [
+ *  "user:mike\@example.com", "group:admins\@example.com", "domain:google.com",
  *  "serviceAccount:my-project-id\@appspot.gserviceaccount.com" ] }, { "role":
  *  "roles/resourcemanager.organizationViewer", "members": [
  *  "user:eve\@example.com" ], "condition": { "title": "expirable access",
  *  "description": "Does not grant access after Sep 2020", "expression":
  *  "request.time < timestamp('2020-10-01T00:00:00.000Z')", } } ], "etag":
- *  "BwWWja0YfJA=", "version": 3 }
- *  **YAML example:**
- *  bindings: - members: - user:mike\@example.com - group:admins\@example.com -
- *  domain:google.com -
+ *  "BwWWja0YfJA=", "version": 3 } **YAML example:** bindings: - members: -
+ *  user:mike\@example.com - group:admins\@example.com - domain:google.com -
  *  serviceAccount:my-project-id\@appspot.gserviceaccount.com role:
  *  roles/resourcemanager.organizationAdmin - members: - user:eve\@example.com
  *  role: roles/resourcemanager.organizationViewer condition: title: expirable
  *  access description: Does not grant access after Sep 2020 expression:
  *  request.time < timestamp('2020-10-01T00:00:00.000Z') - etag: BwWWja0YfJA= -
- *  version: 3
- *  For a description of IAM and its features, see the [IAM
+ *  version: 3 For a description of IAM and its features, see the [IAM
  *  documentation](https://cloud.google.com/iam/docs/).
  */
 @interface GTLRDeploymentManager_Policy : GTLRObject
@@ -1048,11 +1587,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  to perform policy updates in order to avoid race conditions: An `etag` is
  *  returned in the response to `getIamPolicy`, and systems are expected to put
  *  that etag in the request to `setIamPolicy` to ensure that their change will
- *  be applied to the same version of the policy.
- *  **Important:** If you use IAM Conditions, you must include the `etag` field
- *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
- *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
+ *  be applied to the same version of the policy. **Important:** If you use IAM
+ *  Conditions, you must include the `etag` field whenever you call
+ *  `setIamPolicy`. If you omit this field, then IAM allows you to overwrite a
+ *  version `3` policy with a version `1` policy, and all of the conditions in
+ *  the version `3` policy are lost.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -1060,41 +1599,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  iamOwned
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *iamOwned;
-
-/**
- *  If more than one rule is specified, the rules are applied in the following
- *  manner: - All matching LOG rules are always applied. - If any
- *  DENY/DENY_WITH_LOG rule matches, permission is denied. Logging will be
- *  applied if one or more matching rule requires logging. - Otherwise, if any
- *  ALLOW/ALLOW_WITH_LOG rule matches, permission is granted. Logging will be
- *  applied if one or more matching rule requires logging. - Otherwise, if no
- *  rule applies, permission is denied.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Rule *> *rules;
-
-/**
- *  Specifies the format of the policy.
- *  Valid values are `0`, `1`, and `3`. Requests that specify an invalid value
- *  are rejected.
- *  Any operation that affects conditional role bindings must specify version
- *  `3`. This requirement applies to the following operations:
- *  * Getting a policy that includes a conditional role binding * Adding a
- *  conditional role binding to a policy * Changing a conditional role binding
- *  in a policy * Removing any role binding, with or without a condition, from a
- *  policy that includes conditions
+ *  Specifies the format of the policy. Valid values are `0`, `1`, and `3`.
+ *  Requests that specify an invalid value are rejected. Any operation that
+ *  affects conditional role bindings must specify version `3`. This requirement
+ *  applies to the following operations: * Getting a policy that includes a
+ *  conditional role binding * Adding a conditional role binding to a policy *
+ *  Changing a conditional role binding in a policy * Removing any role binding,
+ *  with or without a condition, from a policy that includes conditions
  *  **Important:** If you use IAM Conditions, you must include the `etag` field
  *  whenever you call `setIamPolicy`. If you omit this field, then IAM allows
  *  you to overwrite a version `3` policy with a version `1` policy, and all of
- *  the conditions in the version `3` policy are lost.
- *  If a policy does not include any conditions, operations on that policy may
- *  specify any valid version or leave the field unset.
- *  To learn which resources support conditions in their IAM policies, see the
- *  [IAM
+ *  the conditions in the version `3` policy are lost. If a policy does not
+ *  include any conditions, operations on that policy may specify any valid
+ *  version or leave the field unset. To learn which resources support
+ *  conditions in their IAM policies, see the [IAM
  *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
  *
  *  Uses NSNumber of intValue.
@@ -1180,6 +1698,85 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_Unreachable A
+ *        given scope cannot be reached. (Value: "UNREACHABLE")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -1278,6 +1875,21 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Output only. The intent of the resource: `PREVIEW`, `UPDATE`, or `CANCEL`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Intent_Abandon The resource
+ *        is scheduled to be abandoned. (Value: "ABANDON")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Intent_Acquire The resource
+ *        is scheduled to be acquired. (Value: "ACQUIRE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Intent_Create The resource
+ *        is scheduled to be created. (Value: "CREATE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Intent_CreateOrAcquire The
+ *        resource is scheduled to be created, or if it already exists,
+ *        acquired. (Value: "CREATE_OR_ACQUIRE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Intent_Delete The resource
+ *        is scheduled to be deleted. (Value: "DELETE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Intent_Update The resource
+ *        is scheduled to be updated via the UPDATE method. (Value: "UPDATE")
  */
 @property(nonatomic, copy, nullable) NSString *intent;
 
@@ -1293,7 +1905,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *properties;
 
-/** Output only. The state of the resource. */
+/**
+ *  Output only. The state of the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_State_Aborted The service
+ *        has aborted trying to change the resource. (Value: "ABORTED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_State_Failed The service has
+ *        failed to change the resource. (Value: "FAILED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_State_InPreview The service
+ *        is previewing changes on the resource. (Value: "IN_PREVIEW")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_State_InProgress The service
+ *        is executing changes on the resource. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_State_Pending There are
+ *        changes pending for this resource. (Value: "PENDING")
+ */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
@@ -1328,6 +1954,85 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  [Output Only] A warning code, if applicable. For example, Compute Engine
  *  returns NO_RESULTS_ON_PAGE if there are no results in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_CleanupFailed
+ *        Warning about failed cleanup of transient changes made by a failed
+ *        operation. (Value: "CLEANUP_FAILED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DeprecatedResourceUsed
+ *        A link to a deprecated resource was created. (Value:
+ *        "DEPRECATED_RESOURCE_USED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DeprecatedTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        deprecated (Value: "DEPRECATED_TYPE_USED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DiskSizeLargerThanImageSize
+ *        The user created a boot disk that is larger than image size. (Value:
+ *        "DISK_SIZE_LARGER_THAN_IMAGE_SIZE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ExperimentalTypeUsed
+ *        When deploying and at least one of the resources has a type marked as
+ *        experimental (Value: "EXPERIMENTAL_TYPE_USED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ExternalApiWarning
+ *        Warning that is present in an external api call (Value:
+ *        "EXTERNAL_API_WARNING")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_FieldValueOverriden
+ *        Warning that value of a field has been overridden. Deprecated unused
+ *        field. (Value: "FIELD_VALUE_OVERRIDEN")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InjectedKernelsDeprecated
+ *        The operation involved use of an injected kernel, which is deprecated.
+ *        (Value: "INJECTED_KERNELS_DEPRECATED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_LargeDeploymentWarning
+ *        When deploying a deployment with a exceedingly large number of
+ *        resources (Value: "LARGE_DEPLOYMENT_WARNING")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_MissingTypeDependency
+ *        A resource depends on a missing type (Value:
+ *        "MISSING_TYPE_DEPENDENCY")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopAddressNotAssigned
+ *        The route's nextHopIp address is not assigned to an instance on the
+ *        network. (Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopCannotIpForward
+ *        The route's next hop instance cannot ip forward. (Value:
+ *        "NEXT_HOP_CANNOT_IP_FORWARD")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopInstanceNotFound
+ *        The route's nextHopInstance URL refers to an instance that does not
+ *        exist. (Value: "NEXT_HOP_INSTANCE_NOT_FOUND")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopInstanceNotOnNetwork
+ *        The route's nextHopInstance URL refers to an instance that is not on
+ *        the same network as the route. (Value:
+ *        "NEXT_HOP_INSTANCE_NOT_ON_NETWORK")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopNotRunning
+ *        The route's next hop instance does not have a status of RUNNING.
+ *        (Value: "NEXT_HOP_NOT_RUNNING")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NoResultsOnPage
+ *        No results are present on a particular list page. (Value:
+ *        "NO_RESULTS_ON_PAGE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NotCriticalError
+ *        Error which is not critical. We decided to continue the process
+ *        despite the mentioned error. (Value: "NOT_CRITICAL_ERROR")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PartialSuccess
+ *        Success is reported, but some results may be missing due to errors
+ *        (Value: "PARTIAL_SUCCESS")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RequiredTosAgreement
+ *        The user attempted to use a resource that requires a TOS they have not
+ *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
+ *        Warning that a resource is in use. (Value:
+ *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotDeleted
+ *        One or more of the resources set to auto-delete could not be deleted
+ *        because they were in use. (Value: "RESOURCE_NOT_DELETED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SchemaValidationIgnored
+ *        When a resource schema validation is ignored. (Value:
+ *        "SCHEMA_VALIDATION_IGNORED")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SingleInstancePropertyTemplate
+ *        Instance template used in instance group manager is valid as such, but
+ *        its application does not make a lot of sense, because it allows only
+ *        single instance in instance group. (Value:
+ *        "SINGLE_INSTANCE_PROPERTY_TEMPLATE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UndeclaredProperties
+ *        When undeclared properties in the schema are present (Value:
+ *        "UNDECLARED_PROPERTIES")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable
+ *        A given scope cannot be reached. (Value: "UNREACHABLE")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -1381,55 +2086,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** [Output Only] A warning data value corresponding to the key. */
 @property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  A rule to be applied in a Policy.
- */
-@interface GTLRDeploymentManager_Rule : GTLRObject
-
-/** Required */
-@property(nonatomic, copy, nullable) NSString *action;
-
-/**
- *  Additional restrictions that must be met. All conditions must pass for the
- *  rule to match.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_Condition *> *conditions;
-
-/**
- *  Human-readable description of the rule.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  If one or more 'in' clauses are specified, the rule matches if the
- *  PRINCIPAL/AUTHORITY_SELECTOR is in at least one of these entries.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *ins;
-
-/**
- *  The config returned to callers of tech.iam.IAM.CheckPolicy for any entries
- *  that match the LOG action.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDeploymentManager_LogConfig *> *logConfigs;
-
-/**
- *  If one or more 'not_in' clauses are specified, the rule matches if the
- *  PRINCIPAL/AUTHORITY_SELECTOR is in none of the entries.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *notIns;
-
-/**
- *  A permission is a string of form '..' (e.g., 'storage.buckets.list'). A
- *  value of '*' matches all permissions, and a verb part of '*' (e.g.,
- *  'storage.buckets.*') matches all verbs.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
 @end
 

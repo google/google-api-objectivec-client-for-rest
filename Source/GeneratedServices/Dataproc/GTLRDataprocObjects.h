@@ -68,6 +68,7 @@
 @class GTLRDataproc_ManagedCluster;
 @class GTLRDataproc_ManagedCluster_Labels;
 @class GTLRDataproc_ManagedGroupConfig;
+@class GTLRDataproc_NodeGroupAffinity;
 @class GTLRDataproc_NodeInitializationAction;
 @class GTLRDataproc_Operation;
 @class GTLRDataproc_Operation_Metadata;
@@ -215,28 +216,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecif
 // GTLRDataproc_GceClusterConfig.privateIpv6GoogleAccess
 
 /**
- *  Enables bidirectional private IPv6 access between Google Services and
- *  Dataproc cluster
+ *  Enables bidirectional private IPv6 access between Google Services and the
+ *  Dataproc cluster.
  *
  *  Value: "BIDIRECTIONAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Bidirectional;
 /**
- *  Private access to or from Google Services configuration inherited from
- *  subnetowrk configuration
+ *  Private access to and from Google Services configuration inherited from the
+ *  subnetwork configuration. This is the default Compute Engine behavior.
  *
  *  Value: "INHERIT_FROM_SUBNETWORK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork;
 /**
- *  Enables outbound private IPv6 access to Google Services from Dataproc
- *  cluster
+ *  Enables outbound private IPv6 access to Google Services from the Dataproc
+ *  cluster.
  *
  *  Value: "OUTBOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound;
 /**
- *  Default value. Same as INHERIT_FROM_SUBNETWORK
+ *  If unspecified, Compute Engine default behavior will apply, which is the
+ *  same as INHERIT_FROM_SUBNETWORK.
  *
  *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED"
  */
@@ -453,7 +455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeRese
 // GTLRDataproc_SoftwareConfig.optionalComponents
 
 /**
- *  The Anaconda python distribution.
+ *  The Anaconda python distribution. The Anaconda component is not supported in
+ *  the Dataproc preview 2.0 image. The 2.0 preview image is pre-installed with
+ *  Miniconda.
  *
  *  Value: "ANACONDA"
  */
@@ -824,10 +828,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_Binding : GTLRObject
 
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
 @property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
@@ -1440,7 +1440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Common config settings for resources of Compute Engine cluster instances,
- *  applicable to all instances in the cluster. NEXT ID: 14
+ *  applicable to all instances in the cluster.
  */
 @interface GTLRDataproc_GceClusterConfig : GTLRObject
 
@@ -1475,21 +1475,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
+/** Optional. Node Group Affinity for sole-tenant clusters. */
+@property(nonatomic, strong, nullable) GTLRDataproc_NodeGroupAffinity *nodeGroupAffinity;
+
 /**
  *  Optional. The type of IPv6 access for a cluster.
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Bidirectional
  *        Enables bidirectional private IPv6 access between Google Services and
- *        Dataproc cluster (Value: "BIDIRECTIONAL")
+ *        the Dataproc cluster. (Value: "BIDIRECTIONAL")
  *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_InheritFromSubnetwork
- *        Private access to or from Google Services configuration inherited from
- *        subnetowrk configuration (Value: "INHERIT_FROM_SUBNETWORK")
+ *        Private access to and from Google Services configuration inherited
+ *        from the subnetwork configuration. This is the default Compute Engine
+ *        behavior. (Value: "INHERIT_FROM_SUBNETWORK")
  *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_Outbound
- *        Enables outbound private IPv6 access to Google Services from Dataproc
- *        cluster (Value: "OUTBOUND")
+ *        Enables outbound private IPv6 access to Google Services from the
+ *        Dataproc cluster. (Value: "OUTBOUND")
  *    @arg @c kGTLRDataproc_GceClusterConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified
- *        Default value. Same as INHERIT_FROM_SUBNETWORK (Value:
+ *        If unspecified, Compute Engine default behavior will apply, which is
+ *        the same as INHERIT_FROM_SUBNETWORK. (Value:
  *        "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
@@ -2153,6 +2158,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSNumber *maxFailuresPerHour;
 
+/**
+ *  Optional. Maximum number of times in total a driver may be restarted as a
+ *  result of driver exiting with non-zero code before job is reported failed.
+ *  Maximum value is 240
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxFailuresTotal;
+
 @end
 
 
@@ -2290,7 +2304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *keystoreUri;
 
 /**
- *  Required. The uri of the KMS key used to encrypt various sensitive files.
+ *  Optional. The uri of the KMS key used to encrypt various sensitive files.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyUri;
 
@@ -2301,7 +2315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *realm;
 
 /**
- *  Required. The Cloud Storage URI of a KMS encrypted file containing the root
+ *  Optional. The Cloud Storage URI of a KMS encrypted file containing the root
  *  principal password.
  */
 @property(nonatomic, copy, nullable) NSString *rootPrincipalPasswordUri;
@@ -2354,7 +2368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. The duration to keep the cluster alive while idling (when no jobs
  *  are running). Passing this threshold will cause the cluster to be deleted.
- *  Minimum value is 10 minutes; maximum value is 14 days (see JSON
+ *  Minimum value is 5 minutes; maximum value is 14 days (see JSON
  *  representation of Duration
  *  (https://developers.google.com/protocol-buffers/docs/proto3#json).
  */
@@ -2594,6 +2608,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Group.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplateName;
+
+@end
+
+
+/**
+ *  Node Group Affinity for clusters using sole-tenant node groups.
+ */
+@interface GTLRDataproc_NodeGroupAffinity : GTLRObject
+
+/**
+ *  Required. The URI of a sole-tenant node group resource
+ *  (https://cloud.google.com/compute/docs/reference/rest/v1/nodeGroups) that
+ *  the cluster will be created on.A full URL, partial URI, or node group name
+ *  are valid. Examples:
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/us-central1-a/nodeGroups/node-group-1
+ *  projects/[project_id]/zones/us-central1-a/nodeGroups/node-group-1
+ *  node-group-1
+ */
+@property(nonatomic, copy, nullable) NSString *nodeGroupUri;
 
 @end
 

@@ -84,15 +84,10 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 //
 
 @implementation GTLRCivicInfo_AdministrationRegion
-@dynamic electionAdministrationBody, identifier, localJurisdiction, name,
-         sources;
+@dynamic electionAdministrationBody, localJurisdiction, name, sources;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"identifier" : @"id",
-    @"localJurisdiction" : @"local_jurisdiction"
-  };
-  return map;
+  return @{ @"localJurisdiction" : @"local_jurisdiction" };
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -173,16 +168,12 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 
 @implementation GTLRCivicInfo_Contest
 @dynamic ballotPlacement, ballotTitle, candidates, district,
-         electorateSpecifications, identifier, level, numberElected,
-         numberVotingFor, office, primaryParties, primaryParty,
-         referendumBallotResponses, referendumBrief, referendumConStatement,
-         referendumEffectOfAbstain, referendumPassageThreshold,
-         referendumProStatement, referendumSubtitle, referendumText,
-         referendumTitle, referendumUrl, roles, sources, special, type;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
+         electorateSpecifications, level, numberElected, numberVotingFor,
+         office, primaryParties, primaryParty, referendumBallotResponses,
+         referendumBrief, referendumConStatement, referendumEffectOfAbstain,
+         referendumPassageThreshold, referendumProStatement, referendumSubtitle,
+         referendumText, referendumTitle, referendumUrl, roles, sources,
+         special, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -361,12 +352,8 @@ NSString * const kGTLRCivicInfo_Office_Roles_SpecialPurposeOfficer = @"specialPu
 //
 
 @implementation GTLRCivicInfo_PollingLocation
-@dynamic address, endDate, identifier, latitude, longitude, name, notes,
-         pollingHours, sources, startDate, voterServices;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
+@dynamic address, endDate, latitude, longitude, name, notes, pollingHours,
+         sources, startDate, voterServices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -807,11 +807,30 @@ NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1Us
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsMetadata
+//
+
+@implementation GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest
 //
 
 @implementation GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest
 @dynamic userEventRejoinScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsResponse
+//
+
+@implementation GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsResponse
+@dynamic rejoinedUserEventsCount;
 @end
 
 

@@ -2694,7 +2694,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_PivotFilterCriteria
-@dynamic visibleValues;
+@dynamic condition, visibleByDefault, visibleValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Directory API (admin/directory_v1)
+//   Admin SDK (admin/directory_v1)
 // Description:
-//   Manages enterprise resources such as users and groups, administrative
-//   notifications, security features, and more.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/directory/
+//   http://developers.google.com/admin-sdk/
 
 #import "GTLRDirectoryQuery.h"
 
@@ -18,49 +19,60 @@
 
 // coordinatesSource
 NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified = @"CLIENT_SPECIFIED";
+NSString * const kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined = @"COORDINATES_SOURCE_UNDEFINED";
 NSString * const kGTLRDirectoryCoordinatesSourceResolvedFromAddress = @"RESOLVED_FROM_ADDRESS";
 NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecified = @"SOURCE_UNSPECIFIED";
 
 // event
-NSString * const kGTLRDirectoryEventAdd       = @"add";
-NSString * const kGTLRDirectoryEventDelete    = @"delete";
-NSString * const kGTLRDirectoryEventMakeAdmin = @"makeAdmin";
-NSString * const kGTLRDirectoryEventUndelete  = @"undelete";
-NSString * const kGTLRDirectoryEventUpdate    = @"update";
+NSString * const kGTLRDirectoryEventAdd                  = @"add";
+NSString * const kGTLRDirectoryEventDelete               = @"delete";
+NSString * const kGTLRDirectoryEventEventTypeUnspecified = @"eventTypeUnspecified";
+NSString * const kGTLRDirectoryEventEventUndefined       = @"eventUndefined";
+NSString * const kGTLRDirectoryEventMakeAdmin            = @"makeAdmin";
+NSString * const kGTLRDirectoryEventUndelete             = @"undelete";
+NSString * const kGTLRDirectoryEventUpdate               = @"update";
 
 // orderBy
-NSString * const kGTLRDirectoryOrderByAnnotatedLocation = @"annotatedLocation";
-NSString * const kGTLRDirectoryOrderByAnnotatedUser     = @"annotatedUser";
-NSString * const kGTLRDirectoryOrderByDeviceId          = @"deviceId";
-NSString * const kGTLRDirectoryOrderByEmail             = @"email";
-NSString * const kGTLRDirectoryOrderByFamilyName        = @"familyName";
-NSString * const kGTLRDirectoryOrderByGivenName         = @"givenName";
-NSString * const kGTLRDirectoryOrderByLastSync          = @"lastSync";
-NSString * const kGTLRDirectoryOrderByModel             = @"model";
-NSString * const kGTLRDirectoryOrderByName              = @"name";
-NSString * const kGTLRDirectoryOrderByNotes             = @"notes";
-NSString * const kGTLRDirectoryOrderByOs                = @"os";
-NSString * const kGTLRDirectoryOrderBySerialNumber      = @"serialNumber";
-NSString * const kGTLRDirectoryOrderByStatus            = @"status";
-NSString * const kGTLRDirectoryOrderBySupportEndDate    = @"supportEndDate";
-NSString * const kGTLRDirectoryOrderByType              = @"type";
+NSString * const kGTLRDirectoryOrderByAnnotatedLocation  = @"annotatedLocation";
+NSString * const kGTLRDirectoryOrderByAnnotatedUser      = @"annotatedUser";
+NSString * const kGTLRDirectoryOrderByDeviceId           = @"deviceId";
+NSString * const kGTLRDirectoryOrderByEmail              = @"email";
+NSString * const kGTLRDirectoryOrderByFamilyName         = @"familyName";
+NSString * const kGTLRDirectoryOrderByGivenName          = @"givenName";
+NSString * const kGTLRDirectoryOrderByLastSync           = @"lastSync";
+NSString * const kGTLRDirectoryOrderByModel              = @"model";
+NSString * const kGTLRDirectoryOrderByName               = @"name";
+NSString * const kGTLRDirectoryOrderByNotes              = @"notes";
+NSString * const kGTLRDirectoryOrderByOrderByUndefined   = @"orderByUndefined";
+NSString * const kGTLRDirectoryOrderByOrderByUnspecified = @"orderByUnspecified";
+NSString * const kGTLRDirectoryOrderByOs                 = @"os";
+NSString * const kGTLRDirectoryOrderBySerialNumber       = @"serialNumber";
+NSString * const kGTLRDirectoryOrderByStatus             = @"status";
+NSString * const kGTLRDirectoryOrderBySupportEndDate     = @"supportEndDate";
+NSString * const kGTLRDirectoryOrderByType               = @"type";
 
 // projection
-NSString * const kGTLRDirectoryProjectionBasic  = @"basic";
-NSString * const kGTLRDirectoryProjectionCustom = @"custom";
-NSString * const kGTLRDirectoryProjectionFull   = @"full";
+NSString * const kGTLRDirectoryProjectionBasic                 = @"basic";
+NSString * const kGTLRDirectoryProjectionCustom                = @"custom";
+NSString * const kGTLRDirectoryProjectionFull                  = @"full";
+NSString * const kGTLRDirectoryProjectionProjectionUndefined   = @"PROJECTION_UNDEFINED";
+NSString * const kGTLRDirectoryProjectionProjectionUnspecified = @"projectionUnspecified";
 
 // sortOrder
-NSString * const kGTLRDirectorySortOrderAscending  = @"ASCENDING";
-NSString * const kGTLRDirectorySortOrderDescending = @"DESCENDING";
+NSString * const kGTLRDirectorySortOrderAscending            = @"ASCENDING";
+NSString * const kGTLRDirectorySortOrderDescending           = @"DESCENDING";
+NSString * const kGTLRDirectorySortOrderSortOrderUndefined   = @"SORT_ORDER_UNDEFINED";
+NSString * const kGTLRDirectorySortOrderSortOrderUnspecified = @"sortOrderUnspecified";
 
 // type
-NSString * const kGTLRDirectoryTypeAll      = @"all";
-NSString * const kGTLRDirectoryTypeChildren = @"children";
+NSString * const kGTLRDirectoryTypeAll           = @"all";
+NSString * const kGTLRDirectoryTypeChildren      = @"children";
+NSString * const kGTLRDirectoryTypeTypeUndefined = @"typeUndefined";
 
 // viewType
-NSString * const kGTLRDirectoryViewTypeAdminView    = @"admin_view";
-NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
+NSString * const kGTLRDirectoryViewTypeAdminView         = @"admin_view";
+NSString * const kGTLRDirectoryViewTypeDomainPublic      = @"domain_public";
+NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -81,7 +93,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"codeId", @"userKey"
   ];
-  NSString *pathURITemplate = @"users/{userKey}/asps/{codeId}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/asps/{codeId}";
   GTLRDirectoryQuery_AspsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -103,7 +115,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"codeId", @"userKey"
   ];
-  NSString *pathURITemplate = @"users/{userKey}/asps/{codeId}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/asps/{codeId}";
   GTLRDirectoryQuery_AspsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -123,7 +135,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/asps";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/asps";
   GTLRDirectoryQuery_AspsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -173,7 +185,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"resourceId"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/chromeos/{resourceId}/action";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos/{resourceId}/action";
   GTLRDirectoryQuery_ChromeosdevicesAction *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -196,7 +208,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"deviceId"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/chromeos/{deviceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos/{deviceId}";
   GTLRDirectoryQuery_ChromeosdevicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -217,7 +229,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId {
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/chromeos";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos";
   GTLRDirectoryQuery_ChromeosdevicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -244,7 +256,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/chromeos/moveDevicesToOu";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos/moveDevicesToOu";
   GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -274,7 +286,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"deviceId"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/chromeos/{deviceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos/{deviceId}";
   GTLRDirectoryQuery_ChromeosdevicesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -305,7 +317,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"deviceId"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/chromeos/{deviceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos/{deviceId}";
   GTLRDirectoryQuery_ChromeosdevicesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -320,13 +332,69 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @end
 
+@implementation GTLRDirectoryQuery_CustomerDevicesChromeosCommandsGet
+
+@dynamic commandId, customerId, deviceId;
+
++ (instancetype)queryWithCustomerId:(NSString *)customerId
+                           deviceId:(NSString *)deviceId
+                          commandId:(long long)commandId {
+  NSArray *pathParams = @[
+    @"commandId", @"customerId", @"deviceId"
+  ];
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos/{deviceId}/commands/{commandId}";
+  GTLRDirectoryQuery_CustomerDevicesChromeosCommandsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customerId = customerId;
+  query.deviceId = deviceId;
+  query.commandId = commandId;
+  query.expectedObjectClass = [GTLRDirectory_ChromeosdevicesCommand class];
+  query.loggingName = @"admin.customer.devices.chromeos.commands.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand
+
+@dynamic customerId, deviceId;
+
++ (instancetype)queryWithObject:(GTLRDirectory_ChromeosdevicesIssueCommandRequest *)object
+                     customerId:(NSString *)customerId
+                       deviceId:(NSString *)deviceId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"customerId", @"deviceId"
+  ];
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos/{deviceId}:issueCommand";
+  GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.customerId = customerId;
+  query.deviceId = deviceId;
+  query.expectedObjectClass = [GTLRDirectory_ChromeosdevicesIssueCommandResponse class];
+  query.loggingName = @"admin.customer.devices.chromeos.issueCommand";
+  return query;
+}
+
+@end
+
 @implementation GTLRDirectoryQuery_CustomersGet
 
 @dynamic customerKey;
 
 + (instancetype)queryWithCustomerKey:(NSString *)customerKey {
   NSArray *pathParams = @[ @"customerKey" ];
-  NSString *pathURITemplate = @"customers/{customerKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customers/{customerKey}";
   GTLRDirectoryQuery_CustomersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -352,7 +420,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customerKey" ];
-  NSString *pathURITemplate = @"customers/{customerKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customers/{customerKey}";
   GTLRDirectoryQuery_CustomersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -379,7 +447,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customerKey" ];
-  NSString *pathURITemplate = @"customers/{customerKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customers/{customerKey}";
   GTLRDirectoryQuery_CustomersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -402,7 +470,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"domainAliasName"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/domainaliases/{domainAliasName}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/domainaliases/{domainAliasName}";
   GTLRDirectoryQuery_DomainAliasesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -424,7 +492,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"domainAliasName"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/domainaliases/{domainAliasName}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/domainaliases/{domainAliasName}";
   GTLRDirectoryQuery_DomainAliasesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -451,7 +519,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/domainaliases";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/domainaliases";
   GTLRDirectoryQuery_DomainAliasesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -471,7 +539,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/domainaliases";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/domainaliases";
   GTLRDirectoryQuery_DomainAliasesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -493,7 +561,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"domainName"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/domains/{domainName}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/domains/{domainName}";
   GTLRDirectoryQuery_DomainsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -515,7 +583,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"domainName"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/domains/{domainName}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/domains/{domainName}";
   GTLRDirectoryQuery_DomainsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -542,7 +610,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/domains";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/domains";
   GTLRDirectoryQuery_DomainsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -562,7 +630,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/domains";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/domains";
   GTLRDirectoryQuery_DomainsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -584,7 +652,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"alias", @"groupKey"
   ];
-  NSString *pathURITemplate = @"groups/{groupKey}/aliases/{alias}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/aliases/{alias}";
   GTLRDirectoryQuery_GroupsAliasesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -610,7 +678,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"groupKey" ];
-  NSString *pathURITemplate = @"groups/{groupKey}/aliases";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/aliases";
   GTLRDirectoryQuery_GroupsAliasesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -630,7 +698,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithGroupKey:(NSString *)groupKey {
   NSArray *pathParams = @[ @"groupKey" ];
-  NSString *pathURITemplate = @"groups/{groupKey}/aliases";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/aliases";
   GTLRDirectoryQuery_GroupsAliasesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -649,7 +717,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithGroupKey:(NSString *)groupKey {
   NSArray *pathParams = @[ @"groupKey" ];
-  NSString *pathURITemplate = @"groups/{groupKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}";
   GTLRDirectoryQuery_GroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -667,7 +735,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithGroupKey:(NSString *)groupKey {
   NSArray *pathParams = @[ @"groupKey" ];
-  NSString *pathURITemplate = @"groups/{groupKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}";
   GTLRDirectoryQuery_GroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -689,7 +757,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"groups";
+  NSString *pathURITemplate = @"admin/directory/v1/groups";
   GTLRDirectoryQuery_GroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -708,7 +776,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
          userKey;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"groups";
+  NSString *pathURITemplate = @"admin/directory/v1/groups";
   GTLRDirectoryQuery_GroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -733,7 +801,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"groupKey" ];
-  NSString *pathURITemplate = @"groups/{groupKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}";
   GTLRDirectoryQuery_GroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -760,7 +828,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"groupKey" ];
-  NSString *pathURITemplate = @"groups/{groupKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}";
   GTLRDirectoryQuery_GroupsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -783,7 +851,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"groupKey", @"memberKey"
   ];
-  NSString *pathURITemplate = @"groups/{groupKey}/members/{memberKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/members/{memberKey}";
   GTLRDirectoryQuery_MembersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -805,7 +873,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"groupKey", @"memberKey"
   ];
-  NSString *pathURITemplate = @"groups/{groupKey}/members/{memberKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/members/{memberKey}";
   GTLRDirectoryQuery_MembersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -828,7 +896,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"groupKey", @"memberKey"
   ];
-  NSString *pathURITemplate = @"groups/{groupKey}/hasMember/{memberKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/hasMember/{memberKey}";
   GTLRDirectoryQuery_MembersHasMember *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -855,7 +923,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"groupKey" ];
-  NSString *pathURITemplate = @"groups/{groupKey}/members";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/members";
   GTLRDirectoryQuery_MembersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -875,7 +943,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithGroupKey:(NSString *)groupKey {
   NSArray *pathParams = @[ @"groupKey" ];
-  NSString *pathURITemplate = @"groups/{groupKey}/members";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/members";
   GTLRDirectoryQuery_MembersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -904,7 +972,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"groupKey", @"memberKey"
   ];
-  NSString *pathURITemplate = @"groups/{groupKey}/members/{memberKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/members/{memberKey}";
   GTLRDirectoryQuery_MembersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -935,7 +1003,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"groupKey", @"memberKey"
   ];
-  NSString *pathURITemplate = @"groups/{groupKey}/members/{memberKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/groups/{groupKey}/members/{memberKey}";
   GTLRDirectoryQuery_MembersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -966,7 +1034,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"resourceId"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/mobile/{resourceId}/action";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/mobile/{resourceId}/action";
   GTLRDirectoryQuery_MobiledevicesAction *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -989,7 +1057,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"resourceId"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/mobile/{resourceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/mobile/{resourceId}";
   GTLRDirectoryQuery_MobiledevicesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1011,7 +1079,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"resourceId"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/mobile/{resourceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/mobile/{resourceId}";
   GTLRDirectoryQuery_MobiledevicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1032,7 +1100,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId {
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customer/{customerId}/devices/mobile";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/mobile";
   GTLRDirectoryQuery_MobiledevicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1049,19 +1117,12 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @dynamic customerId, orgUnitPath;
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"orgUnitPath" : [NSString class]
-  };
-  return map;
-}
-
 + (instancetype)queryWithCustomerId:(NSString *)customerId
-                        orgUnitPath:(NSArray<NSString *> *)orgUnitPath {
+                        orgUnitPath:(NSString *)orgUnitPath {
   NSArray *pathParams = @[
     @"customerId", @"orgUnitPath"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/orgunits{/orgUnitPath*}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/orgunits/{+orgUnitPath}";
   GTLRDirectoryQuery_OrgunitsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1078,19 +1139,12 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @dynamic customerId, orgUnitPath;
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"orgUnitPath" : [NSString class]
-  };
-  return map;
-}
-
 + (instancetype)queryWithCustomerId:(NSString *)customerId
-                        orgUnitPath:(NSArray<NSString *> *)orgUnitPath {
+                        orgUnitPath:(NSString *)orgUnitPath {
   NSArray *pathParams = @[
     @"customerId", @"orgUnitPath"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/orgunits{/orgUnitPath*}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/orgunits/{+orgUnitPath}";
   GTLRDirectoryQuery_OrgunitsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1117,7 +1171,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customer/{customerId}/orgunits";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/orgunits";
   GTLRDirectoryQuery_OrgunitsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1137,7 +1191,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId {
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customer/{customerId}/orgunits";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/orgunits";
   GTLRDirectoryQuery_OrgunitsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1154,16 +1208,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @dynamic customerId, orgUnitPath;
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"orgUnitPath" : [NSString class]
-  };
-  return map;
-}
-
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId
-                    orgUnitPath:(NSArray<NSString *> *)orgUnitPath {
+                    orgUnitPath:(NSString *)orgUnitPath {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -1173,7 +1220,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"orgUnitPath"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/orgunits{/orgUnitPath*}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/orgunits/{+orgUnitPath}";
   GTLRDirectoryQuery_OrgunitsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1192,16 +1239,9 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @dynamic customerId, orgUnitPath;
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"orgUnitPath" : [NSString class]
-  };
-  return map;
-}
-
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId
-                    orgUnitPath:(NSArray<NSString *> *)orgUnitPath {
+                    orgUnitPath:(NSString *)orgUnitPath {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -1211,7 +1251,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"orgUnitPath"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/orgunits{/orgUnitPath*}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/orgunits/{+orgUnitPath}";
   GTLRDirectoryQuery_OrgunitsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1232,7 +1272,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/roles/ALL/privileges";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roles/ALL/privileges";
   GTLRDirectoryQuery_PrivilegesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1254,7 +1294,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"buildingId", @"customer"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/buildings/{buildingId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/buildings/{buildingId}";
   GTLRDirectoryQuery_ResourcesBuildingsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1276,7 +1316,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"buildingId", @"customer"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/buildings/{buildingId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/buildings/{buildingId}";
   GTLRDirectoryQuery_ResourcesBuildingsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1303,7 +1343,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/buildings";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/buildings";
   GTLRDirectoryQuery_ResourcesBuildingsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1323,7 +1363,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/buildings";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/buildings";
   GTLRDirectoryQuery_ResourcesBuildingsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1352,7 +1392,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"buildingId", @"customer"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/buildings/{buildingId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/buildings/{buildingId}";
   GTLRDirectoryQuery_ResourcesBuildingsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1383,7 +1423,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"buildingId", @"customer"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/buildings/{buildingId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/buildings/{buildingId}";
   GTLRDirectoryQuery_ResourcesBuildingsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1407,7 +1447,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"calendarResourceId", @"customer"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/calendars/{calendarResourceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/calendars/{calendarResourceId}";
   GTLRDirectoryQuery_ResourcesCalendarsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1429,7 +1469,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"calendarResourceId", @"customer"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/calendars/{calendarResourceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/calendars/{calendarResourceId}";
   GTLRDirectoryQuery_ResourcesCalendarsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1456,7 +1496,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/calendars";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/calendars";
   GTLRDirectoryQuery_ResourcesCalendarsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1476,7 +1516,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/calendars";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/calendars";
   GTLRDirectoryQuery_ResourcesCalendarsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1505,7 +1545,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"calendarResourceId", @"customer"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/calendars/{calendarResourceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/calendars/{calendarResourceId}";
   GTLRDirectoryQuery_ResourcesCalendarsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1536,7 +1576,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"calendarResourceId", @"customer"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/calendars/{calendarResourceId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/calendars/{calendarResourceId}";
   GTLRDirectoryQuery_ResourcesCalendarsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1560,7 +1600,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"featureKey"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/features/{featureKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/features/{featureKey}";
   GTLRDirectoryQuery_ResourcesFeaturesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1582,7 +1622,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"featureKey"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/features/{featureKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/features/{featureKey}";
   GTLRDirectoryQuery_ResourcesFeaturesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1609,7 +1649,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/features";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/features";
   GTLRDirectoryQuery_ResourcesFeaturesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1629,7 +1669,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/features";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/features";
   GTLRDirectoryQuery_ResourcesFeaturesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1658,7 +1698,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"featureKey"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/features/{featureKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/features/{featureKey}";
   GTLRDirectoryQuery_ResourcesFeaturesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1689,7 +1729,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"oldName"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/features/{oldName}/rename";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/features/{oldName}/rename";
   GTLRDirectoryQuery_ResourcesFeaturesRename *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1719,7 +1759,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"featureKey"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/resources/features/{featureKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/resources/features/{featureKey}";
   GTLRDirectoryQuery_ResourcesFeaturesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1743,7 +1783,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"roleAssignmentId"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/roleassignments/{roleAssignmentId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roleassignments/{roleAssignmentId}";
   GTLRDirectoryQuery_RoleAssignmentsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1765,7 +1805,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"roleAssignmentId"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/roleassignments/{roleAssignmentId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roleassignments/{roleAssignmentId}";
   GTLRDirectoryQuery_RoleAssignmentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1792,7 +1832,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/roleassignments";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roleassignments";
   GTLRDirectoryQuery_RoleAssignmentsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1812,7 +1852,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/roleassignments";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roleassignments";
   GTLRDirectoryQuery_RoleAssignmentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1834,7 +1874,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"roleId"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/roles/{roleId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roles/{roleId}";
   GTLRDirectoryQuery_RolesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1856,7 +1896,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"roleId"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/roles/{roleId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roles/{roleId}";
   GTLRDirectoryQuery_RolesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1883,7 +1923,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/roles";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roles";
   GTLRDirectoryQuery_RolesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1903,7 +1943,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomer:(NSString *)customer {
   NSArray *pathParams = @[ @"customer" ];
-  NSString *pathURITemplate = @"customer/{customer}/roles";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roles";
   GTLRDirectoryQuery_RolesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1932,7 +1972,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"roleId"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/roles/{roleId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roles/{roleId}";
   GTLRDirectoryQuery_RolesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1963,7 +2003,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customer", @"roleId"
   ];
-  NSString *pathURITemplate = @"customer/{customer}/roles/{roleId}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customer}/roles/{roleId}";
   GTLRDirectoryQuery_RolesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1987,7 +2027,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"schemaKey"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/schemas/{schemaKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/schemas/{schemaKey}";
   GTLRDirectoryQuery_SchemasDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2009,7 +2049,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"schemaKey"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/schemas/{schemaKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/schemas/{schemaKey}";
   GTLRDirectoryQuery_SchemasGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2036,7 +2076,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customer/{customerId}/schemas";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/schemas";
   GTLRDirectoryQuery_SchemasInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2056,7 +2096,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId {
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customer/{customerId}/schemas";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/schemas";
   GTLRDirectoryQuery_SchemasList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2085,7 +2125,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"schemaKey"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/schemas/{schemaKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/schemas/{schemaKey}";
   GTLRDirectoryQuery_SchemasPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2116,7 +2156,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"customerId", @"schemaKey"
   ];
-  NSString *pathURITemplate = @"customer/{customerId}/schemas/{schemaKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/schemas/{schemaKey}";
   GTLRDirectoryQuery_SchemasUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2140,7 +2180,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"clientId", @"userKey"
   ];
-  NSString *pathURITemplate = @"users/{userKey}/tokens/{clientId}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/tokens/{clientId}";
   GTLRDirectoryQuery_TokensDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2162,7 +2202,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"clientId", @"userKey"
   ];
-  NSString *pathURITemplate = @"users/{userKey}/tokens/{clientId}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/tokens/{clientId}";
   GTLRDirectoryQuery_TokensGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2182,7 +2222,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/tokens";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/tokens";
   GTLRDirectoryQuery_TokensList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2190,6 +2230,24 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   query.userKey = userKey;
   query.expectedObjectClass = [GTLRDirectory_Tokens class];
   query.loggingName = @"directory.tokens.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_TwoStepVerificationTurnOff
+
+@dynamic userKey;
+
++ (instancetype)queryWithUserKey:(NSString *)userKey {
+  NSArray *pathParams = @[ @"userKey" ];
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/twoStepVerification/turnOff";
+  GTLRDirectoryQuery_TwoStepVerificationTurnOff *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.userKey = userKey;
+  query.loggingName = @"directory.twoStepVerification.turnOff";
   return query;
 }
 
@@ -2204,7 +2262,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   NSArray *pathParams = @[
     @"alias", @"userKey"
   ];
-  NSString *pathURITemplate = @"users/{userKey}/aliases/{alias}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/aliases/{alias}";
   GTLRDirectoryQuery_UsersAliasesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2230,7 +2288,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/aliases";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/aliases";
   GTLRDirectoryQuery_UsersAliasesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2246,11 +2304,11 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_UsersAliasesList
 
-@dynamic event, userKey;
+@dynamic userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/aliases";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/aliases";
   GTLRDirectoryQuery_UsersAliasesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2276,7 +2334,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/aliases/watch";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/aliases/watch";
   GTLRDirectoryQuery_UsersAliasesWatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2296,7 +2354,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}";
   GTLRDirectoryQuery_UsersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2314,7 +2372,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}";
   GTLRDirectoryQuery_UsersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2336,7 +2394,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"users";
+  NSString *pathURITemplate = @"admin/directory/v1/users";
   GTLRDirectoryQuery_UsersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2351,11 +2409,11 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_UsersList
 
-@dynamic customer, customFieldMask, domain, event, maxResults, orderBy,
-         pageToken, projection, query, showDeleted, sortOrder, viewType;
+@dynamic customer, customFieldMask, domain, maxResults, orderBy, pageToken,
+         projection, query, showDeleted, sortOrder, viewType;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"users";
+  NSString *pathURITemplate = @"admin/directory/v1/users";
   GTLRDirectoryQuery_UsersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2380,7 +2438,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/makeAdmin";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/makeAdmin";
   GTLRDirectoryQuery_UsersMakeAdmin *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2406,7 +2464,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}";
   GTLRDirectoryQuery_UsersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2426,7 +2484,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/photos/thumbnail";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/photos/thumbnail";
   GTLRDirectoryQuery_UsersPhotosDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2444,7 +2502,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/photos/thumbnail";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/photos/thumbnail";
   GTLRDirectoryQuery_UsersPhotosGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2470,7 +2528,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/photos/thumbnail";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/photos/thumbnail";
   GTLRDirectoryQuery_UsersPhotosPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2497,7 +2555,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/photos/thumbnail";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/photos/thumbnail";
   GTLRDirectoryQuery_UsersPhotosUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2506,6 +2564,24 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
   query.userKey = userKey;
   query.expectedObjectClass = [GTLRDirectory_UserPhoto class];
   query.loggingName = @"directory.users.photos.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_UsersSignOut
+
+@dynamic userKey;
+
++ (instancetype)queryWithUserKey:(NSString *)userKey {
+  NSArray *pathParams = @[ @"userKey" ];
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/signOut";
+  GTLRDirectoryQuery_UsersSignOut *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.userKey = userKey;
+  query.loggingName = @"directory.users.signOut";
   return query;
 }
 
@@ -2524,7 +2600,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/undelete";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/undelete";
   GTLRDirectoryQuery_UsersUndelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2550,7 +2626,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
     return nil;
   }
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}";
   GTLRDirectoryQuery_UsersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2576,7 +2652,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"users/watch";
+  NSString *pathURITemplate = @"admin/directory/v1/users/watch";
   GTLRDirectoryQuery_UsersWatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2595,7 +2671,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/verificationCodes/generate";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/verificationCodes/generate";
   GTLRDirectoryQuery_VerificationCodesGenerate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2613,7 +2689,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/verificationCodes/invalidate";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/verificationCodes/invalidate";
   GTLRDirectoryQuery_VerificationCodesInvalidate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2631,7 +2707,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];
-  NSString *pathURITemplate = @"users/{userKey}/verificationCodes";
+  NSString *pathURITemplate = @"admin/directory/v1/users/{userKey}/verificationCodes";
   GTLRDirectoryQuery_VerificationCodesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

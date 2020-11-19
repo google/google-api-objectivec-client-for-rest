@@ -4,10 +4,8 @@
 // API:
 //   Poly API (poly/v1)
 // Description:
-//   The Poly API provides read access to assets hosted on <a
-//   href="https://poly.google.com">poly.google.com</a> to all, and upload
-//   access to <a href="https://poly.google.com">poly.google.com</a> for
-//   whitelisted accounts.
+//   The Poly API provides read access to assets hosted on poly.google.com to
+//   all, and upload access to poly.google.com for whitelisted accounts.
 // Documentation:
 //   https://developers.google.com/poly/
 

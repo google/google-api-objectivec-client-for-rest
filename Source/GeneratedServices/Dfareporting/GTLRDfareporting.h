@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.4)
 // Description:
-//   Manages your DoubleClick Campaign Manager ad campaigns and reports.
+//   Manage your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 

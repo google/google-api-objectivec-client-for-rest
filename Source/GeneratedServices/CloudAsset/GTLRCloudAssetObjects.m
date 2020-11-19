@@ -24,6 +24,7 @@ NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_AccessPolicy = 
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy = @"IAM_POLICY";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy = @"ORG_POLICY";
+NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OsInventory = @"OS_INVENTORY";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource = @"RESOURCE";
 
 // GTLRCloudAsset_Feed.contentType
@@ -31,7 +32,12 @@ NSString * const kGTLRCloudAsset_Feed_ContentType_AccessPolicy = @"ACCESS_POLICY
 NSString * const kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAsset_Feed_ContentType_IamPolicy    = @"IAM_POLICY";
 NSString * const kGTLRCloudAsset_Feed_ContentType_OrgPolicy    = @"ORG_POLICY";
+NSString * const kGTLRCloudAsset_Feed_ContentType_OsInventory  = @"OS_INVENTORY";
 NSString * const kGTLRCloudAsset_Feed_ContentType_Resource     = @"RESOURCE";
+
+// GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination.partitionKey
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_PartitionKeyUnspecified = @"PARTITION_KEY_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination_PartitionKey_RequestTime = @"REQUEST_TIME";
 
 // GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy.allValues
 NSString * const kGTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy_AllValues_Allow = @"ALLOW";
@@ -67,6 +73,34 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstrain
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeBridge = @"PERIMETER_TYPE_BRIDGE";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter_PerimeterType_PerimeterTypeRegular = @"PERIMETER_TYPE_REGULAR";
 
+// GTLRCloudAsset_IamPolicyAnalysisState.code
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Aborted = @"ABORTED";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_AlreadyExists = @"ALREADY_EXISTS";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Internal = @"INTERNAL";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_NotFound = @"NOT_FOUND";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Ok = @"OK";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_OutOfRange = @"OUT_OF_RANGE";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Unimplemented = @"UNIMPLEMENTED";
+NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_Unknown = @"UNKNOWN";
+
+// GTLRCloudAsset_Item.originType
+NSString * const kGTLRCloudAsset_Item_OriginType_InventoryReport = @"INVENTORY_REPORT";
+NSString * const kGTLRCloudAsset_Item_OriginType_OriginTypeUnspecified = @"ORIGIN_TYPE_UNSPECIFIED";
+
+// GTLRCloudAsset_Item.type
+NSString * const kGTLRCloudAsset_Item_Type_AvailablePackage = @"AVAILABLE_PACKAGE";
+NSString * const kGTLRCloudAsset_Item_Type_InstalledPackage = @"INSTALLED_PACKAGE";
+NSString * const kGTLRCloudAsset_Item_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
+
 // GTLRCloudAsset_PartitionSpec.partitionKey
 NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_PartitionKeyUnspecified = @"PARTITION_KEY_UNSPECIFIED";
 NSString * const kGTLRCloudAsset_PartitionSpec_PartitionKey_ReadTime = @"READ_TIME";
@@ -81,12 +115,59 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_AccessSelector
+//
+
+@implementation GTLRCloudAsset_AccessSelector
+@dynamic permissions, roles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class],
+    @"roles" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AnalyzeIamPolicyLongrunningRequest
+//
+
+@implementation GTLRCloudAsset_AnalyzeIamPolicyLongrunningRequest
+@dynamic analysisQuery, outputConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_AnalyzeIamPolicyResponse
+//
+
+@implementation GTLRCloudAsset_AnalyzeIamPolicyResponse
+@dynamic fullyExplored, mainAnalysis, serviceAccountImpersonationAnalysis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceAccountImpersonationAnalysis" : [GTLRCloudAsset_IamPolicyAnalysis class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_Asset
 //
 
 @implementation GTLRCloudAsset_Asset
 @dynamic accessLevel, accessPolicy, ancestors, assetType, iamPolicy, name,
-         orgPolicy, resource, servicePerimeter, updateTime;
+         orgPolicy, osInventory, resource, servicePerimeter, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -293,6 +374,105 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_GcsDestination
 @dynamic uri, uriPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1Access
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1Access
+@dynamic analysisState, permission, role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1AccessControlList
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1AccessControlList
+@dynamic accesses, resourceEdges, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accesses" : [GTLRCloudAsset_GoogleCloudAssetV1Access class],
+    @"resourceEdges" : [GTLRCloudAsset_GoogleCloudAssetV1Edge class],
+    @"resources" : [GTLRCloudAsset_GoogleCloudAssetV1Resource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination
+@dynamic dataset, partitionKey, tablePrefix, writeDisposition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1Edge
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1Edge
+@dynamic sourceNode, targetNode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1GcsDestination
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1GcsDestination
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1Identity
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1Identity
+@dynamic analysisState, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1IdentityList
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1IdentityList
+@dynamic groupEdges, identities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"groupEdges" : [GTLRCloudAsset_GoogleCloudAssetV1Edge class],
+    @"identities" : [GTLRCloudAsset_GoogleCloudAssetV1Identity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1Resource
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1Resource
+@dynamic analysisState, fullResourceName;
 @end
 
 
@@ -519,11 +699,129 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_IamPolicyAnalysis
+//
+
+@implementation GTLRCloudAsset_IamPolicyAnalysis
+@dynamic analysisQuery, analysisResults, fullyExplored, nonCriticalErrors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"analysisResults" : [GTLRCloudAsset_IamPolicyAnalysisResult class],
+    @"nonCriticalErrors" : [GTLRCloudAsset_IamPolicyAnalysisState class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_IamPolicyAnalysisOutputConfig
+//
+
+@implementation GTLRCloudAsset_IamPolicyAnalysisOutputConfig
+@dynamic bigqueryDestination, gcsDestination;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_IamPolicyAnalysisQuery
+//
+
+@implementation GTLRCloudAsset_IamPolicyAnalysisQuery
+@dynamic accessSelector, identitySelector, options, resourceSelector, scope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_IamPolicyAnalysisResult
+//
+
+@implementation GTLRCloudAsset_IamPolicyAnalysisResult
+@dynamic accessControlLists, attachedResourceFullName, fullyExplored,
+         iamBinding, identityList;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accessControlLists" : [GTLRCloudAsset_GoogleCloudAssetV1AccessControlList class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_IamPolicyAnalysisState
+//
+
+@implementation GTLRCloudAsset_IamPolicyAnalysisState
+@dynamic cause, code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_IamPolicySearchResult
 //
 
 @implementation GTLRCloudAsset_IamPolicySearchResult
 @dynamic explanation, policy, project, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_IdentitySelector
+//
+
+@implementation GTLRCloudAsset_IdentitySelector
+@dynamic identity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_Inventory
+//
+
+@implementation GTLRCloudAsset_Inventory
+@dynamic items, osInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_Inventory_Items
+//
+
+@implementation GTLRCloudAsset_Inventory_Items
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudAsset_Item class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_Item
+//
+
+@implementation GTLRCloudAsset_Item
+@dynamic availablePackage, createTime, identifier, installedPackage, originType,
+         type, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -580,6 +878,28 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_Options
+//
+
+@implementation GTLRCloudAsset_Options
+@dynamic analyzeServiceAccountImpersonation, expandGroups, expandResources,
+         expandRoles, outputGroupEdges, outputResourceEdges;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_OsInfo
+//
+
+@implementation GTLRCloudAsset_OsInfo
+@dynamic architecture, hostname, kernelRelease, kernelVersion, longName,
+         osconfigAgentVersion, shortName, version;
 @end
 
 
@@ -732,6 +1052,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_ResourceSelector
+//
+
+@implementation GTLRCloudAsset_ResourceSelector
+@dynamic fullResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_SearchAllIamPoliciesResponse
 //
 
@@ -771,6 +1101,17 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return @"results";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_SoftwarePackage
+//
+
+@implementation GTLRCloudAsset_SoftwarePackage
+@dynamic aptPackage, cosPackage, googetPackage, qfePackage, wuaPackage,
+         yumPackage, zypperPackage, zypperPatch;
 @end
 
 
@@ -833,4 +1174,80 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_UpdateFeedRequest
 @dynamic feed, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_VersionedPackage
+//
+
+@implementation GTLRCloudAsset_VersionedPackage
+@dynamic architecture, packageName, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_WindowsQuickFixEngineeringPackage
+//
+
+@implementation GTLRCloudAsset_WindowsQuickFixEngineeringPackage
+@dynamic caption, descriptionProperty, hotFixId, installTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_WindowsUpdateCategory
+//
+
+@implementation GTLRCloudAsset_WindowsUpdateCategory
+@dynamic identifier, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_WindowsUpdatePackage
+//
+
+@implementation GTLRCloudAsset_WindowsUpdatePackage
+@dynamic categories, descriptionProperty, kbArticleIds,
+         lastDeploymentChangeTime, moreInfoUrls, revisionNumber, supportUrl,
+         title, updateId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categories" : [GTLRCloudAsset_WindowsUpdateCategory class],
+    @"kbArticleIds" : [NSString class],
+    @"moreInfoUrls" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_ZypperPatch
+//
+
+@implementation GTLRCloudAsset_ZypperPatch
+@dynamic category, patchName, severity, summary;
 @end
