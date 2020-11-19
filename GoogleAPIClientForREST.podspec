@@ -120,10 +120,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Appengine/*.{h,m}'
   end
-  s.subspec 'Appsactivity' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/Appsactivity/*.{h,m}'
-  end
   s.subspec 'Area120Tables' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Area120Tables/*.{h,m}'
