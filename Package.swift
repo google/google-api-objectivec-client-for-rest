@@ -720,10 +720,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_StreetViewPublish"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_SystemsManagement",
-            targets: ["GoogleAPIClientForREST_SystemsManagement"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_TPU",
             targets: ["GoogleAPIClientForREST_TPU"]
         ),
@@ -1909,12 +1905,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_StreetViewPublish",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/StreetViewPublish",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_SystemsManagement",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/SystemsManagement",
             publicHeadersPath: "."
         ),
         .target(

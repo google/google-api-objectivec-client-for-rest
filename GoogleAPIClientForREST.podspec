@@ -740,10 +740,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/StreetViewPublish/*.{h,m}'
   end
-  s.subspec 'SystemsManagement' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/SystemsManagement/*.{h,m}'
-  end
   s.subspec 'TPU' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/TPU/*.{h,m}'
