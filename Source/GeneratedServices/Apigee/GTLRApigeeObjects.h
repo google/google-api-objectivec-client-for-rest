@@ -30,6 +30,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1AccessRemove;
 @class GTLRApigee_GoogleCloudApigeeV1AccessSet;
 @class GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig;
+@class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProductRef;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProxy;
@@ -38,6 +39,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQuery;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQueryResult;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
+@class GTLRApigee_GoogleCloudApigeeV1CanaryEvaluationMetricLabels;
 @class GTLRApigee_GoogleCloudApigeeV1Certificate;
 @class GTLRApigee_GoogleCloudApigeeV1CertInfo;
 @class GTLRApigee_GoogleCloudApigeeV1CommonNameConfig;
@@ -45,6 +47,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1Credential;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReport;
 @class GTLRApigee_GoogleCloudApigeeV1CustomReportMetric;
+@class GTLRApigee_GoogleCloudApigeeV1DataCollector;
 @class GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Datastore;
 @class GTLRApigee_GoogleCloudApigeeV1DatastoreConfig;
@@ -101,7 +104,6 @@
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig;
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride;
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig;
-@class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange;
 @class GTLRApigee_GoogleCloudApigeeV1SchemaSchemaElement;
 @class GTLRApigee_GoogleCloudApigeeV1SchemaSchemaProperty;
 @class GTLRApigee_GoogleCloudApigeeV1ServiceIssuersMapping;
@@ -109,6 +111,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1SharedFlow;
 @class GTLRApigee_GoogleCloudApigeeV1SharedFlowRevision_EntityMetaDataAsProperties;
 @class GTLRApigee_GoogleCloudApigeeV1StatsEnvironmentStats;
+@class GTLRApigee_GoogleCloudApigeeV1StatsHostStats;
 @class GTLRApigee_GoogleCloudApigeeV1TargetServerConfig;
 @class GTLRApigee_GoogleCloudApigeeV1TlsInfo;
 @class GTLRApigee_GoogleCloudApigeeV1TlsInfoCommonName;
@@ -156,6 +159,96 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionC
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_Cert;
 /** Value: "KEY_CERT" */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1CanaryEvaluation.state
+
+/**
+ *  The canary evaluation is still in progress.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_State_Running;
+/**
+ *  No state has been specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_State_StateUnspecified;
+/**
+ *  The canary evaluation has finished.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1CanaryEvaluation.verdict
+
+/**
+ *  Evaluation is not good.
+ *
+ *  Value: "FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_Verdict_Fail;
+/**
+ *  No verdict reached.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_Verdict_None;
+/**
+ *  Evaluation is good.
+ *
+ *  Value: "PASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_Verdict_Pass;
+/**
+ *  Verdict is not available yet.
+ *
+ *  Value: "VERDICT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_Verdict_VerdictUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1DataCollector.type
+
+/**
+ *  For boolean values.
+ *
+ *  Value: "BOOLEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Boolean;
+/**
+ *  For datetime values.
+ *
+ *  Value: "DATETIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Datetime;
+/**
+ *  For float values.
+ *
+ *  Value: "FLOAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Float;
+/**
+ *  For integer values.
+ *
+ *  Value: "INTEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Integer;
+/**
+ *  For string values.
+ *
+ *  Value: "STRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_String;
+/**
+ *  For future compatibility.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1DataCollectorConfig.type
@@ -226,6 +319,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_Sta
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Instance.state
+
+/**
+ *  Resource is provisioned and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Active;
+/**
+ *  Resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Deleting;
+/**
+ *  Resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.operationType
 
 /** Value: "DELETE" */
@@ -264,7 +385,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_R
  *  Value: "HYBRID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_Hybrid;
-/** Value: "RUNTIME_TYPE_UNSPECIFIED" */
+/**
+ *  Runtime type not specified.
+ *
+ *  Value: "RUNTIME_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_RuntimeTypeUnspecified;
 
 // ----------------------------------------------------------------------------
@@ -276,7 +401,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_R
  *  Value: "PAID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Paid;
-/** Value: "SUBSCRIPTION_TYPE_UNSPECIFIED" */
+/**
+ *  Subscription type not specified.
+ *
+ *  Value: "SUBSCRIPTION_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_SubscriptionTypeUnspecified;
 /**
  *  Subscription to Apigee is free, limited, and used for evaluation purposes
@@ -339,28 +468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceCo
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeger;
 
 // ----------------------------------------------------------------------------
-// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig.errorSources
-
-/**
- *  Only capture trace errors within the Apigee system.
- *
- *  Value: "APIGEE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_Apigee;
-/**
- *  Error source is unspecified.
- *
- *  Value: "ERROR_SOURCE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_ErrorSourceUnspecified;
-/**
- *  Only capture trace errors from target server.
- *
- *  Value: "TARGET"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_ErrorSources_Target;
-
-// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig.sampler
 
 /**
@@ -369,13 +476,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSa
  *  Value: "OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Off;
-/**
- *  ON means distributed trace is enabled always for all api calls, and sampling
- *  probability is 0.5.
- *
- *  Value: "ON"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_On;
 /**
  *  PROBABILITY means traces are captured on a probability that defined by
  *  sampling_rate. The sampling rate is limited to 0 to 0.5 when this is set.
@@ -758,38 +858,71 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  the Api category resource wrapped with response status, error_code etc.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiCategory : GTLRObject
+
+/** Details of category. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *data;
+
+/** ID that can be used to find errors in the log files. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** ID that can be used to find request details in the log files. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  the Api category resource.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiCategoryData : GTLRObject
+
+/**
+ *  ID of the category (a UUID).
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Name of the category. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Name of the portal. */
+@property(nonatomic, copy, nullable) NSString *siteId;
+
+/**
+ *  Time the category was last modified in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updateTime;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1ApiProduct
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiProduct : GTLRObject
 
-/**
- *  Comma-separated list of API resources to be bundled in the API Product. By
- *  default, the resource paths are mapped from the `proxy.pathsuffix` variable.
- *  The proxy path suffix is defined as the URI fragment following the
- *  ProxyEndpoint base path. For example, if the `apiResources` element is
- *  defined to be `/forecastrss` and the base path defined for the API proxy is
- *  `/weather`, then only requests to `/weather/forecastrss` are permitted by
- *  the API product. You can select a specific path, or you can select all
- *  subpaths with the following wildcard: - / **: Indicates that all sub-URIs
- *  are included. - / * : Indicates that only URIs one level down are included.
- *  By default, / supports the same resources as / ** as well as the base path
- *  defined by the API proxy. For example, if the base path of the API proxy is
- *  `/v1/weatherapikey`, then the API product supports requests to
- *  `/v1/weatherapikey` and to any sub-URIs, such as
- *  `/v1/weatherapikey/forecastrss`, `/v1/weatherapikey/region/CA`, and so on.
- *  For more information, see: - Manage API products - Managing a transaction
- *  recording policy using the API
- */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *apiResources;
 
 /**
- *  Specifies how API keys are approved to access the APIs defined by the API
- *  product. If set to `manual`, the consumer key is generated and returned in
- *  "pending" state. In this case, the API keys won't work until they have been
- *  explicitly approved. If set to `auto`, the consumer key is generated and
- *  returned in "approved" state and can be used immediately. *NOTE:* Typically,
- *  `auto` is used to provide access to free or trial API products that provide
- *  limited quota or capabilities.
+ *  Flag that specifies how API keys are approved to access the APIs defined by
+ *  the API product. If set to `manual`, the consumer key is generated and
+ *  returned in "pending" state. In this case, the API keys won't work until
+ *  they have been explicitly approved. If set to `auto`, the consumer key is
+ *  generated and returned in "approved" state and can be used immediately.
+ *  **Note:** Typically, `auto` is used to provide access to free or trial API
+ *  products that provide limited quota or capabilities.
  */
 @property(nonatomic, copy, nullable) NSString *approvalType;
 
@@ -801,10 +934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  are available to developers in the Apigee developer portal. For example, you
  *  can set a product to `internal` while it is in development and then change
  *  access to `public` when it is ready to release on the portal. API products
- *  marked as `private` do not appear on the portal but can be accessed by
- *  external developers. For monetization, you can use the attributes field to:
- *  - Specify transaction success criteria - Specify custom attributes on which
- *  you base rate plan charges.
+ *  marked as `private` do not appear on the portal, but can be accessed by
+ *  external developers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
 
@@ -817,28 +948,41 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *createdAt;
 
 /**
- *  An overview of the API product. Include key information about the API
- *  product that is not captured by other fields.
+ *  Description of the API product. Include key information about the API
+ *  product that is not captured by other fields. Comma-separated list of API
+ *  resources to be bundled in the API product. By default, the resource paths
+ *  are mapped from the `proxy.pathsuffix` variable. The proxy path suffix is
+ *  defined as the URI fragment following the ProxyEndpoint base path. For
+ *  example, if the `apiResources` element is defined to be `/forecastrss` and
+ *  the base path defined for the API proxy is `/weather`, then only requests to
+ *  `/weather/forecastrss` are permitted by the API product. You can select a
+ *  specific path, or you can select all subpaths with the following wildcard: -
+ *  `/ **`: Indicates that all sub-URIs are included. - `/ *` : Indicates that
+ *  only URIs one level down are included. By default, / supports the same
+ *  resources as / ** as well as the base path defined by the API proxy. For
+ *  example, if the base path of the API proxy is `/v1/weatherapikey`, then the
+ *  API product supports requests to `/v1/weatherapikey` and to any sub-URIs,
+ *  such as `/v1/weatherapikey/forecastrss`, `/v1/weatherapikey/region/CA`, and
+ *  so on. For more information, see Managing API products.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The name to be displayed in the UI or developer portal to developers
- *  registering for API access.
+ *  Name displayed in the UI or developer portal to developers registering for
+ *  API access.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  A comma-separated list of environment names to which the API product is
- *  bound. Requests to environments that are not listed are rejected. By
- *  specifying one or more environments, you can bind the resources listed in
- *  the API product to a specific environment, preventing developers from
- *  accessing those resources through API proxies deployed in another
- *  environment. This setting is used, for example, to prevent resources
- *  associated with API proxies in 'prod' from being accessed by API proxies
- *  deployed in 'test'.
+ *  Comma-separated list of environment names to which the API product is bound.
+ *  Requests to environments that are not listed are rejected. By specifying one
+ *  or more environments, you can bind the resources listed in the API product
+ *  to a specific environment, preventing developers from accessing those
+ *  resources through API proxies deployed in another environment. This setting
+ *  is used, for example, to prevent resources associated with API proxies in
+ *  `prod` from being accessed by API proxies deployed in `test`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
 
@@ -851,58 +995,54 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
 
 /**
- *  The internal name of the API Product. Characters you can use in the name are
- *  restricted to: A-Z0-9._\\-$ %. *NOTE:* The internal name cannot be edited
- *  when updating the API product.
+ *  Internal name of the API product. Characters you can use in the name are
+ *  restricted to: `A-Z0-9._\\-$ %`. **Note:** The internal name cannot be
+ *  edited when updating the API product.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The operation_group enables api product creators to group Apigee proxies or
- *  remote services with resources, method types and quotas. The resource refers
- *  to the resource URI(excluding the base path). With this grouping, API
- *  product creator is able to finetune and give precise control over which REST
- *  methods have access to which resources, and how many such calls can be made
- *  (via Quota). Note that api_resources cannot be specified at both the API
- *  product level as well as within the operation_group. If configured that way,
- *  the call will fail. Please refer go/api-product-with-methods for additional
- *  details.
+ *  Configuration used to group Apigee proxies or remote services with
+ *  resources, method types, and quotas. The resource refers to the resource URI
+ *  (excluding the base path). With this grouping, the API product creator is
+ *  able to fine-tune and give precise control over which REST methods have
+ *  access to specific resources and how many calls can be made (using the
+ *  `quota` setting). **Note:** The `api_resources` setting cannot be specified
+ *  for both the API product and operation group; otherwise the call will fail.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1OperationGroup *operationGroup;
 
 /**
- *  A comma-separated list of API proxy names to which this API product is
- *  bound. By specifying API proxies, you can associate resources in the API
- *  product with specific API proxies, preventing developers from accessing
- *  those resources through other API proxies. Edge rejects requests to API
- *  proxies that are not listed. *NOTE:* The API proxy names must already exist
- *  in the specified environment as they will be validated upon creation.
+ *  Comma-separated list of API proxy names to which this API product is bound.
+ *  By specifying API proxies, you can associate resources in the API product
+ *  with specific API proxies, preventing developers from accessing those
+ *  resources through other API proxies. Apigee rejects requests to API proxies
+ *  that are not listed. **Note:** The API proxy names must already exist in the
+ *  specified environment as they will be validated upon creation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proxies;
 
 /**
- *  The number of request messages permitted per app by this API product for the
+ *  Number of request messages permitted per app by this API product for the
  *  specified `quotaInterval` and `quotaTimeUnit`. For example, a `quota` of 50,
  *  for a `quotaInterval` of 12 and a `quotaTimeUnit` of hours means 50 requests
  *  are allowed every 12 hours.
  */
 @property(nonatomic, copy, nullable) NSString *quota;
 
-/**
- *  The time interval over which the number of request messages is calculated.
- */
+/** Time interval over which the number of request messages is calculated. */
 @property(nonatomic, copy, nullable) NSString *quotaInterval;
 
 /**
- *  The time unit defined for the `quotaInterval`. Valid values include minute,
- *  hour, day, or month.
+ *  Time unit defined for the `quotaInterval`. Valid values include `minute`,
+ *  `hour`, `day`, or `month`.
  */
 @property(nonatomic, copy, nullable) NSString *quotaTimeUnit;
 
 /**
- *  A comma-separated list of OAuth scopes that are validated at runtime. Edge
+ *  Comma-separated list of OAuth scopes that are validated at runtime. Apigee
  *  validates that the scopes in any access token presented match the scopes
- *  defined in the OAuth policy assoicated with the API product.
+ *  defined in the OAuth policy associated with the API product.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
@@ -1072,6 +1212,26 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  GTLRApigee_GoogleCloudApigeeV1ApiResponseWrapper
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApiResponseWrapper : GTLRObject
+
+/** ID that can be used to find errors in the log files. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** ID that can be used to find request details in the log files. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1App
  */
 @interface GTLRApigee_GoogleCloudApigeeV1App : GTLRObject
@@ -1149,6 +1309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Creation time of the query. */
 @property(nonatomic, copy, nullable) NSString *created;
 
+/** Hostname is available only when query is executed at host level. */
+@property(nonatomic, copy, nullable) NSString *envgroupHostname;
+
 /** Error is set when query fails. */
 @property(nonatomic, copy, nullable) NSString *error;
 
@@ -1180,6 +1343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Self link of the query. Example:
  *  `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd`
+ *  or following format if query is running at host level:
+ *  `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd`
  *
  *  Remapped to 'selfProperty' to avoid language reserved word 'self'.
  */
@@ -1205,10 +1370,47 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Self link of the query results. Example:
  *  `/organizations/myorg/environments/myenv/queries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd/result`
+ *  or following format if query is running at host level:
+ *  `/organizations/myorg/hostQueries/9cfc0d85-0f30-46d6-ae6f-318d0cb961bd/result`
  *
  *  Remapped to 'selfProperty' to avoid language reserved word 'self'.
  */
 @property(nonatomic, copy, nullable) NSString *selfProperty;
+
+@end
+
+
+/**
+ *  GTLRApigee_GoogleCloudApigeeV1AsyncQueryResultView
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AsyncQueryResultView : GTLRObject
+
+/**
+ *  Error code when there is a failure.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/** Error message when there is a failure. */
+@property(nonatomic, copy, nullable) NSString *error;
+
+/**
+ *  Metadata contains information like metrics, dimenstions etc of the
+ *  AsyncQuery.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1QueryMetadata *metadata;
+
+/**
+ *  Rows of query result. Each row is a JSON object. Example:
+ *  {sum(message_count): 1, developer_app: "(not set)",…}
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray *rows;
+
+/** State of retrieving ResultView. */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1234,6 +1436,87 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** List of attributes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attribute;
+
+@end
+
+
+/**
+ *  CanaryEvaluation represents the canary analysis between two versions of the
+ *  runtime that is serving requests.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1CanaryEvaluation : GTLRObject
+
+/** Required. The stable version that is serving requests. */
+@property(nonatomic, copy, nullable) NSString *control;
+
+/** Output only. Create time of the canary evaluation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. End time for the evaluation's analysis. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Required. Labels used to filter the metrics used for a canary evaluation.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1CanaryEvaluationMetricLabels *metricLabels;
+
+/** Output only. Name of the canary evalution. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Start time for the canary evaluation's analysis. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The current state of the canary evaluation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_State_Running The
+ *        canary evaluation is still in progress. (Value: "RUNNING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_State_StateUnspecified
+ *        No state has been specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_State_Succeeded
+ *        The canary evaluation has finished. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Required. The newer version that is serving requests. */
+@property(nonatomic, copy, nullable) NSString *treatment;
+
+/**
+ *  Output only. The resulting verdict of the canary evaluations: NONE, PASS, or
+ *  FAIL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_Verdict_Fail
+ *        Evaluation is not good. (Value: "FAIL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_Verdict_None No
+ *        verdict reached. (Value: "NONE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_Verdict_Pass
+ *        Evaluation is good. (Value: "PASS")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1CanaryEvaluation_Verdict_VerdictUnspecified
+ *        Verdict is not available yet. (Value: "VERDICT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+@end
+
+
+/**
+ *  Labels that can be used to filter Apigee metrics.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1CanaryEvaluationMetricLabels : GTLRObject
+
+/** The environment ID associated with the metrics. */
+@property(nonatomic, copy, nullable) NSString *env;
+
+/**
+ *  Required. The instance ID associated with the metrics. In Apigee Hybrid, the
+ *  value is configured during installation.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/** Required. The location associated with the metrics. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 @end
 
@@ -1503,6 +1786,59 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** name of the metric */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Data Collector configuration.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DataCollector : GTLRObject
+
+/**
+ *  Output only. The time at which the Data Collector was created in
+ *  milliseconds since the epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/**
+ *  A description of the Data Collector.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. The time at which the Data Collector was last updated in
+ *  milliseconds since the epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
+
+/** ID of the Data Collector. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Immutable. The type of data this DataCollector will collect.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Boolean For
+ *        boolean values. (Value: "BOOLEAN")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Datetime For
+ *        datetime values. (Value: "DATETIME")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Float For float
+ *        values. (Value: "FLOAT")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Integer For
+ *        integer values. (Value: "INTEGER")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_String For
+ *        string values. (Value: "STRING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_TypeUnspecified
+ *        For future compatibility. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2726,6 +3062,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Output only. Port number of the exposed Apigee endpoint. */
 @property(nonatomic, copy, nullable) NSString *port;
 
+/**
+ *  Output only. State of the instance. Values other than ACTIVE means the
+ *  resource is not ready to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_State_Active Resource is
+ *        provisioned and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_State_Creating Resource is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_State_Deleting The
+ *        resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified
+ *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -2886,6 +3238,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  the response for ListApiCategoriesRequest.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListApiCategoriesResponse : GTLRObject
+
+/** Details of categories. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApiCategoryData *> *data;
+
+/** ID that can be used to find errors in the log files. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Description of the operation. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** ID that can be used to find request details in the log files. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Status of the operation. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1ListApiProductsResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListApiProductsResponse : GTLRObject
@@ -2933,6 +3308,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1ListCustomReportsResponse : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1CustomReport *> *qualifier;
+
+@end
+
+
+/**
+ *  Response for ListDataCollectors.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataCollectors" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListDataCollectorsResponse : GTLRCollectionObject
+
+/**
+ *  Data Collectors in the specified organization.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DataCollector *> *dataCollectors;
+
+/**
+ *  Page token that you can include in a ListDataCollectors request to retrieve
+ *  the next page. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -3242,24 +3644,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1OperationConfig : GTLRObject
 
 /**
- *  Required. api_source represents either a proxy or remote service name for
- *  which the resources, methods and quota are associated with.
+ *  Required. API proxy or remote service name with which the resources,
+ *  methods, and quota are associated.
  */
 @property(nonatomic, copy, nullable) NSString *apiSource;
 
-/** custom attribute associated with the operation. */
+/** Custom attributes associated with the operation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
 
 /**
- *  operations is the list of resource/methods pair, belonging to proxy/remote
- *  service, upon which quota will applied on. Note that currently we allow only
- *  a single operation. The call will fail if more than one is provided.
+ *  List of resource/method pairs for the proxy/remote service, upon which quota
+ *  will applied. **Note**: Currently, you can specify only a single
+ *  resource/method pair. The call will fail if more than one resource/method
+ *  pair is provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Operation *> *operations;
 
 /**
  *  Quota parameters to be enforced for the resources, methods, api_source
- *  combination. If none specified, quota enforcement will not be done.
+ *  combination. If none are specified, quota enforcement will not be done.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Quota *quota;
 
@@ -3267,24 +3670,24 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  The OperationGroup contains a list of configuration details associated with
- *  Apigee proxies or Remote services. Remote services are non-Apigee Edge
- *  proxies. eg, Istio-Envoy.
+ *  List of operation configuration details associated with Apigee API proxies
+ *  or remote services. Remote services are non-Apigee proxies, such as
+ *  Istio-Envoy.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1OperationGroup : GTLRObject
 
 /**
- *  Required. A list of OperationConfig for either Apigee proxies or other other
- *  remote services, that are associated with this API product.
+ *  Required. List of operation configurations for either Apigee API proxies or
+ *  other remote services that are associated with this API product.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1OperationConfig *> *operationConfigs;
 
 /**
- *  Identfies whether the configuration is for Apigee proxy or a remote service.
- *  Possible values are "proxy" and "remoteservice". If none specified, the
- *  default is "proxy". "proxy" is used when Apigee proxies are associated with
- *  the API product. "remoteservice" is used when non-Apigee proxy like Envoy is
- *  used, and is associated with the API product.
+ *  Flag that specifes whether the configuration is for Apigee API proxy or a
+ *  remote service. Valid values are `proxy` or `remoteservice`. Defaults to
+ *  `proxy`. Set to `proxy` when Apigee API proxies are associated with the API
+ *  product. Set to `remoteservice` when non-Apigee proxies like Istio-Envoy are
+ *  associated with the API product.
  */
 @property(nonatomic, copy, nullable) NSString *operationConfigType;
 
@@ -3412,8 +3815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Required. Primary GCP region for analytics data storage. For valid values,
- *  see [Create an
- *  organization](https://docs.apigee.com/hybrid/latest/precog-provision).
+ *  see [Create an Apigee
+ *  organization](https://cloud.google.com/apigee/docs/api-platform/get-started/create-org).
  */
 @property(nonatomic, copy, nullable) NSString *analyticsRegion;
 
@@ -3421,7 +3824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *attributes;
 
 /**
- *  Compute Engine network used for ServiceNetworking to be peered with Apigee
+ *  Compute Engine network used for Service Networking to be peered with Apigee
  *  runtime instances. See [Getting started with the Service Networking
  *  API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
  *  Valid only when [RuntimeType] is set to CLOUD. The value can be updated only
@@ -3480,6 +3883,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Properties *properties;
 
 /**
+ *  Cloud KMS key name used for encrypting the data that is stored and
+ *  replicated across runtime instances. Update is not allowed after the
+ *  organization is created. If not specified, a Google-Managed encryption key
+ *  will be used. Valid only when [RuntimeType] is CLOUD. For example:
+ *  "projects/foo/locations/us/keyRings/bar/cryptoKeys/baz". **Note:** Not
+ *  supported for Apigee hybrid.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeDatabaseEncryptionKeyName;
+
+/**
  *  Required. Runtime type of the Apigee organization based on the Apigee
  *  subscription purchased.
  *
@@ -3489,7 +3902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_Hybrid
  *        User-managed Apigee hybrid runtime. (Value: "HYBRID")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_RuntimeTypeUnspecified
- *        Value "RUNTIME_TYPE_UNSPECIFIED"
+ *        Runtime type not specified. (Value: "RUNTIME_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *runtimeType;
 
@@ -3503,7 +3916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Paid
  *        Full subscription to Apigee has been purchased. (Value: "PAID")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_SubscriptionTypeUnspecified
- *        Value "SUBSCRIPTION_TYPE_UNSPECIFIED"
+ *        Subscription type not specified. (Value:
+ *        "SUBSCRIPTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Trial
  *        Subscription to Apigee is free, limited, and used for evaluation
  *        purposes only. (Value: "TRIAL")
@@ -3653,6 +4067,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Request for ProvisionOrganization.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ProvisionOrganizationRequest : GTLRObject
+
+/**
+ *  Primary Cloud Platform region for analytics data storage. For valid values,
+ *  see [Create an
+ *  organization](https://docs.apigee.com/hybrid/latest/precog-provision).
+ *  Defaults to us-west1.
+ */
+@property(nonatomic, copy, nullable) NSString *analyticsRegion;
+
+/**
+ *  Name of the customer project's VPC network. If provided, the network needs
+ *  to be peered through Service Networking. If none is provided, the
+ *  organization will have access only to the public internet.
+ */
+@property(nonatomic, copy, nullable) NSString *authorizedNetwork;
+
+/**
+ *  Cloud Platform location for the runtime instance. Defaults to us-west1-a.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeLocation;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1Query
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Query : GTLRObject
@@ -3669,6 +4111,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  https://docs.apigee.com/api-platform/analytics/analytics-reference#dimensions
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
+
+/**
+ *  Hostname needs to be specified if query intends to run at host level. This
+ *  field is only allowed when query is submitted by CreateHostAsyncQuery where
+ *  analytics data will be grouped by organization and hostname.
+ */
+@property(nonatomic, copy, nullable) NSString *envgroupHostname;
 
 /**
  *  Boolean expression that can be used to filter data. Filter expressions can
@@ -3797,22 +4246,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1Quota : GTLRObject
 
 /**
- *  Required. The time interval over which the number of request messages is
+ *  Required. Time interval over which the number of request messages is
  *  calculated.
  */
 @property(nonatomic, copy, nullable) NSString *interval;
 
 /**
- *  Required. Limit represents the upper bound count allowed for the time
- *  interval and time unit specified. Requests exceeding this limit will get
- *  rejected.
+ *  Required. Upper limit allowed for the time interval and time unit specified.
+ *  Requests exceeding this limit will be rejected.
  */
 @property(nonatomic, copy, nullable) NSString *limit;
 
 /**
- *  The time unit defined for the `interval`. Valid values include minute, hour,
- *  day, or month. The default value is empty. If limit and interval are valid,
- *  the default value is "hour".
+ *  Time unit defined for the `interval`. Valid values include `minute`, `hour`,
+ *  `day`, or `month`. If `limit` and `interval` are valid, the default value is
+ *  `hour`; otherwise, the default is null.
  */
 @property(nonatomic, copy, nullable) NSString *timeUnit;
 
@@ -4100,10 +4548,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *basepath;
 
 /**
+ *  The env group config revision_id when this rule was added or last updated.
+ *  This value is set when the rule is created and will only update if the the
+ *  environment_id changes. It is used to determine if the runtime is up to date
+ *  with respect to this rule. This field is omitted from the IngressConfig
+ *  unless the GetDeployedIngressConfig API is called with view=FULL.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *envGroupRevision;
+
+/**
  *  Name of an environment bound to the environment group in the following
  *  format: `organizations/{org}/environments/{env}`.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  The resource name of the proxy revision that is receiving this basepath in
+ *  the following format: `organizations/{org}/apis/{api}/revisions/{rev}`. This
+ *  field is omitted from the IngressConfig unless the GetDeployedIngressConfig
+ *  API is called with view=FULL.
+ */
+@property(nonatomic, copy, nullable) NSString *receiver;
+
+/**
+ *  The unix timestamp when this rule was updated. This is updated whenever
+ *  env_group_revision is updated. This field is omitted from the IngressConfig
+ *  unless the GetDeployedIngressConfig API is called with view=FULL.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -4190,7 +4664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Unique ID for the configuration override. The ID will only change if the
- *  override is deleted and recreated.
+ *  override is deleted and recreated. Corresponds to name's "override" field.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
@@ -4198,28 +4672,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  NEXT ID: 6 RuntimeTraceSamplingConfig represents the detail settings of
+ *  NEXT ID: 3 RuntimeTraceSamplingConfig represents the detail settings of
  *  distributed tracing. Only the fields that are defined in the distributed
  *  trace configuration can be overridden using the distribute trace
  *  configuration override APIs.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig : GTLRObject
-
-/**
- *  Error sources from which to capture errors. If none are specified, error
- *  codes are captured from all sources.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *errorSources;
-
-/** List of response code ranges. */
-@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange *> *responseCodeRanges;
-
-/**
- *  List of single response codes.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *responseCodes;
 
 /**
  *  Sampler of distributed tracing. OFF is the default value.
@@ -4228,9 +4686,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Off
  *        OFF means distributed trace is disabled, or the sampling probability
  *        is 0. (Value: "OFF")
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_On
- *        ON means distributed trace is enabled always for all api calls, and
- *        sampling probability is 0.5. (Value: "ON")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Probability
  *        PROBABILITY means traces are captured on a probability that defined by
  *        sampling_rate. The sampling rate is limited to 0 to 0.5 when this is
@@ -4241,38 +4696,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *sampler;
 
 /**
- *  Field sampling rate. This value is only valid when is only applicable when
- *  sampling value is probabilistic(PROBABILITY). The supported values are > 0
- *  and <= 0.5.
+ *  Field sampling rate. This value is only applicable when using the
+ *  PROBABILITY sampler. The supported values are > 0 and <= 0.5.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *samplingRate;
-
-@end
-
-
-/**
- *  ResponseCodeRange represents a group of response codes to capture, from the
- *  first response code to the last response code. Each range is a close
- *  interval. For example, if an interval is [400, 403], then that means 400,
- *  401, 402, 403 will be all captured.
- */
-@interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfigResponseCodeRange : GTLRObject
-
-/**
- *  The first response code to capture.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *firstResponseCode;
-
-/**
- *  The last response code to capture.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *lastResponseCode;
 
 @end
 
@@ -4485,6 +4914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** This field contains a list of query results on environment level. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1StatsEnvironmentStats *> *environments;
 
+/** This field contains a list of query results grouped by host. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1StatsHostStats *> *hosts;
+
 /** This field contains the metadata information. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Metadata *metaData;
 
@@ -4521,6 +4953,35 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  This message type encapsulates the hostname wrapper: "hosts": [ { "metrics":
+ *  [ { "name": "sum(message_count)", "values": [ "2.52056245E8" ] } ], "name":
+ *  "example.com" } ]
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1StatsHostStats : GTLRObject
+
+/** This field contains the list of metrics grouped under dimensions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DimensionMetric *> *dimensions;
+
+/**
+ *  In the final response, only one of the following fields will be present
+ *  based on the dimensions provided. If no dimensions are provided, then only a
+ *  top level metrics is provided. If dimensions are included, then there will
+ *  be a top level dimensions field under hostnames which will contain metrics
+ *  values and the dimension name. Example: "hosts": [ { "dimensions": [ {
+ *  "metrics": [ { "name": "sum(message_count)", "values": [ "2.14049521E8" ] }
+ *  ], "name": "nit_proxy" } ], "name": "example.com" } ] OR "hosts": [ {
+ *  "metrics": [ { "name": "sum(message_count)", "values": [ "2.19026331E8" ] }
+ *  ], "name": "example.com" } ] This field contains the list of metric values.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Metric *> *metrics;
+
+/** This field contains the hostname used in query. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Pub/Sub subscription of an environment.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Subscription : GTLRObject
@@ -4542,11 +5003,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Entity tag (ETag) used for optimistic concurrency control as a way to help
  *  prevent simultaneous updates from overwriting each other. For example, when
- *  you call [getSyncAuthorization](getSyncAuthorization) an ETag is returned in
- *  the response. Pass that ETag when calling the
- *  [setSyncAuthorization](setSyncAuthorization) to ensure that you are updating
- *  the correct version. If you don't pass the ETag in the call to
- *  `setSyncAuthorization`, then the existing authorization is overwritten
+ *  you call [getSyncAuthorization](organizations/getSyncAuthorization) an ETag
+ *  is returned in the response. Pass that ETag when calling the
+ *  [setSyncAuthorization](organizations/setSyncAuthorization) to ensure that
+ *  you are updating the correct version. If you don't pass the ETag in the call
+ *  to `setSyncAuthorization`, then the existing authorization is overwritten
  *  indiscriminately. **Note**: We strongly recommend that you use the ETag in
  *  the read-modify-write cycle to avoid race conditions.
  *
@@ -4565,7 +5026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  multiple environments and wish to assign a unique service account to each
  *  one. The service accounts must have **Apigee Synchronizer Manager** role.
  *  See also [Create service
- *  accounts](https://docs.apigee.com/hybrid/latest/sa-about#create-the-service-accounts).
+ *  accounts](https://cloud.google.com/apigee/docs/hybrid/latest/sa-about#create-the-service-accounts).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -4689,7 +5150,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1TlsInfoCommonName *commonName;
 
 /**
- *  Required. Enables one-way TLS.
+ *  Required. Enables TLS. If false, neither one-way nor two-way TLS will be
+ *  enabled.
  *
  *  Uses NSNumber of boolValue.
  */

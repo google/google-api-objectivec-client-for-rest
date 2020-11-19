@@ -107,10 +107,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudIAP_Binding : GTLRObject
 
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
 @property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
@@ -425,17 +421,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Credentials.
  */
 @interface GTLRCloudIAP_OAuthSettings : GTLRObject
-
-/**
- *  OAuth 2.0 client ID used in the OAuth flow to generate an access token. If
- *  this field is set, you can skip obtaining the OAuth credentials in this
- *  step:
- *  https://developers.google.com/identity/protocols/OAuth2?hl=en_US#1.-obtain-oauth-2.0-credentials-from-the-google-api-console.
- *  However, this could allow for client sharing. The risks of client sharing
- *  are outlined here:
- *  https://cloud.google.com/iap/docs/sharing-oauth-clients#risks.
- */
-@property(nonatomic, copy, nullable) NSString *clientId;
 
 /**
  *  Domain hint to send as hd=? parameter in OAuth request flow. Enables

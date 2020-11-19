@@ -432,6 +432,21 @@ NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_ProposalStateUnsp
 NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_Proposed = @"PROPOSED";
 NSString * const kGTLRAdExchangeBuyerII_Proposal_ProposalState_SellerAccepted = @"SELLER_ACCEPTED";
 
+// GTLRAdExchangeBuyerII_PublisherProfileMobileApplication.appStore
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Amazon = @"AMAZON";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_AmazonFiretv = @"AMAZON_FIRETV";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_AppleItunes = @"APPLE_ITUNES";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_AppStoreTypeUnspecified = @"APP_STORE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_GooglePlay = @"GOOGLE_PLAY";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Oppo = @"OPPO";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Playstation = @"PLAYSTATION";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Roku = @"ROKU";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Samsung = @"SAMSUNG";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_SamsungTv = @"SAMSUNG_TV";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Vivo = @"VIVO";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Xbox = @"XBOX";
+NSString * const kGTLRAdExchangeBuyerII_PublisherProfileMobileApplication_AppStore_Xiaomi = @"XIAOMI";
+
 // GTLRAdExchangeBuyerII_SecurityContext.securities
 NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Insecure = @"INSECURE";
 NSString * const kGTLRAdExchangeBuyerII_SecurityContext_Securities_Ssl = @"SSL";
@@ -1796,17 +1811,28 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 @implementation GTLRAdExchangeBuyerII_PublisherProfile
 @dynamic audienceDescription, buyerPitchStatement, directDealsContact,
          displayName, domains, googlePlusUrl, isParent, logoUrl, mediaKitUrl,
-         overview, programmaticDealsContact, publisherProfileId,
+         mobileApps, overview, programmaticDealsContact, publisherProfileId,
          rateCardInfoUrl, samplePageUrl, seller, topHeadlines;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"domains" : [NSString class],
+    @"mobileApps" : [GTLRAdExchangeBuyerII_PublisherProfileMobileApplication class],
     @"topHeadlines" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_PublisherProfileMobileApplication
+//
+
+@implementation GTLRAdExchangeBuyerII_PublisherProfileMobileApplication
+@dynamic appStore, externalAppId, name;
 @end
 
 

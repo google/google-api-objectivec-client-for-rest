@@ -371,7 +371,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_ContainerVersionHeader
-@dynamic accountId, containerId, containerVersionId, deleted, name,
+@dynamic accountId, containerId, containerVersionId, deleted, name, numClients,
          numCustomTemplates, numMacros, numRules, numTags, numTriggers,
          numVariables, numZones, path;
 @end
@@ -432,7 +432,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Entity
-@dynamic changeStatus, folder, tag, trigger, variable;
+@dynamic changeStatus, client, folder, tag, trigger, variable;
 @end
 
 

@@ -30,7 +30,6 @@
 @class GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Room_Traits;
 @class GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Structure;
 @class GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Structure_Traits;
-@class GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1StructureParentRelation;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -44,13 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  property.
  */
 @interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Device : GTLRObject
-
-/**
- *  Output only. The name of the structure/room where the device is assigned to.
- *  For example: "enterprises/XYZ/structures/ABC" or
- *  "enterprises/XYZ/structures/ABC/rooms/123"
- */
-@property(nonatomic, copy, nullable) NSString *assignee;
 
 /**
  *  Required. The resource name of the device. For example:
@@ -173,7 +165,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListRoomsResponse : GTLRCollectionObject
 
-/** The pagination token to retrieve the next page of results. */
+/**
+ *  The pagination token to retrieve the next page of results. If this field is
+ *  omitted, there are no subsequent pages.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
@@ -197,7 +192,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ListStructuresResponse : GTLRCollectionObject
 
-/** The pagination token to retrieve the next page of results. */
+/**
+ *  The pagination token to retrieve the next page of results. If this field is
+ *  omitted, there are no subsequent pages.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
@@ -275,9 +273,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Assignee details of the structure. */
-@property(nonatomic, strong, nullable) NSArray<GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1StructureParentRelation *> *parentRelations;
-
 /** Structure traits. */
 @property(nonatomic, strong, nullable) GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Structure_Traits *traits;
 
@@ -293,27 +288,6 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Structure_Traits : GTLRObject
-@end
-
-
-/**
- *  Represents structure assignee relationships, for instance, group to which
- *  the structure is assigned to.
- */
-@interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1StructureParentRelation : GTLRObject
-
-/**
- *  Output only. The custom name of the relation -- e.g., group, to which the
- *  structure is assigned to.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. The name of the relation -- e.g., group to which the structure
- *  is assigned to. For example: "enterprises/XYZ/groups/ABC"
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -386,7 +386,27 @@
 //
 
 @implementation GTLRServiceControl_Resource
-@dynamic labels, name, service, type;
+@dynamic annotations, createTime, deleteTime, displayName, ETag, labels, name,
+         service, type, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_Resource_Annotations
+//
+
+@implementation GTLRServiceControl_Resource_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -463,7 +483,7 @@
 //
 
 @implementation GTLRServiceControl_ServiceAccountDelegationInfo
-@dynamic firstPartyPrincipal, thirdPartyPrincipal;
+@dynamic firstPartyPrincipal, principalSubject, thirdPartyPrincipal;
 @end
 
 

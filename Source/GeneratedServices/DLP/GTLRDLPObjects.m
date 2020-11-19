@@ -232,7 +232,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 @implementation GTLRDLP_GooglePrivacyDlpV2AnalyzeDataSourceRiskDetails
 @dynamic categoricalStatsResult, deltaPresenceEstimationResult,
          kAnonymityResult, kMapEstimationResult, lDiversityResult,
-         numericalStatsResult, requestedPrivacyMetric, requestedSourceTable;
+         numericalStatsResult, requestedOptions, requestedPrivacyMetric,
+         requestedSourceTable;
 @end
 
 
@@ -999,8 +1000,9 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Finding
-@dynamic createTime, infoType, jobCreateTime, jobName, labels, likelihood,
-         location, name, quote, quoteInfo, resourceName, triggerName;
+@dynamic createTime, findingId, infoType, jobCreateTime, jobName, labels,
+         likelihood, location, name, quote, quoteInfo, resourceName,
+         triggerName;
 @end
 
 
@@ -2280,6 +2282,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2RequestedOptions
 @dynamic jobConfig, snapshotInspectTemplate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2RequestedRiskAnalysisOptions
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2RequestedRiskAnalysisOptions
+@dynamic jobConfig;
 @end
 
 

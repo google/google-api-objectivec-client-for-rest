@@ -4,7 +4,8 @@
 // API:
 //   Groups Migration API (groupsmigration/v1)
 // Description:
-//   Groups Migration Api.
+//   The Groups Migration API allows domain administrators to archive emails
+//   into Google groups.
 // Documentation:
 //   https://developers.google.com/google-apps/groups-migration/
 
@@ -59,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param groupId The group ID
  *  @param uploadParameters The media to include in this query. Maximum size
- *    25MB. Accepted MIME type: message/rfc822
+ *    26214400. Accepted MIME type: message/rfc822
  *
  *  @return GTLRGroupsMigrationQuery_ArchiveInsert
  */

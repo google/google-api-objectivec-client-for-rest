@@ -31,6 +31,7 @@
 @class GTLRServiceNetworking_Billing;
 @class GTLRServiceNetworking_BillingDestination;
 @class GTLRServiceNetworking_Connection;
+@class GTLRServiceNetworking_ConsumerConfig;
 @class GTLRServiceNetworking_ConsumerProject;
 @class GTLRServiceNetworking_Context;
 @class GTLRServiceNetworking_ContextRule;
@@ -46,6 +47,7 @@
 @class GTLRServiceNetworking_Enum;
 @class GTLRServiceNetworking_EnumValue;
 @class GTLRServiceNetworking_Field;
+@class GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange;
 @class GTLRServiceNetworking_Http;
 @class GTLRServiceNetworking_HttpRule;
 @class GTLRServiceNetworking_JwtLocation;
@@ -75,7 +77,8 @@
 @class GTLRServiceNetworking_QuotaLimit;
 @class GTLRServiceNetworking_QuotaLimit_Values;
 @class GTLRServiceNetworking_RangeReservation;
-@class GTLRServiceNetworking_ServiceIdentity;
+@class GTLRServiceNetworking_SecondaryIpRange;
+@class GTLRServiceNetworking_SecondaryIpRangeSpec;
 @class GTLRServiceNetworking_SourceContext;
 @class GTLRServiceNetworking_SourceInfo;
 @class GTLRServiceNetworking_SourceInfo_SourceFiles_Item;
@@ -358,7 +361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Method_Syntax_SyntaxPr
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -509,7 +512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptor_Value
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -581,7 +584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_MetricDescriptorMetada
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -931,6 +934,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *requestedAddress;
 
 /**
+ *  Optional. A list of secondary IP ranges to be created within the new
+ *  subnetwork.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_SecondaryIpRangeSpec *> *secondaryIpRangeSpecs;
+
+/**
  *  Required. A name for the new subnet. For information about the naming
  *  requirements, see [subnetwork](/compute/docs/reference/rest/v1/subnetworks)
  *  in the Compute API documentation.
@@ -1042,7 +1051,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_AuthenticationRule : GTLRObject
 
 /**
- *  If true, the service accepts API keys without any other credential.
+ *  If true, the service accepts API keys without any other credential. This
+ *  flag only applies to HTTP and gRPC requests.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1113,9 +1123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  [OpenID
  *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata).
  *  Optional if the key set document: - can be retrieved from [OpenID
- *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html of the
- *  issuer. - can be inferred from the email domain of the issuer (e.g. a Google
- *  service account). Example: https://www.googleapis.com/oauth2/v1/certs
+ *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) of
+ *  the issuer. - can be inferred from the email domain of the issuer (e.g. a
+ *  Google service account). Example: https://www.googleapis.com/oauth2/v1/certs
  */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
@@ -1393,6 +1403,96 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Configuration information for a private service access connection.
+ */
+@interface GTLRServiceNetworking_ConsumerConfig : GTLRObject
+
+/**
+ *  Export custom routes flag value for peering from consumer to producer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumerExportCustomRoutes;
+
+/**
+ *  Export subnet routes with public ip flag value for peering from consumer to
+ *  producer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumerExportSubnetRoutesWithPublicIp;
+
+/**
+ *  Import custom routes flag value for peering from consumer to producer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumerImportCustomRoutes;
+
+/**
+ *  Import subnet routes with public ip flag value for peering from consumer to
+ *  producer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumerImportSubnetRoutesWithPublicIp;
+
+/**
+ *  Export custom routes flag value for peering from producer to consumer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *producerExportCustomRoutes;
+
+/**
+ *  Export subnet routes with public ip flag value for peering from producer to
+ *  consumer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *producerExportSubnetRoutesWithPublicIp;
+
+/**
+ *  Import custom routes flag value for peering from producer to consumer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *producerImportCustomRoutes;
+
+/**
+ *  Import subnet routes with public ip flag value for peering from producer to
+ *  consumer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *producerImportSubnetRoutesWithPublicIp;
+
+/**
+ *  Output only. The VPC host network that is used to host managed service
+ *  instances. In the format, projects/{project}/global/networks/{network} where
+ *  {project} is the project number e.g. '12345' and {network} is the network
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *producerNetwork;
+
+/**
+ *  Output only. The reserved ranges associated with this private service access
+ *  connection.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange *> *reservedRanges;
+
+@end
+
+
+/**
+ *  Metadata provided through GetOperation request for the LRO generated by
+ *  UpdateConsumerConfig API.
+ */
+@interface GTLRServiceNetworking_ConsumerConfigMetadata : GTLRObject
+@end
+
+
+/**
  *  Represents a consumer project.
  */
 @interface GTLRServiceNetworking_ConsumerProject : GTLRObject
@@ -1415,7 +1515,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  google.rpc.context.OriginContext The above specifies that all methods in the
  *  API request `google.rpc.context.ProjectContext` and
  *  `google.rpc.context.OriginContext`. Available context types are defined in
- *  package `google.rpc.context`. This also provides mechanism to whitelist any
+ *  package `google.rpc.context`. This also provides mechanism to allowlist any
  *  protobuf message extension that can be sent in grpc metadata using
  *  “x-goog-ext--bin” and “x-goog-ext--jspb” format. For example, list any
  *  service specific protobuf types that can appear in grpc metadata as follows
@@ -1978,6 +2078,31 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Allocated IP address ranges for this private service access connection.
+ */
+@interface GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange : GTLRObject
+
+/**
+ *  The starting address of the reserved range. The address must be a valid IPv4
+ *  address in the x.x.x.x format. This value combined with the IP prefix length
+ *  is the CIDR range for the reserved range.
+ */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  The prefix length of the reserved range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
+
+/** The name of the reserved range. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Defines the HTTP configuration for an API service. It contains a list of
  *  HttpRule, each specifying the mapping of an RPC method to one or more HTTP
  *  REST API methods.
@@ -2149,14 +2274,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  one level deep).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_HttpRule *> *additionalBindings;
-
-/**
- *  When this flag is set to true, HTTP requests will be allowed to invoke a
- *  half-duplex streaming method.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowHalfDuplex;
 
 /**
  *  The name of the request field whose value is mapped to the HTTP request
@@ -2496,7 +2613,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects whitelisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don’t have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -2677,7 +2794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects whitelisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don’t have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -2852,7 +2969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects whitelisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don’t have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -3203,7 +3320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *member;
 
 /**
- *  Required. Role to apply. Only whitelisted roles can be used at the specified
+ *  Required. Role to apply. Only allowlisted roles can be used at the specified
  *  granularity. The role must be one of the following: -
  *  'roles/container.hostServiceAgentUser' applied on the shared VPC host
  *  project - 'roles/compute.securityAdmin' applied on the shared VPC host
@@ -3554,6 +3671,54 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  GTLRServiceNetworking_SecondaryIpRange
+ */
+@interface GTLRServiceNetworking_SecondaryIpRange : GTLRObject
+
+/** Secondary IP CIDR range in `x.x.x.x/y` format. */
+@property(nonatomic, copy, nullable) NSString *ipCidrRange;
+
+/** Name of the secondary IP range. */
+@property(nonatomic, copy, nullable) NSString *rangeName;
+
+@end
+
+
+/**
+ *  GTLRServiceNetworking_SecondaryIpRangeSpec
+ */
+@interface GTLRServiceNetworking_SecondaryIpRangeSpec : GTLRObject
+
+/**
+ *  Required. The prefix length of the secondary IP range. Use CIDR range
+ *  notation, such as `30` to provision a secondary IP range with an
+ *  `x.x.x.x/30` CIDR range. The IP address range is drawn from a pool of
+ *  available ranges in the service consumer's allocated range.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
+
+/**
+ *  Required. A name for the secondary IP range. The name must be 1-63
+ *  characters long, and comply with RFC1035. The name must be unique within the
+ *  subnetwork.
+ */
+@property(nonatomic, copy, nullable) NSString *rangeName;
+
+/**
+ *  Optional. The starting address of a range. The address must be a valid IPv4
+ *  address in the x.x.x.x format. This value combined with the IP prefix range
+ *  is the CIDR range for the secondary IP range. The range must be within the
+ *  allocated range that is assigned to the private connection. If the CIDR
+ *  range isn't available, the call fails.
+ */
+@property(nonatomic, copy, nullable) NSString *requestedAddress;
+
+@end
+
+
+/**
  *  `Service` is the root object of Google service configuration schema. It
  *  describes basic information about a service, such as the name and the title,
  *  and delegates other aspects to sub-sections. Each sub-section is either a
@@ -3587,10 +3752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_Billing *billing;
 
 /**
- *  The semantic version of the service configuration. The config version
- *  affects the interpretation of the service configuration. For example,
- *  certain features are enabled by default for certain config versions. The
- *  latest config version is `3`.
+ *  This field is obsolete. Its value must be set to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -3704,38 +3866,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  The per-product per-project service identity for a service. Use this field
- *  to configure per-product per-project service identity. Example of a service
- *  identity configuration. usage: service_identity: - service_account_parent:
- *  "projects/123456789" display_name: "Cloud XXX Service Agent" description:
- *  "Used as the identity of Cloud XXX to access resources"
- */
-@interface GTLRServiceNetworking_ServiceIdentity : GTLRObject
-
-/**
- *  Optional. A user-specified opaque description of the service account. Must
- *  be less than or equal to 256 UTF-8 bytes.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Optional. A user-specified name for the service account. Must be less than
- *  or equal to 100 UTF-8 bytes.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  A service account project that hosts the service accounts. An example name
- *  would be: `projects/123456789`
- */
-@property(nonatomic, copy, nullable) NSString *serviceAccountParent;
-
-@end
-
-
-/**
  *  `SourceContext` represents information about the source of a protobuf
  *  element, like the file in which it is defined.
  */
@@ -3844,6 +3974,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *outsideAllocation;
+
+/** List of secondary IP ranges in this subnetwork. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_SecondaryIpRange *> *secondaryIpRanges;
 
 @end
 
@@ -3959,6 +4092,19 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
+ *  Request to update the configuration of a service networking connection
+ *  including the import/export of custom routes and subnetwork routes with
+ *  public IP.
+ */
+@interface GTLRServiceNetworking_UpdateConsumerConfigRequest : GTLRObject
+
+/** Required. The updated peering config. */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_ConsumerConfig *consumerConfig;
+
+@end
+
+
+/**
  *  Metadata provided through GetOperation request for the LRO generated by
  *  UpdateDnsRecordSet API
  */
@@ -4028,9 +4174,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  service configuration rules follow "last one wins" order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_UsageRule *> *rules;
-
-/** The configuration of a per-product per-project service identity. */
-@property(nonatomic, strong, nullable) GTLRServiceNetworking_ServiceIdentity *serviceIdentity;
 
 @end
 

@@ -25,6 +25,7 @@
 @class GTLRBinaryAuthorization_Policy;
 @class GTLRBinaryAuthorization_SetIamPolicyRequest;
 @class GTLRBinaryAuthorization_TestIamPermissionsRequest;
+@class GTLRBinaryAuthorization_ValidateAttestationOccurrenceRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -356,6 +357,44 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBinaryAuthorization_Attestor *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns whether the given Attestation for the given image URI was signed by
+ *  the given Attestor
+ *
+ *  Method: binaryauthorization.projects.attestors.validateAttestationOccurrence
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_ProjectsAttestorsValidateAttestationOccurrence : GTLRBinaryAuthorizationQuery
+// Previous library name was
+//   +[GTLQueryBinaryAuthorization queryForProjectsAttestorsValidateAttestationOccurrenceWithObject:attestor:]
+
+/**
+ *  Required. The resource name of the Attestor of the occurrence, in the format
+ *  `projects/ * /attestors/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *attestor;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse.
+ *
+ *  Returns whether the given Attestation for the given image URI was signed by
+ *  the given Attestor
+ *
+ *  @param object The @c
+ *    GTLRBinaryAuthorization_ValidateAttestationOccurrenceRequest to include in
+ *    the query.
+ *  @param attestor Required. The resource name of the Attestor of the
+ *    occurrence, in the format `projects/ * /attestors/ *`.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_ProjectsAttestorsValidateAttestationOccurrence
+ */
++ (instancetype)queryWithObject:(GTLRBinaryAuthorization_ValidateAttestationOccurrenceRequest *)object
+                       attestor:(NSString *)attestor;
 
 @end
 

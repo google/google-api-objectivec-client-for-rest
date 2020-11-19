@@ -87,7 +87,6 @@
 @class GTLRServiceManagement_QuotaLimit_Values;
 @class GTLRServiceManagement_Rollout;
 @class GTLRServiceManagement_Service;
-@class GTLRServiceManagement_ServiceIdentity;
 @class GTLRServiceManagement_SourceContext;
 @class GTLRServiceManagement_SourceInfo;
 @class GTLRServiceManagement_SourceInfo_SourceFiles_Item;
@@ -495,7 +494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Method_Syntax_SyntaxPr
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -646,7 +645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptor_Value
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -718,7 +717,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_MetricDescriptorMetada
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -1065,7 +1064,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @interface GTLRServiceManagement_AuthenticationRule : GTLRObject
 
 /**
- *  If true, the service accepts API keys without any other credential.
+ *  If true, the service accepts API keys without any other credential. This
+ *  flag only applies to HTTP and gRPC requests.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1136,9 +1136,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  [OpenID
  *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata).
  *  Optional if the key set document: - can be retrieved from [OpenID
- *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html of the
- *  issuer. - can be inferred from the email domain of the issuer (e.g. a Google
- *  service account). Example: https://www.googleapis.com/oauth2/v1/certs
+ *  Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html) of
+ *  the issuer. - can be inferred from the email domain of the issuer (e.g. a
+ *  Google service account). Example: https://www.googleapis.com/oauth2/v1/certs
  */
 @property(nonatomic, copy, nullable) NSString *jwksUri;
 
@@ -1590,7 +1590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  google.rpc.context.OriginContext The above specifies that all methods in the
  *  API request `google.rpc.context.ProjectContext` and
  *  `google.rpc.context.OriginContext`. Available context types are defined in
- *  package `google.rpc.context`. This also provides mechanism to whitelist any
+ *  package `google.rpc.context`. This also provides mechanism to allowlist any
  *  protobuf message extension that can be sent in grpc metadata using
  *  “x-goog-ext--bin” and “x-goog-ext--jspb” format. For example, list any
  *  service specific protobuf types that can appear in grpc metadata as follows
@@ -2447,14 +2447,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_HttpRule *> *additionalBindings;
 
 /**
- *  When this flag is set to true, HTTP requests will be allowed to invoke a
- *  half-duplex streaming method.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowHalfDuplex;
-
-/**
  *  The name of the request field whose value is mapped to the HTTP request
  *  body, or `*` for mapping all request fields not captured by the path pattern
  *  to the HTTP body, or omitted for not having any HTTP request body. NOTE: the
@@ -2859,7 +2851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects whitelisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don’t have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -3040,7 +3032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects whitelisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don’t have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -3215,7 +3207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects whitelisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don’t have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -3919,10 +3911,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Billing *billing;
 
 /**
- *  The semantic version of the service configuration. The config version
- *  affects the interpretation of the service configuration. For example,
- *  certain features are enabled by default for certain config versions. The
- *  latest config version is `3`.
+ *  This field is obsolete. Its value must be set to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -4031,38 +4020,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /** Configuration controlling usage of this service. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Usage *usage;
-
-@end
-
-
-/**
- *  The per-product per-project service identity for a service. Use this field
- *  to configure per-product per-project service identity. Example of a service
- *  identity configuration. usage: service_identity: - service_account_parent:
- *  "projects/123456789" display_name: "Cloud XXX Service Agent" description:
- *  "Used as the identity of Cloud XXX to access resources"
- */
-@interface GTLRServiceManagement_ServiceIdentity : GTLRObject
-
-/**
- *  Optional. A user-specified opaque description of the service account. Must
- *  be less than or equal to 256 UTF-8 bytes.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Optional. A user-specified name for the service account. Must be less than
- *  or equal to 100 UTF-8 bytes.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  A service account project that hosts the service accounts. An example name
- *  would be: `projects/123456789`
- */
-@property(nonatomic, copy, nullable) NSString *serviceAccountParent;
 
 @end
 
@@ -4454,9 +4411,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  service configuration rules follow "last one wins" order.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_UsageRule *> *rules;
-
-/** The configuration of a per-product per-project service identity. */
-@property(nonatomic, strong, nullable) GTLRServiceManagement_ServiceIdentity *serviceIdentity;
 
 @end
 

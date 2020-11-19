@@ -105,6 +105,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCreativeType =
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCreativeWidth = @"FILTER_CREATIVE_WIDTH";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDataProvider = @"FILTER_DATA_PROVIDER";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDataProviderName = @"FILTER_DATA_PROVIDER_NAME";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDataSource = @"FILTER_DATA_SOURCE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDate = @"FILTER_DATE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDayOfWeek = @"FILTER_DAY_OF_WEEK";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDetailedDemographics = @"FILTER_DETAILED_DEMOGRAPHICS";
@@ -187,6 +188,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenDeviceI
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenGender = @"FILTER_NIELSEN_GENDER";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenRestatementDate = @"FILTER_NIELSEN_RESTATEMENT_DATE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNotSupported = @"FILTER_NOT_SUPPORTED";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOmSdkAvailable = @"FILTER_OM_SDK_AVAILABLE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOrderId = @"FILTER_ORDER_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOs = @"FILTER_OS";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterPageCategory = @"FILTER_PAGE_CATEGORY";
@@ -368,6 +370,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCreativeTy
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCreativeWidth = @"FILTER_CREATIVE_WIDTH";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDataProvider = @"FILTER_DATA_PROVIDER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDataProviderName = @"FILTER_DATA_PROVIDER_NAME";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDataSource = @"FILTER_DATA_SOURCE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDate = @"FILTER_DATE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDayOfWeek = @"FILTER_DAY_OF_WEEK";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDetailedDemographics = @"FILTER_DETAILED_DEMOGRAPHICS";
@@ -450,6 +453,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenDev
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenGender = @"FILTER_NIELSEN_GENDER";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenRestatementDate = @"FILTER_NIELSEN_RESTATEMENT_DATE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNotSupported = @"FILTER_NOT_SUPPORTED";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOmSdkAvailable = @"FILTER_OM_SDK_AVAILABLE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOrderId = @"FILTER_ORDER_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOs = @"FILTER_OS";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterPageCategory = @"FILTER_PAGE_CATEGORY";
@@ -1106,6 +1110,7 @@ NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_Filter
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCreativeWidth = @"FILTER_CREATIVE_WIDTH";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDataProvider = @"FILTER_DATA_PROVIDER";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDataProviderName = @"FILTER_DATA_PROVIDER_NAME";
+NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDataSource = @"FILTER_DATA_SOURCE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDate = @"FILTER_DATE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDayOfWeek = @"FILTER_DAY_OF_WEEK";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDetailedDemographics = @"FILTER_DETAILED_DEMOGRAPHICS";
@@ -1188,6 +1193,7 @@ NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_Filter
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNielsenGender = @"FILTER_NIELSEN_GENDER";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNielsenRestatementDate = @"FILTER_NIELSEN_RESTATEMENT_DATE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNotSupported = @"FILTER_NOT_SUPPORTED";
+NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOmSdkAvailable = @"FILTER_OM_SDK_AVAILABLE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOrderId = @"FILTER_ORDER_ID";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOs = @"FILTER_OS";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterPageCategory = @"FILTER_PAGE_CATEGORY";

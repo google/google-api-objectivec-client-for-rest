@@ -309,6 +309,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxO;
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxP;
 /** Value: "GREY_MAX_Q" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxQ;
+/** Value: "GREY_MAX_R" */
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_GreyMaxR;
 /** Value: "NONE" */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_NonSdkApi_List_None;
 /** Value: "WHITE" */
@@ -609,6 +611,12 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CompleteRoboS
  *  Value: "crashDialogError"
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_CrashDialogError;
+/**
+ *  Device running out of memory was detected
+ *
+ *  Value: "deviceOutOfMemory"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_DeviceOutOfMemory;
 /**
  *  Robo crawl encountered at least one probable login screen.
  *
@@ -1115,6 +1123,13 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 /** The name of the package that caused the dialog. */
 @property(nonatomic, copy, nullable) NSString *crashPackage;
 
+@end
+
+
+/**
+ *  A warning that device ran out of memory
+ */
+@interface GTLRToolResults_DeviceOutOfMemory : GTLRObject
 @end
 
 
@@ -2214,6 +2229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxO Value "GREY_MAX_O"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxP Value "GREY_MAX_P"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxQ Value "GREY_MAX_Q"
+ *    @arg @c kGTLRToolResults_NonSdkApi_List_GreyMaxR Value "GREY_MAX_R"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_None Value "NONE"
  *    @arg @c kGTLRToolResults_NonSdkApi_List_White Value "WHITE"
  */
@@ -3364,6 +3380,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *        "completeRoboScriptExecution")
  *    @arg @c kGTLRToolResults_TestIssue_Type_CrashDialogError Crash dialog was
  *        detected during the test execution (Value: "crashDialogError")
+ *    @arg @c kGTLRToolResults_TestIssue_Type_DeviceOutOfMemory Device running
+ *        out of memory was detected (Value: "deviceOutOfMemory")
  *    @arg @c kGTLRToolResults_TestIssue_Type_EncounteredLoginScreen Robo crawl
  *        encountered at least one probable login screen. (Value:
  *        "encounteredLoginScreen")

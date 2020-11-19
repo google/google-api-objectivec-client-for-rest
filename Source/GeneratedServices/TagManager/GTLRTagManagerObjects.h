@@ -1175,6 +1175,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 /** Container version display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Number of clients in the container version. */
+@property(nonatomic, copy, nullable) NSString *numClients;
+
 /** Number of custom templates in the container version. */
 @property(nonatomic, copy, nullable) NSString *numCustomTemplates;
 
@@ -1322,7 +1325,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, copy, nullable) NSString *changeStatus;
 
-/** The Folder being represented by the entity. */
+/** The client being represented by the entity. */
+@property(nonatomic, strong, nullable) GTLRTagManager_Client *client;
+
+/** The folder being represented by the entity. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Folder *folder;
 
 /** The tag being represented by the entity. */

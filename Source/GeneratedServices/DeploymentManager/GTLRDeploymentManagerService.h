@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deployment Manager API (deploymentmanager/v2)
+//   Cloud Deployment Manager V2 API (deploymentmanager/v2)
 // Description:
-//   Declares, configures, and deploys complex solutions on Google Cloud
-//   Platform.
+//   The Google Cloud Deployment Manager v2 API provides services for
+//   configuring, deploying, and viewing Google Cloud services and APIs via
+//   templates which specify deployments of Cloud resources.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/
+//   https://cloud.google.com/deployment-manager
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -64,10 +65,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDeploymentManagerNdevCloudmanRe
 //
 
 /**
- *  Service for executing Google Cloud Deployment Manager API queries.
+ *  Service for executing Cloud Deployment Manager V2 API queries.
  *
- *  Declares, configures, and deploys complex solutions on Google Cloud
- *  Platform.
+ *  The Google Cloud Deployment Manager v2 API provides services for
+ *  configuring, deploying, and viewing Google Cloud services and APIs via
+ *  templates which specify deployments of Cloud resources.
  */
 @interface GTLRDeploymentManagerService : GTLRService
 

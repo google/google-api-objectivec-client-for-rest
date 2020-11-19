@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.4)
 // Description:
-//   Manages your DoubleClick Campaign Manager ad campaigns and reports.
+//   Manage your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
@@ -55,9 +55,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDfareportingDfatrafficking;
 //
 
 /**
- *  Service for executing DCM/DFA Reporting And Trafficking API queries.
+ *  Service for executing Campaign Manager 360 API queries.
  *
- *  Manages your DoubleClick Campaign Manager ad campaigns and reports.
+ *  Manage your DoubleClick Campaign Manager ad campaigns and reports.
  */
 @interface GTLRDfareportingService : GTLRService
 

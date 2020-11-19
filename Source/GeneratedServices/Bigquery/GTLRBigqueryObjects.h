@@ -63,10 +63,12 @@
 @class GTLRBigquery_EvaluationMetrics;
 @class GTLRBigquery_ExplainQueryStage;
 @class GTLRBigquery_ExplainQueryStep;
+@class GTLRBigquery_Explanation;
 @class GTLRBigquery_Expr;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_GetPolicyOptions;
+@class GTLRBigquery_GlobalExplanation;
 @class GTLRBigquery_GoogleSheetsOptions;
 @class GTLRBigquery_HivePartitioningOptions;
 @class GTLRBigquery_IterationResult;
@@ -113,6 +115,7 @@
 @class GTLRBigquery_Routine;
 @class GTLRBigquery_RoutineReference;
 @class GTLRBigquery_Row;
+@class GTLRBigquery_RowAccessPolicy;
 @class GTLRBigquery_RowAccessPolicyReference;
 @class GTLRBigquery_RowLevelSecurityStatistics;
 @class GTLRBigquery_ScriptStackFrame;
@@ -1882,6 +1885,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @interface GTLRBigquery_Binding : GTLRObject
 
+@property(nonatomic, copy, nullable) NSString *bindingId;
+
 /**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If
@@ -2435,6 +2440,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
+ *  [Output-only] Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPZS;
+
+/**
  *  [Output-only] A URL that can be used to access the resource again. You can
  *  use this URL in Get or Update requests to the resource.
  */
@@ -2477,6 +2489,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  "OWNER".
  */
 @property(nonatomic, copy, nullable) NSString *role;
+
+/**
+ *  [Pick one] A routine from a different dataset to grant access to. Queries
+ *  executed against that routine will have read access to views/tables/routines
+ *  in this dataset. Only UDF is supported for now. The role field is not
+ *  required when this field is set. If that routine is updated by any user,
+ *  access to the routine needs to be granted again via an update operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RoutineReference *routine;
 
 /**
  *  [Pick one] A special group to grant access to. Possible values include:
@@ -3011,6 +3032,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  Explanation for a single feature.
+ */
+@interface GTLRBigquery_Explanation : GTLRObject
+
+/**
+ *  Attribution of feature.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *attribution;
+
+/**
+ *  Full name of the feature. For non-numerical features, will be formatted like
+ *  .. Overall size of feature name will always be truncated to first 120
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *featureName;
+
+@end
+
+
+/**
  *  Represents a textual expression in the Common Expression Language (CEL)
  *  syntax. CEL is a C-like expression language. The syntax and semantics of CEL
  *  are documented at https://github.com/google/cel-spec. Example (Comparison):
@@ -3312,6 +3355,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  Global explanations containing the top most important features after
+ *  training.
+ */
+@interface GTLRBigquery_GlobalExplanation : GTLRObject
+
+/**
+ *  Class label for this set of global explanations. Will be empty/null for
+ *  binary logistic and linear regression models. Sorted alphabetically in
+ *  descending order.
+ */
+@property(nonatomic, copy, nullable) NSString *classLabel;
+
+/**
+ *  A list of the top global explanations. Sorted by absolute value of
+ *  attribution in descending order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Explanation *> *explanations;
+
+@end
+
+
+/**
  *  GTLRBigquery_GoogleSheetsOptions
  */
 @interface GTLRBigquery_GoogleSheetsOptions : GTLRObject
@@ -3349,10 +3414,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_HivePartitioningOptions : GTLRObject
 
 /**
- *  [Optional, Trusted Tester] When set, what mode of hive partitioning to use
- *  when reading data. Two modes are supported. (1) AUTO: automatically infer
+ *  [Optional] When set, what mode of hive partitioning to use when reading
+ *  data. The following modes are supported. (1) AUTO: automatically infer
  *  partition key name(s) and type(s). (2) STRINGS: automatically infer
- *  partition key name(s). All types are interpreted as strings. Not all storage
+ *  partition key name(s). All types are interpreted as strings. (3) CUSTOM:
+ *  partition key schema is encoded in the source URI prefix. Not all storage
  *  formats support hive partitioning. Requesting hive partitioning on an
  *  unsupported format will lead to an error. Currently supported types include:
  *  AVRO, CSV, JSON, ORC and Parquet.
@@ -3360,10 +3426,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
- *  [Optional, Trusted Tester] When hive partition detection is requested, a
- *  common prefix for all source uris should be supplied. The prefix must end
- *  immediately before the partition key encoding begins. For example, consider
- *  files following this data layout.
+ *  [Optional] If set to true, queries over this table require a partition
+ *  filter that can be used for partition elimination to be specified. Note that
+ *  this field should only be true when creating a permanent external table or
+ *  querying a temporary external table. Hive-partitioned loads with
+ *  requirePartitionFilter explicitly set to true will fail.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter;
+
+/**
+ *  [Optional] When hive partition detection is requested, a common prefix for
+ *  all source uris should be supplied. The prefix must end immediately before
+ *  the partition key encoding begins. For example, consider files following
+ *  this data layout.
  *  gs://bucket/path_to_table/dt=2019-01-01/country=BR/id=7/file.avro
  *  gs://bucket/path_to_table/dt=2018-12-31/country=CA/id=3/file.avro When hive
  *  partitioning is requested with either AUTO or STRINGS detection, the common
@@ -3572,7 +3649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /**
  *  [Optional] The exported file format. Possible values include CSV,
- *  NEWLINE_DELIMITED_JSON or AVRO for tables and ML_TF_SAVED_MODEL or
+ *  NEWLINE_DELIMITED_JSON, PARQUET or AVRO for tables and ML_TF_SAVED_MODEL or
  *  ML_XGBOOST_BOOSTER for models. The default value for tables is CSV. Tables
  *  with nested or repeated fields cannot be exported as CSV. The default value
  *  for models is ML_TF_SAVED_MODEL.
@@ -3673,6 +3750,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  occur as one atomic update upon job completion.
  */
 @property(nonatomic, copy, nullable) NSString *createDisposition;
+
+/**
+ *  [Trusted Tester] Defines the list of possible SQL data types to which the
+ *  source decimal values are converted. This list and the precision and the
+ *  scale parameters of the decimal field determine the target type. In the
+ *  order of NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the
+ *  specified list and if it supports the precision and the scale. STRING
+ *  supports all precision and scale values. If none of the listed types
+ *  supports the precision and the scale, the type supporting the widest range
+ *  in the specified list is picked, and if a value exceeds the supported range
+ *  when reading the data, an error will be thrown. For example: suppose
+ *  decimal_target_type = ["NUMERIC", "BIGNUMERIC"]. Then if (precision,scale)
+ *  is: * (38,9) -> NUMERIC; * (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30
+ *  integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional
+ *  digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC (error if value
+ *  exeeds supported range). For duplicated types in this field, only one will
+ *  be considered and the rest will be ignored. The order of the types in this
+ *  field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as
+ *  ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over
+ *  BIGNUMERIC.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
 
 /** Custom encryption configuration (e.g., Cloud KMS keys). */
 @property(nonatomic, strong, nullable) GTLRBigquery_EncryptionConfiguration *destinationEncryptionConfiguration;
@@ -4698,6 +4797,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Routine *> *routines;
+
+@end
+
+
+/**
+ *  Response message for the ListRowAccessPolicies method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "rowAccessPolicies" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBigquery_ListRowAccessPoliciesResponse : GTLRCollectionObject
+
+/** A token to request the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Row access policies on the requested table.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_RowAccessPolicy *> *rowAccessPolicies;
 
 @end
 
@@ -5831,6 +5954,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  Represents access on a subset of rows on the specified table, defined by its
+ *  filter predicate. Access to the subset of rows is controlled by its IAM
+ *  policy.
+ */
+@interface GTLRBigquery_RowAccessPolicy : GTLRObject
+
+/**
+ *  Output only. The time when this row access policy was created, in
+ *  milliseconds since the epoch.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
+
+/** Output only. A hash of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. A SQL boolean expression that represents the rows defined by this
+ *  row access policy, similar to the boolean expression in a WHERE clause of a
+ *  SELECT query on a table. References to other tables, routines, and temporary
+ *  functions are not supported. Examples: region="EU" date_field =
+ *  CAST('2019-9-27' as DATE) nullable_field is not NULL numeric_field BETWEEN
+ *  1.0 AND 5.0
+ */
+@property(nonatomic, copy, nullable) NSString *filterPredicate;
+
+/**
+ *  Output only. The time when this row access policy was last modified, in
+ *  milliseconds since the epoch.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedTime;
+
+/** Required. Reference describing the ID of this row access policy. */
+@property(nonatomic, strong, nullable) GTLRBigquery_RowAccessPolicyReference *rowAccessPolicyReference;
+
+@end
+
+
+/**
  *  GTLRBigquery_RowAccessPolicyReference
  */
 @interface GTLRBigquery_RowAccessPolicyReference : GTLRObject
@@ -6270,11 +6431,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /**
  *  [Output-only] Describes the table type. The following values are supported:
  *  TABLE: A normal BigQuery table. VIEW: A virtual table defined by a SQL
- *  query. [TrustedTester] SNAPSHOT: An immutable, read-only table that is a
- *  copy of another table. [TrustedTester] MATERIALIZED_VIEW: SQL query whose
- *  result is persisted. EXTERNAL: A table that references data stored in an
- *  external storage system, such as Google Cloud Storage. The default value is
- *  TABLE.
+ *  query. SNAPSHOT: An immutable, read-only table that is a copy of another
+ *  table. [TrustedTester] MATERIALIZED_VIEW: SQL query whose result is
+ *  persisted. EXTERNAL: A table that references data stored in an external
+ *  storage system, such as Google Cloud Storage. The default value is TABLE.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6753,8 +6913,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter;
 
 /**
- *  [Required] The only type supported is DAY, which will generate one partition
- *  per day.
+ *  [Required] The supported types are DAY, HOUR, MONTH, and YEAR, which will
+ *  generate one partition per day, hour, month, and year, respectively. When
+ *  the type is not specified, the default behavior is DAY.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -7293,6 +7454,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  of training.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_EvaluationMetrics *evaluationMetrics;
+
+/**
+ *  Global explanations for important features of the model. For multi-class
+ *  models, there is one entry for each label class. For other models, there is
+ *  only one entry in the list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_GlobalExplanation *> *globalExplanations;
 
 /** Output of each iteration run, results.size() <= max_iterations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *results;

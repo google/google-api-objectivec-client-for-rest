@@ -318,10 +318,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIot_PublicKeyCredential_Format_Unsp
  */
 @interface GTLRCloudIot_Binding : GTLRObject
 
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
 @property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**

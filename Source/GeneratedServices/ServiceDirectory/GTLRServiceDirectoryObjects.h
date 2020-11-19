@@ -48,12 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceDirectory_Binding : GTLRObject
 
 /**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
-@property(nonatomic, copy, nullable) NSString *bindingId;
-
-/**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If
  *  the condition evaluates to `false`, then this binding does not apply to the
@@ -131,9 +125,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Metadata for the endpoint. This data can be consumed by service
- *  clients. The entire metadata dictionary may contain up to 512 characters,
- *  spread accoss all key-value pairs. Metadata that goes beyond any these
- *  limits will be rejected.
+ *  clients. Restrictions: - The entire metadata dictionary may contain up to
+ *  512 characters, spread accoss all key-value pairs. Metadata that goes beyond
+ *  any these limits will be rejected. - Valid metadata keys have two segments:
+ *  an optional prefix and name, separated by a slash (/). The name segment is
+ *  required and must be 63 characters or less, beginning and ending with an
+ *  alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots
+ *  (.), and alphanumerics between. The prefix is optional. If specified, the
+ *  prefix must be a DNS subdomain: a series of DNS labels separated by dots
+ *  (.), not longer than 253 characters in total, followed by a slash (/).
+ *  Metadata that fails to meet these requirements will be rejected. - The
+ *  '(*.)google.com/' and '(*.)googleapis.com/' prefixes are reserved for system
+ *  metadata managed by Service Directory. If the user tries to write to these
+ *  keyspaces, those entries will be silently ignored by the system.
  */
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_Endpoint_Metadata *metadata;
 
@@ -155,9 +159,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Metadata for the endpoint. This data can be consumed by service
- *  clients. The entire metadata dictionary may contain up to 512 characters,
- *  spread accoss all key-value pairs. Metadata that goes beyond any these
- *  limits will be rejected.
+ *  clients. Restrictions: - The entire metadata dictionary may contain up to
+ *  512 characters, spread accoss all key-value pairs. Metadata that goes beyond
+ *  any these limits will be rejected. - Valid metadata keys have two segments:
+ *  an optional prefix and name, separated by a slash (/). The name segment is
+ *  required and must be 63 characters or less, beginning and ending with an
+ *  alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots
+ *  (.), and alphanumerics between. The prefix is optional. If specified, the
+ *  prefix must be a DNS subdomain: a series of DNS labels separated by dots
+ *  (.), not longer than 253 characters in total, followed by a slash (/).
+ *  Metadata that fails to meet these requirements will be rejected. - The
+ *  '(*.)google.com/' and '(*.)googleapis.com/' prefixes are reserved for system
+ *  metadata managed by Service Directory. If the user tries to write to these
+ *  keyspaces, those entries will be silently ignored by the system.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -593,9 +607,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Metadata for the service. This data can be consumed by service
- *  clients. The entire metadata dictionary may contain up to 2000 characters,
- *  spread across all key-value pairs. Metadata that goes beyond any these
- *  limits will be rejected.
+ *  clients. Restrictions: - The entire metadata dictionary may contain up to
+ *  2000 characters, spread accoss all key-value pairs. Metadata that goes
+ *  beyond any these limits will be rejected. - Valid metadata keys have two
+ *  segments: an optional prefix and name, separated by a slash (/). The name
+ *  segment is required and must be 63 characters or less, beginning and ending
+ *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
+ *  (_), dots (.), and alphanumerics between. The prefix is optional. If
+ *  specified, the prefix must be a DNS subdomain: a series of DNS labels
+ *  separated by dots (.), not longer than 253 characters in total, followed by
+ *  a slash (/). Metadata that fails to meet these requirements will be
+ *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
+ *  reserved for system metadata managed by Service Directory. If the user tries
+ *  to write to these keyspaces, those entries will be silently ignored by the
+ *  system.
  */
 @property(nonatomic, strong, nullable) GTLRServiceDirectory_Service_Metadata *metadata;
 
@@ -610,9 +635,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Metadata for the service. This data can be consumed by service
- *  clients. The entire metadata dictionary may contain up to 2000 characters,
- *  spread across all key-value pairs. Metadata that goes beyond any these
- *  limits will be rejected.
+ *  clients. Restrictions: - The entire metadata dictionary may contain up to
+ *  2000 characters, spread accoss all key-value pairs. Metadata that goes
+ *  beyond any these limits will be rejected. - Valid metadata keys have two
+ *  segments: an optional prefix and name, separated by a slash (/). The name
+ *  segment is required and must be 63 characters or less, beginning and ending
+ *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
+ *  (_), dots (.), and alphanumerics between. The prefix is optional. If
+ *  specified, the prefix must be a DNS subdomain: a series of DNS labels
+ *  separated by dots (.), not longer than 253 characters in total, followed by
+ *  a slash (/). Metadata that fails to meet these requirements will be
+ *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
+ *  reserved for system metadata managed by Service Directory. If the user tries
+ *  to write to these keyspaces, those entries will be silently ignored by the
+ *  system.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

@@ -27,8 +27,8 @@ NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1Detailed
 //
 
 @implementation GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1AccountReport
-@dynamic accountId, averageFiveStarRating, averageWeeklyBudget, businessName,
-         currencyCode, currentPeriodChargedLeads,
+@dynamic accountId, aggregatorInfo, averageFiveStarRating, averageWeeklyBudget,
+         businessName, currencyCode, currentPeriodChargedLeads,
          currentPeriodConnectedPhoneCalls, currentPeriodPhoneCalls,
          currentPeriodTotalCost, phoneLeadResponsiveness,
          previousPeriodChargedLeads, previousPeriodConnectedPhoneCalls,

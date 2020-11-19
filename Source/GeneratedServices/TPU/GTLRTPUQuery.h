@@ -54,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryTPU queryForProjectsLocationsAcceleratorTypesGetWithname:]
 
-/** The resource name. */
+/** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets AcceleratorType.
  *
- *  @param name The resource name.
+ *  @param name Required. The resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsAcceleratorTypesGet
  */
@@ -96,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The parent resource name. */
+/** Required. The parent resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists accelerator types supported by this API.
  *
- *  @param parent The parent resource name.
+ *  @param parent Required. The parent resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsAcceleratorTypesList
  *
@@ -200,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The unqualified resource name. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
 
-/** The parent resource name. */
+/** Required. The parent resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -209,7 +209,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a node.
  *
  *  @param object The @c GTLRTPU_Node to include in the query.
- *  @param parent The parent resource name.
+ *  @param parent Required. The parent resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsNodesCreate
  */
@@ -230,7 +230,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryTPU queryForProjectsLocationsNodesDeleteWithname:]
 
-/** The resource name. */
+/** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -238,7 +238,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a node.
  *
- *  @param name The resource name.
+ *  @param name Required. The resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsNodesDelete
  */
@@ -258,7 +258,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryTPU queryForProjectsLocationsNodesGetWithname:]
 
-/** The resource name. */
+/** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -266,7 +266,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets the details of a node.
  *
- *  @param name The resource name.
+ *  @param name Required. The resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsNodesGet
  */
@@ -294,7 +294,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The parent resource name. */
+/** Required. The parent resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -302,7 +302,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists nodes.
  *
- *  @param parent The parent resource name.
+ *  @param parent Required. The parent resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsNodesList
  *
@@ -583,7 +583,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryTPU queryForProjectsLocationsTensorflowVersionsGetWithname:]
 
-/** The resource name. */
+/** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -591,7 +591,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets TensorFlow Version.
  *
- *  @param name The resource name.
+ *  @param name Required. The resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsTensorflowVersionsGet
  */
@@ -625,7 +625,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** The parent resource name. */
+/** Required. The parent resource name. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -633,7 +633,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  List TensorFlow versions supported by this API.
  *
- *  @param parent The parent resource name.
+ *  @param parent Required. The parent resource name.
  *
  *  @return GTLRTPUQuery_ProjectsLocationsTensorflowVersionsList
  *

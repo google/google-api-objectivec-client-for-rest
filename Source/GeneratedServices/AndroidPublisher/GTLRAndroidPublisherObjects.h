@@ -1085,6 +1085,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
+/**
+ *  ISO 3166-1 alpha-2 billing region code of the user at the time the product
+ *  was granted.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
 @end
 
 
@@ -1399,7 +1405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 /**
  *  The payment state of the subscription. Possible values are: 0. Payment
  *  pending 1. Payment received 2. Free trial 3. Pending deferred
- *  upgrade/downgrade
+ *  upgrade/downgrade Not present for canceled, expired subscriptions.
  *
  *  Uses NSNumber of intValue.
  */

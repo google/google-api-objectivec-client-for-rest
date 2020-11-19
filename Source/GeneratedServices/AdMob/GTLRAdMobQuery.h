@@ -4,7 +4,8 @@
 // API:
 //   AdMob API (admob/v1)
 // Description:
-//   The Google AdMob API lets you programmatically get reports on earnings.
+//   The AdMob API allows publishers to programmatically get information about
+//   their AdMob account.
 // Documentation:
 //   https://developers.google.com/admob/api/
 
@@ -46,6 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: admob.accounts.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReadonly
  *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsGet : GTLRAdMobQuery
@@ -79,6 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: admob.accounts.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReadonly
  *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsList : GTLRAdMobQuery
@@ -113,11 +116,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Generates an AdMob Mediation report based on the provided report
- *  specification.
+ *  specification. Returns result of a server-side streaming RPC. The result is
+ *  returned in a sequence of responses.
  *
  *  Method: admob.accounts.mediationReport.generate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReadonly
  *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsMediationReportGenerate : GTLRAdMobQuery
@@ -134,7 +139,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAdMob_GenerateMediationReportResponse.
  *
  *  Generates an AdMob Mediation report based on the provided report
- *  specification.
+ *  specification. Returns result of a server-side streaming RPC. The result is
+ *  returned in a sequence of responses.
  *
  *  @param object The @c GTLRAdMob_GenerateMediationReportRequest to include in
  *    the query.
@@ -150,11 +156,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Generates an AdMob Network report based on the provided report
- *  specification.
+ *  specification. Returns result of a server-side streaming RPC. The result is
+ *  returned in a sequence of responses.
  *
  *  Method: admob.accounts.networkReport.generate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReadonly
  *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsNetworkReportGenerate : GTLRAdMobQuery
@@ -171,7 +179,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAdMob_GenerateNetworkReportResponse.
  *
  *  Generates an AdMob Network report based on the provided report
- *  specification.
+ *  specification. Returns result of a server-side streaming RPC. The result is
+ *  returned in a sequence of responses.
  *
  *  @param object The @c GTLRAdMob_GenerateNetworkReportRequest to include in
  *    the query.

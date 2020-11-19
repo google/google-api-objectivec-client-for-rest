@@ -283,6 +283,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the AUTH string for a Redis instance. If AUTH is not enabled for the
+ *  instance the response will be empty. This information is not included in the
+ *  details returned to GetInstance.
+ *
+ *  Method: redis.projects.locations.instances.getAuthString
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsInstancesGetAuthString : GTLRCloudRedisQuery
+// Previous library name was
+//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesGetAuthStringWithname:]
+
+/**
+ *  Required. Redis instance resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_InstanceAuthString.
+ *
+ *  Gets the AUTH string for a Redis instance. If AUTH is not enabled for the
+ *  instance the response will be empty. This information is not included in the
+ *  details returned to GetInstance.
+ *
+ *  @param name Required. Redis instance resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesGetAuthString
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Import a Redis RDB snapshot file from Cloud Storage into a Redis instance.
  *  Redis may stop serving during this operation. Instance state will be
  *  IMPORTING for entire operation. When complete, the instance will contain

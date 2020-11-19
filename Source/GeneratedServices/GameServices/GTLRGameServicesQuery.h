@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *configId;
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -79,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerConfig to include in the
  *    query.
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsCreate
@@ -103,7 +103,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsConfigsDeleteWithname:]
 
 /**
- *  Required. The name of the game server config to delete. Uses the form:
+ *  Required. The name of the game server config to delete, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -114,8 +115,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a single game server config. The deletion will fail if the game
  *  server config is referenced in a game server deployment rollout.
  *
- *  @param name Required. The name of the game server config to delete. Uses the
- *    form:
+ *  @param name Required. The name of the game server config to delete, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsDelete
@@ -137,7 +138,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsConfigsGetWithname:]
 
 /**
- *  Required. The name of the game server config to retrieve. Uses the form:
+ *  Required. The name of the game server config to retrieve, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -147,8 +149,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets details of a single game server config.
  *
- *  @param name Required. The name of the game server config to retrieve. Uses
- *    the form:
+ *  @param name Required. The name of the game server config to retrieve, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/{config}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsGet
@@ -194,7 +196,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/
  *  *`.
  */
@@ -206,7 +208,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists game server configs in a given project, location, and game server
  *  deployment.
  *
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/configs/
  *    *`.
  *
@@ -236,7 +238,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *deploymentId;
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -248,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerDeployment to include in the
  *    query.
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsCreate
@@ -271,7 +273,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsDeleteWithname:]
 
 /**
- *  Required. The name of the game server delpoyment to delete. Uses the form:
+ *  Required. The name of the game server delpoyment to delete, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -281,8 +284,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single game server deployment.
  *
- *  @param name Required. The name of the game server delpoyment to delete. Uses
- *    the form:
+ *  @param name Required. The name of the game server delpoyment to delete, in
+ *    the following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsDelete
@@ -306,7 +309,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsFetchDeploymentStateWithObject:name:]
 
 /**
- *  Required. The name of the game server delpoyment. Uses the form:
+ *  Required. The name of the game server delpoyment, in the following form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -320,7 +323,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_FetchDeploymentStateRequest to include
  *    in the query.
- *  @param name Required. The name of the game server delpoyment. Uses the form:
+ *  @param name Required. The name of the game server delpoyment, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsFetchDeploymentState
@@ -343,7 +347,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsGetWithname:]
 
 /**
- *  Required. The name of the game server delpoyment to retrieve. Uses the form:
+ *  Required. The name of the game server delpoyment to retrieve, in the
+ *  following form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -353,8 +358,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets details of a single game server deployment.
  *
- *  @param name Required. The name of the game server delpoyment to retrieve.
- *    Uses the form:
+ *  @param name Required. The name of the game server delpoyment to retrieve, in
+ *    the following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGet
@@ -422,7 +427,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsGetRolloutWithname:]
 
 /**
- *  Required. The name of the game server delpoyment to retrieve. Uses the form:
+ *  Required. The name of the game server delpoyment to retrieve, in the
+ *  following form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -432,8 +438,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets details a single game server deployment rollout.
  *
- *  @param name Required. The name of the game server delpoyment to retrieve.
- *    Uses the form:
+ *  @param name Required. The name of the game server delpoyment to retrieve, in
+ *    the following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGetRollout
@@ -478,7 +484,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -488,7 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists game server deployments in a given project and location.
  *
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsList
@@ -514,7 +520,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsPatchWithObject:name:]
 
 /**
- *  The resource name of the game server deployment. Uses the form:
+ *  The resource name of the game server deployment, in the following form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
@@ -538,7 +544,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerDeployment to include in the
  *    query.
- *  @param name The resource name of the game server deployment. Uses the form:
+ *  @param name The resource name of the game server deployment, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}`.
  *    For example,
  *    `projects/my-project/locations/global/gameServerDeployments/my-deployment`.
@@ -564,7 +571,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsPreviewRolloutWithObject:name:]
 
 /**
- *  The resource name of the game server deployment rollout. Uses the form:
+ *  The resource name of the game server deployment rollout, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
@@ -595,8 +603,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerDeploymentRollout to include
  *    in the query.
- *  @param name The resource name of the game server deployment rollout. Uses
- *    the form:
+ *  @param name The resource name of the game server deployment rollout, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *    For example,
  *    `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
@@ -710,7 +718,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsUpdateRolloutWithObject:name:]
 
 /**
- *  The resource name of the game server deployment rollout. Uses the form:
+ *  The resource name of the game server deployment rollout, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *  For example,
  *  `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
@@ -739,8 +748,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerDeploymentRollout to include
  *    in the query.
- *  @param name The resource name of the game server deployment rollout. Uses
- *    the form:
+ *  @param name The resource name of the game server deployment rollout, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout`.
  *    For example,
  *    `projects/my-project/locations/global/gameServerDeployments/my-deployment/rollout`.
@@ -1010,7 +1019,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsCreateWithObject:parent:]
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1024,7 +1033,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a new realm in a given project and location.
  *
  *  @param object The @c GTLRGameServices_Realm to include in the query.
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsCreate
@@ -1047,7 +1056,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsDeleteWithname:]
 
 /**
- *  Required. The name of the realm to delete. Uses the form:
+ *  Required. The name of the realm to delete, in the following form:
  *  `projects/{project}/locations/{location}/realms/{realm}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1057,8 +1066,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single realm.
  *
- *  @param name Required. The name of the realm to delete. Uses the form:
- *    `projects/{project}/locations/{location}/realms/{realm}`.
+ *  @param name Required. The name of the realm to delete, in the following
+ *    form: `projects/{project}/locations/{location}/realms/{realm}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsDelete
  */
@@ -1082,7 +1091,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *gameServerClusterId;
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  `projects/{project}/locations/{location}/realms/{realm-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1094,7 +1103,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerCluster to include in the
  *    query.
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    `projects/{project}/locations/{location}/realms/{realm-id}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersCreate
@@ -1117,7 +1126,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersDeleteWithname:]
 
 /**
- *  Required. The name of the game server cluster to delete. Uses the form:
+ *  Required. The name of the game server cluster to delete, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/gameServerClusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1127,8 +1137,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a single game server cluster.
  *
- *  @param name Required. The name of the game server cluster to delete. Uses
- *    the form:
+ *  @param name Required. The name of the game server cluster to delete, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/gameServerClusters/{cluster}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersDelete
@@ -1150,7 +1160,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersGetWithname:]
 
 /**
- *  Required. The name of the game server cluster to retrieve. Uses the form:
+ *  Required. The name of the game server cluster to retrieve, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/realms/{realm-id}/gameServerClusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1160,8 +1171,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets details of a single game server cluster.
  *
- *  @param name Required. The name of the game server cluster to retrieve. Uses
- *    the form:
+ *  @param name Required. The name of the game server cluster to retrieve, in
+ *    the following form:
  *    `projects/{project}/locations/{location}/realms/{realm-id}/gameServerClusters/{cluster}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersGet
@@ -1206,7 +1217,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  "projects/{project}/locations/{location}/realms/{realm}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1216,7 +1227,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists game server clusters in a given project and location.
  *
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    "projects/{project}/locations/{location}/realms/{realm}".
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersList
@@ -1242,7 +1253,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersPatchWithObject:name:]
 
 /**
- *  Required. The resource name of the game server cluster. Uses the form:
+ *  Required. The resource name of the game server cluster, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
  *  For example,
  *  `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
@@ -1266,8 +1278,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerCluster to include in the
  *    query.
- *  @param name Required. The resource name of the game server cluster. Uses the
- *    form:
+ *  @param name Required. The resource name of the game server cluster, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
  *    For example,
  *    `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
@@ -1296,7 +1308,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *gameServerClusterId;
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  `projects/{project}/locations/{location}/realms/{realm}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1312,7 +1324,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerCluster to include in the
  *    query.
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    `projects/{project}/locations/{location}/realms/{realm}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewCreate
@@ -1335,7 +1347,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersPreviewDeleteWithname:]
 
 /**
- *  Required. The name of the game server cluster to delete. Uses the form:
+ *  Required. The name of the game server cluster to delete, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/gameServerClusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1348,8 +1361,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Previews deletion of a single game server cluster.
  *
- *  @param name Required. The name of the game server cluster to delete. Uses
- *    the form:
+ *  @param name Required. The name of the game server cluster to delete, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/gameServerClusters/{cluster}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewDelete
@@ -1371,7 +1384,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersPreviewUpdateWithObject:name:]
 
 /**
- *  Required. The resource name of the game server cluster. Uses the form:
+ *  Required. The resource name of the game server cluster, in the following
+ *  form:
  *  `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
  *  For example,
  *  `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
@@ -1398,8 +1412,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGameServices_GameServerCluster to include in the
  *    query.
- *  @param name Required. The resource name of the game server cluster. Uses the
- *    form:
+ *  @param name Required. The resource name of the game server cluster, in the
+ *    following form:
  *    `projects/{project}/locations/{location}/realms/{realm}/gameServerClusters/{cluster}`.
  *    For example,
  *    `projects/my-project/locations/{location}/realms/zanzibar/gameServerClusters/my-onprem-cluster`.
@@ -1424,7 +1438,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsGetWithname:]
 
 /**
- *  Required. The name of the realm to retrieve. Uses the form:
+ *  Required. The name of the realm to retrieve, in the following form:
  *  `projects/{project}/locations/{location}/realms/{realm}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1434,8 +1448,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets details of a single realm.
  *
- *  @param name Required. The name of the realm to retrieve. Uses the form:
- *    `projects/{project}/locations/{location}/realms/{realm}`.
+ *  @param name Required. The name of the realm to retrieve, in the following
+ *    form: `projects/{project}/locations/{location}/realms/{realm}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsGet
  */
@@ -1479,7 +1493,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name. Uses the form:
+ *  Required. The parent resource name, in the following form:
  *  `projects/{project}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1489,7 +1503,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists realms in a given project and location.
  *
- *  @param parent Required. The parent resource name. Uses the form:
+ *  @param parent Required. The parent resource name, in the following form:
  *    `projects/{project}/locations/{location}`.
  *
  *  @return GTLRGameServicesQuery_ProjectsLocationsRealmsList
@@ -1515,7 +1529,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsPatchWithObject:name:]
 
 /**
- *  The resource name of the realm. Uses the form:
+ *  The resource name of the realm, in the following form:
  *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
  *  `projects/my-project/locations/{location}/realms/my-realm`.
  */
@@ -1536,7 +1550,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Patches a single realm.
  *
  *  @param object The @c GTLRGameServices_Realm to include in the query.
- *  @param name The resource name of the realm. Uses the form:
+ *  @param name The resource name of the realm, in the following form:
  *    `projects/{project}/locations/{location}/realms/{realm}`. For example,
  *    `projects/my-project/locations/{location}/realms/my-realm`.
  *
@@ -1560,7 +1574,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryGameServices queryForProjectsLocationsRealmsPreviewUpdateWithObject:name:]
 
 /**
- *  The resource name of the realm. Uses the form:
+ *  The resource name of the realm, in the following form:
  *  `projects/{project}/locations/{location}/realms/{realm}`. For example,
  *  `projects/my-project/locations/{location}/realms/my-realm`.
  */
@@ -1584,7 +1598,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Previews patches to a single realm.
  *
  *  @param object The @c GTLRGameServices_Realm to include in the query.
- *  @param name The resource name of the realm. Uses the form:
+ *  @param name The resource name of the realm, in the following form:
  *    `projects/{project}/locations/{location}/realms/{realm}`. For example,
  *    `projects/my-project/locations/{location}/realms/my-realm`.
  *

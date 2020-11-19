@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Artifact Registry API (artifactregistry/v1beta1)
+//   Artifact Registry API (artifactregistry/v1beta2)
 // Description:
 //   Store and manage build artifacts in a scalable and integrated service built
 //   on Google infrastructure.

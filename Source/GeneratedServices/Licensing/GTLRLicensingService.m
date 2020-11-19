@@ -26,8 +26,8 @@ NSString * const kGTLRAuthScopeLicensingAppsLicensing = @"https://www.googleapis
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.batchPath = @"batch/licensing/v1";
+    self.rootURLString = @"https://licensing.googleapis.com/";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

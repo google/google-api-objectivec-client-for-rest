@@ -38,12 +38,32 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_StateUnspecifi
 NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
 NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_ZoneDistributionUnbalanced = @"ZONE_DISTRIBUTION_UNBALANCED";
 
+// GTLRCloudMemorystoreforMemcached_MaintenancePolicy.state
+NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_Deleting = @"DELETING";
+NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_Ready = @"READY";
+NSString * const kGTLRCloudMemorystoreforMemcached_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCloudMemorystoreforMemcached_Node.state
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Creating = @"CREATING";
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Deleting = @"DELETING";
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Ready = @"READY";
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDATING";
+
+// GTLRCloudMemorystoreforMemcached_Schedule.day
+NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Friday = @"FRIDAY";
+NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Monday = @"MONDAY";
+NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Saturday = @"SATURDAY";
+NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Sunday = @"SUNDAY";
+NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Thursday = @"THURSDAY";
+NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Tuesday = @"TUESDAY";
+NSString * const kGTLRCloudMemorystoreforMemcached_Schedule_Day_Wednesday = @"WEDNESDAY";
+
+// GTLRCloudMemorystoreforMemcached_UpdatePolicy.channel
+NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Earlier = @"EARLIER";
+NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_Later = @"LATER";
+NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateChannelUnspecified = @"UPDATE_CHANNEL_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -69,6 +89,36 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_DailyCycle
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_DailyCycle
+@dynamic duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_Date
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_DenyMaintenancePeriod
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_DenyMaintenancePeriod
+@dynamic endDate, startDate, time;
 @end
 
 
@@ -223,7 +273,21 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
-@dynamic exclude;
+@dynamic exclude, maintenancePolicies;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudMemorystoreforMemcached_MaintenancePolicy class];
+}
+
 @end
 
 
@@ -448,6 +512,46 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMemorystoreforMemcached_MaintenancePolicy
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_MaintenancePolicy
+@dynamic createTime, descriptionProperty, labels, name, state, updatePolicy,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_MaintenancePolicy_Labels
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_MaintenancePolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_MaintenanceWindow
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_MaintenanceWindow
+@dynamic dailyCycle, weeklyCycle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMemorystoreforMemcached_MemcacheParameters
 //
 
@@ -540,6 +644,16 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMemorystoreforMemcached_Schedule
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_Schedule
+@dynamic day, duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMemorystoreforMemcached_Status
 //
 
@@ -572,11 +686,57 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Node_State_Updating = @"UPDAT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMemorystoreforMemcached_TimeOfDay
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMemorystoreforMemcached_UpdateParametersRequest
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_UpdateParametersRequest
 @dynamic parameters, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_UpdatePolicy
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_UpdatePolicy
+@dynamic channel, denyMaintenancePeriods, window;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"denyMaintenancePeriods" : [GTLRCloudMemorystoreforMemcached_DenyMaintenancePeriod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_WeeklyCycle
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_WeeklyCycle
+@dynamic schedule;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedule" : [GTLRCloudMemorystoreforMemcached_Schedule class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -33,6 +33,7 @@
 @class GTLRAndroidManagement_AppTrackInfo;
 @class GTLRAndroidManagement_BlockAction;
 @class GTLRAndroidManagement_ChoosePrivateKeyRule;
+@class GTLRAndroidManagement_CommonCriteriaModeInfo;
 @class GTLRAndroidManagement_ComplianceRule;
 @class GTLRAndroidManagement_Date;
 @class GTLRAndroidManagement_Device;
@@ -96,6 +97,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AdvancedSecurityOverrides.commonCriteriaMode
+
+/**
+ *  Default. Disables Common Criteria Mode.
+ *
+ *  Value: "COMMON_CRITERIA_MODE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeDisabled;
+/**
+ *  Enables Common Criteria Mode.
+ *
+ *  Value: "COMMON_CRITERIA_MODE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeEnabled;
+/**
+ *  Unspecified. Defaults to COMMON_CRITERIA_MODE_DISABLED.
+ *
+ *  Value: "COMMON_CRITERIA_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
@@ -495,17 +518,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_CommandTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Lock;
 /**
- *  Reboot the device. Only supported on API level 24+.
+ *  Reboot the device. Only supported on fully managed devices running Android
+ *  7.0 (API level 24) or higher.
  *
  *  Value: "REBOOT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_Reboot;
+/**
+ *  Removes the work profile and all policies from a company-owned Android 8.0+
+ *  device, relinquishing the device for personal use. Apps and data associated
+ *  with the personal profile(s) are preserved. The device will be deleted from
+ *  the server after it acknowledges the command.
+ *
+ *  Value: "RELINQUISH_OWNERSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_RelinquishOwnership;
 /**
  *  Reset the user's password.
  *
  *  Value: "RESET_PASSWORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_CommonCriteriaModeInfo.commonCriteriaModeStatus
+
+/**
+ *  Common Criteria Mode is currently disabled.
+ *
+ *  Value: "COMMON_CRITERIA_MODE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeDisabled;
+/**
+ *  Common Criteria Mode is currently enabled.
+ *
+ *  Value: "COMMON_CRITERIA_MODE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeEnabled;
+/**
+ *  Unknown status.
+ *
+ *  Value: "COMMON_CRITERIA_MODE_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.appliedState
@@ -1381,13 +1436,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PermissionGrant_Policy
 // GTLRAndroidManagement_PersonalApplicationPolicy.installType
 
 /**
+ *  The app is available to install in the personal profile.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Available;
+/**
  *  The app is blocked and can't be installed in the personal profile.
  *
  *  Value: "BLOCKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked;
 /**
- *  Unspecified. The default behavior is that all installs are allowed.
+ *  Unspecified. Defaults to AVAILABLE.
  *
  *  Value: "INSTALL_TYPE_UNSPECIFIED"
  */
@@ -1397,14 +1458,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalApplicationPol
 // GTLRAndroidManagement_PersonalUsagePolicies.personalPlayStoreMode
 
 /**
- *  All Play Store apps are available, except those whose install_type is
- *  BLOCKED in personal_applications.
+ *  Only apps explicitly specified in personalApplications with installType set
+ *  to AVAILABLE are allowed to be installed in the personal profile.
+ *
+ *  Value: "ALLOWLIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Allowlist;
+/**
+ *  All Play Store apps are available for installation in the personal profile,
+ *  except those whose installType is BLOCKED in personalApplications.
  *
  *  Value: "BLACKLIST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist;
 /**
- *  Unspecified. Default behavior is to allow all installs.
+ *  All Play Store apps are available for installation in the personal profile,
+ *  except those whose installType is BLOCKED in personalApplications.
+ *
+ *  Value: "BLOCKLIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blocklist;
+/**
+ *  Unspecified. Defaults to BLOCKLIST.
  *
  *  Value: "PLAY_STORE_MODE_UNSPECIFIED"
  */
@@ -1972,6 +2047,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @interface GTLRAndroidManagement_AdvancedSecurityOverrides : GTLRObject
 
 /**
+ *  Controls Common Criteria Mode—security standards defined in the Common
+ *  Criteria for Information Technology Security Evaluation
+ *  (https://www.commoncriteriaportal.org/) (CC). Enabling Common Criteria Mode
+ *  increases certain security components on a device, including AES-GCM
+ *  encryption of Bluetooth Long Term Keys, and Wi-Fi configuration
+ *  stores.Warning: Common Criteria Mode enforces a strict security model
+ *  typically only required for IT products used in national security systems
+ *  and other highly sensitive organizations. Standard device use may be
+ *  affected. Only enabled if required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeDisabled
+ *        Default. Disables Common Criteria Mode. (Value:
+ *        "COMMON_CRITERIA_MODE_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeEnabled
+ *        Enables Common Criteria Mode. (Value: "COMMON_CRITERIA_MODE_ENABLED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified
+ *        Unspecified. Defaults to COMMON_CRITERIA_MODE_DISABLED. (Value:
+ *        "COMMON_CRITERIA_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *commonCriteriaMode;
+
+/**
  *  The policy for untrusted apps (apps from unknown sources) enforced on the
  *  device. Replaces install_unknown_sources_allowed (deprecated).
  *
@@ -2524,7 +2622,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *    @arg @c kGTLRAndroidManagement_Command_Type_Lock Lock the device, as if
  *        the lock screen timeout had expired. (Value: "LOCK")
  *    @arg @c kGTLRAndroidManagement_Command_Type_Reboot Reboot the device. Only
- *        supported on API level 24+. (Value: "REBOOT")
+ *        supported on fully managed devices running Android 7.0 (API level 24)
+ *        or higher. (Value: "REBOOT")
+ *    @arg @c kGTLRAndroidManagement_Command_Type_RelinquishOwnership Removes
+ *        the work profile and all policies from a company-owned Android 8.0+
+ *        device, relinquishing the device for personal use. Apps and data
+ *        associated with the personal profile(s) are preserved. The device will
+ *        be deleted from the server after it acknowledges the command. (Value:
+ *        "RELINQUISH_OWNERSHIP")
  *    @arg @c kGTLRAndroidManagement_Command_Type_ResetPassword Reset the user's
  *        password. (Value: "RESET_PASSWORD")
  */
@@ -2536,6 +2641,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  by the server based on the device the command is sent to.
  */
 @property(nonatomic, copy, nullable) NSString *userName;
+
+@end
+
+
+/**
+ *  Information about Common Criteria Mode—security standards defined in the
+ *  Common Criteria for Information Technology Security Evaluation
+ *  (https://www.commoncriteriaportal.org/) (CC).This information is only
+ *  available if statusReportingSettings.commonCriteriaModeEnabled is true in
+ *  the device's policy.
+ */
+@interface GTLRAndroidManagement_CommonCriteriaModeInfo : GTLRObject
+
+/**
+ *  Whether Common Criteria Mode is enabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeDisabled
+ *        Common Criteria Mode is currently disabled. (Value:
+ *        "COMMON_CRITERIA_MODE_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeEnabled
+ *        Common Criteria Mode is currently enabled. (Value:
+ *        "COMMON_CRITERIA_MODE_ENABLED")
+ *    @arg @c kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown
+ *        Unknown status. (Value: "COMMON_CRITERIA_MODE_STATUS_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *commonCriteriaModeStatus;
 
 @end
 
@@ -2582,20 +2714,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  Represents a whole or partial calendar date, e.g. a birthday. The time of
- *  day and time zone are either specified elsewhere or are not significant. The
- *  date is relative to the Proleptic Gregorian Calendar. This can represent: A
- *  full date, with non-zero year, month and day values A month and day value,
- *  with a zero year, e.g. an anniversary A year on its own, with zero month and
- *  day values A year and month value, with a zero day, e.g. a credit card
- *  expiration dateRelated types are google.type.TimeOfDay and
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: A full date, with non-zero year, month, and day values A month
+ *  and day value, with a zero year, such as an anniversary A year on its own,
+ *  with zero month and day values A year and month value, with a zero day, such
+ *  as a credit card expiration dateRelated types are google.type.TimeOfDay and
  *  google.protobuf.Timestamp.
  */
 @interface GTLRAndroidManagement_Date : GTLRObject
 
 /**
- *  Day of month. Must be from 1 to 31 and valid for the year and month, or 0 if
- *  specifying a year by itself or a year and month where the day is not
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
  *  significant.
  *
  *  Uses NSNumber of intValue.
@@ -2603,7 +2735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *day;
 
 /**
- *  Month of year. Must be from 1 to 12, or 0 if specifying a year without a
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
  *  month and day.
  *
  *  Uses NSNumber of intValue.
@@ -2611,7 +2743,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *month;
 
 /**
- *  Year of date. Must be from 1 to 9999, or 0 if specifying a date without a
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
  *  year.
  *
  *  Uses NSNumber of intValue.
@@ -2669,6 +2801,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        they have a policy applied. (Value: "PROVISIONING")
  */
 @property(nonatomic, copy, nullable) NSString *appliedState;
+
+/**
+ *  Information about Common Criteria Mode—security standards defined in the
+ *  Common Criteria for Information Technology Security Evaluation
+ *  (https://www.commoncriteriaportal.org/) (CC).This information is only
+ *  available if statusReportingSettings.commonCriteriaModeEnabled is true in
+ *  the device's policy.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_CommonCriteriaModeInfo *commonCriteriaModeInfo;
 
 /**
  *  Device settings information. This information is only available if
@@ -4351,12 +4492,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  The type of installation to perform.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Available
+ *        The app is available to install in the personal profile. (Value:
+ *        "AVAILABLE")
  *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked
  *        The app is blocked and can't be installed in the personal profile.
  *        (Value: "BLOCKED")
  *    @arg @c kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified
- *        Unspecified. The default behavior is that all installs are allowed.
- *        (Value: "INSTALL_TYPE_UNSPECIFIED")
+ *        Unspecified. Defaults to AVAILABLE. (Value:
+ *        "INSTALL_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *installType;
 
@@ -4393,15 +4537,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PersonalApplicationPolicy *> *personalApplications;
 
 /**
- *  Used together with personal_applications to control how apps in the personal
+ *  Used together with personalApplications to control how apps in the personal
  *  profile are allowed or blocked.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Allowlist
+ *        Only apps explicitly specified in personalApplications with
+ *        installType set to AVAILABLE are allowed to be installed in the
+ *        personal profile. (Value: "ALLOWLIST")
  *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist
- *        All Play Store apps are available, except those whose install_type is
- *        BLOCKED in personal_applications. (Value: "BLACKLIST")
+ *        All Play Store apps are available for installation in the personal
+ *        profile, except those whose installType is BLOCKED in
+ *        personalApplications. (Value: "BLACKLIST")
+ *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blocklist
+ *        All Play Store apps are available for installation in the personal
+ *        profile, except those whose installType is BLOCKED in
+ *        personalApplications. (Value: "BLOCKLIST")
  *    @arg @c kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified
- *        Unspecified. Default behavior is to allow all installs. (Value:
+ *        Unspecified. Defaults to BLOCKLIST. (Value:
  *        "PLAY_STORE_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *personalPlayStoreMode;
@@ -5425,6 +5578,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *applicationReportsEnabled;
+
+/**
+ *  Whether Common Criteria Mode reporting is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commonCriteriaModeEnabled;
 
 /**
  *  Whether device settings reporting is enabled.

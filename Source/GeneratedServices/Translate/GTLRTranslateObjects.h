@@ -252,8 +252,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_DetectLanguageResponse : GTLRObject
 
 /**
- *  A list of detected languages sorted by detection confidence in descending
- *  order. The most probable language first.
+ *  The most probable language detected by the Translation API. For each
+ *  request, the Translation API will always return only one result.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranslate_DetectedLanguage *> *languages;
 
@@ -672,8 +672,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  could also be empty if we have no content to output. Once a row is present
  *  in index.csv, the input/output matching never changes. Callers should also
  *  expect all the content in input_file are processed and ready to be consumed
- *  (that is, no partial output file is written). The format of
- *  translations_file (for target language code 'trg') is:
+ *  (that is, no partial output file is written). Since index.csv will be
+ *  keeping updated during the process, please make sure there is no custom
+ *  retention policy applied on the output bucket that may avoid file updating.
+ *  (https://cloud.google.com/storage/docs/bucket-lock?hl=en#retention-policy)
+ *  The format of translations_file (for target language code 'trg') is:
  *  gs://translation_test/a_b_c_'trg'_translations.[extension] If the input file
  *  extension is tsv, the output has the following columns: Column 1: ID of the
  *  request provided in the input, if it's not provided in the input, then the
@@ -828,7 +831,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The content of the input in string format. We recommend the total
- *  content be less than 30k codepoints. Use BatchTranslateText for larger text.
+ *  content be less than 30k codepoints. The max length of this field is 1024.
+ *  Use BatchTranslateText for larger text.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contents;
 

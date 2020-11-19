@@ -1979,6 +1979,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @interface GTLRDataflow_ContainerSpec : GTLRObject
 
+/** Default runtime environment for the job. */
+@property(nonatomic, strong, nullable) GTLRDataflow_FlexTemplateRuntimeEnvironment *defaultEnvironment;
+
 /** Name of the docker container image. E.g., gcr.io/project/some-image */
 @property(nonatomic, copy, nullable) NSString *image;
 
@@ -2868,6 +2871,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Output sources for this stage. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StageSource *> *outputSource;
 
+/** Other stages that must complete before this stage can run. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *prerequisiteStage;
+
 @end
 
 
@@ -2922,7 +2928,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Additional user labels to be specified for the job. Keys and values must
  *  follow the restrictions specified in the [labeling
  *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
- *  page.
+ *  page. An object containing a list of "key": value pairs. Example: { "name":
+ *  "wrench", "mass": "1kg", "count": "3" }.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels *additionalUserLabels;
 
@@ -2984,8 +2991,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
- *  Subnetwork to which VMs will be assigned, if desired. Expected to be of the
- *  form "regions/REGION/subnetworks/SUBNETWORK".
+ *  Subnetwork to which VMs will be assigned, if desired. You can specify a
+ *  subnetwork using either a complete URL or an abbreviated path. Expected to
+ *  be of the form
+ *  "https://www.googleapis.com/compute/v1/projects/HOST_PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK"
+ *  or "regions/REGION/subnetworks/SUBNETWORK". If the subnetwork is located in
+ *  a Shared VPC network, you must use the complete URL.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -3031,7 +3042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Additional user labels to be specified for the job. Keys and values must
  *  follow the restrictions specified in the [labeling
  *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
- *  page.
+ *  page. An object containing a list of "key": value pairs. Example: { "name":
+ *  "wrench", "mass": "1kg", "count": "3" }.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5156,7 +5168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Additional user labels to be specified for the job. Keys and values should
  *  follow the restrictions specified in the [labeling
  *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
- *  page.
+ *  page. An object containing a list of "key": value pairs. Example: { "name":
+ *  "wrench", "mass": "1kg", "count": "3" }.
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_RuntimeEnvironment_AdditionalUserLabels *additionalUserLabels;
 
@@ -5190,7 +5203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *ipConfiguration;
 
 /**
- *  Optional. Name for the Cloud KMS key for the job. Key format is:
+ *  Name for the Cloud KMS key for the job. Key format is:
  *  projects//locations//keyRings//cryptoKeys/
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
@@ -5226,8 +5239,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
- *  Subnetwork to which VMs will be assigned, if desired. Expected to be of the
- *  form "regions/REGION/subnetworks/SUBNETWORK".
+ *  Subnetwork to which VMs will be assigned, if desired. You can specify a
+ *  subnetwork using either a complete URL or an abbreviated path. Expected to
+ *  be of the form
+ *  "https://www.googleapis.com/compute/v1/projects/HOST_PROJECT_ID/regions/REGION/subnetworks/SUBNETWORK"
+ *  or "regions/REGION/subnetworks/SUBNETWORK". If the subnetwork is located in
+ *  a Shared VPC network, you must use the complete URL.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -5273,7 +5290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Additional user labels to be specified for the job. Keys and values should
  *  follow the restrictions specified in the [labeling
  *  restrictions](https://cloud.google.com/compute/docs/labeling-resources#restrictions)
- *  page.
+ *  page. An object containing a list of "key": value pairs. Example: { "name":
+ *  "wrench", "mass": "1kg", "count": "3" }.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

@@ -149,11 +149,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_MetricTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeCurrency;
 /**
+ *  A length in feet; a special floating point type.
+ *
+ *  Value: "TYPE_FEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeFeet;
+/**
  *  Floating point type.
  *
  *  Value: "TYPE_FLOAT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeFloat;
+/**
+ *  A duration in hours; a special floating point type.
+ *
+ *  Value: "TYPE_HOURS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeHours;
 /**
  *  Integer type.
  *
@@ -161,11 +173,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeFloa
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeInteger;
 /**
+ *  A length in kilometers; a special floating point type.
+ *
+ *  Value: "TYPE_KILOMETERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeKilometers;
+/**
+ *  A length in meters; a special floating point type.
+ *
+ *  Value: "TYPE_METERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMeters;
+/**
+ *  A length in miles; a special floating point type.
+ *
+ *  Value: "TYPE_MILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMiles;
+/**
+ *  A duration in milliseconds; a special floating point type.
+ *
+ *  Value: "TYPE_MILLISECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMilliseconds;
+/**
+ *  A duration in minutes; a special floating point type.
+ *
+ *  Value: "TYPE_MINUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeMinutes;
+/**
  *  A duration of seconds; a special floating point type.
  *
  *  Value: "TYPE_SECONDS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeSeconds;
+/**
+ *  A custom metric of standard type; a special floating point type.
+ *
+ *  Value: "TYPE_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricHeader_Type_TypeStandard;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsData_MetricMetadata.type
@@ -183,11 +231,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_Metric
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeCurrency;
 /**
+ *  A length in feet; a special floating point type.
+ *
+ *  Value: "TYPE_FEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeFeet;
+/**
  *  Floating point type.
  *
  *  Value: "TYPE_FLOAT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeFloat;
+/**
+ *  A duration in hours; a special floating point type.
+ *
+ *  Value: "TYPE_HOURS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeHours;
 /**
  *  Integer type.
  *
@@ -195,11 +255,47 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeFl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeInteger;
 /**
+ *  A length in kilometers; a special floating point type.
+ *
+ *  Value: "TYPE_KILOMETERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeKilometers;
+/**
+ *  A length in meters; a special floating point type.
+ *
+ *  Value: "TYPE_METERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeMeters;
+/**
+ *  A length in miles; a special floating point type.
+ *
+ *  Value: "TYPE_MILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeMiles;
+/**
+ *  A duration in milliseconds; a special floating point type.
+ *
+ *  Value: "TYPE_MILLISECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeMilliseconds;
+/**
+ *  A duration in minutes; a special floating point type.
+ *
+ *  Value: "TYPE_MINUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeMinutes;
+/**
  *  A duration of seconds; a special floating point type.
  *
  *  Value: "TYPE_SECONDS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeSeconds;
+/**
+ *  A custom metric of standard type; a special floating point type.
+ *
+ *  Value: "TYPE_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_MetricMetadata_Type_TypeStandard;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsData_NumericFilter.operation
@@ -274,6 +370,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_Pivot_MetricAggregations_M
  *  Value: "TOTAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_Pivot_MetricAggregations_Total;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsData_RunRealtimeReportRequest.metricAggregations
+
+/**
+ *  Count operator.
+ *
+ *  Value: "COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_Count;
+/**
+ *  Maximum operator.
+ *
+ *  Value: "MAXIMUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_Maximum;
+/**
+ *  Unspecified operator.
+ *
+ *  Value: "METRIC_AGGREGATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_MetricAggregationUnspecified;
+/**
+ *  Minimum operator.
+ *
+ *  Value: "MINIMUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_Minimum;
+/**
+ *  SUM operator.
+ *
+ *  Value: "TOTAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_RunRealtimeReportRequest_MetricAggregations_Total;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsData_RunReportRequest.metricAggregations
@@ -585,8 +715,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  A contiguous set of days: startDate, startDate + 1, ..., endDate. Requests
- *  are allowed up to 4 date ranges, and the union of the ranges can cover up to
- *  1 year.
+ *  are allowed up to 4 date ranges.
  */
 @interface GTLRAnalyticsData_DateRange : GTLRObject
 
@@ -618,9 +747,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
- *  Dimensions are attributes of your data. For example, the dimension City
- *  indicates the city, for example, "Paris" or "New York", from which an event
- *  originates. Requests are allowed up to 8 dimensions.
+ *  Dimensions are attributes of your data. For example, the dimension city
+ *  indicates the city from which an event originates. Dimension values in
+ *  report responses are strings; for example, city could be "Paris" or "New
+ *  York". Requests are allowed up to 8 dimensions.
  */
 @interface GTLRAnalyticsData_Dimension : GTLRObject
 
@@ -630,7 +760,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_DimensionExpression *dimensionExpression;
 
-/** The name of the dimension. */
+/**
+ *  The name of the dimension. See the [API
+ *  Dimensions](https://developers.google.com/analytics/trusted-testing/analytics-data/api-schema#dimensions)
+ *  for the list of dimension names. If `dimensionExpression` is specified,
+ *  `name` can be any string that you would like. For example if a
+ *  `dimensionExpression` concatenates `country` and `city`, you could call that
+ *  dimension `countryAndCity`. Dimensions are referenced by `name` in
+ *  `dimensionFilter`, `orderBys`, `dimensionExpression`, and `pivots`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -682,6 +820,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  example, `eventName`.
  */
 @property(nonatomic, copy, nullable) NSString *apiName;
+
+/**
+ *  True if the dimension is a custom dimension for this property.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customDefinition;
 
 /**
  *  Still usable but deprecated names for this dimension. If populated, this
@@ -755,7 +900,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  */
 @interface GTLRAnalyticsData_Entity : GTLRObject
 
-/** A Google Analytics App + Web property id. */
+/**
+ *  A Google Analytics GA4 property id. To learn more, see [where to find your
+ *  Property
+ *  ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ */
 @property(nonatomic, copy, nullable) NSString *propertyId;
 
 @end
@@ -779,7 +928,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_InListFilter *inListFilter;
 
 /**
- *  A filter for null values.
+ *  A filter for null values. If True, a null dimension value is matched by this
+ *  filter. Null filter is commonly used inside a NOT filter expression. For
+ *  example, a NOT expression of a null filter removes rows when a dimension is
+ *  null.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -848,28 +1000,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  The dimensions and metrics currently accepted in reporting methods.
+ */
+@interface GTLRAnalyticsData_Metadata : GTLRObject
+
+/** The dimension descriptions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DimensionMetadata *> *dimensions;
+
+/** The metric descriptions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_MetricMetadata *> *metrics;
+
+/** Resource name of this metadata. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  The quantitative measurements of a report. For example, the metric
- *  eventCount is the total number of events. Requests are allowed up to 10
+ *  `eventCount` is the total number of events. Requests are allowed up to 10
  *  metrics.
  */
 @interface GTLRAnalyticsData_Metric : GTLRObject
 
 /**
  *  A mathematical expression for derived metrics. For example, the metric Event
- *  count per user is eventCount/totalUsers.
+ *  count per user is `eventCount/totalUsers`.
  */
 @property(nonatomic, copy, nullable) NSString *expression;
 
 /**
- *  Indicates if a metric is invisible. If a metric is invisible, the metric is
- *  not in the response, but can be used in filters, order_bys or being referred
- *  to in a metric expression.
+ *  Indicates if a metric is invisible in the report response. If a metric is
+ *  invisible, the metric will not produce a column in the response, but can be
+ *  used in `metricFilter`, `orderBys`, or a metric `expression`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *invisible;
 
-/** The name of the metric. */
+/**
+ *  The name of the metric. See the [API
+ *  Metrics](https://developers.google.com/analytics/trusted-testing/analytics-data/api-schema#metrics)
+ *  for the list of metric names. If `expression` is specified, `name` can be
+ *  any string that you would like. For example if `expression` is
+ *  `screenPageViews/sessions`, you could call that metric's name =
+ *  `viewsPerSession`. Metrics are referenced by `name` in `metricFilter`,
+ *  `orderBys`, and metric `expression`.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -894,12 +1071,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *        Unspecified type. (Value: "METRIC_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeCurrency An amount of
  *        money; a special floating point type. (Value: "TYPE_CURRENCY")
+ *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeFeet A length in feet; a
+ *        special floating point type. (Value: "TYPE_FEET")
  *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeFloat Floating point
  *        type. (Value: "TYPE_FLOAT")
+ *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeHours A duration in
+ *        hours; a special floating point type. (Value: "TYPE_HOURS")
  *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeInteger Integer type.
  *        (Value: "TYPE_INTEGER")
+ *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeKilometers A length in
+ *        kilometers; a special floating point type. (Value: "TYPE_KILOMETERS")
+ *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeMeters A length in
+ *        meters; a special floating point type. (Value: "TYPE_METERS")
+ *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeMiles A length in miles;
+ *        a special floating point type. (Value: "TYPE_MILES")
+ *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeMilliseconds A duration
+ *        in milliseconds; a special floating point type. (Value:
+ *        "TYPE_MILLISECONDS")
+ *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeMinutes A duration in
+ *        minutes; a special floating point type. (Value: "TYPE_MINUTES")
  *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeSeconds A duration of
  *        seconds; a special floating point type. (Value: "TYPE_SECONDS")
+ *    @arg @c kGTLRAnalyticsData_MetricHeader_Type_TypeStandard A custom metric
+ *        of standard type; a special floating point type. (Value:
+ *        "TYPE_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -916,6 +1111,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  `eventCount`.
  */
 @property(nonatomic, copy, nullable) NSString *apiName;
+
+/**
+ *  True if the metric is a custom metric for this property.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customDefinition;
 
 /**
  *  Still usable but deprecated names for this metric. If populated, this metric
@@ -947,12 +1149,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *        Unspecified type. (Value: "METRIC_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeCurrency An amount of
  *        money; a special floating point type. (Value: "TYPE_CURRENCY")
+ *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeFeet A length in feet;
+ *        a special floating point type. (Value: "TYPE_FEET")
  *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeFloat Floating point
  *        type. (Value: "TYPE_FLOAT")
+ *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeHours A duration in
+ *        hours; a special floating point type. (Value: "TYPE_HOURS")
  *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeInteger Integer type.
  *        (Value: "TYPE_INTEGER")
+ *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeKilometers A length in
+ *        kilometers; a special floating point type. (Value: "TYPE_KILOMETERS")
+ *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeMeters A length in
+ *        meters; a special floating point type. (Value: "TYPE_METERS")
+ *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeMiles A length in
+ *        miles; a special floating point type. (Value: "TYPE_MILES")
+ *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeMilliseconds A duration
+ *        in milliseconds; a special floating point type. (Value:
+ *        "TYPE_MILLISECONDS")
+ *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeMinutes A duration in
+ *        minutes; a special floating point type. (Value: "TYPE_MINUTES")
  *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeSeconds A duration of
  *        seconds; a special floating point type. (Value: "TYPE_SECONDS")
+ *    @arg @c kGTLRAnalyticsData_MetricMetadata_Type_TypeStandard A custom
+ *        metric of standard type; a special floating point type. (Value:
+ *        "TYPE_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1197,25 +1417,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  */
 @interface GTLRAnalyticsData_PropertyQuota : GTLRObject
 
-/** Analytics Properties can send up to 10 concurrent requests. */
+/**
+ *  Standard Analytics Properties can send up to 10 concurrent requests;
+ *  Analytics 360 Properties can use up to 50 concurrent requests.
+ */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *concurrentRequests;
 
 /**
- *  Analytics Properties and cloud project pairs can have up to 10 server errors
- *  per hour.
+ *  Standard Analytics Properties and cloud project pairs can have up to 10
+ *  server errors per hour; Analytics 360 Properties and cloud project pairs can
+ *  have up to 50 server errors per hour.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *serverErrorsPerProjectPerHour;
 
 /**
- *  Analytics Properties can use up to 25,000 tokens per day. Most requests
- *  consume fewer than 10 tokens.
+ *  Standard Analytics Properties can use up to 25,000 tokens per day; Analytics
+ *  360 Properties can use 250,000 tokens per day. Most requests consume fewer
+ *  than 10 tokens.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *tokensPerDay;
 
 /**
- *  Analytics Properties can use up to 5,000 tokens per day. An API request
- *  consumes a single number of tokens, and that number is deducted from both
- *  the hourly and daily quotas.
+ *  Standard Analytics Properties can use up to 5,000 tokens per day; Analytics
+ *  360 Properties can use 50,000 tokens per day. An API request consumes a
+ *  single number of tokens, and that number is deducted from both the hourly
+ *  and daily quotas.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *tokensPerHour;
 
@@ -1263,11 +1489,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  Report data for each row. For example if RunReportRequest contains: ```none
- *  dimensions { name: "eventName" } dimensions { name: "countryId" } metrics {
- *  name: "eventCount" } ``` One row with 'in_app_purchase' as the eventName,
- *  'us' as the countryId, and 15 as the eventCount, would be: ```none
- *  dimension_values { name: 'in_app_purchase' name: 'us' } metric_values {
- *  int64_value: 15 } ```
+ *  "dimensions": [ { "name": "eventName" }, { "name": "countryId" } ],
+ *  "metrics": [ { "name": "eventCount" } ] ``` One row with 'in_app_purchase'
+ *  as the eventName, 'JP' as the countryId, and 15 as the eventCount, would be:
+ *  ```none "dimensionValues": [ { "value": "in_app_purchase" }, { "value": "JP"
+ *  } ], "metricValues": [ { "value": "15" } ] ```
  */
 @interface GTLRAnalyticsData_Row : GTLRObject
 
@@ -1420,6 +1646,103 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
+ *  The request to generate a realtime report.
+ */
+@interface GTLRAnalyticsData_RunRealtimeReportRequest : GTLRObject
+
+/**
+ *  The filter clause of dimensions. Dimensions must be requested to be used in
+ *  this filter. Metrics cannot be used in this filter.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpression *dimensionFilter;
+
+/** The dimensions requested and displayed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Dimension *> *dimensions;
+
+/**
+ *  The number of rows to return. If unspecified, 10 rows are returned. If -1,
+ *  all rows are returned.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/**
+ *  Aggregation of metrics. Aggregated metric values will be shown in rows where
+ *  the dimension_values are set to "RESERVED_(MetricAggregation)".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *metricAggregations;
+
+/**
+ *  The filter clause of metrics. Applied at post aggregation phase, similar to
+ *  SQL having-clause. Metrics must be requested to be used in this filter.
+ *  Dimensions cannot be used in this filter.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_FilterExpression *metricFilter;
+
+/** The metrics requested and displayed. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Metric *> *metrics;
+
+/** Specifies how rows are ordered in the response. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_OrderBy *> *orderBys;
+
+/**
+ *  Toggles whether to return the current state of this Analytics Property's
+ *  Realtime quota. Quota is returned in [PropertyQuota](#PropertyQuota).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnPropertyQuota;
+
+@end
+
+
+/**
+ *  The response realtime report table corresponding to a request.
+ */
+@interface GTLRAnalyticsData_RunRealtimeReportResponse : GTLRObject
+
+/**
+ *  Describes dimension columns. The number of DimensionHeaders and ordering of
+ *  DimensionHeaders matches the dimensions present in rows.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DimensionHeader *> *dimensionHeaders;
+
+/** If requested, the maximum values of metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *maximums;
+
+/**
+ *  Describes metric columns. The number of MetricHeaders and ordering of
+ *  MetricHeaders matches the metrics present in rows.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_MetricHeader *> *metricHeaders;
+
+/** If requested, the minimum values of metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *minimums;
+
+/** This Analytics Property's Realtime quota state including this request. */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_PropertyQuota *propertyQuota;
+
+/**
+ *  The total number of rows in the query result, regardless of the number of
+ *  rows returned in the response. For example if a query returns 175 rows and
+ *  includes limit = 50 in the API request, the response will contain row_count
+ *  = 175 but only 50 rows.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+/** Rows of dimension value combinations and metric values in the report. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *rows;
+
+/** If requested, the totaled values of metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *totals;
+
+@end
+
+
+/**
  *  The request to generate a report.
  */
 @interface GTLRAnalyticsData_RunReportRequest : GTLRObject
@@ -1471,7 +1794,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  The number of rows to return. If unspecified, 10 rows are returned. If -1,
- *  all rows are returned.
+ *  all rows are returned. To learn more about this pagination parameter, see
+ *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1494,7 +1818,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Metric *> *metrics;
 
 /**
- *  The row count of the start row. The first row is counted as row 0.
+ *  The row count of the start row. The first row is counted as row 0. To learn
+ *  more about this pagination parameter, see
+ *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1547,7 +1873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  The total number of rows in the query result, regardless of the number of
  *  rows returned in the response. For example if a query returns 175 rows and
  *  includes limit = 50 in the API request, the response will contain row_count
- *  = 175 but only 50 rows.
+ *  = 175 but only 50 rows. To learn more about this pagination parameter, see
+ *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1598,20 +1925,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /** The string value used for the matching. */
 @property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  The dimensions and metrics currently accepted in reporting methods.
- */
-@interface GTLRAnalyticsData_UniversalMetadata : GTLRObject
-
-/** The dimensions descriptions. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DimensionMetadata *> *dimensions;
-
-/** The metric descriptions. */
-@property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_MetricMetadata *> *metrics;
 
 @end
 

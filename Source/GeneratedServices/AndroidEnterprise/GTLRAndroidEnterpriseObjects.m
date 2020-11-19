@@ -182,6 +182,12 @@ NSString * const kGTLRAndroidEnterprise_ProductAvailabilityChangeEvent_Availabil
 NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Accepted = @"accepted";
 NSString * const kGTLRAndroidEnterprise_ProductPermission_State_Required = @"required";
 
+// GTLRAndroidEnterprise_ProductPolicy.autoUpdateMode
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateDefault = @"autoUpdateDefault";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateHighPriority = @"autoUpdateHighPriority";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdateModeUnspecified = @"autoUpdateModeUnspecified";
+NSString * const kGTLRAndroidEnterprise_ProductPolicy_AutoUpdateMode_AutoUpdatePostponed = @"autoUpdatePostponed";
+
 // GTLRAndroidEnterprise_ProductPolicy.tracks
 NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_Alpha = @"alpha";
 NSString * const kGTLRAndroidEnterprise_ProductPolicy_Tracks_AppTrackUnspecified = @"appTrackUnspecified";
@@ -1093,7 +1099,8 @@ NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Standalone = @"standa
 //
 
 @implementation GTLRAndroidEnterprise_ProductPolicy
-@dynamic autoInstallPolicy, managedConfiguration, productId, trackIds, tracks;
+@dynamic autoInstallPolicy, autoUpdateMode, managedConfiguration, productId,
+         trackIds, tracks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

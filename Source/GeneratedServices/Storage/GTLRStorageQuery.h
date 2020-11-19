@@ -2152,8 +2152,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, assign) long long ifMetagenerationMatch;
 
 /**
- *  Not currently supported. Specifying the parameter causes the request to fail
- *  with status code 400 - Bad Request.
+ *  Resource name of the Cloud KMS key, of the form
+ *  projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key, that
+ *  will be used to encrypt the object. Overrides the object metadata's
+ *  kms_key_name value, if any.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 

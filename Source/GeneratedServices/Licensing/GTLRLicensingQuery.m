@@ -37,6 +37,7 @@
   query.productId = productId;
   query.skuId = skuId;
   query.userId = userId;
+  query.expectedObjectClass = [GTLRLicensing_Empty class];
   query.loggingName = @"licensing.licenseAssignments.delete";
   return query;
 }

@@ -4,9 +4,8 @@
 // API:
 //   IAM Service Account Credentials API (iamcredentials/v1)
 // Description:
-//   Creates short-lived credentials for impersonating IAM service accounts.
-//   *Note:* This API is tied to the IAM API (iam.googleapis.com). Enabling or
-//   disabling this API will also enable or disable the IAM API.
+//   Creates short-lived credentials for impersonating IAM service accounts. To
+//   enable this API, you must enable the IAM API (iam.googleapis.com).
 // Documentation:
 //   https://cloud.google.com/iam/docs/creating-short-lived-service-account-credentials
 
@@ -47,9 +46,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeIAMCredentialsCloudPlatform;
 /**
  *  Service for executing IAM Service Account Credentials API queries.
  *
- *  Creates short-lived credentials for impersonating IAM service accounts.
- *  *Note:* This API is tied to the IAM API (iam.googleapis.com). Enabling or
- *  disabling this API will also enable or disable the IAM API.
+ *  Creates short-lived credentials for impersonating IAM service accounts. To
+ *  enable this API, you must enable the IAM API (iam.googleapis.com).
  */
 @interface GTLRIAMCredentialsService : GTLRService
 

@@ -34,6 +34,21 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Googl
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating = @"UPDATING";
 
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Deleting = @"DELETING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Ready = @"READY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule.day
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Friday = @"FRIDAY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Monday = @"MONDAY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Saturday = @"SATURDAY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Sunday = @"SUNDAY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Thursday = @"THURSDAY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Tuesday = @"TUESDAY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Wednesday = @"WEDNESDAY";
+
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust.state
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Connected = @"CONNECTED";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Creating = @"CREATING";
@@ -52,6 +67,11 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_External = @"EXTERNAL";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_Forest = @"FOREST";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_TrustTypeUnspecified = @"TRUST_TYPE_UNSPECIFIED";
+
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy.channel
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Earlier = @"EARLIER";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Later = @"LATER";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_UpdateChannelUnspecified = @"UPDATE_CHANNEL_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -87,6 +107,36 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DailyCycle
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DailyCycle
+@dynamic duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Date
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DenyMaintenancePeriod
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DenyMaintenancePeriod
+@dynamic endDate, startDate, time;
 @end
 
 
@@ -296,7 +346,21 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
-@dynamic exclude;
+@dynamic exclude, maintenancePolicies;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies
+
++ (Class)classForAdditionalProperties {
+  return [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy class];
+}
+
 @end
 
 
@@ -474,6 +538,46 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy
+@dynamic createTime, descriptionProperty, labels, name, state, updatePolicy,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_Labels
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenanceWindow
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenanceWindow
+@dynamic dailyCycle, weeklyCycle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation
 //
 
@@ -582,6 +686,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule
+@dynamic day, duration, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest
 //
 
@@ -660,6 +774,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 //
 
@@ -680,9 +804,45 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy
+@dynamic channel, denyMaintenancePeriods, window;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"denyMaintenancePeriods" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DenyMaintenancePeriod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ValidateTrustRequest
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ValidateTrustRequest
 @dynamic trust;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_WeeklyCycle
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_WeeklyCycle
+@dynamic schedule;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedule" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule class]
+  };
+  return map;
+}
+
 @end

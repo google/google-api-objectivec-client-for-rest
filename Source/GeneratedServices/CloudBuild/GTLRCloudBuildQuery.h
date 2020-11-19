@@ -24,7 +24,6 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_CancelBuildRequest;
 @class GTLRCloudBuild_CancelOperationRequest;
-@class GTLRCloudBuild_CreateBuildRequest;
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_RetryBuildRequest;
 
@@ -270,7 +269,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** Number of results to return in the list. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Token to provide to skip to a particular spot in the list. */
+/**
+ *  The page token for the next page of Builds. If unspecified, the first page
+ *  of results is returned. If the token is rejected for any reason,
+ *  INVALID_ARGUMENT will be thrown. In this case, the token should be
+ *  discarded, and pagination should be restarted from the first page of
+ *  results. See https://google.aip.dev/158 for more.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -425,6 +430,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** Required. ID of the project. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
 /**
  *  Fetches a @c GTLRCloudBuild_Operation.
  *
@@ -432,14 +440,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  long-running `Operation`, which includes the build ID. Pass the build ID to
  *  `GetBuild` to determine the build status (such as `SUCCESS` or `FAILURE`).
  *
- *  @param object The @c GTLRCloudBuild_CreateBuildRequest to include in the
- *    query.
+ *  @param object The @c GTLRCloudBuild_Build to include in the query.
  *  @param parent The parent resource where this build will be created. Format:
  *    `projects/{project}/locations/{location}`
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate
  */
-+ (instancetype)queryWithObject:(GTLRCloudBuild_CreateBuildRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudBuild_Build *)object
                          parent:(NSString *)parent;
 
 @end
@@ -509,7 +516,13 @@ NS_ASSUME_NONNULL_BEGIN
 /** Number of results to return in the list. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Token to provide to skip to a particular spot in the list. */
+/**
+ *  The page token for the next page of Builds. If unspecified, the first page
+ *  of results is returned. If the token is rejected for any reason,
+ *  INVALID_ARGUMENT will be thrown. In this case, the token should be
+ *  discarded, and pagination should be restarted from the first page of
+ *  results. See https://google.aip.dev/158 for more.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

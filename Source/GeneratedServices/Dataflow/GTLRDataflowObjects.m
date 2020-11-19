@@ -430,7 +430,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ContainerSpec
-@dynamic image, metadata, sdkInfo;
+@dynamic defaultEnvironment, image, metadata, sdkInfo;
 @end
 
 
@@ -745,7 +745,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_ExecutionStageSummary
 @dynamic componentSource, componentTransform, identifier, inputSource, kind,
-         name, outputSource;
+         name, outputSource, prerequisiteStage;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -756,7 +756,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
     @"componentSource" : [GTLRDataflow_ComponentSource class],
     @"componentTransform" : [GTLRDataflow_ComponentTransform class],
     @"inputSource" : [GTLRDataflow_StageSource class],
-    @"outputSource" : [GTLRDataflow_StageSource class]
+    @"outputSource" : [GTLRDataflow_StageSource class],
+    @"prerequisiteStage" : [NSString class]
   };
   return map;
 }

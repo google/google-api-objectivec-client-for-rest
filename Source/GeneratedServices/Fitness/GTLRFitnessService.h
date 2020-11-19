@@ -102,6 +102,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyWrite;
 /**
+ *  Authorization scope: See your heart rate data in Google Fit. I consent to
+ *  Google sharing my heart rate information with this app.
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.heart_rate.read"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessHeartRateRead;
+/**
+ *  Authorization scope: See and add to your heart rate data in Google Fit. I
+ *  consent to Google sharing my heart rate information with this app.
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.heart_rate.write"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessHeartRateWrite;
+/**
  *  Authorization scope: See your Google Fit speed and distance data
  *
  *  Value "https://www.googleapis.com/auth/fitness.location.read"
@@ -156,6 +170,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthRead;
  *  Value "https://www.googleapis.com/auth/fitness.reproductive_health.write"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthWrite;
+/**
+ *  Authorization scope: See your sleep data in Google Fit. I consent to Google
+ *  sharing my sleep information with this app.
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.sleep.read"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessSleepRead;
+/**
+ *  Authorization scope: See and add to your sleep data in Google Fit. I consent
+ *  to Google sharing my sleep information with this app.
+ *
+ *  Value "https://www.googleapis.com/auth/fitness.sleep.write"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessSleepWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRFitnessService

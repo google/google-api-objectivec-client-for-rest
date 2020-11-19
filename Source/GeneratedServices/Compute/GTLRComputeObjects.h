@@ -98,6 +98,7 @@
 @class GTLRCompute_CommitmentsScopedList_Warning;
 @class GTLRCompute_CommitmentsScopedList_Warning_Data_Item;
 @class GTLRCompute_Condition;
+@class GTLRCompute_ConfidentialInstanceConfig;
 @class GTLRCompute_ConnectionDraining;
 @class GTLRCompute_ConsistentHashLoadBalancerSettings;
 @class GTLRCompute_ConsistentHashLoadBalancerSettingsHttpCookie;
@@ -164,6 +165,7 @@
 @class GTLRCompute_HealthCheck;
 @class GTLRCompute_HealthCheckList_Warning;
 @class GTLRCompute_HealthCheckList_Warning_Data_Item;
+@class GTLRCompute_HealthCheckLogConfig;
 @class GTLRCompute_HealthCheckReference;
 @class GTLRCompute_HealthChecksAggregatedList_Items;
 @class GTLRCompute_HealthChecksAggregatedList_Warning;
@@ -501,6 +503,7 @@
 @class GTLRCompute_SecurityPolicyRule;
 @class GTLRCompute_SecurityPolicyRuleMatcher;
 @class GTLRCompute_SecurityPolicyRuleMatcherConfig;
+@class GTLRCompute_SecuritySettings;
 @class GTLRCompute_ServerBinding;
 @class GTLRCompute_ServiceAccount;
 @class GTLRCompute_ShieldedInstanceConfig;
@@ -684,6 +687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Wa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -700,6 +705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Wa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -734,6 +741,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -750,6 +759,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -784,6 +795,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -800,6 +813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -900,6 +915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -916,6 +933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -950,6 +969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -966,6 +987,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1000,6 +1023,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_Externa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1016,6 +1041,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NextHop
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1038,14 +1065,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AddressList_Warning_Code_Unreach
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Nvme;
 /** Value: "SCSI" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk_Interface_Scsi;
-
-// ----------------------------------------------------------------------------
-// GTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties.maintenanceInterval
-
-/** Value: "AS_NEEDED" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties_MaintenanceInterval_AsNeeded;
-/** Value: "PERIODIC" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties_MaintenanceInterval_Periodic;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_AttachedDisk.interface
@@ -1138,6 +1157,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1154,6 +1175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1188,6 +1211,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_Exte
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1204,6 +1229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_Next
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalerList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1238,6 +1265,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1254,6 +1283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalersScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1360,6 +1391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_E
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1376,6 +1409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_N
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1478,6 +1513,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1494,6 +1531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1528,6 +1567,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1544,6 +1585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1578,6 +1621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1594,6 +1639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServicesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1660,6 +1707,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1676,6 +1725,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1710,6 +1761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_Exte
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1726,6 +1779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_Next
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1760,6 +1815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1776,6 +1833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_CommitmentsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1886,6 +1945,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1902,6 +1963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -1954,6 +2017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_ExternalAp
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -1970,6 +2035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NextHopNot
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2004,6 +2071,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Ext
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2020,6 +2089,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_Nex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DisksScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2054,6 +2125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2070,6 +2143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2104,6 +2179,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_Extern
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2120,6 +2197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NextHo
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2154,6 +2233,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2170,6 +2251,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2214,6 +2297,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2230,6 +2315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2274,6 +2361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2290,6 +2379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ExternalVpnGatewayList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2342,6 +2433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_Extern
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2358,6 +2451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NextHo
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_FirewallList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2448,6 +2543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2464,6 +2561,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2498,6 +2597,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2514,6 +2615,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRuleList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2548,6 +2651,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2564,6 +2669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRulesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2644,6 +2751,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Ext
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2660,6 +2769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_Nex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2694,6 +2805,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2710,6 +2823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2752,6 +2867,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2768,6 +2885,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthCheckServicesList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2802,6 +2921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2818,6 +2939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2908,6 +3031,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -2924,6 +3049,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpHealthCheckList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -2990,6 +3117,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3006,6 +3135,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HttpsHealthCheckList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3064,6 +3195,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_ExternalA
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3080,6 +3213,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NextHopNo
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3148,6 +3283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3164,6 +3301,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3198,6 +3337,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warn
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3214,6 +3355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warn
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3248,6 +3391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_E
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3264,6 +3409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_N
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3298,6 +3445,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedLi
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3314,6 +3463,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedLi
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3348,6 +3499,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3364,6 +3517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagerList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3422,6 +3577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInst
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3438,6 +3595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInst
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3472,6 +3631,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3488,6 +3649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3558,6 +3721,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warn
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3574,6 +3739,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warn
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsListInstances_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3616,6 +3783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3632,6 +3801,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceGroupsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3666,6 +3837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_Extern
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3682,6 +3855,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NextHo
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3716,6 +3891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3732,6 +3909,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceListReferrers_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3798,6 +3977,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3814,6 +3995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstancesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -3848,6 +4031,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -3864,6 +4049,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceTemplateList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4030,6 +4217,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregated
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4046,6 +4235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregated
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4080,6 +4271,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4096,6 +4289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4130,6 +4325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedLis
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4146,6 +4343,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedLis
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4202,6 +4401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_Ex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4218,6 +4419,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_Ne
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4284,6 +4487,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4300,6 +4505,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InterconnectLocationList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4394,6 +4601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4410,6 +4619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_LicensesListResponse_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4462,6 +4673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4478,6 +4691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4512,6 +4727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_Ext
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4528,6 +4745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_Nex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4562,6 +4781,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4578,6 +4799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_MachineTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4696,6 +4919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedLi
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4712,6 +4937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedLi
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4746,6 +4973,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4762,6 +4991,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4804,6 +5035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetwork
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4820,6 +5053,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetwork
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4854,6 +5089,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4870,6 +5107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4904,6 +5143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_Externa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -4920,6 +5161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NextHop
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -4994,6 +5237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5010,6 +5255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5056,6 +5303,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_Exter
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5072,6 +5321,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NextH
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5130,6 +5381,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5146,6 +5399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsListNodes_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5180,6 +5435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5196,6 +5453,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeGroupsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5252,6 +5511,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5268,6 +5529,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5302,6 +5565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_Ex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5318,6 +5583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_Ne
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplateList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5352,6 +5619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5368,6 +5637,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTemplatesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5402,6 +5673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5418,6 +5691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5452,6 +5727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_Extern
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5468,6 +5745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NextHo
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5502,6 +5781,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5518,6 +5799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NodeTypesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5552,6 +5835,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5568,6 +5853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NotificationEndpointList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5612,6 +5899,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Ext
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5628,6 +5917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_Nex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Operation_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5662,6 +5953,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5678,6 +5971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5712,6 +6007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_Exter
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5728,6 +6025,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NextH
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5762,6 +6061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5778,6 +6079,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_OperationsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5820,6 +6123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Wa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5836,6 +6141,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Wa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5850,6 +6157,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Wa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_PacketMirroringFilter.direction
+
+/** Value: "BOTH" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringFilter_Direction_Both;
+/** Value: "EGRESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringFilter_Direction_Egress;
+/** Value: "INGRESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringFilter_Direction_Ingress;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_PacketMirroringList_Warning.code
@@ -5870,6 +6187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5886,6 +6205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -5920,6 +6241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -5936,6 +6259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_PacketMirroringsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6222,6 +6547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_UrlMaps;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_VpnGateways;
 /** Value: "VPN_TUNNELS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_VpnTunnels;
+/** Value: "XPN_SERVICE_PROJECTS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_XpnServiceProjects;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_Region.status
@@ -6250,6 +6577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6266,6 +6595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionAutoscalerList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6300,6 +6631,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6316,6 +6649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionDiskTypeList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6350,6 +6685,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6366,6 +6703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6400,6 +6739,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_W
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6416,6 +6757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_W
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6474,6 +6817,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListI
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6490,6 +6835,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListI
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6524,6 +6871,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstance
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6540,6 +6889,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstance
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6582,6 +6933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_External
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6598,6 +6951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NextHopN
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RegionList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6658,6 +7013,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6674,6 +7031,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6708,6 +7067,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_Ext
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6724,6 +7085,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_Nex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6758,6 +7121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6774,6 +7139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ReservationsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6822,6 +7189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6838,6 +7207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warni
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6884,6 +7255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6900,6 +7273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -6942,6 +7317,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -6958,6 +7335,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ResourcePolicyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7022,6 +7401,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_Externa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7038,6 +7419,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NextHop
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Route_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7072,6 +7455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_ExternalA
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7088,6 +7473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NextHopNo
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouteList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7122,6 +7509,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7138,6 +7527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7216,6 +7607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_External
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7232,6 +7625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NextHopN
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RouterList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7304,6 +7699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_E
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7320,6 +7717,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_N
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_RoutersScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7398,6 +7797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7414,6 +7815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SecurityPolicyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7486,6 +7889,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_Extern
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7502,6 +7907,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NextHo
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SnapshotList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7546,6 +7953,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7562,6 +7971,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7596,6 +8007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7612,6 +8025,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificateList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7680,6 +8095,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7696,6 +8113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslCertificatesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7748,6 +8167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Ext
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7764,6 +8185,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_Nex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPoliciesList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7820,6 +8243,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Ext
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7836,6 +8261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_Nex
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SslPolicy_Warnings_Item_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7914,6 +8341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7930,6 +8359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -7964,6 +8395,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Exte
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -7980,6 +8413,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_Next
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworkList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8040,6 +8475,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8056,6 +8493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_SubnetworksScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8090,6 +8529,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8106,6 +8547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetGrpcProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8140,6 +8583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warn
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8156,6 +8601,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warn
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8190,6 +8637,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8206,6 +8655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8240,6 +8691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8256,6 +8709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8310,6 +8765,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_W
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8326,6 +8783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_W
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8360,6 +8819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8376,6 +8837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetHttpsProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8416,6 +8879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8432,6 +8897,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8466,6 +8933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8482,6 +8951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstanceList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8516,6 +8987,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8532,6 +9005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8584,6 +9059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8600,6 +9077,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8634,6 +9113,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_Exte
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8650,6 +9131,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_Next
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8684,6 +9167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8700,6 +9185,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPoolsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8750,6 +9237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8766,6 +9255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetSslProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8816,6 +9307,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8832,6 +9325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetTcpProxyList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8878,6 +9373,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_W
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8894,6 +9391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_W
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8928,6 +9427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8944,6 +9445,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewayList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -8978,6 +9481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warn
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -8994,6 +9499,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warn
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9046,6 +9553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_External
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9062,6 +9571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NextHopN
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9096,6 +9607,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9112,6 +9625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9146,6 +9661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_E
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9162,6 +9679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_N
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UrlMapsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9196,6 +9715,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9212,6 +9733,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9246,6 +9769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9262,6 +9787,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warnin
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9296,6 +9823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9312,6 +9841,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9346,6 +9877,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_Exte
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9362,6 +9895,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_Next
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewayList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9396,6 +9931,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9412,6 +9949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Co
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnGatewaysScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9490,6 +10029,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9506,6 +10047,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9540,6 +10083,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_Exter
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9556,6 +10101,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NextH
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9590,6 +10137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9606,6 +10155,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Cod
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_VpnTunnelsScopedList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9640,6 +10191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_Externa
 FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9656,6 +10209,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NextHop
 FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_XpnHostList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9706,6 +10261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_ExternalAp
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_FieldValueOverriden;
 /** Value: "INJECTED_KERNELS_DEPRECATED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_InjectedKernelsDeprecated;
+/** Value: "LARGE_DEPLOYMENT_WARNING" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_LargeDeploymentWarning;
 /** Value: "MISSING_TYPE_DEPENDENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_MissingTypeDependency;
 /** Value: "NEXT_HOP_ADDRESS_NOT_ASSIGNED" */
@@ -9722,6 +10279,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NextHopNot
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NoResultsOnPage;
 /** Value: "NOT_CRITICAL_ERROR" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_NotCriticalError;
+/** Value: "PARTIAL_SUCCESS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_PartialSuccess;
 /** Value: "REQUIRED_TOS_AGREEMENT" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_RequiredTosAgreement;
 /** Value: "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING" */
@@ -9860,6 +10419,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_AcceleratorTypeAggregatedList_Warning *warning;
 
@@ -9904,6 +10466,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -9920,6 +10484,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AcceleratorTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -10046,6 +10612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_NextHopAddressNotAssigned
@@ -10062,6 +10630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AcceleratorTypeList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -10157,6 +10727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -10173,6 +10745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AcceleratorTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -10413,6 +10987,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  - `VPC_PEERING` for addresses that are reserved for VPC peer networks.
  *  - `NAT_AUTO` for addresses that are external IP addresses automatically
  *  reserved for Cloud NAT.
+ *  - `IPSEC_INTERCONNECT` for addresses created from a private IP range that
+ *  are reserved for a VLAN attachment in an IPsec encrypted Interconnect
+ *  configuration. These addresses are regional resources.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Address_Purpose_DnsResolver Value "DNS_RESOLVER"
@@ -10494,6 +11071,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_AddressAggregatedList_Warning *warning;
 
@@ -10538,6 +11118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -10554,6 +11136,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AddressAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -10649,6 +11233,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -10665,6 +11251,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AddressesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -10791,6 +11379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AddressList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_NextHopAddressNotAssigned
@@ -10807,6 +11397,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AddressList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AddressList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -10929,19 +11521,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  following custom-NUMBER_OF_CPUS-AMOUNT_OF_MEMORY pattern.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
-
-/**
- *  Specifies whether this VM may be a stable fleet VM. Setting this to
- *  "Periodic" designates this VM as a Stable Fleet VM.
- *  See go/stable-fleet-ug for more details.
- *
- *  Likely values:
- *    @arg @c kGTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties_MaintenanceInterval_AsNeeded
- *        Value "AS_NEEDED"
- *    @arg @c kGTLRCompute_AllocationSpecificSKUAllocationReservedInstanceProperties_MaintenanceInterval_Periodic
- *        Value "PERIODIC"
- */
-@property(nonatomic, copy, nullable) NSString *maintenanceInterval;
 
 /** Minimum cpu platform the reservation. */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
@@ -11355,7 +11934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Represents an Autoscaler resource.
  *  Google Compute Engine has two Autoscaler resources:
- *  * [Global](/compute/docs/reference/rest/{$api_version}/autoscalers) *
+ *  * [Zonal](/compute/docs/reference/rest/{$api_version}/autoscalers) *
  *  [Regional](/compute/docs/reference/rest/{$api_version}/regionAutoscalers)
  *  Use autoscalers to automatically add or delete instances from a managed
  *  instance group according to your defined autoscaling policy. For more
@@ -11506,6 +12085,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_AutoscalerAggregatedList_Warning *warning;
 
@@ -11550,6 +12132,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -11566,6 +12150,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AutoscalerAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -11692,6 +12278,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_NextHopAddressNotAssigned
@@ -11708,6 +12296,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AutoscalerList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -11803,6 +12393,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -11819,6 +12411,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_AutoscalersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -12057,6 +12651,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_AutoscalingPolicyCustomMetricUtilization : GTLRObject
 
 /**
+ *  A filter string, compatible with a Stackdriver Monitoring filter string for
+ *  TimeSeries.list API call. This filter is used to select a specific
+ *  TimeSeries for the purpose of autoscaling and to determine whether the
+ *  metric is exporting per-instance or per-group data.
+ *  For the filter to be valid for autoscaling purposes, the following rules
+ *  apply:
+ *  - You can only use the AND operator for joining selectors.
+ *  - You can only use direct equality comparison operator (=) without any
+ *  functions for each selector.
+ *  - You can specify the metric in both the filter string and in the metric
+ *  field. However, if specified in both places, the metric must be identical.
+ *  - The monitored resource type determines what kind of values are expected
+ *  for the metric. If it is a gce_instance, the autoscaler expects the metric
+ *  to include a separate TimeSeries for each instance in a group. In such a
+ *  case, you cannot filter on resource labels.
+ *  If the resource type is any other value, the autoscaler expects this metric
+ *  to contain values that apply to the entire autoscaled instance group and
+ *  resource label filtering can be performed to point autoscaler at the correct
+ *  TimeSeries to scale upon. This is called a per-group metric for the purpose
+ *  of autoscaling.
+ *  If not specified, the type defaults to gce_instance.
+ *  You should provide a filter that is selective enough to pick just one
+ *  TimeSeries for the autoscaled group or for each of the instances (if you are
+ *  using gce_instance resource type). If multiple TimeSeries are returned upon
+ *  the query execution, the autoscaler will sum their respective values to
+ *  obtain its scaling value.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  The identifier (type) of the Stackdriver Monitoring metric. The metric
  *  cannot have negative values.
  *  The metric must have a value type of INT64 or DOUBLE.
@@ -12064,12 +12688,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *metric;
 
 /**
+ *  If scaling is based on a per-group metric value that represents the total
+ *  amount of work to be done or resource usage, set this value to an amount
+ *  assigned for a single instance of the scaled group. Autoscaler will keep the
+ *  number of instances proportional to the value of this metric, the metric
+ *  itself should not change value due to group resizing.
+ *  A good metric to use with the target is for example
+ *  pubsub.googleapis.com/subscription/num_undelivered_messages or a custom
+ *  metric exporting the total number of requests coming to your instances.
+ *  A bad example would be a metric exporting an average or median latency,
+ *  since this value can't include a chunk assignable to a single instance, it
+ *  could be better used with utilization_target instead.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *singleInstanceAssignment;
+
+/**
  *  The target value of the metric that autoscaler should maintain. This must be
  *  a positive value. A utilization metric scales number of virtual machines
  *  handling requests to increase or decrease proportionally to the metric.
  *  For example, a good metric to use as a utilization_target is
- *  compute.googleapis.com/instance/network/received_bytes_count. The autoscaler
- *  will work to keep this value constant for each of the instances.
+ *  https://www.googleapis.com/compute/v1/instance/network/received_bytes_count.
+ *  The autoscaler will work to keep this value constant for each of the
+ *  instances.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -12487,6 +13129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_NextHopAddressNotAssigned
@@ -12503,6 +13147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_BackendBucketList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -12573,6 +13219,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_BackendService : GTLRObject
 
 /**
+ *  Lifetime of cookies in seconds. Only applicable if the loadBalancingScheme
+ *  is EXTERNAL, INTERNAL_SELF_MANAGED, or INTERNAL_MANAGED, the protocol is
+ *  HTTP or HTTPS, and the sessionAffinity is GENERATED_COOKIE, or HTTP_COOKIE.
  *  If set to 0, the cookie is non-persistent and lasts only until the end of
  *  the browser session (or equivalent). The maximum allowed value is one day
  *  (86,400).
@@ -12858,6 +13507,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *securityPolicy;
 
+/**
+ *  This field specifies the security policy that applies to this backend
+ *  service. This field is applicable to either:
+ *  - A regional backend service with the service_protocol set to HTTP, HTTPS,
+ *  or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED.
+ *  - A global backend service with the load_balancing_scheme set to
+ *  INTERNAL_SELF_MANAGED.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_SecuritySettings *securitySettings;
+
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
@@ -12934,6 +13593,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceAggregatedList_Warning *warning;
 
@@ -12978,6 +13640,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -12994,6 +13658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_BackendServiceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -13260,6 +13926,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_NextHopAddressNotAssigned
@@ -13276,6 +13944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_BackendServiceList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -13409,6 +14079,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -13425,6 +14097,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_BackendServicesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -13480,6 +14154,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Associates `members` with a `role`.
  */
 @interface GTLRCompute_Binding : GTLRObject
+
+/**
+ *  A client-specified ID for this binding. Expected to be globally unique to
+ *  support the internal bindings-by-ID API.
+ */
+@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding.
@@ -13805,6 +14485,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_CommitmentAggregatedList_Warning *warning;
 
@@ -13849,6 +14532,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -13865,6 +14550,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_CommitmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -13991,6 +14678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_NextHopAddressNotAssigned
@@ -14007,6 +14696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_CommitmentList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -14102,6 +14793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -14118,6 +14811,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_CommitmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -14222,6 +14917,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** The objects of the condition. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
+ *  A set of Confidential Instance options.
+ */
+@interface GTLRCompute_ConfidentialInstanceConfig : GTLRObject
+
+/**
+ *  Defines whether the instance should have confidential compute enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
 
 @end
 
@@ -14774,6 +15484,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_DiskAggregatedList_Warning *warning;
 
@@ -14818,6 +15531,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -14834,6 +15549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_DiskAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -15021,6 +15738,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_InjectedKernelsDeprecated Value
  *        "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_DiskList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_NextHopAddressNotAssigned Value
@@ -15037,6 +15756,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_DiskList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_DiskList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -15198,6 +15919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -15214,6 +15937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_DisksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -15377,6 +16102,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_DiskTypeAggregatedList_Warning *warning;
 
@@ -15421,6 +16149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -15437,6 +16167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_DiskTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -15562,6 +16294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_NextHopAddressNotAssigned
@@ -15578,6 +16312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_DiskTypeList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -15673,6 +16409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -15689,6 +16427,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_DiskTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -15761,7 +16501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_DistributionPolicy : GTLRObject
 
 /**
- *  Zones where the regional managed instance group will create and manage
+ *  Zones where the regional managed instance group will create and manage its
  *  instances.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_DistributionPolicyZoneConfiguration *> *zones;
@@ -15933,6 +16673,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NextHopAddressNotAssigned
@@ -15949,6 +16691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ExchangedPeeringRoutesList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -16267,6 +17011,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NextHopAddressNotAssigned
@@ -16283,6 +17029,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ExternalVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -16668,6 +17416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_FirewallList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_NextHopAddressNotAssigned
@@ -16684,6 +17434,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_FirewallList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_FirewallList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -16900,6 +17652,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  specifications](/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
  *  Must be set to `0.0.0.0` when the target is targetGrpcProxy that has
  *  validateForProxyless field set to true.
+ *  For Private Service Connect forwarding rules that forward traffic to Google
+ *  APIs, IP address must be provided.
  */
 @property(nonatomic, copy, nullable) NSString *IPAddress;
 
@@ -17019,9 +17773,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  This field is not used for external load balancing.
- *  For INTERNAL and INTERNAL_SELF_MANAGED load balancing, this field identifies
- *  the network that the load balanced IP should belong to for this Forwarding
- *  Rule. If this field is not specified, the default network will be used.
+ *  For internal load balancing, this field identifies the network that the load
+ *  balanced IP should belong to for this Forwarding Rule. If this field is not
+ *  specified, the default network will be used.
+ *  For Private Service Connect forwarding rules that forward traffic to Google
+ *  APIs, a network must be provided.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -17111,7 +17867,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
- *  This field is only used for INTERNAL load balancing.
+ *  This field is only used for internal load balancing.
  *  For internal load balancing, this field identifies the subnetwork that the
  *  load balanced IP should belong to for this Forwarding Rule.
  *  If the network specified is in auto subnet mode, this field is optional.
@@ -17122,11 +17878,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The URL of the target resource to receive the matched traffic. For regional
- *  forwarding rules, this target must live in the same region as the forwarding
+ *  forwarding rules, this target must be in the same region as the forwarding
  *  rule. For global forwarding rules, this target must be a global load
  *  balancing resource. The forwarded traffic must be of a type appropriate to
- *  the target object. For INTERNAL_SELF_MANAGED load balancing, only
- *  targetHttpProxy and targetGrpcProxy are valid, not targetHttpsProxy.
+ *  the target object. For more information, see the "Target" column in [Port
+ *  specifications](/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
+ *  For Private Service Connect forwarding rules that forward traffic to Google
+ *  APIs, provide the name of a supported Google API bundle. Currently, the
+ *  supported Google API bundles include:
+ *  - vpc-sc - GCP APIs that support VPC Service Controls. For more information
+ *  about which APIs support VPC Service Controls, refer to VPC-SC supported
+ *  products and limitations.
+ *  - all-apis - All GCP APIs. For more information about which APIs are
+ *  supported with this bundle, refer to Private Google Access-specific domains
+ *  and VIPs.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -17165,6 +17930,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
 
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_ForwardingRuleAggregatedList_Warning *warning;
@@ -17210,6 +17978,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -17226,6 +17996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -17349,6 +18121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_NextHopAddressNotAssigned
@@ -17365,6 +18139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ForwardingRuleList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -17470,6 +18246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -17486,6 +18264,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ForwardingRulesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -17799,13 +18579,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Google Compute Engine has two Health Check resources:
  *  * [Global](/compute/docs/reference/rest/{$api_version}/healthChecks) *
  *  [Regional](/compute/docs/reference/rest/{$api_version}/regionHealthChecks)
- *  Internal HTTP(S) load balancers must use regional health checks. Internal
- *  TCP/UDP load balancers can use either regional or global health checks. All
- *  other types of GCP load balancers and managed instance group auto-healing
- *  must use global health checks. For more information, read Health Check
- *  Concepts.
- *  To perform health checks on network load balancers, you must use either
- *  httpHealthChecks or httpsHealthChecks.
+ *  Internal HTTP(S) load balancers must use regional health checks
+ *  (`compute.v1.regionHealthChecks`).
+ *  Traffic Director must use global health checks (`compute.v1.HealthChecks`).
+ *  Internal TCP/UDP load balancers can use either regional or global health
+ *  checks (`compute.v1.regionHealthChecks` or `compute.v1.HealthChecks`).
+ *  External HTTP(S), TCP proxy, and SSL proxy load balancers as well as managed
+ *  instance group auto-healing must use global health checks
+ *  (`compute.v1.HealthChecks`).
+ *  Network load balancers must use legacy HTTP health checks
+ *  (httpHealthChecks).
+ *  For more information, see Health checks overview.
  */
 @interface GTLRCompute_HealthCheck : GTLRObject
 
@@ -17854,6 +18638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** Type of the resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** Configure logging on this health check. */
+@property(nonatomic, strong, nullable) GTLRCompute_HealthCheckLogConfig *logConfig;
 
 /**
  *  Name of the resource. Provided by the client when the resource is created.
@@ -17987,6 +18774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_NextHopAddressNotAssigned
@@ -18003,6 +18792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_HealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -18055,6 +18846,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Configuration of logging on a health check. If logging is enabled, logs will
+ *  be exported to Stackdriver.
+ */
+@interface GTLRCompute_HealthCheckLogConfig : GTLRObject
+
+/**
+ *  Indicates whether or not to export logs. This is false by default, which
+ *  means no health check logging will be done.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enable;
+
+@end
+
+
+/**
  *  A full or valid partial URL to a health check. For example, the following
  *  are valid URLs:
  *  -
@@ -18098,6 +18906,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
 
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_HealthChecksAggregatedList_Warning *warning;
@@ -18143,6 +18954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -18159,6 +18972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_HealthChecksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -18416,6 +19231,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_NextHopAddressNotAssigned
@@ -18432,6 +19249,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_HealthCheckServicesList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -18527,6 +19346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -18543,6 +19364,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_HealthChecksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -18914,6 +19737,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  For matching against the HTTP request's authority, use a headerMatch with
  *  the header name ":authority".
  *  For matching a request's method, use the headerName ":method".
+ *  When the URL map is bound to target gRPC proxy that has validateForProxyless
+ *  field set to true, only non-binary user-specified custom metadata and the
+ *  `content-type` header are supported. The following transport-level headers
+ *  cannot be used in header matching rules: `:authority`, `:method`, `:path`,
+ *  `:scheme`, `user-agent`, `accept-encoding`, `content-encoding`,
+ *  `grpc-accept-encoding`, `grpc-encoding`, `grpc-previous-rpc-attempts`,
+ *  `grpc-tags-bin`, `grpc-timeout` and `grpc-trace-bin.
  */
 @property(nonatomic, copy, nullable) NSString *headerName;
 
@@ -19257,6 +20087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_NextHopAddressNotAssigned
@@ -19273,6 +20105,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_HttpHealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -19508,6 +20342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The specification for allowing client side cross-origin requests. Please see
  *  W3C Recommendation for Cross Origin Resource Sharing
+ *  Not supported when the URL map is bound to target gRPC proxy.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_CorsPolicy *corsPolicy;
 
@@ -19520,6 +20355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  aborted by the Loadbalancer for a percentage of requests.
  *  timeout and retry_policy will be ignored by clients that are configured with
  *  a fault_injection_policy.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpFaultInjection *faultInjectionPolicy;
 
@@ -19528,10 +20365,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  shadowed to a separate mirrored backend service. Loadbalancer does not wait
  *  for responses from the shadow service. Prior to sending traffic to the
  *  shadow service, the host / authority header is suffixed with -shadow.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_RequestMirrorPolicy *requestMirrorPolicy;
 
-/** Specifies the retry policy associated with this route. */
+/**
+ *  Specifies the retry policy associated with this route.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRetryPolicy *retryPolicy;
 
 /**
@@ -19540,6 +20383,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  response has been completely processed. Timeout includes all retries.
  *  If not specified, will use the largest timeout among all backend services
  *  associated with the route.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Duration *timeout;
 
@@ -19548,6 +20393,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  to the matched service.
  *  urlRewrite is the only action supported in UrlMaps for external HTTP(S) load
  *  balancers.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_UrlRewrite *urlRewrite;
 
@@ -19556,9 +20403,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  occurs. The weights determine the fraction of traffic that flows to their
  *  corresponding backend service. If all traffic needs to go to a single
  *  backend service, there must be one weightedBackendService with weight set to
- *  a non 0 number.
+ *  a non-zero number.
  *  Once a backendService is identified and before forwarding the request to the
- *  backend service, advanced routing actions like Url rewrites and header
+ *  backend service, advanced routing actions such as URL rewrites and header
  *  transformations are applied depending on additional settings specified in
  *  this HttpRouteAction.
  */
@@ -19589,6 +20436,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  pathMatchers[].routeRules[].routeAction.weightedBackendService.backendServiceWeightAction[].headerAction
  *  Note that headerAction is not supported for Loadbalancers that have their
  *  loadBalancingScheme set to EXTERNAL.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
@@ -19649,6 +20498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  When this rule is matched, the request is redirected to a URL specified by
  *  urlRedirect.
  *  If urlRedirect is specified, service or routeAction must not be set.
+ *  Not supported when the URL map is bound to target gRPC proxy.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *urlRedirect;
 
@@ -19681,6 +20531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Specifies that prefixMatch and fullPathMatch matches are case sensitive.
  *  The default value is false.
  *  ignoreCase must not be used with regexMatch.
+ *  Not supported when the URL map is bound to target gRPC proxy.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -19702,6 +20553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  ForwardingRule that refers to the UrlMap this HttpRouteRuleMatch belongs to.
  *  metadataFilters only applies to Loadbalancers that have their
  *  loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_MetadataFilter *> *metadataFilters;
 
@@ -19716,6 +20569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Specifies a list of query parameter match criteria, all of which must match
  *  corresponding query parameters in the request.
+ *  Not supported when the URL map is bound to target gRPC proxy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpQueryParameterMatch *> *queryParameterMatches;
 
@@ -19979,6 +20833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_NextHopAddressNotAssigned
@@ -19995,6 +20851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_HttpsHealthCheckList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -20394,6 +21252,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ImageList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_NextHopAddressNotAssigned
@@ -20410,6 +21270,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ImageList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ImageList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -20498,6 +21360,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canIpForward;
+
+@property(nonatomic, strong, nullable) GTLRCompute_ConfidentialInstanceConfig *confidentialInstanceConfig;
 
 /** [Output Only] The CPU platform used by this instance. */
 @property(nonatomic, copy, nullable) NSString *cpuPlatform;
@@ -20588,6 +21452,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  setLabels method.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_Instance_Labels *labels;
+
+/** [Output Only] Last start timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *lastStartTimestamp;
+
+/** [Output Only] Last stop timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *lastStopTimestamp;
+
+/** [Output Only] Last suspended timestamp in RFC3339 text format. */
+@property(nonatomic, copy, nullable) NSString *lastSuspendedTimestamp;
 
 /**
  *  Full or partial URL of the machine type resource to use for this instance,
@@ -20687,7 +21560,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  [Output Only] The status of the instance. One of the following values:
  *  PROVISIONING, STAGING, RUNNING, STOPPING, SUSPENDING, SUSPENDED, REPAIRING,
- *  and TERMINATED.
+ *  and TERMINATED. For more information about the status of the instance, see
+ *  Instance life cycle.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Instance_Status_Deprovisioning Value "DEPROVISIONING"
@@ -20773,6 +21647,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceAggregatedList_Warning *warning;
 
@@ -20817,6 +21694,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -20833,6 +21712,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -21033,6 +21914,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupAggregatedList_Warning *warning;
 
@@ -21077,6 +21961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -21093,6 +21979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -21219,6 +22107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_NextHopAddressNotAssigned
@@ -21235,6 +22125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceGroupList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -21332,8 +22224,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Policy specifying intended distribution of instances in regional managed
- *  instance group.
+ *  Policy specifying the intended distribution of managed instances across
+ *  zones in a regional managed instance group.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_DistributionPolicy *distributionPolicy;
 
@@ -21366,7 +22258,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The URL of the instance template that is specified for this managed instance
  *  group. The group uses this template to create all new instances in the
- *  managed instance group.
+ *  managed instance group. The templates for existing instances in the group do
+ *  not change unless you run recreateInstances, run applyUpdatesToInstances, or
+ *  set the group's updatePolicy.type to PROACTIVE.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
 
@@ -21438,8 +22332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_InstanceGroupManagerVersion *> *versions;
 
 /**
- *  [Output Only] The URL of the zone where the managed instance group is
- *  located (for zonal resources).
+ *  [Output Only] The URL of a zone where the managed instance group is located
+ *  (for zonal resources).
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -21574,6 +22468,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceGroupManagerAggregatedList_Warning *warning;
 
@@ -21619,6 +22516,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -21635,6 +22534,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceGroupManagerAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -21784,6 +22685,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_NextHopAddressNotAssigned
@@ -21800,6 +22703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceGroupManagerList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -21869,6 +22774,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  InstanceGroupManagers.applyUpdatesToInstances
  */
 @interface GTLRCompute_InstanceGroupManagersApplyUpdatesRequest : GTLRObject
+
+/**
+ *  Flag to update all instances instead of specified list of ?instances?. If
+ *  the flag is set to true then the instances may not be specified in the
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allInstances;
 
 /**
  *  The list of URLs of one or more instances for which you want to apply
@@ -22082,6 +22996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NextHopAddressNotAssigned
@@ -22098,6 +23014,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceGroupManagersListPerInstanceConfigsResp_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -22224,6 +23142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -22240,6 +23160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceGroupManagersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -22299,7 +23221,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The URL of the instance template that is specified for this managed instance
  *  group. The group uses this template to create all new instances in the
- *  managed instance group.
+ *  managed instance group. The templates for existing instances in the group do
+ *  not change unless you run recreateInstances, run applyUpdatesToInstances, or
+ *  set the group's updatePolicy.type to PROACTIVE.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
 
@@ -22546,7 +23470,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The URL of the instance template that is specified for this managed instance
  *  group. The group uses this template to create new instances in the managed
- *  instance group until the `targetSize` for this version is reached.
+ *  instance group until the `targetSize` for this version is reached. The
+ *  templates for existing instances in the group do not change unless you run
+ *  recreateInstances, run applyUpdatesToInstances, or set the group's
+ *  updatePolicy.type to PROACTIVE; in those cases, existing instances are
+ *  updated until the `targetSize` for this version is reached.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
 
@@ -22660,6 +23588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NextHopAddressNotAssigned
@@ -22676,6 +23606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceGroupsListInstances_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -22805,6 +23737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -22821,6 +23755,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -22972,6 +23908,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_NextHopAddressNotAssigned
@@ -22988,6 +23926,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -23114,6 +24054,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_NextHopAddressNotAssigned
@@ -23130,6 +24072,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceListReferrers_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -23310,6 +24254,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canIpForward;
+
+/** Specifies the Confidential Instance options. */
+@property(nonatomic, strong, nullable) GTLRCompute_ConfidentialInstanceConfig *confidentialInstanceConfig;
 
 /**
  *  An optional text description for the instances that are created from these
@@ -23498,6 +24445,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -23514,6 +24463,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstancesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -23817,6 +24768,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_NextHopAddressNotAssigned
@@ -23833,6 +24786,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InstanceTemplateList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -24462,6 +25417,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_InterconnectAttachmentAggregatedList_Warning *warning;
 
@@ -24507,6 +25465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -24523,6 +25483,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InterconnectAttachmentAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -24650,6 +25612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NextHopAddressNotAssigned
@@ -24666,6 +25630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InterconnectAttachmentList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -24808,6 +25774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -24824,6 +25792,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InterconnectAttachmentsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -25117,6 +26087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NextHopAddressNotAssigned
@@ -25133,6 +26105,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InterconnectList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -25392,6 +26366,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NextHopAddressNotAssigned
@@ -25408,6 +26384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_InterconnectLocationList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -25879,6 +26857,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NextHopAddressNotAssigned
@@ -25895,6 +26875,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_LicensesListResponse_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -26237,6 +27219,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_MachineTypeAggregatedList_Warning *warning;
 
@@ -26281,6 +27266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -26297,6 +27284,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_MachineTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -26423,6 +27412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_NextHopAddressNotAssigned
@@ -26439,6 +27430,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_MachineTypeList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -26534,6 +27527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -26550,6 +27545,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_MachineTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -27035,6 +28032,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  Maximum Transmission Unit in bytes. The minimum value for this field is 1460
+ *  and the maximum value is 1500 bytes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mtu;
+
+/**
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
@@ -27305,6 +28310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_NetworkEndpointGroupAggregatedList_Warning *warning;
 
@@ -27350,6 +28358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -27366,6 +28376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -27429,7 +28441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Optional serving service.
- *  The service name must be 1-63 characters long, and comply with RFC1035.
+ *  The service name is case-sensitive and must be 1-63 characters long.
  *  Example value: "default", "my-service".
  */
 @property(nonatomic, copy, nullable) NSString *service;
@@ -27448,7 +28460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Optional serving version.
- *  The version must be 1-63 characters long, and comply with RFC1035.
+ *  The version name is case-sensitive and must be 1-100 characters long.
  *  Example value: "v1", "v2".
  */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -27598,6 +28610,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NextHopAddressNotAssigned
@@ -27614,6 +28628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -27781,6 +28797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NextHopAddressNotAssigned
@@ -27797,6 +28815,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsListNetworkEndpoints_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -27895,6 +28915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -27911,6 +28933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -28135,6 +29159,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NetworkList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_NextHopAddressNotAssigned
@@ -28151,6 +29177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NetworkList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NetworkList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -28281,6 +29309,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  as the current network.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Maximum Transmission Unit in bytes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *peerMtu;
 
 /**
  *  [Output Only] State for the peering, either `ACTIVE` or `INACTIVE`. The
@@ -28528,6 +29563,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_NodeGroupAggregatedList_Warning *warning;
 
@@ -28572,6 +29610,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -28588,6 +29628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeGroupAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -28645,7 +29687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_NodeGroupAutoscalingPolicy : GTLRObject
 
 /**
- *  The maximum number of nodes that the group should have.
+ *  The maximum number of nodes that the group should have. Must be set if
+ *  autoscaling is enabled. Maximum value allowed is 100.
  *
  *  Uses NSNumber of intValue.
  */
@@ -28750,6 +29793,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_NextHopAddressNotAssigned
@@ -28766,6 +29811,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeGroupList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -28965,6 +30012,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_NextHopAddressNotAssigned
@@ -28981,6 +30030,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeGroupsListNodes_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -29076,6 +30127,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -29092,6 +30145,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeGroupsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -29315,6 +30370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_NodeTemplateAggregatedList_Warning *warning;
 
@@ -29359,6 +30417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -29375,6 +30435,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeTemplateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -29501,6 +30563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_NextHopAddressNotAssigned
@@ -29517,6 +30581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeTemplateList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -29624,6 +30690,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -29640,6 +30708,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeTemplatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -29806,6 +30876,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_NodeTypeAggregatedList_Warning *warning;
 
@@ -29850,6 +30923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -29866,6 +30941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeTypeAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -29992,6 +31069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_NextHopAddressNotAssigned
@@ -30008,6 +31087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeTypeList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -30103,6 +31184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -30119,6 +31202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NodeTypesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -30359,6 +31444,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_NextHopAddressNotAssigned
@@ -30375,6 +31462,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_NotificationEndpointList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -30642,6 +31731,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NextHopAddressNotAssigned
@@ -30658,6 +31749,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
@@ -30763,6 +31856,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_OperationAggregatedList_Warning *warning;
 
@@ -30807,6 +31903,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -30823,6 +31921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_OperationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -30950,6 +32050,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_OperationList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_NextHopAddressNotAssigned
@@ -30966,6 +32068,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_OperationList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_OperationList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -31061,6 +32165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -31077,6 +32183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_OperationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -31369,6 +32477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_PacketMirroringAggregatedList_Warning *warning;
 
@@ -31413,6 +32524,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -31429,6 +32542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_PacketMirroringAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -31492,6 +32607,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  If neither cidrRanges nor IPProtocols is specified, all traffic is mirrored.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *cidrRanges;
+
+/**
+ *  Direction of traffic to mirror, either INGRESS, EGRESS, or BOTH. The default
+ *  is BOTH.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_PacketMirroringFilter_Direction_Both Value "BOTH"
+ *    @arg @c kGTLRCompute_PacketMirroringFilter_Direction_Egress Value "EGRESS"
+ *    @arg @c kGTLRCompute_PacketMirroringFilter_Direction_Ingress Value
+ *        "INGRESS"
+ */
+@property(nonatomic, copy, nullable) NSString *direction;
 
 /**
  *  Protocols that apply as filter on mirrored traffic. If no protocols are
@@ -31598,6 +32725,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_NextHopAddressNotAssigned
@@ -31614,6 +32743,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_PacketMirroringList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -31788,6 +32919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -31804,6 +32937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_PacketMirroringsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -31873,8 +33008,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Only one of defaultRouteAction or defaultUrlRedirect must be set.
  *  UrlMaps for external HTTP(S) load balancers support only the urlRewrite
  *  action within a pathMatcher's defaultRouteAction.
- *  Not supported when the backend service is referenced by a URL map that is
- *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *defaultRouteAction;
 
@@ -31897,9 +33030,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  on the specified resource default_service:
  *  - compute.backendBuckets.use
  *  - compute.backendServices.use
- *  pathMatchers[].defaultService is the only option available when the URL map
- *  is bound to target gRPC proxy that has validateForProxyless field set to
- *  true.
  */
 @property(nonatomic, copy, nullable) NSString *defaultService;
 
@@ -31908,8 +33038,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  redirected to a URL specified by defaultUrlRedirect.
  *  If defaultUrlRedirect is specified, defaultService or defaultRouteAction
  *  must not be set.
- *  Not supported when the backend service is referenced by a URL map that is
- *  bound to target gRPC proxy.
+ *  Not supported when the URL map is bound to target gRPC proxy.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *defaultUrlRedirect;
 
@@ -31928,8 +33057,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  HeaderAction and before the HeaderAction in the UrlMap
  *  Note that headerAction is not supported for Loadbalancers that have their
  *  loadBalancingScheme set to EXTERNAL.
- *  Not supported when the backend service is referenced by a URL map that is
- *  bound to target gRPC proxy that has validateForProxyless field set to true.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
@@ -31944,8 +33073,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  For example: a pathRule with a path /a/b/c/ * will match before /a/b/ *
  *  irrespective of the order in which those paths appear in this list.
  *  Within a given pathMatcher, only one of pathRules or routeRules must be set.
- *  Not supported when the backend service is referenced by a URL map that is
- *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_PathRule *> *pathRules;
 
@@ -31954,8 +33081,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  advanced route matching and routing actions are desired. routeRules are
  *  evaluated in order of priority, from the lowest to highest number.
  *  Within a given pathMatcher, you can set only one of pathRules or routeRules.
- *  Not supported when the backend service is referenced by a URL map that is
- *  bound to target gRPC proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_HttpRouteRule *> *routeRules;
 
@@ -32005,6 +33130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  When a path pattern is matched, the request is redirected to a URL specified
  *  by urlRedirect.
  *  If urlRedirect is specified, service or routeAction must not be set.
+ *  Not supported when the URL map is bound to target gRPC proxy.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *urlRedirect;
 
@@ -32632,6 +33758,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_UrlMaps Value "URL_MAPS"
  *    @arg @c kGTLRCompute_Quota_Metric_VpnGateways Value "VPN_GATEWAYS"
  *    @arg @c kGTLRCompute_Quota_Metric_VpnTunnels Value "VPN_TUNNELS"
+ *    @arg @c kGTLRCompute_Quota_Metric_XpnServiceProjects Value
+ *        "XPN_SERVICE_PROJECTS"
  */
 @property(nonatomic, copy, nullable) NSString *metric;
 
@@ -32810,6 +33938,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_NextHopAddressNotAssigned
@@ -32826,6 +33956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RegionAutoscalerList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -32989,6 +34121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_NextHopAddressNotAssigned
@@ -33005,6 +34139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RegionDiskTypeList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -33128,6 +34264,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_NextHopAddressNotAssigned
@@ -33144,6 +34282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RegionInstanceGroupList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -33285,6 +34425,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NextHopAddressNotAssigned
@@ -33301,6 +34443,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagerList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -33384,6 +34528,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  RegionInstanceGroupManagers.applyUpdatesToInstances
  */
 @interface GTLRCompute_RegionInstanceGroupManagersApplyUpdatesRequest : GTLRObject
+
+/**
+ *  Flag to update all instances instead of specified list of ?instances?. If
+ *  the flag is set to true then the instances may not be specified in the
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allInstances;
 
 /**
  *  The list of URLs of one or more instances for which you want to apply
@@ -33553,6 +34706,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NextHopAddressNotAssigned
@@ -33569,6 +34724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -33789,6 +34946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NextHopAddressNotAssigned
@@ -33805,6 +34964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RegionInstanceGroupsListInstances_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -33982,6 +35143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RegionList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_NextHopAddressNotAssigned
@@ -33998,6 +35161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RegionList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RegionList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -34310,6 +35475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_ReservationAggregatedList_Warning *warning;
 
@@ -34354,6 +35522,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -34370,6 +35540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ReservationAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -34497,6 +35669,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ReservationList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_NextHopAddressNotAssigned
@@ -34513,6 +35687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ReservationList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ReservationList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -34624,6 +35800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -34640,6 +35818,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ReservationsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -34789,6 +35969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -34805,6 +35987,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ResourcePoliciesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -34874,7 +36058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Resource policy for instacnes for placement configuration. */
+/** Resource policy for instances for placement configuration. */
 @property(nonatomic, strong, nullable) GTLRCompute_ResourcePolicyGroupPlacementPolicy *groupPlacementPolicy;
 
 /**
@@ -34958,6 +36142,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_ResourcePolicyAggregatedList_Warning *warning;
 
@@ -35002,6 +36189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -35018,6 +36207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ResourcePolicyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -35240,6 +36431,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_NextHopAddressNotAssigned
@@ -35256,6 +36449,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ResourcePolicyList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -35378,6 +36573,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  policy.
  */
 @interface GTLRCompute_ResourcePolicySnapshotSchedulePolicySnapshotProperties : GTLRObject
+
+/** Chain name that the snapshot is created in. */
+@property(nonatomic, copy, nullable) NSString *chainName;
 
 /**
  *  Indication to perform a 'guest aware' snapshot.
@@ -35535,8 +36733,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The URL to a forwarding rule of type loadBalancingScheme=INTERNAL that
- *  should handle matching packets. You can only specify the forwarding rule as
- *  a partial or full URL. For example, the following are all valid URLs:
+ *  should handle matching packets or the IP address of the forwarding Rule. For
+ *  example, the following are all valid URLs:
+ *  - 10.128.0.56
  *  -
  *  https://www.googleapis.com/compute/v1/projects/project/regions/region/forwardingRules/forwardingRule
  *  - regions/region/forwardingRules/forwardingRule
@@ -35620,6 +36819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NextHopAddressNotAssigned
@@ -35636,6 +36837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_Route_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
@@ -35759,6 +36962,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RouteList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_NextHopAddressNotAssigned
@@ -35775,6 +36980,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RouteList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RouteList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -35951,6 +37158,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_RouterAggregatedList_Warning *warning;
 
@@ -35995,6 +37205,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -36011,6 +37223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RouterAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -36334,6 +37548,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RouterList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_NextHopAddressNotAssigned
@@ -36350,6 +37566,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RouterList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RouterList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -36416,6 +37634,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  used for updating/patching a NAT only.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *drainNatIps;
+
+/**
+ *  enableEndpointIndependentMapping
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableEndpointIndependentMapping;
 
 /**
  *  Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
@@ -36634,6 +37859,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -36650,6 +37877,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_RoutersScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -36900,7 +38129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Sets the scheduling options for an Instance. NextID: 12
+ *  Sets the scheduling options for an Instance. NextID: 13
  */
 @interface GTLRCompute_Scheduling : GTLRObject
 
@@ -37025,10 +38254,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a Cloud Armor Security Policy resource.
+ *  Represents a Google Cloud Armor security policy resource.
  *  Only external backend services that use load balancers can reference a
- *  Security Policy. For more information, read Cloud Armor Security Policy
- *  Concepts. (== resource_for {$api_version}.securityPolicies ==)
+ *  security policy. For more information, see Google Cloud Armor security
+ *  policy overview. (== resource_for {$api_version}.securityPolicies ==)
  */
 @interface GTLRCompute_SecurityPolicy : GTLRObject
 
@@ -37170,6 +38399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NextHopAddressNotAssigned
@@ -37186,6 +38417,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SecurityPolicyList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -37342,6 +38575,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** CIDR IP address range. Maximum number of src_ip_ranges allowed is 10. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcIpRanges;
+
+@end
+
+
+/**
+ *  The authentication and authorization settings for a BackendService.
+ */
+@interface GTLRCompute_SecuritySettings : GTLRObject
+
+/**
+ *  Optional. A URL referring to a networksecurity.ClientTlsPolicy resource that
+ *  describes how clients should authenticate with this service's backends.
+ *  clientTlsPolicy only applies to a global BackendService with the
+ *  loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+ *  If left blank, communications are not encrypted.
+ *  Note: This field currently has no impact.
+ */
+@property(nonatomic, copy, nullable) NSString *clientTlsPolicy;
+
+/**
+ *  Optional. A list of Subject Alternative Names (SANs) that the client
+ *  verifies during a mutual TLS handshake with an server/endpoint for this
+ *  BackendService. When the server presents its X.509 certificate to the
+ *  client, the client inspects the certificate's subjectAltName field. If the
+ *  field contains one of the specified values, the communication continues.
+ *  Otherwise, it fails. This additional check enables the client to verify that
+ *  the server is authorized to run the requested service.
+ *  Note that the contents of the server certificate's subjectAltName field are
+ *  configured by the Public Key Infrastructure which provisions server
+ *  identities.
+ *  Only applies to a global BackendService with loadBalancingScheme set to
+ *  INTERNAL_SELF_MANAGED. Only applies when BackendService has an attached
+ *  clientTlsPolicy with clientCertificate (mTLS mode).
+ *  Note: This field currently has no impact.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjectAltNames;
 
 @end
 
@@ -37549,6 +38818,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *autoCreated;
 
+/**
+ *  Creates the new snapshot in the snapshot chain labeled with the specified
+ *  name. The chain name must be 1-63 characters long and comply with RFC1035.
+ *  This is an uncommon option only for advanced service owners who needs to
+ *  create separate snapshot chains, for example, for chargeback tracking. When
+ *  you describe your snapshot resource, this field is visible only if it has a
+ *  non-empty value.
+ */
+@property(nonatomic, copy, nullable) NSString *chainName;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -37653,7 +38932,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) GTLRCompute_CustomerEncryptionKey *snapshotEncryptionKey;
 
-/** [Output Only] The source disk used to create this snapshot. */
+/** The source disk used to create this snapshot. */
 @property(nonatomic, copy, nullable) NSString *sourceDisk;
 
 /**
@@ -37797,6 +39076,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_NextHopAddressNotAssigned
@@ -37813,6 +39094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SnapshotList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -37902,9 +39185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_SslCertificate : GTLRObject
 
 /**
- *  A local certificate file. The certificate must be in PEM format. The
- *  certificate chain must be no greater than 5 certs long. The chain must
- *  include at least one intermediate cert.
+ *  A value read into memory from a certificate file. The certificate file must
+ *  be in PEM format. The certificate chain must be no greater than 5 certs
+ *  long. The chain must include at least one intermediate cert.
  */
 @property(nonatomic, copy, nullable) NSString *certificate;
 
@@ -37953,8 +39236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A write-only private key in PEM format. Only insert requests will include
- *  this field.
+ *  A value read into memory from a write-only private key file. The private key
+ *  file must be in PEM format. For security, only insert requests include this
+ *  field.
  */
 @property(nonatomic, copy, nullable) NSString *privateKey;
 
@@ -38025,6 +39309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_SslCertificateAggregatedList_Warning *warning;
 
@@ -38069,6 +39356,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -38085,6 +39374,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SslCertificateAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -38208,6 +39499,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_NextHopAddressNotAssigned
@@ -38224,6 +39517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SslCertificateList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -38392,6 +39687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -38408,6 +39705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SslCertificatesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -38602,6 +39901,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NextHopAddressNotAssigned
@@ -38618,6 +39919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SslPoliciesList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -38680,10 +39983,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a Cloud Armor Security Policy resource.
- *  Only external backend services used by HTTP or HTTPS load balancers can
- *  reference a Security Policy. For more information, read read Cloud Armor
- *  Security Policy Concepts. (== resource_for {$api_version}.sslPolicies ==)
+ *  Represents an SSL Policy resource.
+ *  Use SSL policies to control the SSL features, such as versions and cipher
+ *  suites, offered by an HTTPS or SSL Proxy load balancer. For more
+ *  information, read SSL Policy Concepts. (== resource_for
+ *  {$api_version}.sslPolicies ==)
  */
 @interface GTLRCompute_SslPolicy : GTLRObject
 
@@ -38812,6 +40116,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NextHopAddressNotAssigned
@@ -38828,6 +40134,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SslPolicy_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
@@ -39186,6 +40494,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_SubnetworkAggregatedList_Warning *warning;
 
@@ -39230,6 +40541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -39246,6 +40559,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SubnetworkAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -39372,6 +40687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_NextHopAddressNotAssigned
@@ -39388,6 +40705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SubnetworkList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -39598,6 +40917,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -39614,6 +40935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_SubnetworksScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -39873,6 +41196,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NextHopAddressNotAssigned
@@ -39889,6 +41214,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetGrpcProxyList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -39984,6 +41311,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -40000,6 +41329,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetHttpProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -40079,6 +41410,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Fingerprint of this resource. A hash of the contents stored in this object.
+ *  This field is used in optimistic locking. This field will be ignored when
+ *  inserting a TargetHttpProxy. An up-to-date fingerprint must be provided in
+ *  order to patch/update the TargetHttpProxy; otherwise, the request will fail
+ *  with error 412 conditionNotMet. To see the latest fingerprint, make a get()
+ *  request to retrieve the TargetHttpProxy.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fingerprint;
+
+/**
  *  [Output Only] The unique identifier for the resource. This identifier is
  *  defined by the server.
  *
@@ -40104,6 +41448,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  dash.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  This field only applies when the forwarding rule that references this target
+ *  proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+ *  When this field is set to true, Envoy proxies set up inbound traffic
+ *  interception and bind to the IP address and port specified in the forwarding
+ *  rule. This is generally useful when using Traffic Director to configure
+ *  Envoy as a gateway or middle proxy (in other words, not a sidecar proxy).
+ *  The Envoy proxy listens for inbound requests and handles requests when it
+ *  receives them.
+ *  The default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proxyBind;
 
 /**
  *  [Output Only] URL of the region where the regional Target HTTP Proxy
@@ -40155,6 +41514,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
 
 @end
 
@@ -40247,6 +41609,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_NextHopAddressNotAssigned
@@ -40263,6 +41627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetHttpProxyList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -40358,6 +41724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -40374,6 +41742,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetHttpsProxiesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -40475,6 +41845,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_TargetHttpsProxy : GTLRObject
 
+/**
+ *  Optional. A URL referring to a networksecurity.AuthorizationPolicy resource
+ *  that describes how the proxy should authorize inbound traffic. If left
+ *  blank, access will not be restricted by an authorization policy.
+ *  Refer to the AuthorizationPolicy resource for additional details.
+ *  authorizationPolicy only applies to a global TargetHttpsProxy attached to
+ *  globalForwardingRules with the loadBalancingScheme set to
+ *  INTERNAL_SELF_MANAGED.
+ *  Note: This field currently has no impact.
+ */
+@property(nonatomic, copy, nullable) NSString *authorizationPolicy;
+
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
@@ -40514,6 +41896,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  This field only applies when the forwarding rule that references this target
+ *  proxy has a loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+ *  When this field is set to true, Envoy proxies set up inbound traffic
+ *  interception and bind to the IP address and port specified in the forwarding
+ *  rule. This is generally useful when using Traffic Director to configure
+ *  Envoy as a gateway or middle proxy (in other words, not a sidecar proxy).
+ *  The Envoy proxy listens for inbound requests and handles requests when it
+ *  receives them.
+ *  The default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *proxyBind;
+
+/**
  *  Specifies the QUIC override policy for this TargetHttpsProxy resource. This
  *  setting determines whether the load balancer attempts to negotiate QUIC with
  *  clients. You can specify NONE, ENABLE, or DISABLE.
@@ -40539,6 +41936,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** [Output Only] Server-defined URL for the resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
+
+/**
+ *  Optional. A URL referring to a networksecurity.ServerTlsPolicy resource that
+ *  describes how the proxy should authenticate inbound traffic.
+ *  serverTlsPolicy only applies to a global TargetHttpsProxy attached to
+ *  globalForwardingRules with the loadBalancingScheme set to
+ *  INTERNAL_SELF_MANAGED.
+ *  If left blank, communications are not encrypted.
+ *  Note: This field currently has no impact.
+ */
+@property(nonatomic, copy, nullable) NSString *serverTlsPolicy;
 
 /**
  *  URLs to SslCertificate resources that are used to authenticate connections
@@ -40600,6 +42008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_TargetHttpsProxyAggregatedList_Warning *warning;
 
@@ -40645,6 +42056,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -40661,6 +42074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetHttpsProxyAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -40787,6 +42202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_NextHopAddressNotAssigned
@@ -40803,6 +42220,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetHttpsProxyList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -40967,6 +42386,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_TargetInstanceAggregatedList_Warning *warning;
 
@@ -41011,6 +42433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -41027,6 +42451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetInstanceAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -41150,6 +42576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_NextHopAddressNotAssigned
@@ -41166,6 +42594,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetInstanceList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -41261,6 +42691,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -41277,6 +42709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetInstancesScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -41338,9 +42772,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_TargetPool : GTLRObject
 
 /**
- *  This field is applicable only when the containing target pool is serving a
- *  forwarding rule as the primary pool, and its failoverRatio field is properly
- *  set to a value between [0, 1].
+ *  The server-defined URL for the resource. This field is applicable only when
+ *  the containing target pool is serving a forwarding rule as the primary pool,
+ *  and its failoverRatio field is properly set to a value between [0, 1].
  *  backupPool and failoverRatio together define the fallback behavior of the
  *  primary target pool: if the ratio of the healthy instances in the primary
  *  pool is at or below failoverRatio, traffic arriving at the load-balanced IP
@@ -41491,6 +42925,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_TargetPoolAggregatedList_Warning *warning;
 
@@ -41535,6 +42972,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -41551,6 +42990,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetPoolAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -41693,6 +43134,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_NextHopAddressNotAssigned
@@ -41709,6 +43152,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetPoolList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -41862,6 +43307,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -41878,6 +43325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetPoolsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -42136,6 +43585,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_NextHopAddressNotAssigned
@@ -42152,6 +43603,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetSslProxyList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -42373,6 +43826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_NextHopAddressNotAssigned
@@ -42389,6 +43844,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetTcpProxyList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -42564,6 +44021,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_TargetVpnGatewayAggregatedList_Warning *warning;
 
@@ -42609,6 +44069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -42625,6 +44087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetVpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -42751,6 +44215,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_NextHopAddressNotAssigned
@@ -42767,6 +44233,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetVpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -42862,6 +44330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -42878,6 +44348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_TargetVpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -43002,9 +44474,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_TestFailure : GTLRObject
 
+/** BackendService or BackendBucket returned by load balancer. */
 @property(nonatomic, copy, nullable) NSString *actualService;
+
+/**
+ *  Expected BackendService or BackendBucket resource the given URL should be
+ *  mapped to.
+ */
 @property(nonatomic, copy, nullable) NSString *expectedService;
+
+/** Host portion of the URL. */
 @property(nonatomic, copy, nullable) NSString *host;
+
+/** Path portion including query parameters in the URL. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 @end
@@ -43072,9 +44554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Only one of defaultRouteAction or defaultUrlRedirect must be set.
  *  UrlMaps for external HTTP(S) load balancers support only the urlRewrite
  *  action within defaultRouteAction.
- *  defaultRouteAction has no effect when the backend service is referenced by a
- *  URL map that is bound to target gRPC proxy that has validateForProxyless
- *  field set to true.
+ *  defaultRouteAction has no effect when the URL map is bound to target gRPC
+ *  proxy that has validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRouteAction *defaultRouteAction;
 
@@ -43088,9 +44569,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  weightedBackendServices, service must not be specified.
  *  Only one of defaultService, defaultUrlRedirect or
  *  defaultRouteAction.weightedBackendService must be set.
- *  defaultService has no effect when the backend service is referenced by a URL
- *  map that is bound to target gRPC proxy that has validateForProxyless field
- *  set to true.
+ *  defaultService has no effect when the URL map is bound to target gRPC proxy
+ *  that has validateForProxyless field set to true.
  */
 @property(nonatomic, copy, nullable) NSString *defaultService;
 
@@ -43099,8 +44579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  URL specified by defaultUrlRedirect.
  *  If defaultUrlRedirect is specified, defaultService or defaultRouteAction
  *  must not be set.
- *  Not supported when the backend service is referenced by a URL map that is
- *  bound to target gRPC proxy.
+ *  Not supported when the URL map is bound to target gRPC proxy.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpRedirectAction *defaultUrlRedirect;
 
@@ -43130,8 +44609,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  for the selected backendService.
  *  The headerAction specified here take effect after headerAction specified
  *  under pathMatcher.
- *  Not supported when the backend service is referenced by a URL map that is
- *  bound to target gRPC proxy that has validateForProxyless field set to true.
+ *  Note that headerAction is not supported for Loadbalancers that have their
+ *  loadBalancingScheme set to EXTERNAL.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
@@ -43182,8 +44663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The list of expected URL mapping tests. Request to update this UrlMap will
  *  succeed only if all of the test cases pass. You can specify a maximum of 100
  *  tests per UrlMap.
- *  Not supported when the backend service is referenced by a URL map that is
- *  bound to target gRPC proxy that has validateForProxyless field set to true.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_UrlMapTest *> *tests;
 
@@ -43262,6 +44743,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_NextHopAddressNotAssigned
@@ -43278,6 +44761,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_UrlMapList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -43369,6 +44854,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_UrlMapsAggregatedList_Warning *warning;
 
@@ -43413,6 +44901,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -43429,6 +44919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_UrlMapsAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -43524,6 +45016,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -43540,6 +45034,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_UrlMapsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -43624,13 +45120,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Host portion of the URL. */
+/**
+ *  Host portion of the URL. If headers contains a host header, then host must
+ *  also match the header value.
+ */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /** Path portion of the URL. */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/** Expected BackendService resource the given URL should be mapped to. */
+/**
+ *  Expected BackendService or BackendBucket resource the given URL should be
+ *  mapped to.
+ *  service cannot be set if expectedRedirectResponseCode is set.
+ */
 @property(nonatomic, copy, nullable) NSString *service;
 
 @end
@@ -43784,6 +45287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -43800,6 +45305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_UsableSubnetworksAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -44033,6 +45540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NextHopAddressNotAssigned
@@ -44049,6 +45558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_VmEndpointNatMappingsList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -44233,6 +45744,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_VpnGatewayAggregatedList_Warning *warning;
 
@@ -44277,6 +45791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -44293,6 +45809,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_VpnGatewayAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -44418,6 +45936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NextHopAddressNotAssigned
@@ -44434,6 +45954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_VpnGatewayList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -44539,6 +46061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -44555,6 +46079,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_VpnGatewaysScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -44950,6 +46476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Server-defined URL for this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/** [Output Only] Unreachable resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachables;
+
 /** [Output Only] Informational warning message. */
 @property(nonatomic, strong, nullable) GTLRCompute_VpnTunnelAggregatedList_Warning *warning;
 
@@ -44994,6 +46523,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NextHopAddressNotAssigned
@@ -45010,6 +46541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_VpnTunnelAggregatedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -45135,6 +46668,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_NextHopAddressNotAssigned
@@ -45151,6 +46686,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_VpnTunnelList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -45246,6 +46783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_LargeDeploymentWarning
+ *        Value "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_MissingTypeDependency
  *        Value "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NextHopAddressNotAssigned
@@ -45262,6 +46801,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        Value "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_NotCriticalError
  *        Value "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_PartialSuccess
+ *        Value "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_RequiredTosAgreement
  *        Value "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_VpnTunnelsScopedList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -45380,6 +46921,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  for the selected backendService.
  *  headerAction specified here take effect before headerAction in the enclosing
  *  HttpRouteRule, PathMatcher and UrlMap.
+ *  Note that headerAction is not supported for Loadbalancers that have their
+ *  loadBalancingScheme set to EXTERNAL.
+ *  Not supported when the URL map is bound to target gRPC proxy that has
+ *  validateForProxyless field set to true.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_HttpHeaderAction *headerAction;
 
@@ -45474,6 +47019,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_InjectedKernelsDeprecated
  *        Value "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_NextHopAddressNotAssigned
@@ -45490,6 +47037,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_XpnHostList_Warning_Code_ResourceInUseByOtherResourceWarning
@@ -45698,6 +47247,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "FIELD_VALUE_OVERRIDEN"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_InjectedKernelsDeprecated Value
  *        "INJECTED_KERNELS_DEPRECATED"
+ *    @arg @c kGTLRCompute_ZoneList_Warning_Code_LargeDeploymentWarning Value
+ *        "LARGE_DEPLOYMENT_WARNING"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_MissingTypeDependency Value
  *        "MISSING_TYPE_DEPENDENCY"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_NextHopAddressNotAssigned Value
@@ -45714,6 +47265,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "NO_RESULTS_ON_PAGE"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_NotCriticalError Value
  *        "NOT_CRITICAL_ERROR"
+ *    @arg @c kGTLRCompute_ZoneList_Warning_Code_PartialSuccess Value
+ *        "PARTIAL_SUCCESS"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_RequiredTosAgreement Value
  *        "REQUIRED_TOS_AGREEMENT"
  *    @arg @c kGTLRCompute_ZoneList_Warning_Code_ResourceInUseByOtherResourceWarning

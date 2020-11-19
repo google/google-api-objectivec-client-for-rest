@@ -119,6 +119,14 @@ NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_RequestRequire
 NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Unavailable = @"UNAVAILABLE";
 NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Visible = @"VISIBLE";
 
+// GTLRGames_ResolveSnapshotHeadRequest.resolutionPolicy
+NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_HighestProgress = @"HIGHEST_PROGRESS";
+NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_LongestPlaytime = @"LONGEST_PLAYTIME";
+NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_MostRecentlyModified = @"MOST_RECENTLY_MODIFIED";
+NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_NoAutomaticResolution = @"NO_AUTOMATIC_RESOLUTION";
+NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_ResolutionPolicyUnspecified = @"RESOLUTION_POLICY_UNSPECIFIED";
+NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_UseHead = @"USE_HEAD";
+
 // GTLRGames_RevisionCheckResponse.revisionStatus
 NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Deprecated = @"DEPRECATED";
 NSString * const kGTLRGames_RevisionCheckResponse_RevisionStatus_Invalid = @"INVALID";
@@ -1250,6 +1258,26 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_ResolveSnapshotHeadRequest
+//
+
+@implementation GTLRGames_ResolveSnapshotHeadRequest
+@dynamic resolutionPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_ResolveSnapshotHeadResponse
+//
+
+@implementation GTLRGames_ResolveSnapshotHeadResponse
+@dynamic snapshot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_RevisionCheckResponse
 //
 
@@ -1310,6 +1338,44 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_SnapshotCoverImageResource
+//
+
+@implementation GTLRGames_SnapshotCoverImageResource
+@dynamic contentHash, downloadUrl, height, mimeType, resourceId, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_SnapshotDataResource
+//
+
+@implementation GTLRGames_SnapshotDataResource
+@dynamic contentHash, downloadUrl, resourceId, size;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_SnapshotExtended
+//
+
+@implementation GTLRGames_SnapshotExtended
+@dynamic conflictingRevisions, hasConflictingRevisions, headRevision, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conflictingRevisions" : [GTLRGames_SnapshotRevision class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_SnapshotImage
 //
 
@@ -1348,6 +1414,37 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_SnapshotMetadata
+//
+
+@implementation GTLRGames_SnapshotMetadata
+@dynamic descriptionProperty, deviceName, duration, lastModifyTime,
+         progressValue, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGames_SnapshotRevision
+//
+
+@implementation GTLRGames_SnapshotRevision
+@dynamic blob, coverImage, identifier, metadata;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end

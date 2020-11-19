@@ -84,6 +84,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChrome;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameContextAwareAccess;
 /**
+ *  The Data Studio activity reports return information about various types of
+ *  Data Studio activity events.
+ *
+ *  Value: "data_studio"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDataStudio;
+/**
  *  The Google Drive application's activity reports return information about
  *  various Google Drive activity events. The Drive activity report is only
  *  available for G Suite Business customers.
@@ -313,6 +320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
  *        return information about unsafe events reported in the context of the
  *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
+ *        reports return information about various types of Data Studio activity
+ *        events. (Value: "data_studio")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -382,6 +392,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  parameters are returned.
  */
 @property(nonatomic, copy, nullable) NSString *filters;
+
+/**
+ *  Comma separated group ids (obfuscated) on which user activities are
+ *  filtered, i.e, the response will contain activities for only those users
+ *  that are a part of at least one of the group ids mentioned here. Format:
+ *  "id:abc123,id:xyz456"
+ */
+@property(nonatomic, copy, nullable) NSString *groupIdFilter;
 
 /**
  *  Determines how many activity records are shown on each response page. For
@@ -503,6 +521,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
  *        return information about unsafe events reported in the context of the
  *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
+ *        reports return information about various types of Data Studio activity
+ *        events. (Value: "data_studio")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *
@@ -603,6 +624,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
  *        return information about unsafe events reported in the context of the
  *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
+ *        reports return information about various types of Data Studio activity
+ *        events. (Value: "data_studio")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -672,6 +696,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  parameters are returned.
  */
 @property(nonatomic, copy, nullable) NSString *filters;
+
+/**
+ *  Comma separated group ids (obfuscated) on which user activities are
+ *  filtered, i.e, the response will contain activities for only those users
+ *  that are a part of at least one of the group ids mentioned here. Format:
+ *  "id:abc123,id:xyz456"
+ */
+@property(nonatomic, copy, nullable) NSString *groupIdFilter;
 
 /**
  *  Determines how many activity records are shown on each response page. For
@@ -791,6 +823,9 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameChrome The Chrome activity reports
  *        return information about unsafe events reported in the context of the
  *        WebProtect features of BeyondCorp. (Value: "chrome")
+ *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
+ *        reports return information about various types of Data Studio activity
+ *        events. (Value: "data_studio")
  *
  *  @return GTLRReportsQuery_ActivitiesWatch
  */
@@ -1077,6 +1112,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  (%3E=).
  */
 @property(nonatomic, copy, nullable) NSString *filters;
+
+/**
+ *  Comma separated group ids (obfuscated) on which user activities are
+ *  filtered, i.e, the response will contain activities for only those users
+ *  that are a part of at least one of the group ids mentioned here. Format:
+ *  "id:abc123,id:xyz456"
+ */
+@property(nonatomic, copy, nullable) NSString *groupIdFilter;
 
 /**
  *  Determines how many activity records are shown on each response page. For

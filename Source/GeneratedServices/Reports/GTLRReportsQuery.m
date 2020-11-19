@@ -26,6 +26,7 @@ NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
 NSString * const kGTLRReportsApplicationNameChat               = @"chat";
 NSString * const kGTLRReportsApplicationNameChrome             = @"chrome";
 NSString * const kGTLRReportsApplicationNameContextAwareAccess = @"context_aware_access";
+NSString * const kGTLRReportsApplicationNameDataStudio         = @"data_studio";
 NSString * const kGTLRReportsApplicationNameDrive              = @"drive";
 NSString * const kGTLRReportsApplicationNameGcp                = @"gcp";
 NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
@@ -62,7 +63,8 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities    = @"gplus_communities
 @implementation GTLRReportsQuery_ActivitiesList
 
 @dynamic actorIpAddress, applicationName, customerId, endTime, eventName,
-         filters, maxResults, orgUnitID, pageToken, startTime, userKey;
+         filters, groupIdFilter, maxResults, orgUnitID, pageToken, startTime,
+         userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey
                  applicationName:(NSString *)applicationName {
@@ -86,7 +88,8 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities    = @"gplus_communities
 @implementation GTLRReportsQuery_ActivitiesWatch
 
 @dynamic actorIpAddress, applicationName, customerId, endTime, eventName,
-         filters, maxResults, orgUnitID, pageToken, startTime, userKey;
+         filters, groupIdFilter, maxResults, orgUnitID, pageToken, startTime,
+         userKey;
 
 + (instancetype)queryWithObject:(GTLRReports_Channel *)object
                         userKey:(NSString *)userKey
@@ -183,8 +186,8 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities    = @"gplus_communities
 
 @implementation GTLRReportsQuery_UserUsageReportGet
 
-@dynamic customerId, date, filters, maxResults, orgUnitID, pageToken,
-         parameters, userKey;
+@dynamic customerId, date, filters, groupIdFilter, maxResults, orgUnitID,
+         pageToken, parameters, userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey
                             date:(NSString *)date {

@@ -30,6 +30,9 @@
 @class GTLRLogging_HttpRequest;
 @class GTLRLogging_LabelDescriptor;
 @class GTLRLogging_Linear;
+@class GTLRLogging_Location;
+@class GTLRLogging_Location_Labels;
+@class GTLRLogging_Location_Metadata;
 @class GTLRLogging_LogBucket;
 @class GTLRLogging_LogEntry;
 @class GTLRLogging_LogEntry_JsonPayload;
@@ -42,6 +45,7 @@
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogMetric_LabelExtractors;
 @class GTLRLogging_LogSink;
+@class GTLRLogging_LogView;
 @class GTLRLogging_MetricDescriptor;
 @class GTLRLogging_MetricDescriptorMetadata;
 @class GTLRLogging_MonitoredResource;
@@ -52,6 +56,7 @@
 @class GTLRLogging_MonitoredResourceMetadata_UserLabels;
 @class GTLRLogging_SourceLocation;
 @class GTLRLogging_SourceReference;
+@class GTLRLogging_SuppressionInfo;
 @class GTLRLogging_WriteLogEntriesRequest_Labels;
 
 // Generated comments include content from the discovery document; avoid them
@@ -272,7 +277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_LogSink_OutputVersionFormat_Vers
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -423,7 +428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptor_ValueType_Value
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -495,7 +500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MetricDescriptorMetadata_LaunchS
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -558,6 +563,30 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_SuppressionInfo.reason
+
+/**
+ *  Indicates suppression occurred due to the client not consuming responses
+ *  quickly enough.
+ *
+ *  Value: "NOT_CONSUMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed;
+/**
+ *  Indicates suppression occurred due to relevant entries being received in
+ *  excess of rate limits.
+ *
+ *  Value: "RATE_LIMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_RateLimit;
+/**
+ *  Unexpected default.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified;
 
 /**
  *  Options that change functionality of a sink exporting data to BigQuery.
@@ -791,7 +820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 /**
  *  The IP address (IPv4 or IPv6) of the client that issued the HTTP request.
- *  Examples: "192.168.1.1", "FE80::0202:B3FF:FE1E:8329".
+ *  This field can include port information. Examples: "192.168.1.1",
+ *  "10.0.0.1:80", "FE80::0202:B3FF:FE1E:8329".
  */
 @property(nonatomic, copy, nullable) NSString *remoteIp;
 
@@ -823,7 +853,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 /**
  *  The IP address (IPv4 or IPv6) of the origin server that the request was sent
- *  to.
+ *  to. This field can include port information. Examples: "192.168.1.1",
+ *  "10.0.0.1:80", "FE80::0202:B3FF:FE1E:8329".
  */
 @property(nonatomic, copy, nullable) NSString *serverIp;
 
@@ -909,7 +940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 
 /**
- *  The response from ListBuckets (Beta).
+ *  The response from ListBuckets.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "buckets" property. If returned as the result of a query, it
@@ -959,6 +990,30 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  nextPageToken is included. To get the next set of results, call the same
  *  method again using the value of nextPageToken as pageToken.
  */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for Locations.ListLocations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "locations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRLogging_ListLocationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of locations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_Location *> *locations;
+
+/** The standard List next-page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -1017,8 +1072,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 /**
  *  Required. Names of one or more parent resources from which to retrieve log
  *  entries: "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
- *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" Projects listed
- *  in the project_ids field are added to this list.
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" May
+ *  alternatively be one or more views
+ *  projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_IDProjects
+ *  listed in the project_ids field are added to this list.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -1167,7 +1227,96 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 
 /**
- *  Describes a repository of logs (Beta).
+ *  The response from ListViews.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "views" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRLogging_ListViewsResponse : GTLRCollectionObject
+
+/**
+ *  If there might be more results than appear in this response, then
+ *  nextPageToken is included. To get the next set of results, call the same
+ *  method again using the value of nextPageToken as pageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of views.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogView *> *views;
+
+@end
+
+
+/**
+ *  A resource that represents Google Cloud Platform location.
+ */
+@interface GTLRLogging_Location : GTLRObject
+
+/**
+ *  The friendly name for this location, typically a nearby city name. For
+ *  example, "Tokyo".
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_Location_Labels *labels;
+
+/** The canonical id for this location. For example: "us-east1". */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_Location_Metadata *metadata;
+
+/**
+ *  Resource name for the location, which may vary between implementations. For
+ *  example: "projects/example-project/locations/us-east1"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Cross-service attributes for the location. For example
+ *  {"cloud.googleapis.com/region": "us-east1"}
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRLogging_Location_Labels : GTLRObject
+@end
+
+
+/**
+ *  Service-specific metadata. For example the available capacity at the given
+ *  location.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Describes a repository of logs.
  */
 @interface GTLRLogging_LogBucket : GTLRObject
 
@@ -1622,8 +1771,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 /**
  *  Describes a logs-based metric. The value of the metric is the number of log
- *  entries that match a logs filter in a given time interval.Logs-based metric
- *  can also be used to extract values from logs and create a a distribution of
+ *  entries that match a logs filter in a given time interval.Logs-based metrics
+ *  can also be used to extract values from logs and create a distribution of
  *  the values. The distribution records the statistics of the extracted values
  *  along with an optional histogram of the values as specified by the bucket
  *  options.
@@ -1890,6 +2039,42 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 
 
 /**
+ *  Describes a view over logs in a bucket.
+ */
+@interface GTLRLogging_LogView : GTLRObject
+
+/** Output only. The creation timestamp of the view. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Describes this view.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Filter that restricts which log entries in a bucket are visible in this
+ *  view. Filters are restricted to be a logical AND of ==/!= of any of the
+ *  following: originating project/folder/organization/billing account. resource
+ *  type log id Example: SOURCE("projects/myproject") AND resource.type =
+ *  "gce_instance" AND LOG_ID("stdout")
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The resource name of the view. For example
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The last update timestamp of the view. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Defines a metric type and its schema. Once a metric descriptor is created,
  *  deleting or altering it stops data collection and makes the metric type's
  *  existing data unusable.
@@ -1929,7 +2114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *        use. By Alpha, all significant design issues are resolved and we are
  *        in the process of verifying functionality. Alpha customers need to
  *        apply for access, agree to applicable terms, and have their projects
- *        whitelisted. Alpha releases don’t have to be feature complete, no SLAs
+ *        allowlisted. Alpha releases don’t have to be feature complete, no SLAs
  *        are provided, and there are no technical support obligations, but they
  *        will be far enough along that customers can actually use them in test
  *        environments or for limited-use tests -- just like they would in
@@ -2107,7 +2292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects whitelisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don’t have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -2244,7 +2429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *        for widespread use. By Alpha, all significant design issues are
  *        resolved and we are in the process of verifying functionality. Alpha
  *        customers need to apply for access, agree to applicable terms, and
- *        have their projects whitelisted. Alpha releases don’t have to be
+ *        have their projects allowlisted. Alpha releases don’t have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -2571,6 +2756,98 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
  *  (git): "0035781c50ec7aa23385dc841529ce8a4b70db1b"
  */
 @property(nonatomic, copy, nullable) NSString *revisionId;
+
+@end
+
+
+/**
+ *  Information about entries that were omitted from the session.
+ */
+@interface GTLRLogging_SuppressionInfo : GTLRObject
+
+/**
+ *  The reason that entries were omitted from the session.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_SuppressionInfo_Reason_NotConsumed Indicates
+ *        suppression occurred due to the client not consuming responses quickly
+ *        enough. (Value: "NOT_CONSUMED")
+ *    @arg @c kGTLRLogging_SuppressionInfo_Reason_RateLimit Indicates
+ *        suppression occurred due to relevant entries being received in excess
+ *        of rate limits. (Value: "RATE_LIMIT")
+ *    @arg @c kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified Unexpected
+ *        default. (Value: "REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  A lower bound on the count of entries omitted due to reason.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suppressedCount;
+
+@end
+
+
+/**
+ *  The parameters to TailLogEntries.
+ */
+@interface GTLRLogging_TailLogEntriesRequest : GTLRObject
+
+/**
+ *  Optional. The amount of time to buffer log entries at the server before
+ *  being returned to prevent out of order results due to late arriving log
+ *  entries. Valid values are between 0-60000 milliseconds. Defaults to 2000
+ *  milliseconds.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *bufferWindow;
+
+/**
+ *  Optional. A filter that chooses which log entries to return. See Advanced
+ *  Logs Filters (https://cloud.google.com/logging/docs/view/advanced_filters).
+ *  Only log entries that match the filter are returned. An empty filter matches
+ *  all log entries in the resources listed in resource_names. Referencing a
+ *  parent resource that is not in resource_names will cause the filter to
+ *  return no results. The maximum length of the filter is 20000 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. Name of a parent resource from which to retrieve log entries:
+ *  "projects/[PROJECT_ID]" "organizations/[ORGANIZATION_ID]"
+ *  "billingAccounts/[BILLING_ACCOUNT_ID]" "folders/[FOLDER_ID]" May
+ *  alternatively be one or more views:
+ *  "projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID"
+ *  "organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID"
+ *  "billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID"
+ *  "folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+@end
+
+
+/**
+ *  Result returned from TailLogEntries.
+ */
+@interface GTLRLogging_TailLogEntriesResponse : GTLRObject
+
+/**
+ *  A list of log entries. Each response in the stream will order entries with
+ *  increasing values of LogEntry.timestamp. Ordering is not guaranteed between
+ *  separate responses.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
+
+/**
+ *  If entries that otherwise would have been included in the session were not
+ *  sent back to the client, counts of relevant entries omitted from the session
+ *  with the reason that they were not included. There will be at most one of
+ *  each reason per response. The counts represent the number of suppressed
+ *  entries since the last streamed response.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_SuppressionInfo *> *suppressionInfo;
 
 @end
 

@@ -67,16 +67,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The user's current primary email address. If the user's email address
- *  changes, use the new email address in your API requests. Since a userId is
- *  subject to change, do not use a userId value as a key for persistent data.
+ *  changes, use the new email address in your API requests. Since a `userId` is
+ *  subject to change, do not use a `userId` value as a key for persistent data.
  *  This key could break if the current user's email address changes. If the
- *  userId is suspended, the license status changes.
+ *  `userId` is suspended, the license status changes.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
- *  Upon successful completion, the callback's object and error parameters will
- *  be nil. This query does not fetch an object.
+ *  Fetches a @c GTLRLicensing_Empty.
  *
  *  Revoke a license.
  *
@@ -86,9 +85,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    available SKUs in this version of the API, see Products and SKUs.
  *  @param userId The user's current primary email address. If the user's email
  *    address changes, use the new email address in your API requests. Since a
- *    userId is subject to change, do not use a userId value as a key for
+ *    `userId` is subject to change, do not use a `userId` value as a key for
  *    persistent data. This key could break if the current user's email address
- *    changes. If the userId is suspended, the license status changes.
+ *    changes. If the `userId` is suspended, the license status changes.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsDelete
  */
@@ -124,10 +123,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The user's current primary email address. If the user's email address
- *  changes, use the new email address in your API requests. Since a userId is
- *  subject to change, do not use a userId value as a key for persistent data.
+ *  changes, use the new email address in your API requests. Since a `userId` is
+ *  subject to change, do not use a `userId` value as a key for persistent data.
  *  This key could break if the current user's email address changes. If the
- *  userId is suspended, the license status changes.
+ *  `userId` is suspended, the license status changes.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -142,9 +141,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    available SKUs in this version of the API, see Products and SKUs.
  *  @param userId The user's current primary email address. If the user's email
  *    address changes, use the new email address in your API requests. Since a
- *    userId is subject to change, do not use a userId value as a key for
+ *    `userId` is subject to change, do not use a `userId` value as a key for
  *    persistent data. This key could break if the current user's email address
- *    changes. If the userId is suspended, the license status changes.
+ *    changes. If the `userId` is suspended, the license status changes.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsGet
  */
@@ -211,16 +210,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsListForProductWithproductId:customerId:]
 
 /**
- *  Customer's customerId. A previous version of this API accepted the primary
+ *  Customer's `customerId`. A previous version of this API accepted the primary
  *  domain name as a value for this field. If the customer is suspended, the
  *  server returns an error.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  The maxResults query string determines how many entries are returned on each
- *  page of a large response. This is an optional parameter. The value must be a
- *  positive number.
+ *  The `maxResults` query string determines how many entries are returned on
+ *  each page of a large response. This is an optional parameter. The value must
+ *  be a positive number.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
@@ -228,10 +227,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  Token to fetch the next page of data. The maxResults query string is related
- *  to the pageToken since maxResults determines how many entries are returned
- *  on each page. This is an optional query string. If not specified, the server
- *  returns the first page.
+ *  Token to fetch the next page of data. The `maxResults` query string is
+ *  related to the `pageToken` since `maxResults` determines how many entries
+ *  are returned on each page. This is an optional query string. If not
+ *  specified, the server returns the first page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -248,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param productId A product's unique identifier. For more information about
  *    products in this version of the API, see Products and SKUs.
- *  @param customerId Customer's customerId. A previous version of this API
+ *  @param customerId Customer's `customerId`. A previous version of this API
  *    accepted the primary domain name as a value for this field. If the
  *    customer is suspended, the server returns an error.
  *
@@ -276,16 +275,16 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryLicensing queryForLicenseAssignmentsListForProductAndSkuWithproductId:skuId:customerId:]
 
 /**
- *  Customer's customerId. A previous version of this API accepted the primary
+ *  Customer's `customerId`. A previous version of this API accepted the primary
  *  domain name as a value for this field. If the customer is suspended, the
  *  server returns an error.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  The maxResults query string determines how many entries are returned on each
- *  page of a large response. This is an optional parameter. The value must be a
- *  positive number.
+ *  The `maxResults` query string determines how many entries are returned on
+ *  each page of a large response. This is an optional parameter. The value must
+ *  be a positive number.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
@@ -293,10 +292,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
- *  Token to fetch the next page of data. The maxResults query string is related
- *  to the pageToken since maxResults determines how many entries are returned
- *  on each page. This is an optional query string. If not specified, the server
- *  returns the first page.
+ *  Token to fetch the next page of data. The `maxResults` query string is
+ *  related to the `pageToken` since `maxResults` determines how many entries
+ *  are returned on each page. This is an optional query string. If not
+ *  specified, the server returns the first page.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -321,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    products in this version of the API, see Products and SKUs.
  *  @param skuId A product SKU's unique identifier. For more information about
  *    available SKUs in this version of the API, see Products and SKUs.
- *  @param customerId Customer's customerId. A previous version of this API
+ *  @param customerId Customer's `customerId`. A previous version of this API
  *    accepted the primary domain name as a value for this field. If the
  *    customer is suspended, the server returns an error.
  *
@@ -338,7 +337,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Patch a Licensing info via Apiary Patch Orchestration
+ *  Reassign a user's product SKU with a different SKU in the same product. This
+ *  method supports patch semantics.
  *
  *  Method: licensing.licenseAssignments.patch
  *
@@ -363,17 +363,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The user's current primary email address. If the user's email address
- *  changes, use the new email address in your API requests. Since a userId is
- *  subject to change, do not use a userId value as a key for persistent data.
+ *  changes, use the new email address in your API requests. Since a `userId` is
+ *  subject to change, do not use a `userId` value as a key for persistent data.
  *  This key could break if the current user's email address changes. If the
- *  userId is suspended, the license status changes.
+ *  `userId` is suspended, the license status changes.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRLicensing_LicenseAssignment.
  *
- *  Patch a Licensing info via Apiary Patch Orchestration
+ *  Reassign a user's product SKU with a different SKU in the same product. This
+ *  method supports patch semantics.
  *
  *  @param object The @c GTLRLicensing_LicenseAssignment to include in the
  *    query.
@@ -383,9 +384,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    available SKUs in this version of the API, see Products and SKUs.
  *  @param userId The user's current primary email address. If the user's email
  *    address changes, use the new email address in your API requests. Since a
- *    userId is subject to change, do not use a userId value as a key for
+ *    `userId` is subject to change, do not use a `userId` value as a key for
  *    persistent data. This key could break if the current user's email address
- *    changes. If the userId is suspended, the license status changes.
+ *    changes. If the `userId` is suspended, the license status changes.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsPatch
  */
@@ -422,10 +423,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The user's current primary email address. If the user's email address
- *  changes, use the new email address in your API requests. Since a userId is
- *  subject to change, do not use a userId value as a key for persistent data.
+ *  changes, use the new email address in your API requests. Since a `userId` is
+ *  subject to change, do not use a `userId` value as a key for persistent data.
  *  This key could break if the current user's email address changes. If the
- *  userId is suspended, the license status changes.
+ *  `userId` is suspended, the license status changes.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -442,9 +443,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    available SKUs in this version of the API, see Products and SKUs.
  *  @param userId The user's current primary email address. If the user's email
  *    address changes, use the new email address in your API requests. Since a
- *    userId is subject to change, do not use a userId value as a key for
+ *    `userId` is subject to change, do not use a `userId` value as a key for
  *    persistent data. This key could break if the current user's email address
- *    changes. If the userId is suspended, the license status changes.
+ *    changes. If the `userId` is suspended, the license status changes.
  *
  *  @return GTLRLicensingQuery_LicenseAssignmentsUpdate
  */

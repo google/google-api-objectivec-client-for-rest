@@ -207,6 +207,33 @@
 
 @end
 
+@implementation GTLRBinaryAuthorizationQuery_ProjectsAttestorsValidateAttestationOccurrence
+
+@dynamic attestor;
+
++ (instancetype)queryWithObject:(GTLRBinaryAuthorization_ValidateAttestationOccurrenceRequest *)object
+                       attestor:(NSString *)attestor {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"attestor" ];
+  NSString *pathURITemplate = @"v1/{+attestor}:validateAttestationOccurrence";
+  GTLRBinaryAuthorizationQuery_ProjectsAttestorsValidateAttestationOccurrence *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.attestor = attestor;
+  query.expectedObjectClass = [GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse class];
+  query.loggingName = @"binaryauthorization.projects.attestors.validateAttestationOccurrence";
+  return query;
+}
+
+@end
+
 @implementation GTLRBinaryAuthorizationQuery_ProjectsGetPolicy
 
 @dynamic name;

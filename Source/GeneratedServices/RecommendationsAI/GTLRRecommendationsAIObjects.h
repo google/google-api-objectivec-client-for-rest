@@ -1689,6 +1689,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 
 
 /**
+ *  Metadata for RejoinUserEvents method.
+ */
+@interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsMetadata : GTLRObject
+@end
+
+
+/**
  *  Request message for CatalogRejoin method.
  */
 @interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest : GTLRObject
@@ -1707,6 +1714,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
  *        unjoined events. (Value: "USER_EVENT_REJOIN_SCOPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *userEventRejoinScope;
+
+@end
+
+
+/**
+ *  Response message for RejoinUserEvents method.
+ */
+@interface GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsResponse : GTLRObject
+
+/**
+ *  Number of user events that were joined with latest catalog items.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rejoinedUserEventsCount;
 
 @end
 

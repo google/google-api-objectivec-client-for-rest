@@ -4,10 +4,9 @@
 // API:
 //   Content API for Shopping (content/v2.1)
 // Description:
-//   Manages product items, inventory, and Merchant Center accounts for Google
-//   Shopping.
+//   Manage your product listings and accounts for Google Shopping
 // Documentation:
-//   https://developers.google.com/shopping-content
+//   https://developers.google.com/shopping-content/v2/
 
 #import "GTLRShoppingContentObjects.h"
 #import "GTLRShoppingContentQuery.h"

@@ -23,6 +23,9 @@
 #endif
 
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Binding;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DailyCycle;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Date;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DenyMaintenancePeriod;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain_Labels;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Expr;
@@ -33,6 +36,7 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_SoftwareVersions;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
@@ -41,13 +45,20 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Location;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Location_Labels;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Location_Metadata;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_Labels;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenanceWindow;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Metadata;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Response;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Status;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Status_Details_Item;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_WeeklyCycle;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -159,6 +170,80 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy.state
+
+/**
+ *  Resource is being deleted. It can no longer be attached to instances.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Deleting;
+/**
+ *  Resource is ready to be used.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Ready;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Wednesday;
+
+// ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust.state
 
 /**
@@ -248,6 +333,28 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_TrustType_TrustTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy.channel
+
+/**
+ *  Early channel within a customer project.
+ *
+ *  Value: "EARLIER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Earlier;
+/**
+ *  Later channel within a customer project.
+ *
+ *  Value: "LATER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Later;
+/**
+ *  Unspecified channel.
+ *
+ *  Value: "UPDATE_CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_UpdateChannelUnspecified;
+
 /**
  *  Request message for AttachTrust
  */
@@ -324,6 +431,91 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
+ *  Time window specified for daily operations.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DailyCycle : GTLRObject
+
+/** Output only. Duration of the time window, set by service producer. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** Time within the day to start the operations. */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay *startTime;
+
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  DenyMaintenancePeriod definition. Maintenance is forbidden within the deny
+ *  period. The start_date must be less than the end_date.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DenyMaintenancePeriod : GTLRObject
+
+/**
+ *  Deny period end date. This can be: * A full date, with non-zero year, month
+ *  and day values. * A month and day value, with a zero year. Allows recurring
+ *  deny periods each year. Date matching this period will have to be before the
+ *  end.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Date *endDate;
+
+/**
+ *  Deny period start date. This can be: * A full date, with non-zero year,
+ *  month and day values. * A month and day value, with a zero year. Allows
+ *  recurring deny periods each year. Date matching this period will have to be
+ *  the same or after the start.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Date *startDate;
+
+/**
+ *  Time in UTC when the Blackout period starts on start_date and ends on
+ *  end_date. This can be: * Full time. * All zeros for 00:00:00 UTC
+ */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay *time;
+
+@end
+
+
+/**
  *  Request message for DetachTrust
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DetachTrustRequest : GTLRObject
@@ -335,7 +527,10 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  Represents a managed Microsoft Active Directory domain.
+ *  Represents a managed Microsoft Active Directory domain. If the domain is
+ *  being changed, it will be placed into the UPDATING state, which indicates
+ *  that the resource is being reconciled. At this point, Get will reflect an
+ *  intermediate state.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain : GTLRObject
 
@@ -628,8 +823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels *labels;
 
 /**
- *  The MaintenancePolicies that have been attached to the instance. The key
- *  must be of the type name of the oneof policy name defined in
+ *  Deprecated. The MaintenancePolicies that have been attached to the instance.
+ *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
@@ -638,7 +833,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  The MaintenanceSchedule contains the scheduling information of published
- *  maintenance schedule.
+ *  maintenance schedule with same key as software_versions.
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules *maintenanceSchedules;
 
@@ -735,8 +930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  The MaintenancePolicies that have been attached to the instance. The key
- *  must be of the type name of the oneof policy name defined in
+ *  Deprecated. The MaintenancePolicies that have been attached to the instance.
+ *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the referenced policy must define the same policy
  *  type. For complete details of MaintenancePolicy, please refer to
  *  go/cloud-saas-mw-ug.
@@ -752,7 +947,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  The MaintenanceSchedule contains the scheduling information of published
- *  maintenance schedule.
+ *  maintenance schedule with same key as software_versions.
  *
  *  @note This class is documented as having more properties of
  *        GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule.
@@ -837,6 +1032,36 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  */
 @property(nonatomic, strong, nullable) NSNumber *exclude;
 
+/**
+ *  Optional. The MaintenancePolicies that have been attached to the instance.
+ *  The key must be of the type name of the oneof policy name defined in
+ *  MaintenancePolicy, and the embedded policy must define the same policy type.
+ *  For complete details of MaintenancePolicy, please refer to
+ *  go/cloud-saas-mw-ug. If only the name is needed (like in the deprecated
+ *  Instance.maintenance_policy_names field) then only populate
+ *  MaintenancePolicy.name.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies *maintenancePolicies;
+
+@end
+
+
+/**
+ *  Optional. The MaintenancePolicies that have been attached to the instance.
+ *  The key must be of the type name of the oneof policy name defined in
+ *  MaintenancePolicy, and the embedded policy must define the same policy type.
+ *  For complete details of MaintenancePolicy, please refer to
+ *  go/cloud-saas-mw-ug. If only the name is needed (like in the deprecated
+ *  Instance.maintenance_policy_names field) then only populate
+ *  MaintenancePolicy.name.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies : GTLRObject
 @end
 
 
@@ -1133,6 +1358,89 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
+ *  Defines policies to service maintenance events.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy : GTLRObject
+
+/** Output only. The time when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of what this policy is for. Create/Update methods
+ *  return INVALID_ARGUMENT if the length is greater than 512.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Resource labels to represent user provided metadata. Each label is
+ *  a key-value pair, where both the key and the value are arbitrary strings
+ *  provided by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_Labels *labels;
+
+/**
+ *  Required. MaintenancePolicy name using the form:
+ *  `projects/{project_id}/locations/{location_id}/maintenancePolicies/{maintenance_policy_id}`
+ *  where {project_id} refers to a GCP consumer project ID, {location_id} refers
+ *  to a GCP region/zone, {maintenance_policy_id} must be 1-63 characters long
+ *  and match the regular expression `[a-z0-9]([-a-z0-9]*[a-z0-9])?`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The state of the policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Deleting
+ *        Resource is being deleted. It can no longer be attached to instances.
+ *        (Value: "DELETING")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Ready
+ *        Resource is ready to be used. (Value: "READY")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Maintenance policy applicable to instance update. */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy *updatePolicy;
+
+/** Output only. The time when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Resource labels to represent user provided metadata. Each label is
+ *  a key-value pair, where both the key and the value are arbitrary strings
+ *  provided by the user.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_Labels : GTLRObject
+@end
+
+
+/**
+ *  MaintenanceWindow definition.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenanceWindow : GTLRObject
+
+/** Daily cycle. */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DailyCycle *dailyCycle;
+
+/** Weekly cycle. */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_WeeklyCycle *weeklyCycle;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1371,6 +1679,43 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
+ *  Configure the schedule.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule : GTLRObject
+
+/**
+ *  Allows to define schedule that runs specified day of the week.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Friday
+ *        Friday (Value: "FRIDAY")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Monday
+ *        Monday (Value: "MONDAY")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Saturday
+ *        Saturday (Value: "SATURDAY")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Sunday
+ *        Sunday (Value: "SUNDAY")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Thursday
+ *        Thursday (Value: "THURSDAY")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Tuesday
+ *        Tuesday (Value: "TUESDAY")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/** Output only. Duration of the time window, set by service producer. */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** Time within the window to start the operations. */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay *startTime;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest : GTLRObject
@@ -1459,8 +1804,51 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of day in 24 hour format. Should be from 0 to 23. An API may choose to
+ *  allow the value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of hour of day. Must be from 0 to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds in nanoseconds. Must be from 0 to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of minutes of the time. Must normally be from 0 to 59. An API may
+ *  allow the value 60 if it allows leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+@end
+
+
+/**
  *  Represents a relationship between two domains. This allows a controller in
- *  one domain to authenticate a user in another domain.
+ *  one domain to authenticate a user in another domain. If the trust is being
+ *  changed, it will be placed into the UPDATING state, which indicates that the
+ *  resource is being reconciled. At this point, Get will reflect an
+ *  intermediate state.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust : GTLRObject
 
@@ -1562,12 +1950,58 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
+ *  Maintenance policy applicable to instance updates.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy : GTLRObject
+
+/**
+ *  Optional. Relative scheduling channel applied to resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Earlier
+ *        Early channel within a customer project. (Value: "EARLIER")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_Later
+ *        Later channel within a customer project. (Value: "LATER")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_UpdatePolicy_Channel_UpdateChannelUnspecified
+ *        Unspecified channel. (Value: "UPDATE_CHANNEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *channel;
+
+/**
+ *  Deny Maintenance Period that is applied to resource to indicate when
+ *  maintenance is forbidden. User can specify zero or more non-overlapping deny
+ *  periods. For V1, Maximum number of deny_maintenance_periods is expected to
+ *  be one.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DenyMaintenancePeriod *> *denyMaintenancePeriods;
+
+/**
+ *  Optional. Maintenance window that is applied to resources covered by this
+ *  policy.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenanceWindow *window;
+
+@end
+
+
+/**
  *  Request message for ValidateTrust
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ValidateTrustRequest : GTLRObject
 
 /** Required. The domain trust to validate trust state for. */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust *trust;
+
+@end
+
+
+/**
+ *  Time window specified for weekly operations.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_WeeklyCycle : GTLRObject
+
+/** User can specify multiple windows in a week. Minimum of 1 window. */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule *> *schedule;
 
 @end
 

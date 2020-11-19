@@ -617,6 +617,31 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @end
 
+@implementation GTLRBigqueryQuery_RowAccessPoliciesList
+
+@dynamic datasetId, pageSize, pageToken, projectId, tableId;
+
++ (instancetype)queryWithProjectId:(NSString *)projectId
+                         datasetId:(NSString *)datasetId
+                           tableId:(NSString *)tableId {
+  NSArray *pathParams = @[
+    @"datasetId", @"projectId", @"tableId"
+  ];
+  NSString *pathURITemplate = @"projects/{+projectId}/datasets/{+datasetId}/tables/{+tableId}/rowAccessPolicies";
+  GTLRBigqueryQuery_RowAccessPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.projectId = projectId;
+  query.datasetId = datasetId;
+  query.tableId = tableId;
+  query.expectedObjectClass = [GTLRBigquery_ListRowAccessPoliciesResponse class];
+  query.loggingName = @"bigquery.rowAccessPolicies.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_TabledataInsertAll
 
 @dynamic datasetId, projectId, tableId;

@@ -25,6 +25,7 @@
 @class GTLRGames_AchievementUpdateMultipleRequest;
 @class GTLRGames_EventRecordRequest;
 @class GTLRGames_PlayerScoreSubmissionList;
+@class GTLRGames_ResolveSnapshotHeadRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1429,6 +1430,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @return GTLRGamesQuery_ScoresSubmitMultiple
  */
 + (instancetype)queryWithObject:(GTLRGames_PlayerScoreSubmissionList *)object;
+
+@end
+
+/**
+ *  Resolves any potential conflicts according to the resolution policy
+ *  specified in the request and returns the snapshot head after the resolution.
+ *
+ *  Method: games.snapshotsExtended.resolveSnapshotHead
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGames
+ *    @c kGTLRAuthScopeGamesDriveAppdata
+ */
+@interface GTLRGamesQuery_SnapshotsExtendedResolveSnapshotHead : GTLRGamesQuery
+// Previous library name was
+//   +[GTLQueryGames queryForSnapshotsExtendedResolveSnapshotHeadWithObject:snapshotName:]
+
+/** Required. Name of the snapshot. */
+@property(nonatomic, copy, nullable) NSString *snapshotName;
+
+/**
+ *  Fetches a @c GTLRGames_ResolveSnapshotHeadResponse.
+ *
+ *  Resolves any potential conflicts according to the resolution policy
+ *  specified in the request and returns the snapshot head after the resolution.
+ *
+ *  @param object The @c GTLRGames_ResolveSnapshotHeadRequest to include in the
+ *    query.
+ *  @param snapshotName Required. Name of the snapshot.
+ *
+ *  @return GTLRGamesQuery_SnapshotsExtendedResolveSnapshotHead
+ */
++ (instancetype)queryWithObject:(GTLRGames_ResolveSnapshotHeadRequest *)object
+                   snapshotName:(NSString *)snapshotName;
 
 @end
 

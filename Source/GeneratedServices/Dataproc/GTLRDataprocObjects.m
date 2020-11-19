@@ -481,9 +481,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GceClusterConfig
-@dynamic internalIpOnly, metadata, networkUri, privateIpv6GoogleAccess,
-         reservationAffinity, serviceAccount, serviceAccountScopes,
-         subnetworkUri, tags, zoneUri;
+@dynamic internalIpOnly, metadata, networkUri, nodeGroupAffinity,
+         privateIpv6GoogleAccess, reservationAffinity, serviceAccount,
+         serviceAccountScopes, subnetworkUri, tags, zoneUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -751,7 +751,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_JobScheduling
-@dynamic maxFailuresPerHour;
+@dynamic maxFailuresPerHour, maxFailuresTotal;
 @end
 
 
@@ -954,6 +954,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ManagedGroupConfig
 @dynamic instanceGroupManagerName, instanceTemplateName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_NodeGroupAffinity
+//
+
+@implementation GTLRDataproc_NodeGroupAffinity
+@dynamic nodeGroupUri;
 @end
 
 

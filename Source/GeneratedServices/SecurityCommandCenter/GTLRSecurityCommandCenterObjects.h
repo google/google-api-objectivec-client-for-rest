@@ -30,9 +30,11 @@
 @class GTLRSecurityCommandCenter_Expr;
 @class GTLRSecurityCommandCenter_Finding;
 @class GTLRSecurityCommandCenter_Finding_SourceProperties;
+@class GTLRSecurityCommandCenter_Folder;
 @class GTLRSecurityCommandCenter_GetPolicyOptions;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding_SourceProperties;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Folder;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks;
@@ -446,6 +448,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_AssetDiscoveryConfig : GTLRObject
 
 /**
+ *  The folder ids to use for filtering asset discovery. It consists of only
+ *  digits, e.g., 756619654966.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *folderIds;
+
+/**
  *  The mode to use for filtering asset discovery.
  *
  *  Likely values:
@@ -760,6 +768,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
+ *  Message that contains the resource name and display name of a folder
+ *  resource.
+ */
+@interface GTLRSecurityCommandCenter_Folder : GTLRObject
+
+/**
+ *  Full resource name of this folder. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *resourceFolder;
+
+/** The user defined display name for this folder. */
+@property(nonatomic, copy, nullable) NSString *resourceFolderDisplayName;
+
+@end
+
+
+/**
  *  Request message for `GetIamPolicy` method.
  */
 @interface GTLRSecurityCommandCenter_GetIamPolicyRequest : GTLRObject
@@ -969,6 +995,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 
 /**
+ *  Message that contains the resource name and display name of a folder
+ *  resource.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Folder : GTLRObject
+
+/**
+ *  Full resource name of this folder. See:
+ *  https://cloud.google.com/apis/design/resource_names#full_resource_name
+ */
+@property(nonatomic, copy, nullable) NSString *resourceFolder;
+
+/** The user defined display name for this folder. */
+@property(nonatomic, copy, nullable) NSString *resourceFolderDisplayName;
+
+@end
+
+
+/**
  *  Security Command Center's Notification
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1NotificationMessage : GTLRObject
@@ -991,6 +1035,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  Information related to the Google Cloud resource.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource : GTLRObject
+
+/**
+ *  Output only. Contains a Folder message for each folder in the assets
+ *  ancestry. The first folder is the deepest nested folder, and the last folder
+ *  is the folder directly under the Organization.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Folder *> *folders;
 
 /**
  *  The full resource name of the resource. See:
@@ -1092,6 +1143,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  Information related to the Google Cloud resource.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource : GTLRObject
+
+/**
+ *  Output only. Contains a Folder message for each folder in the assets
+ *  ancestry. The first folder is the deepest nested folder, and the last folder
+ *  is the folder directly under the Organization.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Folder *> *folders;
 
 /**
  *  The full resource name of the resource. See:
@@ -1919,6 +1977,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_Resource : GTLRObject
 
 /**
+ *  Contains a Folder message for each folder in the assets ancestry. The first
+ *  folder is the deepest nested folder, and the last folder is the folder
+ *  directly under the Organization.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Folder *> *folders;
+
+/**
  *  The full resource name of the resource. See:
  *  https://cloud.google.com/apis/design/resource_names#full_resource_name
  */
@@ -1951,6 +2016,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  Security Command Center and cannot be modified by the user.
  */
 @interface GTLRSecurityCommandCenter_SecurityCenterProperties : GTLRObject
+
+/**
+ *  Contains a Folder message for each folder in the assets ancestry. The first
+ *  folder is the deepest nested folder, and the last folder is the folder
+ *  directly under the Organization.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Folder *> *folders;
 
 /** The user defined display name for this resource. */
 @property(nonatomic, copy, nullable) NSString *resourceDisplayName;

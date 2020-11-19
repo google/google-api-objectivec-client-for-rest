@@ -102,6 +102,11 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRLogging_SuppressionInfo.reason
+NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed = @"NOT_CONSUMED";
+NSString * const kGTLRLogging_SuppressionInfo_Reason_RateLimit = @"RATE_LIMIT";
+NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRLogging_BigQueryOptions
@@ -252,6 +257,28 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemen
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_ListLocationsResponse
+//
+
+@implementation GTLRLogging_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRLogging_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_ListLogEntriesRequest
 //
 
@@ -370,6 +397,66 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemen
 
 + (NSString *)collectionItemsKey {
   return @"sinks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_ListViewsResponse
+//
+
+@implementation GTLRLogging_ListViewsResponse
+@dynamic nextPageToken, views;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"views" : [GTLRLogging_LogView class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"views";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Location
+//
+
+@implementation GTLRLogging_Location
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Location_Labels
+//
+
+@implementation GTLRLogging_Location_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Location_Metadata
+//
+
+@implementation GTLRLogging_Location_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -552,6 +639,21 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemen
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_LogView
+//
+
+@implementation GTLRLogging_LogView
+@dynamic createTime, descriptionProperty, filter, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_MetricDescriptor
 //
 
@@ -709,6 +811,53 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemen
 
 @implementation GTLRLogging_SourceReference
 @dynamic repository, revisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_SuppressionInfo
+//
+
+@implementation GTLRLogging_SuppressionInfo
+@dynamic reason, suppressedCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_TailLogEntriesRequest
+//
+
+@implementation GTLRLogging_TailLogEntriesRequest
+@dynamic bufferWindow, filter, resourceNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_TailLogEntriesResponse
+//
+
+@implementation GTLRLogging_TailLogEntriesResponse
+@dynamic entries, suppressionInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRLogging_LogEntry class],
+    @"suppressionInfo" : [GTLRLogging_SuppressionInfo class]
+  };
+  return map;
+}
+
 @end
 
 

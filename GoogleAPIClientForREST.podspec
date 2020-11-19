@@ -32,6 +32,14 @@ Pod::Spec.new do |s|
   s.default_subspec = 'Core'
 
   # subspecs for all the services.
+  s.subspec 'AIPlatformNotebooks' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/AIPlatformNotebooks/*.{h,m}'
+  end
+  s.subspec 'APIGateway' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/APIGateway/*.{h,m}'
+  end
   s.subspec 'AbusiveExperienceReport' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AbusiveExperienceReport/*.{h,m}'
@@ -116,6 +124,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Appsactivity/*.{h,m}'
   end
+  s.subspec 'Area120Tables' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Area120Tables/*.{h,m}'
+  end
   s.subspec 'ArtifactRegistry' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ArtifactRegistry/*.{h,m}'
@@ -160,6 +172,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Calendar/*.{h,m}'
   end
+  s.subspec 'CertificateAuthorityService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CertificateAuthorityService/*.{h,m}'
+  end
   s.subspec 'ChromeUXReport' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ChromeUXReport/*.{h,m}'
@@ -188,9 +204,17 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudComposer/*.{h,m}'
   end
+  s.subspec 'CloudDatabaseMigrationService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudDatabaseMigrationService/*.{h,m}'
+  end
   s.subspec 'CloudDebugger' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudDebugger/*.{h,m}'
+  end
+  s.subspec 'CloudDomains' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudDomains/*.{h,m}'
   end
   s.subspec 'CloudFilestore' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -332,6 +356,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DataFusion/*.{h,m}'
   end
+  s.subspec 'DataLabeling' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/DataLabeling/*.{h,m}'
+  end
   s.subspec 'DataTransfer' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DataTransfer/*.{h,m}'
@@ -408,6 +436,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DriveActivity/*.{h,m}'
   end
+  s.subspec 'Eventarc' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Eventarc/*.{h,m}'
+  end
   s.subspec 'FactCheckTools' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FactCheckTools/*.{h,m}'
@@ -431,6 +463,10 @@ Pod::Spec.new do |s|
   s.subspec 'FirebaseManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseManagement/*.{h,m}'
+  end
+  s.subspec 'FirebaseRealtimeDatabase' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/FirebaseRealtimeDatabase/*.{h,m}'
   end
   s.subspec 'FirebaseRules' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -467,6 +503,10 @@ Pod::Spec.new do |s|
   s.subspec 'Gmail' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Gmail/*.{h,m}'
+  end
+  s.subspec 'GoogleAnalyticsAdmin' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/GoogleAnalyticsAdmin/*.{h,m}'
   end
   s.subspec 'GroupsMigration' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -535,6 +575,14 @@ Pod::Spec.new do |s|
   s.subspec 'NetworkManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/NetworkManagement/*.{h,m}'
+  end
+  s.subspec 'OSConfig' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/OSConfig/*.{h,m}'
+  end
+  s.subspec 'Oauth2' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Oauth2/*.{h,m}'
   end
   s.subspec 'PagespeedInsights' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -723,6 +771,10 @@ Pod::Spec.new do |s|
   s.subspec 'TrafficDirectorService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/TrafficDirectorService/*.{h,m}'
+  end
+  s.subspec 'Transcoder' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Transcoder/*.{h,m}'
   end
   s.subspec 'Translate' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -18,6 +18,52 @@
 
 @end
 
+@implementation GTLRAnalyticsDataQuery_PropertiesGetMetadata
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRAnalyticsDataQuery_PropertiesGetMetadata *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAnalyticsData_Metadata class];
+  query.loggingName = @"analyticsdata.properties.getMetadata";
+  return query;
+}
+
+@end
+
+@implementation GTLRAnalyticsDataQuery_PropertiesRunRealtimeReport
+
+@dynamic property;
+
++ (instancetype)queryWithObject:(GTLRAnalyticsData_RunRealtimeReportRequest *)object
+                       property:(NSString *)property {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"property" ];
+  NSString *pathURITemplate = @"v1alpha/{+property}:runRealtimeReport";
+  GTLRAnalyticsDataQuery_PropertiesRunRealtimeReport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.property = property;
+  query.expectedObjectClass = [GTLRAnalyticsData_RunRealtimeReportResponse class];
+  query.loggingName = @"analyticsdata.properties.runRealtimeReport";
+  return query;
+}
+
+@end
+
 @implementation GTLRAnalyticsDataQuery_V1alphaBatchRunPivotReports
 
 + (instancetype)queryWithObject:(GTLRAnalyticsData_BatchRunPivotReportsRequest *)object {
@@ -57,21 +103,6 @@
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRAnalyticsData_BatchRunReportsResponse class];
   query.loggingName = @"analyticsdata.batchRunReports";
-  return query;
-}
-
-@end
-
-@implementation GTLRAnalyticsDataQuery_V1alphaGetUniversalMetadata
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v1alpha/universalMetadata";
-  GTLRAnalyticsDataQuery_V1alphaGetUniversalMetadata *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRAnalyticsData_UniversalMetadata class];
-  query.loggingName = @"analyticsdata.getUniversalMetadata";
   return query;
 }
 

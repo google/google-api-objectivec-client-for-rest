@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Data Transfer API (admin/datatransfer_v1)
+//   Admin SDK (admin/datatransfer_v1)
 // Description:
-//   Transfers user data from one user to another.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/data-transfer/
+//   http://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -33,7 +35,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  The JSON template for an Application resource.
+ *  Applications resources represent applications installed on the domain that
+ *  support transferring ownership of user data.
  */
 @interface GTLRDataTransfer_Application : GTLRObject
 
@@ -137,7 +140,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  The JSON template for a DataTransfer resource.
+ *  A Transfer resource represents the transfer of the ownership of user data
+ *  between users.
  */
 @interface GTLRDataTransfer_DataTransfer : GTLRObject
 

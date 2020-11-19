@@ -2,14 +2,49 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Directory API (admin/directory_v1)
+//   Admin SDK (admin/directory_v1)
 // Description:
-//   Manages enterprise resources such as users and groups, administrative
-//   notifications, security features, and more.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/directory/
+//   http://developers.google.com/admin-sdk/
 
 #import "GTLRDirectoryObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRDirectory_ChromeosdevicesCommand.state
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_AckedByClient = @"ACKED_BY_CLIENT";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_ExecutedByClient = @"EXECUTED_BY_CLIENT";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_Expired = @"EXPIRED";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_Pending = @"PENDING";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_SentToClient = @"SENT_TO_CLIENT";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRDirectory_ChromeosdevicesCommand.type
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot = @"REBOOT";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_RemotePowerwash = @"REMOTE_POWERWASH";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_SetVolume = @"SET_VOLUME";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_TakeAScreenshot = @"TAKE_A_SCREENSHOT";
+NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_WipeUsers = @"WIPE_USERS";
+
+// GTLRDirectory_ChromeosdevicesCommandResult.result
+NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_CommandResultTypeUnspecified = @"COMMAND_RESULT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Failure = @"FAILURE";
+NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Ignored = @"IGNORED";
+NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Success = @"SUCCESS";
+
+// GTLRDirectory_ChromeosdevicesIssueCommandRequest.commandType
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot = @"REBOOT";
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_RemotePowerwash = @"REMOTE_POWERWASH";
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_SetVolume = @"SET_VOLUME";
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_TakeAScreenshot = @"TAKE_A_SCREENSHOT";
+NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_WipeUsers = @"WIPE_USERS";
 
 // ----------------------------------------------------------------------------
 //
@@ -241,12 +276,11 @@
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
          autoUpdateExpiration, bootMode, cpuStatusReports, deviceFiles,
          deviceId, diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
-         ethernetMacAddress0, firmwareVersion, kind, lastDeviceEnrollerEmail,
-         lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
-         manufactureDate, meid, model, notes, orderNumber, orgUnitPath,
-         osVersion, platformVersion, recentUsers, serialNumber, status,
-         supportEndDate, systemRamFreeReports, systemRamTotal, tpmVersionInfo,
-         willAutoRenew;
+         ethernetMacAddress0, firmwareVersion, kind, lastEnrollmentTime,
+         lastKnownNetwork, lastSync, macAddress, manufactureDate, meid, model,
+         notes, orderNumber, orgUnitPath, osVersion, platformVersion,
+         recentUsers, serialNumber, status, supportEndDate,
+         systemRamFreeReports, systemRamTotal, tpmVersionInfo, willAutoRenew;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -427,6 +461,47 @@
   return @"chromeosdevices";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeosdevicesCommand
+//
+
+@implementation GTLRDirectory_ChromeosdevicesCommand
+@dynamic commandExpireTime, commandId, commandResult, issueTime, payload, state,
+         type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeosdevicesCommandResult
+//
+
+@implementation GTLRDirectory_ChromeosdevicesCommandResult
+@dynamic errorMessage, executeTime, result;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeosdevicesIssueCommandRequest
+//
+
+@implementation GTLRDirectory_ChromeosdevicesIssueCommandRequest
+@dynamic commandType, payload;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeosdevicesIssueCommandResponse
+//
+
+@implementation GTLRDirectory_ChromeosdevicesIssueCommandResponse
+@dynamic commandId;
 @end
 
 

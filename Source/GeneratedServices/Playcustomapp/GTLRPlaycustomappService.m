@@ -4,9 +4,9 @@
 // API:
 //   Google Play Custom App Publishing API (playcustomapp/v1)
 // Description:
-//   An API to publish custom Android apps.
+//   API to create and publish custom Android apps
 // Documentation:
-//   https://developers.google.com/android/work/play/custom-app-api
+//   https://developers.google.com/android/work/play/custom-app-api/
 
 #import "GTLRPlaycustomapp.h"
 
@@ -25,11 +25,10 @@ NSString * const kGTLRAuthScopePlaycustomappAndroidpublisher = @"https://www.goo
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"playcustomapp/v1/accounts/";
+    self.rootURLString = @"https://playcustomapp.googleapis.com/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";
-    self.batchPath = @"batch/playcustomapp/v1";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

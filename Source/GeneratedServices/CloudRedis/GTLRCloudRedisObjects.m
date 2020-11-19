@@ -39,6 +39,11 @@ NSString * const kGTLRCloudRedis_Instance_Tier_Basic           = @"BASIC";
 NSString * const kGTLRCloudRedis_Instance_Tier_StandardHa      = @"STANDARD_HA";
 NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
 
+// GTLRCloudRedis_Instance.transitEncryptionMode
+NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled = @"DISABLED";
+NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_ServerAuthentication = @"SERVER_AUTHENTICATION";
+NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified = @"TRANSIT_ENCRYPTION_MODE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudRedis_Empty
@@ -158,10 +163,19 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
 //
 
 @implementation GTLRCloudRedis_Instance
-@dynamic alternativeLocationId, authorizedNetwork, connectMode, createTime,
-         currentLocationId, displayName, host, labels, locationId, memorySizeGb,
-         name, persistenceIamIdentity, port, redisConfigs, redisVersion,
-         reservedIpRange, state, statusMessage, tier;
+@dynamic alternativeLocationId, authEnabled, authorizedNetwork, connectMode,
+         createTime, currentLocationId, displayName, host, labels, locationId,
+         memorySizeGb, name, persistenceIamIdentity, port, redisConfigs,
+         redisVersion, reservedIpRange, serverCaCerts, state, statusMessage,
+         tier, transitEncryptionMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serverCaCerts" : [GTLRCloudRedis_TlsCertificate class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -190,6 +204,16 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_InstanceAuthString
+//
+
+@implementation GTLRCloudRedis_InstanceAuthString
+@dynamic authString;
 @end
 
 
@@ -375,6 +399,16 @@ NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified = @"TIER_UNSPECIF
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_TlsCertificate
+//
+
+@implementation GTLRCloudRedis_TlsCertificate
+@dynamic cert, createTime, expireTime, serialNumber, sha1Fingerprint;
 @end
 
 

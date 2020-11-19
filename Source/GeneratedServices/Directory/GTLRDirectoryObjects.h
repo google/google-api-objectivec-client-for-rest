@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Directory API (admin/directory_v1)
+//   Admin SDK (admin/directory_v1)
 // Description:
-//   Manages enterprise resources such as users and groups, administrative
-//   notifications, security features, and more.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/directory/
+//   http://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -38,6 +39,7 @@
 @class GTLRDirectory_ChromeOsDevice_RecentUsers_Item;
 @class GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_TpmVersionInfo;
+@class GTLRDirectory_ChromeosdevicesCommandResult;
 @class GTLRDirectory_CustomerPostalAddress;
 @class GTLRDirectory_DomainAlias;
 @class GTLRDirectory_Domains;
@@ -68,28 +70,197 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeosdevicesCommand.state
+
+/**
+ *  The client has responded that it received the command.
+ *
+ *  Value: "ACKED_BY_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_AckedByClient;
+/**
+ *  The command is cancelled by admin while in PENDING.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_Cancelled;
+/**
+ *  The client has (un)successfully executed the command.
+ *
+ *  Value: "EXECUTED_BY_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_ExecutedByClient;
+/**
+ *  The command didn't get executed by the client within the expected time.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_Expired;
+/**
+ *  An unexpired command not yet sent to the client.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_Pending;
+/**
+ *  The command has been sent to the client.
+ *
+ *  Value: "SENT_TO_CLIENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_SentToClient;
+/**
+ *  The command status was unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeosdevicesCommand.type
+
+/**
+ *  The command type was unspecified.
+ *
+ *  Value: "COMMAND_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified;
+/**
+ *  Reboot the device. Can only be issued to Kiosk and managed guest session
+ *  devices.
+ *
+ *  Value: "REBOOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot;
+/**
+ *  Wipes the device by performing a power wash. Executing this command in the
+ *  device will remove all data including user policies, device policies and
+ *  enrollment policies. Warning: This will revert the device back to a factory
+ *  state with no enrollment unless the device is subject to forced or auto
+ *  enrollment. Use with caution, as this is an irreversible action!
+ *
+ *  Value: "REMOTE_POWERWASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_RemotePowerwash;
+/**
+ *  Set the volume of the device. Can only be issued to Kiosk and managed guest
+ *  session devices.
+ *
+ *  Value: "SET_VOLUME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_SetVolume;
+/**
+ *  Take a screenshot of the device. Only available if the device is in Kiosk
+ *  Mode.
+ *
+ *  Value: "TAKE_A_SCREENSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_TakeAScreenshot;
+/**
+ *  Wipe all the users off of the device. Executing this command in the device
+ *  will remove all user profile data, but it will keep device policy and
+ *  enrollment.
+ *
+ *  Value: "WIPE_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommand_Type_WipeUsers;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeosdevicesCommandResult.result
+
+/**
+ *  The command result was unspecified.
+ *
+ *  Value: "COMMAND_RESULT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_CommandResultTypeUnspecified;
+/**
+ *  The command could not be executed successfully.
+ *
+ *  Value: "FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Failure;
+/**
+ *  The command was ignored as obsolete.
+ *
+ *  Value: "IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Ignored;
+/**
+ *  The command was successfully executed.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesCommandResult_Result_Success;
+
+// ----------------------------------------------------------------------------
+// GTLRDirectory_ChromeosdevicesIssueCommandRequest.commandType
+
+/**
+ *  The command type was unspecified.
+ *
+ *  Value: "COMMAND_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified;
+/**
+ *  Reboot the device. Can only be issued to Kiosk and managed guest session
+ *  devices.
+ *
+ *  Value: "REBOOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot;
+/**
+ *  Wipes the device by performing a power wash. Executing this command in the
+ *  device will remove all data including user policies, device policies and
+ *  enrollment policies. Warning: This will revert the device back to a factory
+ *  state with no enrollment unless the device is subject to forced or auto
+ *  enrollment. Use with caution, as this is an irreversible action!
+ *
+ *  Value: "REMOTE_POWERWASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_RemotePowerwash;
+/**
+ *  Set the volume of the device. Can only be issued to Kiosk and managed guest
+ *  session devices.
+ *
+ *  Value: "SET_VOLUME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_SetVolume;
+/**
+ *  Take a screenshot of the device. Only available if the device is in Kiosk
+ *  Mode.
+ *
+ *  Value: "TAKE_A_SCREENSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_TakeAScreenshot;
+/**
+ *  Wipe all the users off of the device. Executing this command in the device
+ *  will remove all user profile data, but it will keep device policy and
+ *  enrollment.
+ *
+ *  Value: "WIPE_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_WipeUsers;
+
 /**
  *  JSON template for Alias object in Directory API.
  */
 @interface GTLRDirectory_Alias : GTLRObject
 
-/** A alias email */
 @property(nonatomic, copy, nullable) NSString *alias;
-
-/** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Unique id of the group (Read-only) Unique id of the user (Read-only)
+ *  identifier
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-/** Group's primary email (Read-only) User's primary email (Read-only) */
 @property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 @end
@@ -101,16 +272,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_Aliases : GTLRObject
 
 /**
- *  List of alias objects.
+ *  aliases
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) NSArray *aliases;
 
-/** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -186,7 +354,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Building object in Directory API.
+ *  Public API: Resources.buildings
  */
 @interface GTLRDirectory_Building : GTLRObject
 
@@ -238,7 +406,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for the postal address of a building in Directory API.
+ *  Public API: Resources.buildings
  */
 @interface GTLRDirectory_BuildingAddress : GTLRObject
 
@@ -277,7 +445,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for coordinates of a building in Directory API.
+ *  Public API: Resources.buildings
  */
 @interface GTLRDirectory_BuildingCoordinates : GTLRObject
 
@@ -299,7 +467,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Building List Response object in Directory API.
+ *  Public API: Resources.buildings
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "buildings" property. If returned as the result of a query, it
@@ -332,7 +500,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Calendar Resource object in Directory API.
+ *  Public API: Resources.calendars
  */
 @interface GTLRDirectory_CalendarResource : GTLRObject
 
@@ -350,7 +518,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *etags;
 
 /**
- *  featureInstances
+ *  Instances of features for the calendar resource.
  *
  *  Can be any valid JSON type.
  */
@@ -406,7 +574,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Calendar Resource List Response object in Directory API.
+ *  Public API: Resources.calendars
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -514,7 +682,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Chrome Os Device resource in Directory API.
+ *  GTLRDirectory_ChromeOsDevice
  */
 @interface GTLRDirectory_ChromeOsDevice : GTLRObject
 
@@ -556,11 +724,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  (Read-only) Built-in MAC address for the docking station that the device
  *  connected to. Factory sets Media access control address (MAC address)
- *  assigned for use by a dock. Currently this is only supported on the Dell
- *  Arcada / Sarien devices and the Dell WD19 / WD19TB Docking Station. It is
- *  reserved specifically for MAC pass through device policy. The format is
- *  twelve (12) hexadecimal digits without any delimiter (uppercase letters).
- *  This is only relevant for Dell devices.
+ *  assigned for use by a dock. It is reserved specifically for MAC pass through
+ *  device policy. The format is twelve (12) hexadecimal digits without any
+ *  delimiter (uppercase letters). This is only relevant for some devices.
  */
 @property(nonatomic, copy, nullable) NSString *dockMacAddress;
 
@@ -584,17 +750,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/**
- *  (Read-only) If device was re-enrolled after 07/2020, the E-mail of the user
- *  who re-enrolled the device. Otherwise, the E-mail of the user who originally
- *  enrolled the device.
- */
-@property(nonatomic, copy, nullable) NSString *lastDeviceEnrollerEmail;
-
 /** Date and time the device was last enrolled (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastEnrollmentTime;
 
-/** Contains last used network (Read-only) */
+/** Contains last known network (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item *> *lastKnownNetwork;
 
 /**
@@ -747,14 +906,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item
+ *  Information for an ip address.
  */
 @interface GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item : GTLRObject
 
-/** The IP address */
+/** The IP address. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
-/** The WAN IP address */
+/** The WAN IP address. */
 @property(nonatomic, copy, nullable) NSString *wanIpAddress;
 
 @end
@@ -862,8 +1021,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON request template for firing actions on ChromeOs Device in Directory
- *  Devices API.
+ *  GTLRDirectory_ChromeOsDeviceAction
  */
 @interface GTLRDirectory_ChromeOsDeviceAction : GTLRObject
 
@@ -876,8 +1034,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template for List Chrome OS Devices operation in Directory
- *  API.
+ *  GTLRDirectory_ChromeOsDevices
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "chromeosdevices" property. If returned as the result of a query,
@@ -907,8 +1064,183 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON request template for moving ChromeOs Device to given OU in Directory
- *  Devices API.
+ *  Information regarding a command that was issued to a device.
+ */
+@interface GTLRDirectory_ChromeosdevicesCommand : GTLRObject
+
+/**
+ *  The time at which the command will expire. If the device doesn't execute the
+ *  command within this time the command will become expired.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *commandExpireTime;
+
+/**
+ *  Unique ID of a device command.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commandId;
+
+/** The result of the command execution. */
+@property(nonatomic, strong, nullable) GTLRDirectory_ChromeosdevicesCommandResult *commandResult;
+
+/** The timestamp when the command was issued by the admin. */
+@property(nonatomic, strong, nullable) GTLRDateTime *issueTime;
+
+/** The payload that the command specified, if any. */
+@property(nonatomic, copy, nullable) NSString *payload;
+
+/**
+ *  Indicates the command state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_State_AckedByClient The
+ *        client has responded that it received the command. (Value:
+ *        "ACKED_BY_CLIENT")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_State_Cancelled The command
+ *        is cancelled by admin while in PENDING. (Value: "CANCELLED")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_State_ExecutedByClient The
+ *        client has (un)successfully executed the command. (Value:
+ *        "EXECUTED_BY_CLIENT")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_State_Expired The command
+ *        didn't get executed by the client within the expected time. (Value:
+ *        "EXPIRED")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_State_Pending An unexpired
+ *        command not yet sent to the client. (Value: "PENDING")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_State_SentToClient The
+ *        command has been sent to the client. (Value: "SENT_TO_CLIENT")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_State_StateUnspecified The
+ *        command status was unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The type of the command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_CommandTypeUnspecified
+ *        The command type was unspecified. (Value: "COMMAND_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_Reboot Reboot the
+ *        device. Can only be issued to Kiosk and managed guest session devices.
+ *        (Value: "REBOOT")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_RemotePowerwash Wipes
+ *        the device by performing a power wash. Executing this command in the
+ *        device will remove all data including user policies, device policies
+ *        and enrollment policies. Warning: This will revert the device back to
+ *        a factory state with no enrollment unless the device is subject to
+ *        forced or auto enrollment. Use with caution, as this is an
+ *        irreversible action! (Value: "REMOTE_POWERWASH")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_SetVolume Set the
+ *        volume of the device. Can only be issued to Kiosk and managed guest
+ *        session devices. (Value: "SET_VOLUME")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_TakeAScreenshot Take a
+ *        screenshot of the device. Only available if the device is in Kiosk
+ *        Mode. (Value: "TAKE_A_SCREENSHOT")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommand_Type_WipeUsers Wipe all the
+ *        users off of the device. Executing this command in the device will
+ *        remove all user profile data, but it will keep device policy and
+ *        enrollment. (Value: "WIPE_USERS")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The result of executing a command.
+ */
+@interface GTLRDirectory_ChromeosdevicesCommandResult : GTLRObject
+
+/**
+ *  The error message with a short explanation as to why the command failed.
+ *  Only present if the command failed.
+ */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** The time at which the command was executed or failed to execute. */
+@property(nonatomic, strong, nullable) GTLRDateTime *executeTime;
+
+/**
+ *  The result of the command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommandResult_Result_CommandResultTypeUnspecified
+ *        The command result was unspecified. (Value:
+ *        "COMMAND_RESULT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommandResult_Result_Failure The
+ *        command could not be executed successfully. (Value: "FAILURE")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommandResult_Result_Ignored The
+ *        command was ignored as obsolete. (Value: "IGNORED")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesCommandResult_Result_Success The
+ *        command was successfully executed. (Value: "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *result;
+
+@end
+
+
+/**
+ *  A request for issuing a command.
+ */
+@interface GTLRDirectory_ChromeosdevicesIssueCommandRequest : GTLRObject
+
+/**
+ *  The type of command.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_CommandTypeUnspecified
+ *        The command type was unspecified. (Value: "COMMAND_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_Reboot
+ *        Reboot the device. Can only be issued to Kiosk and managed guest
+ *        session devices. (Value: "REBOOT")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_RemotePowerwash
+ *        Wipes the device by performing a power wash. Executing this command in
+ *        the device will remove all data including user policies, device
+ *        policies and enrollment policies. Warning: This will revert the device
+ *        back to a factory state with no enrollment unless the device is
+ *        subject to forced or auto enrollment. Use with caution, as this is an
+ *        irreversible action! (Value: "REMOTE_POWERWASH")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_SetVolume
+ *        Set the volume of the device. Can only be issued to Kiosk and managed
+ *        guest session devices. (Value: "SET_VOLUME")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_TakeAScreenshot
+ *        Take a screenshot of the device. Only available if the device is in
+ *        Kiosk Mode. (Value: "TAKE_A_SCREENSHOT")
+ *    @arg @c kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_WipeUsers
+ *        Wipe all the users off of the device. Executing this command in the
+ *        device will remove all user profile data, but it will keep device
+ *        policy and enrollment. (Value: "WIPE_USERS")
+ */
+@property(nonatomic, copy, nullable) NSString *commandType;
+
+/**
+ *  The payload for the command, provide it only if command supports it. The
+ *  following commands support adding payload: - SET_VOLUME: Payload is a
+ *  stringified JSON object in the form: { "volume": 50 }. The volume has to be
+ *  an integer in the range [0,100].
+ */
+@property(nonatomic, copy, nullable) NSString *payload;
+
+@end
+
+
+/**
+ *  A response for issuing a command.
+ */
+@interface GTLRDirectory_ChromeosdevicesIssueCommandResponse : GTLRObject
+
+/**
+ *  The unique ID of the issued command, used to retrieve the command status.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *commandId;
+
+@end
+
+
+/**
+ *  GTLRDirectory_ChromeOsMoveDevicesToOu
  */
 @interface GTLRDirectory_ChromeOsMoveDevicesToOu : GTLRObject
 
@@ -919,7 +1251,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Customer Resource object in Directory API.
+ *  GTLRDirectory_Customer
  */
 @interface GTLRDirectory_Customer : GTLRObject
 
@@ -964,7 +1296,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for postal address of a customer.
+ *  GTLRDirectory_CustomerPostalAddress
  */
 @interface GTLRDirectory_CustomerPostalAddress : GTLRObject
 
@@ -1000,8 +1332,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The postal code. A postalCode example is a postal zip code such as 10009.
- *  This is in accordance with -
- *  http://portablecontacts.net/draft-spec.html#address_element.
+ *  This is in accordance with - http:
+ *  //portablecontacts.net/draft-spec.html#address_element.
  */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
@@ -1015,7 +1347,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Domain Alias object in Directory API.
+ *  GTLRDirectory_DomainAlias
  */
 @interface GTLRDirectory_DomainAlias : GTLRObject
 
@@ -1052,7 +1384,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template to list domain aliases in Directory API.
+ *  GTLRDirectory_DomainAliases
  */
 @interface GTLRDirectory_DomainAliases : GTLRObject
 
@@ -1069,7 +1401,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Domain object in Directory API.
+ *  GTLRDirectory_Domains
  */
 @interface GTLRDirectory_Domains : GTLRObject
 
@@ -1110,7 +1442,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template to list Domains in Directory API.
+ *  GTLRDirectory_Domains2
  */
 @interface GTLRDirectory_Domains2 : GTLRObject
 
@@ -1144,7 +1476,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for a "feature instance".
+ *  JSON template for a feature instance.
  */
 @interface GTLRDirectory_FeatureInstance : GTLRObject
 
@@ -1158,7 +1490,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON request template for renaming a feature.
+ *  GTLRDirectory_FeatureRename
  */
 @interface GTLRDirectory_FeatureRename : GTLRObject
 
@@ -1169,7 +1501,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Feature List Response object in Directory API.
+ *  Public API: Resources.features
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "features" property. If returned as the result of a query, it
@@ -1202,7 +1534,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Group resource in Directory API.
+ *  GTLRDirectory_Group
  */
 @interface GTLRDirectory_Group : GTLRObject
 
@@ -1256,7 +1588,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template for List Groups operation in Directory API.
+ *  GTLRDirectory_Groups
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "groups" property. If returned as the result of a query, it should
@@ -1286,7 +1618,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Member resource in Directory API.
+ *  GTLRDirectory_Member
  */
 @interface GTLRDirectory_Member : GTLRObject
 
@@ -1300,9 +1632,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The unique ID of the group member. A member id can be used as a member
- *  request URI's memberKey. Unique identifier of group (Read-only) Unique
- *  identifier of member (Read-only)
+ *  Unique identifier of group (Read-only) Unique identifier of member
+ *  (Read-only) The unique ID of the group member. A member id can be used as a
+ *  member request URI's memberKey.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1324,7 +1656,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template for List Members operation in Directory API.
+ *  GTLRDirectory_Members
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "members" property. If returned as the result of a query, it
@@ -1359,8 +1691,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDirectory_MembersHasMember : GTLRObject
 
 /**
- *  Identifies whether the given user is a member of the group. Membership can
- *  be direct or nested.
+ *  Output only. Identifies whether the given user is a member of the group.
+ *  Membership can be direct or nested.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1370,7 +1702,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Mobile Device resource in Directory API.
+ *  GTLRDirectory_MobileDevice
  */
 @interface GTLRDirectory_MobileDevice : GTLRObject
 
@@ -1556,8 +1888,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON request template for firing commands on Mobile Device in Directory
- *  Devices API.
+ *  GTLRDirectory_MobileDeviceAction
  */
 @interface GTLRDirectory_MobileDeviceAction : GTLRObject
 
@@ -1568,7 +1899,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template for List Mobile Devices operation in Directory API.
+ *  GTLRDirectory_MobileDevices
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "mobiledevices" property. If returned as the result of a query, it
@@ -1659,7 +1990,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for privilege resource in Directory API.
+ *  GTLRDirectory_Privilege
  */
 @interface GTLRDirectory_Privilege : GTLRObject
 
@@ -1699,7 +2030,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template for List privileges operation in Directory API.
+ *  GTLRDirectory_Privileges
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -1726,7 +2057,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for role resource in Directory API.
+ *  GTLRDirectory_Role
  */
 @interface GTLRDirectory_Role : GTLRObject
 
@@ -1787,7 +2118,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for roleAssignment resource in Directory API.
+ *  GTLRDirectory_RoleAssignment
  */
 @interface GTLRDirectory_RoleAssignment : GTLRObject
 
@@ -1823,9 +2154,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *roleId;
 
 /**
- *  The scope in which this role is assigned. Possible values are:
- *  - CUSTOMER
- *  - ORG_UNIT
+ *  The scope in which this role is assigned. Possible values are: - CUSTOMER -
+ *  ORG_UNIT
  */
 @property(nonatomic, copy, nullable) NSString *scopeType;
 
@@ -1833,7 +2163,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template for List roleAssignments operation in Directory API.
+ *  GTLRDirectory_RoleAssignments
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -1854,8 +2184,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_RoleAssignment *> *items;
 
 /**
- *  The type of the API resource. This is always
- *  admin#directory#roleAssignments.
+ *  The type of the API resource. This is always admin#directory#roleAssignments
+ *  .
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1865,7 +2195,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template for List roles operation in Directory API.
+ *  GTLRDirectory_Roles
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -2085,25 +2415,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for User object in Directory API.
+ *  GTLRDirectory_User
  */
 @interface GTLRDirectory_User : GTLRObject
 
 /**
- *  addresses
+ *  Addresses of User
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id addresses;
 
 /**
- *  Indicates if user has agreed to terms (Read-only)
+ *  Output only. Indicates if user has agreed to terms (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *agreedToTerms;
 
-/** List of aliases (Read-only) */
+/** Output only. List of aliases (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
@@ -2123,7 +2453,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** User's G Suite account creation time. (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
-/** CustomerId of User (Read-only) */
+/** Output only. CustomerId of User (Read-only) */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Custom fields of the user. */
@@ -2132,24 +2462,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
 
 /**
- *  emails
+ *  Emails of User
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id emails;
 
-/** ETag of the resource. */
+/** Output only. ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  externalIds
+ *  The external Ids of User *
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id externalIds;
 
 /**
- *  gender
+ *  Gender of User
  *
  *  Can be any valid JSON type.
  */
@@ -2166,7 +2496,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  ims
+ *  User's Instant Messenger
  *
  *  Can be any valid JSON type.
  */
@@ -2187,52 +2517,52 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *ipWhitelisted;
 
 /**
- *  Boolean indicating if the user is admin (Read-only)
+ *  Output only. Boolean indicating if the user is admin (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isAdmin;
 
 /**
- *  Boolean indicating if the user is delegated admin (Read-only)
+ *  Output only. Boolean indicating if the user is delegated admin (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isDelegatedAdmin;
 
 /**
- *  Is 2-step verification enforced (Read-only)
+ *  Output only. Is 2-step verification enforced (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isEnforcedIn2Sv;
 
 /**
- *  Is enrolled in 2-step verification (Read-only)
+ *  Output only. Is enrolled in 2-step verification (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isEnrolledIn2Sv;
 
 /**
- *  Is mailbox setup (Read-only)
+ *  Output only. Is mailbox setup (Read-only)
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isMailboxSetup;
 
 /**
- *  keywords
+ *  Keywords of User
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id keywords;
 
-/** Kind of resource this is. */
+/** Output only. Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  languages
+ *  Languages of User
  *
  *  Can be any valid JSON type.
  */
@@ -2242,7 +2572,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
 
 /**
- *  locations
+ *  Locations of User
  *
  *  Can be any valid JSON type.
  */
@@ -2251,18 +2581,18 @@ NS_ASSUME_NONNULL_BEGIN
 /** User's name */
 @property(nonatomic, strong, nullable) GTLRDirectory_UserName *name;
 
-/** List of non editable aliases (Read-only) */
+/** Output only. List of non editable aliases (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
 
 /**
- *  notes
+ *  Notes of User
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id notes;
 
 /**
- *  organizations
+ *  Organizations of User
  *
  *  Can be any valid JSON type.
  */
@@ -2275,14 +2605,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
- *  phones
+ *  Phone numbers of User
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id phones;
 
 /**
- *  posixAccounts
+ *  The POSIX accounts of User
  *
  *  Can be any valid JSON type.
  */
@@ -2296,19 +2626,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Recovery phone of the user. The phone number must be in the E.164 format,
- *  starting with the plus sign (+). Example: +16506661212.
+ *  starting with the plus sign (+). Example: *+16506661212*.
  */
 @property(nonatomic, copy, nullable) NSString *recoveryPhone;
 
 /**
- *  relations
+ *  The Relations of User *
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id relations;
 
 /**
- *  sshPublicKeys
+ *  The SSH public keys of User
  *
  *  Can be any valid JSON type.
  */
@@ -2321,17 +2651,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *suspended;
 
-/** Suspension reason if user is suspended (Read-only) */
+/** Output only. Suspension reason if user is suspended (Read-only) */
 @property(nonatomic, copy, nullable) NSString *suspensionReason;
 
-/** ETag of the user's photo (Read-only) */
+/** Output only. ETag of the user's photo (Read-only) */
 @property(nonatomic, copy, nullable) NSString *thumbnailPhotoEtag;
 
-/** Photo Url of the user (Read-only) */
+/** Output only. Photo Url of the user (Read-only) */
 @property(nonatomic, copy, nullable) NSString *thumbnailPhotoUrl;
 
 /**
- *  websites
+ *  Websites of User
  *
  *  Can be any valid JSON type.
  */
@@ -2412,8 +2742,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  User supplied address was structured. Structured addresses are NOT supported
- *  at this time. You might be able to write structured addresses, but any
- *  values will eventually be clobbered.
+ *  at this time. You might be able to write structured addresses but any values
+ *  will eventually be clobbered.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2424,8 +2754,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Each entry can have a type which indicates standard values of that entry.
- *  For example address could be of home, work etc. In addition to the standard
- *  type, an entry can have a custom type and can take any value. Such type
+ *  For example address could be of home work etc. In addition to the standard
+ *  type an entry can have a custom type and can take any value. Such type
  *  should have the CUSTOM value as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -2499,7 +2829,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  AddressMeAs. A human-readable string containing the proper way to refer to
- *  the profile owner by humans, for example "he/him/his" or "they/them/their".
+ *  the profile owner by humans for example he/him/his or they/them/their.
  */
 @property(nonatomic, copy, nullable) NSString *addressMeAs;
 
@@ -2535,15 +2865,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Protocol used in the instant messenger. It should be one of the values from
- *  ImProtocolTypes map. Similar to type, it can take a CUSTOM value and specify
+ *  ImProtocolTypes map. Similar to type it can take a CUSTOM value and specify
  *  the custom name in customProtocol field.
  */
 @property(nonatomic, copy, nullable) NSString *protocol;
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
- *  example instant messengers could be of home, work etc. In addition to the
- *  standard type, an entry can have a custom type and can take any value. Such
+ *  example instant messengers could be of home work etc. In addition to the
+ *  standard type an entry can have a custom type and can take any value. Such
  *  types should have the CUSTOM value as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -2561,10 +2891,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Each entry can have a type which indicates standard type of that entry. For
- *  example, keyword could be of type occupation or outlook. In addition to the
- *  standard type, an entry can have a custom type and can give it any name.
- *  Such types should have the CUSTOM value as type and also have a customType
- *  value.
+ *  example keyword could be of type occupation or outlook. In addition to the
+ *  standard type an entry can have a custom type and can give it any name. Such
+ *  types should have the CUSTOM value as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2602,8 +2931,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Textual location. This is most useful for display purposes to concisely
- *  describe the location. For example, "Mountain View, CA", "Near Seattle",
- *  "US-NYC-9TH 9A209A".
+ *  describe the location. For example 'Mountain View, CA', 'Near Seattle',
+ *  'US-NYC-9TH 9A209A.''
  */
 @property(nonatomic, copy, nullable) NSString *area;
 
@@ -2620,8 +2949,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *floorName;
 
 /**
- *  Floor section. More specific location within the floor. For example, if a
- *  floor is divided into sections "A", "B", and "C", this field would identify
+ *  Floor section. More specific location within the floor. For example if a
+ *  floor is divided into sections 'A', 'B' and 'C' this field would identify
  *  one of those values.
  */
 @property(nonatomic, copy, nullable) NSString *floorSection;
@@ -2629,8 +2958,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
  *  example location could be of types default and desk. In addition to standard
- *  type, an entry can have a custom type and can give it any name. Such types
- *  should have "custom" as type and also have a customType value.
+ *  type an entry can have a custom type and can give it any name. Such types
+ *  should have 'custom' as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2638,8 +2967,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON request template for setting/revoking admin status of a user in
- *  Directory API.
+ *  GTLRDirectory_UserMakeAdmin
  */
 @interface GTLRDirectory_UserMakeAdmin : GTLRObject
 
@@ -2654,7 +2982,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for name of a user in Directory API.
+ *  GTLRDirectory_UserName
  */
 @interface GTLRDirectory_UserName : GTLRObject
 
@@ -2723,10 +3051,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
- *  example organization could be of school, work etc. In addition to the
- *  standard type, an entry can have a custom type and can give it any name.
- *  Such types should have the CUSTOM value as type and also have a CustomType
- *  value.
+ *  example organization could be of school work etc. In addition to the
+ *  standard type an entry can have a custom type and can give it any name. Such
+ *  types should have the CUSTOM value as type and also have a CustomType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2750,10 +3077,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
- *  example phone could be of home_fax, work, mobile etc. In addition to the
- *  standard type, an entry can have a custom type and can give it any name.
- *  Such types should have the CUSTOM value as type and also have a customType
- *  value.
+ *  example phone could be of home_fax work mobile etc. In addition to the
+ *  standard type an entry can have a custom type and can give it any name. Such
+ *  types should have the CUSTOM value as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2764,7 +3090,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for Photo object in Directory API.
+ *  GTLRDirectory_UserPhoto
  */
 @interface GTLRDirectory_UserPhoto : GTLRObject
 
@@ -2813,8 +3139,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON template for a POSIX account entry. Description of the field family:
- *  go/fbs-posix.
+ *  JSON template for a POSIX account entry.
  */
 @interface GTLRDirectory_UserPosixAccount : GTLRObject
 
@@ -2872,8 +3197,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *customType;
 
 /**
- *  The relation of the user. Some of the possible values are mother, father,
- *  sister, brother, manager, assistant, partner.
+ *  The relation of the user. Some of the possible values are mother father
+ *  sister brother manager assistant partner.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2884,7 +3209,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON response template for List Users operation in Apps Directory API.
+ *  GTLRDirectory_Users
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "users" property. If returned as the result of a query, it should
@@ -2938,7 +3263,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  JSON request template to undelete a user in Directory API.
+ *  GTLRDirectory_UserUndelete
  */
 @interface GTLRDirectory_UserUndelete : GTLRObject
 
@@ -2965,10 +3290,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Each entry can have a type which indicates standard types of that entry. For
- *  example website could be of home, work, blog etc. In addition to the
- *  standard type, an entry can have a custom type and can give it any name.
- *  Such types should have the CUSTOM value as type and also have a customType
- *  value.
+ *  example website could be of home work blog etc. In addition to the standard
+ *  type an entry can have a custom type and can give it any name. Such types
+ *  should have the CUSTOM value as type and also have a customType value.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

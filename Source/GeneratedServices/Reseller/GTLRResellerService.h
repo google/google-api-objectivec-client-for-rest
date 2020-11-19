@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Enterprise Apps Reseller API (reseller/v1)
+//   Workspace Reseller API (reseller/v1)
 // Description:
 //   Creates and manages your customers and their subscriptions.
 // Documentation:
@@ -48,7 +48,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeResellerAppsOrderReadonly;
 //
 
 /**
- *  Service for executing Enterprise Apps Reseller API queries.
+ *  Service for executing Workspace Reseller API queries.
  *
  *  Creates and manages your customers and their subscriptions.
  */

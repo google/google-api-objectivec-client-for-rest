@@ -17,6 +17,10 @@
 NSString * const kGTLRSQLAdmin_ApiWarning_Code_RegionUnreachable = @"REGION_UNREACHABLE";
 NSString * const kGTLRSQLAdmin_ApiWarning_Code_SqlApiWarningCodeUnspecified = @"SQL_API_WARNING_CODE_UNSPECIFIED";
 
+// GTLRSQLAdmin_BackupRetentionSettings.retentionUnit
+NSString * const kGTLRSQLAdmin_BackupRetentionSettings_RetentionUnit_Count = @"COUNT";
+NSString * const kGTLRSQLAdmin_BackupRetentionSettings_RetentionUnit_RetentionUnitUnspecified = @"RETENTION_UNIT_UNSPECIFIED";
+
 // GTLRSQLAdmin_BackupRun.backupKind
 NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Physical   = @"PHYSICAL";
 NSString * const kGTLRSQLAdmin_BackupRun_BackupKind_Snapshot   = @"SNAPSHOT";
@@ -54,6 +58,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 = @"MYSQ
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres13 = @"POSTGRES_13";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -98,6 +103,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80          = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres13       = @"POSTGRES_13";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96       = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -226,9 +232,11 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInsta
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
 
 // GTLRSQLAdmin_User.type
 NSString * const kGTLRSQLAdmin_User_Type_BuiltIn               = @"BUILT_IN";
@@ -268,8 +276,9 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_BackupConfiguration
-@dynamic binaryLogEnabled, enabled, kind, location, pointInTimeRecoveryEnabled,
-         replicationLogArchivingEnabled, startTime;
+@dynamic backupRetentionSettings, binaryLogEnabled, enabled, kind, location,
+         pointInTimeRecoveryEnabled, replicationLogArchivingEnabled, startTime,
+         transactionLogRetentionDays;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -277,6 +286,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_BackupRetentionSettings
+//
+
+@implementation GTLRSQLAdmin_BackupRetentionSettings
+@dynamic retainedBackups, retentionUnit;
 @end
 
 
@@ -410,8 +429,9 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
          masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
          project, region, replicaConfiguration, replicaNames, rootPassword,
-         scheduledMaintenance, selfLink, serverCaCert,
-         serviceAccountEmailAddress, settings, state, suspensionReason;
+         satisfiesPzs, scheduledMaintenance, secondaryGceZone, selfLink,
+         serverCaCert, serviceAccountEmailAddress, settings, state,
+         suspensionReason;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -517,6 +537,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_DenyMaintenancePeriod
+//
+
+@implementation GTLRSQLAdmin_DenyMaintenancePeriod
+@dynamic endDate, startDate, time;
 @end
 
 
@@ -904,7 +934,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_LocationPreference
-@dynamic followGaeApplication, kind, zoneProperty;
+@dynamic followGaeApplication, kind, secondaryZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -916,16 +946,6 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRSQLAdmin_MaintenanceDenyPeriod
-//
-
-@implementation GTLRSQLAdmin_MaintenanceDenyPeriod
-@dynamic endDate, startDate, time;
 @end
 
 
@@ -1134,11 +1154,11 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_Settings
-@dynamic activationPolicy, authorizedGaeApplications, availabilityType,
-         backupConfiguration, collation, crashSafeReplicationEnabled,
-         databaseFlags, databaseReplicationEnabled, dataDiskSizeGb,
-         dataDiskType, ipConfiguration, kind, locationPreference,
-         maintenanceDenyPeriods, maintenanceWindow, pricingPlan,
+@dynamic activationPolicy, activeDirectoryConfig, authorizedGaeApplications,
+         availabilityType, backupConfiguration, collation,
+         crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
+         dataDiskSizeGb, dataDiskType, denyMaintenancePeriods, ipConfiguration,
+         kind, locationPreference, maintenanceWindow, pricingPlan,
          replicationType, settingsVersion, storageAutoResize,
          storageAutoResizeLimit, tier, userLabels;
 
@@ -1146,7 +1166,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   NSDictionary<NSString *, Class> *map = @{
     @"authorizedGaeApplications" : [NSString class],
     @"databaseFlags" : [GTLRSQLAdmin_DatabaseFlags class],
-    @"maintenanceDenyPeriods" : [GTLRSQLAdmin_MaintenanceDenyPeriod class]
+    @"denyMaintenancePeriods" : [GTLRSQLAdmin_DenyMaintenancePeriod class]
   };
   return map;
 }
@@ -1169,6 +1189,23 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlActiveDirectoryConfig
+//
+
+@implementation GTLRSQLAdmin_SqlActiveDirectoryConfig
+@dynamic domain, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

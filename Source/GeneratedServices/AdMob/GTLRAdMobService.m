@@ -4,16 +4,18 @@
 // API:
 //   AdMob API (admob/v1)
 // Description:
-//   The Google AdMob API lets you programmatically get reports on earnings.
+//   The AdMob API allows publishers to programmatically get information about
+//   their AdMob account.
 // Documentation:
 //   https://developers.google.com/admob/api/
 
 #import "GTLRAdMob.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeAdMobReport = @"https://www.googleapis.com/auth/admob.report";
+NSString * const kGTLRAuthScopeAdMobReadonly = @"https://www.googleapis.com/auth/admob.readonly";
+NSString * const kGTLRAuthScopeAdMobReport   = @"https://www.googleapis.com/auth/admob.report";
 
 // ----------------------------------------------------------------------------
 //   GTLRAdMobService

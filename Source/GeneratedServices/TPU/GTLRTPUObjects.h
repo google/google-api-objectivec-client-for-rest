@@ -462,7 +462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @interface GTLRTPU_Node : GTLRObject
 
-/** The type of hardware accelerators associated with this node. Required. */
+/** Required. The type of hardware accelerators associated with this node. */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
@@ -521,7 +521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** Resource labels to represent user-provided metadata. */
 @property(nonatomic, strong, nullable) GTLRTPU_Node_Labels *labels;
 
-/** Output only. The immutable name of the TPU */
+/** Output only. Immutable. The name of the TPU */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -544,6 +544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @property(nonatomic, copy, nullable) NSString *port;
 
+/** The scheduling options for this node. */
 @property(nonatomic, strong, nullable) GTLRTPU_SchedulingConfig *schedulingConfig;
 
 /**
@@ -596,7 +597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 /** Output only. The Symptoms that have occurred to the TPU Node. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTPU_Symptom *> *symptoms;
 
-/** The version of Tensorflow running in the Node. Required. */
+/** Required. The version of Tensorflow running in the Node. */
 @property(nonatomic, copy, nullable) NSString *tensorflowVersion;
 
 /**

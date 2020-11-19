@@ -211,12 +211,13 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 @dynamic volumeId;
 
-+ (instancetype)query {
++ (instancetype)queryWithVolumeId:(NSString *)volumeId {
   NSString *pathURITemplate = @"books/v1/cloudloading/deleteBook";
   GTLRBooksQuery_CloudloadingDeleteBook *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.volumeId = volumeId;
   query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.cloudloading.deleteBook";
   return query;
@@ -250,12 +251,13 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 @dynamic cpksver;
 
-+ (instancetype)query {
++ (instancetype)queryWithCpksver:(NSString *)cpksver {
   NSString *pathURITemplate = @"books/v1/dictionary/listOfflineMetadata";
   GTLRBooksQuery_DictionaryListOfflineMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
+  query.cpksver = cpksver;
   query.expectedObjectClass = [GTLRBooks_Metadata class];
   query.loggingName = @"books.dictionary.listOfflineMetadata";
   return query;
@@ -321,7 +323,8 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
                           layerId:(NSString *)layerId
-                 annotationDataId:(NSString *)annotationDataId {
+                 annotationDataId:(NSString *)annotationDataId
+                   contentVersion:(NSString *)contentVersion {
   NSArray *pathParams = @[
     @"annotationDataId", @"layerId", @"volumeId"
   ];
@@ -333,6 +336,7 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
   query.volumeId = volumeId;
   query.layerId = layerId;
   query.annotationDataId = annotationDataId;
+  query.contentVersion = contentVersion;
   query.expectedObjectClass = [GTLRBooks_DictionaryAnnotationdata class];
   query.loggingName = @"books.layers.annotationData.get";
   return query;
@@ -353,7 +357,8 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 }
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
-                          layerId:(NSString *)layerId {
+                          layerId:(NSString *)layerId
+                   contentVersion:(NSString *)contentVersion {
   NSArray *pathParams = @[
     @"layerId", @"volumeId"
   ];
@@ -364,6 +369,7 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
                        pathParameterNames:pathParams];
   query.volumeId = volumeId;
   query.layerId = layerId;
+  query.contentVersion = contentVersion;
   query.expectedObjectClass = [GTLRBooks_Annotationsdata class];
   query.loggingName = @"books.layers.annotationData.list";
   return query;
@@ -445,7 +451,8 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
          updatedMin, volumeAnnotationsVersion, volumeId;
 
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
-                          layerId:(NSString *)layerId {
+                          layerId:(NSString *)layerId
+                   contentVersion:(NSString *)contentVersion {
   NSArray *pathParams = @[
     @"layerId", @"volumeId"
   ];
@@ -456,6 +463,7 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
                        pathParameterNames:pathParams];
   query.volumeId = volumeId;
   query.layerId = layerId;
+  query.contentVersion = contentVersion;
   query.expectedObjectClass = [GTLRBooks_Volumeannotations class];
   query.loggingName = @"books.layers.volumeAnnotations.list";
   return query;
@@ -491,12 +499,15 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
   return map;
 }
 
-+ (instancetype)query {
++ (instancetype)queryWithCpksver:(NSString *)cpksver
+                       volumeIds:(NSArray<NSString *> *)volumeIds {
   NSString *pathURITemplate = @"books/v1/myconfig/releaseDownloadAccess";
   GTLRBooksQuery_MyconfigReleaseDownloadAccess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.cpksver = cpksver;
+  query.volumeIds = volumeIds;
   query.expectedObjectClass = [GTLRBooks_DownloadAccesses class];
   query.loggingName = @"books.myconfig.releaseDownloadAccess";
   return query;
@@ -508,12 +519,19 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 @dynamic cpksver, licenseTypes, locale, nonce, source, volumeId;
 
-+ (instancetype)query {
++ (instancetype)queryWithCpksver:(NSString *)cpksver
+                           nonce:(NSString *)nonce
+                          source:(NSString *)source
+                        volumeId:(NSString *)volumeId {
   NSString *pathURITemplate = @"books/v1/myconfig/requestAccess";
   GTLRBooksQuery_MyconfigRequestAccess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.cpksver = cpksver;
+  query.nonce = nonce;
+  query.source = source;
+  query.volumeId = volumeId;
   query.expectedObjectClass = [GTLRBooks_RequestAccessData class];
   query.loggingName = @"books.myconfig.requestAccess";
   return query;
@@ -534,12 +552,17 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
   return map;
 }
 
-+ (instancetype)query {
++ (instancetype)queryWithCpksver:(NSString *)cpksver
+                           nonce:(NSString *)nonce
+                          source:(NSString *)source {
   NSString *pathURITemplate = @"books/v1/myconfig/syncVolumeLicenses";
   GTLRBooksQuery_MyconfigSyncVolumeLicenses *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.cpksver = cpksver;
+  query.nonce = nonce;
+  query.source = source;
   query.expectedObjectClass = [GTLRBooks_Volumes class];
   query.loggingName = @"books.myconfig.syncVolumeLicenses";
   return query;
@@ -648,12 +671,15 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
   return map;
 }
 
-+ (instancetype)query {
++ (instancetype)queryWithLayerIds:(NSArray<NSString *> *)layerIds
+                         volumeId:(NSString *)volumeId {
   NSString *pathURITemplate = @"books/v1/mylibrary/annotations/summary";
   GTLRBooksQuery_MylibraryAnnotationsSummary *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.layerIds = layerIds;
+  query.volumeId = volumeId;
   query.expectedObjectClass = [GTLRBooks_AnnotationsSummary class];
   query.loggingName = @"books.mylibrary.annotations.summary";
   return query;
@@ -692,7 +718,8 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 @dynamic reason, shelf, source, volumeId;
 
-+ (instancetype)queryWithShelf:(NSString *)shelf {
++ (instancetype)queryWithShelf:(NSString *)shelf
+                      volumeId:(NSString *)volumeId {
   NSArray *pathParams = @[ @"shelf" ];
   NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}/addVolume";
   GTLRBooksQuery_MylibraryBookshelvesAddVolume *query =
@@ -700,6 +727,7 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.shelf = shelf;
+  query.volumeId = volumeId;
   query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.bookshelves.addVolume";
   return query;
@@ -766,7 +794,9 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 @dynamic shelf, source, volumeId, volumePosition;
 
-+ (instancetype)queryWithShelf:(NSString *)shelf {
++ (instancetype)queryWithShelf:(NSString *)shelf
+                      volumeId:(NSString *)volumeId
+                volumePosition:(NSInteger)volumePosition {
   NSArray *pathParams = @[ @"shelf" ];
   NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}/moveVolume";
   GTLRBooksQuery_MylibraryBookshelvesMoveVolume *query =
@@ -774,6 +804,8 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.shelf = shelf;
+  query.volumeId = volumeId;
+  query.volumePosition = volumePosition;
   query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.bookshelves.moveVolume";
   return query;
@@ -785,7 +817,8 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 @dynamic reason, shelf, source, volumeId;
 
-+ (instancetype)queryWithShelf:(NSString *)shelf {
++ (instancetype)queryWithShelf:(NSString *)shelf
+                      volumeId:(NSString *)volumeId {
   NSArray *pathParams = @[ @"shelf" ];
   NSString *pathURITemplate = @"books/v1/mylibrary/bookshelves/{shelf}/removeVolume";
   GTLRBooksQuery_MylibraryBookshelvesRemoveVolume *query =
@@ -793,6 +826,7 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.shelf = shelf;
+  query.volumeId = volumeId;
   query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.bookshelves.removeVolume";
   return query;
@@ -844,7 +878,9 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 @dynamic action, contentVersion, deviceCookie, position, source, timestamp,
          volumeId;
 
-+ (instancetype)queryWithVolumeId:(NSString *)volumeId {
++ (instancetype)queryWithVolumeId:(NSString *)volumeId
+                         position:(NSString *)position
+                        timestamp:(NSString *)timestamp {
   NSArray *pathParams = @[ @"volumeId" ];
   NSString *pathURITemplate = @"books/v1/mylibrary/readingpositions/{volumeId}/setPosition";
   GTLRBooksQuery_MylibraryReadingpositionsSetPosition *query =
@@ -852,6 +888,8 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.volumeId = volumeId;
+  query.position = position;
+  query.timestamp = timestamp;
   query.expectedObjectClass = [GTLRBooks_Empty class];
   query.loggingName = @"books.mylibrary.readingpositions.setPosition";
   return query;
@@ -867,12 +905,13 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
   return @{ @"notificationId" : @"notification_id" };
 }
 
-+ (instancetype)query {
++ (instancetype)queryWithNotificationId:(NSString *)notificationId {
   NSString *pathURITemplate = @"books/v1/notification/get";
   GTLRBooksQuery_NotificationGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
+  query.notificationId = notificationId;
   query.expectedObjectClass = [GTLRBooks_Notification class];
   query.loggingName = @"books.notification.get";
   return query;
@@ -1005,12 +1044,13 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
   return map;
 }
 
-+ (instancetype)query {
++ (instancetype)queryWithSeriesId:(NSArray<NSString *> *)seriesId {
   NSString *pathURITemplate = @"books/v1/series/get";
   GTLRBooksQuery_SeriesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
+  query.seriesId = seriesId;
   query.expectedObjectClass = [GTLRBooks_Series class];
   query.loggingName = @"books.series.get";
   return query;
@@ -1031,12 +1071,13 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
   return map;
 }
 
-+ (instancetype)query {
++ (instancetype)queryWithSeriesId:(NSString *)seriesId {
   NSString *pathURITemplate = @"books/v1/series/membership/get";
   GTLRBooksQuery_SeriesMembershipGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
+  query.seriesId = seriesId;
   query.expectedObjectClass = [GTLRBooks_Seriesmembership class];
   query.loggingName = @"books.series.membership.get";
   return query;
@@ -1093,12 +1134,13 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
          maxAllowedMaturityRating, maxResults, orderBy, partner, printType,
          projection, q, showPreorders, source, startIndex;
 
-+ (instancetype)query {
++ (instancetype)queryWithQ:(NSString *)q {
   NSString *pathURITemplate = @"books/v1/volumes";
   GTLRBooksQuery_VolumesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
+  query.q = q;
   query.expectedObjectClass = [GTLRBooks_Volumes class];
   query.loggingName = @"books.volumes.list";
   return query;
@@ -1153,12 +1195,15 @@ NSString * const kGTLRBooksReasonReasonUndefined = @"REASON_UNDEFINED";
 
 @dynamic locale, rating, source, volumeId;
 
-+ (instancetype)query {
++ (instancetype)queryWithRating:(NSString *)rating
+                       volumeId:(NSString *)volumeId {
   NSString *pathURITemplate = @"books/v1/volumes/recommended/rate";
   GTLRBooksQuery_VolumesRecommendedRate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
+  query.rating = rating;
+  query.volumeId = volumeId;
   query.expectedObjectClass = [GTLRBooks_VolumesRecommendedRateResponse class];
   query.loggingName = @"books.volumes.recommended.rate";
   return query;

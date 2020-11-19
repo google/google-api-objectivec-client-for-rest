@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Artifact Registry API (artifactregistry/v1beta1)
+//   Artifact Registry API (artifactregistry/v1beta2)
 // Description:
 //   Store and manage build artifacts in a scalable and integrated service built
 //   on Google infrastructure.
@@ -19,11 +19,8 @@ NSString * const kGTLRArtifactRegistry_Hash_Type_HashTypeUnspecified = @"HASH_TY
 NSString * const kGTLRArtifactRegistry_Hash_Type_Sha256        = @"SHA256";
 
 // GTLRArtifactRegistry_Repository.format
-NSString * const kGTLRArtifactRegistry_Repository_Format_Apt   = @"APT";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
-NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
-NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 
 // ----------------------------------------------------------------------------
 //
@@ -31,7 +28,7 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 //
 
 @implementation GTLRArtifactRegistry_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -101,7 +98,7 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 //
 
 @implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1GcsSource
-@dynamic uris;
+@dynamic uris, useWildcards;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

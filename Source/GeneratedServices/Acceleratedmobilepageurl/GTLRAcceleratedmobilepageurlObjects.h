@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRAcceleratedmobilepageurl_AmpUrlError.errorCode
 
 /**
- *  Indicates some kind of application error occurred at the server.
- *  Client advised to retry.
+ *  Indicates some kind of application error occurred at the server. Client
+ *  advised to retry.
  *
  *  Value: "APPLICATION_ERROR"
  */
@@ -51,16 +51,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_Err
  */
 FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_ErrorCodeUnspecified;
 /**
- *  Indicates the requested URL is not found in the index, possibly because
- *  it's unable to be found, not able to be accessed by Googlebot, or some
- *  other error.
+ *  Indicates the requested URL is not found in the index, possibly because it's
+ *  unable to be found, not able to be accessed by Googlebot, or some other
+ *  error.
  *
  *  Value: "INPUT_URL_NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_InputUrlNotFound;
 /**
- *  Indicates no AMP URL has been found that corresponds to the requested
- *  URL.
+ *  Indicates no AMP URL has been found that corresponds to the requested URL.
  *
  *  Value: "NO_AMP_URL"
  */
@@ -74,8 +73,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_Err
 FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsInvalidAmp;
 /**
  *  DEPRECATED: Indicates the requested URL is a valid AMP URL. This is a
- *  non-error state, should not be relied upon as a sign of success or
- *  failure. It will be removed in future versions of the API.
+ *  non-error state, should not be relied upon as a sign of success or failure.
+ *  It will be removed in future versions of the API.
  *
  *  Value: "URL_IS_VALID_AMP"
  */
@@ -86,19 +85,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_AmpUrlError_Err
 
 /**
  *  FETCH_LIVE_DOC strategy involves live document fetch of URLs not found in
- *  the index. Any request URL not found in the index is crawled in realtime
- *  to validate if there is a corresponding AMP URL. This strategy has higher
- *  coverage but with extra latency introduced by realtime crawling. This is
- *  the default strategy. Applications using this strategy should set higher
- *  HTTP timeouts of the API calls.
+ *  the index. Any request URL not found in the index is crawled in realtime to
+ *  validate if there is a corresponding AMP URL. This strategy has higher
+ *  coverage but with extra latency introduced by realtime crawling. This is the
+ *  default strategy. Applications using this strategy should set higher HTTP
+ *  timeouts of the API calls.
  *
  *  Value: "FETCH_LIVE_DOC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest_LookupStrategy_FetchLiveDoc;
 /**
- *  IN_INDEX_DOC strategy skips fetching live documents of URL(s) not found
- *  in index. For applications which need low latency use of IN_INDEX_DOC
- *  strategy is recommended.
+ *  IN_INDEX_DOC strategy skips fetching live documents of URL(s) not found in
+ *  index. For applications which need low latency use of IN_INDEX_DOC strategy
+ *  is recommended.
  *
  *  Value: "IN_INDEX_DOC"
  */
@@ -140,16 +139,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrls
  *        Not specified error. (Value: "ERROR_CODE_UNSPECIFIED")
  *    @arg @c kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_InputUrlNotFound
  *        Indicates the requested URL is not found in the index, possibly
- *        because
- *        it's unable to be found, not able to be accessed by Googlebot, or some
- *        other error. (Value: "INPUT_URL_NOT_FOUND")
+ *        because it's unable to be found, not able to be accessed by Googlebot,
+ *        or some other error. (Value: "INPUT_URL_NOT_FOUND")
  *    @arg @c kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_NoAmpUrl
  *        Indicates no AMP URL has been found that corresponds to the requested
  *        URL. (Value: "NO_AMP_URL")
  *    @arg @c kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsInvalidAmp
  *        Indicates that an AMP URL has been found that corresponds to the
- *        request
- *        URL, but it is not valid AMP HTML. (Value: "URL_IS_INVALID_AMP")
+ *        request URL, but it is not valid AMP HTML. (Value:
+ *        "URL_IS_INVALID_AMP")
  *    @arg @c kGTLRAcceleratedmobilepageurl_AmpUrlError_ErrorCode_UrlIsValidAmp
  *        DEPRECATED: Indicates the requested URL is a valid AMP URL. This is a
  *        non-error state, should not be relied upon as a sign of success or
@@ -178,28 +176,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrls
  *  Likely values:
  *    @arg @c kGTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest_LookupStrategy_FetchLiveDoc
  *        FETCH_LIVE_DOC strategy involves live document fetch of URLs not found
- *        in
- *        the index. Any request URL not found in the index is crawled in
- *        realtime
- *        to validate if there is a corresponding AMP URL. This strategy has
- *        higher
- *        coverage but with extra latency introduced by realtime crawling. This
- *        is
- *        the default strategy. Applications using this strategy should set
- *        higher
- *        HTTP timeouts of the API calls. (Value: "FETCH_LIVE_DOC")
+ *        in the index. Any request URL not found in the index is crawled in
+ *        realtime to validate if there is a corresponding AMP URL. This
+ *        strategy has higher coverage but with extra latency introduced by
+ *        realtime crawling. This is the default strategy. Applications using
+ *        this strategy should set higher HTTP timeouts of the API calls.
+ *        (Value: "FETCH_LIVE_DOC")
  *    @arg @c kGTLRAcceleratedmobilepageurl_BatchGetAmpUrlsRequest_LookupStrategy_InIndexDoc
  *        IN_INDEX_DOC strategy skips fetching live documents of URL(s) not
- *        found
- *        in index. For applications which need low latency use of IN_INDEX_DOC
- *        strategy is recommended. (Value: "IN_INDEX_DOC")
+ *        found in index. For applications which need low latency use of
+ *        IN_INDEX_DOC strategy is recommended. (Value: "IN_INDEX_DOC")
  */
 @property(nonatomic, copy, nullable) NSString *lookupStrategy;
 
 /**
- *  List of URLs to look up for the paired AMP URLs.
- *  The URLs are case-sensitive. Up to 50 URLs per lookup
- *  (see [Usage Limits](/amp/cache/reference/limits)).
+ *  List of URLs to look up for the paired AMP URLs. The URLs are
+ *  case-sensitive. Up to 50 URLs per lookup (see [Usage
+ *  Limits](/amp/cache/reference/limits)).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
 
@@ -213,9 +206,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAcceleratedmobilepageurl_BatchGetAmpUrls
 
 /**
  *  For each URL in BatchAmpUrlsRequest, the URL response. The response might
- *  not be in the same order as URLs in the batch request.
- *  If BatchAmpUrlsRequest contains duplicate URLs, AmpUrl is generated
- *  only once.
+ *  not be in the same order as URLs in the batch request. If
+ *  BatchAmpUrlsRequest contains duplicate URLs, AmpUrl is generated only once.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAcceleratedmobilepageurl_AmpUrl *> *ampUrls;
 

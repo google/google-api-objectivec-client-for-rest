@@ -26,6 +26,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1CompleteTrialRequest;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplainRequest;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Job;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsRequest;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Model;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1PredictRequest;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1SetDefaultVersionRequest;
@@ -968,6 +969,46 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the pareto-optimal trials for multi-objective study or the optimal
+ *  trials for single-objective study. The definition of pareto-optimal can be
+ *  checked in wiki page. https://en.wikipedia.org/wiki/Pareto_efficiency
+ *
+ *  Method: ml.projects.locations.studies.trials.listOptimalTrials
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMachineLearningEngineCloudPlatform
+ */
+@interface GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsListOptimalTrials : GTLRCloudMachineLearningEngineQuery
+// Previous library name was
+//   +[GTLQueryCloudMachineLearningEngine queryForProjectsLocationsStudiesTrialsListOptimalTrialsWithObject:parent:]
+
+/**
+ *  Required. The name of the study that the pareto-optimal trial belongs to.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsResponse.
+ *
+ *  Lists the pareto-optimal trials for multi-objective study or the optimal
+ *  trials for single-objective study. The definition of pareto-optimal can be
+ *  checked in wiki page. https://en.wikipedia.org/wiki/Pareto_efficiency
+ *
+ *  @param object The @c
+ *    GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsRequest to
+ *    include in the query.
+ *  @param parent Required. The name of the study that the pareto-optimal trial
+ *    belongs to.
+ *
+ *  @return GTLRCloudMachineLearningEngineQuery_ProjectsLocationsStudiesTrialsListOptimalTrials
+ */
++ (instancetype)queryWithObject:(GTLRCloudMachineLearningEngine_GoogleCloudMlV1ListOptimalTrialsRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

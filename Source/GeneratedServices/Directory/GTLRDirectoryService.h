@@ -2,12 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin Directory API (admin/directory_v1)
+//   Admin SDK (admin/directory_v1)
 // Description:
-//   Manages enterprise resources such as users and groups, administrative
-//   notifications, security features, and more.
+//   Admin SDK lets administrators of enterprise domains to view and manage
+//   resources like user, groups etc. It also provides audit and usage reports
+//   of domain.
 // Documentation:
-//   https://developers.google.com/admin-sdk/directory/
+//   http://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -206,10 +207,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserSecurity;
 //
 
 /**
- *  Service for executing Admin Directory API queries.
+ *  Service for executing Admin SDK queries.
  *
- *  Manages enterprise resources such as users and groups, administrative
- *  notifications, security features, and more.
+ *  Admin SDK lets administrators of enterprise domains to view and manage
+ *  resources like user, groups etc. It also provides audit and usage reports of
+ *  domain.
  */
 @interface GTLRDirectoryService : GTLRService
 

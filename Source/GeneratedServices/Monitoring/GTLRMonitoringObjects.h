@@ -87,6 +87,7 @@
 @class GTLRMonitoring_PerformanceThreshold;
 @class GTLRMonitoring_Point;
 @class GTLRMonitoring_PointData;
+@class GTLRMonitoring_QueryLanguageCondition;
 @class GTLRMonitoring_Range;
 @class GTLRMonitoring_RequestBasedSli;
 @class GTLRMonitoring_ResourceGroup;
@@ -691,8 +692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Field_Kind_TypeUnknown;
 // GTLRMonitoring_HttpCheck.contentType
 
 /**
- *  No content type specified. If the request method is POST, an unspecified
- *  content type results in a check creation rejection.
+ *  No content type specified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -789,7 +789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_LabelDescriptor_ValueType_Str
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -940,7 +940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricDescriptor_ValueType_Va
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -1058,7 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_MetricThreshold_Comparison_Co
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -1159,7 +1159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannel_Verificat
  *  for widespread use. By Alpha, all significant design issues are resolved and
  *  we are in the process of verifying functionality. Alpha customers need to
  *  apply for access, agree to applicable terms, and have their projects
- *  whitelisted. Alpha releases don’t have to be feature complete, no SLAs are
+ *  allowlisted. Alpha releases don’t have to be feature complete, no SLAs are
  *  provided, and there are no technical support obligations, but they will be
  *  far enough along that customers can actually use them in test environments
  *  or for limited-use tests -- just like they would in normal production cases.
@@ -1576,11 +1576,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  The alignment_period specifies a time interval, in seconds, that is used to
  *  divide the data in all the time series into consistent blocks of time. This
  *  will be done before the per-series aligner can be applied to the data.The
- *  value must be at least 60 seconds, at most 104 weeks. If a per-series
- *  aligner other than ALIGN_NONE is specified, this field is required or an
- *  error is returned. If no per-series aligner is specified, or the aligner
- *  ALIGN_NONE is specified, then this field is ignored.The maximum value of the
- *  alignment_period is 2 years, or 104 weeks.
+ *  value must be at least 60 seconds. If a per-series aligner other than
+ *  ALIGN_NONE is specified, this field is required or an error is returned. If
+ *  no per-series aligner is specified, or the aligner ALIGN_NONE is specified,
+ *  then this field is ignored.The maximum value of the alignment_period is 104
+ *  weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting
+ *  policies.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *alignmentPeriod;
 
@@ -2280,6 +2281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  points.
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricAbsence *conditionAbsent;
+
+/** A condition that uses the Monitoring Query Language to define alerts. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_QueryLanguageCondition *conditionMonitoringQueryLanguage;
 
 /** A condition that compares a time series against a threshold. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MetricThreshold *conditionThreshold;
@@ -2998,7 +3002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  URL_ENCODED, the body passed in must be URL-encoded. Users can provide a
  *  Content-Length header via the headers field or the API will do so. If the
  *  request_method is GET and body is not empty, the API will return an error.
- *  The maximum byte size is 1 megabyte. Note: As with all bytes fields JSON
+ *  The maximum byte size is 1 megabyte. Note: As with all bytes fields, JSON
  *  representations are base64 encoded. e.g.: "foo=bar" in URL-encoded form is
  *  "foo%3Dbar" and in base64 encoding is "Zm9vJTI1M0RiYXI=".
  *
@@ -3008,13 +3012,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, copy, nullable) NSString *body;
 
 /**
- *  The content type to use for the check.
+ *  The content type header to use for the check. The following configurations
+ *  result in errors: 1. Content type is specified in both the headers field and
+ *  the content_type field. 2. Request method is GET and content_type is not
+ *  TYPE_UNSPECIFIED 3. Request method is POST and content_type is
+ *  TYPE_UNSPECIFIED. 4. Request method is POST and a "Content-Type" header is
+ *  provided via headers field. The content_type field should be used instead.
  *
  *  Likely values:
  *    @arg @c kGTLRMonitoring_HttpCheck_ContentType_TypeUnspecified No content
- *        type specified. If the request method is POST, an unspecified content
- *        type results in a check creation rejection. (Value:
- *        "TYPE_UNSPECIFIED")
+ *        type specified. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRMonitoring_HttpCheck_ContentType_UrlEncoded body is in
  *        URL-encoded form. Equivalent to setting the Content-Type to
  *        application/x-www-form-urlencoded in the HTTP request. (Value:
@@ -3765,9 +3772,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  filter is similar to the one that is specified in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
  *  (that call is useful to verify the time series that will be retrieved /
- *  processed) and must specify the metric type and optionally may contain
- *  restrictions on resource type, resource labels, and metric labels. This
- *  field may not exceed 2048 Unicode characters in length.
+ *  processed). The filter must specify the metric type and the resource type.
+ *  Optionally, it can specify resource labels and metric labels. This field
+ *  must not exceed 2048 Unicode characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3822,7 +3829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        widespread use. By Alpha, all significant design issues are resolved
  *        and we are in the process of verifying functionality. Alpha customers
  *        need to apply for access, agree to applicable terms, and have their
- *        projects whitelisted. Alpha releases don’t have to be feature
+ *        projects allowlisted. Alpha releases don’t have to be feature
  *        complete, no SLAs are provided, and there are no technical support
  *        obligations, but they will be far enough along that customers can
  *        actually use them in test environments or for limited-use tests --
@@ -4000,7 +4007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        for widespread use. By Alpha, all significant design issues are
  *        resolved and we are in the process of verifying functionality. Alpha
  *        customers need to apply for access, agree to applicable terms, and
- *        have their projects whitelisted. Alpha releases don’t have to be
+ *        have their projects allowlisted. Alpha releases don’t have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -4162,9 +4169,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  filter is similar to the one that is specified in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
  *  (that call is useful to verify the time series that will be retrieved /
- *  processed) and must specify the metric type and optionally may contain
- *  restrictions on resource type, resource labels, and metric labels. This
- *  field may not exceed 2048 Unicode characters in length.
+ *  processed). The filter must specify the metric type and the resource type.
+ *  Optionally, it can specify resource labels and metric labels. This field
+ *  must not exceed 2048 Unicode characters in length.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4276,7 +4283,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects whitelisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don’t have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -4577,7 +4584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        cleared for widespread use. By Alpha, all significant design issues
  *        are resolved and we are in the process of verifying functionality.
  *        Alpha customers need to apply for access, agree to applicable terms,
- *        and have their projects whitelisted. Alpha releases don’t have to be
+ *        and have their projects allowlisted. Alpha releases don’t have to be
  *        feature complete, no SLAs are provided, and there are no technical
  *        support obligations, but they will be far enough along that customers
  *        can actually use them in test environments or for limited-use tests --
@@ -4735,6 +4742,43 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  A condition type that allows alert policies to be defined using Monitoring
+ *  Query Language (https://cloud.google.com/monitoring/mql).
+ */
+@interface GTLRMonitoring_QueryLanguageCondition : GTLRObject
+
+/**
+ *  The amount of time that a time series must violate the threshold to be
+ *  considered failing. Currently, only values that are a multiple of a
+ *  minute--e.g., 0, 60, 120, or 300 seconds--are supported. If an invalid value
+ *  is given, an error will be returned. When choosing a duration, it is useful
+ *  to keep in mind the frequency of the underlying time series data (which may
+ *  also be affected by any alignments specified in the aggregations field); a
+ *  good duration is long enough so that a single outlier does not generate
+ *  spurious alerts, but short enough that unhealthy states are detected and
+ *  alerted on quickly.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  Monitoring Query Language (https://cloud.google.com/monitoring/mql) query
+ *  that outputs a boolean stream.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  The number/percent of time series for which the comparison must hold in
+ *  order for the condition to trigger. If unspecified, then the condition will
+ *  trigger if the comparison is true for any of the time series that have been
+ *  identified by filter and aggregations, or by the ratio, if
+ *  denominator_filter and denominator_aggregations are specified.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Trigger *trigger;
+
+@end
+
+
+/**
  *  The QueryTimeSeries request.
  */
 @interface GTLRMonitoring_QueryTimeSeriesRequest : GTLRObject
@@ -4754,8 +4798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The query in the monitoring query language format. The default
- *  time zone is in UTC.
+ *  Required. The query in the Monitoring Query Language
+ *  (https://cloud.google.com/monitoring/mql/reference) format. The default time
+ *  zone is in UTC.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -5481,10 +5526,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  A unique resource name for this Uptime check configuration. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID] This
- *  field should be omitted when creating the Uptime check configuration; on
- *  create, the resource name is assigned by the server and included in the
- *  response.
+ *  projects/[PROJECT_ID_OR_NUMBER]/uptimeCheckConfigs/[UPTIME_CHECK_ID]
+ *  [PROJECT_ID_OR_NUMBER] is the Workspace host project associated with the
+ *  Uptime check.This field should be omitted when creating the Uptime check
+ *  configuration; on create, the resource name is assigned by the server and
+ *  included in the response.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

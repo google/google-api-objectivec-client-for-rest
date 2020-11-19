@@ -4,7 +4,7 @@
 // API:
 //   Cloud DNS API (dns/v1)
 // Documentation:
-//   http://developers.google.com/cloud-dns
+//   https://cloud.google.com/dns/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -42,6 +42,11 @@
 @class GTLRDns_Quota;
 @class GTLRDns_ResourceRecordSet;
 @class GTLRDns_ResponseHeader;
+@class GTLRDns_RRSetRoutingPolicy;
+@class GTLRDns_RRSetRoutingPolicyGeoPolicy;
+@class GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem;
+@class GTLRDns_RRSetRoutingPolicyWrrPolicy;
+@class GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1263,6 +1268,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Configures dynamic query responses based on geo location of querying user or
+ *  a weighted round robin based routing policy. A ResourceRecordSet should only
+ *  have either rrdata (static) or routing_policy(dynamic). An error is returned
+ *  otherwise.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicy *routingPolicy;
+
+/**
  *  As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see
  *  examples.
  */
@@ -1336,6 +1349,119 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  the server (output only).
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
+
+@end
+
+
+/**
+ *  A RRSetRoutingPolicy represents ResourceRecordSet data that will be returned
+ *  dynamically with the response varying based on configured properties such as
+ *  geolocation or by weighted random selection.
+ */
+@interface GTLRDns_RRSetRoutingPolicy : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyGeoPolicy *geoPolicy;
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyWrrPolicy *wrrPolicy;
+
+@end
+
+
+/**
+ *  GTLRDns_RRSetRoutingPolicyGeoPolicy
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDns_RRSetRoutingPolicyGeoPolicy : GTLRCollectionObject
+
+/**
+ *  If the health check for the primary target for a geo location returns an
+ *  unhealthy status, the failover target is returned instead. This failover
+ *  configuration is not mandatory. If a failover is not provided, the primary
+ *  target won't be healthchecked - we'll return the primarily configured rrdata
+ *  irrespective of whether it is healthy or not.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem *> *failovers;
+
+/**
+ *  The primary geo routing configuration. If there are multiple items with the
+ *  same location, an error is returned instead.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem *> *items;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem
+ */
+@interface GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The geo-location granularity is a GCP region. This location string should
+ *  correspond to a GCP region. e.g "us-east1", "southamerica-east1",
+ *  "asia-east1", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
+
+/** DNSSEC generated signatures for the above geo_rrdata. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
+
+@end
+
+
+/**
+ *  GTLRDns_RRSetRoutingPolicyWrrPolicy
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRDns_RRSetRoutingPolicyWrrPolicy : GTLRCollectionObject
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem *> *items;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem
+ */
+@interface GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *kind;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
+
+/** DNSSEC generated signatures for the above wrr_rrdata. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
+
+/**
+ *  The weight corresponding to this subset of rrdata. When multiple
+ *  WeightedRoundRobinPolicyItems are configured, the probability of returning
+ *  an rrset is proportional to its weight relative to the sum of weights
+ *  configured for all items. This weight should be a decimal in the range
+ *  [0,1].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
 
 @end
 

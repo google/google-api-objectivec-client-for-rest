@@ -159,11 +159,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
- *  following values: 1. [not set]: Requests that are pending or have active
- *  approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4.
- *  ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
- *  dismissed (including expired) requests. 6. HISTORY: Active and dismissed
- *  (including expired) requests.
+ *  following values: * [not set]: Requests that are pending or have active
+ *  approvals. * ALL: All requests. * PENDING: Only pending requests. * ACTIVE:
+ *  Only active (i.e. currently approved) requests. * DISMISSED: Only requests
+ *  that have been dismissed, or requests that . are not approved and past
+ *  expiration. * EXPIRED: Only requests that have been approved, and the
+ *  approval has expired. * HISTORY: Active, dismissed and expired requests.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -174,8 +175,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The parent resource. This may be "projects/{project_id}",
- *  "folders/{folder_id}", or "organizations/{organization_id}".
+ *  The parent resource. This may be "projects/{project}", "folders/{folder}",
+ *  or "organizations/{organization}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -186,8 +187,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Approval requests can be filtered by state (pending, active, dismissed). The
  *  order is reverse chronological.
  *
- *  @param parent The parent resource. This may be "projects/{project_id}",
- *    "folders/{folder_id}", or "organizations/{organization_id}".
+ *  @param parent The parent resource. This may be "projects/{project}",
+ *    "folders/{folder}", or "organizations/{organization}".
  *
  *  @return GTLRAccessApprovalQuery_FoldersApprovalRequestsList
  *
@@ -279,10 +280,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAccessApproval queryForFoldersUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
- *  The resource name of the settings. Format is one of: 1.
- *  "projects/{project_id}/accessApprovalSettings" 2.
- *  "folders/{folder_id}/accessApprovalSettings" 3.
- *  "organizations/{organization_id}/accessApprovalSettings"
+ *  The resource name of the settings. Format is one of: *
+ *  "projects/{project}/accessApprovalSettings" *
+ *  "folders/{folder}/accessApprovalSettings" *
+ *  "organizations/{organization}/accessApprovalSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -307,10 +308,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
- *  @param name The resource name of the settings. Format is one of: 1.
- *    "projects/{project_id}/accessApprovalSettings" 2.
- *    "folders/{folder_id}/accessApprovalSettings" 3.
- *    "organizations/{organization_id}/accessApprovalSettings"
+ *  @param name The resource name of the settings. Format is one of: *
+ *    "projects/{project}/accessApprovalSettings" *
+ *    "folders/{folder}/accessApprovalSettings" *
+ *    "organizations/{organization}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_FoldersUpdateAccessApprovalSettings
  */
@@ -437,11 +438,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
- *  following values: 1. [not set]: Requests that are pending or have active
- *  approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4.
- *  ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
- *  dismissed (including expired) requests. 6. HISTORY: Active and dismissed
- *  (including expired) requests.
+ *  following values: * [not set]: Requests that are pending or have active
+ *  approvals. * ALL: All requests. * PENDING: Only pending requests. * ACTIVE:
+ *  Only active (i.e. currently approved) requests. * DISMISSED: Only requests
+ *  that have been dismissed, or requests that . are not approved and past
+ *  expiration. * EXPIRED: Only requests that have been approved, and the
+ *  approval has expired. * HISTORY: Active, dismissed and expired requests.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -452,8 +454,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The parent resource. This may be "projects/{project_id}",
- *  "folders/{folder_id}", or "organizations/{organization_id}".
+ *  The parent resource. This may be "projects/{project}", "folders/{folder}",
+ *  or "organizations/{organization}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -464,8 +466,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Approval requests can be filtered by state (pending, active, dismissed). The
  *  order is reverse chronological.
  *
- *  @param parent The parent resource. This may be "projects/{project_id}",
- *    "folders/{folder_id}", or "organizations/{organization_id}".
+ *  @param parent The parent resource. This may be "projects/{project}",
+ *    "folders/{folder}", or "organizations/{organization}".
  *
  *  @return GTLRAccessApprovalQuery_OrganizationsApprovalRequestsList
  *
@@ -557,10 +559,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAccessApproval queryForOrganizationsUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
- *  The resource name of the settings. Format is one of: 1.
- *  "projects/{project_id}/accessApprovalSettings" 2.
- *  "folders/{folder_id}/accessApprovalSettings" 3.
- *  "organizations/{organization_id}/accessApprovalSettings"
+ *  The resource name of the settings. Format is one of: *
+ *  "projects/{project}/accessApprovalSettings" *
+ *  "folders/{folder}/accessApprovalSettings" *
+ *  "organizations/{organization}/accessApprovalSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -585,10 +587,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
- *  @param name The resource name of the settings. Format is one of: 1.
- *    "projects/{project_id}/accessApprovalSettings" 2.
- *    "folders/{folder_id}/accessApprovalSettings" 3.
- *    "organizations/{organization_id}/accessApprovalSettings"
+ *  @param name The resource name of the settings. Format is one of: *
+ *    "projects/{project}/accessApprovalSettings" *
+ *    "folders/{folder}/accessApprovalSettings" *
+ *    "organizations/{organization}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_OrganizationsUpdateAccessApprovalSettings
  */
@@ -715,11 +717,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A filter on the type of approval requests to retrieve. Must be one of the
- *  following values: 1. [not set]: Requests that are pending or have active
- *  approvals. 2. ALL: All requests. 3. PENDING: Only pending requests. 4.
- *  ACTIVE: Only active (i.e. currently approved) requests. 5. DISMISSED: Only
- *  dismissed (including expired) requests. 6. HISTORY: Active and dismissed
- *  (including expired) requests.
+ *  following values: * [not set]: Requests that are pending or have active
+ *  approvals. * ALL: All requests. * PENDING: Only pending requests. * ACTIVE:
+ *  Only active (i.e. currently approved) requests. * DISMISSED: Only requests
+ *  that have been dismissed, or requests that . are not approved and past
+ *  expiration. * EXPIRED: Only requests that have been approved, and the
+ *  approval has expired. * HISTORY: Active, dismissed and expired requests.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -730,8 +733,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  The parent resource. This may be "projects/{project_id}",
- *  "folders/{folder_id}", or "organizations/{organization_id}".
+ *  The parent resource. This may be "projects/{project}", "folders/{folder}",
+ *  or "organizations/{organization}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -742,8 +745,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Approval requests can be filtered by state (pending, active, dismissed). The
  *  order is reverse chronological.
  *
- *  @param parent The parent resource. This may be "projects/{project_id}",
- *    "folders/{folder_id}", or "organizations/{organization_id}".
+ *  @param parent The parent resource. This may be "projects/{project}",
+ *    "folders/{folder}", or "organizations/{organization}".
  *
  *  @return GTLRAccessApprovalQuery_ProjectsApprovalRequestsList
  *
@@ -835,10 +838,10 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAccessApproval queryForProjectsUpdateAccessApprovalSettingsWithObject:name:]
 
 /**
- *  The resource name of the settings. Format is one of: 1.
- *  "projects/{project_id}/accessApprovalSettings" 2.
- *  "folders/{folder_id}/accessApprovalSettings" 3.
- *  "organizations/{organization_id}/accessApprovalSettings"
+ *  The resource name of the settings. Format is one of: *
+ *  "projects/{project}/accessApprovalSettings" *
+ *  "folders/{folder}/accessApprovalSettings" *
+ *  "organizations/{organization}/accessApprovalSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -863,10 +866,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Settings to update are determined by the value of field_mask.
  *
  *  @param object The @c GTLRAccessApproval_Settings to include in the query.
- *  @param name The resource name of the settings. Format is one of: 1.
- *    "projects/{project_id}/accessApprovalSettings" 2.
- *    "folders/{folder_id}/accessApprovalSettings" 3.
- *    "organizations/{organization_id}/accessApprovalSettings"
+ *  @param name The resource name of the settings. Format is one of: *
+ *    "projects/{project}/accessApprovalSettings" *
+ *    "folders/{folder}/accessApprovalSettings" *
+ *    "organizations/{organization}/accessApprovalSettings"
  *
  *  @return GTLRAccessApprovalQuery_ProjectsUpdateAccessApprovalSettings
  */

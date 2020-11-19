@@ -109,10 +109,11 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_AssetDiscoveryConfig
-@dynamic inclusionMode, projectIds;
+@dynamic folderIds, inclusionMode, projectIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"folderIds" : [NSString class],
     @"projectIds" : [NSString class]
   };
   return map;
@@ -226,6 +227,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_Folder
+//
+
+@implementation GTLRSecurityCommandCenter_Folder
+@dynamic resourceFolder, resourceFolderDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GetIamPolicyRequest
 //
 
@@ -291,6 +302,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Folder
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Folder
+@dynamic resourceFolder, resourceFolderDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1NotificationMessage
 //
 
@@ -305,7 +326,15 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Resource
-@dynamic name, parent, parentDisplayName, project, projectDisplayName;
+@dynamic folders, name, parent, parentDisplayName, project, projectDisplayName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"folders" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Folder class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -349,7 +378,15 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource
-@dynamic name, parent, parentDisplayName, project, projectDisplayName;
+@dynamic folders, name, parent, parentDisplayName, project, projectDisplayName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"folders" : [GTLRSecurityCommandCenter_Folder class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -684,7 +721,16 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_Resource
-@dynamic name, parentDisplayName, parentName, projectDisplayName, projectName;
+@dynamic folders, name, parentDisplayName, parentName, projectDisplayName,
+         projectName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"folders" : [GTLRSecurityCommandCenter_Folder class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -703,12 +749,13 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_SecurityCenterProperties
-@dynamic resourceDisplayName, resourceName, resourceOwners, resourceParent,
-         resourceParentDisplayName, resourceProject, resourceProjectDisplayName,
-         resourceType;
+@dynamic folders, resourceDisplayName, resourceName, resourceOwners,
+         resourceParent, resourceParentDisplayName, resourceProject,
+         resourceProjectDisplayName, resourceType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"folders" : [GTLRSecurityCommandCenter_Folder class],
     @"resourceOwners" : [NSString class]
   };
   return map;

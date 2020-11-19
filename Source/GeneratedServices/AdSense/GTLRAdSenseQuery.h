@@ -56,6 +56,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Ad client to get the code for. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
 
+/** Tag partner to include in the ad code snippet. */
+@property(nonatomic, copy, nullable) NSString *tagPartner;
+
 /**
  *  Fetches a @c GTLRAdSense_AdCode.
  *

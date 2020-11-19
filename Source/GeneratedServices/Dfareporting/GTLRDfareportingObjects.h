@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.4)
 // Description:
-//   Manages your DoubleClick Campaign Manager ad campaigns and reports.
+//   Manage your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
@@ -314,6 +314,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Compatibility_InStreamVi
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Ad.type
 
+/** Value: "AD_SERVING_BRAND_SAFE_AD" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingBrandSafeAd;
 /** Value: "AD_SERVING_CLICK_TRACKER" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Ad_Type_AdServingClickTracker;
 /** Value: "AD_SERVING_DEFAULT_AD" */
@@ -386,6 +388,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_Artwor
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm;
 /** Value: "CREATIVE_AUTHORING_SOURCE_DCM" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm;
+/** Value: "CREATIVE_AUTHORING_SOURCE_GWD" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceGwd;
 /** Value: "CREATIVE_AUTHORING_SOURCE_STUDIO" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio;
 
@@ -2492,8 +2496,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ThirdPartyTrackingUrl_Third
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_UniversalAdId.registry
 
-/** Value: "AD_ID.ORG" */
-FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOrg;
+/** Value: "AD_ID_OFFICIAL" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOfficial;
 /** Value: "CLEARCAST" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Clearcast;
 /** Value: "DCM" */
@@ -2828,57 +2832,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  ID of currency associated with this account. This is a required field.
- *  Acceptable values are:
- *  - "1" for USD
- *  - "2" for GBP
- *  - "3" for ESP
- *  - "4" for SEK
- *  - "5" for CAD
- *  - "6" for JPY
- *  - "7" for DEM
- *  - "8" for AUD
- *  - "9" for FRF
- *  - "10" for ITL
- *  - "11" for DKK
- *  - "12" for NOK
- *  - "13" for FIM
- *  - "14" for ZAR
- *  - "15" for IEP
- *  - "16" for NLG
- *  - "17" for EUR
- *  - "18" for KRW
- *  - "19" for TWD
- *  - "20" for SGD
- *  - "21" for CNY
- *  - "22" for HKD
- *  - "23" for NZD
- *  - "24" for MYR
- *  - "25" for BRL
- *  - "26" for PTE
- *  - "27" for MXP
- *  - "28" for CLP
- *  - "29" for TRY
- *  - "30" for ARS
- *  - "31" for PEN
- *  - "32" for ILS
- *  - "33" for CHF
- *  - "34" for VEF
- *  - "35" for COP
- *  - "36" for GTQ
- *  - "37" for PLN
- *  - "39" for INR
- *  - "40" for THB
- *  - "41" for IDR
- *  - "42" for CZK
- *  - "43" for RON
- *  - "44" for HUF
- *  - "45" for RUB
- *  - "46" for AED
- *  - "47" for BGN
- *  - "48" for HRK
- *  - "49" for MXN
- *  - "50" for NGN
- *  - "51" for EGP
+ *  Acceptable values are: - "1" for USD - "2" for GBP - "3" for ESP - "4" for
+ *  SEK - "5" for CAD - "6" for JPY - "7" for DEM - "8" for AUD - "9" for FRF -
+ *  "10" for ITL - "11" for DKK - "12" for NOK - "13" for FIM - "14" for ZAR -
+ *  "15" for IEP - "16" for NLG - "17" for EUR - "18" for KRW - "19" for TWD -
+ *  "20" for SGD - "21" for CNY - "22" for HKD - "23" for NZD - "24" for MYR -
+ *  "25" for BRL - "26" for PTE - "28" for CLP - "29" for TRY - "30" for ARS -
+ *  "31" for PEN - "32" for ILS - "33" for CHF - "34" for VEF - "35" for COP -
+ *  "36" for GTQ - "37" for PLN - "39" for INR - "40" for THB - "41" for IDR -
+ *  "42" for CZK - "43" for RON - "44" for HUF - "45" for RUB - "46" for AED -
+ *  "47" for BGN - "48" for HRK - "49" for MXN - "50" for NGN - "51" for EGP
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2914,24 +2877,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Locale of this account.
- *  Acceptable values are:
- *  - "cs" (Czech)
- *  - "de" (German)
- *  - "en" (English)
- *  - "en-GB" (English United Kingdom)
- *  - "es" (Spanish)
- *  - "fr" (French)
- *  - "it" (Italian)
- *  - "ja" (Japanese)
- *  - "ko" (Korean)
- *  - "pl" (Polish)
- *  - "pt-BR" (Portuguese Brazil)
- *  - "ru" (Russian)
- *  - "sv" (Swedish)
- *  - "tr" (Turkish)
- *  - "zh-CN" (Chinese Simplified)
- *  - "zh-TW" (Chinese Traditional)
+ *  Locale of this account. Acceptable values are: - "cs" (Czech) - "de"
+ *  (German) - "en" (English) - "en-GB" (English United Kingdom) - "es"
+ *  (Spanish) - "fr" (French) - "it" (Italian) - "ja" (Japanese) - "ko" (Korean)
+ *  - "pl" (Polish) - "pt-BR" (Portuguese Brazil) - "ru" (Russian) - "sv"
+ *  (Swedish) - "tr" (Turkish) - "zh-CN" (Chinese Simplified) - "zh-TW" (Chinese
+ *  Traditional)
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
@@ -3044,10 +2995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_AccountPermission : GTLRObject
 
 /**
- *  Account profiles associated with this account permission.
- *  Possible values are:
- *  - "ACCOUNT_PROFILE_BASIC"
- *  - "ACCOUNT_PROFILE_STANDARD"
+ *  Account profiles associated with this account permission. Possible values
+ *  are: - "ACCOUNT_PROFILE_BASIC" - "ACCOUNT_PROFILE_STANDARD"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountProfiles;
 
@@ -3237,31 +3186,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Locale of the user profile. This is a required field.
- *  Acceptable values are:
- *  - "cs" (Czech)
- *  - "de" (German)
- *  - "en" (English)
- *  - "en-GB" (English United Kingdom)
- *  - "es" (Spanish)
- *  - "fr" (French)
- *  - "it" (Italian)
- *  - "ja" (Japanese)
- *  - "ko" (Korean)
- *  - "pl" (Polish)
- *  - "pt-BR" (Portuguese Brazil)
- *  - "ru" (Russian)
- *  - "sv" (Swedish)
- *  - "tr" (Turkish)
- *  - "zh-CN" (Chinese Simplified)
- *  - "zh-TW" (Chinese Traditional)
+ *  Locale of the user profile. This is a required field. Acceptable values are:
+ *  - "cs" (Czech) - "de" (German) - "en" (English) - "en-GB" (English United
+ *  Kingdom) - "es" (Spanish) - "fr" (French) - "it" (Italian) - "ja" (Japanese)
+ *  - "ko" (Korean) - "pl" (Polish) - "pt-BR" (Portuguese Brazil) - "ru"
+ *  (Russian) - "sv" (Swedish) - "tr" (Turkish) - "zh-CN" (Chinese Simplified) -
+ *  "zh-TW" (Chinese Traditional)
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
 /**
  *  Name of the user profile. This is a required field. Must be less than 64
  *  characters long, must be globally unique, and cannot contain whitespace or
- *  any of the following characters: "&;"#%,".
+ *  any of the following characters: "&;<>"#%,".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3481,7 +3418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Creative rotation for this ad. Applicable when type is
  *  AD_SERVING_DEFAULT_AD, AD_SERVING_STANDARD_AD, or AD_SERVING_TRACKING. When
  *  type is AD_SERVING_DEFAULT_AD, this field should have exactly one
- *  creativeAssignment.
+ *  creativeAssignment .
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_CreativeRotation *creativeRotation;
 
@@ -3512,10 +3449,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *dynamicClickTracker;
 
-/**
- *  Date and time that this ad should stop serving. Must be later than the start
- *  time. This is a required field on insertion.
- */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /** Event tag overrides for this ad. */
@@ -3604,10 +3537,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *sslRequired;
 
-/**
- *  Date and time that this ad should start serving. If creating an ad, this
- *  field must be a time in the future. This is a required field on insertion.
- */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
@@ -3636,10 +3565,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) GTLRDfareporting_TechnologyTargeting *technologyTargeting;
 
 /**
- *  Type of ad. This is a required field on insertion. Note that default ads
- *  (AD_SERVING_DEFAULT_AD) cannot be created directly (see Creative resource).
+ *  Type of ad. This is a required field on insertion. Note that default ads (
+ *  AD_SERVING_DEFAULT_AD) cannot be created directly (see Creative resource).
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_Ad_Type_AdServingBrandSafeAd Value
+ *        "AD_SERVING_BRAND_SAFE_AD"
  *    @arg @c kGTLRDfareporting_Ad_Type_AdServingClickTracker Value
  *        "AD_SERVING_CLICK_TRACKER"
  *    @arg @c kGTLRDfareporting_Ad_Type_AdServingDefaultAd Value
@@ -3845,11 +3776,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  ID will be created automatically, so on insert this field should be left
  *  blank. This field can be set to another advertiser's floodlight
  *  configuration ID in order to share that advertiser's floodlight
- *  configuration with this advertiser, so long as:
- *  - This advertiser's original floodlight configuration is not already
- *  associated with floodlight activities or floodlight activity groups.
- *  - This advertiser's original floodlight configuration is not already shared
- *  with another advertiser.
+ *  configuration with this advertiser, so long as: - This advertiser's original
+ *  floodlight configuration is not already associated with floodlight
+ *  activities or floodlight activity groups. - This advertiser's original
+ *  floodlight configuration is not already shared with another advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4284,12 +4214,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *defaultLandingPageId;
 
 /**
- *  Date on which the campaign will stop running. On insert, the end date must
- *  be today or a future date. The end date must be later than or be the same as
- *  the start date. If, for example, you set 6/25/2015 as both the start and end
- *  dates, the effective campaign run date is just that day only, 6/25/2015. The
- *  hours, minutes, and seconds of the end date should not be set, as doing so
- *  will result in an error. This is a required field.
+ *  endDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -4344,9 +4269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *nielsenOcrEnabled;
 
 /**
- *  Date on which the campaign starts running. The start date can be any date.
- *  The hours, minutes, and seconds of the start date should not be set, as
- *  doing so will result in an error. This is a required field.
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -4511,7 +4434,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /** Action which caused the change. */
 @property(nonatomic, copy, nullable) NSString *action;
 
-/** Time when the object was modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *changeTime;
 
 /** Field name of the object which changed. */
@@ -4756,13 +4678,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Read-only convenience field representing the actual URL that will be used
- *  for this click-through. The URL is computed as follows:
- *  - If defaultLandingPage is enabled then the campaign's default landing page
- *  URL is assigned to this field.
- *  - If defaultLandingPage is not enabled and a landingPageId is specified then
- *  that landing page's URL is assigned to this field.
- *  - If neither of the above cases apply, then the customClickThroughUrl is
- *  assigned to this field.
+ *  for this click-through. The URL is computed as follows: - If
+ *  defaultLandingPage is enabled then the campaign's default landing page URL
+ *  is assigned to this field. - If defaultLandingPage is not enabled and a
+ *  landingPageId is specified then that landing page's URL is assigned to this
+ *  field. - If neither of the above cases apply, then the customClickThroughUrl
+ *  is assigned to this field.
  */
 @property(nonatomic, copy, nullable) NSString *computedClickThroughUrl;
 
@@ -4843,7 +4764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *companionsDisabled;
 
 /**
- *  Whitelist of companion sizes to be served to this placement. Set this list
+ *  Allowlist of companion sizes to be served to this placement. Set this list
  *  to null or empty to serve all companion sizes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *enabledSizes;
@@ -5050,11 +4971,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_CustomFloodlightVariable *> *customVariables;
 
 /**
+ *  The display click ID. This field is mutually exclusive with encryptedUserId,
+ *  encryptedUserIdCandidates[], matchId, mobileDeviceId and gclid. This or
+ *  encryptedUserId or encryptedUserIdCandidates[] or matchId or mobileDeviceId
+ *  or gclid is a required field.
+ */
+@property(nonatomic, copy, nullable) NSString *dclid;
+
+/**
  *  The alphanumeric encrypted user ID. When set, encryptionInfo should also be
  *  specified. This field is mutually exclusive with
- *  encryptedUserIdCandidates[], matchId, mobileDeviceId and gclid. This or
- *  encryptedUserIdCandidates[] or matchId or mobileDeviceId or gclid is a
- *  required field.
+ *  encryptedUserIdCandidates[], matchId, mobileDeviceId, gclid and dclid. This
+ *  or encryptedUserIdCandidates[] or matchId or mobileDeviceId or gclid or
+ *  dclid is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *encryptedUserId;
 
@@ -5065,8 +4994,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  INVALID_ARGUMENT error. When set, encryptionInfo should also be specified.
  *  This field may only be used when calling batchinsert; it is not supported by
  *  batchupdate. This field is mutually exclusive with encryptedUserId, matchId,
- *  mobileDeviceId and gclid. This or encryptedUserId or matchId or
- *  mobileDeviceId or gclid is a required field.
+ *  mobileDeviceId, gclid and dclid. This or encryptedUserId or matchId or
+ *  mobileDeviceId or gclid or dclid is a required field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryptedUserIdCandidates;
 
@@ -5086,9 +5015,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  The Google click ID. This field is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[], matchId and mobileDeviceId. This or
+ *  encryptedUserIdCandidates[], matchId, mobileDeviceId and dclid. This or
  *  encryptedUserId or encryptedUserIdCandidates[] or matchId or mobileDeviceId
- *  is a required field.
+ *  or dclid is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *gclid;
 
@@ -5110,16 +5039,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  The match ID field. A match ID is your own first-party identifier that has
  *  been synced with Google using the match ID feature in Floodlight. This field
  *  is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[],mobileDeviceId and gclid. This or
- *  encryptedUserId or encryptedUserIdCandidates[] or mobileDeviceId or gclid is
- *  a required field.
+ *  encryptedUserIdCandidates[],mobileDeviceId, gclid and dclid. This or
+ *  encryptedUserId or encryptedUserIdCandidates[] or mobileDeviceId or gclid or
+ *  dclid is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *matchId;
 
 /**
  *  The mobile device ID. This field is mutually exclusive with encryptedUserId,
- *  encryptedUserIdCandidates[], matchId and gclid. This or encryptedUserId or
- *  encryptedUserIdCandidates[] or matchId or gclid is a required field.
+ *  encryptedUserIdCandidates[], matchId, gclid and dclid. This or
+ *  encryptedUserId or encryptedUserIdCandidates[] or matchId or gclid or dclid
+ *  is a required field.
  */
 @property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 
@@ -5467,6 +5397,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *        Value "CREATIVE_AUTHORING_SOURCE_DBM"
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm
  *        Value "CREATIVE_AUTHORING_SOURCE_DCM"
+ *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceGwd
+ *        Value "CREATIVE_AUTHORING_SOURCE_GWD"
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio
  *        Value "CREATIVE_AUTHORING_SOURCE_STUDIO"
  */
@@ -5572,13 +5504,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  IN_STREAM_VIDEO refers to rendering in in-stream video ads developed with
  *  the VAST standard. IN_STREAM_AUDIO refers to rendering in in-stream audio
  *  ads developed with the VAST standard. Applicable to all creative types.
- *  Acceptable values are:
- *  - "APP"
- *  - "APP_INTERSTITIAL"
- *  - "IN_STREAM_VIDEO"
- *  - "IN_STREAM_AUDIO"
- *  - "DISPLAY"
- *  - "DISPLAY_INTERSTITIAL"
+ *  Acceptable values are: - "APP" - "APP_INTERSTITIAL" - "IN_STREAM_VIDEO" -
+ *  "IN_STREAM_AUDIO" - "DISPLAY" - "DISPLAY_INTERSTITIAL"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *compatibility;
 
@@ -5905,10 +5832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Type of this creative. This is a required field. Applicable to all creative
- *  types.
- *  Note: FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for existing
- *  creatives. New creatives should use DISPLAY as a replacement for these
- *  types.
+ *  types. *Note:* FLASH_INPAGE, HTML5_BANNER, and IMAGE are only used for
+ *  existing creatives. New creatives should use DISPLAY as a replacement for
+ *  these types.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Creative_Type_BrandSafeDefaultInstreamVideo
@@ -6013,8 +5939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Possible alignments for an asset. This is a read-only field. Applicable to
- *  the following creative types:
- *  RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL.
+ *  the following creative types: RICH_MEDIA_DISPLAY_MULTI_FLOATING_INTERSTITIAL
+ *  .
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_Alignment_AlignmentBottom Value
@@ -6376,33 +6302,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /**
  *  Role of the asset in relation to creative. Applicable to all but the
  *  following creative types: all REDIRECT and TRACKING_TEXT. This is a required
- *  field.
- *  PRIMARY applies to DISPLAY, FLASH_INPAGE, HTML5_BANNER, IMAGE,
+ *  field. PRIMARY applies to DISPLAY, FLASH_INPAGE, HTML5_BANNER, IMAGE,
  *  DISPLAY_IMAGE_GALLERY, all RICH_MEDIA (which may contain multiple primary
- *  assets), and all VPAID creatives.
- *  BACKUP_IMAGE applies to FLASH_INPAGE, HTML5_BANNER, all RICH_MEDIA, and all
- *  VPAID creatives. Applicable to DISPLAY when the primary asset type is not
- *  HTML_IMAGE.
- *  ADDITIONAL_IMAGE and ADDITIONAL_FLASH apply to FLASH_INPAGE creatives.
- *  OTHER refers to assets from sources other than Campaign Manager, such as
- *  Studio uploaded assets, applicable to all RICH_MEDIA and all VPAID
- *  creatives.
- *  PARENT_VIDEO refers to videos uploaded by the user in Campaign Manager and
- *  is applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives.
- *  TRANSCODED_VIDEO refers to videos transcoded by Campaign Manager from
- *  PARENT_VIDEO assets and is applicable to INSTREAM_VIDEO and
- *  VPAID_LINEAR_VIDEO creatives.
+ *  assets), and all VPAID creatives. BACKUP_IMAGE applies to FLASH_INPAGE,
+ *  HTML5_BANNER, all RICH_MEDIA, and all VPAID creatives. Applicable to DISPLAY
+ *  when the primary asset type is not HTML_IMAGE. ADDITIONAL_IMAGE and
+ *  ADDITIONAL_FLASH apply to FLASH_INPAGE creatives. OTHER refers to assets
+ *  from sources other than Campaign Manager, such as Studio uploaded assets,
+ *  applicable to all RICH_MEDIA and all VPAID creatives. PARENT_VIDEO refers to
+ *  videos uploaded by the user in Campaign Manager and is applicable to
+ *  INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives. TRANSCODED_VIDEO refers to
+ *  videos transcoded by Campaign Manager from PARENT_VIDEO assets and is
+ *  applicable to INSTREAM_VIDEO and VPAID_LINEAR_VIDEO creatives.
  *  ALTERNATE_VIDEO refers to the Campaign Manager representation of child asset
  *  videos from Studio, and is applicable to VPAID_LINEAR_VIDEO creatives. These
- *  cannot be added or removed within Campaign Manager.
- *  For VPAID_LINEAR_VIDEO creatives, PARENT_VIDEO, TRANSCODED_VIDEO and
- *  ALTERNATE_VIDEO assets that are marked active serve as backup in case the
- *  VPAID creative cannot be served. Only PARENT_VIDEO assets can be added or
- *  removed for an INSTREAM_VIDEO or VPAID_LINEAR_VIDEO creative.
- *  PARENT_AUDIO refers to audios uploaded by the user in Campaign Manager and
- *  is applicable to INSTREAM_AUDIO creatives.
- *  TRANSCODED_AUDIO refers to audios transcoded by Campaign Manager from
- *  PARENT_AUDIO assets and is applicable to INSTREAM_AUDIO creatives.
+ *  cannot be added or removed within Campaign Manager. For VPAID_LINEAR_VIDEO
+ *  creatives, PARENT_VIDEO, TRANSCODED_VIDEO and ALTERNATE_VIDEO assets that
+ *  are marked active serve as backup in case the VPAID creative cannot be
+ *  served. Only PARENT_VIDEO assets can be added or removed for an
+ *  INSTREAM_VIDEO or VPAID_LINEAR_VIDEO creative. PARENT_AUDIO refers to audios
+ *  uploaded by the user in Campaign Manager and is applicable to INSTREAM_AUDIO
+ *  creatives. TRANSCODED_AUDIO refers to audios transcoded by Campaign Manager
+ *  from PARENT_AUDIO assets and is applicable to INSTREAM_AUDIO creatives.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_CreativeAsset_Role_AdditionalFlash Value
@@ -6622,32 +6543,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Rules validated during code generation that generated a warning. This is a
- *  read-only, auto-generated field.
- *  Possible values are:
- *  - "ADMOB_REFERENCED"
- *  - "ASSET_FORMAT_UNSUPPORTED_DCM"
- *  - "ASSET_INVALID"
- *  - "CLICK_TAG_HARD_CODED"
- *  - "CLICK_TAG_INVALID"
- *  - "CLICK_TAG_IN_GWD"
- *  - "CLICK_TAG_MISSING"
- *  - "CLICK_TAG_MORE_THAN_ONE"
- *  - "CLICK_TAG_NON_TOP_LEVEL"
- *  - "COMPONENT_UNSUPPORTED_DCM"
- *  - "ENABLER_UNSUPPORTED_METHOD_DCM"
- *  - "EXTERNAL_FILE_REFERENCED"
- *  - "FILE_DETAIL_EMPTY"
- *  - "FILE_TYPE_INVALID"
- *  - "GWD_PROPERTIES_INVALID"
- *  - "HTML5_FEATURE_UNSUPPORTED"
- *  - "LINKED_FILE_NOT_FOUND"
- *  - "MAX_FLASH_VERSION_11"
- *  - "MRAID_REFERENCED"
- *  - "NOT_SSL_COMPLIANT"
- *  - "ORPHANED_ASSET"
- *  - "PRIMARY_HTML_MISSING"
- *  - "SVG_INVALID"
- *  - "ZIP_INVALID"
+ *  read-only, auto-generated field. Possible values are: - "ADMOB_REFERENCED" -
+ *  "ASSET_FORMAT_UNSUPPORTED_DCM" - "ASSET_INVALID" - "CLICK_TAG_HARD_CODED" -
+ *  "CLICK_TAG_INVALID" - "CLICK_TAG_IN_GWD" - "CLICK_TAG_MISSING" -
+ *  "CLICK_TAG_MORE_THAN_ONE" - "CLICK_TAG_NON_TOP_LEVEL" -
+ *  "COMPONENT_UNSUPPORTED_DCM" - "ENABLER_UNSUPPORTED_METHOD_DCM" -
+ *  "EXTERNAL_FILE_REFERENCED" - "FILE_DETAIL_EMPTY" - "FILE_TYPE_INVALID" -
+ *  "GWD_PROPERTIES_INVALID" - "HTML5_FEATURE_UNSUPPORTED" -
+ *  "LINKED_FILE_NOT_FOUND" - "MAX_FLASH_VERSION_11" - "MRAID_REFERENCED" -
+ *  "NOT_SSL_COMPLIANT" - "ORPHANED_ASSET" - "PRIMARY_HTML_MISSING" -
+ *  "SVG_INVALID" - "ZIP_INVALID"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *warnedValidationRules;
 
@@ -6730,26 +6635,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *creativeIdDimensionValue;
 
-/**
- *  Date and time that the assigned creative should stop serving. Must be later
- *  than the start time.
- */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Rich media exit overrides for this creative assignment.
- *  Applicable when the creative type is any of the following:
- *  - DISPLAY
- *  - RICH_MEDIA_INPAGE
- *  - RICH_MEDIA_INPAGE_FLOATING
- *  - RICH_MEDIA_IM_EXPAND
- *  - RICH_MEDIA_EXPANDING
- *  - RICH_MEDIA_INTERSTITIAL_FLOAT
- *  - RICH_MEDIA_MOBILE_IN_APP
- *  - RICH_MEDIA_MULTI_FLOATING
- *  - RICH_MEDIA_PEEL_DOWN
- *  - VPAID_LINEAR
- *  - VPAID_NON_LINEAR
+ *  Rich media exit overrides for this creative assignment. Applicable when the
+ *  creative type is any of the following: - DISPLAY - RICH_MEDIA_INPAGE -
+ *  RICH_MEDIA_INPAGE_FLOATING - RICH_MEDIA_IM_EXPAND - RICH_MEDIA_EXPANDING -
+ *  RICH_MEDIA_INTERSTITIAL_FLOAT - RICH_MEDIA_MOBILE_IN_APP -
+ *  RICH_MEDIA_MULTI_FLOATING - RICH_MEDIA_PEEL_DOWN - VPAID_LINEAR -
+ *  VPAID_NON_LINEAR
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_RichMediaExitOverride *> *richMediaExitOverrides;
 
@@ -6770,7 +6664,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  */
 @property(nonatomic, strong, nullable) NSNumber *sslCompliant;
 
-/** Date and time that the assigned creative should start serving. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
@@ -6791,10 +6684,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Read-only convenience field representing the actual URL that will be used
- *  for this click-through. The URL is computed as follows:
- *  - If landingPageId is specified then that landing page's URL is assigned to
- *  this field.
- *  - Otherwise, the customClickThroughUrl is assigned to this field.
+ *  for this click-through. The URL is computed as follows: - If landingPageId
+ *  is specified then that landing page's URL is assigned to this field. -
+ *  Otherwise, the customClickThroughUrl is assigned to this field.
  */
 @property(nonatomic, copy, nullable) NSString *computedClickThroughUrl;
 
@@ -7867,8 +7759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_DateRange : GTLRObject
 
 /**
- *  The end date of the date range, inclusive. A string of the format:
- *  "yyyy-MM-dd".
+ *  endDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -7918,8 +7809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *relativeDateRange;
 
 /**
- *  The start date of the date range, inclusive. A string of the format:
- *  "yyyy-MM-dd".
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -7934,15 +7824,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_DayPartTargeting : GTLRObject
 
 /**
- *  Days of the week when the ad will serve.
- *  Acceptable values are:
- *  - "SUNDAY"
- *  - "MONDAY"
- *  - "TUESDAY"
- *  - "WEDNESDAY"
- *  - "THURSDAY"
- *  - "FRIDAY"
- *  - "SATURDAY"
+ *  Days of the week when the ad will serve. Acceptable values are: - "SUNDAY" -
+ *  "MONDAY" - "TUESDAY" - "WEDNESDAY" - "THURSDAY" - "FRIDAY" - "SATURDAY"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *daysOfWeek;
 
@@ -8259,8 +8142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *dimensionName;
 
 /**
- *  The end date of the date range for which to retrieve dimension values. A
- *  string of the format "yyyy-MM-dd".
+ *  endDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -8270,14 +8152,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionFilter *> *filters;
 
 /**
- *  The kind of request this is, in this case
- *  dfareporting#dimensionValueRequest.
+ *  The kind of request this is, in this case dfareporting#dimensionValueRequest
+ *  .
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The start date of the date range for which to retrieve dimension values. A
- *  string of the format "yyyy-MM-dd".
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -8309,21 +8190,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *idDimensionValue;
 
 /**
- *  Tag types for regular placements.
- *  Acceptable values are:
- *  - "STANDARD"
- *  - "IFRAME_JAVASCRIPT_INPAGE"
- *  - "INTERNAL_REDIRECT_INPAGE"
- *  - "JAVASCRIPT_INPAGE"
+ *  Tag types for regular placements. Acceptable values are: - "STANDARD" -
+ *  "IFRAME_JAVASCRIPT_INPAGE" - "INTERNAL_REDIRECT_INPAGE" -
+ *  "JAVASCRIPT_INPAGE"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inpageTagFormats;
 
 /**
- *  Tag types for interstitial placements.
- *  Acceptable values are:
- *  - "IFRAME_JAVASCRIPT_INTERSTITIAL"
- *  - "INTERNAL_REDIRECT_INTERSTITIAL"
- *  - "JAVASCRIPT_INTERSTITIAL"
+ *  Tag types for interstitial placements. Acceptable values are: -
+ *  "IFRAME_JAVASCRIPT_INTERSTITIAL" - "INTERNAL_REDIRECT_INTERSTITIAL" -
+ *  "JAVASCRIPT_INTERSTITIAL"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *interstitialTagFormats;
 
@@ -8705,7 +8581,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Filter list of site IDs associated with this event tag. The siteFilterType
- *  determines whether this is a whitelist or blacklist filter.
+ *  determines whether this is a allowlist or blocklist filter.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8944,7 +8820,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_Flight : GTLRObject
 
 /**
- *  Inventory item flight end date.
+ *  endDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -8958,7 +8834,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *rateOrCost;
 
 /**
- *  Inventory item flight start date.
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -9267,9 +9143,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Value of the cat= parameter in the floodlight tag, which the ad servers use
  *  to identify the activity. This is optional: if empty, a new tag string will
  *  be generated for you. This string must be 1 to 8 characters long, with valid
- *  characters being [a-z][A-Z][0-9][-][ _ ]. This tag string must also be
- *  unique among activities of the same activity group. This field is read-only
- *  after insertion.
+ *  characters being a-z0-9[ _ ]. This tag string must also be unique among
+ *  activities of the same activity group. This field is read-only after
+ *  insertion.
  */
 @property(nonatomic, copy, nullable) NSString *tagString;
 
@@ -9388,10 +9264,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Value of the type= parameter in the floodlight tag, which the ad servers use
  *  to identify the activity group that the activity belongs to. This is
  *  optional: if empty, a new tag string will be generated for you. This string
- *  must be 1 to 8 characters long, with valid characters being
- *  [a-z][A-Z][0-9][-][ _ ]. This tag string must also be unique among activity
- *  groups of the same floodlight configuration. This field is read-only after
- *  insertion.
+ *  must be 1 to 8 characters long, with valid characters being a-z0-9[ _ ].
+ *  This tag string must also be unique among activity groups of the same
+ *  floodlight configuration. This field is read-only after insertion.
  */
 @property(nonatomic, copy, nullable) NSString *tagString;
 
@@ -10938,7 +10813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createdInfo;
 
 /**
- *  Effective date of this order document.
+ *  effectiveDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -10962,7 +10837,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /** List of email addresses that received the last sent document. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *lastSentRecipients;
 
-/** Timestamp of the last email sent with this order document. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSentTime;
 
 /**
@@ -11371,8 +11245,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) GTLRDfareporting_LookbackConfiguration *lookbackConfiguration;
 
 /**
- *  Name of this placement.This is a required field and must be less than 256
- *  characters long.
+ *  Name of this placement.This is a required field and must be less than or
+ *  equal to 256 characters long.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -11491,23 +11365,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Tag formats to generate for this placement. This field is required on
- *  insertion.
- *  Acceptable values are:
- *  - "PLACEMENT_TAG_STANDARD"
- *  - "PLACEMENT_TAG_IFRAME_JAVASCRIPT"
- *  - "PLACEMENT_TAG_IFRAME_ILAYER"
- *  - "PLACEMENT_TAG_INTERNAL_REDIRECT"
- *  - "PLACEMENT_TAG_JAVASCRIPT"
- *  - "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT"
- *  - "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT"
- *  - "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT"
- *  - "PLACEMENT_TAG_CLICK_COMMANDS"
- *  - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH"
- *  - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3"
- *  - "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4"
- *  - "PLACEMENT_TAG_TRACKING"
- *  - "PLACEMENT_TAG_TRACKING_IFRAME"
- *  - "PLACEMENT_TAG_TRACKING_JAVASCRIPT"
+ *  insertion. Acceptable values are: - "PLACEMENT_TAG_STANDARD" -
+ *  "PLACEMENT_TAG_IFRAME_JAVASCRIPT" - "PLACEMENT_TAG_IFRAME_ILAYER" -
+ *  "PLACEMENT_TAG_INTERNAL_REDIRECT" - "PLACEMENT_TAG_JAVASCRIPT" -
+ *  "PLACEMENT_TAG_INTERSTITIAL_IFRAME_JAVASCRIPT" -
+ *  "PLACEMENT_TAG_INTERSTITIAL_INTERNAL_REDIRECT" -
+ *  "PLACEMENT_TAG_INTERSTITIAL_JAVASCRIPT" - "PLACEMENT_TAG_CLICK_COMMANDS" -
+ *  "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH" -
+ *  "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_3" -
+ *  "PLACEMENT_TAG_INSTREAM_VIDEO_PREFETCH_VAST_4" - "PLACEMENT_TAG_TRACKING" -
+ *  "PLACEMENT_TAG_TRACKING_IFRAME" - "PLACEMENT_TAG_TRACKING_JAVASCRIPT"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagFormats;
 
@@ -11537,9 +11404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /**
  *  VPAID adapter setting for this placement. Controls which VPAID format the
  *  measurement adapter will use for in-stream video creatives assigned to this
- *  placement.
- *  Note: Flash is no longer supported. This field now defaults to HTML5 when
- *  the following values are provided: FLASH, BOTH.
+ *  placement. *Note:* Flash is no longer supported. This field now defaults to
+ *  HTML5 when the following values are provided: FLASH, BOTH.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Placement_VpaidAdapterChoice_Both Value "BOTH"
@@ -12129,7 +11995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *capCostType;
 
 /**
- *  End date of this inventory item.
+ *  endDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -12183,7 +12049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *pricingType;
 
 /**
- *  Start date of this inventory item.
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -12211,12 +12077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *capCostOption;
 
 /**
- *  Placement end date. This date must be later than, or the same day as, the
- *  placement start date, but not later than the campaign end date. If, for
- *  example, you set 6/25/2015 as both the start and end dates, the effective
- *  placement date is just that day only, 6/25/2015. The hours, minutes, and
- *  seconds of the end date should not be set, as doing so will result in an
- *  error. This field is required on insertion.
+ *  endDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -12261,18 +12122,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *pricingType;
 
 /**
- *  Placement start date. This date must be later than, or the same day as, the
- *  campaign start date. The hours, minutes, and seconds of the start date
- *  should not be set, as doing so will result in an error. This field is
- *  required on insertion.
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startDate;
 
 /**
- *  Testing start date of this placement. The hours, minutes, and seconds of the
- *  start date should not be set, as doing so will result in an error.
+ *  testingStartDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -12287,13 +12144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_PricingSchedulePricingPeriod : GTLRObject
 
 /**
- *  Pricing period end date. This date must be later than, or the same day as,
- *  the pricing period start date, but not later than the placement end date.
- *  The period end date can be the same date as the period start date. If, for
- *  example, you set 6/25/2015 as both the start and end dates, the effective
- *  pricing period date is just that day only, 6/25/2015. The hours, minutes,
- *  and seconds of the end date should not be set, as doing so will result in an
- *  error.
+ *  endDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -12311,9 +12162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *rateOrCostNanos;
 
 /**
- *  Pricing period start date. This date must be later than, or the same day as,
- *  the placement start date. The hours, minutes, and seconds of the start date
- *  should not be set, as doing so will result in an error.
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -12398,7 +12247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *clientName;
 
 /**
- *  End date of the project.
+ *  endDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -12429,7 +12278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *overview;
 
 /**
- *  Start date of the project.
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -12972,9 +12821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
 
 /**
- *  The list of filters on which dimensions are filtered.
- *  Filters for different dimensions are ANDed, filters for the same dimension
- *  are grouped together and ORed.
+ *  The list of filters on which dimensions are filtered. Filters for different
+ *  dimensions are ANDed, filters for the same dimension are grouped together
+ *  and ORed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *dimensionFilters;
 
@@ -13076,9 +12925,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
 
 /**
- *  The list of filters on which dimensions are filtered.
- *  Filters for different dimensions are ANDed, filters for the same dimension
- *  are grouped together and ORed.
+ *  The list of filters on which dimensions are filtered. Filters for different
+ *  dimensions are ANDed, filters for the same dimension are grouped together
+ *  and ORed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *dimensionFilters;
 
@@ -13221,9 +13070,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) GTLRDfareporting_DateRange *dateRange;
 
 /**
- *  The list of filters on which dimensions are filtered.
- *  Filters for different dimensions are ANDed, filters for the same dimension
- *  are grouped together and ORed.
+ *  The list of filters on which dimensions are filtered. Filters for different
+ *  dimensions are ANDed, filters for the same dimension are grouped together
+ *  and ORed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_DimensionValue *> *dimensionFilters;
 
@@ -13272,17 +13121,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *every;
 
 /**
- *  The expiration date when the scheduled report stops running.
+ *  expirationDate
  *
  *  Date only (yyyy-mm-dd).
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationDate;
 
 /**
- *  The interval for which the report is repeated. Note:
- *  - "DAILY" also requires field "every" to be set.
- *  - "WEEKLY" also requires fields "every" and "repeatsOnWeekDays" to be set.
- *  - "MONTHLY" also requires fields "every" and "runsOnDayOfMonth" to be set.
+ *  The interval for which the report is repeated. Note: - "DAILY" also requires
+ *  field "every" to be set. - "WEEKLY" also requires fields "every" and
+ *  "repeatsOnWeekDays" to be set. - "MONTHLY" also requires fields "every" and
+ *  "runsOnDayOfMonth" to be set.
  */
 @property(nonatomic, copy, nullable) NSString *repeats;
 
@@ -13292,11 +13141,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 /**
  *  Enum to define for "MONTHLY" scheduled reports whether reports should be
  *  repeated on the same day of the month as "startDate" or the same day of the
- *  week of the month.
- *  Example: If 'startDate' is Monday, April 2nd 2012 (2012-04-02),
- *  "DAY_OF_MONTH" would run subsequent reports on the 2nd of every Month, and
- *  "WEEK_OF_MONTH" would run subsequent reports on the first Monday of the
- *  month.
+ *  week of the month. Example: If 'startDate' is Monday, April 2nd 2012
+ *  (2012-04-02), "DAY_OF_MONTH" would run subsequent reports on the 2nd of
+ *  every Month, and "WEEK_OF_MONTH" would run subsequent reports on the first
+ *  Monday of the month.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_Report_Schedule_RunsOnDayOfMonth_DayOfMonth
@@ -13307,7 +13155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, copy, nullable) NSString *runsOnDayOfMonth;
 
 /**
- *  Start date of date range for which scheduled reports should be run.
+ *  startDate
  *
  *  Date only (yyyy-mm-dd).
  */
@@ -13530,39 +13378,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  Report generation time zone ID of this account. This is a required field
- *  that can only be changed by a superuser.
- *  Acceptable values are:
- *  - "1" for "America/New_York"
- *  - "2" for "Europe/London"
- *  - "3" for "Europe/Paris"
- *  - "4" for "Africa/Johannesburg"
- *  - "5" for "Asia/Jerusalem"
- *  - "6" for "Asia/Shanghai"
- *  - "7" for "Asia/Hong_Kong"
- *  - "8" for "Asia/Tokyo"
- *  - "9" for "Australia/Sydney"
- *  - "10" for "Asia/Dubai"
- *  - "11" for "America/Los_Angeles"
- *  - "12" for "Pacific/Auckland"
- *  - "13" for "America/Sao_Paulo"
- *  - "16" for "America/Asuncion"
- *  - "17" for "America/Chicago"
- *  - "18" for "America/Denver"
- *  - "19" for "America/St_Johns"
- *  - "20" for "Asia/Dhaka"
- *  - "21" for "Asia/Jakarta"
- *  - "22" for "Asia/Kabul"
- *  - "23" for "Asia/Karachi"
- *  - "24" for "Asia/Calcutta"
- *  - "25" for "Asia/Pyongyang"
- *  - "26" for "Asia/Rangoon"
- *  - "27" for "Atlantic/Cape_Verde"
- *  - "28" for "Atlantic/South_Georgia"
- *  - "29" for "Australia/Adelaide"
- *  - "30" for "Australia/Lord_Howe"
- *  - "31" for "Europe/Moscow"
- *  - "32" for "Pacific/Kiritimati"
- *  - "35" for "Pacific/Norfolk"
+ *  that can only be changed by a superuser. Acceptable values are: - "1" for
+ *  "America/New_York" - "2" for "Europe/London" - "3" for "Europe/Paris" - "4"
+ *  for "Africa/Johannesburg" - "5" for "Asia/Jerusalem" - "6" for
+ *  "Asia/Shanghai" - "7" for "Asia/Hong_Kong" - "8" for "Asia/Tokyo" - "9" for
+ *  "Australia/Sydney" - "10" for "Asia/Dubai" - "11" for "America/Los_Angeles"
+ *  - "12" for "Pacific/Auckland" - "13" for "America/Sao_Paulo" - "16" for
+ *  "America/Asuncion" - "17" for "America/Chicago" - "18" for "America/Denver"
+ *  - "19" for "America/St_Johns" - "20" for "Asia/Dhaka" - "21" for
+ *  "Asia/Jakarta" - "22" for "Asia/Kabul" - "23" for "Asia/Karachi" - "24" for
+ *  "Asia/Calcutta" - "25" for "Asia/Pyongyang" - "26" for "Asia/Rangoon" - "27"
+ *  for "Atlantic/Cape_Verde" - "28" for "Atlantic/South_Georgia" - "29" for
+ *  "Australia/Adelaide" - "30" for "Australia/Lord_Howe" - "31" for
+ *  "Europe/Moscow" - "32" for "Pacific/Kiritimati" - "35" for "Pacific/Norfolk"
  *  - "36" for "Pacific/Tongatapu"
  *
  *  Uses NSNumber of longLongValue.
@@ -13732,7 +13560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *companionsDisabled;
 
 /**
- *  Whitelist of companion sizes to be served via this site template. Set this
+ *  Allowlist of companion sizes to be served via this site template. Set this
  *  list to null or empty to serve all companion sizes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_Size *> *enabledSizes;
@@ -13848,9 +13676,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  format the measurement adapter will use for in-stream video creatives
  *  assigned to the placement. The publisher's specifications will typically
  *  determine this setting. For VPAID creatives, the adapter format will match
- *  the VPAID format (HTML5 VPAID creatives use the HTML5 adapter).
- *  Note: Flash is no longer supported. This field now defaults to HTML5 when
- *  the following values are provided: FLASH, BOTH.
+ *  the VPAID format (HTML5 VPAID creatives use the HTML5 adapter). *Note:*
+ *  Flash is no longer supported. This field now defaults to HTML5 when the
+ *  following values are provided: FLASH, BOTH.
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_SiteSettings_VpaidAdapterChoiceTemplate_Both
@@ -13937,7 +13765,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_SiteTranscodeSetting : GTLRObject
 
 /**
- *  Whitelist of video formats to be served to this site template. Set this list
+ *  Allowlist of video formats to be served to this site template. Set this list
  *  to null or empty to serve all video formats.
  *
  *  Uses NSNumber of intValue.
@@ -14766,7 +14594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_TranscodeSetting : GTLRObject
 
 /**
- *  Whitelist of video formats to be served to this placement. Set this list to
+ *  Allowlist of video formats to be served to this placement. Set this list to
  *  null or empty to serve all video formats.
  *
  *  Uses NSNumber of intValue.
@@ -14792,7 +14620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
  *  Registry used for the Ad ID value.
  *
  *  Likely values:
- *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_AdIdOrg Value "AD_ID.ORG"
+ *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_AdIdOfficial Value
+ *        "AD_ID_OFFICIAL"
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Clearcast Value
  *        "CLEARCAST"
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Dcm Value "DCM"

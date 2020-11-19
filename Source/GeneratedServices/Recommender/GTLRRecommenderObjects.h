@@ -898,7 +898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  */
 @interface GTLRRecommender_GoogleTypeMoney : GTLRObject
 
-/** The 3-letter currency code defined in ISO 4217. */
+/** The three-letter currency code defined in ISO 4217. */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**

@@ -23,13 +23,16 @@
 
 @class GTLRBinaryAuthorization_AdmissionRule;
 @class GTLRBinaryAuthorization_AdmissionWhitelistPattern;
+@class GTLRBinaryAuthorization_AttestationOccurrence;
 @class GTLRBinaryAuthorization_Attestor;
 @class GTLRBinaryAuthorization_AttestorPublicKey;
 @class GTLRBinaryAuthorization_Binding;
 @class GTLRBinaryAuthorization_Expr;
 @class GTLRBinaryAuthorization_IamPolicy;
+@class GTLRBinaryAuthorization_Jwt;
 @class GTLRBinaryAuthorization_PkixPublicKey;
 @class GTLRBinaryAuthorization_Policy_ClusterAdmissionRules;
+@class GTLRBinaryAuthorization_Signature;
 @class GTLRBinaryAuthorization_UserOwnedGrafeasNote;
 
 // Generated comments include content from the discovery document; avoid them
@@ -211,6 +214,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
  */
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse.result
+
+/**
+ *  The Attestation was not able to verified by the Attestor.
+ *
+ *  Value: "ATTESTATION_NOT_VERIFIABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_AttestationNotVerifiable;
+/**
+ *  Unspecified.
+ *
+ *  Value: "RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_ResultUnspecified;
+/**
+ *  The Attestation was able to verified by the Attestor.
+ *
+ *  Value: "VERIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_Verified;
+
 /**
  *  An admission rule specifies either that all container images used in a pod
  *  creation request must be attested to by one or more attestors, that all pod
@@ -274,11 +299,55 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 @interface GTLRBinaryAuthorization_AdmissionWhitelistPattern : GTLRObject
 
 /**
- *  An image name pattern to whitelist, in the form `registry/path/to/image`.
+ *  An image name pattern to allowlist, in the form `registry/path/to/image`.
  *  This supports a trailing `*` as a wildcard, but this is allowed only in text
  *  after the `registry/` part.
  */
 @property(nonatomic, copy, nullable) NSString *namePattern;
+
+@end
+
+
+/**
+ *  Occurrence that represents a single "attestation". The authenticity of an
+ *  attestation can be verified using the attached signature. If the verifier
+ *  trusts the public key of the signer, then verifying the signature is
+ *  sufficient to establish trust. In this circumstance, the authority to which
+ *  this attestation is attached is primarily useful for lookup (how to find
+ *  this attestation if you already know the authority and artifact to be
+ *  verified) and intent (for which authority this attestation was intended to
+ *  sign.
+ */
+@interface GTLRBinaryAuthorization_AttestationOccurrence : GTLRObject
+
+/**
+ *  One or more JWTs encoding a self-contained attestation. Each JWT encodes the
+ *  payload that it verifies within the JWT itself. Verifier implementation
+ *  SHOULD ignore the `serialized_payload` field when verifying these JWTs. If
+ *  only JWTs are present on this AttestationOccurrence, then the
+ *  `serialized_payload` SHOULD be left empty. Each JWT SHOULD encode a claim
+ *  specific to the `resource_uri` of this Occurrence, but this is not validated
+ *  by Grafeas metadata API implementations. The JWT itself is opaque to
+ *  Grafeas.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_Jwt *> *jwts;
+
+/**
+ *  Required. The serialized payload that is verified by one or more
+ *  `signatures`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *serializedPayload;
+
+/**
+ *  One or more signatures over `serialized_payload`. Verifier implementations
+ *  should consider this attestation message verified if at least one
+ *  `signature` verifies `serialized_payload`. See `Signature` in common.proto
+ *  for more details on signature structure and verification.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_Signature *> *signatures;
 
 @end
 
@@ -362,10 +431,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
  */
 @interface GTLRBinaryAuthorization_Binding : GTLRObject
 
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
 @property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
@@ -563,6 +628,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 
 
 /**
+ *  GTLRBinaryAuthorization_Jwt
+ */
+@interface GTLRBinaryAuthorization_Jwt : GTLRObject
+
+/**
+ *  The compact encoding of a JWS, which is always three base64 encoded strings
+ *  joined by periods. For details, see:
+ *  https://tools.ietf.org/html/rfc7515.html#section-3.1
+ */
+@property(nonatomic, copy, nullable) NSString *compactJwt;
+
+@end
+
+
+/**
  *  Response message for BinauthzManagementService.ListAttestors.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -666,7 +746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 @interface GTLRBinaryAuthorization_Policy : GTLRObject
 
 /**
- *  Optional. Admission policy whitelisting. A matching admission request will
+ *  Optional. Admission policy allowlisting. A matching admission request will
  *  always be permitted. This feature is typically used to exclude Google or
  *  third-party infrastructure images from Binary Authorization policies.
  */
@@ -755,6 +835,58 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
 
 
 /**
+ *  Verifiers (e.g. Kritis implementations) MUST verify signatures with respect
+ *  to the trust anchors defined in policy (e.g. a Kritis policy). Typically
+ *  this means that the verifier has been configured with a map from
+ *  `public_key_id` to public key material (and any required parameters, e.g.
+ *  signing algorithm). In particular, verification implementations MUST NOT
+ *  treat the signature `public_key_id` as anything more than a key lookup hint.
+ *  The `public_key_id` DOES NOT validate or authenticate a public key; it only
+ *  provides a mechanism for quickly selecting a public key ALREADY CONFIGURED
+ *  on the verifier through a trusted channel. Verification implementations MUST
+ *  reject signatures in any of the following circumstances: * The
+ *  `public_key_id` is not recognized by the verifier. * The public key that
+ *  `public_key_id` refers to does not verify the signature with respect to the
+ *  payload. The `signature` contents SHOULD NOT be "attached" (where the
+ *  payload is included with the serialized `signature` bytes). Verifiers MUST
+ *  ignore any "attached" payload and only verify signatures with respect to
+ *  explicitly provided payload (e.g. a `payload` field on the proto message
+ *  that holds this Signature, or the canonical serialization of the proto
+ *  message that holds this signature).
+ */
+@interface GTLRBinaryAuthorization_Signature : GTLRObject
+
+/**
+ *  The identifier for the public key that verifies this signature. * The
+ *  `public_key_id` is required. * The `public_key_id` SHOULD be an RFC3986
+ *  conformant URI. * When possible, the `public_key_id` SHOULD be an immutable
+ *  reference, such as a cryptographic digest. Examples of valid
+ *  `public_key_id`s: OpenPGP V4 public key fingerprint: *
+ *  "openpgp4fpr:74FAF3B861BDA0870C7B6DEF607E48D2A663AEEA" See
+ *  https://www.iana.org/assignments/uri-schemes/prov/openpgp4fpr for more
+ *  details on this scheme. RFC6920 digest-named SubjectPublicKeyInfo (digest of
+ *  the DER serialization): *
+ *  "ni:///sha-256;cD9o9Cq6LG3jD0iKXqEi_vdjJGecm_iXkbqVoScViaU" *
+ *  "nih:///sha-256;703f68f42aba2c6de30f488a5ea122fef76324679c9bf89791ba95a1271589a5"
+ */
+@property(nonatomic, copy, nullable) NSString *publicKeyId;
+
+/**
+ *  The content of the signature, an opaque bytestring. The payload that this
+ *  signature verifies MUST be unambiguously provided with the Signature during
+ *  verification. A wrapper message might provide the payload explicitly.
+ *  Alternatively, a message might have a canonical serialization that can
+ *  always be unambiguously computed to derive the payload.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *signature;
+
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRBinaryAuthorization_TestIamPermissionsRequest : GTLRObject
@@ -817,6 +949,59 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyE
  *  attestor always returns that no valid attestations exist.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBinaryAuthorization_AttestorPublicKey *> *publicKeys;
+
+@end
+
+
+/**
+ *  Request message for ValidationHelperV1.ValidateAttestationOccurrence.
+ */
+@interface GTLRBinaryAuthorization_ValidateAttestationOccurrenceRequest : GTLRObject
+
+/**
+ *  Required. An AttestationOccurrence to be checked that it can be verified by
+ *  the Attestor. It does not have to be an existing entity in Container
+ *  Analysis. It must otherwise be a valid AttestationOccurrence.
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_AttestationOccurrence *attestation;
+
+/**
+ *  Required. The resource name of the Note to which the containing Occurrence
+ *  is associated.
+ */
+@property(nonatomic, copy, nullable) NSString *occurrenceNote;
+
+/**
+ *  Required. The URI of the artifact (e.g. container image) that is the subject
+ *  of the containing Occurrence.
+ */
+@property(nonatomic, copy, nullable) NSString *occurrenceResourceUri;
+
+@end
+
+
+/**
+ *  Response message for ValidationHelperV1.ValidateAttestationOccurrence.
+ */
+@interface GTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse : GTLRObject
+
+/** The reason for denial if the Attestation couldn't be validated. */
+@property(nonatomic, copy, nullable) NSString *denialReason;
+
+/**
+ *  The result of the Attestation validation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_AttestationNotVerifiable
+ *        The Attestation was not able to verified by the Attestor. (Value:
+ *        "ATTESTATION_NOT_VERIFIABLE")
+ *    @arg @c kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_ResultUnspecified
+ *        Unspecified. (Value: "RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_Result_Verified
+ *        The Attestation was able to verified by the Attestor. (Value:
+ *        "VERIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *result;
 
 @end
 

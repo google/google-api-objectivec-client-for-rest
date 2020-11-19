@@ -4,7 +4,7 @@
 // API:
 //   Cloud DNS API (dns/v1)
 // Documentation:
-//   http://developers.google.com/cloud-dns
+//   https://cloud.google.com/dns/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -78,7 +78,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -93,7 +93,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param object The @c GTLRDns_Change to include in the query.
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ChangesCreate
  */
@@ -133,7 +133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -147,7 +147,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *  @param changeId The identifier of the requested change, from a previous
  *    ResourceRecordSetsChangeResponse.
  *
@@ -176,7 +176,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -216,7 +216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ChangesList
  *
@@ -263,7 +263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -277,7 +277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *  @param dnsKeyId The identifier of the requested DnsKey.
  *
  *  @return GTLRDnsQuery_DnsKeysGet
@@ -312,7 +312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -338,7 +338,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_DnsKeysList
  *
@@ -523,7 +523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -538,7 +538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ManagedZonesDelete
  */
@@ -571,7 +571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -585,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ManagedZonesGet
  */
@@ -666,7 +666,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -681,7 +681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ManagedZonesPatch
  */
@@ -713,7 +713,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -728,7 +728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param object The @c GTLRDns_ManagedZone to include in the query.
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ManagedZonesUpdate
  */
@@ -1055,7 +1055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or id.
+ *  zone name or ID.
  */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
@@ -1093,7 +1093,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or id.
+ *    Can be the managed zone name or ID.
  *
  *  @return GTLRDnsQuery_ResourceRecordSetsList
  *

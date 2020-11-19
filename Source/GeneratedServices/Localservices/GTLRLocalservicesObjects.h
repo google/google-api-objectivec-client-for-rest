@@ -92,6 +92,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
  */
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
+/** Aggregator specific information related to the account. */
+@property(nonatomic, strong, nullable) GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1AggregatorInfo *aggregatorInfo;
+
 /**
  *  Average review rating score from 1-5 stars.
  *

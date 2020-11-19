@@ -601,6 +601,16 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTesting_IosDeviceFile
+//
+
+@implementation GTLRTesting_IosDeviceFile
+@dynamic bundleId, content, devicePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTesting_IosDeviceList
 //
 
@@ -685,11 +695,13 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_IosTestSetup
-@dynamic additionalIpas, networkProfile;
+@dynamic additionalIpas, networkProfile, pullDirectories, pushFiles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"additionalIpas" : [GTLRTesting_FileReference class]
+    @"additionalIpas" : [GTLRTesting_FileReference class],
+    @"pullDirectories" : [GTLRTesting_IosDeviceFile class],
+    @"pushFiles" : [GTLRTesting_IosDeviceFile class]
   };
   return map;
 }
@@ -995,9 +1007,9 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_TestMatrix
-@dynamic clientInfo, environmentMatrix, flakyTestAttempts, invalidMatrixDetails,
-         outcomeSummary, projectId, resultStorage, state, testExecutions,
-         testMatrixId, testSpecification, timestamp;
+@dynamic clientInfo, environmentMatrix, failFast, flakyTestAttempts,
+         invalidMatrixDetails, outcomeSummary, projectId, resultStorage, state,
+         testExecutions, testMatrixId, testSpecification, timestamp;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

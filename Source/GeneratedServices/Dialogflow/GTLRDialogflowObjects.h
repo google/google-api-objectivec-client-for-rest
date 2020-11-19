@@ -45,9 +45,32 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_Payload;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudio;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Agent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart;
-@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType;
@@ -169,6 +192,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_Payload;
+@class GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_WebhookHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_DiagnosticInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2QueryResult_Parameters;
@@ -252,6 +276,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Replace;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo.state
+
+/**
+ *  Indicates that the parameter does not have a value.
+ *
+ *  Value: "EMPTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Empty;
+/**
+ *  Indicates that the parameter has a value.
+ *
+ *  Value: "FILLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Filled;
+/**
+ *  Indicates that the parameter value is invalid. This field can be used by the
+ *  webhook to invalidate the parameter and ask the server to collect it from
+ *  the user again.
+ *
+ *  Value: "INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Invalid;
+/**
+ *  Not specified. This value should be never used.
+ *
+ *  Value: "PARAMETER_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_ParameterStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse.mergeBehavior
+
+/**
+ *  `messages` will be appended to the list of messages waiting to be sent to
+ *  the user.
+ *
+ *  Value: "APPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Append;
+/**
+ *  Not specified. `APPEND` will be used.
+ *
+ *  Value: "MERGE_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified;
+/**
+ *  `messages` will replace the list of messages waiting to be sent to the user.
+ *
+ *  Value: "REPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Replace;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Agent.apiVersion
@@ -1602,20 +1679,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The response message for Agents.ImportAgent.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportAgentResponse : GTLRObject
-
-/**
- *  The unique identifier of the new agent. Format:
- *  `projects//locations//agents/`.
- */
-@property(nonatomic, copy, nullable) NSString *agent;
-
-@end
-
-
-/**
  *  Represents page information communicated to and from the webhook.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1PageInfo : GTLRObject
@@ -2216,6 +2279,606 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
+ *  Represents page information communicated to and from the webhook.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo : GTLRObject
+
+/**
+ *  Always present for WebhookRequest. Ignored for WebhookResponse. The unique
+ *  identifier of the current page. Format:
+ *  `projects//locations//agents//flows//pages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *currentPage;
+
+/**
+ *  Optional for both WebhookRequest and WebhookResponse. Information about the
+ *  form.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfo *formInfo;
+
+@end
+
+
+/**
+ *  Represents form information.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfo : GTLRObject
+
+/**
+ *  Optional for both WebhookRequest and WebhookResponse. The parameters
+ *  contained in the form. Note that the webhook cannot add or remove any form
+ *  parameter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo *> *parameterInfo;
+
+@end
+
+
+/**
+ *  Represents parameter information.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo : GTLRObject
+
+/**
+ *  Always present for WebhookRequest. Required for WebhookResponse. The
+ *  human-readable name of the parameter, unique within the form. This field
+ *  cannot be modified by the webhook.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional for WebhookRequest. Ignored for WebhookResponse. Indicates if the
+ *  parameter value was just collected on the last conversation turn.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *justCollected;
+
+/**
+ *  Optional for both WebhookRequest and WebhookResponse. Indicates whether the
+ *  parameter is required. Optional parameters will not trigger prompts;
+ *  however, they are filled if the user specifies them. Required parameters
+ *  must be filled before form filling concludes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *required;
+
+/**
+ *  Always present for WebhookRequest. Required for WebhookResponse. The state
+ *  of the parameter. This field can be set to INVALID by the webhook to
+ *  invalidate the parameter; other values set by the webhook will be ignored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Empty
+ *        Indicates that the parameter does not have a value. (Value: "EMPTY")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Filled
+ *        Indicates that the parameter has a value. (Value: "FILLED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Invalid
+ *        Indicates that the parameter value is invalid. This field can be used
+ *        by the webhook to invalidate the parameter and ask the server to
+ *        collect it from the user again. (Value: "INVALID")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_ParameterStateUnspecified
+ *        Not specified. This value should be never used. (Value:
+ *        "PARAMETER_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional for both WebhookRequest and WebhookResponse. The value of the
+ *  parameter. This field can be set by the webhook to change the parameter
+ *  value.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id value;
+
+@end
+
+
+/**
+ *  Represents a response message that can be returned by a conversational
+ *  agent. Response messages are also used for output audio synthesis. The
+ *  approach is as follows: * If at least one OutputAudioText response is
+ *  present, then all OutputAudioText responses are linearly concatenated, and
+ *  the result is used for output audio synthesis. * If the OutputAudioText
+ *  responses are a mixture of text and SSML, then the concatenated result is
+ *  treated as SSML; otherwise, the result is treated as either text or SSML as
+ *  appropriate. The agent designer should ideally use either text or SSML
+ *  consistently throughout the bot design. * Otherwise, all Text responses are
+ *  linearly concatenated, and the result is used for output audio synthesis.
+ *  This approach allows for more sophisticated user experience scenarios, where
+ *  the text displayed to the user may differ from what is heard.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage : GTLRObject
+
+/** Indicates that the conversation succeeded. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess *conversationSuccess;
+
+/**
+ *  Output only. A signal that indicates the interaction with the Dialogflow
+ *  agent has ended. This message is generated by Dialogflow only when the
+ *  conversation reaches `END_SESSION` or `END_PAGE` page. It is not supposed to
+ *  be defined by the user. It's guaranteed that there is at most one such
+ *  message in each response.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction *endInteraction;
+
+/** Hands off conversation to a human agent. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff *liveAgentHandoff;
+
+/**
+ *  Output only. An audio response message composed of both the synthesized
+ *  Dialogflow agent responses and responses defined via play_audio. This
+ *  message is generated by Dialogflow only and not supposed to be defined by
+ *  the user.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudio *mixedAudio;
+
+/**
+ *  A text or ssml response that is preferentially used for TTS output audio
+ *  synthesis, as described in the comment on the ResponseMessage message.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText *outputAudioText;
+
+/** Returns a response containing a custom, platform-specific payload. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_Payload *payload;
+
+/**
+ *  Signal that the client should play an audio clip hosted at a client-specific
+ *  URI. Dialogflow uses this to construct mixed_audio. However, Dialogflow
+ *  itself does not try to read or process the URI in any way.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio *playAudio;
+
+/** Returns a text response. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText *text;
+
+@end
+
+
+/**
+ *  Returns a response containing a custom, platform-specific payload.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_Payload : GTLRObject
+@end
+
+
+/**
+ *  Indicates that the conversation succeeded, i.e., the bot handled the issue
+ *  that the customer talked to it about. Dialogflow only uses this to determine
+ *  which conversations should be counted as successful and doesn't process the
+ *  metadata in this message in any way. Note that Dialogflow also considers
+ *  conversations that get to the conversation end page as successful even if
+ *  they don't return ConversationSuccess. You may set this, for example: * In
+ *  the entry_fulfillment of a Page if entering the page indicates that the
+ *  conversation succeeded. * In a webhook response when you determine that you
+ *  handled the customer issue.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess : GTLRObject
+
+/** Custom metadata. Dialogflow doesn't impose any structure on this. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess_Metadata *metadata;
+
+@end
+
+
+/**
+ *  Custom metadata. Dialogflow doesn't impose any structure on this.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Indicates that interaction with the Dialogflow agent has ended. This message
+ *  is generated by Dialogflow only and not supposed to be defined by the user.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction : GTLRObject
+@end
+
+
+/**
+ *  Indicates that the conversation should be handed off to a live agent.
+ *  Dialogflow only uses this to determine which conversations were handed off
+ *  to a human agent for measurement purposes. What else to do with this signal
+ *  is up to you and your handoff procedures. You may set this, for example: *
+ *  In the entry_fulfillment of a Page if entering the page indicates something
+ *  went extremely wrong in the conversation. * In a webhook response when you
+ *  determine that the customer issue can only be handled by a human.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff : GTLRObject
+
+/**
+ *  Custom metadata for your handoff procedure. Dialogflow doesn't impose any
+ *  structure on this.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff_Metadata *metadata;
+
+@end
+
+
+/**
+ *  Custom metadata for your handoff procedure. Dialogflow doesn't impose any
+ *  structure on this.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents an audio message that is composed of both segments synthesized
+ *  from the Dialogflow agent prompts and ones hosted externally at the
+ *  specified URIs. The external URIs are specified via play_audio. This message
+ *  is generated by Dialogflow only and not supposed to be defined by the user.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudio : GTLRObject
+
+/** Segments this audio response is composed of. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment *> *segments;
+
+@end
+
+
+/**
+ *  Represents one segment of audio.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment : GTLRObject
+
+/**
+ *  Output only. Whether the playback of this segment can be interrupted by the
+ *  end user's speech and the client should then start the next Dialogflow
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
+
+/**
+ *  Raw audio synthesized from the Dialogflow agent's response using the output
+ *  config specified in the request.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *audio;
+
+/**
+ *  Client-specific URI that points to an audio clip accessible to the client.
+ *  Dialogflow does not impose any validation on it.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A text or ssml response that is preferentially used for TTS output audio
+ *  synthesis, as described in the comment on the ResponseMessage message.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText : GTLRObject
+
+/**
+ *  Output only. Whether the playback of this message can be interrupted by the
+ *  end user's speech and the client can then starts the next Dialogflow
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
+
+/**
+ *  The SSML text to be synthesized. For more information, see
+ *  [SSML](/speech/text-to-speech/docs/ssml).
+ */
+@property(nonatomic, copy, nullable) NSString *ssml;
+
+/** The raw text to be synthesized. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Specifies an audio clip to be played by the client as part of the response.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio : GTLRObject
+
+/**
+ *  Output only. Whether the playback of this message can be interrupted by the
+ *  end user's speech and the client can then starts the next Dialogflow
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
+
+/**
+ *  Required. URI of the audio clip. Dialogflow does not impose any validation
+ *  on this value. It is specific to the client that reads it.
+ */
+@property(nonatomic, copy, nullable) NSString *audioUri;
+
+@end
+
+
+/**
+ *  The text response message.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText : GTLRObject
+
+/**
+ *  Output only. Whether the playback of this message can be interrupted by the
+ *  end user's speech and the client can then starts the next Dialogflow
+ *  request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowPlaybackInterruption;
+
+/** Required. A collection of text responses. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+@end
+
+
+/**
+ *  Represents session information communicated to and from the webhook.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo : GTLRObject
+
+/**
+ *  Optional for WebhookRequest. Optional for WebhookResponse. All parameters
+ *  collected from forms and intents during the session. Parameters can be
+ *  created, updated, or removed by the webhook. To remove a parameter from the
+ *  session, the webhook should explicitly set the parameter value to null in
+ *  WebhookResponse. The map is keyed by parameters' display names.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo_Parameters *parameters;
+
+/**
+ *  Always present for WebhookRequest. Ignored for WebhookResponse. The unique
+ *  identifier of the session. This field can be used by the webhook to identify
+ *  a user. Format: `projects//locations//agents//sessions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *session;
+
+@end
+
+
+/**
+ *  Optional for WebhookRequest. Optional for WebhookResponse. All parameters
+ *  collected from forms and intents during the session. Parameters can be
+ *  created, updated, or removed by the webhook. To remove a parameter from the
+ *  session, the webhook should explicitly set the parameter value to null in
+ *  WebhookResponse. The map is keyed by parameters' display names.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo_Parameters : GTLRObject
+@end
+
+
+/**
+ *  The request message for a webhook call.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest : GTLRObject
+
+/**
+ *  Always present. The unique identifier of the DetectIntentResponse that will
+ *  be returned to the API caller.
+ */
+@property(nonatomic, copy, nullable) NSString *detectIntentResponseId;
+
+/**
+ *  Always present. Information about the fulfillment that triggered this
+ *  webhook call.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo *fulfillmentInfo;
+
+/** Information about the last matched intent. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo *intentInfo;
+
+/**
+ *  The list of rich message responses to present to the user. Webhook can
+ *  choose to append or replace this list in
+ *  WebhookResponse.fulfillment_response;
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage *> *messages;
+
+/** Information about page status. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo *pageInfo;
+
+/** Custom data set in QueryParameters.payload. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload *payload;
+
+/** Information about session status. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo *sessionInfo;
+
+@end
+
+
+/**
+ *  Custom data set in QueryParameters.payload.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload : GTLRObject
+@end
+
+
+/**
+ *  Represents fulfillment information communicated to the webhook.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo : GTLRObject
+
+/**
+ *  Always present. The tag used to identify which fulfillment is being called.
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Represents intent information communicated to the webhook.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo : GTLRObject
+
+/**
+ *  Always present. The unique identifier of the last matched intent. Format:
+ *  `projects//locations//agents//intents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *lastMatchedIntent;
+
+/**
+ *  Parameters identified as a result of intent matching. This is a map of the
+ *  name of the identified parameter to the value of the parameter identified
+ *  from the user's utterance. All parameters defined in the matched intent that
+ *  are identified will be surfaced here.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo_Parameters *parameters;
+
+@end
+
+
+/**
+ *  Parameters identified as a result of intent matching. This is a map of the
+ *  name of the identified parameter to the value of the parameter identified
+ *  from the user's utterance. All parameters defined in the matched intent that
+ *  are identified will be surfaced here.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Represents a value for an intent parameter.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue : GTLRObject
+
+/** Always present. Original text value extracted from user utterance. */
+@property(nonatomic, copy, nullable) NSString *originalValue;
+
+/**
+ *  Always present. Structured value for the parameter extracted from user
+ *  utterance.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id resolvedValue;
+
+@end
+
+
+/**
+ *  The response message for a webhook call.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse : GTLRObject
+
+/**
+ *  The fulfillment response to send to the user. This field can be omitted by
+ *  the webhook if it does not intend to send any response to the user.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse *fulfillmentResponse;
+
+/**
+ *  Information about page status. This field can be omitted by the webhook if
+ *  it does not intend to modify page status.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo *pageInfo;
+
+/** Value to append directly to QueryResult.webhook_payloads. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload *payload;
+
+/**
+ *  Information about session status. This field can be omitted by the webhook
+ *  if it does not intend to modify session status.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo *sessionInfo;
+
+/**
+ *  The target flow to transition to. Format:
+ *  `projects//locations//agents//flows/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetFlow;
+
+/**
+ *  The target page to transition to. Format:
+ *  `projects//locations//agents//flows//pages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetPage;
+
+@end
+
+
+/**
+ *  Value to append directly to QueryResult.webhook_payloads.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload : GTLRObject
+@end
+
+
+/**
+ *  Represents a fulfillment response to the user.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse : GTLRObject
+
+/**
+ *  Merge behavior for `messages`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Append
+ *        `messages` will be appended to the list of messages waiting to be sent
+ *        to the user. (Value: "APPEND")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified
+ *        Not specified. `APPEND` will be used. (Value:
+ *        "MERGE_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Replace
+ *        `messages` will replace the list of messages waiting to be sent to the
+ *        user. (Value: "REPLACE")
+ */
+@property(nonatomic, copy, nullable) NSString *mergeBehavior;
+
+/** The list of rich message responses to present to the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage *> *messages;
+
+@end
+
+
+/**
  *  A Dialogflow agent is a virtual agent that handles conversations with your
  *  end-users. It is a natural language understanding module that understands
  *  the nuances of human language. Dialogflow translates end-user text or audio
@@ -2566,92 +3229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 /** The collection of updated or created intents. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Intent *> *intents;
-
-@end
-
-
-/**
- *  Represents an annotated conversation dataset. ConversationDataset can have
- *  multiple AnnotatedConversationDataset, each of them represents one result
- *  from one annotation task. AnnotatedConversationDataset can only be generated
- *  from annotation task, which will be triggered by LabelConversation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset : GTLRObject
-
-/**
- *  Output only. Number of examples that have annotations in the annotated
- *  conversation dataset.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *completedExampleCount;
-
-/** Output only. Creation time of this annotated conversation dataset. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. The description of the annotated conversation dataset. Maximum of
- *  10000 bytes.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Required. The display name of the annotated conversation dataset. It's
- *  specified when user starts an annotation task. Maximum of 64 bytes.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. Number of examples in the annotated conversation dataset.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *exampleCount;
-
-/**
- *  Output only. AnnotatedConversationDataset resource name. Format:
- *  `projects//conversationDatasets//annotatedConversationDatasets/`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. Question type name that identifies a labeling task. A question
- *  is a single task that a worker answers. A question type is set of related
- *  questions. Each question belongs to a particular question type. It can be
- *  used in CrowdCompute UI to filter and manage labeling tasks.
- */
-@property(nonatomic, copy, nullable) NSString *questionTypeName;
-
-@end
-
-
-/**
- *  Response message for [Documents.AutoApproveSmartMessagingEntries].
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AutoApproveSmartMessagingEntriesResponse : GTLRObject
-
-/**
- *  Number of smart messaging entries disabled.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disabledCount;
-
-/**
- *  Number of smart messaging entries enabled.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabledCount;
-
-/**
- *  Number of smart messaging entries unreviewed.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *unreviewedCount;
 
 @end
 
@@ -4341,17 +4918,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  The response for ConversationDatasets.LabelConversation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1LabelConversationResponse : GTLRObject
-
-/** New annotated conversation dataset created by the labeling task. */
-@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset *annotatedConversationDataset;
-
-@end
-
-
-/**
  *  Represents the contents of the original request that was passed to the
  *  `[Streaming]DetectIntent` call.
  */
@@ -4611,10 +5177,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  The result of sentiment analysis. Sentiment analysis inspects user input and
  *  identifies the prevailing subjective opinion, especially to determine a
  *  user's attitude as positive, negative, or neutral. For
- *  Participants.AnalyzeContent, it needs to be configured in
- *  DetectIntentRequest.query_params. For Participants.StreamingAnalyzeContent,
- *  it needs to be configured in StreamingDetectIntentRequest.query_params. And
- *  for Participants.AnalyzeContent and Participants.StreamingAnalyzeContent, it
+ *  Participants.DetectIntent, it needs to be configured in
+ *  DetectIntentRequest.query_params. For Participants.StreamingDetectIntent, it
+ *  needs to be configured in StreamingDetectIntentRequest.query_params. And for
+ *  Participants.AnalyzeContent and Participants.StreamingAnalyzeContent, it
  *  needs to be configured in ConversationProfile.human_agent_assistant_config
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult : GTLRObject
@@ -6940,6 +7506,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
+/**
+ *  This field can be used to pass HTTP headers for a webhook call. These
+ *  headers will be sent to webhook along with the headers that have been
+ *  configured through Dialogflow web console. The headers defined within this
+ *  field will overwrite the headers configured through Dialogflow console if
+ *  there is a conflict. Header names are case-insensitive. Google's specified
+ *  headers are not allowed. Including: "Host", "Content-Length", "Connection",
+ *  "From", "User-Agent", "Accept-Encoding", "If-Modified-Since",
+ *  "If-None-Match", "X-Forwarded-For", etc.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_WebhookHeaders *webhookHeaders;
+
 @end
 
 
@@ -6955,6 +7533,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_Payload : GTLRObject
+@end
+
+
+/**
+ *  This field can be used to pass HTTP headers for a webhook call. These
+ *  headers will be sent to webhook along with the headers that have been
+ *  configured through Dialogflow web console. The headers defined within this
+ *  field will overwrite the headers configured through Dialogflow console if
+ *  there is a conflict. Header names are case-insensitive. Google's specified
+ *  headers are not allowed. Including: "Host", "Content-Length", "Connection",
+ *  "From", "User-Agent", "Accept-Encoding", "If-Modified-Since",
+ *  "If-None-Match", "X-Forwarded-For", etc.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_WebhookHeaders : GTLRObject
 @end
 
 
@@ -7226,10 +7823,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
  *  The result of sentiment analysis. Sentiment analysis inspects user input and
  *  identifies the prevailing subjective opinion, especially to determine a
  *  user's attitude as positive, negative, or neutral. For
- *  Participants.AnalyzeContent, it needs to be configured in
- *  DetectIntentRequest.query_params. For Participants.StreamingAnalyzeContent,
- *  it needs to be configured in StreamingDetectIntentRequest.query_params. And
- *  for Participants.AnalyzeContent and Participants.StreamingAnalyzeContent, it
+ *  Participants.DetectIntent, it needs to be configured in
+ *  DetectIntentRequest.query_params. For Participants.StreamingDetectIntent, it
+ *  needs to be configured in StreamingDetectIntentRequest.query_params. And for
+ *  Participants.AnalyzeContent and Participants.StreamingAnalyzeContent, it
  *  needs to be configured in ConversationProfile.human_agent_assistant_config
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult : GTLRObject
@@ -7622,107 +8219,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  Metadata associated with the long running operation for
- *  Versions.CreateVersion.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateVersionOperationMetadata : GTLRObject
-
-/**
- *  Name of the created version. Format:
- *  `projects//locations//agents//flows//versions/`.
- */
-@property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
- *  The response message for Agents.ExportAgent.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportAgentResponse : GTLRObject
-
-/**
- *  Uncompressed raw byte content for agent.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *agentContent;
-
-/**
- *  The URI to a file containing the exported agent. This field is populated
- *  only if `agent_uri` is specified in ExportAgentRequest.
- */
-@property(nonatomic, copy, nullable) NSString *agentUri;
-
-@end
-
-
-/**
- *  Metadata returned for the TestCases.ExportTestCases long running operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesMetadata : GTLRObject
-@end
-
-
-/**
- *  The response message for TestCases.ExportTestCases.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesResponse : GTLRObject
-
-/**
- *  Uncompressed raw byte content for test cases.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *content;
-
-/**
- *  The URI to a file containing the exported test cases. This field is
- *  populated only if `gcs_uri` is specified in ExportTestCasesRequest.
- */
-@property(nonatomic, copy, nullable) NSString *gcsUri;
-
-@end
-
-
-/**
- *  The response message for Agents.ImportAgent.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportAgentResponse : GTLRObject
-
-/**
- *  The unique identifier of the new agent. Format:
- *  `projects//locations//agents/`.
- */
-@property(nonatomic, copy, nullable) NSString *agent;
-
-@end
-
-
-/**
- *  Metadata returned for the TestCases.ImportTestCases long running operation.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesMetadata : GTLRObject
-@end
-
-
-/**
- *  The response message for TestCases.ImportTestCases.
- */
-@interface GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesResponse : GTLRObject
-
-/**
- *  The unique identifiers of the new test cases. Format:
- *  `projects//locations//agents//testCases/`.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
-
-@end
-
-
-/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7883,8 +8379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceS
 
 
 /**
- *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair of doubles representing degrees latitude and degrees longitude. Unless
+ *  An object that represents a latitude/longitude pair. This is expressed as a
+ *  pair of doubles to represent degrees latitude and degrees longitude. Unless
  *  specified otherwise, this must conform to the WGS84 standard. Values must be
  *  within normalized ranges.
  */

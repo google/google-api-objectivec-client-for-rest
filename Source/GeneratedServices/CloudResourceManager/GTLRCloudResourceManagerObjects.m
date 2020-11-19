@@ -42,6 +42,16 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_M
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeletedViolation = @"PARENT_DELETED_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ResourceDeletedViolation = @"RESOURCE_DELETED_VIOLATION";
 
+// GTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation.operationType
+NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_Create = @"CREATE";
+NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_Move = @"MOVE";
+NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation.operationType
+NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_Create = @"CREATE";
+NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_Move = @"MOVE";
+NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_OperationTypeUnspecified = @"OPERATION_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudResourceManager_AuditConfig
@@ -84,7 +94,7 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_R
 //
 
 @implementation GTLRCloudResourceManager_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -93,6 +103,89 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_R
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_CreateFolderMetadata
+//
+
+@implementation GTLRCloudResourceManager_CreateFolderMetadata
+@dynamic displayName, parent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_CreateProjectMetadata
+//
+
+@implementation GTLRCloudResourceManager_CreateProjectMetadata
+@dynamic createTime, gettable, ready;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_CreateTagKeyMetadata
+//
+
+@implementation GTLRCloudResourceManager_CreateTagKeyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_CreateTagValueMetadata
+//
+
+@implementation GTLRCloudResourceManager_CreateTagValueMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_DeleteFolderMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteFolderMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_DeleteOrganizationMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteOrganizationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_DeleteProjectMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteProjectMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_DeleteTagKeyMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteTagKeyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_DeleteTagValueMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteTagValueMetadata
 @end
 
 
@@ -163,6 +256,26 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_R
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation
+//
+
+@implementation GTLRCloudResourceManager_GoogleCloudResourcemanagerV2alpha1FolderOperation
+@dynamic destinationParent, displayName, operationType, sourceParent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation
+//
+
+@implementation GTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation
+@dynamic destinationParent, displayName, operationType, sourceParent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_ListFoldersResponse
 //
 
@@ -185,11 +298,30 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_R
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_MoveFolderMetadata
+//
+
+@implementation GTLRCloudResourceManager_MoveFolderMetadata
+@dynamic destinationParent, displayName, sourceParent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_MoveFolderRequest
 //
 
 @implementation GTLRCloudResourceManager_MoveFolderRequest
 @dynamic destinationParent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_MoveProjectMetadata
+//
+
+@implementation GTLRCloudResourceManager_MoveProjectMetadata
 @end
 
 
@@ -376,8 +508,89 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_R
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_UndeleteFolderMetadata
+//
+
+@implementation GTLRCloudResourceManager_UndeleteFolderMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_UndeleteFolderRequest
 //
 
 @implementation GTLRCloudResourceManager_UndeleteFolderRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UndeleteOrganizationMetadata
+//
+
+@implementation GTLRCloudResourceManager_UndeleteOrganizationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UndeleteProjectMetadata
+//
+
+@implementation GTLRCloudResourceManager_UndeleteProjectMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UndeleteTagKeyMetadata
+//
+
+@implementation GTLRCloudResourceManager_UndeleteTagKeyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UndeleteTagValueMetadata
+//
+
+@implementation GTLRCloudResourceManager_UndeleteTagValueMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UpdateFolderMetadata
+//
+
+@implementation GTLRCloudResourceManager_UpdateFolderMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UpdateProjectMetadata
+//
+
+@implementation GTLRCloudResourceManager_UpdateProjectMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UpdateTagKeyMetadata
+//
+
+@implementation GTLRCloudResourceManager_UpdateTagKeyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_UpdateTagValueMetadata
+//
+
+@implementation GTLRCloudResourceManager_UpdateTagValueMetadata
 @end

@@ -569,7 +569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_CloudloadingDeleteBook : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForCloudloadingDeleteBook]
+//   +[GTLQueryBooks queryForCloudloadingDeleteBookWithvolumeId:]
 
 /** The id of the book to be removed. */
 @property(nonatomic, copy, nullable) NSString *volumeId;
@@ -579,9 +579,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Remove the book and its contents
  *
+ *  @param volumeId The id of the book to be removed.
+ *
  *  @return GTLRBooksQuery_CloudloadingDeleteBook
  */
-+ (instancetype)query;
++ (instancetype)queryWithVolumeId:(NSString *)volumeId;
 
 @end
 
@@ -620,7 +622,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_DictionaryListOfflineMetadata : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForDictionaryListOfflineMetadata]
+//   +[GTLQueryBooks queryForDictionaryListOfflineMetadataWithcpksver:]
 
 /** The device/version ID from which to request the data. */
 @property(nonatomic, copy, nullable) NSString *cpksver;
@@ -630,9 +632,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Returns a list of offline dictionary metadata available
  *
+ *  @param cpksver The device/version ID from which to request the data.
+ *
  *  @return GTLRBooksQuery_DictionaryListOfflineMetadata
  */
-+ (instancetype)query;
++ (instancetype)queryWithCpksver:(NSString *)cpksver;
 
 @end
 
@@ -740,7 +744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_LayersAnnotationDataGet : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForLayersAnnotationDataGetWithvolumeId:layerId:annotationDataId:]
+//   +[GTLQueryBooks queryForLayersAnnotationDataGetWithvolumeId:layerId:annotationDataId:contentVersion:]
 
 /** For the dictionary layer. Whether or not to allow web definitions. */
 @property(nonatomic, assign) BOOL allowWebDefinitions;
@@ -789,12 +793,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  @param volumeId The volume to retrieve annotations for.
  *  @param layerId The ID for the layer to get the annotations.
  *  @param annotationDataId The ID of the annotation data to retrieve.
+ *  @param contentVersion The content version for the volume you are trying to
+ *    retrieve.
  *
  *  @return GTLRBooksQuery_LayersAnnotationDataGet
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
                           layerId:(NSString *)layerId
-                 annotationDataId:(NSString *)annotationDataId;
+                 annotationDataId:(NSString *)annotationDataId
+                   contentVersion:(NSString *)contentVersion;
 
 @end
 
@@ -808,7 +815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_LayersAnnotationDataList : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForLayersAnnotationDataListWithvolumeId:layerId:]
+//   +[GTLQueryBooks queryForLayersAnnotationDataListWithvolumeId:layerId:contentVersion:]
 
 /**
  *  The list of Annotation Data Ids to retrieve. Pagination is ignored if this
@@ -834,7 +841,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
-/** Maximum number of results to return */
+/**
+ *  Maximum number of results to return
+ *
+ *  @note The documented range is 0..200.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /** The value of the nextToken from the previous page. */
@@ -874,6 +885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  @param volumeId The volume to retrieve annotation data for.
  *  @param layerId The ID for the layer to get the annotation data.
+ *  @param contentVersion The content version for the requested volume.
  *
  *  @return GTLRBooksQuery_LayersAnnotationDataList
  *
@@ -882,7 +894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *        information.
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
-                          layerId:(NSString *)layerId;
+                          layerId:(NSString *)layerId
+                   contentVersion:(NSString *)contentVersion;
 
 @end
 
@@ -940,7 +953,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
 /** The content version for the requested volume. */
 @property(nonatomic, copy, nullable) NSString *contentVersion;
 
-/** Maximum number of results to return */
+/**
+ *  Maximum number of results to return
+ *
+ *  @note The documented range is 0..200.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /** The value of the nextToken from the previous page. */
@@ -1022,7 +1039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_LayersVolumeAnnotationsList : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForLayersVolumeAnnotationsListWithvolumeId:layerId:]
+//   +[GTLQueryBooks queryForLayersVolumeAnnotationsListWithvolumeId:layerId:contentVersion:]
 
 /** The content version for the requested volume. */
 @property(nonatomic, copy, nullable) NSString *contentVersion;
@@ -1042,7 +1059,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
-/** Maximum number of results to return */
+/**
+ *  Maximum number of results to return
+ *
+ *  @note The documented range is 0..200.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /** The value of the nextToken from the previous page. */
@@ -1088,6 +1109,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  @param volumeId The volume to retrieve annotations for.
  *  @param layerId The ID for the layer to get the annotations.
+ *  @param contentVersion The content version for the requested volume.
  *
  *  @return GTLRBooksQuery_LayersVolumeAnnotationsList
  *
@@ -1096,7 +1118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *        information.
  */
 + (instancetype)queryWithVolumeId:(NSString *)volumeId
-                          layerId:(NSString *)layerId;
+                          layerId:(NSString *)layerId
+                   contentVersion:(NSString *)contentVersion;
 
 @end
 
@@ -1138,7 +1161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_MyconfigReleaseDownloadAccess : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForMyconfigReleaseDownloadAccess]
+//   +[GTLQueryBooks queryForMyconfigReleaseDownloadAccessWithcpksver:volumeIds:]
 
 /** The device/version ID from which to release the restriction. */
 @property(nonatomic, copy, nullable) NSString *cpksver;
@@ -1157,9 +1180,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Release downloaded content access restriction.
  *
+ *  @param cpksver The device/version ID from which to release the restriction.
+ *  @param volumeIds The volume(s) to release restrictions for.
+ *
  *  @return GTLRBooksQuery_MyconfigReleaseDownloadAccess
  */
-+ (instancetype)query;
++ (instancetype)queryWithCpksver:(NSString *)cpksver
+                       volumeIds:(NSArray<NSString *> *)volumeIds;
 
 @end
 
@@ -1173,7 +1200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_MyconfigRequestAccess : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForMyconfigRequestAccess]
+//   +[GTLQueryBooks queryForMyconfigRequestAccessWithcpksver:nonce:source:volumeId:]
 
 /** The device/version ID from which to request the restrictions. */
 @property(nonatomic, copy, nullable) NSString *cpksver;
@@ -1211,9 +1238,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Request concurrent and download access restrictions.
  *
+ *  @param cpksver The device/version ID from which to request the restrictions.
+ *  @param nonce The client nonce value.
+ *  @param source String to identify the originator of this request.
+ *  @param volumeId The volume to request concurrent/download restrictions for.
+ *
  *  @return GTLRBooksQuery_MyconfigRequestAccess
  */
-+ (instancetype)query;
++ (instancetype)queryWithCpksver:(NSString *)cpksver
+                           nonce:(NSString *)nonce
+                          source:(NSString *)source
+                        volumeId:(NSString *)volumeId;
 
 @end
 
@@ -1228,7 +1263,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_MyconfigSyncVolumeLicenses : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForMyconfigSyncVolumeLicenses]
+//   +[GTLQueryBooks queryForMyconfigSyncVolumeLicensesWithcpksver:nonce:source:]
 
 /** The device/version ID from which to release the restriction. */
 @property(nonatomic, copy, nullable) NSString *cpksver;
@@ -1267,9 +1302,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Request downloaded content access for specified volumes on the My eBooks
  *  shelf.
  *
+ *  @param cpksver The device/version ID from which to release the restriction.
+ *  @param nonce The client nonce value.
+ *  @param source String to identify the originator of this request.
+ *
  *  @return GTLRBooksQuery_MyconfigSyncVolumeLicenses
  */
-+ (instancetype)query;
++ (instancetype)queryWithCpksver:(NSString *)cpksver
+                           nonce:(NSString *)nonce
+                          source:(NSString *)source;
 
 @end
 
@@ -1394,7 +1435,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
 /** The layer ID(s) to limit annotation by. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *layerIds;
 
-/** Maximum number of results to return */
+/**
+ *  Maximum number of results to return
+ *
+ *  @note The documented range is 0..40.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /** The value of the nextToken from the previous page. */
@@ -1449,7 +1494,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_MylibraryAnnotationsSummary : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForMylibraryAnnotationsSummary]
+//   +[GTLQueryBooks queryForMylibraryAnnotationsSummaryWithlayerIds:volumeId:]
 
 /** Array of layer IDs to get the summary for. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *layerIds;
@@ -1462,9 +1507,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Gets the summary of specified layers.
  *
+ *  @param layerIds Array of layer IDs to get the summary for.
+ *  @param volumeId Volume id to get the summary for.
+ *
  *  @return GTLRBooksQuery_MylibraryAnnotationsSummary
  */
-+ (instancetype)query;
++ (instancetype)queryWithLayerIds:(NSArray<NSString *> *)layerIds
+                         volumeId:(NSString *)volumeId;
 
 @end
 
@@ -1511,7 +1560,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_MylibraryBookshelvesAddVolume : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForMylibraryBookshelvesAddVolumeWithshelf:]
+//   +[GTLQueryBooks queryForMylibraryBookshelvesAddVolumeWithshelf:volumeId:]
 
 /**
  *  The reason for which the book is added to the library.
@@ -1542,10 +1591,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Adds a volume to a bookshelf.
  *
  *  @param shelf ID of bookshelf to which to add a volume.
+ *  @param volumeId ID of volume to add.
  *
  *  @return GTLRBooksQuery_MylibraryBookshelvesAddVolume
  */
-+ (instancetype)queryWithShelf:(NSString *)shelf;
++ (instancetype)queryWithShelf:(NSString *)shelf
+                      volumeId:(NSString *)volumeId;
 
 @end
 
@@ -1649,7 +1700,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_MylibraryBookshelvesMoveVolume : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForMylibraryBookshelvesMoveVolumeWithshelf:]
+//   +[GTLQueryBooks queryForMylibraryBookshelvesMoveVolumeWithshelf:volumeId:volumePosition:]
 
 /** ID of bookshelf with the volume. */
 @property(nonatomic, copy, nullable) NSString *shelf;
@@ -1672,10 +1723,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Moves a volume within a bookshelf.
  *
  *  @param shelf ID of bookshelf with the volume.
+ *  @param volumeId ID of volume to move.
+ *  @param volumePosition Position on shelf to move the item (0 puts the item
+ *    before the current first item, 1 puts it between the first and the second
+ *    and so on.)
  *
  *  @return GTLRBooksQuery_MylibraryBookshelvesMoveVolume
  */
-+ (instancetype)queryWithShelf:(NSString *)shelf;
++ (instancetype)queryWithShelf:(NSString *)shelf
+                      volumeId:(NSString *)volumeId
+                volumePosition:(NSInteger)volumePosition;
 
 @end
 
@@ -1689,7 +1746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_MylibraryBookshelvesRemoveVolume : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForMylibraryBookshelvesRemoveVolumeWithshelf:]
+//   +[GTLQueryBooks queryForMylibraryBookshelvesRemoveVolumeWithshelf:volumeId:]
 
 /**
  *  The reason for which the book is removed from the library.
@@ -1716,10 +1773,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Removes a volume from a bookshelf.
  *
  *  @param shelf ID of bookshelf from which to remove a volume.
+ *  @param volumeId ID of volume to remove.
  *
  *  @return GTLRBooksQuery_MylibraryBookshelvesRemoveVolume
  */
-+ (instancetype)queryWithShelf:(NSString *)shelf;
++ (instancetype)queryWithShelf:(NSString *)shelf
+                      volumeId:(NSString *)volumeId;
 
 @end
 
@@ -1825,7 +1884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_MylibraryReadingpositionsSetPosition : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForMylibraryReadingpositionsSetPositionWithvolumeId:]
+//   +[GTLQueryBooks queryForMylibraryReadingpositionsSetPositionWithvolumeId:position:timestamp:]
 
 /**
  *  Action that caused this reading position to be set.
@@ -1868,10 +1927,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *  Sets my reading position information for a volume.
  *
  *  @param volumeId ID of volume for which to update the reading position.
+ *  @param position Position string for the new volume reading position.
+ *  @param timestamp RFC 3339 UTC format timestamp associated with this reading
+ *    position.
  *
  *  @return GTLRBooksQuery_MylibraryReadingpositionsSetPosition
  */
-+ (instancetype)queryWithVolumeId:(NSString *)volumeId;
++ (instancetype)queryWithVolumeId:(NSString *)volumeId
+                         position:(NSString *)position
+                        timestamp:(NSString *)timestamp;
 
 @end
 
@@ -1885,7 +1949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_NotificationGet : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForNotificationGet]
+//   +[GTLQueryBooks queryForNotificationGetWithnotificationId:]
 
 /**
  *  ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for
@@ -1904,9 +1968,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Returns notification details for a given notification id.
  *
+ *  @param notificationId String to identify the notification.
+ *
  *  @return GTLRBooksQuery_NotificationGet
  */
-+ (instancetype)query;
++ (instancetype)queryWithNotificationId:(NSString *)notificationId;
 
 @end
 
@@ -2180,7 +2246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_SeriesGet : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForSeriesGet]
+//   +[GTLQueryBooks queryForSeriesGetWithseriesId:]
 
 /** String that identifies the series */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *seriesId;
@@ -2190,9 +2256,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Returns Series metadata for the given series ids.
  *
+ *  @param seriesId String that identifies the series
+ *
  *  @return GTLRBooksQuery_SeriesGet
  */
-+ (instancetype)query;
++ (instancetype)queryWithSeriesId:(NSArray<NSString *> *)seriesId;
 
 @end
 
@@ -2206,7 +2274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_SeriesMembershipGet : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForSeriesMembershipGet]
+//   +[GTLQueryBooks queryForSeriesMembershipGetWithseriesId:]
 
 /** Number of maximum results per page to be included in the response. */
 @property(nonatomic, assign) NSUInteger pageSize;
@@ -2222,13 +2290,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Returns Series membership data given the series id.
  *
+ *  @param seriesId String that identifies the series
+ *
  *  @return GTLRBooksQuery_SeriesMembershipGet
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
  */
-+ (instancetype)query;
++ (instancetype)queryWithSeriesId:(NSString *)seriesId;
 
 @end
 
@@ -2362,7 +2432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_VolumesList : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForVolumesList]
+//   +[GTLQueryBooks queryForVolumesListWithq:]
 
 /**
  *  Restrict to volumes by download availability.
@@ -2420,7 +2490,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @property(nonatomic, copy, nullable) NSString *maxAllowedMaturityRating;
 
-/** Maximum number of results to return. */
+/**
+ *  Maximum number of results to return.
+ *
+ *  @note The documented range is 0..40.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
@@ -2477,9 +2551,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Performs a book search.
  *
+ *  @param q Full-text search query string.
+ *
  *  @return GTLRBooksQuery_VolumesList
  */
-+ (instancetype)query;
++ (instancetype)queryWithQ:(NSString *)q;
 
 @end
 
@@ -2527,7 +2603,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
-/** Maximum number of results to return. */
+/**
+ *  Maximum number of results to return.
+ *
+ *  @note The documented range is 0..100.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**
@@ -2619,7 +2699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @interface GTLRBooksQuery_VolumesRecommendedRate : GTLRBooksQuery
 // Previous library name was
-//   +[GTLQueryBooks queryForVolumesRecommendedRate]
+//   +[GTLQueryBooks queryForVolumesRecommendedRateWithrating:volumeId:]
 
 /**
  *  ISO-639-1 language and ISO-3166-1 country code. Ex: 'en_US'. Used for
@@ -2650,9 +2730,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  *
  *  Rate a recommended book for the current user.
  *
+ *  @param rating Rating to be given to the volume.
+ *  @param volumeId ID of the source volume.
+ *
+ *  Likely values for @c rating:
+ *    @arg @c kGTLRBooksRatingRatingUndefined Value "RATING_UNDEFINED"
+ *    @arg @c kGTLRBooksRatingHaveIt Rating indicating a dismissal due to
+ *        ownership. (Value: "HAVE_IT")
+ *    @arg @c kGTLRBooksRatingNotInterested Rating indicating a negative
+ *        dismissal of a volume. (Value: "NOT_INTERESTED")
+ *
  *  @return GTLRBooksQuery_VolumesRecommendedRate
  */
-+ (instancetype)query;
++ (instancetype)queryWithRating:(NSString *)rating
+                       volumeId:(NSString *)volumeId;
 
 @end
 
@@ -2674,7 +2765,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBooksReasonReasonUndefined;
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
-/** Maximum number of results to return. */
+/**
+ *  Maximum number of results to return.
+ *
+ *  @note The documented range is 0..40.
+ */
 @property(nonatomic, assign) NSUInteger maxResults;
 
 /**

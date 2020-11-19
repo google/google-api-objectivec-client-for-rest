@@ -303,6 +303,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_AcceleratorTypeAggregatedList.
  *
  *  Retrieves an aggregated list of accelerator types.
@@ -427,6 +433,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -529,6 +541,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_AddressAggregatedList.
@@ -758,6 +776,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_AddressList.
  *
  *  Retrieves a list of addresses contained within the specified region.
@@ -852,6 +876,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_AutoscalerAggregatedList.
@@ -1090,6 +1120,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Name of the zone for this request.
@@ -1550,6 +1586,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_BackendBucketList.
  *
  *  Retrieves the list of BackendBucket resources available to the specified
@@ -1806,6 +1848,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_BackendServiceAggregatedList.
@@ -2124,6 +2172,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_BackendServiceList.
@@ -2446,6 +2500,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_DiskAggregatedList.
  *
  *  Retrieves an aggregated list of persistent disks.
@@ -2475,7 +2535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *disk;
 
 /**
- *  [Input Only] Specifies to create an application consistent snapshot by
+ *  [Input Only] Whether to attempt an application consistent snapshot by
  *  informing the OS to prepare for the snapshot process. Currently only
  *  supported on Windows instances using the Volume Shadow Copy Service (VSS).
  */
@@ -2812,6 +2872,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -3195,6 +3261,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_DiskTypeAggregatedList.
  *
  *  Retrieves an aggregated list of disk types.
@@ -3318,6 +3390,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -3542,6 +3620,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ExternalVpnGatewayList.
@@ -3834,6 +3918,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_FirewallList.
  *
  *  Retrieves the list of firewall rules available to the specified project.
@@ -4034,6 +4124,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ForwardingRuleAggregatedList.
@@ -4262,6 +4358,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ForwardingRuleList.
@@ -4599,6 +4701,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_AddressList.
  *
  *  Retrieves a list of global addresses.
@@ -4813,6 +4921,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ForwardingRuleList.
@@ -5259,6 +5373,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupList.
  *
  *  Retrieves the list of network endpoint groups that are located in the
@@ -5347,6 +5467,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupsListNetworkEndpoints.
@@ -5445,6 +5571,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_OperationAggregatedList.
@@ -5599,6 +5731,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_OperationList.
  *
  *  Retrieves a list of Operation resources contained within the specified
@@ -5748,6 +5886,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HealthChecksAggregatedList.
@@ -5961,6 +6105,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HealthCheckList.
@@ -6286,6 +6436,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_HttpHealthCheckList.
  *
  *  Retrieves the list of HttpHealthCheck resources available to the specified
@@ -6607,6 +6763,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HttpsHealthCheckList.
@@ -7071,6 +7233,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_ImageList.
  *
  *  Retrieves the list of custom images available to the specified project.
@@ -7089,6 +7257,58 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified image with the data included in the request. Only the
+ *  following fields can be modified: family, description, deprecation status.
+ *
+ *  Method: compute.images.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ImagesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForImagesPatchWithObject:project:image:]
+
+/** Name of the image resource to patch. */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified image with the data included in the request. Only the
+ *  following fields can be modified: family, description, deprecation status.
+ *
+ *  @param object The @c GTLRCompute_Image to include in the query.
+ *  @param project Project ID for this request.
+ *  @param image Name of the image resource to patch.
+ *
+ *  @return GTLRComputeQuery_ImagesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_Image *)object
+                        project:(NSString *)project
+                          image:(NSString *)image;
 
 @end
 
@@ -7368,6 +7588,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupManagerAggregatedList.
@@ -7884,6 +8110,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone where the managed instance group is located.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -7984,6 +8216,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone where the managed instance group is located. It should
@@ -8094,6 +8332,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone where the managed instance group is located.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -8196,6 +8440,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone where the managed instance group is located. It should
@@ -8550,7 +8800,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Specifies the instance template to use when creating new instances in this
  *  group. The templates for existing instances in the group do not change
- *  unless you recreate them.
+ *  unless you run recreateInstances, run applyUpdatesToInstances, or set the
+ *  group's updatePolicy.type to PROACTIVE.
  *
  *  Method: compute.instanceGroupManagers.setInstanceTemplate
  *
@@ -8594,7 +8845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Specifies the instance template to use when creating new instances in this
  *  group. The templates for existing instances in the group do not change
- *  unless you recreate them.
+ *  unless you run recreateInstances, run applyUpdatesToInstances, or set the
+ *  group's updatePolicy.type to PROACTIVE.
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersSetInstanceTemplateRequest to include in
@@ -8896,6 +9148,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_InstanceGroupAggregatedList.
  *
  *  Retrieves the list of instance groups and sorts them by zone.
@@ -8971,8 +9229,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified instance group. Gets a list of available instance
- *  groups by making a list() request.
+ *  Returns the specified zonal instance group. Get a list of available zonal
+ *  instance groups by making a list() request.
+ *  For managed instance groups, use the instanceGroupManagers or
+ *  regionInstanceGroupManagers methods instead.
  *
  *  Method: compute.instanceGroups.get
  *
@@ -9001,8 +9261,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceGroup.
  *
- *  Returns the specified instance group. Gets a list of available instance
- *  groups by making a list() request.
+ *  Returns the specified zonal instance group. Get a list of available zonal
+ *  instance groups by making a list() request.
+ *  For managed instance groups, use the instanceGroupManagers or
+ *  regionInstanceGroupManagers methods instead.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the instance group is
@@ -9075,8 +9337,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves the list of instance groups that are located in the specified
- *  project and zone.
+ *  Retrieves the list of zonal instance group resources contained within the
+ *  specified zone.
+ *  For managed instance groups, use the instanceGroupManagers or
+ *  regionInstanceGroupManagers methods instead.
  *
  *  Method: compute.instanceGroups.list
  *
@@ -9142,6 +9406,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone where the instance group is located.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -9151,8 +9421,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_InstanceGroupList.
  *
- *  Retrieves the list of instance groups that are located in the specified
- *  project and zone.
+ *  Retrieves the list of zonal instance group resources contained within the
+ *  specified zone.
+ *  For managed instance groups, use the instanceGroupManagers or
+ *  regionInstanceGroupManagers methods instead.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the instance group is
@@ -9241,6 +9513,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone where the instance group is located.
@@ -9619,6 +9897,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_InstanceAggregatedList.
  *
  *  Retrieves aggregated list of all of the instances in your project across all
@@ -9650,7 +9934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Whether to force attach the regional disk even if it's currently attached to
- *  another instance.
+ *  another instance. If you try to force attach a zonal disk to an instance,
+ *  you will receive an error.
  */
 @property(nonatomic, assign) BOOL forceAttach;
 
@@ -10331,6 +10616,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -10358,9 +10649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves a list of resources that refer to the VM instance specified in the
- *  request. For example, if the VM instance is part of a managed instance
- *  group, the referrers list includes the managed instance group. For more
- *  information, read Viewing Referrers to VM Instances.
+ *  request. For example, if the VM instance is part of a managed or unmanaged
+ *  instance group, the referrers list includes the instance group. For more
+ *  information, read Viewing referrers to VM instances.
  *
  *  Method: compute.instances.listReferrers
  *
@@ -10432,6 +10723,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -10442,9 +10739,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_InstanceListReferrers.
  *
  *  Retrieves a list of resources that refer to the VM instance specified in the
- *  request. For example, if the VM instance is part of a managed instance
- *  group, the referrers list includes the managed instance group. For more
- *  information, read Viewing Referrers to VM Instances.
+ *  request. For example, if the VM instance is part of a managed or unmanaged
+ *  instance group, the referrers list includes the instance group. For more
+ *  information, read Viewing referrers to VM instances.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -12207,6 +12504,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_InstanceTemplateList.
  *
  *  Retrieves a list of instance templates that are contained within the
@@ -12377,6 +12680,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_InterconnectAttachmentAggregatedList.
@@ -12611,6 +12920,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_InterconnectAttachmentList.
  *
  *  Retrieves the list of interconnect attachments contained within the
@@ -12793,6 +13108,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_InterconnectLocationList.
@@ -13044,6 +13365,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_InterconnectList.
@@ -13456,6 +13783,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_LicensesListResponse.
  *
  *  Retrieves the list of licenses available in the specified project. This
@@ -13639,6 +13972,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_MachineTypeAggregatedList.
  *
  *  Retrieves an aggregated list of machine types.
@@ -13764,6 +14103,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -13865,6 +14210,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupAggregatedList.
@@ -14258,6 +14609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone where the network endpoint group is located. It should
  *  comply with RFC1035.
  *
@@ -14357,6 +14714,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone where the network endpoint group is located. It should
@@ -14690,6 +15053,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_NetworkList.
  *
  *  Retrieves the list of networks available to the specified project.
@@ -14794,6 +15163,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  static routes and dynamic routes in the region.
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ExchangedPeeringRoutesList.
@@ -15160,6 +15535,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_NodeGroupAggregatedList.
  *
  *  Retrieves an aggregated list of node groups. Note: use nodeGroups.listNodes
@@ -15516,6 +15897,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -15610,6 +15997,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  The name of the zone for this request.
@@ -15932,6 +16325,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_NodeTemplateAggregatedList.
  *
  *  Retrieves an aggregated list of node templates.
@@ -16206,6 +16605,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_NodeTemplateList.
  *
  *  Retrieves a list of node templates available to the specified project.
@@ -16389,6 +16794,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_NodeTypeAggregatedList.
  *
  *  Retrieves an aggregated list of node types.
@@ -16514,6 +16925,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -16615,6 +17032,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_PacketMirroringAggregatedList.
@@ -16843,6 +17266,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_PacketMirroringList.
@@ -17276,6 +17705,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_ProjectsGetXpnResources.
  *
  *  Gets service resources (a.k.a service project) associated with this host
@@ -17357,6 +17792,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_XpnHostList.
@@ -17836,6 +18277,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_RegionAutoscalerList.
  *
  *  Retrieves a list of autoscalers contained within the specified region.
@@ -18227,6 +18674,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_BackendServiceList.
  *
  *  Retrieves the list of regional BackendService resources available to the
@@ -18444,6 +18897,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_CommitmentAggregatedList.
  *
  *  Retrieves an aggregated list of commitments.
@@ -18618,6 +19077,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_CommitmentList.
@@ -19021,6 +19486,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_DiskList.
  *
  *  Retrieves the list of persistent disks contained within the specified
@@ -19407,6 +19878,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_RegionDiskTypeList.
  *
  *  Retrieves a list of regional disk types available to the specified project.
@@ -19702,6 +20179,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_HealthCheckServicesList.
  *
  *  Lists all the HealthCheckService resources that have been configured for the
@@ -19947,6 +20430,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_HealthCheckList.
@@ -20632,6 +21121,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagerList.
  *
  *  Retrieves the list of managed instance groups that are contained within the
@@ -20729,6 +21224,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Name of the region scoping this request. This should conform to RFC1035.
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListErrorsResponse.
@@ -20832,6 +21333,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListInstancesResponse.
  *
  *  Lists the instances in the managed instance group and instances that are
@@ -20927,6 +21434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region scoping this request, should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupManagersListInstanceConfigsResp.
@@ -21524,6 +22037,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupList.
  *
  *  Retrieves the list of instance group resources contained within the
@@ -21619,6 +22138,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RegionInstanceGroupsListInstances.
@@ -21948,6 +22473,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_NetworkEndpointGroupList.
  *
  *  Retrieves the list of regional network endpoint groups available to the
@@ -22186,6 +22717,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_NotificationEndpointList.
  *
  *  Lists the NotificationEndpoints for a project in the given region.
@@ -22353,6 +22890,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_OperationList.
@@ -22536,6 +23079,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RegionList.
@@ -22770,6 +23319,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SslCertificateList.
@@ -23007,6 +23562,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpProxyList.
@@ -23299,6 +23860,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpsProxyList.
@@ -23638,6 +24205,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_UrlMapList.
  *
  *  Retrieves the list of UrlMap resources available to the specified project in
@@ -23875,6 +24448,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ReservationAggregatedList.
@@ -24163,6 +24742,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -24422,6 +25007,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ResourcePolicyAggregatedList.
@@ -24695,6 +25286,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_ResourcePolicyList.
  *
  *  A list all the resource policies that have been configured for the specified
@@ -24879,6 +25476,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_RouterAggregatedList.
  *
  *  Retrieves an aggregated list of routers.
@@ -25054,6 +25657,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Name of the Router resource to query for Nat Mapping information of VM
@@ -25243,6 +25852,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region for this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_RouterList.
@@ -25626,6 +26241,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_RouteList.
  *
  *  Retrieves the list of Route resources available to the specified project.
@@ -25914,6 +26535,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_SecurityPolicyList.
  *
  *  List all the policies that have been configured for the specified project.
@@ -25995,6 +26622,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c
@@ -26338,6 +26971,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_SnapshotList.
  *
  *  Retrieves the list of Snapshot resources contained within the specified
@@ -26548,6 +27187,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SslCertificateAggregatedList.
@@ -26761,6 +27406,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SslCertificateList.
@@ -26990,6 +27641,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_SslPoliciesList.
  *
  *  Lists all the SSL policies that have been configured for the specified
@@ -27073,6 +27730,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SslPoliciesListAvailableFeaturesResponse.
@@ -27218,6 +27881,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_SubnetworkAggregatedList.
@@ -27550,6 +28219,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_SubnetworkList.
  *
  *  Retrieves a list of subnetworks available to the specified project.
@@ -27633,6 +28308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_UsableSubnetworksAggregatedList.
@@ -28066,6 +28747,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_TargetGrpcProxyList.
  *
  *  Lists the TargetGrpcProxies for a project in the given scope.
@@ -28213,6 +28900,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpProxyAggregatedList.
@@ -28428,6 +29121,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_TargetHttpProxyList.
  *
  *  Retrieves the list of TargetHttpProxy resources available to the specified
@@ -28442,6 +29141,60 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified TargetHttpProxy resource with the data included in the
+ *  request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
+ *
+ *  Method: compute.targetHttpProxies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetHttpProxiesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetHttpProxiesPatchWithObject:project:targetHttpProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the TargetHttpProxy resource to patch. */
+@property(nonatomic, copy, nullable) NSString *targetHttpProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified TargetHttpProxy resource with the data included in the
+ *  request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
+ *
+ *  @param object The @c GTLRCompute_TargetHttpProxy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetHttpProxy Name of the TargetHttpProxy resource to patch.
+ *
+ *  @return GTLRComputeQuery_TargetHttpProxiesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetHttpProxy *)object
+                        project:(NSString *)project
+                targetHttpProxy:(NSString *)targetHttpProxy;
 
 @end
 
@@ -28572,6 +29325,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpsProxyAggregatedList.
@@ -28785,6 +29544,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetHttpsProxyList.
@@ -29104,6 +29869,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_TargetInstanceAggregatedList.
  *
  *  Retrieves an aggregated list of target instances.
@@ -29343,6 +30114,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Name of the zone scoping this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -29557,6 +30334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetPoolAggregatedList.
@@ -29832,6 +30615,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the region scoping this request. */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetPoolList.
@@ -30221,6 +31010,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetSslProxyList.
@@ -30663,6 +31458,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_TargetTcpProxyList.
  *
  *  Retrieves the list of TargetTcpProxy resources available to the specified
@@ -30863,6 +31664,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_TargetVpnGatewayAggregatedList.
@@ -31095,6 +31902,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_TargetVpnGatewayList.
  *
  *  Retrieves a list of target VPN gateways available to the specified project
@@ -31191,6 +32004,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Name of the project scoping this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_UrlMapsAggregatedList.
@@ -31341,6 +32160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Initiates a cache invalidation operation, invalidating the specified path,
  *  scoped to the specified UrlMap.
+ *  For more information, see [Invalidating cached
+ *  content](/cdn/docs/invalidating-cached-content).
  *
  *  Method: compute.urlMaps.invalidateCache
  *
@@ -31377,6 +32198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Initiates a cache invalidation operation, invalidating the specified path,
  *  scoped to the specified UrlMap.
+ *  For more information, see [Invalidating cached
+ *  content](/cdn/docs/invalidating-cached-content).
  *
  *  @param object The @c GTLRCompute_CacheInvalidationRule to include in the
  *    query.
@@ -31456,6 +32279,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_UrlMapList.
@@ -31693,6 +32522,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_VpnGatewayAggregatedList.
@@ -31965,6 +32800,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_VpnGatewayList.
  *
  *  Retrieves a list of VPN gateways available to the specified project and
@@ -32161,6 +33002,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_VpnTunnelAggregatedList.
@@ -32393,6 +33240,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCompute_VpnTunnelList.
  *
  *  Retrieves a list of VpnTunnel resources contained in the specified project
@@ -32565,6 +33418,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Name of the zone for request.
@@ -32762,6 +33621,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCompute_ZoneList.

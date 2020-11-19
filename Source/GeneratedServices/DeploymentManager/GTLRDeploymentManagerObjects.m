@@ -2,14 +2,125 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Deployment Manager API (deploymentmanager/v2)
+//   Cloud Deployment Manager V2 API (deploymentmanager/v2)
 // Description:
-//   Declares, configures, and deploys complex solutions on Google Cloud
-//   Platform.
+//   The Google Cloud Deployment Manager v2 API provides services for
+//   configuring, deploying, and viewing Google Cloud services and APIs via
+//   templates which specify deployments of Cloud resources.
 // Documentation:
-//   https://cloud.google.com/deployment-manager/
+//   https://cloud.google.com/deployment-manager
 
 #import "GTLRDeploymentManagerObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRDeploymentManager_AuditLogConfig.logType
+NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRDeploymentManager_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
+// GTLRDeploymentManager_Operation.status
+NSString * const kGTLRDeploymentManager_Operation_Status_Done  = @"DONE";
+NSString * const kGTLRDeploymentManager_Operation_Status_Pending = @"PENDING";
+NSString * const kGTLRDeploymentManager_Operation_Status_Running = @"RUNNING";
+
+// GTLRDeploymentManager_Operation_Warnings_Item.code
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRDeploymentManager_Resource_Warnings_Item.code
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRDeploymentManager_ResourceUpdate.intent
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Abandon = @"ABANDON";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Acquire = @"ACQUIRE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Create = @"CREATE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_CreateOrAcquire = @"CREATE_OR_ACQUIRE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Delete = @"DELETE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Update = @"UPDATE";
+
+// GTLRDeploymentManager_ResourceUpdate.state
+NSString * const kGTLRDeploymentManager_ResourceUpdate_State_Aborted = @"ABORTED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_State_Failed = @"FAILED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_State_InPreview = @"IN_PREVIEW";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_State_Pending = @"PENDING";
+
+// GTLRDeploymentManager_ResourceUpdate_Warnings_Item.code
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_CleanupFailed = @"CLEANUP_FAILED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DeprecatedTypeUsed = @"DEPRECATED_TYPE_USED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_DiskSizeLargerThanImageSize = @"DISK_SIZE_LARGER_THAN_IMAGE_SIZE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ExperimentalTypeUsed = @"EXPERIMENTAL_TYPE_USED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ExternalApiWarning = @"EXTERNAL_API_WARNING";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_FieldValueOverriden = @"FIELD_VALUE_OVERRIDEN";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_InjectedKernelsDeprecated = @"INJECTED_KERNELS_DEPRECATED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_LargeDeploymentWarning = @"LARGE_DEPLOYMENT_WARNING";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_MissingTypeDependency = @"MISSING_TYPE_DEPENDENCY";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopAddressNotAssigned = @"NEXT_HOP_ADDRESS_NOT_ASSIGNED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopCannotIpForward = @"NEXT_HOP_CANNOT_IP_FORWARD";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopInstanceNotFound = @"NEXT_HOP_INSTANCE_NOT_FOUND";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopInstanceNotOnNetwork = @"NEXT_HOP_INSTANCE_NOT_ON_NETWORK";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NextHopNotRunning = @"NEXT_HOP_NOT_RUNNING";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NoResultsOnPage = @"NO_RESULTS_ON_PAGE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_NotCriticalError = @"NOT_CRITICAL_ERROR";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_PartialSuccess = @"PARTIAL_SUCCESS";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SchemaValidationIgnored = @"SCHEMA_VALIDATION_IGNORED";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
 
 // ----------------------------------------------------------------------------
 //
@@ -17,12 +128,11 @@
 //
 
 @implementation GTLRDeploymentManager_AuditConfig
-@dynamic auditLogConfigs, exemptedMembers, service;
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"auditLogConfigs" : [GTLRDeploymentManager_AuditLogConfig class],
-    @"exemptedMembers" : [NSString class]
+    @"auditLogConfigs" : [GTLRDeploymentManager_AuditLogConfig class]
   };
   return map;
 }
@@ -36,7 +146,7 @@
 //
 
 @implementation GTLRDeploymentManager_AuditLogConfig
-@dynamic exemptedMembers, ignoreChildExemptions, logType;
+@dynamic exemptedMembers, logType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -45,16 +155,6 @@
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDeploymentManager_AuthorizationLoggingOptions
-//
-
-@implementation GTLRDeploymentManager_AuthorizationLoggingOptions
-@dynamic permissionType;
 @end
 
 
@@ -69,24 +169,6 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"members" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDeploymentManager_Condition
-//
-
-@implementation GTLRDeploymentManager_Condition
-@dynamic iam, op, svc, sys, values;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"values" : [NSString class]
   };
   return map;
 }
@@ -264,64 +346,6 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDeploymentManager_LogConfig
-//
-
-@implementation GTLRDeploymentManager_LogConfig
-@dynamic cloudAudit, counter, dataAccess;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDeploymentManager_LogConfigCloudAuditOptions
-//
-
-@implementation GTLRDeploymentManager_LogConfigCloudAuditOptions
-@dynamic authorizationLoggingOptions, logName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDeploymentManager_LogConfigCounterOptions
-//
-
-@implementation GTLRDeploymentManager_LogConfigCounterOptions
-@dynamic customFields, field, metric;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customFields" : [GTLRDeploymentManager_LogConfigCounterOptionsCustomField class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDeploymentManager_LogConfigCounterOptionsCustomField
-//
-
-@implementation GTLRDeploymentManager_LogConfigCounterOptionsCustomField
-@dynamic name, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDeploymentManager_LogConfigDataAccessOptions
-//
-
-@implementation GTLRDeploymentManager_LogConfigDataAccessOptions
-@dynamic logMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDeploymentManager_Manifest
 //
 
@@ -480,7 +504,7 @@
 //
 
 @implementation GTLRDeploymentManager_Policy
-@dynamic auditConfigs, bindings, ETag, iamOwned, rules, version;
+@dynamic auditConfigs, bindings, ETag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -489,8 +513,7 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"auditConfigs" : [GTLRDeploymentManager_AuditConfig class],
-    @"bindings" : [GTLRDeploymentManager_Binding class],
-    @"rules" : [GTLRDeploymentManager_Rule class]
+    @"bindings" : [GTLRDeploymentManager_Binding class]
   };
   return map;
 }
@@ -653,33 +676,6 @@
 
 @implementation GTLRDeploymentManager_ResourceUpdate_Warnings_Item_Data_Item
 @dynamic key, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDeploymentManager_Rule
-//
-
-@implementation GTLRDeploymentManager_Rule
-@dynamic action, conditions, descriptionProperty, ins, logConfigs, notIns,
-         permissions;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"conditions" : [GTLRDeploymentManager_Condition class],
-    @"ins" : [NSString class],
-    @"logConfigs" : [GTLRDeploymentManager_LogConfig class],
-    @"notIns" : [NSString class],
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

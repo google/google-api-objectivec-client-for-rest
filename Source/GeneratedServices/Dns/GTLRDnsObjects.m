@@ -4,7 +4,7 @@
 // API:
 //   Cloud DNS API (dns/v1)
 // Documentation:
-//   http://developers.google.com/cloud-dns
+//   https://cloud.google.com/dns/docs
 
 #import "GTLRDnsObjects.h"
 
@@ -560,7 +560,7 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 //
 
 @implementation GTLRDns_ResourceRecordSet
-@dynamic kind, name, rrdatas, signatureRrdatas, ttl, type;
+@dynamic kind, name, routingPolicy, rrdatas, signatureRrdatas, ttl, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -602,4 +602,89 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 
 @implementation GTLRDns_ResponseHeader
 @dynamic operationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_RRSetRoutingPolicy
+//
+
+@implementation GTLRDns_RRSetRoutingPolicy
+@dynamic geoPolicy, kind, wrrPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_RRSetRoutingPolicyGeoPolicy
+//
+
+@implementation GTLRDns_RRSetRoutingPolicyGeoPolicy
+@dynamic failovers, items, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failovers" : [GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem class],
+    @"items" : [GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem
+//
+
+@implementation GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem
+@dynamic kind, location, rrdatas, signatureRrdatas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rrdatas" : [NSString class],
+    @"signatureRrdatas" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_RRSetRoutingPolicyWrrPolicy
+//
+
+@implementation GTLRDns_RRSetRoutingPolicyWrrPolicy
+@dynamic items, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem
+//
+
+@implementation GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem
+@dynamic kind, rrdatas, signatureRrdatas, weight;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rrdatas" : [NSString class],
+    @"signatureRrdatas" : [NSString class]
+  };
+  return map;
+}
+
 @end

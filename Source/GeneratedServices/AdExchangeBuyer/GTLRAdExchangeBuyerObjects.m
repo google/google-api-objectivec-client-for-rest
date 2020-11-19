@@ -1229,7 +1229,8 @@
 
 @implementation GTLRAdExchangeBuyer_TargetingValue
 @dynamic creativeSizeValue, dayPartTargetingValue, demogAgeCriteriaValue,
-         demogGenderCriteriaValue, longValue, stringValue;
+         demogGenderCriteriaValue, longValue, requestPlatformTargetingValue,
+         stringValue;
 @end
 
 
@@ -1310,6 +1311,24 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"demogGenderCriteriaIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyer_TargetingValueRequestPlatformTargeting
+//
+
+@implementation GTLRAdExchangeBuyer_TargetingValueRequestPlatformTargeting
+@dynamic requestPlatforms;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requestPlatforms" : [NSString class]
   };
   return map;
 }

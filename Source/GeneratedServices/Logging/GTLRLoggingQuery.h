@@ -29,6 +29,8 @@
 @class GTLRLogging_LogExclusion;
 @class GTLRLogging_LogMetric;
 @class GTLRLogging_LogSink;
+@class GTLRLogging_LogView;
+@class GTLRLogging_TailLogEntriesRequest;
 @class GTLRLogging_UndeleteBucketRequest;
 @class GTLRLogging_WriteLogEntriesRequest;
 
@@ -50,7 +52,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  Method: logging.billingAccounts.buckets.get
  *
@@ -77,7 +79,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogBucket.
  *
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  @param name Required. The resource name of the bucket:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
@@ -87,6 +89,45 @@ NS_ASSUME_NONNULL_BEGIN
  *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id".
  *
  *  @return GTLRLoggingQuery_BillingAccountsBucketsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a view.
+ *
+ *  Method: logging.billingAccounts.buckets.views.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsBucketsViewsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsBucketsViewsGetWithname:]
+
+/**
+ *  Required. The resource name of the policy:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Gets a view.
+ *
+ *  @param name Required. The resource name of the policy:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsBucketsViewsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -422,7 +463,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  Method: logging.billingAccounts.locations.buckets.list
  *
@@ -465,7 +506,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListBucketsResponse.
  *
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  @param parent Required. The parent resource whose buckets are to be listed:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
@@ -491,7 +532,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  Method: logging.billingAccounts.locations.buckets.patch
  *
@@ -535,7 +576,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  @param object The @c GTLRLogging_LogBucket to include in the query.
  *  @param name Required. The full resource name of the bucket to update.
@@ -597,6 +638,268 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.views.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsViewsCreateWithObject:parent:]
+
+/**
+ *  Required. The bucket in which to create the view
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The id to use for this view. */
+@property(nonatomic, copy, nullable) NSString *viewId;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param parent Required. The bucket in which to create the view
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a view from a bucket.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.views.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsViewsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the view to delete:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a view from a bucket.
+ *
+ *  @param name Required. The full resource name of the view to delete:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists views on a bucket.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.views.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsViewsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The bucket whose views are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListViewsResponse.
+ *
+ *  Lists views on a bucket.
+ *
+ *  @param parent Required. The bucket whose views are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  Method: logging.billingAccounts.locations.buckets.views.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsViewsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the view to update
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask that specifies the fields in view that need an update.
+ *  A field will be overwritten if, and only if, it is in the update mask. name
+ *  and output only fields cannot be updated.For a detailed FieldMask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param name Required. The full resource name of the view to update
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: logging.billingAccounts.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsGetWithname:]
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: logging.billingAccounts.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_BillingAccountsLocationsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForBillingAccountsLocationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRLoggingQuery_BillingAccountsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -688,6 +991,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_IDTo
+ *  support legacy queries, it could also be: "projects/PROJECT_ID"
+ *  "organizations/ORGANIZATION_ID" "billingAccounts/BILLING_ACCOUNT_ID"
+ *  "folders/FOLDER_ID"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
  *  Fetches a @c GTLRLogging_ListLogsResponse.
@@ -1086,6 +1401,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRLoggingQuery_EntriesList
  */
 + (instancetype)queryWithObject:(GTLRLogging_ListLogEntriesRequest *)object;
+
+@end
+
+/**
+ *  Streaming read of log entries as they are ingested. Until the stream is
+ *  terminated, it will continue reading logs.
+ *
+ *  Method: logging.entries.tail
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_EntriesTail : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForEntriesTailWithObject:]
+
+/**
+ *  Fetches a @c GTLRLogging_TailLogEntriesResponse.
+ *
+ *  Streaming read of log entries as they are ingested. Until the stream is
+ *  terminated, it will continue reading logs.
+ *
+ *  @param object The @c GTLRLogging_TailLogEntriesRequest to include in the
+ *    query.
+ *
+ *  @return GTLRLoggingQuery_EntriesTail
+ */
++ (instancetype)queryWithObject:(GTLRLogging_TailLogEntriesRequest *)object;
 
 @end
 
@@ -1693,7 +2039,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  Method: logging.folders.locations.buckets.get
  *
@@ -1720,7 +2066,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogBucket.
  *
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  @param name Required. The resource name of the bucket:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
@@ -1736,7 +2082,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  Method: logging.folders.locations.buckets.list
  *
@@ -1779,7 +2125,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListBucketsResponse.
  *
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  @param parent Required. The parent resource whose buckets are to be listed:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
@@ -1805,7 +2151,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  Method: logging.folders.locations.buckets.patch
  *
@@ -1849,7 +2195,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  @param object The @c GTLRLogging_LogBucket to include in the query.
  *  @param name Required. The full resource name of the bucket to update.
@@ -1911,6 +2257,307 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  Method: logging.folders.locations.buckets.views.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsCreateWithObject:parent:]
+
+/**
+ *  Required. The bucket in which to create the view
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The id to use for this view. */
+@property(nonatomic, copy, nullable) NSString *viewId;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param parent Required. The bucket in which to create the view
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a view from a bucket.
+ *
+ *  Method: logging.folders.locations.buckets.views.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the view to delete:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a view from a bucket.
+ *
+ *  @param name Required. The full resource name of the view to delete:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a view.
+ *
+ *  Method: logging.folders.locations.buckets.views.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsGetWithname:]
+
+/**
+ *  Required. The resource name of the policy:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Gets a view.
+ *
+ *  @param name Required. The resource name of the policy:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists views on a bucket.
+ *
+ *  Method: logging.folders.locations.buckets.views.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The bucket whose views are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListViewsResponse.
+ *
+ *  Lists views on a bucket.
+ *
+ *  @param parent Required. The bucket whose views are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  Method: logging.folders.locations.buckets.views.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_FoldersLocationsBucketsViewsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the view to update
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask that specifies the fields in view that need an update.
+ *  A field will be overwritten if, and only if, it is in the update mask. name
+ *  and output only fields cannot be updated.For a detailed FieldMask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param name Required. The full resource name of the view to update
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsBucketsViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: logging.folders.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsGetWithname:]
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: logging.folders.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_FoldersLocationsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForFoldersLocationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRLoggingQuery_FoldersLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2002,6 +2649,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_IDTo
+ *  support legacy queries, it could also be: "projects/PROJECT_ID"
+ *  "organizations/ORGANIZATION_ID" "billingAccounts/BILLING_ACCOUNT_ID"
+ *  "folders/FOLDER_ID"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
  *  Fetches a @c GTLRLogging_ListLogsResponse.
@@ -2462,7 +3121,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  Method: logging.locations.buckets.get
  *
@@ -2489,7 +3148,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogBucket.
  *
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  @param name Required. The resource name of the bucket:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
@@ -2505,7 +3164,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  Method: logging.locations.buckets.list
  *
@@ -2548,7 +3207,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListBucketsResponse.
  *
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  @param parent Required. The parent resource whose buckets are to be listed:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
@@ -2574,7 +3233,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  Method: logging.locations.buckets.patch
  *
@@ -2618,7 +3277,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  @param object The @c GTLRLogging_LogBucket to include in the query.
  *  @param name Required. The full resource name of the bucket to update.
@@ -2680,6 +3339,307 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  Method: logging.locations.buckets.views.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_LocationsBucketsViewsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsViewsCreateWithObject:parent:]
+
+/**
+ *  Required. The bucket in which to create the view
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The id to use for this view. */
+@property(nonatomic, copy, nullable) NSString *viewId;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param parent Required. The bucket in which to create the view
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a view from a bucket.
+ *
+ *  Method: logging.locations.buckets.views.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_LocationsBucketsViewsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsViewsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the view to delete:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a view from a bucket.
+ *
+ *  @param name Required. The full resource name of the view to delete:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a view.
+ *
+ *  Method: logging.locations.buckets.views.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_LocationsBucketsViewsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsViewsGetWithname:]
+
+/**
+ *  Required. The resource name of the policy:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Gets a view.
+ *
+ *  @param name Required. The resource name of the policy:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists views on a bucket.
+ *
+ *  Method: logging.locations.buckets.views.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_LocationsBucketsViewsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsViewsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The bucket whose views are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListViewsResponse.
+ *
+ *  Lists views on a bucket.
+ *
+ *  @param parent Required. The bucket whose views are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  Method: logging.locations.buckets.views.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_LocationsBucketsViewsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsBucketsViewsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the view to update
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask that specifies the fields in view that need an update.
+ *  A field will be overwritten if, and only if, it is in the update mask. name
+ *  and output only fields cannot be updated.For a detailed FieldMask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param name Required. The full resource name of the view to update
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_LocationsBucketsViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: logging.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_LocationsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsGetWithname:]
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRLoggingQuery_LocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: logging.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_LocationsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForLocationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRLoggingQuery_LocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2771,6 +3731,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_IDTo
+ *  support legacy queries, it could also be: "projects/PROJECT_ID"
+ *  "organizations/ORGANIZATION_ID" "billingAccounts/BILLING_ACCOUNT_ID"
+ *  "folders/FOLDER_ID"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
  *  Fetches a @c GTLRLogging_ListLogsResponse.
@@ -3220,7 +4192,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  Method: logging.organizations.locations.buckets.get
  *
@@ -3247,7 +4219,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogBucket.
  *
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  @param name Required. The resource name of the bucket:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
@@ -3263,7 +4235,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  Method: logging.organizations.locations.buckets.list
  *
@@ -3306,7 +4278,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListBucketsResponse.
  *
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  @param parent Required. The parent resource whose buckets are to be listed:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
@@ -3332,7 +4304,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  Method: logging.organizations.locations.buckets.patch
  *
@@ -3376,7 +4348,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  @param object The @c GTLRLogging_LogBucket to include in the query.
  *  @param name Required. The full resource name of the bucket to update.
@@ -3438,6 +4410,307 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  Method: logging.organizations.locations.buckets.views.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsCreateWithObject:parent:]
+
+/**
+ *  Required. The bucket in which to create the view
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The id to use for this view. */
+@property(nonatomic, copy, nullable) NSString *viewId;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param parent Required. The bucket in which to create the view
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a view from a bucket.
+ *
+ *  Method: logging.organizations.locations.buckets.views.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the view to delete:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a view from a bucket.
+ *
+ *  @param name Required. The full resource name of the view to delete:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a view.
+ *
+ *  Method: logging.organizations.locations.buckets.views.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsGetWithname:]
+
+/**
+ *  Required. The resource name of the policy:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Gets a view.
+ *
+ *  @param name Required. The resource name of the policy:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists views on a bucket.
+ *
+ *  Method: logging.organizations.locations.buckets.views.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The bucket whose views are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListViewsResponse.
+ *
+ *  Lists views on a bucket.
+ *
+ *  @param parent Required. The bucket whose views are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  Method: logging.organizations.locations.buckets.views.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the view to update
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask that specifies the fields in view that need an update.
+ *  A field will be overwritten if, and only if, it is in the update mask. name
+ *  and output only fields cannot be updated.For a detailed FieldMask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param name Required. The full resource name of the view to update
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsBucketsViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: logging.organizations.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsGetWithname:]
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: logging.organizations.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_OrganizationsLocationsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForOrganizationsLocationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRLoggingQuery_OrganizationsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -3529,6 +4802,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_IDTo
+ *  support legacy queries, it could also be: "projects/PROJECT_ID"
+ *  "organizations/ORGANIZATION_ID" "billingAccounts/BILLING_ACCOUNT_ID"
+ *  "folders/FOLDER_ID"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
  *  Fetches a @c GTLRLogging_ListLogsResponse.
@@ -4300,7 +5585,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  Method: logging.projects.locations.buckets.get
  *
@@ -4327,7 +5612,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_LogBucket.
  *
- *  Gets a bucket (Beta).
+ *  Gets a bucket.
  *
  *  @param name Required. The resource name of the bucket:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
@@ -4343,7 +5628,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  Method: logging.projects.locations.buckets.list
  *
@@ -4386,7 +5671,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListBucketsResponse.
  *
- *  Lists buckets (Beta).
+ *  Lists buckets.
  *
  *  @param parent Required. The parent resource whose buckets are to be listed:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
@@ -4412,7 +5697,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  Method: logging.projects.locations.buckets.patch
  *
@@ -4456,7 +5741,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  period is decreased and the bucket is locked, FAILED_PRECONDITION will be
  *  returned.If the bucket has a LifecycleState of DELETE_REQUESTED,
  *  FAILED_PRECONDITION will be returned.A buckets region may not be modified
- *  after it is created. This method is in Beta.
+ *  after it is created.
  *
  *  @param object The @c GTLRLogging_LogBucket to include in the query.
  *  @param name Required. The full resource name of the bucket to update.
@@ -4518,6 +5803,307 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRLogging_UndeleteBucketRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  Method: logging.projects.locations.buckets.views.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsCreate : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsCreateWithObject:parent:]
+
+/**
+ *  Required. The bucket in which to create the view
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]" Example:
+ *  "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The id to use for this view. */
+@property(nonatomic, copy, nullable) NSString *viewId;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Creates a view over logs in a bucket. A bucket may contain a maximum of 50
+ *  views.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param parent Required. The bucket in which to create the view
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *    Example:
+ *    "projects/my-logging-project/locations/my-location/buckets/my-bucket"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsCreate
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a view from a bucket.
+ *
+ *  Method: logging.projects.locations.buckets.views.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsDelete : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsDeleteWithname:]
+
+/**
+ *  Required. The full resource name of the view to delete:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Empty.
+ *
+ *  Deletes a view from a bucket.
+ *
+ *  @param name Required. The full resource name of the view to delete:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a view.
+ *
+ *  Method: logging.projects.locations.buckets.views.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsGetWithname:]
+
+/**
+ *  Required. The resource name of the policy:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Gets a view.
+ *
+ *  @param name Required. The resource name of the policy:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists views on a bucket.
+ *
+ *  Method: logging.projects.locations.buckets.views.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsListWithparent:]
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. The presence of nextPageToken in the
+ *  response indicates that more results might be available.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, then retrieve the next batch of results from the
+ *  preceding call to this method. pageToken must be the value of nextPageToken
+ *  from the previous response. The values of other method parameters should be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The bucket whose views are to be listed:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRLogging_ListViewsResponse.
+ *
+ *  Lists views on a bucket.
+ *
+ *  @param parent Required. The bucket whose views are to be listed:
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  Method: logging.projects.locations.buckets.views.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsPatch : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsPatchWithObject:name:]
+
+/**
+ *  Required. The full resource name of the view to update
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *  Example:
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask that specifies the fields in view that need an update.
+ *  A field will be overwritten if, and only if, it is in the update mask. name
+ *  and output only fields cannot be updated.For a detailed FieldMask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.FieldMaskExample:
+ *  updateMask=filter.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRLogging_LogView.
+ *
+ *  Updates a view. This method replaces the following fields in the existing
+ *  view with values from the new view: filter.
+ *
+ *  @param object The @c GTLRLogging_LogView to include in the query.
+ *  @param name Required. The full resource name of the view to update
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]"
+ *    Example:
+ *    "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view-id".
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsBucketsViewsPatch
+ */
++ (instancetype)queryWithObject:(GTLRLogging_LogView *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: logging.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsGet : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsGetWithname:]
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLogging_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: logging.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLoggingAdmin
+ *    @c kGTLRAuthScopeLoggingCloudPlatform
+ *    @c kGTLRAuthScopeLoggingCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeLoggingRead
+ */
+@interface GTLRLoggingQuery_ProjectsLocationsList : GTLRLoggingQuery
+// Previous library name was
+//   +[GTLQueryLogging queryForProjectsLocationsListWithname:]
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRLogging_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRLoggingQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -4609,6 +6195,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  "folders/[FOLDER_ID]"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The resource name that owns the logs:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  organization/ORGANIZATION_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  billingAccounts/BILLING_ACCOUNT_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_ID
+ *  folders/FOLDER_ID/locations/LOCATION_ID/buckets/BUCKET_ID/views/VIEW_IDTo
+ *  support legacy queries, it could also be: "projects/PROJECT_ID"
+ *  "organizations/ORGANIZATION_ID" "billingAccounts/BILLING_ACCOUNT_ID"
+ *  "folders/FOLDER_ID"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
  *  Fetches a @c GTLRLogging_ListLogsResponse.

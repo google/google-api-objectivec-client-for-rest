@@ -4,12 +4,29 @@
 // API:
 //   Content API for Shopping (content/v2.1)
 // Description:
-//   Manages product items, inventory, and Merchant Center accounts for Google
-//   Shopping.
+//   Manage your product listings and accounts for Google Shopping
 // Documentation:
-//   https://developers.google.com/shopping-content
+//   https://developers.google.com/shopping-content/v2/
 
 #import "GTLRShoppingContentObjects.h"
+
+// ----------------------------------------------------------------------------
+// Constants
+
+// GTLRShoppingContent_OrderTrackingSignalShippingInfo.shippingStatus
+NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Delivered = @"DELIVERED";
+NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Shipped = @"SHIPPED";
+NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified = @"SHIPPING_STATE_UNSPECIFIED";
+
+// GTLRShoppingContent_RepricingRule.type
+NSString * const kGTLRShoppingContent_RepricingRule_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeWinBuyBox = @"TYPE_WIN_BUY_BOX";
+
+// GTLRShoppingContent_RepricingRuleEligibleOfferMatcher.matcherOption
+NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherOption_MatcherOptionAllProducts = @"MATCHER_OPTION_ALL_PRODUCTS";
+NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherOption_MatcherOptionCustomFilter = @"MATCHER_OPTION_CUSTOM_FILTER";
+NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherOption_MatcherOptionUnspecified = @"MATCHER_OPTION_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherOption_MatcherOptionUseFeedAttribute = @"MATCHER_OPTION_USE_FEED_ATTRIBUTE";
 
 // ----------------------------------------------------------------------------
 //
@@ -33,6 +50,12 @@
     @"youtubeChannelLinks" : [GTLRShoppingContent_AccountYouTubeChannelLink class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -100,6 +123,21 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_AccountLabel
+//
+
+@implementation GTLRShoppingContent_AccountLabel
+@dynamic accountId, descriptionProperty, labelId, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_AccountsAuthInfoResponse
 //
 
@@ -113,6 +151,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -123,6 +167,13 @@
 
 @implementation GTLRShoppingContent_AccountsClaimWebsiteResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -196,6 +247,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -206,6 +263,13 @@
 
 @implementation GTLRShoppingContent_AccountsCustomBatchResponseEntry
 @dynamic account, batchId, errors, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -234,6 +298,13 @@
 
 @implementation GTLRShoppingContent_AccountsLinkResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -250,6 +321,12 @@
     @"links" : [GTLRShoppingContent_LinkedAccount class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -274,6 +351,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 + (NSString *)collectionItemsKey {
   return @"resources";
 }
@@ -295,6 +378,12 @@
     @"products" : [GTLRShoppingContent_AccountStatusProducts class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -367,6 +456,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -393,6 +488,12 @@
     @"resources" : [GTLRShoppingContent_AccountStatus class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -471,6 +572,13 @@
 
 @implementation GTLRShoppingContent_AccountsUpdateLabelsResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -487,6 +595,12 @@
     @"rules" : [GTLRShoppingContent_AccountTaxTaxRule class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -535,6 +649,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -545,6 +665,13 @@
 
 @implementation GTLRShoppingContent_AccounttaxCustomBatchResponseEntry
 @dynamic accountTax, batchId, errors, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -561,6 +688,12 @@
     @"resources" : [GTLRShoppingContent_AccountTax class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -659,6 +792,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_Css
+//
+
+@implementation GTLRShoppingContent_Css
+@dynamic cssDomainId, cssGroupId, displayName, fullName, homepageUri, labelIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_CustomAttribute
 //
 
@@ -718,6 +869,12 @@
     @"targets" : [GTLRShoppingContent_DatafeedTarget class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -787,6 +944,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -807,6 +970,13 @@
 
 @implementation GTLRShoppingContent_DatafeedsFetchNowResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -823,6 +993,12 @@
     @"resources" : [GTLRShoppingContent_Datafeed class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -847,6 +1023,12 @@
     @"warnings" : [GTLRShoppingContent_DatafeedStatusError class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -913,6 +1095,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -939,6 +1127,12 @@
     @"resources" : [GTLRShoppingContent_DatafeedStatus class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -974,6 +1168,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_DateTime
+//
+
+@implementation GTLRShoppingContent_DateTime
+@dynamic day, hours, minutes, month, nanos, seconds, timeZone, utcOffset, year;
 @end
 
 
@@ -1142,6 +1346,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_LabelIds
+//
+
+@implementation GTLRShoppingContent_LabelIds
+@dynamic labelIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labelIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_LiaAboutPageSettings
 //
 
@@ -1207,6 +1429,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1255,6 +1483,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1271,6 +1505,12 @@
     @"posDataProviders" : [GTLRShoppingContent_PosDataProviders class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1291,6 +1531,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1307,6 +1553,12 @@
     @"posDataProviders" : [GTLRShoppingContent_PosDataProviders class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1327,6 +1579,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 + (NSString *)collectionItemsKey {
   return @"resources";
 }
@@ -1341,6 +1599,13 @@
 
 @implementation GTLRShoppingContent_LiasettingsRequestGmbAccessResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1351,6 +1616,13 @@
 
 @implementation GTLRShoppingContent_LiasettingsRequestInventoryVerificationResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1361,6 +1633,13 @@
 
 @implementation GTLRShoppingContent_LiasettingsSetInventoryVerificationContactResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1371,6 +1650,13 @@
 
 @implementation GTLRShoppingContent_LiasettingsSetPosDataProviderResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1404,12 +1690,107 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ListAccountLabelsResponse
+//
+
+@implementation GTLRShoppingContent_ListAccountLabelsResponse
+@dynamic accountLabels, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accountLabels" : [GTLRShoppingContent_AccountLabel class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"accountLabels";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ListCssesResponse
+//
+
+@implementation GTLRShoppingContent_ListCssesResponse
+@dynamic csses, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"csses" : [GTLRShoppingContent_Css class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"csses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ListRegionsResponse
+//
+
+@implementation GTLRShoppingContent_ListRegionsResponse
+@dynamic nextPageToken, regions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regions" : [GTLRShoppingContent_Region class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"regions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ListRepricingRulesResponse
+//
+
+@implementation GTLRShoppingContent_ListRepricingRulesResponse
+@dynamic nextPageToken, repricingRules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"repricingRules" : [GTLRShoppingContent_RepricingRule class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"repricingRules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_LocalInventory
 //
 
 @implementation GTLRShoppingContent_LocalInventory
 @dynamic availability, instoreProductLocation, kind, pickupMethod, pickupSla,
          price, quantity, salePrice, salePriceEffectiveDate, storeCode;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1456,6 +1837,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1466,6 +1853,13 @@
 
 @implementation GTLRShoppingContent_LocalinventoryCustomBatchResponseEntry
 @dynamic batchId, errors, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1625,6 +2019,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1725,6 +2125,13 @@
 
 @implementation GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -1754,6 +2161,13 @@
 
 @implementation GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2014,6 +2428,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 + (NSString *)collectionItemsKey {
   return @"disbursements";
 }
@@ -2034,6 +2454,12 @@
     @"transactions" : [GTLRShoppingContent_OrderReportTransaction class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -2082,6 +2508,58 @@
 
 @implementation GTLRShoppingContent_OrderreturnsAcknowledgeResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsCreateOrderReturnRequest
+//
+
+@implementation GTLRShoppingContent_OrderreturnsCreateOrderReturnRequest
+@dynamic lineItems, operationId, orderId, returnMethodType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lineItems" : [GTLRShoppingContent_OrderreturnsLineItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsCreateOrderReturnResponse
+//
+
+@implementation GTLRShoppingContent_OrderreturnsCreateOrderReturnResponse
+@dynamic executionStatus, kind, orderReturn;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderreturnsLineItem
+//
+
+@implementation GTLRShoppingContent_OrderreturnsLineItem
+@dynamic lineItemId, quantity;
 @end
 
 
@@ -2098,6 +2576,12 @@
     @"resources" : [GTLRShoppingContent_MerchantOrderReturn class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -2143,6 +2627,13 @@
 
 @implementation GTLRShoppingContent_OrderreturnsProcessResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2193,6 +2684,13 @@
 
 @implementation GTLRShoppingContent_OrdersAcknowledgeResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2203,6 +2701,13 @@
 
 @implementation GTLRShoppingContent_OrdersAdvanceTestOrderResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2223,6 +2728,13 @@
 
 @implementation GTLRShoppingContent_OrdersCancelLineItemResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2243,6 +2755,13 @@
 
 @implementation GTLRShoppingContent_OrdersCancelResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2263,6 +2782,13 @@
 
 @implementation GTLRShoppingContent_OrdersCancelTestOrderByCustomerResponse
 @dynamic kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2283,6 +2809,13 @@
 
 @implementation GTLRShoppingContent_OrdersCreateTestOrderResponse
 @dynamic kind, orderId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2311,6 +2844,13 @@
 
 @implementation GTLRShoppingContent_OrdersCreateTestReturnResponse
 @dynamic kind, returnId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2361,6 +2901,13 @@
 
 @implementation GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse
 @dynamic kind, order;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2374,6 +2921,12 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"templateProperty" : @"template" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -2440,6 +2993,13 @@
 
 @implementation GTLRShoppingContent_OrdersInStoreRefundLineItemResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2456,6 +3016,12 @@
     @"resources" : [GTLRShoppingContent_Order class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -2490,6 +3056,13 @@
 
 @implementation GTLRShoppingContent_OrdersRefundItemResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2510,6 +3083,13 @@
 
 @implementation GTLRShoppingContent_OrdersRefundOrderResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2530,6 +3110,13 @@
 
 @implementation GTLRShoppingContent_OrdersRejectReturnLineItemResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2551,6 +3138,13 @@
 
 @implementation GTLRShoppingContent_OrdersReturnRefundLineItemResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2579,6 +3173,13 @@
 
 @implementation GTLRShoppingContent_OrdersSetLineItemMetadataResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2608,6 +3209,13 @@
 
 @implementation GTLRShoppingContent_OrdersShipLineItemsResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2628,6 +3236,13 @@
 
 @implementation GTLRShoppingContent_OrdersUpdateLineItemShippingDetailsResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2648,6 +3263,13 @@
 
 @implementation GTLRShoppingContent_OrdersUpdateMerchantOrderIdResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2669,6 +3291,68 @@
 
 @implementation GTLRShoppingContent_OrdersUpdateShipmentResponse
 @dynamic executionStatus, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderTrackingSignal
+//
+
+@implementation GTLRShoppingContent_OrderTrackingSignal
+@dynamic customerShippingFee, deliveryPostalCode, deliveryRegionCode, lineItems,
+         merchantId, orderCreatedTime, orderId, orderTrackingSignalId,
+         shipmentLineItemMapping, shippingInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lineItems" : [GTLRShoppingContent_OrderTrackingSignalLineItemDetails class],
+    @"shipmentLineItemMapping" : [GTLRShoppingContent_OrderTrackingSignalShipmentLineItemMapping class],
+    @"shippingInfo" : [GTLRShoppingContent_OrderTrackingSignalShippingInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderTrackingSignalLineItemDetails
+//
+
+@implementation GTLRShoppingContent_OrderTrackingSignalLineItemDetails
+@dynamic gtin, lineItemId, mpn, productId, quantity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderTrackingSignalShipmentLineItemMapping
+//
+
+@implementation GTLRShoppingContent_OrderTrackingSignalShipmentLineItemMapping
+@dynamic lineItemId, quantity, shipmentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OrderTrackingSignalShippingInfo
+//
+
+@implementation GTLRShoppingContent_OrderTrackingSignalShippingInfo
+@dynamic actualDeliveryTime, carrierName, carrierServiceName,
+         earliestDeliveryPromiseTime, latestDeliveryPromiseTime,
+         originPostalCode, originRegionCode, shipmentId, shippedTime,
+         shippingStatus, trackingId;
 @end
 
 
@@ -2736,6 +3420,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2746,6 +3436,13 @@
 
 @implementation GTLRShoppingContent_PosCustomBatchResponseEntry
 @dynamic batchId, errors, inventory, kind, sale, store;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2785,6 +3482,13 @@
 @implementation GTLRShoppingContent_PosInventory
 @dynamic contentLanguage, gtin, itemId, kind, price, quantity, storeCode,
          targetCountry, timestamp;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2807,6 +3511,13 @@
 @implementation GTLRShoppingContent_PosInventoryResponse
 @dynamic contentLanguage, gtin, itemId, kind, price, quantity, storeCode,
          targetCountry, timestamp;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2825,6 +3536,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2836,6 +3553,13 @@
 @implementation GTLRShoppingContent_PosSale
 @dynamic contentLanguage, gtin, itemId, kind, price, quantity, saleId,
          storeCode, targetCountry, timestamp;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2858,6 +3582,13 @@
 @implementation GTLRShoppingContent_PosSaleResponse
 @dynamic contentLanguage, gtin, itemId, kind, price, quantity, saleId,
          storeCode, targetCountry, timestamp;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2868,6 +3599,13 @@
 
 @implementation GTLRShoppingContent_PosStore
 @dynamic kind, storeAddress, storeCode;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -2905,6 +3643,16 @@
 //
 
 @implementation GTLRShoppingContent_Price
+@dynamic currency, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_PriceAmount
+//
+
+@implementation GTLRShoppingContent_PriceAmount
 @dynamic currency, value;
 @end
 
@@ -2960,6 +3708,12 @@
     @"taxes" : [GTLRShoppingContent_ProductTax class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -3028,6 +3782,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3038,6 +3798,13 @@
 
 @implementation GTLRShoppingContent_ProductsCustomBatchResponseEntry
 @dynamic batchId, errors, kind, product;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3087,6 +3854,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 + (NSString *)collectionItemsKey {
   return @"resources";
 }
@@ -3109,6 +3882,12 @@
     @"itemLevelIssues" : [GTLRShoppingContent_ProductStatusItemLevelIssue class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -3187,6 +3966,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3197,6 +3982,13 @@
 
 @implementation GTLRShoppingContent_ProductstatusesCustomBatchResponseEntry
 @dynamic batchId, errors, kind, productStatus;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3213,6 +4005,12 @@
     @"resources" : [GTLRShoppingContent_ProductStatus class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -3300,6 +4098,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3341,6 +4145,17 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_Region
+//
+
+@implementation GTLRShoppingContent_Region
+@dynamic displayName, geotargetArea, merchantId, postalCodeArea,
+         regionalInventoryEligible, regionId, shippingEligible;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_RegionalInventory
 //
 
@@ -3353,6 +4168,12 @@
     @"customAttributes" : [GTLRShoppingContent_CustomAttribute class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -3401,6 +4222,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3411,6 +4238,146 @@
 
 @implementation GTLRShoppingContent_RegionalinventoryCustomBatchResponseEntry
 @dynamic batchId, errors, kind, regionalInventory;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RegionGeoTargetArea
+//
+
+@implementation GTLRShoppingContent_RegionGeoTargetArea
+@dynamic geotargetCriteriaIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"geotargetCriteriaIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RegionPostalCodeArea
+//
+
+@implementation GTLRShoppingContent_RegionPostalCodeArea
+@dynamic postalCodes, regionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"postalCodes" : [GTLRShoppingContent_RegionPostalCodeAreaPostalCodeRange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RegionPostalCodeAreaPostalCodeRange
+//
+
+@implementation GTLRShoppingContent_RegionPostalCodeAreaPostalCodeRange
+@dynamic begin, end;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRule
+//
+
+@implementation GTLRShoppingContent_RepricingRule
+@dynamic countryCode, effectiveTimePeriod, eligibleOfferMatcher, languageCode,
+         merchantId, paused, restriction, ruleId, title, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleEffectiveTime
+//
+
+@implementation GTLRShoppingContent_RepricingRuleEffectiveTime
+@dynamic fixedTimePeriods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fixedTimePeriods" : [GTLRShoppingContent_RepricingRuleEffectiveTimeFixedTimePeriod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleEffectiveTimeFixedTimePeriod
+//
+
+@implementation GTLRShoppingContent_RepricingRuleEffectiveTimeFixedTimePeriod
+@dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleEligibleOfferMatcher
+//
+
+@implementation GTLRShoppingContent_RepricingRuleEligibleOfferMatcher
+@dynamic brandMatcher, itemGroupIdMatcher, matcherOption, offerIdMatcher;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleEligibleOfferMatcherStringMatcher
+//
+
+@implementation GTLRShoppingContent_RepricingRuleEligibleOfferMatcherStringMatcher
+@dynamic strAttributes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"strAttributes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleRestriction
+//
+
+@implementation GTLRShoppingContent_RepricingRuleRestriction
+@dynamic floor, useAutoPricingMinPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleRestrictionBoundary
+//
+
+@implementation GTLRShoppingContent_RepricingRuleRestrictionBoundary
+@dynamic percentageDelta, priceDelta;
 @end
 
 
@@ -3421,6 +4388,13 @@
 
 @implementation GTLRShoppingContent_ReturnAddress
 @dynamic address, country, kind, label, phoneNumber, returnAddressId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3485,6 +4459,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3495,6 +4475,13 @@
 
 @implementation GTLRShoppingContent_ReturnaddressCustomBatchResponseEntry
 @dynamic batchId, errors, kind, returnAddress;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3511,6 +4498,12 @@
     @"resources" : [GTLRShoppingContent_ReturnAddress class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -3535,6 +4528,12 @@
     @"seasonalOverrides" : [GTLRShoppingContent_ReturnPolicySeasonalOverride class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -3583,6 +4582,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3593,6 +4598,13 @@
 
 @implementation GTLRShoppingContent_ReturnpolicyCustomBatchResponseEntry
 @dynamic batchId, errors, kind, returnPolicy;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3609,6 +4621,12 @@
     @"resources" : [GTLRShoppingContent_ReturnPolicy class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -3719,6 +4737,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3737,6 +4761,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 + (NSString *)collectionItemsKey {
   return @"resources";
 }
@@ -3751,6 +4781,13 @@
 
 @implementation GTLRShoppingContent_SettlementTransaction
 @dynamic amount, identifiers, kind, transaction;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3811,6 +4848,12 @@
     @"resources" : [GTLRShoppingContent_SettlementTransaction class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -3938,6 +4981,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3948,6 +4997,13 @@
 
 @implementation GTLRShoppingContent_ShippingsettingsCustomBatchResponseEntry
 @dynamic batchId, errors, kind, shippingSettings;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -3964,6 +5020,12 @@
     @"carriers" : [GTLRShoppingContent_CarriersCarrier class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -3984,6 +5046,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -4002,6 +5070,12 @@
   return map;
 }
 
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
 @end
 
 
@@ -4018,6 +5092,12 @@
     @"resources" : [GTLRShoppingContent_ShippingSettings class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 + (NSString *)collectionItemsKey {
@@ -4062,6 +5142,12 @@
     @"promotions" : [GTLRShoppingContent_OrderPromotion class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -4152,6 +5238,21 @@
 
 @implementation GTLRShoppingContent_TestOrderPickupDetailsPickupPerson
 @dynamic name, phoneNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_TimeZone
+//
+
+@implementation GTLRShoppingContent_TimeZone
+@dynamic identifier, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 

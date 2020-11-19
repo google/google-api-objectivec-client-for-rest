@@ -93,6 +93,33 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRVaultQuery_MattersCount
+
+@dynamic matterId;
+
++ (instancetype)queryWithObject:(GTLRVault_CountArtifactsRequest *)object
+                       matterId:(NSString *)matterId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"matterId" ];
+  NSString *pathURITemplate = @"v1/matters/{matterId}:count";
+  GTLRVaultQuery_MattersCount *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.matterId = matterId;
+  query.expectedObjectClass = [GTLRVault_Operation class];
+  query.loggingName = @"vault.matters.count";
+  return query;
+}
+
+@end
+
 @implementation GTLRVaultQuery_MattersCreate
 
 + (instancetype)queryWithObject:(GTLRVault_Matter *)object {
@@ -726,6 +753,33 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRVaultQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVault_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRVaultQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVault_Empty class];
+  query.loggingName = @"vault.operations.cancel";
+  return query;
+}
+
+@end
+
 @implementation GTLRVaultQuery_OperationsDelete
 
 @dynamic name;
@@ -740,6 +794,44 @@ NSString * const kGTLRVaultViewViewUnspecified     = @"VIEW_UNSPECIFIED";
   query.name = name;
   query.expectedObjectClass = [GTLRVault_Empty class];
   query.loggingName = @"vault.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_OperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVaultQuery_OperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVault_Operation class];
+  query.loggingName = @"vault.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVaultQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVaultQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVault_ListOperationsResponse class];
+  query.loggingName = @"vault.operations.list";
   return query;
 }
 

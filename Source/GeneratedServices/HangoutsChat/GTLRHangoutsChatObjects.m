@@ -21,6 +21,7 @@ NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage = @"UPDATE_
 
 // GTLRHangoutsChat_Annotation.type
 NSString * const kGTLRHangoutsChat_Annotation_Type_AnnotationTypeUnspecified = @"ANNOTATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_Annotation_Type_SlashCommand = @"SLASH_COMMAND";
 NSString * const kGTLRHangoutsChat_Annotation_Type_UserMention = @"USER_MENTION";
 
 // GTLRHangoutsChat_Attachment.source
@@ -112,6 +113,11 @@ NSString * const kGTLRHangoutsChat_Membership_State_Joined     = @"JOINED";
 NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified = @"MEMBERSHIP_STATE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Membership_State_NotAMember = @"NOT_A_MEMBER";
 
+// GTLRHangoutsChat_SlashCommandMetadata.type
+NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_Add = @"ADD";
+NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_Invoke = @"INVOKE";
+NSString * const kGTLRHangoutsChat_SlashCommandMetadata_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRHangoutsChat_Space.type
 NSString * const kGTLRHangoutsChat_Space_Type_Dm              = @"DM";
 NSString * const kGTLRHangoutsChat_Space_Type_Room            = @"ROOM";
@@ -153,7 +159,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Annotation
-@dynamic length, startIndex, type, userMention;
+@dynamic length, slashCommand, startIndex, type, userMention;
 @end
 
 
@@ -377,8 +383,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 @implementation GTLRHangoutsChat_Message
 @dynamic actionResponse, annotations, argumentText, attachment, cards,
-         createTime, fallbackText, name, previewText, sender, space, text,
-         thread;
+         createTime, fallbackText, name, previewText, sender, slashCommand,
+         space, text, thread;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -432,6 +438,26 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_SlashCommand
+//
+
+@implementation GTLRHangoutsChat_SlashCommand
+@dynamic commandId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SlashCommandMetadata
+//
+
+@implementation GTLRHangoutsChat_SlashCommandMetadata
+@dynamic bot, commandId, commandName, triggersDialog, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Space
 //
 
@@ -476,7 +502,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_User
-@dynamic displayName, domainId, name, type;
+@dynamic displayName, domainId, isAnonymous, name, type;
 @end
 
 

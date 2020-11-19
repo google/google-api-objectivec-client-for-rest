@@ -25,6 +25,17 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFu
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified = @"MERGE_BEHAVIOR_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Replace = @"REPLACE";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Empty = @"EMPTY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Filled = @"FILLED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_Invalid = @"INVALID";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_ParameterStateUnspecified = @"PARAMETER_STATE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse.mergeBehavior
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Append = @"APPEND";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified = @"MERGE_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Replace = @"REPLACE";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2Agent.apiVersion
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionUnspecified = @"API_VERSION_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Agent_ApiVersion_ApiVersionV1 = @"API_VERSION_V1";
@@ -299,16 +310,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportAgentResponse
 @dynamic agentContent, agentUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportAgentResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportAgentResponse
-@dynamic agent;
 @end
 
 
@@ -644,6 +645,336 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfo
+@dynamic currentPage, formInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfo
+@dynamic parameterInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameterInfo" : [GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo
+@dynamic displayName, justCollected, required, state, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage
+@dynamic conversationSuccess, endInteraction, liveAgentHandoff, mixedAudio,
+         outputAudioText, payload, playAudio, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_Payload
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess
+@dynamic metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageConversationSuccess_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff
+@dynamic metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageLiveAgentHandoff_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudio
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudio
+@dynamic segments;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"segments" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageMixedAudioSegment
+@dynamic allowPlaybackInterruption, audio, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageOutputAudioText
+@dynamic allowPlaybackInterruption, ssml, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessagePlayAudio
+@dynamic allowPlaybackInterruption, audioUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText
+@dynamic allowPlaybackInterruption, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"text" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo
+@dynamic parameters, session;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo_Parameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest
+@dynamic detectIntentResponseId, fulfillmentInfo, intentInfo, messages,
+         pageInfo, payload, sessionInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo
+@dynamic tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo
+@dynamic lastMatchedIntent, parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo_Parameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue
+@dynamic originalValue, resolvedValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse
+@dynamic fulfillmentResponse, pageInfo, payload, sessionInfo, targetFlow,
+         targetPage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse
+@dynamic mergeBehavior, messages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2Agent
 //
 
@@ -820,32 +1151,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedConversationDataset
-@dynamic completedExampleCount, createTime, descriptionProperty, displayName,
-         exampleCount, name, questionTypeName;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AutoApproveSmartMessagingEntriesResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AutoApproveSmartMessagingEntriesResponse
-@dynamic disabledCount, enabledCount, unreviewedCount;
 @end
 
 
@@ -1698,16 +2003,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata
 @dynamic state;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV2beta1LabelConversationResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1LabelConversationResponse
-@dynamic annotatedConversationDataset;
 @end
 
 
@@ -2865,7 +3160,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters
 @dynamic contexts, geoLocation, payload, resetContexts,
-         sentimentAnalysisRequestConfig, sessionEntityTypes, timeZone;
+         sentimentAnalysisRequestConfig, sessionEntityTypes, timeZone,
+         webhookHeaders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2887,6 +3183,20 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_WebhookHeaders
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2QueryParameters_WebhookHeaders
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -3177,82 +3487,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2VoiceSelectionParams_Ssm
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateVersionOperationMetadata
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1CreateVersionOperationMetadata
-@dynamic version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportAgentResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportAgentResponse
-@dynamic agentContent, agentUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesMetadata
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ExportTestCasesResponse
-@dynamic content, gcsUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportAgentResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportAgentResponse
-@dynamic agent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesMetadata
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1ImportTestCasesResponse
-@dynamic names;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"names" : [NSString class]
-  };
-  return map;
 }
 
 @end

@@ -326,16 +326,6 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudBuild_CreateBuildRequest
-//
-
-@implementation GTLRCloudBuild_CreateBuildRequest
-@dynamic build, projectId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudBuild_Empty
 //
 

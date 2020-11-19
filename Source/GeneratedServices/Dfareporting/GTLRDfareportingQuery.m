@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   DCM/DFA Reporting And Trafficking API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.4)
 // Description:
-//   Manages your DoubleClick Campaign Manager ad campaigns and reports.
+//   Manage your DoubleClick Campaign Manager ad campaigns and reports.
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
@@ -163,6 +163,7 @@ NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingIframe = @"PLACE
 NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingJavascript = @"PLACEMENT_TAG_TRACKING_JAVASCRIPT";
 
 // type
+NSString * const kGTLRDfareportingTypeAdServingBrandSafeAd     = @"AD_SERVING_BRAND_SAFE_AD";
 NSString * const kGTLRDfareportingTypeAdServingClickTracker    = @"AD_SERVING_CLICK_TRACKER";
 NSString * const kGTLRDfareportingTypeAdServingDefaultAd       = @"AD_SERVING_DEFAULT_AD";
 NSString * const kGTLRDfareportingTypeAdServingStandardAd      = @"AD_SERVING_STANDARD_AD";
@@ -4478,11 +4479,15 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @implementation GTLRDfareportingQuery_RemarketingListSharesPatch
 
-@dynamic profileId, remarketingListId;
+@dynamic identifier, profileId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
 
 + (instancetype)queryWithObject:(GTLRDfareporting_RemarketingListShare *)object
                       profileId:(long long)profileId
-              remarketingListId:(long long)remarketingListId {
+                     identifier:(long long)identifier {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -4497,7 +4502,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.profileId = profileId;
-  query.remarketingListId = remarketingListId;
+  query.identifier = identifier;
   query.expectedObjectClass = [GTLRDfareporting_RemarketingListShare class];
   query.loggingName = @"dfareporting.remarketingListShares.patch";
   return query;
@@ -4814,6 +4819,37 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.profileId = profileId;
   query.expectedObjectClass = [GTLRDfareporting_ReportList class];
   query.loggingName = @"dfareporting.reports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_ReportsPatch
+
+@dynamic profileId, reportId;
+
++ (instancetype)queryWithObject:(GTLRDfareporting_Report *)object
+                      profileId:(long long)profileId
+                       reportId:(long long)reportId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"profileId", @"reportId"
+  ];
+  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}";
+  GTLRDfareportingQuery_ReportsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.profileId = profileId;
+  query.reportId = reportId;
+  query.expectedObjectClass = [GTLRDfareporting_Report class];
+  query.loggingName = @"dfareporting.reports.patch";
   return query;
 }
 

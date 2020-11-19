@@ -235,6 +235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDataProvider;
 /** Value: "FILTER_DATA_PROVIDER_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDataProviderName;
+/** Value: "FILTER_DATA_SOURCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDataSource;
 /** Value: "FILTER_DATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterDate;
 /** Value: "FILTER_DAY_OF_WEEK" */
@@ -401,6 +403,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNielsenRestatementDate;
 /** Value: "FILTER_NOT_SUPPORTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterNotSupported;
+/** Value: "FILTER_OM_SDK_AVAILABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOmSdkAvailable;
 /** Value: "FILTER_ORDER_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterOrderId;
 /** Value: "FILTER_OS" */
@@ -763,6 +767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDataProvider;
 /** Value: "FILTER_DATA_PROVIDER_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDataProviderName;
+/** Value: "FILTER_DATA_SOURCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDataSource;
 /** Value: "FILTER_DATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterDate;
 /** Value: "FILTER_DAY_OF_WEEK" */
@@ -929,6 +935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNielsenRestatementDate;
 /** Value: "FILTER_NOT_SUPPORTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterNotSupported;
+/** Value: "FILTER_OM_SDK_AVAILABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOmSdkAvailable;
 /** Value: "FILTER_ORDER_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterOrderId;
 /** Value: "FILTER_OS" */
@@ -2275,6 +2283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDataProvider;
 /** Value: "FILTER_DATA_PROVIDER_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDataProviderName;
+/** Value: "FILTER_DATA_SOURCE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDataSource;
 /** Value: "FILTER_DATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDate;
 /** Value: "FILTER_DAY_OF_WEEK" */
@@ -2441,6 +2451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNielsenRestatementDate;
 /** Value: "FILTER_NOT_SUPPORTED" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNotSupported;
+/** Value: "FILTER_OM_SDK_AVAILABLE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOmSdkAvailable;
 /** Value: "FILTER_ORDER_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOrderId;
 /** Value: "FILTER_OS" */
@@ -3190,6 +3202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_DATA_PROVIDER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDataProviderName
  *        Value "FILTER_DATA_PROVIDER_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDataSource Value
+ *        "FILTER_DATA_SOURCE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDate Value
  *        "FILTER_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterDayOfWeek Value
@@ -3355,6 +3369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_NIELSEN_RESTATEMENT_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterNotSupported
  *        Value "FILTER_NOT_SUPPORTED"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterOmSdkAvailable
+ *        Value "FILTER_OM_SDK_AVAILABLE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterOrderId Value
  *        "FILTER_ORDER_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterOs Value
@@ -3825,7 +3841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 
 
 /**
- *  Dimension Filter for a Path Filter.
+ *  Dimension Filter on path events.
  */
 @interface GTLRDoubleClickBidManager_PathQueryOptionsFilter : GTLRObject
 
@@ -3959,6 +3975,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_DATA_PROVIDER"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDataProviderName
  *        Value "FILTER_DATA_PROVIDER_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDataSource
+ *        Value "FILTER_DATA_SOURCE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDate
  *        Value "FILTER_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterDayOfWeek
@@ -4124,6 +4142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_NIELSEN_RESTATEMENT_DATE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterNotSupported
  *        Value "FILTER_NOT_SUPPORTED"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOmSdkAvailable
+ *        Value "FILTER_OM_SDK_AVAILABLE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOrderId
  *        Value "FILTER_ORDER_ID"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterOs
@@ -4589,7 +4609,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
 @property(nonatomic, copy, nullable) NSString *frequency;
 
 /**
- *  Deprecated. This field has no effect.
+ *  Time of day at which a new report will be generated, represented as minutes
+ *  past midnight. Range is 0 to 1439. Only applies to scheduled reports.
  *
  *  Uses NSNumber of intValue.
  */

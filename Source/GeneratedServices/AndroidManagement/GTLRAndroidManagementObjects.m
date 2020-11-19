@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAndroidManagement_AdvancedSecurityOverrides.commonCriteriaMode
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeDisabled = @"COMMON_CRITERIA_MODE_DISABLED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeEnabled = @"COMMON_CRITERIA_MODE_ENABLED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified = @"COMMON_CRITERIA_MODE_UNSPECIFIED";
+
 // GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallDeviceWide = @"ALLOW_INSTALL_DEVICE_WIDE";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallInPersonalProfileOnly = @"ALLOW_INSTALL_IN_PERSONAL_PROFILE_ONLY";
@@ -94,7 +99,13 @@ NSString * const kGTLRAndroidManagement_Command_ResetPasswordFlags_ResetPassword
 NSString * const kGTLRAndroidManagement_Command_Type_CommandTypeUnspecified = @"COMMAND_TYPE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Command_Type_Lock      = @"LOCK";
 NSString * const kGTLRAndroidManagement_Command_Type_Reboot    = @"REBOOT";
+NSString * const kGTLRAndroidManagement_Command_Type_RelinquishOwnership = @"RELINQUISH_OWNERSHIP";
 NSString * const kGTLRAndroidManagement_Command_Type_ResetPassword = @"RESET_PASSWORD";
+
+// GTLRAndroidManagement_CommonCriteriaModeInfo.commonCriteriaModeStatus
+NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeDisabled = @"COMMON_CRITERIA_MODE_DISABLED";
+NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeEnabled = @"COMMON_CRITERIA_MODE_ENABLED";
+NSString * const kGTLRAndroidManagement_CommonCriteriaModeInfo_CommonCriteriaModeStatus_CommonCriteriaModeStatusUnknown = @"COMMON_CRITERIA_MODE_STATUS_UNKNOWN";
 
 // GTLRAndroidManagement_Device.appliedState
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Active = @"ACTIVE";
@@ -265,11 +276,14 @@ NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_PermissionPolicyU
 NSString * const kGTLRAndroidManagement_PermissionGrant_Policy_Prompt = @"PROMPT";
 
 // GTLRAndroidManagement_PersonalApplicationPolicy.installType
+NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Available = @"AVAILABLE";
 NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_Blocked = @"BLOCKED";
 NSString * const kGTLRAndroidManagement_PersonalApplicationPolicy_InstallType_InstallTypeUnspecified = @"INSTALL_TYPE_UNSPECIFIED";
 
 // GTLRAndroidManagement_PersonalUsagePolicies.personalPlayStoreMode
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Allowlist = @"ALLOWLIST";
 NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blacklist = @"BLACKLIST";
+NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_Blocklist = @"BLOCKLIST";
 NSString * const kGTLRAndroidManagement_PersonalUsagePolicies_PersonalPlayStoreMode_PlayStoreModeUnspecified = @"PLAY_STORE_MODE_UNSPECIFIED";
 
 // GTLRAndroidManagement_Policy.androidDevicePolicyTracks
@@ -389,7 +403,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_AdvancedSecurityOverrides
-@dynamic untrustedAppsPolicy;
+@dynamic commonCriteriaMode, untrustedAppsPolicy;
 @end
 
 
@@ -586,6 +600,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_CommonCriteriaModeInfo
+//
+
+@implementation GTLRAndroidManagement_CommonCriteriaModeInfo
+@dynamic commonCriteriaModeStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_ComplianceRule
 //
 
@@ -620,9 +644,9 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_Device
 @dynamic apiLevel, applicationReports, appliedPolicyName, appliedPolicyVersion,
-         appliedState, deviceSettings, disabledReason, displays, enrollmentTime,
-         enrollmentTokenData, enrollmentTokenName, hardwareInfo,
-         hardwareStatusSamples, lastPolicyComplianceReportTime,
+         appliedState, commonCriteriaModeInfo, deviceSettings, disabledReason,
+         displays, enrollmentTime, enrollmentTokenData, enrollmentTokenName,
+         hardwareInfo, hardwareStatusSamples, lastPolicyComplianceReportTime,
          lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
          memoryInfo, name, networkInfo, nonComplianceDetails, ownership,
          policyCompliant, policyName, powerManagementEvents,
@@ -1387,9 +1411,10 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_StatusReportingSettings
 @dynamic applicationReportingSettings, applicationReportsEnabled,
-         deviceSettingsEnabled, displayInfoEnabled, hardwareStatusEnabled,
-         memoryInfoEnabled, networkInfoEnabled, powerManagementEventsEnabled,
-         softwareInfoEnabled, systemPropertiesEnabled;
+         commonCriteriaModeEnabled, deviceSettingsEnabled, displayInfoEnabled,
+         hardwareStatusEnabled, memoryInfoEnabled, networkInfoEnabled,
+         powerManagementEventsEnabled, softwareInfoEnabled,
+         systemPropertiesEnabled;
 @end
 
 

@@ -12,6 +12,80 @@
 #import "GTLRCloudShellObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRCloudShell_Environment.state
+NSString * const kGTLRCloudShell_Environment_State_Deleting    = @"DELETING";
+NSString * const kGTLRCloudShell_Environment_State_Pending     = @"PENDING";
+NSString * const kGTLRCloudShell_Environment_State_Running     = @"RUNNING";
+NSString * const kGTLRCloudShell_Environment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudShell_Environment_State_Suspended   = @"SUSPENDED";
+
+// GTLRCloudShell_StartEnvironmentMetadata.state
+NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_AwaitingComputeResources = @"AWAITING_COMPUTE_RESOURCES";
+NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Finished = @"FINISHED";
+NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_Starting = @"STARTING";
+NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_UnarchivingDisk = @"UNARCHIVING_DISK";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_AddPublicKeyMetadata
+//
+
+@implementation GTLRCloudShell_AddPublicKeyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_AddPublicKeyRequest
+//
+
+@implementation GTLRCloudShell_AddPublicKeyRequest
+@dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_AddPublicKeyResponse
+//
+
+@implementation GTLRCloudShell_AddPublicKeyResponse
+@dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_AuthorizeEnvironmentMetadata
+//
+
+@implementation GTLRCloudShell_AuthorizeEnvironmentMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_AuthorizeEnvironmentRequest
+//
+
+@implementation GTLRCloudShell_AuthorizeEnvironmentRequest
+@dynamic accessToken, expireTime, idToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_AuthorizeEnvironmentResponse
+//
+
+@implementation GTLRCloudShell_AuthorizeEnvironmentResponse
+@end
+
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRCloudShell_CancelOperationRequest
 //
@@ -22,10 +96,51 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudShell_CreateEnvironmentMetadata
+//
+
+@implementation GTLRCloudShell_CreateEnvironmentMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_DeleteEnvironmentMetadata
+//
+
+@implementation GTLRCloudShell_DeleteEnvironmentMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudShell_Empty
 //
 
 @implementation GTLRCloudShell_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_Environment
+//
+
+@implementation GTLRCloudShell_Environment
+@dynamic dockerImage, identifier, name, publicKeys, sshHost, sshPort,
+         sshUsername, state, webHost;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"publicKeys" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -86,6 +201,72 @@
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_RemovePublicKeyMetadata
+//
+
+@implementation GTLRCloudShell_RemovePublicKeyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_RemovePublicKeyRequest
+//
+
+@implementation GTLRCloudShell_RemovePublicKeyRequest
+@dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_RemovePublicKeyResponse
+//
+
+@implementation GTLRCloudShell_RemovePublicKeyResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_StartEnvironmentMetadata
+//
+
+@implementation GTLRCloudShell_StartEnvironmentMetadata
+@dynamic state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_StartEnvironmentRequest
+//
+
+@implementation GTLRCloudShell_StartEnvironmentRequest
+@dynamic accessToken, publicKeys;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"publicKeys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudShell_StartEnvironmentResponse
+//
+
+@implementation GTLRCloudShell_StartEnvironmentResponse
+@dynamic environment;
 @end
 
 
