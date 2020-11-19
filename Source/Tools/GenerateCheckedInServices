@@ -60,13 +60,13 @@ SERVICE_GENERATOR_COMMAND=(
 )
 
 SERVICE_GENERATOR_COMMAND+=(
-  # The Admin SDK is odd, it is a bunch of 'admin' apis with different
-  # versions to "group" them, so only one gets marked as preferred. To generate
-  # it we have to manually fetch anything not preferred which means updating
-  # this if there are changes. admin:reports_v1 is currently the preferred one
-  # in discovery.
-  admin:datatransfer_v1
-  admin:directory_v1
+  # The Admin SDK is odd, it is a bunch of 'admin' apis with different versions
+  # to "group" them (https://www.googleapis.com/discovery/v1/apis?name=admin);
+  # so only one gets marked as preferred. To generate all of it we have to
+  # manually fetch anything not preferred which means updating this if there are
+  # changes. admin:reports_v1 is currently the preferred one in discovery.
+  'https://admin.googleapis.com/$discovery/rest?version=datatransfer_v1'
+  'https://admin.googleapis.com/$discovery/rest?version=directory_v1'
   
   # Not sure why this is in discovery, turn it off.
   prod_tt_sasportal:-
