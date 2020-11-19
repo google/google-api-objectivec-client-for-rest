@@ -100,10 +100,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Appengine"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_Appsactivity",
-            targets: ["GoogleAPIClientForREST_Appsactivity"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_Area120Tables",
             targets: ["GoogleAPIClientForREST_Area120Tables"]
         ),
@@ -975,12 +971,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Appengine",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Appengine",
-            publicHeadersPath: "."
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_Appsactivity",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/Appsactivity",
             publicHeadersPath: "."
         ),
         .target(
