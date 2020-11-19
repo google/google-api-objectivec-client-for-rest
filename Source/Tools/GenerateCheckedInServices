@@ -69,7 +69,7 @@ SERVICE_GENERATOR_COMMAND+=(
   'https://admin.googleapis.com/$discovery/rest?version=directory_v1'
   
   # Not sure why this is in discovery, turn it off.
-  prod_tt_sasportal:-
+  --skip prod_tt_sasportal
 
   # Include a filter so there are no warnings/infos during normal generation.
   --messageFilter "${ToolsDir}/${ScriptName}-message_filter.json"

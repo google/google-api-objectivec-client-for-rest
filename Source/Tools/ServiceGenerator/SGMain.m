@@ -91,6 +91,10 @@ static ArgInfo optionalFlags[] = {
     "Causes the list of services to be collected, and all preferred"
     " services to be generated."
   },
+  { "--skip SERVICE",
+    "Used with --generatePreferred to skip generating a give service. Can be"
+    " used multiple times to skip multiple services."
+  },
   {
     "--httpHeader NAME:VALUE",
     "Causes the given NAME/VALUE pair to be added as an HTTP header on *all*"
@@ -152,12 +156,6 @@ static ArgInfo optionalFlags[] = {
 
 
 static ArgInfo positionalArgs[] = {
-  { "service:version",
-      "The description of the given [service]/[version] pair is fetched and"
-      " the files for it are generated.  When using --generatePreferred,"
-      " version can be '-' to skip generating the named service. If the version"
-      " starts with '-' (i.e. - '-v1'), it will only skip that specific"
-      " version of the named service."},
   { "http[s]://url/to/rest_description_json",
       "A URL to download containing the description of a service to"
       " generate." },
@@ -791,6 +789,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     { "httpLogDir",          required_argument, NULL,                 'h' },
 #endif
     { "generatePreferred",   no_argument,       &generatePreferred,   1 },
+    { "skip",                required_argument, NULL,                 'z' },
     { "httpHeader",          required_argument, NULL,                 'w' },
     { "formattedName",       required_argument, NULL,                 't' },
     { "addServiceNameDir",   required_argument, NULL,                 'x' },
@@ -864,6 +863,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       case 'u':
         self.rootURLOverrides = [SGUtils boolFromArg:optarg];
         break;
+      case 'z':
+        [self.apisToSkip addObject:@(optarg)];
+        break;
       case 0:
         // Was a flag, nothing to do.
         break;
@@ -905,6 +907,12 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
       [self printUsage:stderr brief:NO];
       return;
     }
+  }
+
+  if (self.apisToSkip.count && !self.generatePreferred) {
+    [self reportError:@"Usage of --skip doesn't make sense without --generatePreferred"];
+    [self printUsage:stderr brief:NO];
+    return;
   }
 
   BOOL missingRequiredArg = NO;
@@ -1079,41 +1087,22 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   self.state = SGMain_Generate;
   for (int i = 0; i < self.argc ; ++i) {
     NSString *arg = @(self.argv[i]);
-    NSArray *splitArg = [arg componentsSeparatedByString:@":"];
-
     if ([arg hasPrefix:@"http://"] || [arg hasPrefix:@"https://"]) {
-
       // Treat it as an url and load it.
       [urlStringsToFetch addObject:arg];
-
-    } else if (splitArg.count == 2) {
-
-      // Treat it as a service:version pair.
-      NSString *apiName = [splitArg objectAtIndex:0];
-      NSString *version = [splitArg objectAtIndex:1];
-      if ([version isEqual:@"-"]) {
-        [self.apisToSkip addObject:apiName];
-      } else if ([version hasPrefix:@"-"]) {
-        version = [version substringFromIndex:1];
-        NSString *apiVersion =
-            [NSString stringWithFormat:@"%@:%@", apiName, version];
-        [self.apisToSkip addObject:apiVersion];
-      } else {
-        // Now what most services are moving to a model where directory only
-        // list the api, but discovery comes from a differnet server, it might
-        // make sense to eventualy drop this direct support or try to query
-        // directory to find it and then use the discovery url from there.
-        NSArray *pair = @[ apiName, version ];
-        [self.apisToFetch addObject:pair];
-      }
-      self.state = SGMain_Describe;
-
     } else {
-
       // Treat it as a path and load it.
+      isDir = NO;
+      if (![[NSFileManager defaultManager] fileExistsAtPath:arg isDirectory:&isDir] || isDir) {
+        [self reportError:@"No discovery document at path: \"%@\"", arg];
+        if (self.status == 0) {
+          self.status = 40;
+        }
+        self.state = SGMain_Done;
+        return;
+      }
       NSString *fullPath = [SGUtils fullPathWithPath:arg];
       [filesToLoad addObject:fullPath];
-
     }
   }
 
@@ -1202,22 +1191,12 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
 
         for (GTLRDiscovery_DirectoryList_Items_Item *listItem in sortedAPIItems) {
           NSString *apiName = listItem.name;
-          NSString *apiVersion =
-              [NSString stringWithFormat:@"%@:%@", apiName, listItem.version];
-          if ([self.apisToSkip containsObject:apiVersion]) {
-            [self reportPrefixed:@" - "
-                            info:@"Discovery included '%@:%@', but skipping as requested.",
-             apiName, listItem.version];
-            [apisLeftToSkip removeObject:apiVersion];
-          } else if ([self.apisToSkip containsObject:apiName]) {
+          if ([self.apisToSkip containsObject:apiName]) {
             [self reportPrefixed:@" - "
                             info:@"Discovery included '%@:%@', but skipping as requested.",
              apiName, listItem.version];
             [apisLeftToSkip removeObject:apiName];
           } else {
-            // NOTE: Could try to check if the urls is the main discovery
-            // server and then use a batch, but it is safer to just use the
-            // return URL instead.
             NSArray *tuple = @[ apiName, listItem.version, listItem.discoveryRestUrl ];
             [self.apisToFetch addObject:tuple];
           }
@@ -1257,65 +1236,29 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     NSString *serviceName = [tuple objectAtIndex:0];
     NSString *serviceVersion = [tuple objectAtIndex:1];
     [self printSubsection:@" + %@(%@)", serviceName, serviceVersion];
-    if (tuple.count == 3) {
-      NSString *discoveryRestURLString = [tuple objectAtIndex:2];
-      NSURL *discoveryRestURL = [NSURL URLWithString:discoveryRestURLString];
-      if (discoveryRestURL == nil) {
-        [self reportError:@"Failed to make an url out of %@", discoveryRestURLString];
-        if (self.status == 0) {
-          self.status = 41;
-        }
-        self.state = SGMain_Done;
-        return;
-      } else {
-        NSString *reportingName =
-          [NSString stringWithFormat:@"%@:%@ (%@)",
-           serviceName, serviceVersion, discoveryRestURLString];
-        if ([self collectAPIFromURL:discoveryRestURL
-                      reportingName:reportingName
-                     reportProgress:NO
-                expectedServiceName:serviceName
-                     serviceVersion:serviceVersion]) {
-          // We'll go into wait state beow.
-        } else {
-          // -collectAPIFromURL:reportingName: can't really fail to start the fetch.
-          self.state = SGMain_Done;
-          return;
-        }
+    NSString *discoveryRestURLString = [tuple objectAtIndex:2];
+    NSURL *discoveryRestURL = [NSURL URLWithString:discoveryRestURLString];
+    if (discoveryRestURL == nil) {
+      [self reportError:@"Failed to make an url out of %@", discoveryRestURLString];
+      if (self.status == 0) {
+        self.status = 41;
       }
+      self.state = SGMain_Done;
+      return;
+    }
+    NSString *reportingName =
+      [NSString stringWithFormat:@"%@:%@ (%@)",
+       serviceName, serviceVersion, discoveryRestURLString];
+    if ([self collectAPIFromURL:discoveryRestURL
+                  reportingName:reportingName
+                 reportProgress:NO
+            expectedServiceName:serviceName
+                 serviceVersion:serviceVersion]) {
+      // We'll go into wait state beow.
     } else {
-      GTLRDiscoveryQuery_ApisGetRest *query =
-        [GTLRDiscoveryQuery_ApisGetRest queryWithApi:serviceName
-                                             version:serviceVersion];
-      self.numberOfActiveNetworkActions += 1;
-      [self.discoveryService executeQuery:query
-                        completionHandler:^(GTLRServiceTicket *ticket, id object, NSError *error) {
-        self.numberOfActiveNetworkActions -= 1;
-        if (error) {
-          GTLRErrorObject *errObj = [GTLRErrorObject underlyingObjectForError:error];
-          // If we got back a structured error object, then the query failed, so
-          // report it.  If we don't get a structured error, it's likely a
-          // networking error failing the whole batch, so don't report it here,
-          // but do that on the batch completion handler.
-          if (errObj) {
-            [self reportError:@"Failed to fetch a discovery document for '%@(%@)', error: %@",
-             serviceName, serviceVersion, errObj];
-            self.status = 13;
-            self.state = SGMain_Done;
-          }
-        } else {
-          GTLRDiscovery_RestDescription *api = (GTLRDiscovery_RestDescription *)object;
-          if ([serviceName isEqual:api.name] && [serviceVersion isEqual:api.version]) {
-            [self.collectedApis addObject:api];
-            // If logging the API files, do it now so a fetch failure doesn't
-            // prevent the other ones from being logged.
-            [self maybeLogAPI:api];
-          } else {
-            [self reportWarning:@"Fetching %@(%@) returned the discovery document for %@(%@), dropping it.",
-             serviceName, serviceVersion, api.name, api.version];
-          }
-        }
-      }];
+      // -collectAPIFromURL:reportingName: can't really fail to start the fetch.
+      self.state = SGMain_Done;
+      return;
     }
   }  // for(tuple in orderedTuples)
 
